@@ -4,7 +4,7 @@ Python za matematike
 .. toctree::
    :maxdepth: 2
 
-   osnove-pythona
+   01-osnove-pythona
 
 
 Kazala
