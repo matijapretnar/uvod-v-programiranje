@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Osnove Pythona &mdash; Python za matematike 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Python za matematike" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="osnove-pythona">
+<h1>Osnove Pythona<a class="headerlink" href="#osnove-pythona" title="Povezava na naslov">¶</a></h1>
+<div class="section" id="interaktivna-konzola">
+<h2>Interaktivna konzola<a class="headerlink" href="#interaktivna-konzola" title="Povezava na naslov">¶</a></h2>
+<p>S Pythonom se najenostavneje pogovarjamo prek interaktivne konzole, do katere
+lahko dostopamo na več načinov: neposredno iz ukazne vrstice, z uporabo
+enostavnega okolja IDLE, ki je priloženo vsaki namestitvi Pythona, ali pa prek
+kakšnega od naprednejših razvijalskih okolij, na primer PyCharm. Za navodila,
+kako to storimo, si oglejte video <a class="reference external" href="https://vimeo.com/156327496">Namestitev Pythona pod Windowsi</a></p>
+<p>V vseh primerih nas pozdravi približno tak izpis:</p>
+<div class="code highlight-python"><div class="highlight"><pre>Python 3.5.1 (default, Jan 22 2016, 08:54:32)
+[GCC 4.2.1 Compatible Apple LLVM 7.0.2 (clang-700.1.81)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>Na začetku natančno piše, katero različico Pythona uporabljamo, temu pa sledi
+nekaj kazalcev na osnovne informacije. Mi se bomo osredotočili na zadnjo
+vrstico, v kateri nam poziv <code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code> kaže, da je Python pripravljen na naš vnos.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Previdno</p>
+<p class="last">Pozorni bodite, da v prvi vrstici piše <code class="docutils literal"><span class="pre">Python</span> <span class="pre">3.x.x</span></code> (zadnji dve številki
+nista tako ključni). Če tam piše <code class="docutils literal"><span class="pre">Python</span> <span class="pre">2.x.x</span></code>, uporabljate Python 2,
+starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob
+prehodu na Python 3 so razvijalci jezika naredili nekaj večjih sprememb, ki
+so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v
+Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji
+starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro,
+tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo
+ukvarjali izključno s Pythonom 3.</p>
+</div>
+<p>Za začetek izračunajmo, koliko je 1 + 1. Vnesemo <code class="docutils literal"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code> ter
+pritisnimo znak za novo vrstico. Ob tem Python prebere naš vnos, ga izračuna in
+izpiše rezultat.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stevila-in-aritmeticne-operacije">
+<h2>Števila in aritmetične operacije<a class="headerlink" href="#stevila-in-aritmeticne-operacije" title="Povezava na naslov">¶</a></h2>
+<p>Poleg seštevanja so nam na voljo tudi ostale osnovne računske operacije: <code class="docutils literal"><span class="pre">-</span></code>
+za odštevanje, <code class="docutils literal"><span class="pre">*</span></code> za množenje in <code class="docutils literal"><span class="pre">**</span></code> za potenciranje. Za deljenje Python
+pozna dve operaciji: običajno deljenje <code class="docutils literal"><span class="pre">/</span></code> in pa celoštevilsko deljenje
+<code class="docutils literal"><span class="pre">//</span></code>, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek,
+uporabimo <code class="docutils literal"><span class="pre">%</span></code>. Prioriteta operatorjev je določena tako kot običajno:
+najtesneje veže potenciranje, nato množenje in deljenja, nazadnje pa seštevanje
+in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še
+to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">/</span> <span class="mi">10</span>
+<span class="go">12.3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">//</span> <span class="mi">10</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">%</span> <span class="mi">10</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">**</span> <span class="p">(</span><span class="mi">45</span> <span class="o">+</span> <span class="mi">67</span><span class="p">)</span>
+<span class="go">1173201153236117392747457141184065170953567764283837482787268119007036898684512512556572577156186549602764788041495818311329933349581701014867937205332087819177539156963702612817234021747525564287508352993790061063457990401206082438721</span>
+</pre></div>
+</div>
+<p>Vidimo, da velika števila Pythonu ne povzročajo velikih težav. Na voljo so tudi
+osnovne funkcije, kot na primer <code class="docutils literal"><span class="pre">max</span></code> in <code class="docutils literal"><span class="pre">min</span></code> za izračun maksimuma in
+minimuma.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">-5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="mi">30</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">15</span>
+</pre></div>
+</div>
+<p>Matematične funkcije so na voljo v knjižnici <cite>math</cite>. Do njih lahko dostopamo
+na dva osnovna načina:</p>
+<ol class="arabic">
+<li><p class="first">Knjižnico uvozimo s stavkom <code class="docutils literal"><span class="pre">import</span> <span class="pre">math</span></code>, nato pa do funkcij in konstant
+dostopamo tako, da dodamo <code class="docutils literal"><span class="pre">math.</span></code> pred vsako ime:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">0.7071067811865476</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.7071067811865475</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Iz knjižnice s stavkom <code class="docutils literal"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">...</span></code> uvozimo posamezne vrednosti,
+nato pa do njih dostopamo direktno:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">0.7071067811865476</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.7071067811865475</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Obstaja tudi tretji način, ko iz knjižnice s stavkom <code class="docutils literal"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">*</span></code>
+uvozimo vse naštete vrednosti, vendar ga ne priporočam, ker potem nikoli ne
+veste, kaj vse ste uvozili.</p>
+</div>
+<div class="section" id="prirejanje-vrednosti-spremenljivkam">
+<h2>Prirejanje vrednosti spremenljivkam<a class="headerlink" href="#prirejanje-vrednosti-spremenljivkam" title="Povezava na naslov">¶</a></h2>
+<p>Izračunane vrednosti si lahko shranimo tudi v spremenljivke, ki jih potem
+uporabljamo v kasnejših izračunih. Za to uporabimo <em>prireditveni stavek</em> oblike</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">ime_spremenljivke</span> <span class="o">=</span> <span class="n">vrednost_ki_jo_zelimo_shraniti</span>
+</pre></div>
+</div>
+<p>na primer:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">*</span> <span class="n">x</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">14</span>
+</pre></div>
+</div>
+<p>Podane stavke Python izvaja enega za drugim, kakor smo jih podali, zato je
+vrstni red pomemben. Na primer, če bi najprej izvedli drugi stavek, bi Python
+javil napako:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/doctest.py&quot;</span>, line <span class="m">1320</span>, in <span class="n">__run</span>
+    <span class="n">compileflags</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">test</span><span class="o">.</span><span class="n">globs</span><span class="p">)</span>
+  File <span class="nb">&quot;&lt;doctest default[1]&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="mi">7</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;x&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo
+le, da je ključna informacija o napaki v zadnji vrstici opozorila. V tem primeru
+vidimo, da spremenljivka <code class="docutils literal"><span class="pre">x</span></code> ni definirana.</p>
+<p>Vrednost spremenljivke lahko tudi zamenjamo z novo vrednostjo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="go">13</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="go">28</span>
+</pre></div>
+</div>
+<p>V spremenljivko se vedno shrani tista vrednost, ki smo jo podali v prireditvenem
+stavku.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">13</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">13</span>
+</pre></div>
+</div>
+<p>Torej, tudi ko smo v <code class="docutils literal"><span class="pre">x</span></code> shranili novo vrednost, se vrednost <code class="docutils literal"><span class="pre">y</span></code> ni
+spremenila, saj prireditveni stavek vedno najprej izračuna vrednost desne
+strani, nato pa v spremenljivko shrani le to vrednost, v našem primeru <code class="docutils literal"><span class="pre">13</span></code>.
+Če želimo, lahko hkrati priredimo tudi več vrednosti:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="go">25</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shranjevanje-programov-v-datoteke">
+<h2>Shranjevanje programov v datoteke<a class="headerlink" href="#shranjevanje-programov-v-datoteke" title="Povezava na naslov">¶</a></h2>
+<p>Interaktivna konzola je uporabna za krajše programe, daljše pa raje shranimo v
+datoteko. S tem preprečimo, da izgubili vse svoje delo, pa tudi lažje
+popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe
+shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s
+katerim koli urejevalnikom besedila, na primer <em>Notepad</em>, <em>Notepad++</em>, <em>Emacs</em>
+ali <em>Vi</em>. Pythonovim datotekam običajno damo končnico <code class="docutils literal"><span class="pre">.py</span></code>.</p>
+<p>Za primer daljšega programa si oglejmo <a class="reference external" href="https://sl.wikipedia.org/wiki/Fermijev_problem">Fermijevo oceno</a> števila učiteljev
+matematike v slovenskih osnovnih šolah. Sledeče stavke vpišite v datoteko
+<code class="docutils literal"><span class="pre">fermi.py</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">stevilo_slovencev</span> <span class="o">=</span> <span class="mi">2000000</span>
+<span class="n">pricakovana_zivljenska_doba</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="n">velikost_generacije</span> <span class="o">=</span> <span class="n">stevilo_slovencev</span> <span class="o">/</span> <span class="n">pricakovana_zivljenska_doba</span>
+<span class="n">stevilo_osnovnosolcev</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">velikost_generacije</span>
+<span class="n">stevilo_razredov</span> <span class="o">=</span> <span class="n">stevilo_osnovnosolcev</span> <span class="o">/</span> <span class="mi">25</span>
+<span class="n">stevilo_ur_matematike_na_teden</span> <span class="o">=</span> <span class="mf">4.5</span> <span class="o">*</span> <span class="n">stevilo_razredov</span>
+<span class="n">stevilo_uciteljev_matematike</span> <span class="o">=</span> <span class="n">stevilo_ur_matematike_na_teden</span> <span class="o">/</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>Ko datoteko naložimo, lahko vidimo, da bi moralo v Sloveniji biti približno 2000
+učiteljev matematike:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stevilo_uciteljev_matematike</span>
+<span class="go">2160.0</span>
+</pre></div>
+</div>
+<p>Vidimo, da lahko imena spremenljivk vsebujejo več kot eno&nbsp;črko, česar smo
+navajeni v matematiki. V programiranju je zelo pomembno, da so imena čimbolj
+opisna, saj tako hitreje razumemo, kaj počne program. V Pythonu imena
+spremenljivk pišemo z malimi črkami, posamezne besede pa ločimo z znakom <code class="docutils literal"><span class="pre">_</span></code>.</p>
+<p>Računalnik bi razumel tudi sledeč program in izračunal enak odgovor, vendar
+vidimo, da smiselna imena in presledki kodo naredijo veliko bolj berljivo.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">s</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">2000000</span><span class="p">,</span><span class="mi">75</span>
+<span class="n">g</span><span class="o">=</span><span class="n">s</span><span class="o">/</span><span class="n">z</span>
+<span class="n">o</span><span class="o">=</span><span class="mi">9</span><span class="o">*</span><span class="n">g</span>
+<span class="n">r</span><span class="o">=</span><span class="n">o</span><span class="o">/</span><span class="mi">25</span>
+<span class="n">m</span><span class="o">=</span><span class="mf">4.5</span><span class="o">*</span><span class="n">r</span>
+<span class="n">u</span><span class="o">=</span><span class="n">m</span><span class="o">/</span><span class="mi">20</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
+<span class="go">2160.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="logicne-vrednosti">
+<h2>Logične vrednosti<a class="headerlink" href="#logicne-vrednosti" title="Povezava na naslov">¶</a></h2>
+<p>Poleg števil Python pozna tudi logični vrednosti <code class="docutils literal"><span class="pre">True</span></code> in <code class="docutils literal"><span class="pre">False</span></code>, ki
+označujeta resnico in neresnico. Logične vrednosti ponavadi dobimo kot rezultat
+primerjav, ki so enakost <code class="docutils literal"><span class="pre">==</span></code>, neenakost <code class="docutils literal"><span class="pre">!=</span></code> ali urejenostne relacije
+<code class="docutils literal"><span class="pre">&lt;</span></code>, <code class="docutils literal"><span class="pre">&gt;</span></code>, <code class="docutils literal"><span class="pre">&lt;=</span></code>, <code class="docutils literal"><span class="pre">&gt;=</span></code>, ter prek logičnih operacij <code class="docutils literal"><span class="pre">and</span></code>, <code class="docutils literal"><span class="pre">or</span></code> in
+<code class="docutils literal"><span class="pre">not</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">2</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="bp">True</span> <span class="ow">and</span> <span class="bp">False</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="ow">not</span> <span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">20</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Logične vrednosti uporabimo v <em>pogojnih stavkih</em> (oziroma <code class="docutils literal"><span class="pre">if</span></code>-stavkih) oblike</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">pogoj</span><span class="p">:</span>
+    <span class="n">stavki_ki_jih_izvedemo</span>
+    <span class="n">ko_pogoj_drzi</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">stavki_ki_jih_izvedemo</span>
+    <span class="n">ko_pogoj_ne_drzi</span>
+</pre></div>
+</div>
+<p>Ključnima besedama <code class="docutils literal"><span class="pre">if</span></code>/<code class="docutils literal"><span class="pre">else</span></code> in pripadajočim stavkom pravimo tudi <em>veje
+pogojnega stavka</em>. Stavke v obeh vejah moramo zamakniti za štiri presledke,
+da se jasno vidi, kam spadajo.</p>
+<p>Na primer, če izvedemo program</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">6</span>
+</pre></div>
+</div>
+<p>se bo izvedla veja <code class="docutils literal"><span class="pre">if</span></code>, zato bo <code class="docutils literal"><span class="pre">x</span></code> na koncu enak 16. V primeru, da bi bila
+začetna vrednost <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">12</span></code>, pa bi se izvedla veja <code class="docutils literal"><span class="pre">else</span></code> in vrednost <code class="docutils literal"><span class="pre">x</span></code> bi
+na koncu bila 41.</p>
+<p>Poglejmo si še, kako iz rezultatov skoka, torej dolžine in ocen sodnikov,
+izračunamo skupne točke skoka. Vsaka skakalnica ima določeno K-točko, ki določa
+velikost skakalnice. Skok za dolžino v osnovi dobi 60 točk (za letalnice 120),
+nato pa vsak meter nad ali pod K-točko prinese oziroma odnese 1,8 točke (za
+letalnice 1,2). Kot vidimo, se bomo morali pri izračunu točk za dolžino
+poslužiti pogojnega stavka.</p>
+<p>Točke za slog pa dobimo tako, da seštejemo vse ocene sodnikov razen najnižje in
+najvišje. To najenostavneje izračunamo tako, da seštejemo vse ocene, nato pa
+odštejemo najnižjo in najvišjo, ki ju dobimo s pomočjo vgrajenih funkcij <code class="docutils literal"><span class="pre">min</span></code>
+in <code class="docutils literal"><span class="pre">max</span></code>. Vsemu skupaj prištejemo še točke za izravnavo vetra in zaletišča.</p>
+<p>Izračunajmo število točk zmagovalnega skoka Petra Prevca na letalnici v
+Vikersundu. Peter je skočil 249 metrov, vendar padel, zaradi česar je dobil bolj
+slabe sodniške ocene: 15,0, 12,5, 14,0, 13,5 in 11,0. Koliko točk je dobil za
+skok?</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dolzina</span> <span class="o">=</span> <span class="mf">249.0</span>
+<span class="n">k_tocka</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">slog_a</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">slog_b</span> <span class="o">=</span> <span class="mf">12.5</span>
+<span class="n">slog_c</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">slog_d</span> <span class="o">=</span> <span class="mf">13.5</span>
+<span class="n">slog_e</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">izravnava</span> <span class="o">=</span> <span class="mf">6.4</span>
+
+<span class="c"># če je K-točka vsaj 185 metrov, gre za letalnico</span>
+<span class="k">if</span> <span class="n">k_tocka</span> <span class="o">&lt;</span> <span class="mi">185</span><span class="p">:</span>
+    <span class="n">osnovne_tocke</span> <span class="o">=</span> <span class="mi">60</span>
+    <span class="n">vrednost_metra</span> <span class="o">=</span> <span class="mf">1.8</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">osnovne_tocke</span> <span class="o">=</span> <span class="mi">120</span>
+    <span class="n">vrednost_metra</span> <span class="o">=</span> <span class="mf">1.2</span>
+<span class="n">tocke_dolzina</span> <span class="o">=</span> <span class="mi">120</span> <span class="o">+</span> <span class="n">vrednost_metra</span> <span class="o">*</span> <span class="p">(</span><span class="n">dolzina</span> <span class="o">-</span> <span class="n">k_tocka</span><span class="p">)</span>
+
+<span class="n">min_slog</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
+<span class="n">max_slog</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
+<span class="n">tocke_slog</span> <span class="o">=</span> <span class="p">(</span><span class="n">slog_a</span> <span class="o">+</span> <span class="n">slog_b</span> <span class="o">+</span> <span class="n">slog_c</span> <span class="o">+</span> <span class="n">slog_d</span> <span class="o">+</span> <span class="n">slog_e</span><span class="p">)</span> <span class="o">-</span> <span class="n">min_slog</span> <span class="o">-</span> <span class="n">max_slog</span>
+
+<span class="n">skupne_tocke</span> <span class="o">=</span> <span class="n">tocke_dolzina</span> <span class="o">+</span> <span class="n">tocke_slog</span> <span class="o">+</span> <span class="n">izravnava</span>
+</pre></div>
+</div>
+<p>Poleg že znanih ukazov v zgornji kodi vidimo tudi <em>komentar</em>. Ko Python v kodi
+vidi lojtro <code class="docutils literal"><span class="pre">#</span></code>, preostanek vrstice ignorira. Namen komentarjev je, da po
+človeško razložimo tiste dele kode, ki niso očitni. Ker so programi v Pythonu
+precej razumljivi (sploh, ker uporabljamo opisna imena spremenljivk), ponavadi
+ni treba pisati veliko komentarjev.</p>
+<p>Poglejmo, koliko točk je bil vreden skok:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">skupne_tocke</span>
+<span class="go">225.20000000000002</span>
+</pre></div>
+</div>
+<p>Skok je bil v resnici vreden natanko 225,2 točk. Vse dodatne decimalke pa so
+posledica zaokrožitvenih napak. Računalnik namreč ne računa s pravimi realnimi
+števili, temveč z njihovimi približki, ki jim pravimo <em>števila s plavajočo
+vejico</em>.</p>
+</div>
+<div class="section" id="funkcije">
+<h2>Funkcije<a class="headerlink" href="#funkcije" title="Povezava na naslov">¶</a></h2>
+<p>Ploščino trikotnika s stranicami <span class="math">\(a, b, c\)</span> lahko izračunamo po Heronovi
+formuli</p>
+<div class="math">
+\[\sqrt{s (s - a) (s - b) (s - c)}\]</div>
+<p>kjer je <span class="math">\(s = (a + b + c) / 2\)</span>. Ploščino trikotnika s stranicami 4, 13 in 15
+bi v Pythonu lahko torej izračunali s programom:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span>
+<span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">ploscina</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>Tedaj je</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ploscina</span>
+<span class="go">24.0</span>
+</pre></div>
+</div>
+<p>Kako pa bi izračunali površino tetraedra, ki ima za lica štiri trikotnike?
+Načeloma bi lahko pisali:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">896</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span>
+<span class="n">s_abc</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">ploscina_abc</span> <span class="o">=</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="n">s_aef</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">ploscina_aef</span> <span class="o">=</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">-</span> <span class="n">e</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="n">s_bdf</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">ploscina_bdf</span> <span class="o">=</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="n">s_cde</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">ploscina_cde</span> <span class="o">=</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">-</span> <span class="n">e</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="n">povrsina</span> <span class="o">=</span> <span class="n">ploscina_abc</span> <span class="o">+</span> <span class="n">ploscina_aef</span> <span class="o">+</span> <span class="n">ploscina_bdf</span> <span class="o">+</span> <span class="n">ploscina_cde</span>
+</pre></div>
+</div>
+<p>Kot vidimo, to ni najbolj pregledno. V taki kodi z veliko verjetnostjo naredimo
+kakšno napako. Bolje je, da uporabimo funkcije. Že prej smo uporabili nekaj
+vgrajenih funkcij, na primer <code class="docutils literal"><span class="pre">min</span></code> in <code class="docutils literal"><span class="pre">max</span></code>. Python pa nam omogoča, da si
+funkcije definiramo tudi sami.</p>
+<p>Definicija funkcije, ki izračuna ploščino trikotnika, je sledeča:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne ploščino trikotnika z danimi stranicami.&#39;&#39;&#39;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>Oglejmo si njene sestavne dele. Vsaka definicija funkcije se začne s ključno
+besedo <code class="docutils literal"><span class="pre">def</span></code>, ki ji sledi ime funkcije, v našem primeru
+<code class="docutils literal"><span class="pre">ploscina_trikotnika</span></code>, tej pa v oklepajih našteti argumenti, ki jih funkcija
+sprejme. Funkcije lahko sprejmejo različno število argumentov. Naša sprejme tri
+argumente, ki jih bomo shranili v spremenljivke <code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">b</span></code> in <code class="docutils literal"><span class="pre">c</span></code>. V drugi
+vrstici sledi <em>dokumentacijski niz</em> oziroma <em>docstring</em>. Ta niz ponavadi
+zapišemo med trojne enojne navednice, v njem pa na kratko opišemo, kaj funkcija
+počne. Ta vrstica ni obvezna, je pa koristna, saj lahko uporabnik, ki ne ve, kaj
+funkcija počne, to pogleda s pomočjo funkcije <code class="docutils literal"><span class="pre">help</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">ploscina_trikotnika</span><span class="p">)</span>
+<span class="go">Help on function ploscina_trikotnika:</span>
+
+<span class="go">ploscina_trikotnika(a, b, c)</span>
+<span class="go">    Vrne ploščino trikotnika z danimi stranicami.</span>
+</pre></div>
+</div>
+<p>Nato sledi <em>telo funkcije</em>, torej ukazi, ki naj se izvedejo, ko funkcijo
+pokličemo. Celotno telo funkcije zamaknemo tako kot veje pri pogojnem stavku.
+Tretjo vrstico telesa smo že videli, v četrti vrstici pa z ukazom <code class="docutils literal"><span class="pre">return</span></code>
+povemo, katero vrednost naj vrne funkcija. Tako definirano funkcijo potem
+kličemo na enak način kot vgrajene funkcije.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="go">24.0</span>
+</pre></div>
+</div>
+<p>S pomočjo funkcije <code class="docutils literal"><span class="pre">ploscina_trikotnika</span></code> lahko tudi na veliko bolj pregleden
+način zapišemo funkcijo za izračun površine tetraedra:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">povrsina_tetraedra</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne površino tetraedra z danimi stranicami.&#39;&#39;&#39;</span>
+    <span class="n">povrsina</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">povrsina</span> <span class="o">+=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="n">povrsina</span> <span class="o">+=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="n">povrsina</span> <span class="o">+=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="n">povrsina</span> <span class="o">+=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">povrsina</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">povrsina_tetraedra</span><span class="p">(</span><span class="mi">896</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">)</span>
+<span class="go">1816080.0</span>
+</pre></div>
+</div>
+<p>V funkciji smo večkrat uporabili tudi operator <code class="docutils literal"><span class="pre">+=</span></code>, ki spremenljivko na levi
+poveča za vrednost na desni. Ukaz <code class="docutils literal"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">b</span></code> je tako okrajšava za <code class="docutils literal"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>.
+Tudi za ostale operatorje obstajajo podobne bližnjice, na primer <code class="docutils literal"><span class="pre">-=</span></code>, <code class="docutils literal"><span class="pre">*=</span></code>,
+<code class="docutils literal"><span class="pre">//=</span></code> in tako naprej.</p>
+<p>Funkcijo, ki računa absolutno vrednost, lahko s pomočjo pogojnega stavka
+napišemo kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne absolutno vrednost števila x.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>Če veje <code class="docutils literal"><span class="pre">else</span></code> ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
+način bi lahko funkcijo <code class="docutils literal"><span class="pre">absolutna_vrednost</span></code> definirali tudi kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne absolutno vrednost števila x.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
+ga le vrnemo.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Osnove Pythona</a><ul>
+<li><a class="reference internal" href="#interaktivna-konzola">Interaktivna konzola</a></li>
+<li><a class="reference internal" href="#stevila-in-aritmeticne-operacije">Števila in aritmetične operacije</a></li>
+<li><a class="reference internal" href="#prirejanje-vrednosti-spremenljivkam">Prirejanje vrednosti spremenljivkam</a></li>
+<li><a class="reference internal" href="#shranjevanje-programov-v-datoteke">Shranjevanje programov v datoteke</a></li>
+<li><a class="reference internal" href="#logicne-vrednosti">Logične vrednosti</a></li>
+<li><a class="reference internal" href="#funkcije">Funkcije</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="prejšnje poglavje">Python za matematike</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/osnove-pythona.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Vnesi ime modula, razreda ali funkcije.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/osnove-pythona.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,198 @@
+Rekurzija
+=========
+
+.. testcode::
+
+    def fakulteta(n):
+        '''Vrne fakulteto naravnega števila n.'''
+        assert n >= 0
+        if n == 0:
+            return 1
+        else:
+            return n * fakulteta(n - 1)
+
+
+.. testcode::
+
+    def gcd(m, n):
+        '''Vrne največji skupni delitelj števil m in n.'''
+        if n == 0:
+            return m
+        else:
+            return gcd(n, m % n)
+
+
+.. testcode::
+
+    def fibonacci(n):
+        if n == 0:
+            return 0
+        elif n == 1:
+            return 1
+        else:
+            return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+.. testcode::
+
+    def splosni_fibonacci(n, a=0, b=1):
+        if n == 0:
+            return a
+        elif n == 1:
+            return b
+        else:
+            return splosni_fibonacci(n - 1, b, a + b)
+
+.. doctest::
+
+    >>> splosni_fibonacci(10)
+    55
+
+Osnovni tipi
+------------
+
+Oglejmo si, s kakšnimi vrednostmi poleg naravnih števil lahko delamo v Pythonu. Vsaka vrednost v Pythonu ima določen *tip*. Osnovni tipi so:
+
+Tip celih števil ``int``
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cela števila pišemo kot običajno, na njih pa imamo na voljo sledeče računske operacije: ``+`` za seštevanje, ``-`` za odštevanje, ``*`` za množenje, in ``**`` za potenciranje.
+
+
+
+Tip števil s plavajočo vejico ``float``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tip kompleksnih števil ``complex``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tip nizov ``str``
+~~~~~~~~~~~~~~~~~
+
+Tip logičnih vrednosti ``bool``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+NoneType
+
+
+
+
+
+.. index:: konzola, IDLE, PyCharm
+
+V zgornjih primerih vidimo dva tipa števil, ki jih pozna Python. Cela števila in števila s plavajočo vejico, ki služijo kot približek realnih števil in jih prepoznamo po piki. V računih lahko oba tipa števil tudi mešamo, vendar bo v tem primeru rezultat vedno število s plavajočo vejico.
+
+.. doctest::
+
+    >>> 1.0 + 2
+    3.0
+    >>> 8 / 3
+    2.6666666666666665
+
+
+
+
+
+Zanka ``while``
+===============
+
+.. testcode::
+
+    def stevke(stevilo):
+        return [int(stevka) for stevka in str(stevilo)]
+
+    def ujemanje(oseba1, oseba2, geslo='LOVES'):
+        niz = (oseba1 + oseba2).upper()
+        stevila = [niz.count(znak) for znak in geslo]
+        while len(stevila) > 2:
+            nova_stevila = []
+            for i in range(len(stevila) - 1):
+                nova_stevila += stevke(stevila[i] + stevila[i + 1])
+            stevila = nova_stevila
+        return 10 * stevila[0] + stevila[1]
+
+.. doctest::
+
+    >>> ujemanje("Mojca Gaser", "Mitja Lorber")
+    99
+
+
+
+
+Neobvezni argumenti
+-------------------
+
+Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost. Na primer, za izračun logaritma potrebujemo dve števili: osnovo in ???. Toda velikokrat za osnovo vzamemo :math:`10`, zato namesto :math:`\log_{10} x` pišemo kar :math:`\log x`. Tudi pri Pythonu je podobno.
+
+.. testcode::
+
+    def ocena_skoka(dolzina, slog_a, slog_b, slog_c, slog_d, slog_e,
+                    k_tocka=120, izravnava=0):
+        '''Vrne skupno oceno smučarskega skoka.'''
+        tocke_dolzina = 60 + 1.8 * (dolzina - k_tocka)
+        min_slog = min(slog_a, slog_b, slog_c, slog_d, slog_e)
+        max_slog = max(slog_a, slog_b, slog_c, slog_d, slog_e)
+        tocke_slog = (slog_a + slog_b + slog_c + slog_d + slog_e) - min_slog - max_slog
+        return tocke_dolzina + tocke_slog + izravnava
+
+
+
+
+
+Zanka ``while``
+---------------
+
+Še zadnja ključna stvar, ki jo potrebujemo za programiranje (vse ostale nam
+programiranje le olajšajo), je zanka ``while``. Ta zanka določene ukaze izvaja
+toliko časa, dokler velja dani pogoj. Začnemo jo pisati s ključno besedo
+``while``, ki ji sledi pogoj, ki mora veljati, temu pa dvopičje in zamaknjeni
+stavki, ki naj se izvajajo. Izračunajmo stopnjo največje potence števila 2, ki
+še deli število 1580160. To storimo tako, da število zaporedoma celoštevilsko
+delimo z 2 in ob vsakem deljenju števec stopnje povečamo za 1. Ukaze ponavljamo
+toliko časa, dokler je ostanek pri deljenju z 2 enak 0:
+
+.. testcode::
+
+    n = 1580160
+    stopnja = 0
+    while n % 2 == 0:
+        n //= 2
+        stopnja += 1
+
+Ko se izvajanje zaključi, lahko preverimo, da velja
+
+.. doctest::
+
+    >>> stopnja
+    7
+
+Zgornji program lahko pretvorimo v splošnejšo funkcijo:
+
+.. testcode::
+
+    def stopnja_najvecje_potence(n, k):
+        '''Vrne stopnjo največje potence števila k, ki še deli n.'''
+        stopnja = 0
+        while n % k == 0:
+            n //= k
+            stopnja += 1
+        return stopnja
+
+.. doctest::
+
+    >>> stopnja_najvecje_potence(1580160, 2)
+    7
+    >>> stopnja_najvecje_potence(81, 3)
+    4
+
+Pri zanki ``while`` obstaja nevarnost, da se njeno izvajanje nikoli ne zaključi.
+Na primer, če bi poklicali
+
+
+.. code::
+
+    >>> stopnja_najvecje_potence(12345, 1)
+
+bi bil ostanek pri deljenju z 1 v pogoju vedno enak 0, zato bi zanka tekla v
+neskončnost. Ko se naveličamo čakanja, lahko pritisnemo ``Ctrl-C`` in izvajanje
+prekinemo.

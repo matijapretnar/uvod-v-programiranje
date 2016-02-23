@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Rekurzija &mdash; Python za matematike 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rekurzija">
+<h1>Rekurzija<a class="headerlink" href="#rekurzija" title="Povezava na naslov">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne fakulteto naravnega števila n.&#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne največji skupni delitelj števil m in n.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">m</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">55</span>
+</pre></div>
+</div>
+<div class="section" id="osnovni-tipi">
+<h2>Osnovni tipi<a class="headerlink" href="#osnovni-tipi" title="Povezava na naslov">¶</a></h2>
+<p>Oglejmo si, s kakšnimi vrednostmi poleg naravnih števil lahko delamo v Pythonu. Vsaka vrednost v Pythonu ima določen <em>tip</em>. Osnovni tipi so:</p>
+<div class="section" id="tip-celih-stevil-int">
+<h3>Tip celih števil <code class="docutils literal"><span class="pre">int</span></code><a class="headerlink" href="#tip-celih-stevil-int" title="Povezava na naslov">¶</a></h3>
+<p>Cela števila pišemo kot običajno, na njih pa imamo na voljo sledeče računske operacije: <code class="docutils literal"><span class="pre">+</span></code> za seštevanje, <code class="docutils literal"><span class="pre">-</span></code> za odštevanje, <code class="docutils literal"><span class="pre">*</span></code> za množenje, in <code class="docutils literal"><span class="pre">**</span></code> za potenciranje.</p>
+</div>
+<div class="section" id="tip-stevil-s-plavajoco-vejico-float">
+<h3>Tip števil s plavajočo vejico <code class="docutils literal"><span class="pre">float</span></code><a class="headerlink" href="#tip-stevil-s-plavajoco-vejico-float" title="Povezava na naslov">¶</a></h3>
+</div>
+<div class="section" id="tip-kompleksnih-stevil-complex">
+<h3>Tip kompleksnih števil <code class="docutils literal"><span class="pre">complex</span></code><a class="headerlink" href="#tip-kompleksnih-stevil-complex" title="Povezava na naslov">¶</a></h3>
+</div>
+<div class="section" id="tip-nizov-str">
+<h3>Tip nizov <code class="docutils literal"><span class="pre">str</span></code><a class="headerlink" href="#tip-nizov-str" title="Povezava na naslov">¶</a></h3>
+</div>
+<div class="section" id="tip-logicnih-vrednosti-bool">
+<h3>Tip logičnih vrednosti <code class="docutils literal"><span class="pre">bool</span></code><a class="headerlink" href="#tip-logicnih-vrednosti-bool" title="Povezava na naslov">¶</a></h3>
+<p>NoneType</p>
+<p id="index-0">V zgornjih primerih vidimo dva tipa števil, ki jih pozna Python. Cela števila in števila s plavajočo vejico, ki služijo kot približek realnih števil in jih prepoznamo po piki. V računih lahko oba tipa števil tudi mešamo, vendar bo v tem primeru rezultat vedno število s plavajočo vejico.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">1.0</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">8</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="go">2.6666666666666665</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="zanka-while">
+<h1>Zanka <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#zanka-while" title="Povezava na naslov">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stevke</span><span class="p">(</span><span class="n">stevilo</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">stevka</span><span class="p">)</span> <span class="k">for</span> <span class="n">stevka</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">stevilo</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">ujemanje</span><span class="p">(</span><span class="n">oseba1</span><span class="p">,</span> <span class="n">oseba2</span><span class="p">,</span> <span class="n">geslo</span><span class="o">=</span><span class="s">&#39;LOVES&#39;</span><span class="p">):</span>
+    <span class="n">niz</span> <span class="o">=</span> <span class="p">(</span><span class="n">oseba1</span> <span class="o">+</span> <span class="n">oseba2</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">stevila</span> <span class="o">=</span> <span class="p">[</span><span class="n">niz</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">znak</span><span class="p">)</span> <span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">geslo</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">stevila</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">nova_stevila</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stevila</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">nova_stevila</span> <span class="o">+=</span> <span class="n">stevke</span><span class="p">(</span><span class="n">stevila</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">stevila</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">stevila</span> <span class="o">=</span> <span class="n">nova_stevila</span>
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">stevila</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">stevila</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ujemanje</span><span class="p">(</span><span class="s">&quot;Mojca Gaser&quot;</span><span class="p">,</span> <span class="s">&quot;Mitja Lorber&quot;</span><span class="p">)</span>
+<span class="go">99</span>
+</pre></div>
+</div>
+<div class="section" id="neobvezni-argumenti">
+<h2>Neobvezni argumenti<a class="headerlink" href="#neobvezni-argumenti" title="Povezava na naslov">¶</a></h2>
+<p>Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost. Na primer, za izračun logaritma potrebujemo dve števili: osnovo in ???. Toda velikokrat za osnovo vzamemo <span class="math">\(10\)</span>, zato namesto <span class="math">\(\log_{10} x\)</span> pišemo kar <span class="math">\(\log x\)</span>. Tudi pri Pythonu je podobno.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">ocena_skoka</span><span class="p">(</span><span class="n">dolzina</span><span class="p">,</span> <span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">,</span>
+                <span class="n">k_tocka</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">izravnava</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne skupno oceno smučarskega skoka.&#39;&#39;&#39;</span>
+    <span class="n">tocke_dolzina</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">+</span> <span class="mf">1.8</span> <span class="o">*</span> <span class="p">(</span><span class="n">dolzina</span> <span class="o">-</span> <span class="n">k_tocka</span><span class="p">)</span>
+    <span class="n">min_slog</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
+    <span class="n">max_slog</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
+    <span class="n">tocke_slog</span> <span class="o">=</span> <span class="p">(</span><span class="n">slog_a</span> <span class="o">+</span> <span class="n">slog_b</span> <span class="o">+</span> <span class="n">slog_c</span> <span class="o">+</span> <span class="n">slog_d</span> <span class="o">+</span> <span class="n">slog_e</span><span class="p">)</span> <span class="o">-</span> <span class="n">min_slog</span> <span class="o">-</span> <span class="n">max_slog</span>
+    <span class="k">return</span> <span class="n">tocke_dolzina</span> <span class="o">+</span> <span class="n">tocke_slog</span> <span class="o">+</span> <span class="n">izravnava</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Zanka <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#id1" title="Povezava na naslov">¶</a></h2>
+<p>Še zadnja ključna stvar, ki jo potrebujemo za programiranje (vse ostale nam
+programiranje le olajšajo), je zanka <code class="docutils literal"><span class="pre">while</span></code>. Ta zanka določene ukaze izvaja
+toliko časa, dokler velja dani pogoj. Začnemo jo pisati s ključno besedo
+<code class="docutils literal"><span class="pre">while</span></code>, ki ji sledi pogoj, ki mora veljati, temu pa dvopičje in zamaknjeni
+stavki, ki naj se izvajajo. Izračunajmo stopnjo največje potence števila 2, ki
+še deli število 1580160. To storimo tako, da število zaporedoma celoštevilsko
+delimo z 2 in ob vsakem deljenju števec stopnje povečamo za 1. Ukaze ponavljamo
+toliko časa, dokler je ostanek pri deljenju z 2 enak 0:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">n</span> <span class="o">=</span> <span class="mi">1580160</span>
+<span class="n">stopnja</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">//=</span> <span class="mi">2</span>
+    <span class="n">stopnja</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Ko se izvajanje zaključi, lahko preverimo, da velja</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja</span>
+<span class="go">7</span>
+</pre></div>
+</div>
+<p>Zgornji program lahko pretvorimo v splošnejšo funkcijo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stopnja_najvecje_potence</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne stopnjo največje potence števila k, ki še deli n.&#39;&#39;&#39;</span>
+    <span class="n">stopnja</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">//=</span> <span class="n">k</span>
+        <span class="n">stopnja</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">stopnja</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">1580160</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>Pri zanki <code class="docutils literal"><span class="pre">while</span></code> obstaja nevarnost, da se njeno izvajanje nikoli ne zaključi.
+Na primer, če bi poklicali</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">12345</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>bi bil ostanek pri deljenju z 1 v pogoju vedno enak 0, zato bi zanka tekla v
+neskončnost. Ko se naveličamo čakanja, lahko pritisnemo <code class="docutils literal"><span class="pre">Ctrl-C</span></code> in izvajanje
+prekinemo.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Rekurzija</a><ul>
+<li><a class="reference internal" href="#osnovni-tipi">Osnovni tipi</a><ul>
+<li><a class="reference internal" href="#tip-celih-stevil-int">Tip celih števil <code class="docutils literal"><span class="pre">int</span></code></a></li>
+<li><a class="reference internal" href="#tip-stevil-s-plavajoco-vejico-float">Tip števil s plavajočo vejico <code class="docutils literal"><span class="pre">float</span></code></a></li>
+<li><a class="reference internal" href="#tip-kompleksnih-stevil-complex">Tip kompleksnih števil <code class="docutils literal"><span class="pre">complex</span></code></a></li>
+<li><a class="reference internal" href="#tip-nizov-str">Tip nizov <code class="docutils literal"><span class="pre">str</span></code></a></li>
+<li><a class="reference internal" href="#tip-logicnih-vrednosti-bool">Tip logičnih vrednosti <code class="docutils literal"><span class="pre">bool</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#zanka-while">Zanka <code class="docutils literal"><span class="pre">while</span></code></a><ul>
+<li><a class="reference internal" href="#neobvezni-argumenti">Neobvezni argumenti</a></li>
+<li><a class="reference internal" href="#id1">Zanka <code class="docutils literal"><span class="pre">while</span></code></a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/stash.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Vnesi ime modula, razreda ali funkcije.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/stash.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
