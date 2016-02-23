@@ -136,6 +136,14 @@ na primer:
     >>> y
     14
 
+Če želimo, lahko hkrati priredimo tudi več vrednosti:
+
+.. doctest::
+
+    >>> x, y = 10, 15
+    >>> x + y
+    25
+
 Podane stavke Python izvaja enega za drugim, kakor smo jih podali, zato je
 vrstni red pomemben. Na primer, če bi najprej izvedli drugi stavek, bi Python
 javil napako:
@@ -169,6 +177,19 @@ Vrednost spremenljivke lahko tudi zamenjamo z novo vrednostjo:
     >>> x = 25
     >>> x + 3
     28
+    >>> x = x + 5
+    >>> x
+    30
+
+Kot vidimo, lahko novo vrednost spremenljivke ``x`` izračunamo iz stare
+vrednosti. V programih bomo to dostikrat izkoristili. Na primer, ko bomo
+prešteli vsa praštevila med 1 in 1000000, bomo imeli spremenljivko
+``stevilo_najdenih_prastevil``, ki jo bomo ob vsakem praštevilu povečali za 1. V
+ta namen saj bomo na primer ob vsaki pojavitvi določene stvari povečali
+spremenljivko, ki vsebuje njeno število. V ta namen lahko uporabimo tudi
+operator ``+=``, ki spremenljivko na levi poveča za vrednost na desni. Namesto
+``x = x + 5`` bi lahko pisali tudi ``x += 5``. Tudi za ostale operatorje
+obstajajo podobne bližnjice, na primer ``-=``, ``*=``, ``//=`` in tako naprej.
 
 V spremenljivko se vedno shrani tista vrednost, ki smo jo podali v prireditvenem
 stavku.
@@ -183,17 +204,9 @@ stavku.
     >>> y
     13
 
-Torej, tudi ko smo v ``x`` shranili novo vrednost, se vrednost ``y`` ni
+Torej, tudi takrat, ko smo v ``x`` shranili novo vrednost, se vrednost ``y`` ni
 spremenila, saj prireditveni stavek vedno najprej izračuna vrednost desne
 strani, nato pa v spremenljivko shrani le to vrednost, v našem primeru ``13``.
-Če želimo, lahko hkrati priredimo tudi več vrednosti:
-
-.. doctest::
-
-    >>> x, y = 10, 15
-    >>> x + y
-    25
-
 
 Shranjevanje programov v datoteke
 ---------------------------------
@@ -320,7 +333,9 @@ in ``max``. Vsemu skupaj prištejemo še točke za izravnavo vetra in zaletišč
 Izračunajmo število točk zmagovalnega skoka Petra Prevca na letalnici v
 Vikersundu. Peter je skočil 249 metrov, vendar padel, zaradi česar je dobil bolj
 slabe sodniške ocene: 15,0, 12,5, 14,0, 13,5 in 11,0. Koliko točk je dobil za
-skok?
+skok? Kodo napišimo tako, da bo delovala tudi v primeru, ko za dolžino skoka,
+K-točko, ocene sodnikov in izravnavo vnesemo druga števila. Zato potrebujemo
+pogojni stavek, v katerem ustrezno izračunamo točke za dolžino skoka.
 
 .. testcode::
 
@@ -471,15 +486,8 @@ način zapišemo funkcijo za izračun površine tetraedra:
     >>> povrsina_tetraedra(896, 1073, 1073, 990, 1073, 1073)
     1816080.0
 
-
-V funkciji smo večkrat uporabili tudi operator ``+=``, ki spremenljivko na levi
-poveča za vrednost na desni. Ukaz ``a += b`` je tako okrajšava za ``a = a + b``.
-Tudi za ostale operatorje obstajajo podobne bližnjice, na primer ``-=``, ``*=``,
-``//=`` in tako naprej.
-
-
-Funkcijo, ki računa absolutno vrednost, lahko s pomočjo pogojnega stavka
-napišemo kot:
+V telesu funkcij lahko pišemo poljubne stavke. Na primer, funkcijo, ki računa
+absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:
 
 .. testcode::
 
@@ -509,4 +517,4 @@ način bi lahko funkcijo ``absolutna_vrednost`` definirali tudi kot:
         return x
 
 Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
-ga le vrnemo.
+ga vrnemo nespremenjenega.
