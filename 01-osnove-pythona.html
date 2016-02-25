@@ -47,7 +47,7 @@
 lahko dostopamo na več načinov: neposredno iz ukazne vrstice, z uporabo
 enostavnega okolja IDLE, ki je priloženo vsaki namestitvi Pythona, ali pa prek
 kakšnega od naprednejših razvijalskih okolij, na primer PyCharm. Za navodila,
-kako to storimo, si oglejte video <a class="reference external" href="https://vimeo.com/156327496">Namestitev Pythona pod Windowsi</a></p>
+kako to storimo, si oglejte video <a class="reference external" href="https://vimeo.com/156327496">Namestitev Pythona pod Windowsi</a>.</p>
 <p>V vseh primerih nas pozdravi približno tak izpis:</p>
 <div class="code highlight-python"><div class="highlight"><pre>Python 3.5.1 (default, Jan 22 2016, 08:54:32)
 [GCC 4.2.1 Compatible Apple LLVM 7.0.2 (clang-700.1.81)] on darwin
@@ -155,50 +155,73 @@ uporabljamo v kasnejših izračunih. Za to uporabimo <em>prireditveni stavek</em
 <span class="go">14</span>
 </pre></div>
 </div>
-<p>Podane stavke Python izvaja enega za drugim, kakor smo jih podali, zato je
-vrstni red pomemben. Na primer, če bi najprej izvedli drugi stavek, bi Python
-javil napako:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">*</span> <span class="n">x</span>
+<p>Če želimo, lahko hkrati priredimo tudi več vrednosti:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="go">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p>Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">30</span>
+</pre></div>
+</div>
+<p>Kot vidimo, lahko novo vrednost spremenljivke <code class="docutils literal"><span class="pre">x</span></code> izračunamo iz stare
+vrednosti. V programih bomo to dostikrat izkoristili. Na primer, ko bomo
+prešteli vsa praštevila med 1 in 1000000, bomo imeli spremenljivko, ki bo imela
+na začetku vrednost 0, nato pa jo bomo ob vsakem praštevilu povečali za 1. V ta
+namen lahko uporabimo tudi operator <code class="docutils literal"><span class="pre">+=</span></code>, ki spremenljivko na levi poveča za
+vrednost na desni. Namesto <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code> bi lahko pisali tudi <code class="docutils literal"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">5</span></code>. Tudi
+za ostale operatorje obstajajo podobne bližnjice, na primer <code class="docutils literal"><span class="pre">-=</span></code>, <code class="docutils literal"><span class="pre">*=</span></code>,
+<code class="docutils literal"><span class="pre">//=</span></code> in tako naprej.</p>
+<p>Vrstni red izvajanja ukazov je pomemben. Če bi enake stavke izvedli v drugačnem
+vrstnem redu, bi bile tudi vrednosti drugačne:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">25</span>
+</pre></div>
+</div>
+<p>Lahko se celo zgodi, da program ne bi deloval. Recimo, da poskusimo izvesti <code class="docutils literal"><span class="pre">x</span>
+<span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code> še preden priredimo <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">10</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/doctest.py&quot;</span>, line <span class="m">1320</span>, in <span class="n">__run</span>
     <span class="n">compileflags</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">test</span><span class="o">.</span><span class="n">globs</span><span class="p">)</span>
-  File <span class="nb">&quot;&lt;doctest default[1]&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-    <span class="mi">7</span> <span class="o">*</span> <span class="n">x</span>
+  File <span class="nb">&quot;&lt;doctest default[0]&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;x&#39; is not defined</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/doctest.py&quot;</span>, line <span class="m">1320</span>, in <span class="n">__run</span>
+    <span class="n">compileflags</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">test</span><span class="o">.</span><span class="n">globs</span><span class="p">)</span>
+  File <span class="nb">&quot;&lt;doctest default[0]&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">x</span>
 <span class="gr">NameError</span>: <span class="n">name &#39;x&#39; is not defined</span>
 </pre></div>
 </div>
 <p>Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo
-le, da je ključna informacija o napaki v zadnji vrstici opozorila. V tem primeru
-vidimo, da spremenljivka <code class="docutils literal"><span class="pre">x</span></code> ni definirana.</p>
-<p>Vrednost spremenljivke lahko tudi zamenjamo z novo vrednostjo:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">13</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="go">28</span>
-</pre></div>
-</div>
-<p>V spremenljivko se vedno shrani tista vrednost, ki smo jo podali v prireditvenem
-stavku.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">13</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">13</span>
-</pre></div>
-</div>
-<p>Torej, tudi ko smo v <code class="docutils literal"><span class="pre">x</span></code> shranili novo vrednost, se vrednost <code class="docutils literal"><span class="pre">y</span></code> ni
-spremenila, saj prireditveni stavek vedno najprej izračuna vrednost desne
-strani, nato pa v spremenljivko shrani le to vrednost, v našem primeru <code class="docutils literal"><span class="pre">13</span></code>.
-Če želimo, lahko hkrati priredimo tudi več vrednosti:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="go">25</span>
-</pre></div>
-</div>
+le, da je ključna informacija o napaki v zadnji vrstici opozorila. V našem
+primeru Python javi dve napaki. Najprej se pritoži ob izvajanju stavka <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span>
+<span class="pre">5</span></code>, saj spremenljivka <code class="docutils literal"><span class="pre">x</span></code>, ki jo potrebuje za izračun vrednosti <code class="docutils literal"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code>, ni
+definirana. Drugo napako pa javi ob izvajanju <code class="docutils literal"><span class="pre">x</span></code>, saj kljub prireditvenemu
+stavku v prejšnji vrstici <code class="docutils literal"><span class="pre">x</span></code> še vedno ni definiran, ker se ta stavek ni
+uspešno izvedel.</p>
 </div>
 <div class="section" id="shranjevanje-programov-v-datoteke">
 <h2>Shranjevanje programov v datoteke<a class="headerlink" href="#shranjevanje-programov-v-datoteke" title="Povezava na naslov">¶</a></h2>
@@ -207,7 +230,8 @@ datoteko. S tem preprečimo, da izgubili vse svoje delo, pa tudi lažje
 popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe
 shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s
 katerim koli urejevalnikom besedila, na primer <em>Notepad</em>, <em>Notepad++</em>, <em>Emacs</em>
-ali <em>Vi</em>. Pythonovim datotekam običajno damo končnico <code class="docutils literal"><span class="pre">.py</span></code>.</p>
+ali <em>Vi</em>. Pythonovim datotekam običajno damo končnico <code class="docutils literal"><span class="pre">.py</span></code>. Za natančnejša
+navodila si oglejte video <a class="reference external" href="https://vimeo.com/156465707">Nalaganje programov iz datotek</a>.</p>
 <p>Za primer daljšega programa si oglejmo <a class="reference external" href="https://sl.wikipedia.org/wiki/Fermijev_problem">Fermijevo oceno</a> števila učiteljev
 matematike v slovenskih osnovnih šolah. Sledeče stavke vpišite v datoteko
 <code class="docutils literal"><span class="pre">fermi.py</span></code>:</p>
@@ -249,7 +273,7 @@ vidimo, da smiselna imena in presledki kodo naredijo veliko bolj berljivo.</p>
 <h2>Logične vrednosti<a class="headerlink" href="#logicne-vrednosti" title="Povezava na naslov">¶</a></h2>
 <p>Poleg števil Python pozna tudi logični vrednosti <code class="docutils literal"><span class="pre">True</span></code> in <code class="docutils literal"><span class="pre">False</span></code>, ki
 označujeta resnico in neresnico. Logične vrednosti ponavadi dobimo kot rezultat
-primerjav, ki so enakost <code class="docutils literal"><span class="pre">==</span></code>, neenakost <code class="docutils literal"><span class="pre">!=</span></code> ali urejenostne relacije
+primerjav, kot so enakost <code class="docutils literal"><span class="pre">==</span></code>, neenakost <code class="docutils literal"><span class="pre">!=</span></code> ali urejenostne relacije
 <code class="docutils literal"><span class="pre">&lt;</span></code>, <code class="docutils literal"><span class="pre">&gt;</span></code>, <code class="docutils literal"><span class="pre">&lt;=</span></code>, <code class="docutils literal"><span class="pre">&gt;=</span></code>, ter prek logičnih operacij <code class="docutils literal"><span class="pre">and</span></code>, <code class="docutils literal"><span class="pre">or</span></code> in
 <code class="docutils literal"><span class="pre">not</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">3</span>
@@ -283,28 +307,31 @@ da se jasno vidi, kam spadajo.</p>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
     <span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
-<span class="n">x</span> <span class="o">+=</span> <span class="mi">6</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">7</span>
 </pre></div>
 </div>
-<p>se bo izvedla veja <code class="docutils literal"><span class="pre">if</span></code>, zato bo <code class="docutils literal"><span class="pre">x</span></code> na koncu enak 16. V primeru, da bi bila
+<p>se bo izvedla veja <code class="docutils literal"><span class="pre">if</span></code>, zato bo <code class="docutils literal"><span class="pre">x</span></code> na koncu enak 17. V primeru, da bi bila
 začetna vrednost <code class="docutils literal"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">12</span></code>, pa bi se izvedla veja <code class="docutils literal"><span class="pre">else</span></code> in vrednost <code class="docutils literal"><span class="pre">x</span></code> bi
-na koncu bila 41.</p>
-<p>Poglejmo si še, kako iz rezultatov skoka, torej dolžine in ocen sodnikov,
-izračunamo skupne točke skoka. Vsaka skakalnica ima določeno K-točko, ki določa
+na koncu bila 42.</p>
+<p>Za primer iz rezultatov smučarskega skoka, torej dolžine in ocen sodnikov,
+izračunajmo skupne točke. Vsaka skakalnica ima določeno K-točko, ki določa
 velikost skakalnice. Skok za dolžino v osnovi dobi 60 točk (za letalnice 120),
 nato pa vsak meter nad ali pod K-točko prinese oziroma odnese 1,8 točke (za
-letalnice 1,2). Kot vidimo, se bomo morali pri izračunu točk za dolžino
-poslužiti pogojnega stavka.</p>
+letalnice 1,2).</p>
 <p>Točke za slog pa dobimo tako, da seštejemo vse ocene sodnikov razen najnižje in
 najvišje. To najenostavneje izračunamo tako, da seštejemo vse ocene, nato pa
 odštejemo najnižjo in najvišjo, ki ju dobimo s pomočjo vgrajenih funkcij <code class="docutils literal"><span class="pre">min</span></code>
-in <code class="docutils literal"><span class="pre">max</span></code>. Vsemu skupaj prištejemo še točke za izravnavo vetra in zaletišča.</p>
-<p>Izračunajmo število točk zmagovalnega skoka Petra Prevca na letalnici v
-Vikersundu. Peter je skočil 249 metrov, vendar padel, zaradi česar je dobil bolj
-slabe sodniške ocene: 15,0, 12,5, 14,0, 13,5 in 11,0. Koliko točk je dobil za
-skok?</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">dolzina</span> <span class="o">=</span> <span class="mf">249.0</span>
-<span class="n">k_tocka</span> <span class="o">=</span> <span class="mi">200</span>
+in <code class="docutils literal"><span class="pre">max</span></code>. Skupno oceno dobimo tako, da seštejemo točke za dolžino, točke za
+slog in točke za izravnavo vetra in zaletišča.</p>
+<p>Izračunajmo število točk zmagovalnega skoka <a class="reference external" href="http://medias3.fis-ski.com/pdf/2016/JP/3815/2016JP3815RL.pdf">Petra Prevca na letalnici v
+Vikersundu</a>. Peter je skočil 249 metrov, vendar padel, zaradi česar je dobil
+bolj slabe sodniške ocene: 15,0, 12,5, 14,0, 13,5 in 11,0. Koliko točk je dobil
+za skok? Kodo napišimo tako, da bo delovala tudi v primeru, ko za K-točko,
+dolžino skoka, ocene sodnikov in izravnavo vnesemo druga števila. Kot vidimo,
+potrebujemo pogojni stavek, v katerem ustrezno izračunamo točke za dolžino
+skoka.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">k_tocka</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">dolzina</span> <span class="o">=</span> <span class="mf">249.0</span>
 <span class="n">slog_a</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">slog_b</span> <span class="o">=</span> <span class="mf">12.5</span>
 <span class="n">slog_c</span> <span class="o">=</span> <span class="mi">14</span>
@@ -391,10 +418,11 @@ besedo <code class="docutils literal"><span class="pre">def</span></code>, ki ji
 <code class="docutils literal"><span class="pre">ploscina_trikotnika</span></code>, tej pa v oklepajih našteti argumenti, ki jih funkcija
 sprejme. Funkcije lahko sprejmejo različno število argumentov. Naša sprejme tri
 argumente, ki jih bomo shranili v spremenljivke <code class="docutils literal"><span class="pre">a</span></code>, <code class="docutils literal"><span class="pre">b</span></code> in <code class="docutils literal"><span class="pre">c</span></code>. V drugi
-vrstici sledi <em>dokumentacijski niz</em> oziroma <em>docstring</em>. Ta niz ponavadi
-zapišemo med trojne enojne navednice, v njem pa na kratko opišemo, kaj funkcija
-počne. Ta vrstica ni obvezna, je pa koristna, saj lahko uporabnik, ki ne ve, kaj
-funkcija počne, to pogleda s pomočjo funkcije <code class="docutils literal"><span class="pre">help</span></code>.</p>
+vrstici sledi za štiri presledke zamaknjeni <em>dokumentacijski niz</em> oziroma
+<em>docstring</em>. Ta niz ponavadi zapišemo med trojne enojne navednice, v njem pa na
+kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa koristna, saj
+lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s pomočjo funkcije
+<code class="docutils literal"><span class="pre">help</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">ploscina_trikotnika</span><span class="p">)</span>
 <span class="go">Help on function ploscina_trikotnika:</span>
 
@@ -403,10 +431,11 @@ funkcija počne, to pogleda s pomočjo funkcije <code class="docutils literal"><
 </pre></div>
 </div>
 <p>Nato sledi <em>telo funkcije</em>, torej ukazi, ki naj se izvedejo, ko funkcijo
-pokličemo. Celotno telo funkcije zamaknemo tako kot veje pri pogojnem stavku.
-Tretjo vrstico telesa smo že videli, v četrti vrstici pa z ukazom <code class="docutils literal"><span class="pre">return</span></code>
-povemo, katero vrednost naj vrne funkcija. Tako definirano funkcijo potem
-kličemo na enak način kot vgrajene funkcije.</p>
+pokličemo. Tako kot veje pogojnega stavka zamaknemo tudi celotno telo funkcije,
+da se jasno vidi, kaj vse spada v definicijo funkcije. Tretjo vrstico smo že
+videli, v četrti vrstici pa z ukazom <code class="docutils literal"><span class="pre">return</span></code> povemo, katero vrednost naj vrne
+funkcija. Tako definirano funkcijo potem kličemo na enak način kot vgrajene
+funkcije.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="go">24.0</span>
 </pre></div>
@@ -427,12 +456,8 @@ način zapišemo funkcijo za izračun površine tetraedra:</p>
 <span class="go">1816080.0</span>
 </pre></div>
 </div>
-<p>V funkciji smo večkrat uporabili tudi operator <code class="docutils literal"><span class="pre">+=</span></code>, ki spremenljivko na levi
-poveča za vrednost na desni. Ukaz <code class="docutils literal"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">b</span></code> je tako okrajšava za <code class="docutils literal"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>.
-Tudi za ostale operatorje obstajajo podobne bližnjice, na primer <code class="docutils literal"><span class="pre">-=</span></code>, <code class="docutils literal"><span class="pre">*=</span></code>,
-<code class="docutils literal"><span class="pre">//=</span></code> in tako naprej.</p>
-<p>Funkcijo, ki računa absolutno vrednost, lahko s pomočjo pogojnega stavka
-napišemo kot:</p>
+<p>V telesu funkcij lahko pišemo poljubne stavke. Na primer, funkcijo, ki računa
+absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Vrne absolutno vrednost števila x.&#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -457,7 +482,7 @@ način bi lahko funkcijo <code class="docutils literal"><span class="pre">absolu
 </pre></div>
 </div>
 <p>Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
-ga le vrnemo.</p>
+ga vrnemo nespremenjenega.</p>
 </div>
 </div>
 
@@ -490,7 +515,7 @@ ga le vrnemo.</p>
   <div role="note" aria-label="source link">
     <h3>Trenutna stran</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/osnove-pythona.txt"
+      <li><a href="_sources/01-osnove-pythona.txt"
             rel="nofollow">Prikaži izvorno kodo</a></li>
     </ul>
    </div>
@@ -519,7 +544,7 @@ ga le vrnemo.</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
-      <a href="_sources/osnove-pythona.txt"
+      <a href="_sources/01-osnove-pythona.txt"
           rel="nofollow">Page source</a>
     </div>
 
