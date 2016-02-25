@@ -9,7 +9,7 @@ S Pythonom se najenostavneje pogovarjamo prek interaktivne konzole, do katere
 lahko dostopamo na več načinov: neposredno iz ukazne vrstice, z uporabo
 enostavnega okolja IDLE, ki je priloženo vsaki namestitvi Pythona, ali pa prek
 kakšnega od naprednejših razvijalskih okolij, na primer PyCharm. Za navodila,
-kako to storimo, si oglejte video `Namestitev Pythona pod Windowsi`__
+kako to storimo, si oglejte video `Namestitev Pythona pod Windowsi`__.
 
 __ https://vimeo.com/156327496
 
@@ -143,10 +143,48 @@ na primer:
     >>> x, y = 10, 15
     >>> x + y
     25
+    >>> z = y - x
+    >>> z
+    5
 
-Podane stavke Python izvaja enega za drugim, kakor smo jih podali, zato je
-vrstni red pomemben. Na primer, če bi najprej izvedli drugi stavek, bi Python
-javil napako:
+Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo:
+
+.. doctest::
+
+    >>> x = 10
+    >>> x
+    10
+    >>> x = 25
+    >>> x
+    25
+    >>> x = x + 5
+    >>> x
+    30
+
+Kot vidimo, lahko novo vrednost spremenljivke ``x`` izračunamo iz stare
+vrednosti. V programih bomo to dostikrat izkoristili. Na primer, ko bomo
+prešteli vsa praštevila med 1 in 1000000, bomo imeli spremenljivko, ki bo imela
+na začetku vrednost 0, nato pa jo bomo ob vsakem praštevilu povečali za 1. V ta
+namen lahko uporabimo tudi operator ``+=``, ki spremenljivko na levi poveča za
+vrednost na desni. Namesto ``x = x + 5`` bi lahko pisali tudi ``x += 5``. Tudi
+za ostale operatorje obstajajo podobne bližnjice, na primer ``-=``, ``*=``,
+``//=`` in tako naprej.
+
+Vrstni red izvajanja ukazov je pomemben. Če bi enake stavke izvedli v drugačnem
+vrstnem redu, bi bile tudi vrednosti drugačne:
+
+    >>> x = 10
+    >>> x
+    10
+    >>> x = x + 5
+    >>> x
+    15
+    >>> x = 25
+    >>> x
+    25
+
+Lahko se celo zgodi, da program ne bi deloval. Recimo, da poskusimo izvesti ``x
+= x + 5`` še preden priredimo ``x = 10``.
 
 .. testcode::
     :hide:
@@ -155,58 +193,28 @@ javil napako:
 
 .. doctest::
 
-    >>> 7 * x
+    >>> x = x + 5
     Traceback (most recent call last):
       File "/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/doctest.py", line 1320, in __run
         compileflags, 1), test.globs)
-      File "<doctest default[1]>", line 1, in <module>
-        7 * x
+      File "<doctest default[0]>", line 1, in <module>
+        x = x + 5
+    NameError: name 'x' is not defined
+    >>> x
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/doctest.py", line 1320, in __run
+        compileflags, 1), test.globs)
+      File "<doctest default[0]>", line 1, in <module>
+        x
     NameError: name 'x' is not defined
 
 Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo
-le, da je ključna informacija o napaki v zadnji vrstici opozorila. V tem primeru
-vidimo, da spremenljivka ``x`` ni definirana.
-
-Vrednost spremenljivke lahko tudi zamenjamo z novo vrednostjo:
-
-.. doctest::
-
-    >>> x = 10
-    >>> x + 3
-    13
-    >>> x = 25
-    >>> x + 3
-    28
-    >>> x = x + 5
-    >>> x
-    30
-
-Kot vidimo, lahko novo vrednost spremenljivke ``x`` izračunamo iz stare
-vrednosti. V programih bomo to dostikrat izkoristili. Na primer, ko bomo
-prešteli vsa praštevila med 1 in 1000000, bomo imeli spremenljivko
-``stevilo_najdenih_prastevil``, ki jo bomo ob vsakem praštevilu povečali za 1. V
-ta namen saj bomo na primer ob vsaki pojavitvi določene stvari povečali
-spremenljivko, ki vsebuje njeno število. V ta namen lahko uporabimo tudi
-operator ``+=``, ki spremenljivko na levi poveča za vrednost na desni. Namesto
-``x = x + 5`` bi lahko pisali tudi ``x += 5``. Tudi za ostale operatorje
-obstajajo podobne bližnjice, na primer ``-=``, ``*=``, ``//=`` in tako naprej.
-
-V spremenljivko se vedno shrani tista vrednost, ki smo jo podali v prireditvenem
-stavku.
-
-.. doctest::
-
-    >>> x = 10
-    >>> y = x + 3
-    >>> y
-    13
-    >>> x = 20
-    >>> y
-    13
-
-Torej, tudi takrat, ko smo v ``x`` shranili novo vrednost, se vrednost ``y`` ni
-spremenila, saj prireditveni stavek vedno najprej izračuna vrednost desne
-strani, nato pa v spremenljivko shrani le to vrednost, v našem primeru ``13``.
+le, da je ključna informacija o napaki v zadnji vrstici opozorila. V našem
+primeru Python javi dve napaki. Najprej se pritoži ob izvajanju stavka ``x = x +
+5``, saj spremenljivka ``x``, ki jo potrebuje za izračun vrednosti ``x + 5``, ni
+definirana. Drugo napako pa javi ob izvajanju ``x``, saj kljub prireditvenemu
+stavku v prejšnji vrstici ``x`` še vedno ni definiran, ker se ta stavek ni
+uspešno izvedel.
 
 Shranjevanje programov v datoteke
 ---------------------------------
@@ -216,7 +224,10 @@ datoteko. S tem preprečimo, da izgubili vse svoje delo, pa tudi lažje
 popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe
 shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s
 katerim koli urejevalnikom besedila, na primer *Notepad*, *Notepad++*, *Emacs*
-ali *Vi*. Pythonovim datotekam običajno damo končnico ``.py``.
+ali *Vi*. Pythonovim datotekam običajno damo končnico ``.py``. Za natančnejša
+navodila si oglejte video `Nalaganje programov iz datotek`__.
+
+__ https://vimeo.com/156465707
 
 Za primer daljšega programa si oglejmo `Fermijevo oceno`__ števila učiteljev
 matematike v slovenskih osnovnih šolah. Sledeče stavke vpišite v datoteko
@@ -270,7 +281,7 @@ Logične vrednosti
 
 Poleg števil Python pozna tudi logični vrednosti ``True`` in ``False``, ki
 označujeta resnico in neresnico. Logične vrednosti ponavadi dobimo kot rezultat
-primerjav, ki so enakost ``==``, neenakost ``!=`` ali urejenostne relacije
+primerjav, kot so enakost ``==``, neenakost ``!=`` ali urejenostne relacije
 ``<``, ``>``, ``<=``, ``>=``, ter prek logičnih operacij ``and``, ``or`` in
 ``not``.
 
@@ -312,35 +323,38 @@ Na primer, če izvedemo program
     else:
         x = 3 * x
         x -= 1
-    x += 6
+    x += 7
 
-se bo izvedla veja ``if``, zato bo ``x`` na koncu enak 16. V primeru, da bi bila
+se bo izvedla veja ``if``, zato bo ``x`` na koncu enak 17. V primeru, da bi bila
 začetna vrednost ``x = 12``, pa bi se izvedla veja ``else`` in vrednost ``x`` bi
-na koncu bila 41.
+na koncu bila 42.
 
-Poglejmo si še, kako iz rezultatov skoka, torej dolžine in ocen sodnikov,
-izračunamo skupne točke skoka. Vsaka skakalnica ima določeno K-točko, ki določa
+Za primer iz rezultatov smučarskega skoka, torej dolžine in ocen sodnikov,
+izračunajmo skupne točke. Vsaka skakalnica ima določeno K-točko, ki določa
 velikost skakalnice. Skok za dolžino v osnovi dobi 60 točk (za letalnice 120),
 nato pa vsak meter nad ali pod K-točko prinese oziroma odnese 1,8 točke (za
-letalnice 1,2). Kot vidimo, se bomo morali pri izračunu točk za dolžino
-poslužiti pogojnega stavka.
+letalnice 1,2).
 
 Točke za slog pa dobimo tako, da seštejemo vse ocene sodnikov razen najnižje in
 najvišje. To najenostavneje izračunamo tako, da seštejemo vse ocene, nato pa
 odštejemo najnižjo in najvišjo, ki ju dobimo s pomočjo vgrajenih funkcij ``min``
-in ``max``. Vsemu skupaj prištejemo še točke za izravnavo vetra in zaletišča.
+in ``max``. Skupno oceno dobimo tako, da seštejemo točke za dolžino, točke za
+slog in točke za izravnavo vetra in zaletišča.
 
-Izračunajmo število točk zmagovalnega skoka Petra Prevca na letalnici v
-Vikersundu. Peter je skočil 249 metrov, vendar padel, zaradi česar je dobil bolj
-slabe sodniške ocene: 15,0, 12,5, 14,0, 13,5 in 11,0. Koliko točk je dobil za
-skok? Kodo napišimo tako, da bo delovala tudi v primeru, ko za dolžino skoka,
-K-točko, ocene sodnikov in izravnavo vnesemo druga števila. Zato potrebujemo
-pogojni stavek, v katerem ustrezno izračunamo točke za dolžino skoka.
+Izračunajmo število točk zmagovalnega skoka `Petra Prevca na letalnici v
+Vikersundu`__. Peter je skočil 249 metrov, vendar padel, zaradi česar je dobil
+bolj slabe sodniške ocene: 15,0, 12,5, 14,0, 13,5 in 11,0. Koliko točk je dobil
+za skok? Kodo napišimo tako, da bo delovala tudi v primeru, ko za K-točko,
+dolžino skoka, ocene sodnikov in izravnavo vnesemo druga števila. Kot vidimo,
+potrebujemo pogojni stavek, v katerem ustrezno izračunamo točke za dolžino
+skoka.
+
+__ http://medias3.fis-ski.com/pdf/2016/JP/3815/2016JP3815RL.pdf
 
 .. testcode::
 
-    dolzina = 249.0
     k_tocka = 200
+    dolzina = 249.0
     slog_a = 15
     slog_b = 12.5
     slog_c = 14
@@ -442,10 +456,11 @@ besedo ``def``, ki ji sledi ime funkcije, v našem primeru
 ``ploscina_trikotnika``, tej pa v oklepajih našteti argumenti, ki jih funkcija
 sprejme. Funkcije lahko sprejmejo različno število argumentov. Naša sprejme tri
 argumente, ki jih bomo shranili v spremenljivke ``a``, ``b`` in ``c``. V drugi
-vrstici sledi *dokumentacijski niz* oziroma *docstring*. Ta niz ponavadi
-zapišemo med trojne enojne navednice, v njem pa na kratko opišemo, kaj funkcija
-počne. Ta vrstica ni obvezna, je pa koristna, saj lahko uporabnik, ki ne ve, kaj
-funkcija počne, to pogleda s pomočjo funkcije ``help``.
+vrstici sledi za štiri presledke zamaknjeni *dokumentacijski niz* oziroma
+*docstring*. Ta niz ponavadi zapišemo med trojne enojne navednice, v njem pa na
+kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa koristna, saj
+lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s pomočjo funkcije
+``help``.
 
 .. doctest::
 
@@ -457,10 +472,11 @@ funkcija počne, to pogleda s pomočjo funkcije ``help``.
     <BLANKLINE>
 
 Nato sledi *telo funkcije*, torej ukazi, ki naj se izvedejo, ko funkcijo
-pokličemo. Celotno telo funkcije zamaknemo tako kot veje pri pogojnem stavku.
-Tretjo vrstico telesa smo že videli, v četrti vrstici pa z ukazom ``return``
-povemo, katero vrednost naj vrne funkcija. Tako definirano funkcijo potem
-kličemo na enak način kot vgrajene funkcije.
+pokličemo. Tako kot veje pogojnega stavka zamaknemo tudi celotno telo funkcije,
+da se jasno vidi, kaj vse spada v definicijo funkcije. Tretjo vrstico smo že
+videli, v četrti vrstici pa z ukazom ``return`` povemo, katero vrednost naj vrne
+funkcija. Tako definirano funkcijo potem kličemo na enak način kot vgrajene
+funkcije.
 
 .. doctest::
 
