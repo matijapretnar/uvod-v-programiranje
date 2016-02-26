@@ -4,8 +4,10 @@ Python za matematike
 .. toctree::
    :maxdepth: 2
 
-   01-osnove-pythona
-   02-rekurzija-in-zanke
+   01-delo-s-pythonom
+   02-logicne-vrednosti
+   03-funkcije
+   04-rekurzija
 
 
 Kazala

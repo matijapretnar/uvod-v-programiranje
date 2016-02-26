@@ -1,5 +1,5 @@
-Osnove Pythona
-==============
+Delo s Pythonom
+===============
 
 
 Interaktivna konzola
@@ -74,6 +74,10 @@ to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.
     >>> 123 ** (45 + 67)
     1173201153236117392747457141184065170953567764283837482787268119007036898684512512556572577156186549602764788041495818311329933349581701014867937205332087819177539156963702612817234021747525564287508352993790061063457990401206082438721
 
+
+Uporaba funkcij
+---------------
+
 Vidimo, da velika števila Pythonu ne povzročajo velikih težav. Na voljo so tudi
 osnovne funkcije, kot na primer ``max`` in ``min`` za izračun maksimuma in
 minimuma.
@@ -86,6 +90,10 @@ minimuma.
     -5
     >>> max(min(10, 20), 30 // 2)
     15
+
+
+Uvažanje knjižnic
+-----------------
 
 Matematične funkcije so na voljo v knjižnici `math`. Do njih lahko dostopamo
 na dva osnovna načina:
@@ -274,265 +282,3 @@ vidimo, da smiselna imena in presledki kodo naredijo veliko bolj berljivo.
 
     >>> u
     2160.0
-
-
-Logične vrednosti
------------------
-
-Poleg števil Python pozna tudi logični vrednosti ``True`` in ``False``, ki
-označujeta resnico in neresnico. Logične vrednosti ponavadi dobimo kot rezultat
-primerjav, kot so enakost ``==``, neenakost ``!=`` ali urejenostne relacije
-``<``, ``>``, ``<=``, ``>=``, ter prek logičnih operacij ``and``, ``or`` in
-``not``.
-
-.. doctest::
-
-    >>> 1 + 1 == 3
-    False
-    >>> 3 != 2
-    True
-    >>> True and False
-    False
-    >>> not (5 == 10)
-    True
-    >>> 3 < 5 or 10 > 20
-    True
-
-Logične vrednosti uporabimo v *pogojnih stavkih* (oziroma ``if``-stavkih) oblike
-
-.. code::
-
-    if pogoj:
-        stavki_ki_jih_izvedemo
-        ko_pogoj_drzi
-    else:
-        stavki_ki_jih_izvedemo
-        ko_pogoj_ne_drzi
-
-Ključnima besedama ``if``/``else`` in pripadajočim stavkom pravimo tudi *veje
-pogojnega stavka*. Stavke v obeh vejah moramo zamakniti za štiri presledke,
-da se jasno vidi, kam spadajo.
-
-Na primer, če izvedemo program
-
-.. testcode::
-
-    x = 5
-    if x < 10:
-        x *= 2
-    else:
-        x = 3 * x
-        x -= 1
-    x += 7
-
-se bo izvedla veja ``if``, zato bo ``x`` na koncu enak 17. V primeru, da bi bila
-začetna vrednost ``x = 12``, pa bi se izvedla veja ``else`` in vrednost ``x`` bi
-na koncu bila 42.
-
-Za primer iz rezultatov smučarskega skoka, torej dolžine in ocen sodnikov,
-izračunajmo skupne točke. Vsaka skakalnica ima določeno K-točko, ki določa
-velikost skakalnice. Skok za dolžino v osnovi dobi 60 točk (za letalnice 120),
-nato pa vsak meter nad ali pod K-točko prinese oziroma odnese 1,8 točke (za
-letalnice 1,2).
-
-Točke za slog pa dobimo tako, da seštejemo vse ocene sodnikov razen najnižje in
-najvišje. To najenostavneje izračunamo tako, da seštejemo vse ocene, nato pa
-odštejemo najnižjo in najvišjo, ki ju dobimo s pomočjo vgrajenih funkcij ``min``
-in ``max``. Skupno oceno dobimo tako, da seštejemo točke za dolžino, točke za
-slog in točke za izravnavo vetra in zaletišča.
-
-Izračunajmo število točk zmagovalnega skoka `Petra Prevca na letalnici v
-Vikersundu`__. Peter je skočil 249 metrov, vendar padel, zaradi česar je dobil
-bolj slabe sodniške ocene: 15,0, 12,5, 14,0, 13,5 in 11,0. Koliko točk je dobil
-za skok? Kodo napišimo tako, da bo delovala tudi v primeru, ko za K-točko,
-dolžino skoka, ocene sodnikov in izravnavo vnesemo druga števila. Kot vidimo,
-potrebujemo pogojni stavek, v katerem ustrezno izračunamo točke za dolžino
-skoka.
-
-__ http://medias3.fis-ski.com/pdf/2016/JP/3815/2016JP3815RL.pdf
-
-.. testcode::
-
-    k_tocka = 200
-    dolzina = 249.0
-    slog_a = 15
-    slog_b = 12.5
-    slog_c = 14
-    slog_d = 13.5
-    slog_e = 11
-    izravnava = 6.4
-
-    # če je K-točka vsaj 185 metrov, gre za letalnico
-    if k_tocka < 185:
-        osnovne_tocke = 60
-        vrednost_metra = 1.8
-    else:
-        osnovne_tocke = 120
-        vrednost_metra = 1.2
-    tocke_dolzina = 120 + vrednost_metra * (dolzina - k_tocka)
-
-    min_slog = min(slog_a, slog_b, slog_c, slog_d, slog_e)
-    max_slog = max(slog_a, slog_b, slog_c, slog_d, slog_e)
-    tocke_slog = (slog_a + slog_b + slog_c + slog_d + slog_e) - min_slog - max_slog
-
-    skupne_tocke = tocke_dolzina + tocke_slog + izravnava
-
-Poleg že znanih ukazov v zgornji kodi vidimo tudi *komentar*. Ko Python v kodi
-vidi lojtro ``#``, preostanek vrstice ignorira. Namen komentarjev je, da po
-človeško razložimo tiste dele kode, ki niso očitni. Ker so programi v Pythonu
-precej razumljivi (sploh, ker uporabljamo opisna imena spremenljivk), ponavadi
-ni treba pisati veliko komentarjev.
-
-Poglejmo, koliko točk je bil vreden skok:
-
-.. doctest::
-
-    >>> skupne_tocke
-    225.20000000000002
-
-Skok je bil v resnici vreden natanko 225,2 točk. Vse dodatne decimalke pa so
-posledica zaokrožitvenih napak. Računalnik namreč ne računa s pravimi realnimi
-števili, temveč z njihovimi približki, ki jim pravimo *števila s plavajočo
-vejico*.
-
-Funkcije
---------
-
-Ploščino trikotnika s stranicami :math:`a, b, c` lahko izračunamo po Heronovi
-formuli
-
-.. math::
-    \sqrt{s (s - a) (s - b) (s - c)}
-
-kjer je :math:`s = (a + b + c) / 2`. Ploščino trikotnika s stranicami 4, 13 in 15
-bi v Pythonu lahko torej izračunali s programom:
-
-.. testcode::
-
-    a, b, c = 4, 13, 15
-    s = (a + b + c) / 2
-    ploscina = (s * (s - a) * (s - b) * (s - c)) ** 0.5
-
-Tedaj je
-
-.. doctest::
-
-    >>> ploscina
-    24.0
-
-Kako pa bi izračunali površino tetraedra, ki ima za lica štiri trikotnike?
-Načeloma bi lahko pisali:
-
-.. testcode::
-
-    a, b, c, d, e, f = 896, 1073, 1073, 990, 1073, 1073
-    s_abc = (a + b + c) / 2
-    ploscina_abc = (s_abc * (s_abc - a) * (s_abc - b) * (s_abc - c)) ** 0.5
-    s_aef = (a + e + f) / 2
-    ploscina_aef = (s_aef * (s_aef - a) * (s_aef - e) * (s_aef - f)) ** 0.5
-    s_bdf = (b + d + f) / 2
-    ploscina_bdf = (s_bdf * (s_bdf - b) * (s_bdf - d) * (s_bdf - f)) ** 0.5
-    s_cde = (c + d + e) / 2
-    ploscina_cde = (s_cde * (s_cde - c) * (s_cde - d) * (s_cde - e)) ** 0.5
-    povrsina = ploscina_abc + ploscina_aef + ploscina_bdf + ploscina_cde
-
-Kot vidimo, to ni najbolj pregledno. V taki kodi z veliko verjetnostjo naredimo
-kakšno napako. Bolje je, da uporabimo funkcije. Že prej smo uporabili nekaj
-vgrajenih funkcij, na primer ``min`` in ``max``. Python pa nam omogoča, da si
-funkcije definiramo tudi sami.
-
-
-Definicija funkcije, ki izračuna ploščino trikotnika, je sledeča:
-
-.. testcode::
-
-    import math
-
-    def ploscina_trikotnika(a, b, c):
-        '''Vrne ploščino trikotnika z danimi stranicami.'''
-        s = (a + b + c) / 2
-        return math.sqrt(s * (s - a) * (s - b) * (s - c))
-
-Oglejmo si njene sestavne dele. Vsaka definicija funkcije se začne s ključno
-besedo ``def``, ki ji sledi ime funkcije, v našem primeru
-``ploscina_trikotnika``, tej pa v oklepajih našteti argumenti, ki jih funkcija
-sprejme. Funkcije lahko sprejmejo različno število argumentov. Naša sprejme tri
-argumente, ki jih bomo shranili v spremenljivke ``a``, ``b`` in ``c``. V drugi
-vrstici sledi za štiri presledke zamaknjeni *dokumentacijski niz* oziroma
-*docstring*. Ta niz ponavadi zapišemo med trojne enojne navednice, v njem pa na
-kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa koristna, saj
-lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s pomočjo funkcije
-``help``.
-
-.. doctest::
-
-    >>> help(ploscina_trikotnika)
-    Help on function ploscina_trikotnika:
-    <BLANKLINE>
-    ploscina_trikotnika(a, b, c)
-        Vrne ploščino trikotnika z danimi stranicami.
-    <BLANKLINE>
-
-Nato sledi *telo funkcije*, torej ukazi, ki naj se izvedejo, ko funkcijo
-pokličemo. Tako kot veje pogojnega stavka zamaknemo tudi celotno telo funkcije,
-da se jasno vidi, kaj vse spada v definicijo funkcije. Tretjo vrstico smo že
-videli, v četrti vrstici pa z ukazom ``return`` povemo, katero vrednost naj vrne
-funkcija. Tako definirano funkcijo potem kličemo na enak način kot vgrajene
-funkcije.
-
-.. doctest::
-
-    >>> ploscina_trikotnika(4, 13, 15)
-    24.0
-
-S pomočjo funkcije ``ploscina_trikotnika`` lahko tudi na veliko bolj pregleden
-način zapišemo funkcijo za izračun površine tetraedra:
-
-.. testcode::
-
-    def povrsina_tetraedra(a, b, c, d, e, f):
-        '''Vrne površino tetraedra z danimi stranicami.'''
-        povrsina = 0
-        povrsina += ploscina_trikotnika(a, b, c)
-        povrsina += ploscina_trikotnika(a, e, f)
-        povrsina += ploscina_trikotnika(b, d, f)
-        povrsina += ploscina_trikotnika(c, d, e)
-        return povrsina
-
-.. doctest::
-
-    >>> povrsina_tetraedra(896, 1073, 1073, 990, 1073, 1073)
-    1816080.0
-
-V telesu funkcij lahko pišemo poljubne stavke. Na primer, funkcijo, ki računa
-absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:
-
-.. testcode::
-
-    def absolutna_vrednost(x):
-        '''Vrne absolutno vrednost števila x.'''
-        if x >= 0:
-            return x
-        else:
-            return -x
-
-.. doctest::
-
-    >>> absolutna_vrednost(-5)
-    5
-    >>> absolutna_vrednost(3)
-    3
-
-Če veje ``else`` ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
-način bi lahko funkcijo ``absolutna_vrednost`` definirali tudi kot:
-
-.. testcode::
-
-    def absolutna_vrednost(x):
-        '''Vrne absolutno vrednost števila x.'''
-        if x < 0:
-            x *= -1
-        return x
-
-Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
-ga vrnemo nespremenjenega.
