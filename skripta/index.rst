@@ -5,6 +5,7 @@ Python za matematike
    :maxdepth: 2
 
    01-osnove-pythona
+   02-rekurzija-in-zanke
 
 
 Kazala
