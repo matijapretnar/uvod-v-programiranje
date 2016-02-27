@@ -56,11 +56,10 @@ rekurzivno.
     def fibonacci(n):
         if n == 0:
             return 0
+        elif n == 1:
+            return 1
         else:
-            if n == 1:
-                return 1
-            else:
-                return fibonacci(n - 1) + fibonacci(n - 2)
+            return fibonacci(n - 1) + fibonacci(n - 2)
 
 .. doctest::
 
@@ -72,39 +71,6 @@ rekurzivno.
     5
     >>> fibonacci(20)
     6765
-
-Zgornji pogojni stavek je malo nerodno zapisan. Ker se nam bo dostikrat zgodilo,
-da se ne bomo odločali le med dvema primeroma, temveč med večimi, nam Python omogoča
-splošnejše pogojne stavke oblike:
-
-.. code::
-
-    if pogoj1:
-        stavki_ki_jih_izvedemo
-        ko_pogoj1_drzi
-    elif pogoj2:
-        stavki_ki_jih_izvedemo
-        ko_pogoj1_ne_drzi
-        ampak_drzi_pogoj2
-    elif pogoj3:
-        stavki_ki_jih_izvedemo
-        ko_tudi_pogoj2_ne_drzi
-        ampak_drzi_pogoj3
-    else:
-        stavki_ki_jih_izvedemo
-        ko_noben_od_pogojev_ne_drzi
-
-Beseda ``elif`` je okrajšava za ``else``-``if``. Zgornjo funkcijo bi tako lepše zapisali kot:
-
-.. testcode::
-
-    def fibonacci(n):
-        if n == 0:
-            return 0
-        elif n == 1:
-            return 1
-        else:
-            return fibonacci(n - 1) + fibonacci(n - 2)
 
 Tudi ta funkcija ima še svoje težave, zato se je še ne naučite, vendar se bomo s
 tem ukvarjali malo kasneje. Zdaj pa je že čas, da si pogledamo še naš prvi pravi

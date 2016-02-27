@@ -91,13 +91,13 @@ __ http://medias3.fis-ski.com/pdf/2016/JP/3815/2016JP3815RL.pdf
     slog_e = 11
     izravnava = 6.4
 
-    # če je K-točka vsaj 185 metrov, gre za letalnico
-    if k_tocka < 185:
-        osnovne_tocke = 60
-        vrednost_metra = 1.8
-    else:
+    # če je K-točka vsaj 170 metrov, gre za letalnico
+    if k_tocka >= 170:
         osnovne_tocke = 120
         vrednost_metra = 1.2
+    else:
+        osnovne_tocke = 60
+        vrednost_metra = 1.8
     tocke_dolzina = 120 + vrednost_metra * (dolzina - k_tocka)
 
     min_slog = min(slog_a, slog_b, slog_c, slog_d, slog_e)
@@ -123,3 +123,105 @@ Skok je bil v resnici vreden natanko 225,2 točk. Vse dodatne decimalke pa so
 posledica zaokrožitvenih napak. Računalnik namreč ne računa s pravimi realnimi
 števili, temveč z njihovimi približki, ki jim pravimo *števila s plavajočo
 vejico*.
+
+Razširjeni pogojni stavek
+-------------------------
+
+V resnici tudi zgornja formula ni čisto natančna, saj obstajajo tudi male skakalnice,
+na katerih je vrednost metra enaka 2. Tako bi morali točke za dolžino izračunati kot:
+
+
+.. doctest::
+
+    if k_tocka >= 170:
+        osnovne_tocke = 120
+        vrednost_metra = 1.2
+    else:
+        if k_tocka >= 100:
+            osnovne_tocke = 60
+            vrednost_metra = 1.8
+        else:
+            osnovne_tocke = 60
+            vrednost_metra = 2
+
+Zgornji pogojni stavek je malo nerodno zapisan. Ker se nam bo dostikrat zgodilo,
+da se ne bomo odločali le med dvema primeroma, temveč med večimi, nam Python omogoča
+splošnejše pogojne stavke oblike:
+
+.. code::
+
+    if pogoj1:
+        stavki_ki_jih_izvedemo
+        ko_pogoj1_drzi
+    elif pogoj2:
+        stavki_ki_jih_izvedemo
+        ko_pogoj1_ne_drzi
+        ampak_drzi_pogoj2
+    elif pogoj3:
+        stavki_ki_jih_izvedemo
+        ko_tudi_pogoj2_ne_drzi
+        ampak_drzi_pogoj3
+    else:
+        stavki_ki_jih_izvedemo
+        ko_noben_od_pogojev_ne_drzi
+
+Beseda ``elif`` je okrajšava za ``else``-``if``. Točke za razdaljo bi tako lepše zapisali kot:
+
+.. doctest::
+
+    if k_tocka >= 170:
+        osnovne_tocke = 120
+        vrednost_metra = 1.2
+    elif k_tocka >= 100:
+        osnovne_tocke = 60
+        vrednost_metra = 1.8
+    else:
+        osnovne_tocke = 60
+        vrednost_metra = 2
+
+ali pa kot:
+
+.. doctest::
+
+    if k_tocka >= 170:
+        osnovne_tocke = 120
+    else:
+        osnovne_tocke = 60
+
+    if k_tocka >= 170:
+        vrednost_metra = 1.2
+    elif k_tocka >= 100:
+        vrednost_metra = 1.8
+    else:
+        vrednost_metra = 2
+
+Kot lahko vidite na `Wikipediji`__, je ocenjevanje še bolj zapleteno, vendar
+pogojnemu stavku ne bomo dodajali še novih in novih vej, temveč bomo počakali na
+to, da spoznamo malo boljšo rešitev.
+
+__ https://en.wikipedia.org/wiki/Construction_point
+
+
+Manjkajoča veja ``else``
+------------------------
+
+Če želimo, lahko vejo ``else`` tudi izpustimo (tako v običajnem kot v
+razširjenem pogojnem stavku). V tem primeru se ob neizpolnjevanju pogoja ne
+zgodi nič. Na ta način bi izračun osnovnih točk lahko pisali tudi kot:
+
+.. doctest::
+
+    osnovne_tocke = 60
+    if k_tocka >= 170:
+        osnovne_tocke = 120
+
+Torej, ``osnovne_tocke`` najprej nastavimo na 60, v primeru da gre za letalnico,
+pa jih popravimo na 120. Vrstni red izvajanja je seveda pomemben. Če bi pisali
+
+.. doctest::
+
+    if k_tocka >= 170:
+        osnovne_tocke = 120
+    osnovne_tocke = 60
+
+bi osnovne točke vedno nastavili na 60.
