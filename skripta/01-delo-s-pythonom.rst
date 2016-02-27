@@ -155,19 +155,32 @@ na primer:
     >>> z
     5
 
-Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo:
+Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo, vendar to na
+preostale spremenljivke ne vpliva, saj se vedno shrani tista vrednost, ki smo jo
+podali v prireditvenem stavku.
+
+.. doctest::
+
+    >>> x = 10
+    >>> y = x + 3
+    >>> y
+    13
+    >>> x = 25
+    >>> y
+    13
+
+Torej, tudi takrat, ko smo v ``x`` shranili novo vrednost, se vrednost ``y`` ni
+spremenila, saj prireditveni stavek vedno najprej izračuna vrednost desne
+strani, nato pa v spremenljivko shrani le to vrednost, v našem primeru ``13``.
 
 .. doctest::
 
     >>> x = 10
     >>> x
     10
-    >>> x = 25
-    >>> x
-    25
     >>> x = x + 5
     >>> x
-    30
+    15
 
 Kot vidimo, lahko novo vrednost spremenljivke ``x`` izračunamo iz stare
 vrednosti. V programih bomo to dostikrat izkoristili. Na primer, ko bomo
@@ -178,51 +191,92 @@ vrednost na desni. Namesto ``x = x + 5`` bi lahko pisali tudi ``x += 5``. Tudi
 za ostale operatorje obstajajo podobne bližnjice, na primer ``-=``, ``*=``,
 ``//=`` in tako naprej.
 
-Vrstni red izvajanja ukazov je pomemben. Če bi enake stavke izvedli v drugačnem
-vrstnem redu, bi bile tudi vrednosti drugačne:
-
-    >>> x = 10
-    >>> x
-    10
-    >>> x = x + 5
-    >>> x
-    15
-    >>> x = 25
-    >>> x
-    25
-
-Lahko se celo zgodi, da program ne bi deloval. Recimo, da poskusimo izvesti ``x
-= x + 5`` še preden priredimo ``x = 10``.
-
-.. testcode::
-    :hide:
-    
-    del x
-
 .. doctest::
 
-    >>> x = x + 5
-    Traceback (most recent call last):
-      File "/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/doctest.py", line 1320, in __run
-        compileflags, 1), test.globs)
-      File "<doctest default[0]>", line 1, in <module>
-        x = x + 5
-    NameError: name 'x' is not defined
+    >>> x = 3
+    >>> x += 2
+    >>> x *= 4
     >>> x
-    Traceback (most recent call last):
-      File "/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/doctest.py", line 1320, in __run
-        compileflags, 1), test.globs)
-      File "<doctest default[0]>", line 1, in <module>
-        x
-    NameError: name 'x' is not defined
+    20
 
-Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo
-le, da je ključna informacija o napaki v zadnji vrstici opozorila. V našem
-primeru Python javi dve napaki. Najprej se pritoži ob izvajanju stavka ``x = x +
-5``, saj spremenljivka ``x``, ki jo potrebuje za izračun vrednosti ``x + 5``, ni
-definirana. Drugo napako pa javi ob izvajanju ``x``, saj kljub prireditvenemu
-stavku v prejšnji vrstici ``x`` še vedno ni definiran, ker se ta stavek ni
-uspešno izvedel.
+
+Napake
+------
+
+Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločimo
+tri vrste napak:
+
+1. **Sintaktične napake**, v katerih program napišemo drugače, kot določajo
+   pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico:
+
+
+   .. doctest::
+
+      >>> max(2; 4)
+        ...
+          max(2; 4)
+               ^
+      SyntaxError: invalid syntax
+
+   Na take napake nas Python opozori še preden začne z izvajanjem programa,
+   zato jih ne moremo zgrešiti.
+
+2. **Napake ob izvajanju**, v katerih program napišemo sintaktično pravilno,
+   vendar uporabimo neveljavno operacijo:
+
+   .. doctest::
+
+       >>> 1 / 0
+       Traceback (most recent call last):
+         ...
+       ZeroDivisionError: division by zero
+
+   .. testcode::
+       :hide:
+
+       del x
+
+   .. doctest::
+
+       >>> 3 + x
+       Traceback (most recent call last):
+         ...
+       NameError: name 'x' is not defined
+
+   Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si
+   zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V
+   prvem primeru je bila napaka deljenje z 0, v drugem pa to, da spremenljivka ``x``
+   ni bila definirana.
+
+   Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi
+   prekinejo. To zna biti nerodno, kadar gre za kritično pomemben program (npr.
+   za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela
+   (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše
+   rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih
+   pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova
+   prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih
+   lahko včasih tudi naknadno rešimo).
+
+3. **Vsebinske napake**, pri katerih program navidez deluje brez težav, vendar
+   izračuna napačen odgovor, ker smo mu dali napačna navodila. Recimo, da želimo
+   izračunati razdaljo med točkama (2, 3) in (5, 7):
+
+   .. doctest::
+
+       >>> ((2 - 5) ** 2 + (3 - 7) ** 2) ** 1 / 2
+       12.5
+
+   Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo
+   rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2,
+   temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred
+   deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa
+   ne opazimo. Znan primer te napake je `Mars Climate Orbiter`__, ki je po
+   devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in
+   razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami,
+   del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.
+
+    __ https://en.wikipedia.org/wiki/Mars_Climate_Orbiter
+
 
 Shranjevanje programov v datoteke
 ---------------------------------
@@ -261,13 +315,15 @@ učiteljev matematike:
     >>> stevilo_uciteljev_matematike
     2160.0
 
+
+Pisanje preglednih programov
+----------------------------
+
 Vidimo, da lahko imena spremenljivk vsebujejo več kot eno črko, česar smo
 navajeni v matematiki. V programiranju je zelo pomembno, da so imena čimbolj
-opisna, saj tako hitreje razumemo, kaj počne program. V Pythonu imena
-spremenljivk pišemo z malimi črkami, posamezne besede pa ločimo z znakom ``_``.
-
-Računalnik bi razumel tudi sledeč program in izračunal enak odgovor, vendar
-vidimo, da smiselna imena in presledki kodo naredijo veliko bolj berljivo.
+opisna, saj tako hitreje razumemo, kaj počne program. Računalnik bi razumel tudi
+sledeč program in izračunal enak odgovor, vendar vidimo, da smiselna imena in
+presledki kodo naredijo veliko bolj berljivo.
 
 .. testcode::
 
@@ -282,3 +338,9 @@ vidimo, da smiselna imena in presledki kodo naredijo veliko bolj berljivo.
 
     >>> u
     2160.0
+
+Zato se bomo držali sledečih pravil:
+
+- Na vsaki strani dvomestne operacije (``=``, ``+``, ``**``, …) pišemo presledek.
+- Za ločili (na primer ``,``) pišemo presledek, pred njimi pa ne.
+- Spremenljivkam dajemo opisna imena, ki jih pišemo z malimi črkami. Posamezne besede ločimo z znakom ``_``.

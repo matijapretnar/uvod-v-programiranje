@@ -55,6 +55,9 @@ se bo izvedla veja ``if``, zato bo ``x`` na koncu enak 17. V primeru, da bi bila
 začetna vrednost ``x = 12``, pa bi se izvedla veja ``else`` in vrednost ``x`` bi
 na koncu bila 42.
 
+Primer: smučarski skoki
+-----------------------
+
 Za primer iz rezultatov smučarskega skoka, torej dolžine in ocen sodnikov,
 izračunajmo skupne točke. Vsaka skakalnica ima določeno K-točko, ki določa
 velikost skakalnice. Skok za dolžino v osnovi dobi 60 točk (za letalnice 120),
