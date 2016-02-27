@@ -86,11 +86,10 @@ rekurzivno.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -101,35 +100,6 @@ rekurzivno.</p>
 <span class="go">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 <span class="go">6765</span>
-</pre></div>
-</div>
-<p>Zgornji pogojni stavek je malo nerodno zapisan. Ker se nam bo dostikrat zgodilo,
-da se ne bomo odločali le med dvema primeroma, temveč med večimi, nam Python omogoča
-splošnejše pogojne stavke oblike:</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">pogoj1</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj1_drzi</span>
-<span class="k">elif</span> <span class="n">pogoj2</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj1_ne_drzi</span>
-    <span class="n">ampak_drzi_pogoj2</span>
-<span class="k">elif</span> <span class="n">pogoj3</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_tudi_pogoj2_ne_drzi</span>
-    <span class="n">ampak_drzi_pogoj3</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_noben_od_pogojev_ne_drzi</span>
-</pre></div>
-</div>
-<p>Beseda <code class="docutils literal"><span class="pre">elif</span></code> je okrajšava za <code class="docutils literal"><span class="pre">else</span></code>-<code class="docutils literal"><span class="pre">if</span></code>. Zgornjo funkcijo bi tako lepše zapisali kot:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Tudi ta funkcija ima še svoje težave, zato se je še ne naučite, vendar se bomo s
