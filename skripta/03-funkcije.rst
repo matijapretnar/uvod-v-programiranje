@@ -55,7 +55,6 @@ Definicija funkcije, ki izračuna ploščino trikotnika, je sledeča:
     import math
 
     def ploscina_trikotnika(a, b, c):
-        '''Vrne ploščino trikotnika z danimi stranicami.'''
         s = (a + b + c) / 2
         return math.sqrt(s * (s - a) * (s - b) * (s - c))
 
@@ -63,26 +62,12 @@ Oglejmo si njene sestavne dele. Vsaka definicija funkcije se začne s ključno
 besedo ``def``, ki ji sledi ime funkcije, v našem primeru
 ``ploscina_trikotnika``, tej pa v oklepajih našteti argumenti, ki jih funkcija
 sprejme. Funkcije lahko sprejmejo različno število argumentov. Naša sprejme tri
-argumente, ki jih bomo shranili v spremenljivke ``a``, ``b`` in ``c``. V drugi
-vrstici sledi za štiri presledke zamaknjeni *dokumentacijski niz* oziroma
-*docstring*. Ta niz ponavadi zapišemo med trojne enojne navednice, v njem pa na
-kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa koristna, saj
-lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s pomočjo funkcije
-``help``.
-
-.. doctest::
-
-    >>> help(ploscina_trikotnika)
-    Help on function ploscina_trikotnika:
-    <BLANKLINE>
-    ploscina_trikotnika(a, b, c)
-        Vrne ploščino trikotnika z danimi stranicami.
-    <BLANKLINE>
+argumente, ki jih bomo shranili v spremenljivke ``a``, ``b`` in ``c``. 
 
 Nato sledi *telo funkcije*, torej ukazi, ki naj se izvedejo, ko funkcijo
 pokličemo. Tako kot veje pogojnega stavka zamaknemo tudi celotno telo funkcije,
-da se jasno vidi, kaj vse spada v definicijo funkcije. Tretjo vrstico smo že
-videli, v četrti vrstici pa z ukazom ``return`` povemo, katero vrednost naj vrne
+da se jasno vidi, kaj vse spada v definicijo funkcije. Prvo vrstico telesa smo
+že videli, v drugi pa z ukazom ``return`` povemo, katero vrednost naj vrne
 funkcija. Tako definirano funkcijo potem kličemo na enak način kot vgrajene
 funkcije.
 
@@ -97,7 +82,6 @@ način zapišemo funkcijo za izračun površine tetraedra:
 .. testcode::
 
     def povrsina_tetraedra(a, b, c, d, e, f):
-        '''Vrne površino tetraedra z danimi stranicami.'''
         povrsina = 0
         povrsina += ploscina_trikotnika(a, b, c)
         povrsina += ploscina_trikotnika(a, e, f)
@@ -110,35 +94,70 @@ način zapišemo funkcijo za izračun površine tetraedra:
     >>> povrsina_tetraedra(896, 1073, 1073, 990, 1073, 1073)
     1816080.0
 
-V telesu funkcij lahko pišemo poljubne stavke. Na primer, funkcijo, ki računa
-absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:
+
+Stavek ``return``
+-----------------
+
+Tako kot drugje v Pythonu, se tudi stavki v telesu funkcije izvajajo od prvega
+proti zadnjemu. Ko dosežemo stavek ``return``, funkcija pa vrne vrednost danega
+izraza ter zaključi z izvajanjem. Tako tudi funkcija
 
 .. testcode::
 
-    def absolutna_vrednost(x):
-        '''Vrne absolutno vrednost števila x.'''
-        if x >= 0:
-            return x
-        else:
-            return -x
+    def f(x):
+        return x ** 2
+        return 1000
+
+vrne kvadrat števila ``x`` in ne števila 1000, saj se izvajanje ustavi ob
+prvem stavku ``return``, zato do drugega sploh ne pride. Če stavka ``return``
+ne napišemo, funkcija vrne posebno vrednost ``None``, ki označuje manjkajočo
+vrednost. Pozorno se ji bomo posvetili kasneje, zaenkrat pa jo omenimo le zato,
+da bomo znali razumeti spodnjo (precej pogosto) napako:
+
+.. testcode::
+
+    def g(x):
+        x ** 2
 
 .. doctest::
 
-    >>> absolutna_vrednost(-5)
-    5
-    >>> absolutna_vrednost(3)
-    3
+    >>> 2 * g(10)
+    Traceback (most recent call last):
+      ...
+    TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
 
-Če veje ``else`` ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
-način bi lahko funkcijo ``absolutna_vrednost`` definirali tudi kot:
+Pričakovali bi, da bo rezultat klica ``2 * g(10)`` enak 200. Toda ker smo v
+funkciji ``g`` pozabili na ``return``, je funkcija vrnila vrednost ``None``.
+To lahko razberemo iz opozorila, v katerem približno piše, da operacije ``*`` ne
+moremo uporabiti na celem številu in vrednosti ``None``. Vsakič, ko dobite
+Vsakič, ko dobite podobno opozorilo (`TypeError`, v katerem se pojavlja
+`NoneType`), posumite na to, da nekje manjka stavek ``return``.
+
+
+Dokumentacijski niz
+-------------------
+
+Pred telesom funkcije dostikrat lahko zapišemo tudi  *dokumentacijski niz*
+oziroma *docstring*. Ta niz ponavadi zapišemo med trojne enojne navednice, v
+njem pa na kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa
+koristna, saj lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s
+pomočjo funkcije ``help``.
 
 .. testcode::
 
-    def absolutna_vrednost(x):
-        '''Vrne absolutno vrednost števila x.'''
-        if x < 0:
-            x *= -1
-        return x
+    import math
 
-Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
-ga vrnemo nespremenjenega.
+    def ploscina_trikotnika(a, b, c):
+        '''Vrne ploščino trikotnika z danimi stranicami.'''
+        s = (a + b + c) / 2
+        return math.sqrt(s * (s - a) * (s - b) * (s - c))
+
+
+.. doctest::
+
+    >>> help(ploscina_trikotnika)
+    Help on function ploscina_trikotnika:
+    <BLANKLINE>
+    ploscina_trikotnika(a, b, c)
+        Vrne ploščino trikotnika z danimi stranicami.
+    <BLANKLINE>
