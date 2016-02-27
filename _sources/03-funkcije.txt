@@ -161,3 +161,34 @@ pomočjo funkcije ``help``.
     ploscina_trikotnika(a, b, c)
         Vrne ploščino trikotnika z danimi stranicami.
     <BLANKLINE>
+
+
+Lokalnost spremenljivk
+----------------------
+
+Argumenti funkcije in spremenljivke, ki jih definiramo v telesu funkcije, se
+izven funkcije ne vidijo. Pravimo, da so *lokalne*. Namen tega je, da funkcije
+ne motijo ena druge s spremenljivkami, ki jih uporabljajo. Na primer, če
+definiramo
+
+.. testcode::
+
+    def f(x):
+        y = 3 * x
+        return y
+
+tedaj tudi po klicu funkcije ``f`` ne ``x`` ne ``y`` ne bosta definirana:
+
+.. doctest::
+
+    >>> f(4)
+    12
+    >>> x
+    Traceback (most recent call last):
+      ...
+    NameError: name 'x' is not defined
+    >>> y
+    Traceback (most recent call last):
+      ...
+    NameError: name 'y' is not defined
+ 

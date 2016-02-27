@@ -171,6 +171,31 @@ pomočjo funkcije <code class="docutils literal"><span class="pre">help</span></
 </pre></div>
 </div>
 </div>
+<div class="section" id="lokalnost-spremenljivk">
+<h2>Lokalnost spremenljivk<a class="headerlink" href="#lokalnost-spremenljivk" title="Povezava na naslov">¶</a></h2>
+<p>Argumenti funkcije in spremenljivke, ki jih definiramo v telesu funkcije, se
+izven funkcije ne vidijo. Pravimo, da so <em>lokalne</em>. Namen tega je, da funkcije
+ne motijo ena druge s spremenljivkami, ki jih uporabljajo. Na primer, če
+definiramo</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>tedaj tudi po klicu funkcije <code class="docutils literal"><span class="pre">f</span></code> ne <code class="docutils literal"><span class="pre">x</span></code> ne <code class="docutils literal"><span class="pre">y</span></code> ne bosta definirana:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;x&#39; is not defined</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;y&#39; is not defined</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -185,6 +210,7 @@ pomočjo funkcije <code class="docutils literal"><span class="pre">help</span></
 <li><a class="reference internal" href="#definicije-lastnih-funkcij">Definicije lastnih funkcij</a></li>
 <li><a class="reference internal" href="#stavek-return">Stavek <code class="docutils literal"><span class="pre">return</span></code></a></li>
 <li><a class="reference internal" href="#dokumentacijski-niz">Dokumentacijski niz</a></li>
+<li><a class="reference internal" href="#lokalnost-spremenljivk">Lokalnost spremenljivk</a></li>
 </ul>
 </li>
 </ul>
