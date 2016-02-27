@@ -2,31 +2,38 @@ Python za matematike
 ====================
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   01-osnove-pythona
-.. funkcije
-.. pogojni-stavek
-.. zanka-while
-.. uvazanje-knjiznic
-.. rekurzija
-.. funkcije-visjega-reda
-.. razhroscevanje
-.. seznami
-.. zanka-for
-.. nizi
-.. zelva
-.. iskanje
-.. casovna-zahtevnost
-.. urejanje
-.. slovarji-mnozice-nabori
-.. objektno-programiranje
-.. vhod-izhod
-.. datoteke
-.. psevdonakljucna-stevila
-.. izjeme
-.. generatorji
-.. tkinter
+    01-delo-s-pythonom
+    02-logicne-vrednosti
+    03-funkcije
+
+..
+    04-rekurzija
+    funkcije-visjega-reda
+    05-razhroscevanje
+    06-nizi
+
+    07-zanka-while
+    08-zanka-for
+
+    09-zelva
+
+    seznami
+
+    casovna-zahtevnost
+    iskanje
+
+    urejanje
+
+    slovarji-mnozice-nabori
+    objektno-programiranje
+    vhod-izhod
+    datoteke
+    psevdonakljucna-stevila
+    izjeme
+    generatorji
+    tkinter
 
 
 Kazala

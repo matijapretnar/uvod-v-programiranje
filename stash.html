@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Rekurzija &mdash; Python za matematike 0.1 documentation</title>
+    <title>Zanka while &mdash; Python za matematike 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -38,112 +38,35 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rekurzija">
-<h1>Rekurzija<a class="headerlink" href="#rekurzija" title="Povezava na naslov">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Vrne fakulteto naravnega števila n.&#39;&#39;&#39;</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
+  <p>V telesu funkcij lahko pišemo poljubne stavke. Na primer, funkcijo, ki računa
+absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne absolutno vrednost števila x.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">x</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Vrne največji skupni delitelj števil m in n.&#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">m</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">3</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<p>Če veje <code class="docutils literal"><span class="pre">else</span></code> ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
+način bi lahko funkcijo <code class="docutils literal"><span class="pre">absolutna_vrednost</span></code> definirali tudi kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne absolutno vrednost števila x.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">a</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">b</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="go">55</span>
-</pre></div>
-</div>
-<div class="section" id="osnovni-tipi">
-<h2>Osnovni tipi<a class="headerlink" href="#osnovni-tipi" title="Povezava na naslov">¶</a></h2>
-<p>Oglejmo si, s kakšnimi vrednostmi poleg naravnih števil lahko delamo v Pythonu. Vsaka vrednost v Pythonu ima določen <em>tip</em>. Osnovni tipi so:</p>
-<div class="section" id="tip-celih-stevil-int">
-<h3>Tip celih števil <code class="docutils literal"><span class="pre">int</span></code><a class="headerlink" href="#tip-celih-stevil-int" title="Povezava na naslov">¶</a></h3>
-<p>Cela števila pišemo kot običajno, na njih pa imamo na voljo sledeče računske operacije: <code class="docutils literal"><span class="pre">+</span></code> za seštevanje, <code class="docutils literal"><span class="pre">-</span></code> za odštevanje, <code class="docutils literal"><span class="pre">*</span></code> za množenje, in <code class="docutils literal"><span class="pre">**</span></code> za potenciranje.</p>
-</div>
-<div class="section" id="tip-stevil-s-plavajoco-vejico-float">
-<h3>Tip števil s plavajočo vejico <code class="docutils literal"><span class="pre">float</span></code><a class="headerlink" href="#tip-stevil-s-plavajoco-vejico-float" title="Povezava na naslov">¶</a></h3>
-</div>
-<div class="section" id="tip-kompleksnih-stevil-complex">
-<h3>Tip kompleksnih števil <code class="docutils literal"><span class="pre">complex</span></code><a class="headerlink" href="#tip-kompleksnih-stevil-complex" title="Povezava na naslov">¶</a></h3>
-</div>
-<div class="section" id="tip-nizov-str">
-<h3>Tip nizov <code class="docutils literal"><span class="pre">str</span></code><a class="headerlink" href="#tip-nizov-str" title="Povezava na naslov">¶</a></h3>
-</div>
-<div class="section" id="tip-logicnih-vrednosti-bool">
-<h3>Tip logičnih vrednosti <code class="docutils literal"><span class="pre">bool</span></code><a class="headerlink" href="#tip-logicnih-vrednosti-bool" title="Povezava na naslov">¶</a></h3>
-<p>NoneType</p>
-<p id="index-0">V zgornjih primerih vidimo dva tipa števil, ki jih pozna Python. Cela števila in števila s plavajočo vejico, ki služijo kot približek realnih števil in jih prepoznamo po piki. V računih lahko oba tipa števil tudi mešamo, vendar bo v tem primeru rezultat vedno število s plavajočo vejico.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">1.0</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="go">3.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">8</span> <span class="o">/</span> <span class="mi">3</span>
-<span class="go">2.6666666666666665</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+<p>Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
+ga vrnemo nespremenjenega.</p>
 <div class="section" id="zanka-while">
 <h1>Zanka <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#zanka-while" title="Povezava na naslov">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stevke</span><span class="p">(</span><span class="n">stevilo</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">stevka</span><span class="p">)</span> <span class="k">for</span> <span class="n">stevka</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">stevilo</span><span class="p">)]</span>
-
-<span class="k">def</span> <span class="nf">ujemanje</span><span class="p">(</span><span class="n">oseba1</span><span class="p">,</span> <span class="n">oseba2</span><span class="p">,</span> <span class="n">geslo</span><span class="o">=</span><span class="s">&#39;LOVES&#39;</span><span class="p">):</span>
-    <span class="n">niz</span> <span class="o">=</span> <span class="p">(</span><span class="n">oseba1</span> <span class="o">+</span> <span class="n">oseba2</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-    <span class="n">stevila</span> <span class="o">=</span> <span class="p">[</span><span class="n">niz</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">znak</span><span class="p">)</span> <span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">geslo</span><span class="p">]</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">stevila</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">nova_stevila</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stevila</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">nova_stevila</span> <span class="o">+=</span> <span class="n">stevke</span><span class="p">(</span><span class="n">stevila</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">stevila</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-        <span class="n">stevila</span> <span class="o">=</span> <span class="n">nova_stevila</span>
-    <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">stevila</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">stevila</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ujemanje</span><span class="p">(</span><span class="s">&quot;Mojca Gaser&quot;</span><span class="p">,</span> <span class="s">&quot;Mitja Lorber&quot;</span><span class="p">)</span>
-<span class="go">99</span>
-</pre></div>
-</div>
-<div class="section" id="neobvezni-argumenti">
-<h2>Neobvezni argumenti<a class="headerlink" href="#neobvezni-argumenti" title="Povezava na naslov">¶</a></h2>
-<p>Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost. Na primer, za izračun logaritma potrebujemo dve števili: osnovo in ???. Toda velikokrat za osnovo vzamemo <span class="math">\(10\)</span>, zato namesto <span class="math">\(\log_{10} x\)</span> pišemo kar <span class="math">\(\log x\)</span>. Tudi pri Pythonu je podobno.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">ocena_skoka</span><span class="p">(</span><span class="n">dolzina</span><span class="p">,</span> <span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">,</span>
-                <span class="n">k_tocka</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">izravnava</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Vrne skupno oceno smučarskega skoka.&#39;&#39;&#39;</span>
-    <span class="n">tocke_dolzina</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">+</span> <span class="mf">1.8</span> <span class="o">*</span> <span class="p">(</span><span class="n">dolzina</span> <span class="o">-</span> <span class="n">k_tocka</span><span class="p">)</span>
-    <span class="n">min_slog</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
-    <span class="n">max_slog</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
-    <span class="n">tocke_slog</span> <span class="o">=</span> <span class="p">(</span><span class="n">slog_a</span> <span class="o">+</span> <span class="n">slog_b</span> <span class="o">+</span> <span class="n">slog_c</span> <span class="o">+</span> <span class="n">slog_d</span> <span class="o">+</span> <span class="n">slog_e</span><span class="p">)</span> <span class="o">-</span> <span class="n">min_slog</span> <span class="o">-</span> <span class="n">max_slog</span>
-    <span class="k">return</span> <span class="n">tocke_dolzina</span> <span class="o">+</span> <span class="n">tocke_slog</span> <span class="o">+</span> <span class="n">izravnava</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>Zanka <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#id1" title="Povezava na naslov">¶</a></h2>
 <p>Še zadnja ključna stvar, ki jo potrebujemo za programiranje (vse ostale nam
 programiranje le olajšajo), je zanka <code class="docutils literal"><span class="pre">while</span></code>. Ta zanka določene ukaze izvaja
 toliko časa, dokler velja dani pogoj. Začnemo jo pisati s ključno besedo
@@ -189,6 +112,106 @@ Na primer, če bi poklicali</p>
 neskončnost. Ko se naveličamo čakanja, lahko pritisnemo <code class="docutils literal"><span class="pre">Ctrl-C</span></code> in izvajanje
 prekinemo.</p>
 </div>
+<div class="section" id="zanka-for">
+<h1>Zanka <code class="docutils literal"><span class="pre">for</span></code><a class="headerlink" href="#zanka-for" title="Povezava na naslov">¶</a></h1>
+</div>
+<div class="section" id="osnovni-tipi">
+<h1>Osnovni tipi<a class="headerlink" href="#osnovni-tipi" title="Povezava na naslov">¶</a></h1>
+<p>Oglejmo si, s kakšnimi vrednostmi poleg naravnih števil lahko delamo v Pythonu. Vsaka vrednost v Pythonu ima določen <em>tip</em>. Osnovni tipi so:</p>
+<div class="section" id="tip-celih-stevil-int">
+<h2>Tip celih števil <code class="docutils literal"><span class="pre">int</span></code><a class="headerlink" href="#tip-celih-stevil-int" title="Povezava na naslov">¶</a></h2>
+<p>Cela števila pišemo kot običajno, na njih pa imamo na voljo sledeče računske operacije: <code class="docutils literal"><span class="pre">+</span></code> za seštevanje, <code class="docutils literal"><span class="pre">-</span></code> za odštevanje, <code class="docutils literal"><span class="pre">*</span></code> za množenje, in <code class="docutils literal"><span class="pre">**</span></code> za potenciranje.</p>
+</div>
+<div class="section" id="tip-stevil-s-plavajoco-vejico-float">
+<h2>Tip števil s plavajočo vejico <code class="docutils literal"><span class="pre">float</span></code><a class="headerlink" href="#tip-stevil-s-plavajoco-vejico-float" title="Povezava na naslov">¶</a></h2>
+</div>
+<div class="section" id="tip-kompleksnih-stevil-complex">
+<h2>Tip kompleksnih števil <code class="docutils literal"><span class="pre">complex</span></code><a class="headerlink" href="#tip-kompleksnih-stevil-complex" title="Povezava na naslov">¶</a></h2>
+</div>
+<div class="section" id="tip-nizov-str">
+<h2>Tip nizov <code class="docutils literal"><span class="pre">str</span></code><a class="headerlink" href="#tip-nizov-str" title="Povezava na naslov">¶</a></h2>
+</div>
+<div class="section" id="tip-logicnih-vrednosti-bool">
+<h2>Tip logičnih vrednosti <code class="docutils literal"><span class="pre">bool</span></code><a class="headerlink" href="#tip-logicnih-vrednosti-bool" title="Povezava na naslov">¶</a></h2>
+<p>NoneType</p>
+<p id="index-0">V zgornjih primerih vidimo dva tipa števil, ki jih pozna Python. Cela števila in števila s plavajočo vejico, ki služijo kot približek realnih števil in jih prepoznamo po piki. V računih lahko oba tipa števil tudi mešamo, vendar bo v tem primeru rezultat vedno število s plavajočo vejico.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">1.0</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">8</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="go">2.6666666666666665</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>Zanka <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#id1" title="Povezava na naslov">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stevke</span><span class="p">(</span><span class="n">stevilo</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">stevka</span><span class="p">)</span> <span class="k">for</span> <span class="n">stevka</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">stevilo</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">ujemanje</span><span class="p">(</span><span class="n">oseba1</span><span class="p">,</span> <span class="n">oseba2</span><span class="p">,</span> <span class="n">geslo</span><span class="o">=</span><span class="s">&#39;LOVES&#39;</span><span class="p">):</span>
+    <span class="n">niz</span> <span class="o">=</span> <span class="p">(</span><span class="n">oseba1</span> <span class="o">+</span> <span class="n">oseba2</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">stevila</span> <span class="o">=</span> <span class="p">[</span><span class="n">niz</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">znak</span><span class="p">)</span> <span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">geslo</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">stevila</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">nova_stevila</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stevila</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">nova_stevila</span> <span class="o">+=</span> <span class="n">stevke</span><span class="p">(</span><span class="n">stevila</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">stevila</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">stevila</span> <span class="o">=</span> <span class="n">nova_stevila</span>
+    <span class="k">return</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">stevila</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">stevila</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ujemanje</span><span class="p">(</span><span class="s">&quot;Mojca Gaser&quot;</span><span class="p">,</span> <span class="s">&quot;Mitja Lorber&quot;</span><span class="p">)</span>
+<span class="go">99</span>
+
+
+
+<span class="go">from rekurzija import fakulteta</span>
+
+
+<span class="go">def vsota_prvih(n):</span>
+<span class="go">    if n == 0:</span>
+<span class="go">        return 0</span>
+<span class="go">    else:</span>
+<span class="go">        return n + vsota_prvih(n - 1)</span>
+
+
+<span class="go">def binomski(n, k):</span>
+<span class="go">    return fakulteta(n) // (fakulteta(n - k) * fakulteta(k))</span>
+
+
+<span class="go">def binomski_rek(n, k):</span>
+<span class="go">    if k == 0 or k == n:</span>
+<span class="go">        return 1</span>
+<span class="go">    else:</span>
+<span class="go">        return binomski_rek(n - 1, k) + binomski_rek(n - 1, k - 1)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">55</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="neobvezni-argumenti">
+<h1>Neobvezni argumenti<a class="headerlink" href="#neobvezni-argumenti" title="Povezava na naslov">¶</a></h1>
+<p>Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost. Na primer, za izračun logaritma potrebujemo dve števili: osnovo in ???. Toda velikokrat za osnovo vzamemo <span class="math">\(10\)</span>, zato namesto <span class="math">\(\log_{10} x\)</span> pišemo kar <span class="math">\(\log x\)</span>. Tudi pri Pythonu je podobno.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">ocena_skoka</span><span class="p">(</span><span class="n">dolzina</span><span class="p">,</span> <span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">,</span>
+                <span class="n">k_tocka</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">izravnava</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne skupno oceno smučarskega skoka.&#39;&#39;&#39;</span>
+    <span class="n">tocke_dolzina</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">+</span> <span class="mf">1.8</span> <span class="o">*</span> <span class="p">(</span><span class="n">dolzina</span> <span class="o">-</span> <span class="n">k_tocka</span><span class="p">)</span>
+    <span class="n">min_slog</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
+    <span class="n">max_slog</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
+    <span class="n">tocke_slog</span> <span class="o">=</span> <span class="p">(</span><span class="n">slog_a</span> <span class="o">+</span> <span class="n">slog_b</span> <span class="o">+</span> <span class="n">slog_c</span> <span class="o">+</span> <span class="n">slog_d</span> <span class="o">+</span> <span class="n">slog_e</span><span class="p">)</span> <span class="o">-</span> <span class="n">min_slog</span> <span class="o">-</span> <span class="n">max_slog</span>
+    <span class="k">return</span> <span class="n">tocke_dolzina</span> <span class="o">+</span> <span class="n">tocke_slog</span> <span class="o">+</span> <span class="n">izravnava</span>
+</pre></div>
+</div>
 </div>
 
 
@@ -199,22 +222,20 @@ prekinemo.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Seznam Vsebine</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Rekurzija</a><ul>
+<li><a class="reference internal" href="#">Zanka <code class="docutils literal"><span class="pre">while</span></code></a></li>
+<li><a class="reference internal" href="#zanka-for">Zanka <code class="docutils literal"><span class="pre">for</span></code></a></li>
 <li><a class="reference internal" href="#osnovni-tipi">Osnovni tipi</a><ul>
 <li><a class="reference internal" href="#tip-celih-stevil-int">Tip celih števil <code class="docutils literal"><span class="pre">int</span></code></a></li>
 <li><a class="reference internal" href="#tip-stevil-s-plavajoco-vejico-float">Tip števil s plavajočo vejico <code class="docutils literal"><span class="pre">float</span></code></a></li>
 <li><a class="reference internal" href="#tip-kompleksnih-stevil-complex">Tip kompleksnih števil <code class="docutils literal"><span class="pre">complex</span></code></a></li>
 <li><a class="reference internal" href="#tip-nizov-str">Tip nizov <code class="docutils literal"><span class="pre">str</span></code></a></li>
-<li><a class="reference internal" href="#tip-logicnih-vrednosti-bool">Tip logičnih vrednosti <code class="docutils literal"><span class="pre">bool</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#zanka-while">Zanka <code class="docutils literal"><span class="pre">while</span></code></a><ul>
-<li><a class="reference internal" href="#neobvezni-argumenti">Neobvezni argumenti</a></li>
+<li><a class="reference internal" href="#tip-logicnih-vrednosti-bool">Tip logičnih vrednosti <code class="docutils literal"><span class="pre">bool</span></code></a><ul>
 <li><a class="reference internal" href="#id1">Zanka <code class="docutils literal"><span class="pre">while</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#neobvezni-argumenti">Neobvezni argumenti</a></li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>

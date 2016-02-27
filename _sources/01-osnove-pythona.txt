@@ -446,10 +446,12 @@ Definicija funkcije, ki izračuna ploščino trikotnika, je sledeča:
 
 .. testcode::
 
+    import math
+
     def ploscina_trikotnika(a, b, c):
         '''Vrne ploščino trikotnika z danimi stranicami.'''
         s = (a + b + c) / 2
-        return (s * (s - a) * (s - b) * (s - c)) ** 0.5
+        return math.sqrt(s * (s - a) * (s - b) * (s - c))
 
 Oglejmo si njene sestavne dele. Vsaka definicija funkcije se začne s ključno
 besedo ``def``, ki ji sledi ime funkcije, v našem primeru

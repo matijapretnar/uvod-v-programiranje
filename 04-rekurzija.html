@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Rekurzija in zanke &mdash; Python za matematike 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rekurzija-in-zanke">
+<h1>Rekurzija in zanke<a class="headerlink" href="#rekurzija-in-zanke" title="Povezava na naslov">¶</a></h1>
+<p>Če za trenutek odmislimo, da od računalnikov pričakujemo tudi to, da kaj
+preberejo s tipkovnice, kaj izrišejo na zaslon, ali pa se kaj pogovarjajo z
+drugimi računalniki, lahko s tisto malega, kar smo spoznali v prejšnjem
+poglavju, napišemo čisto vse, kar je računalnik sposoben izračunati. Tista
+stvar, ki nam vse to omogoča je rekurzija.</p>
+<div class="section" id="rekurzija">
+<h2>Rekurzija<a class="headerlink" href="#rekurzija" title="Povezava na naslov">¶</a></h2>
+<p>Videli smo, da lahko iz funkcij kličemo tudi druge funkcije. Na primer, v
+funkciji <code class="docutils literal"><span class="pre">povrsina_tetraedra</span></code> smo poklicali funkcijo <code class="docutils literal"><span class="pre">ploscina_trikotnika</span></code>,
+v tej pa vgrajeno funkcijo <code class="docutils literal"><span class="pre">math.sqrt</span></code>. V resnici pa lahko v funkciji
+pokličemo tudi funkcijo samo. Takemu klicu pravimo <strong>rekurzivni klic</strong>.
+Poglejmo, kako bi izračunali <span class="math">\(n! = n \cdot (n - 1) \dots 3 \cdot 2 \cdot
+1\)</span>. Kot vidimo velja <span class="math">\(n! = n \cdot (n - 1)!\)</span>, zato bomo <span class="math">\(n!\)</span>
+izračunali tako, da bomo <span class="math">\(n\)</span> pomnožili z <span class="math">\((n - 1)!\)</span>. Toda od kod
+bomo dobili tega? Preprosto, <span class="math">\(n - 1\)</span> bomo pomnožili z <span class="math">\((n - 2)!\)</span>. Od
+kod pa tega? Ja iz <span class="math">\((n - 3)!\)</span>. In tako naprej vse do <span class="math">\(2!\)</span>, ki ga
+bomo dobili iz <span class="math">\(1!\)</span>, tega pa iz <span class="math">\(0!\)</span>, ki je po definiciji enak
+<span class="math">\(1\)</span>.</p>
+<p>Torej lahko funkcijo, ki računa fakulteto, napišemo tako, da najprej pogleda
+svoj argument <code class="docutils literal"><span class="pre">n</span></code>. Če je enak 1, vrne 1, sicer pa izračunamo tako, da <code class="docutils literal"><span class="pre">n</span></code>
+pomnožimo z rezultatom klica <code class="docutils literal"><span class="pre">fakulteta(n</span> <span class="pre">-</span> <span class="pre">1)</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne fakulteto naravnega števila n.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">120</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">3628800</span>
+</pre></div>
+</div>
+<p>Še en primer rekurzivne definicije so Fibonaccijeva števila. Velja <span class="math">\(F_0 = 0\)</span>,
+<span class="math">\(F_1 = 1\)</span>, za vse <span class="math">\(n \ge 2\)</span> pa velja in <span class="math">\(F_{n} = F_{n - 1} + F_{n - 2}\)</span>.
+Funkcijo tedaj napišemo podobno na podoben način kot zgornjo: če
+je <code class="docutils literal"><span class="pre">n</span></code> enak 0, vrnemo 0, sicer pogledamo, ali je enak 1. V tem primeru vrnemo
+1. Če pa tudi 1 ni enak, mora biti večji ali enak 2, zato se pokličemo
+rekurzivno.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="go">6765</span>
+</pre></div>
+</div>
+<p>Zgornji pogojni stavek je malo nerodno zapisan. Ker se nam bo dostikrat zgodilo,
+da se ne bomo odločali le med dvema primeroma, temveč med večimi, nam Python omogoča
+splošnejše pogojne stavke oblike:</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">pogoj1</span><span class="p">:</span>
+    <span class="n">stavki_ki_jih_izvedemo</span>
+    <span class="n">ko_pogoj1_drzi</span>
+<span class="k">elif</span> <span class="n">pogoj2</span><span class="p">:</span>
+    <span class="n">stavki_ki_jih_izvedemo</span>
+    <span class="n">ko_pogoj1_ne_drzi</span>
+    <span class="n">ampak_drzi_pogoj2</span>
+<span class="k">elif</span> <span class="n">pogoj3</span><span class="p">:</span>
+    <span class="n">stavki_ki_jih_izvedemo</span>
+    <span class="n">ko_tudi_pogoj2_ne_drzi</span>
+    <span class="n">ampak_drzi_pogoj3</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">stavki_ki_jih_izvedemo</span>
+    <span class="n">ko_noben_od_pogojev_ne_drzi</span>
+</pre></div>
+</div>
+<p>Beseda <code class="docutils literal"><span class="pre">elif</span></code> je okrajšava za <code class="docutils literal"><span class="pre">else</span></code>-<code class="docutils literal"><span class="pre">if</span></code>. Zgornjo funkcijo bi tako lepše zapisali kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tudi ta funkcija ima še svoje težave, zato se je še ne naučite, vendar se bomo s
+tem ukvarjali malo kasneje. Zdaj pa je že čas, da si pogledamo še naš prvi pravi
+algoritem. Algoritem je zaporedje korakov, s katerimi dobimo iskani rezultat.
+Načeloma lahko pod besedo algoritem razumemo tudi zaporedje korakov, s katerimi
+si skuhamo jajca (vzemi posodo, odpri pipo, postavi posodo pod pipo, ko je
+posoda dovolj polna, …), ampak ponavadi si jo prihranimo za postopke, s katerimi
+izračunamo želene vrednosti.</p>
+<p>Za prvi algoritem se spodobi, da si pogledamo najstarejši znani algoritem in
+sicer Evklidov algoritem za iskanje navečjega skupnega delitelja dveh števil.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne največji skupni delitelj števil m in n.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">m</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Rekurzija in zanke</a><ul>
+<li><a class="reference internal" href="#rekurzija">Rekurzija</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/04-rekurzija.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Vnesi ime modula, razreda ali funkcije.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/04-rekurzija.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

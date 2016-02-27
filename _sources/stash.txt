@@ -1,141 +1,37 @@
-Rekurzija
-=========
+
+
+V telesu funkcij lahko pišemo poljubne stavke. Na primer, funkcijo, ki računa
+absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:
 
 .. testcode::
 
-    def fakulteta(n):
-        '''Vrne fakulteto naravnega števila n.'''
-        assert n >= 0
-        if n == 0:
-            return 1
+    def absolutna_vrednost(x):
+        '''Vrne absolutno vrednost števila x.'''
+        if x >= 0:
+            return x
         else:
-            return n * fakulteta(n - 1)
-
-
-.. testcode::
-
-    def gcd(m, n):
-        '''Vrne največji skupni delitelj števil m in n.'''
-        if n == 0:
-            return m
-        else:
-            return gcd(n, m % n)
-
-
-.. testcode::
-
-    def fibonacci(n):
-        if n == 0:
-            return 0
-        elif n == 1:
-            return 1
-        else:
-            return fibonacci(n - 1) + fibonacci(n - 2)
-
-
-.. testcode::
-
-    def splosni_fibonacci(n, a=0, b=1):
-        if n == 0:
-            return a
-        elif n == 1:
-            return b
-        else:
-            return splosni_fibonacci(n - 1, b, a + b)
+            return -x
 
 .. doctest::
 
-    >>> splosni_fibonacci(10)
-    55
+    >>> absolutna_vrednost(-5)
+    5
+    >>> absolutna_vrednost(3)
+    3
 
-Osnovni tipi
-------------
-
-Oglejmo si, s kakšnimi vrednostmi poleg naravnih števil lahko delamo v Pythonu. Vsaka vrednost v Pythonu ima določen *tip*. Osnovni tipi so:
-
-Tip celih števil ``int``
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Cela števila pišemo kot običajno, na njih pa imamo na voljo sledeče računske operacije: ``+`` za seštevanje, ``-`` za odštevanje, ``*`` za množenje, in ``**`` za potenciranje.
-
-
-
-Tip števil s plavajočo vejico ``float``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Tip kompleksnih števil ``complex``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Tip nizov ``str``
-~~~~~~~~~~~~~~~~~
-
-Tip logičnih vrednosti ``bool``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-NoneType
-
-
-
-
-
-.. index:: konzola, IDLE, PyCharm
-
-V zgornjih primerih vidimo dva tipa števil, ki jih pozna Python. Cela števila in števila s plavajočo vejico, ki služijo kot približek realnih števil in jih prepoznamo po piki. V računih lahko oba tipa števil tudi mešamo, vendar bo v tem primeru rezultat vedno število s plavajočo vejico.
-
-.. doctest::
-
-    >>> 1.0 + 2
-    3.0
-    >>> 8 / 3
-    2.6666666666666665
-
-
-
-
-
-Zanka ``while``
-===============
+Če veje ``else`` ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
+način bi lahko funkcijo ``absolutna_vrednost`` definirali tudi kot:
 
 .. testcode::
 
-    def stevke(stevilo):
-        return [int(stevka) for stevka in str(stevilo)]
+    def absolutna_vrednost(x):
+        '''Vrne absolutno vrednost števila x.'''
+        if x < 0:
+            x *= -1
+        return x
 
-    def ujemanje(oseba1, oseba2, geslo='LOVES'):
-        niz = (oseba1 + oseba2).upper()
-        stevila = [niz.count(znak) for znak in geslo]
-        while len(stevila) > 2:
-            nova_stevila = []
-            for i in range(len(stevila) - 1):
-                nova_stevila += stevke(stevila[i] + stevila[i + 1])
-            stevila = nova_stevila
-        return 10 * stevila[0] + stevila[1]
-
-.. doctest::
-
-    >>> ujemanje("Mojca Gaser", "Mitja Lorber")
-    99
-
-
-
-
-Neobvezni argumenti
--------------------
-
-Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost. Na primer, za izračun logaritma potrebujemo dve števili: osnovo in ???. Toda velikokrat za osnovo vzamemo :math:`10`, zato namesto :math:`\log_{10} x` pišemo kar :math:`\log x`. Tudi pri Pythonu je podobno.
-
-.. testcode::
-
-    def ocena_skoka(dolzina, slog_a, slog_b, slog_c, slog_d, slog_e,
-                    k_tocka=120, izravnava=0):
-        '''Vrne skupno oceno smučarskega skoka.'''
-        tocke_dolzina = 60 + 1.8 * (dolzina - k_tocka)
-        min_slog = min(slog_a, slog_b, slog_c, slog_d, slog_e)
-        max_slog = max(slog_a, slog_b, slog_c, slog_d, slog_e)
-        tocke_slog = (slog_a + slog_b + slog_c + slog_d + slog_e) - min_slog - max_slog
-        return tocke_dolzina + tocke_slog + izravnava
-
-
+Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
+ga vrnemo nespremenjenega.
 
 
 
@@ -196,3 +92,131 @@ Na primer, če bi poklicali
 bi bil ostanek pri deljenju z 1 v pogoju vedno enak 0, zato bi zanka tekla v
 neskončnost. Ko se naveličamo čakanja, lahko pritisnemo ``Ctrl-C`` in izvajanje
 prekinemo.
+
+
+Zanka ``for``
+-------------
+
+
+
+Osnovni tipi
+------------
+
+Oglejmo si, s kakšnimi vrednostmi poleg naravnih števil lahko delamo v Pythonu. Vsaka vrednost v Pythonu ima določen *tip*. Osnovni tipi so:
+
+Tip celih števil ``int``
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cela števila pišemo kot običajno, na njih pa imamo na voljo sledeče računske operacije: ``+`` za seštevanje, ``-`` za odštevanje, ``*`` za množenje, in ``**`` za potenciranje.
+
+
+
+Tip števil s plavajočo vejico ``float``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tip kompleksnih števil ``complex``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tip nizov ``str``
+~~~~~~~~~~~~~~~~~
+
+Tip logičnih vrednosti ``bool``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+NoneType
+
+.. index:: konzola, IDLE, PyCharm
+
+V zgornjih primerih vidimo dva tipa števil, ki jih pozna Python. Cela števila in števila s plavajočo vejico, ki služijo kot približek realnih števil in jih prepoznamo po piki. V računih lahko oba tipa števil tudi mešamo, vendar bo v tem primeru rezultat vedno število s plavajočo vejico.
+
+.. doctest::
+
+    >>> 1.0 + 2
+    3.0
+    >>> 8 / 3
+    2.6666666666666665
+
+
+
+
+
+Zanka ``while``
+===============
+
+.. testcode::
+
+    def stevke(stevilo):
+        return [int(stevka) for stevka in str(stevilo)]
+
+    def ujemanje(oseba1, oseba2, geslo='LOVES'):
+        niz = (oseba1 + oseba2).upper()
+        stevila = [niz.count(znak) for znak in geslo]
+        while len(stevila) > 2:
+            nova_stevila = []
+            for i in range(len(stevila) - 1):
+                nova_stevila += stevke(stevila[i] + stevila[i + 1])
+            stevila = nova_stevila
+        return 10 * stevila[0] + stevila[1]
+
+.. doctest::
+
+    >>> ujemanje("Mojca Gaser", "Mitja Lorber")
+    99
+
+
+
+    from rekurzija import fakulteta
+
+
+    def vsota_prvih(n):
+        if n == 0:
+            return 0
+        else:
+            return n + vsota_prvih(n - 1)
+
+
+    def binomski(n, k):
+        return fakulteta(n) // (fakulteta(n - k) * fakulteta(k))
+
+
+    def binomski_rek(n, k):
+        if k == 0 or k == n:
+            return 1
+        else:
+            return binomski_rek(n - 1, k) + binomski_rek(n - 1, k - 1)
+
+
+.. testcode::
+
+    def splosni_fibonacci(n, a=0, b=1):
+        if n == 0:
+            return a
+        elif n == 1:
+            return b
+        else:
+            return splosni_fibonacci(n - 1, b, a + b)
+
+.. doctest::
+
+    >>> splosni_fibonacci(10)
+    55
+
+
+
+
+Neobvezni argumenti
+-------------------
+
+Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost. Na primer, za izračun logaritma potrebujemo dve števili: osnovo in ???. Toda velikokrat za osnovo vzamemo :math:`10`, zato namesto :math:`\log_{10} x` pišemo kar :math:`\log x`. Tudi pri Pythonu je podobno.
+
+.. testcode::
+
+    def ocena_skoka(dolzina, slog_a, slog_b, slog_c, slog_d, slog_e,
+                    k_tocka=120, izravnava=0):
+        '''Vrne skupno oceno smučarskega skoka.'''
+        tocke_dolzina = 60 + 1.8 * (dolzina - k_tocka)
+        min_slog = min(slog_a, slog_b, slog_c, slog_d, slog_e)
+        max_slog = max(slog_a, slog_b, slog_c, slog_d, slog_e)
+        tocke_slog = (slog_a + slog_b + slog_c + slog_d + slog_e) - min_slog - max_slog
+        return tocke_dolzina + tocke_slog + izravnava
+
