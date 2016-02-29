@@ -199,20 +199,6 @@ prekinemo.</p>
 </div>
 </div>
 </div>
-<div class="section" id="neobvezni-argumenti">
-<h1>Neobvezni argumenti<a class="headerlink" href="#neobvezni-argumenti" title="Povezava na naslov">¶</a></h1>
-<p>Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost. Na primer, za izračun logaritma potrebujemo dve števili: osnovo in ???. Toda velikokrat za osnovo vzamemo <span class="math">\(10\)</span>, zato namesto <span class="math">\(\log_{10} x\)</span> pišemo kar <span class="math">\(\log x\)</span>. Tudi pri Pythonu je podobno.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">ocena_skoka</span><span class="p">(</span><span class="n">dolzina</span><span class="p">,</span> <span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">,</span>
-                <span class="n">k_tocka</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">izravnava</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Vrne skupno oceno smučarskega skoka.&#39;&#39;&#39;</span>
-    <span class="n">tocke_dolzina</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">+</span> <span class="mf">1.8</span> <span class="o">*</span> <span class="p">(</span><span class="n">dolzina</span> <span class="o">-</span> <span class="n">k_tocka</span><span class="p">)</span>
-    <span class="n">min_slog</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
-    <span class="n">max_slog</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">slog_a</span><span class="p">,</span> <span class="n">slog_b</span><span class="p">,</span> <span class="n">slog_c</span><span class="p">,</span> <span class="n">slog_d</span><span class="p">,</span> <span class="n">slog_e</span><span class="p">)</span>
-    <span class="n">tocke_slog</span> <span class="o">=</span> <span class="p">(</span><span class="n">slog_a</span> <span class="o">+</span> <span class="n">slog_b</span> <span class="o">+</span> <span class="n">slog_c</span> <span class="o">+</span> <span class="n">slog_d</span> <span class="o">+</span> <span class="n">slog_e</span><span class="p">)</span> <span class="o">-</span> <span class="n">min_slog</span> <span class="o">-</span> <span class="n">max_slog</span>
-    <span class="k">return</span> <span class="n">tocke_dolzina</span> <span class="o">+</span> <span class="n">tocke_slog</span> <span class="o">+</span> <span class="n">izravnava</span>
-</pre></div>
-</div>
-</div>
 
 
           </div>
@@ -235,7 +221,6 @@ prekinemo.</p>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#neobvezni-argumenti">Neobvezni argumenti</a></li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>

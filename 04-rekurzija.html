@@ -207,10 +207,56 @@ algoritem najde pravo rešitev.</p>
 <span class="go">3.14453125</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">bisekcija</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.00001</span><span class="p">)</span>
 <span class="go">3.141590118408203</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">bisekcija</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">15</span><span class="p">)</span>
-<span class="go">3.1415926535897936</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bisekcija</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">3.1415926536137704</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bisekcija</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="go">3.1415926536137704</span>
 </pre></div>
 </div>
+<p>V zadnjem klicu je <code class="docutils literal"><span class="pre">1e-10</span></code> krajši zapis za <span class="math">\(1 \cdot 10^{-10}\)</span>. V tem
+zapisu plavajočih števil ločeno zapišemo decimalke (čemur rečemo <em>mantisa</em>),
+nato pa še eksponent. Na primer <code class="docutils literal"><span class="pre">3.2445e2</span></code> je število <span class="math">\(324,45 = 3,2445 \cdot 10^2\)</span>)</p>
+</div>
+<div class="section" id="neobvezni-argumenti">
+<h2>Neobvezni argumenti<a class="headerlink" href="#neobvezni-argumenti" title="Povezava na naslov">¶</a></h2>
+<p>Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost.
+Na primer, za izračun logaritma potrebujemo dve števili: osnovo in argument
+(tudi logaritmand). Toda velikokrat za osnovo vzamemo <span class="math">\(10\)</span>, zato namesto
+<span class="math">\(\log_{10} x\)</span> pišemo kar <span class="math">\(\log x\)</span>. Tudi pri Pythonu je podobno. Če
+se nam ob klicu funkcije <code class="docutils literal"><span class="pre">bisekcija</span></code> ne da vedno znova navajati vrednosti
+argumenta <code class="docutils literal"><span class="pre">eps</span></code>, lahko pišemo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">bisekcija</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Z metodo bisekcije izračuna ničlo f na intervalu [a, b].&#39;&#39;&#39;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">c</span>
+    <span class="k">elif</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bisekcija</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bisekcija</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tedaj bo Python vsakič, ko bomo funkciji podali le tri argumente, za vrednost
+argumenta <code class="docutils literal"><span class="pre">eps</span></code> vzel <code class="docutils literal"><span class="pre">1e-10</span></code>. Če pa želimo vrednost vseeno določiti, pa jo
+lahko:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bisekcija</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+<span class="go">3.1415926536137704</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bisekcija</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">3.1415926536137704</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bisekcija</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="go">3.14453125</span>
+</pre></div>
+</div>
+<p>Klic deluje tudi, če neobveznih argumentov ne poimenujemo, vendar to vodi do
+zmede.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bisekcija</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="go">3.14453125</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="funkcije-visjega-reda">
+<h2>Funkcije višjega reda<a class="headerlink" href="#funkcije-visjega-reda" title="Povezava na naslov">¶</a></h2>
 <p>Zgoraj lahko opazimo, da nam Python dopušča, da za argumente funkcij ne podajamo
 le števil, temveč tudi druge funkcije. Pravimo, da podpira <em>funkcije višjega
 reda</em>. Če želimo, lahko za argumente podamo tudi funkcije, ki smo jih definirali
@@ -245,6 +291,8 @@ primer bi z njimi pisali kot:</p>
 <li><a class="reference internal" href="#rekurzivni-klici">Rekurzivni klici</a></li>
 <li><a class="reference internal" href="#evklidov-algoritem">Evklidov algoritem</a></li>
 <li><a class="reference internal" href="#iskanje-nicel-z-bisekcijo">Iskanje ničel z bisekcijo</a></li>
+<li><a class="reference internal" href="#neobvezni-argumenti">Neobvezni argumenti</a></li>
+<li><a class="reference internal" href="#funkcije-visjega-reda">Funkcije višjega reda</a></li>
 </ul>
 </li>
 </ul>

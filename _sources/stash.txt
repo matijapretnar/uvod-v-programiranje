@@ -204,19 +204,3 @@ Zanka ``while``
 
 
 
-Neobvezni argumenti
--------------------
-
-Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost. Na primer, za izračun logaritma potrebujemo dve števili: osnovo in ???. Toda velikokrat za osnovo vzamemo :math:`10`, zato namesto :math:`\log_{10} x` pišemo kar :math:`\log x`. Tudi pri Pythonu je podobno.
-
-.. testcode::
-
-    def ocena_skoka(dolzina, slog_a, slog_b, slog_c, slog_d, slog_e,
-                    k_tocka=120, izravnava=0):
-        '''Vrne skupno oceno smučarskega skoka.'''
-        tocke_dolzina = 60 + 1.8 * (dolzina - k_tocka)
-        min_slog = min(slog_a, slog_b, slog_c, slog_d, slog_e)
-        max_slog = max(slog_a, slog_b, slog_c, slog_d, slog_e)
-        tocke_slog = (slog_a + slog_b + slog_c + slog_d + slog_e) - min_slog - max_slog
-        return tocke_dolzina + tocke_slog + izravnava
-
