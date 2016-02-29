@@ -207,18 +207,29 @@ Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločim
 tri vrste napak:
 
 1. **Sintaktične napake**, v katerih program napišemo drugače, kot določajo
-   pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico:
+   pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico,
+   ali pa če narobe pišemo oklepaje:
 
 
    .. doctest::
 
       >>> max(2; 4)
+      Traceback (most recent call last):
         ...
           max(2; 4)
                ^
       SyntaxError: invalid syntax
 
-   Na take napake nas Python opozori še preden začne z izvajanjem programa,
+   .. doctest::
+
+      >>> max(2, 4))
+      Traceback (most recent call last):
+        ...
+          max(2, 4))
+                   ^
+      SyntaxError: invalid syntax
+
+   Na take napake nas Python opozori, še preden začne z izvajanjem programa,
    zato jih ne moremo zgrešiti.
 
 2. **Napake ob izvajanju**, v katerih program napišemo sintaktično pravilno,

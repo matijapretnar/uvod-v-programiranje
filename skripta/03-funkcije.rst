@@ -5,6 +5,7 @@ Ploščino trikotnika s stranicami :math:`a, b, c` lahko izračunamo po Heronovi
 formuli
 
 .. math::
+
     \sqrt{s (s - a) (s - b) (s - c)}
 
 kjer je :math:`s = (a + b + c) / 2`. Ploščino trikotnika s stranicami 4, 13 in 15
@@ -12,9 +13,11 @@ bi v Pythonu lahko torej izračunali s programom:
 
 .. testcode::
 
+    import math
+    
     a, b, c = 4, 13, 15
     s = (a + b + c) / 2
-    ploscina = (s * (s - a) * (s - b) * (s - c)) ** 0.5
+    ploscina = math.sqrt(s * (s - a) * (s - b) * (s - c))
 
 Tedaj je
 
@@ -30,13 +33,13 @@ Načeloma bi lahko pisali:
 
     a, b, c, d, e, f = 896, 1073, 1073, 990, 1073, 1073
     s_abc = (a + b + c) / 2
-    ploscina_abc = (s_abc * (s_abc - a) * (s_abc - b) * (s_abc - c)) ** 0.5
+    ploscina_abc = math.sqrt(s_abc * (s_abc - a) * (s_abc - b) * (s_abc - c))
     s_aef = (a + e + f) / 2
-    ploscina_aef = (s_aef * (s_aef - a) * (s_aef - e) * (s_aef - f)) ** 0.5
+    ploscina_aef = math.sqrt(s_aef * (s_aef - a) * (s_aef - e) * (s_aef - f))
     s_bdf = (b + d + f) / 2
-    ploscina_bdf = (s_bdf * (s_bdf - b) * (s_bdf - d) * (s_bdf - f)) ** 0.5
+    ploscina_bdf = math.sqrt(s_bdf * (s_bdf - b) * (s_bdf - d) * (s_bdf - f))
     s_cde = (c + d + e) / 2
-    ploscina_cde = (s_cde * (s_cde - c) * (s_cde - d) * (s_cde - e)) ** 0.5
+    ploscina_cde = math.sqrt(s_cde * (s_cde - c) * (s_cde - d) * (s_cde - e))
     povrsina = ploscina_abc + ploscina_aef + ploscina_bdf + ploscina_cde
 
 Kot vidimo, to ni najbolj pregledno. V taki kodi z veliko verjetnostjo naredimo
