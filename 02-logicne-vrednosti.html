@@ -230,6 +230,45 @@ pa jih popravimo na 120. Vrstni red izvajanja je seveda pomemben. Če bi pisali<
 </div>
 <p>bi osnovne točke vedno nastavili na 60.</p>
 </div>
+<div class="section" id="izrazi-stavki">
+<h2>Izrazi &amp; stavki<a class="headerlink" href="#izrazi-stavki" title="Povezava na naslov">¶</a></h2>
+<p>V Pythonovih programih ločimo med <em>izrazi</em> in <em>stavki</em>. Izrazi so vse, kar
+sestavimo iz funkcij in operacij ter uporabljamo kot argumente funkcij, desne
+strani prireditvenih izrazov ali pogoje v pogojnih stavkih. Stavki pa so osnovni
+gradniki Pythonovih programov in jih pišemo enega pod drugim. Zaenkrat smo
+videli tri vrste stavkov: prva so bili prireditveni stavki, drugi pogojni stavki
+(ki so potem spet sestavljeni iz gnezdenih stavkov), tretja in najmanj opazna pa
+so bili izrazi. Običajne izraze lahko prav tako pišemo v programe, vendar ne bodo
+imeli posebnega učinka. Če napišemo</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="mi">10</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>se bo vsota <code class="docutils literal"><span class="pre">10</span> <span class="pre">+</span> <span class="pre">10</span></code> res izračunala, vendar se ne bo nikamor shranila in
+Python bo na njo hitro pozabil. Kmalu pa bomo srečali tudi izraze, ki bodo imeli
+vpliv na nadaljnje izvajanje programov.</p>
+</div>
+<div class="section" id="pogojni-izraz">
+<h2>Pogojni izraz<a class="headerlink" href="#pogojni-izraz" title="Povezava na naslov">¶</a></h2>
+<p>O razliki med izrazi in stavki govorimo o tem, ker Python poleg pogojnih stavkov
+podpira tudi pogojne izraze, s katerimi nekatere stvari napišemo malo elegantneje.
+Na primer, zgornjo določitev osnovnih točk bi lahko pisali kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">osnovne_tocke</span> <span class="o">=</span> <span class="mi">120</span> <span class="k">if</span> <span class="n">k_tocka</span> <span class="o">&gt;=</span> <span class="mi">170</span> <span class="k">else</span> <span class="mi">60</span>
+</pre></div>
+</div>
+<p>Če bi na isti način želeli uporabiti pogojni stavek</p>
+<div class="code highlight-python"><div class="highlight"><pre>osnovne tocke = if k_tocka &gt;= 170:
+    120
+else:
+    60
+</pre></div>
+</div>
+<p>bi dobili sintaktično napako, saj smo na mestu izraza uporabili stavek. V
+pogojnih izrazih moramo vedno napisati obe možnosti in ne moremo uporabiti
+<code class="docutils literal"><span class="pre">elif</span></code>-a. So torej precej omejeni, ampak včasih znajo stvar narediti
+preglednejšo.</p>
+</div>
 </div>
 
 
@@ -245,6 +284,8 @@ pa jih popravimo na 120. Vrstni red izvajanja je seveda pomemben. Če bi pisali<
 <li><a class="reference internal" href="#primer-smucarski-skoki">Primer: smučarski skoki</a></li>
 <li><a class="reference internal" href="#razsirjeni-pogojni-stavek">Razširjeni pogojni stavek</a></li>
 <li><a class="reference internal" href="#manjkajoca-veja-else">Manjkajoča veja <code class="docutils literal"><span class="pre">else</span></code></a></li>
+<li><a class="reference internal" href="#izrazi-stavki">Izrazi &amp; stavki</a></li>
+<li><a class="reference internal" href="#pogojni-izraz">Pogojni izraz</a></li>
 </ul>
 </li>
 </ul>

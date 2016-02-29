@@ -61,13 +61,19 @@ bomo dobili iz <span class="math">\(1!\)</span>, tega pa iz <span class="math">\
 <span class="math">\(1\)</span>.</p>
 <p>Torej lahko funkcijo, ki računa fakulteto, napišemo tako, da najprej pogleda
 svoj argument <code class="docutils literal"><span class="pre">n</span></code>. Če je enak 1, vrne 1, sicer pa izračunamo tako, da <code class="docutils literal"><span class="pre">n</span></code>
-pomnožimo z rezultatom klica <code class="docutils literal"><span class="pre">fakulteta(n</span> <span class="pre">-</span> <span class="pre">1)</span></code>.</p>
+pomnožimo z rezultatom klica <code class="docutils literal"><span class="pre">fakulteta(n</span> <span class="pre">-</span> <span class="pre">1)</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Vrne fakulteto naravnega števila n.&#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ali s pogojnim izrazom kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne fakulteto naravnega števila n.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -155,6 +161,12 @@ Ta postopek enostavno prevedemo v Python:</p>
         <span class="k">return</span> <span class="n">m</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ali s pogojnim izrazom kot</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne največji skupni delitelj števil m in n.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Pri tem je <code class="docutils literal"><span class="pre">gcd</span></code> (<em>greatest common divisor</em>) običajna oznaka za največjega
@@ -270,12 +282,15 @@ sami:</p>
 </pre></div>
 </div>
 <p>Če se nam neke funkcije, ki bi jo uporabili samo v enem primeru (kot je ta zgoraj),
-ne da poimenovati, lahko uporabimo <em>anonimne</em> oziroma <em>lambda</em> funkcije. Zgornji
-primer bi z njimi pisali kot:</p>
+ne da poimenovati, lahko uporabimo <em>anonimne</em> oziroma <em>lambda</em> funkcije, v katerih
+za telo napišemo enostaven izraz. Zgornji primer bi z njimi pisali kot:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bisekcija</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.000001</span><span class="p">)</span>
 <span class="go">1.4142136573791504</span>
 </pre></div>
 </div>
+<p>Funkcij z zapletenejšim telesom in tistih, v katerih uporabljemo več stavkov,
+ne pišemo z lambdami. Tako ali tako je bolje, da zapletenejšim funkcijam damo
+ime, da se vidi, kaj počnejo.</p>
 </div>
 </div>
 

@@ -24,7 +24,7 @@ bomo dobili iz :math:`1!`, tega pa iz :math:`0!`, ki je po definiciji enak
 
 Torej lahko funkcijo, ki računa fakulteto, napišemo tako, da najprej pogleda
 svoj argument ``n``. Če je enak 1, vrne 1, sicer pa izračunamo tako, da ``n``
-pomnožimo z rezultatom klica ``fakulteta(n - 1)``.
+pomnožimo z rezultatom klica ``fakulteta(n - 1)``:
 
 .. testcode::
 
@@ -34,6 +34,14 @@ pomnožimo z rezultatom klica ``fakulteta(n - 1)``.
             return 1
         else:
             return n * fakulteta(n - 1)
+
+ali s pogojnim izrazom kot:
+
+.. testcode::
+
+    def fakulteta(n):
+        '''Vrne fakulteto naravnega števila n.'''
+        return 1 if n == 0 else n * fakulteta(n - 1)
 
 .. doctest::
 
@@ -132,6 +140,14 @@ Ta postopek enostavno prevedemo v Python:
             return m
         else:
             return gcd(n, m % n)
+
+ali s pogojnim izrazom kot
+
+.. testcode::
+
+    def gcd(m, n):
+        '''Vrne največji skupni delitelj števil m in n.'''
+        return m if n == 0 else gcd(n, m % n)
 
 Pri tem je ``gcd`` (*greatest common divisor*) običajna oznaka za največjega
 skupnega delitelja.
@@ -246,6 +262,7 @@ zmede.
     >>> bisekcija(math.sin, 2, 4, 0.01)
     3.14453125
 
+
 Funkcije višjega reda
 ---------------------
 
@@ -265,10 +282,14 @@ sami:
     1.4142136573791504
 
 Če se nam neke funkcije, ki bi jo uporabili samo v enem primeru (kot je ta zgoraj),
-ne da poimenovati, lahko uporabimo *anonimne* oziroma *lambda* funkcije. Zgornji
-primer bi z njimi pisali kot:
+ne da poimenovati, lahko uporabimo *anonimne* oziroma *lambda* funkcije, v katerih
+za telo napišemo enostaven izraz. Zgornji primer bi z njimi pisali kot:
 
 .. doctest::
 
     >>> bisekcija(lambda x: x ** 2 - 2, 1, 2, 0.000001)
     1.4142136573791504
+
+Funkcij z zapletenejšim telesom in tistih, v katerih uporabljemo več stavkov,
+ne pišemo z lambdami. Tako ali tako je bolje, da zapletenejšim funkcijam damo
+ime, da se vidi, kaj počnejo.
