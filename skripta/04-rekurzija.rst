@@ -193,8 +193,61 @@ V Pythonu bi algoritem zapisali kot:
     3.14453125
     >>> bisekcija(math.sin, 2, 4, 0.00001)
     3.141590118408203
-    >>> bisekcija(math.sin, 2, 4, 10 ** -15)
-    3.1415926535897936
+    >>> bisekcija(math.sin, 2, 4, 10 ** -10)
+    3.1415926536137704
+    >>> bisekcija(math.sin, 2, 4, 1e-10)
+    3.1415926536137704
+
+V zadnjem klicu je ``1e-10`` krajši zapis za :math:`1 \cdot 10^{-10}`. V tem
+zapisu plavajočih števil ločeno zapišemo decimalke (čemur rečemo *mantisa*),
+nato pa še eksponent. Na primer ``3.2445e2`` je število :math:`324,45 = 3,2445 \cdot 10^2`)
+
+Neobvezni argumenti
+-------------------
+
+Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost.
+Na primer, za izračun logaritma potrebujemo dve števili: osnovo in argument
+(tudi logaritmand). Toda velikokrat za osnovo vzamemo :math:`10`, zato namesto
+:math:`\log_{10} x` pišemo kar :math:`\log x`. Tudi pri Pythonu je podobno. Če
+se nam ob klicu funkcije ``bisekcija`` ne da vedno znova navajati vrednosti
+argumenta ``eps``, lahko pišemo:
+
+.. testcode::
+
+    def bisekcija(f, a, b, eps=1e-10):
+        '''Z metodo bisekcije izračuna ničlo f na intervalu [a, b].'''
+        c = (a + b) / 2
+        if b - a < eps:
+            return c
+        elif f(a) * f(c) < 0:
+            return bisekcija(f, a, c, eps)
+        else:
+            return bisekcija(f, c, b, eps)
+
+Tedaj bo Python vsakič, ko bomo funkciji podali le tri argumente, za vrednost
+argumenta ``eps`` vzel ``1e-10``. Če pa želimo vrednost vseeno določiti, pa jo
+lahko:
+
+.. doctest::
+
+    >>> import math
+    >>> bisekcija(math.sin, 2, 4, eps=1e-10)
+    3.1415926536137704
+    >>> bisekcija(math.sin, 2, 4)
+    3.1415926536137704
+    >>> bisekcija(math.sin, 2, 4, eps=0.01)
+    3.14453125
+
+Klic deluje tudi, če neobveznih argumentov ne poimenujemo, vendar to vodi do
+zmede.
+
+.. doctest::
+
+    >>> bisekcija(math.sin, 2, 4, 0.01)
+    3.14453125
+
+Funkcije višjega reda
+---------------------
 
 Zgoraj lahko opazimo, da nam Python dopušča, da za argumente funkcij ne podajamo
 le števil, temveč tudi druge funkcije. Pravimo, da podpira *funkcije višjega

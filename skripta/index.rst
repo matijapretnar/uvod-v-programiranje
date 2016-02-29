@@ -10,7 +10,6 @@ Python za matematike
     04-rekurzija
 
 ..
-    funkcije-visjega-reda
     05-razhroscevanje
     06-nizi
 
