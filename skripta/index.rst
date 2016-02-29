@@ -7,9 +7,9 @@ Python za matematike
     01-delo-s-pythonom
     02-logicne-vrednosti
     03-funkcije
+    04-rekurzija
 
 ..
-    04-rekurzija
     funkcije-visjega-reda
     05-razhroscevanje
     06-nizi
