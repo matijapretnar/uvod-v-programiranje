@@ -225,3 +225,50 @@ pa jih popravimo na 120. Vrstni red izvajanja je seveda pomemben. Če bi pisali
     osnovne_tocke = 60
 
 bi osnovne točke vedno nastavili na 60.
+
+Izrazi & stavki
+---------------
+
+V Pythonovih programih ločimo med *izrazi* in *stavki*. Izrazi so vse, kar
+sestavimo iz funkcij in operacij ter uporabljamo kot argumente funkcij, desne
+strani prireditvenih izrazov ali pogoje v pogojnih stavkih. Stavki pa so osnovni
+gradniki Pythonovih programov in jih pišemo enega pod drugim. Zaenkrat smo
+videli tri vrste stavkov: prva so bili prireditveni stavki, drugi pogojni stavki
+(ki so potem spet sestavljeni iz gnezdenih stavkov), tretja in najmanj opazna pa
+so bili izrazi. Običajne izraze lahko prav tako pišemo v programe, vendar ne bodo
+imeli posebnega učinka. Če napišemo
+
+.. testcode::
+
+    x = 10
+    10 + 10
+    y = 20
+
+se bo vsota ``10 + 10`` res izračunala, vendar se ne bo nikamor shranila in
+Python bo na njo hitro pozabil. Kmalu pa bomo srečali tudi izraze, ki bodo imeli
+vpliv na nadaljnje izvajanje programov.
+
+Pogojni izraz
+-------------
+
+O razliki med izrazi in stavki govorimo o tem, ker Python poleg pogojnih stavkov
+podpira tudi pogojne izraze, s katerimi nekatere stvari napišemo malo elegantneje.
+Na primer, zgornjo določitev osnovnih točk bi lahko pisali kot:
+
+.. testcode::
+
+    osnovne_tocke = 120 if k_tocka >= 170 else 60
+
+Če bi na isti način želeli uporabiti pogojni stavek
+
+.. code::
+
+    osnovne tocke = if k_tocka >= 170:
+        120
+    else:
+        60
+
+bi dobili sintaktično napako, saj smo na mestu izraza uporabili stavek. V
+pogojnih izrazih moramo vedno napisati obe možnosti in ne moremo uporabiti
+``elif``-a. So torej precej omejeni, ampak včasih znajo stvar narediti
+preglednejšo.
