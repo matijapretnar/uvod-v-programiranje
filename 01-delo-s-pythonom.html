@@ -216,15 +216,25 @@ za ostale operatorje obstajajo podobne bližnjice, na primer <code class="docuti
 tri vrste napak:</p>
 <ol class="arabic">
 <li><p class="first"><strong>Sintaktične napake</strong>, v katerih program napišemo drugače, kot določajo
-pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico:</p>
+pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico,
+ali pa če narobe pišemo oklepaje:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
-<span class="go">  ...</span>
-<span class="go">    max(2; 4)</span>
-<span class="go">         ^</span>
-<span class="go">SyntaxError: invalid syntax</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
+         <span class="o">^</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
 </pre></div>
 </div>
-<p>Na take napake nas Python opozori še preden začne z izvajanjem programa,
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+             <span class="o">^</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+</pre></div>
+</div>
+<p>Na take napake nas Python opozori, še preden začne z izvajanjem programa,
 zato jih ne moremo zgrešiti.</p>
 </li>
 <li><p class="first"><strong>Napake ob izvajanju</strong>, v katerih program napišemo sintaktično pravilno,
