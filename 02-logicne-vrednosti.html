@@ -265,8 +265,14 @@ else:
 </pre></div>
 </div>
 <p>bi dobili sintaktično napako, saj smo na mestu izraza uporabili stavek. V
-pogojnih izrazih moramo vedno napisati obe možnosti in ne moremo uporabiti
-<code class="docutils literal"><span class="pre">elif</span></code>-a. So torej precej omejeni, ampak včasih znajo stvar narediti
+pogojnih izrazih moramo vedno napisati obe možnosti, prav tako pa ne moremo
+uporabiti <code class="docutils literal"><span class="pre">elif</span></code>-a, zato spremenljivke <code class="docutils literal"><span class="pre">vrednost_metra</span></code> z njimi ne bi mogli
+nastaviti. No, načeloma bi jo lahko z</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">vrednost_metra</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="k">if</span> <span class="n">k_tocka</span> <span class="o">&gt;=</span> <span class="mi">170</span> <span class="k">else</span> <span class="mf">1.8</span> <span class="k">if</span> <span class="n">k_tocka</span> <span class="o">&gt;=</span> <span class="mi">100</span> <span class="k">else</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>samo to je preveč natlačeno, da bi bilo berljivo. Pogojni stavki so torej precej
+omejeni, ampak vseeno jih omenjamo, ker znajo včasih kakšno stvar narediti
 preglednejšo.</p>
 </div>
 </div>

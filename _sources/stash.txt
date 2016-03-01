@@ -186,21 +186,3 @@ Zanka ``while``
             return binomski_rek(n - 1, k) + binomski_rek(n - 1, k - 1)
 
 
-.. testcode::
-
-    def splosni_fibonacci(n, a=0, b=1):
-        if n == 0:
-            return a
-        elif n == 1:
-            return b
-        else:
-            return splosni_fibonacci(n - 1, b, a + b)
-
-.. doctest::
-
-    >>> splosni_fibonacci(10)
-    55
-
-
-
-
