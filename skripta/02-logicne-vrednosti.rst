@@ -269,6 +269,14 @@ Na primer, zgornjo določitev osnovnih točk bi lahko pisali kot:
         60
 
 bi dobili sintaktično napako, saj smo na mestu izraza uporabili stavek. V
-pogojnih izrazih moramo vedno napisati obe možnosti in ne moremo uporabiti
-``elif``-a. So torej precej omejeni, ampak včasih znajo stvar narediti
+pogojnih izrazih moramo vedno napisati obe možnosti, prav tako pa ne moremo
+uporabiti ``elif``-a, zato spremenljivke ``vrednost_metra`` z njimi ne bi mogli
+nastaviti. No, načeloma bi jo lahko z
+
+.. testcode::
+
+    vrednost_metra = 1.2 if k_tocka >= 170 else 1.8 if k_tocka >= 100 else 2
+
+samo to je preveč natlačeno, da bi bilo berljivo. Pogojni stavki so torej precej
+omejeni, ampak vseeno jih omenjamo, ker znajo včasih kakšno stvar narediti
 preglednejšo.
