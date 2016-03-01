@@ -251,6 +251,7 @@ rekurzivno.
 .. testcode::
 
     def fibonacci(n):
+        '''Vrne n-to Fibonaccijevo število.'''
         if n == 0:
             return 0
         elif n == 1:
@@ -286,6 +287,7 @@ ki se začne s členoma :math:`b` in :math:`a + b`. Tedaj lahko definiramo:
 .. testcode::
 
     def splosni_fibonacci(n, a, b):
+        '''Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.'''
         if n == 0:
             return a
         elif n == 1:
@@ -323,6 +325,7 @@ nekatere od njih v prvi vrstici definicije navedemo privzeto vrednost. Na primer
 .. testcode::
 
     def splosni_fibonacci(n, a=0, b=1):
+        '''Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.'''
         if n == 0:
             return a
         elif n == 1:
@@ -349,3 +352,65 @@ do zmede, zato se takih klicev izogibamo.
 
     >>> splosni_fibonacci(25, 1, -1)
     -28657
+
+
+Stavek ``assert``
+-----------------
+
+Tudi funkcija ``splosni_fibonacci`` še ni popolna. Kaj se zgodi, če pokličemo
+``splosni_fibonacci(-2)``? Ker -2 ni enako ne 0 ne 1, bomo izvedli tretjo
+vejo pogojnega stavka in izračunali ``splosni_fibonacci(-3, ...)``, iz tega
+pa podobno ``splosni_fibonacci(-4, ...)`` in tako naprej, vse do trenutka, ko
+se bo Python pritožil:
+
+.. doctest::
+
+    >>> splosni_fibonacci(-2)
+    Traceback (most recent call last):
+      ...
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 3, in splosni_fibonacci
+    RecursionError: maximum recursion depth exceeded in comparison
+
+Pravi nam, da je naša rekurzija šla pregloboko. O tem bomo še bolj natančno
+govorili, zaenkrat pa naj nam tako opozorilo pove, da smo program napisali tako,
+da se ne bo ustavil. Da podobne situacije preprečimo, lahko uporabimo stavek
+``assert``, v katerem napišemo pogoj, ki mu mora program zadoščati. Če mu ne,
+Python javi napako.
+
+.. testcode::
+
+    def splosni_fibonacci(n, a=0, b=1):
+        '''Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.'''
+        assert n >= 0
+        if n == 0:
+            return a
+        elif n == 1:
+            return b
+        else:
+            return splosni_fibonacci(n - 1, b, a + b)
+
+.. doctest::
+
+    >>> splosni_fibonacci(-2)
+    Traceback (most recent call last):
+      ...
+    AssertionError
+
+Še vedno dobimo napako, vendar je ta bolj obvladljiva, pa še takoj se pojavi.
+Stavke ``assert`` uporabljamo, kadar v nadaljevanju programa pričakujemo, da
+je nekim pogojem zadoščeno. Namesto ``assert pogoj`` bi seveda lahko pisali tudi
+nekaj v stilu:
+
+.. code::
+
+    if not pogoj:
+        ustavi_program_in
+        javi_napako
+
+ampak ker je to pogosto koristno, so v ta namen uvedli ``assert``.
