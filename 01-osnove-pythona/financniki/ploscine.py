@@ -8,10 +8,10 @@ def ploscina_trikotnika(a, b, c):
 def povrsina_tetraedra(a, b, c, d, e, f):
     '''Izračuna površino tetraedra z danimi stranicami.'''
     povrsina = 0
-    povrsina = povrsina + ploscina_trikotnika(a, b, c)
-    povrsina = povrsina + ploscina_trikotnika(a, e, f)
-    povrsina = povrsina + ploscina_trikotnika(b, d, f)
-    povrsina = povrsina + ploscina_trikotnika(c, d, e)
+    povrsina += ploscina_trikotnika(a, b, c)
+    povrsina += ploscina_trikotnika(a, e, f)
+    povrsina += ploscina_trikotnika(b, d, f)
+    povrsina = ploscina_trikotnika(c, d, e)
     return povrsina
 
 
