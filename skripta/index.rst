@@ -8,13 +8,12 @@ Python za matematike
     02-logicne-vrednosti
     03-funkcije
     04-algoritmi
+    05-zanke
+    06-nizi
+    07-tipi
 
 ..
     05-razhroscevanje
-    06-nizi
-
-    07-zanka-while
-    08-zanka-for
 
     09-zelva
 
