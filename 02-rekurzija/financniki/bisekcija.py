@@ -6,6 +6,9 @@ def bisekcija(f, a, b, eps=1e-10):
     elif f(c) == 0:
         return c
     elif f(a) * f(c) < 0:
-        return bisekcija(f, a, c)
+        return bisekcija(f, a, c, eps=eps)
     else:
-        return bisekcija(f, c, b)
+        return bisekcija(f, c, b, eps=eps)
+
+import math
+bisekcija(math.cos, 0, 2, eps=1e-3)
