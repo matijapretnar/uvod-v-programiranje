@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Zanke &mdash; Python za matematike 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
+    <link rel="next" title="Nizi" href="06-nizi.html" />
+    <link rel="prev" title="Algoritmi" href="04-algoritmi.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="zanke">
+<h1>Zanke<a class="headerlink" href="#zanke" title="Povezava na naslov">¶</a></h1>
+<p>Z rekurzijo dosežemo, da nek del kode izvedemo večkrat.</p>
+<div class="section" id="zanka-while">
+<h2>Zanka <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#zanka-while" title="Povezava na naslov">¶</a></h2>
+<p>Z zanko <code class="docutils literal"><span class="pre">while</span></code> določene ukaze izvajamo toliko časa, dokler velja dani pogoj.</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="n">pogoj</span><span class="p">:</span>
+    <span class="n">stavki</span>
+    <span class="n">ki_naj_se_izvajajo</span>
+    <span class="n">dokler_velja_pogoj</span>
+</pre></div>
+</div>
+<p>Izračunajmo stopnjo največje potence števila 2, ki še deli število 1580160. To
+storimo tako, da število zaporedoma celoštevilsko delimo z 2 in ob vsakem
+deljenju števec stopnje povečamo za 1. Ukaze ponavljamo toliko časa, dokler je
+ostanek pri deljenju z 2 enak 0:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">n</span> <span class="o">=</span> <span class="mi">1580160</span>
+<span class="n">stopnja</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">//=</span> <span class="mi">2</span>
+    <span class="n">stopnja</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Ko se izvajanje zaključi, lahko preverimo, da velja</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja</span>
+<span class="go">7</span>
+</pre></div>
+</div>
+<p>Zgornji program lahko pretvorimo v splošnejšo funkcijo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stopnja_najvecje_potence</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne stopnjo največje potence števila k, ki še deli n.&#39;&#39;&#39;</span>
+    <span class="n">stopnja</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">//=</span> <span class="n">k</span>
+        <span class="n">stopnja</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">stopnja</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">1580160</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>Isto funkcijo bi lahko napisali tudi z rekurzijo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stopnja_najvecje_potence_rek</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne stopnjo največje potence števila k, ki še deli n.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">stopnja_najvecje_potence_rek</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence_rek</span><span class="p">(</span><span class="mi">1580160</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence_rek</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>V praksi pa za tiste programe, pri katerih neko stvar ponavljamo toliko časa,
+dokler velja določen pogoj, raje uporabimo zanko <code class="docutils literal"><span class="pre">while</span></code>, saj je učinkovitejša
+(vsaj v Pythonu, v drugih jezikih je rekurzija ravno tako učinkovita). Od funkcij,
+ki smo jih že videli, bi z zanko <code class="docutils literal"><span class="pre">while</span></code> lahko napisali Evklidov algoritem in
+bisekcijo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne največji skupni delitelj števil m in n.&#39;&#39;&#39;</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="k">def</span> <span class="nf">bisekcija</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Z metodo bisekcije izračuna ničlo f na intervalu [a, b].&#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">eps</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">c</span>
+    <span class="k">return</span> <span class="n">c</span>
+</pre></div>
+</div>
+<p>Kot smo videli, se Python pritoži, če gremo pri rekurziji pregloboko. Običajno
+se to zgodi takrat, kadar smo rekurzijo napisali tako, da se ne ustavi. Vendar
+računalnik tega ne more vedeti, zato se Python ustavi takrat, ko naredimo
+približno 1000 rekurzivnih klicev:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence_rek</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">985</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">985</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence_rek</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">986</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">4</span>, in <span class="n">stopnja_najvecje_potence_rek</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">4</span>, in <span class="n">stopnja_najvecje_potence_rek</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">4</span>, in <span class="n">stopnja_najvecje_potence_rek</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">4</span>, in <span class="n">stopnja_najvecje_potence_rek</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">4</span>, in <span class="n">stopnja_najvecje_potence_rek</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">3</span>, in <span class="n">stopnja_najvecje_potence_rek</span>
+<span class="gr">RecursionError</span>: <span class="n">maximum recursion depth exceeded in comparison</span>
+</pre></div>
+</div>
+<p>Pri zankah teh težav ni:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">985</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">985</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">986</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">986</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">10000</span>
+</pre></div>
+</div>
+<p>Seveda tudi pri zanki <code class="docutils literal"><span class="pre">while</span></code> obstaja nevarnost, da se njeno izvajanje nikoli
+ne zaključi. Na primer, če bi poklicali</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">12345</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>bi bil ostanek pri deljenju z 1 v pogoju vedno enak 0, zato bi zanka tekla v
+neskončnost. Ko se naveličamo čakanja, lahko pritisnemo <code class="docutils literal"><span class="pre">Ctrl-C</span></code> in izvajanje
+prekinemo.</p>
+</div>
+<div class="section" id="zanka-for">
+<h2>Zanka <code class="docutils literal"><span class="pre">for</span></code><a class="headerlink" href="#zanka-for" title="Povezava na naslov">¶</a></h2>
+<p>Zanko <code class="docutils literal"><span class="pre">while</span></code> torej uporabimo takrat, kadar želimo ukaze ponavljati, dokler
+velja nek pogoj. Včasih pa že vnaprej vemo, kolikokrat bomo te ukaze ponovili.
+Na primer, funkcijo za izračun fakultete bi lahko pisali kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne fakulteto naravnega števila n.&#39;&#39;&#39;</span>
+    <span class="n">produkt</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">produkt</span> <span class="o">*=</span> <span class="n">i</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">produkt</span>
+</pre></div>
+</div>
+<p>vendar vemo, da se bo zanka izvedla natanko enkrat za vsako število od n do 0.
+Poleg tega se nam hitro zgodi, da vrstico <code class="docutils literal"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">1</span></code> po nesreči pozabimo ali
+napišemo kot <code class="docutils literal"><span class="pre">i</span> <span class="pre">+</span> <span class="pre">1</span></code> ali kot <code class="docutils literal"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">1</span></code>, zaradi česar se zanka izvaja v
+neskončnost. Za primere, ko vemo, kolikokrat izvedemo določeno kodo, raje
+uporabimo zanko <code class="docutils literal"><span class="pre">for</span></code>.</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">spremenljivka</span> <span class="ow">in</span> <span class="n">mozne_vrednosti</span><span class="p">:</span>
+    <span class="n">stavki_ki_se_izvedejo</span>
+    <span class="n">po_enkrat_za_vsako</span>
+    <span class="n">mozno_vrednost_spremenljivke</span>
+</pre></div>
+</div>
+<p>Na primer, fakulteto&nbsp;števila 10 bi lahko izračunali kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fakulteta10</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fakulteta10</span>
+<span class="go">3628800</span>
+</pre></div>
+</div>
+<p>V zanki <code class="docutils literal"><span class="pre">for</span></code> smo uporabili funkcijo <code class="docutils literal"><span class="pre">range</span></code>, ki vrne vsa cela števila v
+razponu od vključno prvega do tistega pred drugim (zakaj zadnjega ne šteje, bomo
+še videli). . V naši zanki <code class="docutils literal"><span class="pre">for</span></code> se spremenljivka <code class="docutils literal"><span class="pre">i</span></code> torej sprehodi po vseh
+vrednostih od <code class="docutils literal"><span class="pre">1</span></code> do <code class="docutils literal"><span class="pre">10</span></code>. Koda se obnaša tako, kot če bi pisali:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fakulteta10</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">fakulteta10</span> <span class="o">*=</span> <span class="n">i</span>
+</pre></div>
+</div>
+<p>Funkcijo <code class="docutils literal"><span class="pre">fakulteta</span></code> pa bi napisali kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne fakulteto naravnega števila n.&#39;&#39;&#39;</span>
+    <span class="n">produkt</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">produkt</span> <span class="o">*=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">produkt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stavki-break-continue-in-pass">
+<h2>Stavki <code class="docutils literal"><span class="pre">break</span></code>, <code class="docutils literal"><span class="pre">continue</span></code> in <code class="docutils literal"><span class="pre">pass</span></code><a class="headerlink" href="#stavki-break-continue-in-pass" title="Povezava na naslov">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Zanke</a><ul>
+<li><a class="reference internal" href="#zanka-while">Zanka <code class="docutils literal"><span class="pre">while</span></code></a></li>
+<li><a class="reference internal" href="#zanka-for">Zanka <code class="docutils literal"><span class="pre">for</span></code></a></li>
+<li><a class="reference internal" href="#stavki-break-continue-in-pass">Stavki <code class="docutils literal"><span class="pre">break</span></code>, <code class="docutils literal"><span class="pre">continue</span></code> in <code class="docutils literal"><span class="pre">pass</span></code></a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="04-algoritmi.html" title="prejšnje poglavje">Algoritmi</a></li>
+      <li>Next: <a href="06-nizi.html" title="naslednje poglavje">Nizi</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/05-zanke.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Vnesi ime modula, razreda ali funkcije.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/05-zanke.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

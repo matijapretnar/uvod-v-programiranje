@@ -67,82 +67,6 @@ način bi lahko funkcijo <code class="docutils literal"><span class="pre">absolu
 ga vrnemo nespremenjenega.</p>
 <div class="section" id="zanka-while">
 <h1>Zanka <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#zanka-while" title="Povezava na naslov">¶</a></h1>
-<p>Še zadnja ključna stvar, ki jo potrebujemo za programiranje (vse ostale nam
-programiranje le olajšajo), je zanka <code class="docutils literal"><span class="pre">while</span></code>. Ta zanka določene ukaze izvaja
-toliko časa, dokler velja dani pogoj. Začnemo jo pisati s ključno besedo
-<code class="docutils literal"><span class="pre">while</span></code>, ki ji sledi pogoj, ki mora veljati, temu pa dvopičje in zamaknjeni
-stavki, ki naj se izvajajo. Izračunajmo stopnjo največje potence števila 2, ki
-še deli število 1580160. To storimo tako, da število zaporedoma celoštevilsko
-delimo z 2 in ob vsakem deljenju števec stopnje povečamo za 1. Ukaze ponavljamo
-toliko časa, dokler je ostanek pri deljenju z 2 enak 0:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">n</span> <span class="o">=</span> <span class="mi">1580160</span>
-<span class="n">stopnja</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">n</span> <span class="o">//=</span> <span class="mi">2</span>
-    <span class="n">stopnja</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<p>Ko se izvajanje zaključi, lahko preverimo, da velja</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja</span>
-<span class="go">7</span>
-</pre></div>
-</div>
-<p>Zgornji program lahko pretvorimo v splošnejšo funkcijo:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stopnja_najvecje_potence</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Vrne stopnjo največje potence števila k, ki še deli n.&#39;&#39;&#39;</span>
-    <span class="n">stopnja</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">//=</span> <span class="n">k</span>
-        <span class="n">stopnja</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">stopnja</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">1580160</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">7</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="go">4</span>
-</pre></div>
-</div>
-<p>Pri zanki <code class="docutils literal"><span class="pre">while</span></code> obstaja nevarnost, da se njeno izvajanje nikoli ne zaključi.
-Na primer, če bi poklicali</p>
-<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stopnja_najvecje_potence</span><span class="p">(</span><span class="mi">12345</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>bi bil ostanek pri deljenju z 1 v pogoju vedno enak 0, zato bi zanka tekla v
-neskončnost. Ko se naveličamo čakanja, lahko pritisnemo <code class="docutils literal"><span class="pre">Ctrl-C</span></code> in izvajanje
-prekinemo.</p>
-</div>
-<div class="section" id="zanka-for">
-<h1>Zanka <code class="docutils literal"><span class="pre">for</span></code><a class="headerlink" href="#zanka-for" title="Povezava na naslov">¶</a></h1>
-</div>
-<div class="section" id="osnovni-tipi">
-<h1>Osnovni tipi<a class="headerlink" href="#osnovni-tipi" title="Povezava na naslov">¶</a></h1>
-<p>Oglejmo si, s kakšnimi vrednostmi poleg naravnih števil lahko delamo v Pythonu. Vsaka vrednost v Pythonu ima določen <em>tip</em>. Osnovni tipi so:</p>
-<div class="section" id="tip-celih-stevil-int">
-<h2>Tip celih števil <code class="docutils literal"><span class="pre">int</span></code><a class="headerlink" href="#tip-celih-stevil-int" title="Povezava na naslov">¶</a></h2>
-<p>Cela števila pišemo kot običajno, na njih pa imamo na voljo sledeče računske operacije: <code class="docutils literal"><span class="pre">+</span></code> za seštevanje, <code class="docutils literal"><span class="pre">-</span></code> za odštevanje, <code class="docutils literal"><span class="pre">*</span></code> za množenje, in <code class="docutils literal"><span class="pre">**</span></code> za potenciranje.</p>
-</div>
-<div class="section" id="tip-stevil-s-plavajoco-vejico-float">
-<h2>Tip števil s plavajočo vejico <code class="docutils literal"><span class="pre">float</span></code><a class="headerlink" href="#tip-stevil-s-plavajoco-vejico-float" title="Povezava na naslov">¶</a></h2>
-</div>
-<div class="section" id="tip-kompleksnih-stevil-complex">
-<h2>Tip kompleksnih števil <code class="docutils literal"><span class="pre">complex</span></code><a class="headerlink" href="#tip-kompleksnih-stevil-complex" title="Povezava na naslov">¶</a></h2>
-</div>
-<div class="section" id="tip-nizov-str">
-<h2>Tip nizov <code class="docutils literal"><span class="pre">str</span></code><a class="headerlink" href="#tip-nizov-str" title="Povezava na naslov">¶</a></h2>
-</div>
-<div class="section" id="tip-logicnih-vrednosti-bool">
-<h2>Tip logičnih vrednosti <code class="docutils literal"><span class="pre">bool</span></code><a class="headerlink" href="#tip-logicnih-vrednosti-bool" title="Povezava na naslov">¶</a></h2>
-<p>NoneType</p>
-<p id="index-0">V zgornjih primerih vidimo dva tipa števil, ki jih pozna Python. Cela števila in števila s plavajočo vejico, ki služijo kot približek realnih števil in jih prepoznamo po piki. V računih lahko oba tipa števil tudi mešamo, vendar bo v tem primeru rezultat vedno število s plavajočo vejico.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">1.0</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="go">3.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">8</span> <span class="o">/</span> <span class="mi">3</span>
-<span class="go">2.6666666666666665</span>
-</pre></div>
-</div>
-<div class="section" id="id1">
-<h3>Zanka <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#id1" title="Povezava na naslov">¶</a></h3>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stevke</span><span class="p">(</span><span class="n">stevilo</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">stevka</span><span class="p">)</span> <span class="k">for</span> <span class="n">stevka</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">stevilo</span><span class="p">)]</span>
 
@@ -159,31 +83,7 @@ prekinemo.</p>
 </div>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ujemanje</span><span class="p">(</span><span class="s">&quot;Mojca Gaser&quot;</span><span class="p">,</span> <span class="s">&quot;Mitja Lorber&quot;</span><span class="p">)</span>
 <span class="go">99</span>
-
-
-
-<span class="go">from rekurzija import fakulteta</span>
-
-
-<span class="go">def vsota_prvih(n):</span>
-<span class="go">    if n == 0:</span>
-<span class="go">        return 0</span>
-<span class="go">    else:</span>
-<span class="go">        return n + vsota_prvih(n - 1)</span>
-
-
-<span class="go">def binomski(n, k):</span>
-<span class="go">    return fakulteta(n) // (fakulteta(n - k) * fakulteta(k))</span>
-
-
-<span class="go">def binomski_rek(n, k):</span>
-<span class="go">    if k == 0 or k == n:</span>
-<span class="go">        return 1</span>
-<span class="go">    else:</span>
-<span class="go">        return binomski_rek(n - 1, k) + binomski_rek(n - 1, k - 1)</span>
 </pre></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -192,24 +92,7 @@ prekinemo.</p>
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Seznam Vsebine</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Zanka <code class="docutils literal"><span class="pre">while</span></code></a></li>
-<li><a class="reference internal" href="#zanka-for">Zanka <code class="docutils literal"><span class="pre">for</span></code></a></li>
-<li><a class="reference internal" href="#osnovni-tipi">Osnovni tipi</a><ul>
-<li><a class="reference internal" href="#tip-celih-stevil-int">Tip celih števil <code class="docutils literal"><span class="pre">int</span></code></a></li>
-<li><a class="reference internal" href="#tip-stevil-s-plavajoco-vejico-float">Tip števil s plavajočo vejico <code class="docutils literal"><span class="pre">float</span></code></a></li>
-<li><a class="reference internal" href="#tip-kompleksnih-stevil-complex">Tip kompleksnih števil <code class="docutils literal"><span class="pre">complex</span></code></a></li>
-<li><a class="reference internal" href="#tip-nizov-str">Tip nizov <code class="docutils literal"><span class="pre">str</span></code></a></li>
-<li><a class="reference internal" href="#tip-logicnih-vrednosti-bool">Tip logičnih vrednosti <code class="docutils literal"><span class="pre">bool</span></code></a><ul>
-<li><a class="reference internal" href="#id1">Zanka <code class="docutils literal"><span class="pre">while</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<div class="relations">
+        <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
