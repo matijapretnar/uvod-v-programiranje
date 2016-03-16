@@ -116,12 +116,13 @@ delom pišemo brez presledka:</p>
 <span class="go">(2+0j)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">0j</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
 <span class="go">(6.123233995736766e-17+1j)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mf">2.718281828459045</span> <span class="o">**</span> <span class="mf">3.141592653589793j</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">e</span> <span class="o">**</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1j</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="go">1.2246467991473532e-16j</span>
 </pre></div>
 </div>
 <p>V zadnjih dveh primerih vidimo, da tudi pri kompleksnih številih prihaja do
-zaokrožitvenih napak (prva vrednost bi morala biti <code class="docutils literal"><span class="pre">1j</span></code>, druga pa <code class="docutils literal"><span class="pre">1+0j</span></code>),
+zaokrožitvenih napak (prva vrednost bi morala biti <code class="docutils literal"><span class="pre">1j</span></code>, druga pa <code class="docutils literal"><span class="pre">0+0j</span></code>),
 saj Python kompleksna števila predstavi s parom števil s plavajočo vejico. Tako
 kot pri tipu <code class="docutils literal"><span class="pre">float</span></code> tudi pri kompleksnih številih Python vse ostale vrednosti
 v računu, v katerem se pojavi kakšno kompleksno število, pretvori v tip
