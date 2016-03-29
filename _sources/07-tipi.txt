@@ -223,8 +223,6 @@ Evklidov algoritem bi lahko zato, če bi želeli, pisali tudi kot:
             return m
 
 
-
-
 Tip tipov ``type``
 ------------------
 
