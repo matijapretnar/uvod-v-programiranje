@@ -11,16 +11,13 @@ Python za matematike
     05-zanke
     06-nizi
     07-tipi
+    08-zelva
+    09-seznami-in-nabori
 
 ..
-    05-razhroscevanje
-
-    09-zelva
-
-    seznami
-
-    casovna-zahtevnost
-    iskanje
+    10-iskanje
+    11-metode
+    11-casovna-zahtevnost
 
     urejanje
 
