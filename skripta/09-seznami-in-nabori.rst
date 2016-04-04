@@ -97,6 +97,97 @@ Indeksiranje in rezine na seznamih delujejo tako kot na nizih:
     >>> mat[1][-1]
     2
 
+
+.. testcode::
+
+    def sled(matrika):
+        '''Izračuna sled dane matrike.'''
+        vsota_diagonalnih = 0
+        for k in range(len(matrika)):
+            vsota_diagonalnih += matrika[k][k]
+        return vsota_diagonalnih
+
+
+.. doctest::
+
+    >>> sled(mat)
+    5
+    
+
+
+Zanka ``for`` na seznamih
+-------------------------
+
+Po vseh elementih danega seznama se lahko sprehodimo z zanko ``for``:
+
+.. testcode::
+
+    def vsota_elementov(seznam):
+        '''Vrne vsoto elementov v danem seznamu.'''
+        vsota = 0
+        for trenutni in seznam:
+            vsota += trenutni
+        return vsota
+
+    def najvecji_element(seznam):
+        '''Vrne največji element v danem seznamu. Če ga ni, vrne None'''
+        if len(seznam) == 0:
+            return
+        najvecji_do_zdaj = seznam[0]
+        for trenutni in seznam:
+            if trenutni > najvecji_do_zdaj:
+                najvecji_do_zdaj = trenutni
+        return najvecji_do_zdaj
+
+.. doctest::
+
+    >>> vsota_elementov([10, 2, 4000, 300])
+    4312
+    >>> najvecji_element([10, 2, 4000, 300])
+    4000
+
+Seveda lahko uporabimo tudi vgrajene funkcije:
+
+.. doctest::
+
+    >>> sum([10, 2, 4000, 300])
+    4312
+    >>> min([10, 2, 4000, 300])
+    2
+    >>> max([10, 2, 4000, 300])
+    4000
+
+
+
+Izpeljani seznami
+-----------------
+
+Python omogoča, da sezname tvorimo na enostaven način z **izpeljanimi seznami**,
+ki so oblike ``[izraz for spremenljivka in mozne_vrednosti]``, podobno kot v
+matematiki množice pišemo kot :math:`\{ 2 \cdot n \mid n \in \{1, \dots, 9\}\}`:
+
+.. doctest::
+
+    >>> [2 * n for n in range(1, 10)]
+    [2, 4, 6, 8, 10, 12, 14, 16, 18]
+    >>> potence = [2 ** n for n in range(10)]
+    >>> potence
+    [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+    >>> [n - 1 for n in potence]
+    [0, 1, 3, 7, 15, 31, 63, 127, 255, 511]
+    >>> [int(stevka) for stevka in str(3141592)]
+    [3, 1, 4, 1, 5, 9, 2]
+    
+Če želimo, lahko v izpeljani seznamih oblike
+    ``[izraz for spremenljivka in mozne_vrednosti if pogoj]``
+s pogojem določimo, katere elemente želimo:
+
+.. doctest::
+
+    >>> [2 * n for n in range(1, 10) if n % 3 == 1]
+    [2, 8, 14]
+
+
 Spreminanje in brisanje elementov
 ---------------------------------
 
@@ -130,47 +221,68 @@ Za razliko od nizov lahko vrednosti v seznamih tudi spreminjamo:
     >>> sez
     [5, 0, 1, 500]
 
+Pri spreminjanju seznamov je treba biti previden, saj ne deluje tako, kot
+smo navajeni pri spreminjanju vrednosti spremenljivk. Na primer, pišimo
 
-Zanka ``for`` na nizih
-----------------------
 
-Po vseh elementih danega seznama se lahko sprehodimo z zanko ``for``:
+.. doctest::
+
+    >>> a = 5
+    >>> b = a
+    >>> a = 0
+    >>> b
+    5
+
+Vidimo, da se vrednost spremenljivke ``b`` ni spremenila, saj smo jo v drugi
+vrstici nastavili na število 5. Pri seznamih je stvar malo drugačna. Če pišemo
+
+.. doctest::
+
+    >>> a = [1, 2, 3]
+    >>> b = a
+    >>> a = []
+    >>> b
+    [1, 2, 3]
+
+so stvari še vedno take, kot bi jih pričakovali. Vrednost ``b`` smo nastavili
+na isti seznam kot ``a``, vendar smo potem rekli, da naj bo v ``a`` shranjen
+drugačen seznam, s čimer na vrednost v ``b`` nismo vplivali. Če pa pišemo
+
+.. doctest::
+
+    >>> a = [1, 2, 3]
+    >>> b = a
+    >>> a[1] = 20
+    >>> b
+    [1, 20, 3]
+
+se je s tem, ko smo spremenili ``a``, spremenil tudi ``b``. Kaj se je zgodilo?
+Ko smo napisali ``b = a``, smo povedali, naj bo v ``b`` shranjen isti seznam
+kot ``a``. In z ``a[1] = 20`` smo povedali, naj se na mesto ``1`` v seznamu,
+shranjenem v ``a``, zapiše 20. Ker je v ``b`` shranjen isti (ne le enak) seznam
+kot v ``a``, je s tem tudi seznam v ``b`` drugačen.
+
 
 .. testcode::
 
-    def vsota_elementov(sez):
-        '''Vrne vsoto elementov v danem seznamu.'''
-        vsota = 0
-        for x in sez:
-            vsota += x
-        return vsota
+    def nicelna_matrika(n):
+        '''Vrne ničelno matriko velikosti n x n.'''
+        # razmislite, zakaj n * [n * [0]] ni dobra rešitev
+        return [n * [0] for _ in range(n)]
 
-    def najvecji_element(sez):
-        '''Vrne največji element v danem seznamu. Če ga ni, vrne None'''
-        if len(sez) == 0:
-            return
-        najvecji = sez[0]
-        for x in sez:
-            najvecji = max(x, najvecji)
-        return najvecji
+
+    def identicna_matrika(n):
+        '''Vrne identično matriko velikosti n x n.'''
+        matrika = nicelna_matrika(n)
+        for k in range(len(matrika)):
+            matrika[k][k] = 1
+        return matrika
+
 
 .. doctest::
 
-    >>> vsota_elementov([10, 2, 4000, 300])
-    4312
-    >>> najvecji_element([10, 2, 4000, 300])
-    4000
-
-Seveda lahko uporabimo tudi vgrajene funkcije:
-
-.. doctest::
-
-    >>> sum([10, 2, 4000, 300])
-    4312
-    >>> min([10, 2, 4000, 300])
-    2
-    >>> max([10, 2, 4000, 300])
-    4000
+    >>> identicna_matrika(3)
+    [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
 
 
 Metode na seznamih
@@ -182,13 +294,11 @@ Metode na seznamih
 * ``sez.extend(sez2)``
     Na konec seznama ``sez`` dodaj vse elemente iz seznama ``sez2``.
 
-
 * ``sez.insert(i, x)``
     Pred element na mestu ``i`` v seznamu ``sez`` vstavi element ``x``.
 
 * ``sez.remove(x)``
     Iz seznama ``sez`` odstrani prvo pojavitev vrednosti ``x``.
-
 
 * ``sez.pop(i=-1)``
     Vrni element na mestu ``i`` v seznamu ``sez`` in odstrani ta element iz seznama.
@@ -234,6 +344,32 @@ Metode na seznamih
     1234.5
     >>> sez
     [-1, 1, 66.25, 333, 333]
+
+
+.. testcode::
+
+    def pozitivni_elementi(seznam):
+        '''Vrne seznam vseh pozitivnih elementov danega seznama.'''
+        pozitivni = []
+        for element in seznam:
+            if element > 0:
+                pozitivni.append(element)
+        return pozitivni
+
+
+.. doctest::
+
+    >>> pozitivni_elementi([1, -5, 2, 3])
+    [1, 2, 3]
+
+
+.. testcode::
+
+    def pozitivni_elementi(seznam):
+        '''Vrne seznam vseh pozitivnih elementov danega seznama.'''
+        return [element in seznam if element > 0]
+
+
 
 Nabori
 ------

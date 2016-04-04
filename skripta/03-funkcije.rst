@@ -98,6 +98,40 @@ način zapišemo funkcijo za izračun površine tetraedra:
     1816080.0
 
 
+V telesu funkcij lahko pišemo poljubne stavke. Na primer, funkcijo, ki računa
+absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:
+
+.. testcode::
+
+    def absolutna_vrednost(x):
+        '''Vrne absolutno vrednost števila x.'''
+        if x >= 0:
+            return x
+        else:
+            return -x
+
+.. doctest::
+
+    >>> absolutna_vrednost(-5)
+    5
+    >>> absolutna_vrednost(3)
+    3
+
+Če veje ``else`` ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
+način bi lahko funkcijo ``absolutna_vrednost`` definirali tudi kot:
+
+.. testcode::
+
+    def absolutna_vrednost(x):
+        '''Vrne absolutno vrednost števila x.'''
+        if x < 0:
+            x *= -1
+        return x
+
+Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
+ga vrnemo nespremenjenega.
+
+
 Stavek ``return``
 -----------------
 
