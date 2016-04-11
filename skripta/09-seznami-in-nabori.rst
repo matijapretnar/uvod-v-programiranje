@@ -367,7 +367,7 @@ Metode na seznamih
 
     def pozitivni_elementi(seznam):
         '''Vrne seznam vseh pozitivnih elementov danega seznama.'''
-        return [element in seznam if element > 0]
+        return [element for element in seznam if element > 0]
 
 
 
@@ -386,3 +386,34 @@ v naborih pa so lahko tudi različnih tipov, pomen vsakega pa je odvisen od mest
     ucenci = ['Ana', 'Bojan', 'Cvetka', 'David']
     datum = (30, 'marec', 2016)
     datumi = [(30, 'marec', 2016), (1, 'april', 2016), (25, 'junij', 2016)]
+
+
+
+
+
+Razstavljanje naborov
+---------------------
+
+.. doctest::
+
+    >>> datum = (30, 'marec', 2016)
+    >>> dan, mesec, leto = datum
+    >>> dan
+    30
+    >>> mesec
+    'marec'
+    
+V resnici gre pri hkratnih prireditvenih stavkih za sestavljanje in razstavljanje
+naborov.
+
+
+.. doctest::
+
+    >>> a, b, *c = [1, 10, 30, 50, 80]
+    
+    
+
+
+``zip`` in ``enumerate``
+
+Funkcije s poljubnim številom argumentov
