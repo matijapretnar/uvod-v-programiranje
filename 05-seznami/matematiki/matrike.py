@@ -5,6 +5,14 @@ def sled(matrika):
         vsota += matrika[k][k]
     return vsota
 
+def slaba_sled(matrika):
+    vsota = 0
+    for k in range(len(matrika)):
+        for j in range(len(matrika)):
+            if k == j:
+                vsota += matrika[k][k]
+    return vsota
+
 
 def nicelna_matrika(n):
     '''Vrne ničelno matriko velikosti n x n.'''
