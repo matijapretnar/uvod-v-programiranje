@@ -18,6 +18,16 @@ seznamov:
      [4, 5, 6],
      [7, 8, 9]]
 
+V sezname lahko spravimo vrednosti različnih tipov, na primer:
+
+.. testcode::
+
+    [1, True, [2, 5], "Niz", 3.14]
+
+Vendar običajno sezname uporabimo za predstavitev homogene zbirke podatkov,
+torej da so vse vrednosti istega tipa.
+
+
 
 Operacije na seznamih
 ---------------------
@@ -97,28 +107,47 @@ Indeksiranje in rezine na seznamih delujejo tako kot na nizih:
     >>> mat[1][-1]
     2
 
+Na primer, sled matrike bi lahko izračunali kot:
 
 .. testcode::
 
     def sled(matrika):
         '''Izračuna sled dane matrike.'''
         vsota_diagonalnih = 0
-        for k in range(len(matrika)):
-            vsota_diagonalnih += matrika[k][k]
+        for i in range(len(matrika)):
+            vsota_diagonalnih += matrika[i][i]
         return vsota_diagonalnih
-
 
 .. doctest::
 
     >>> sled(mat)
     5
-    
+
+Sledi pa nikakor ne bomo izračunali na sledeči (pri študentih dostikrat videni)
+način:
+
+.. testcode::
+
+    def grozna_sled(matrika):
+        '''Na popolnoma napačen izračuna sled dane matrike.'''
+        vsota_diagonalnih = 0
+        for i in range(len(matrika)):
+            for j in range(len(matrika)):
+                if i == j:
+                    vsota_diagonalnih += matrika[i][j]
+        return vsota_diagonalnih
+
+Funkcija sled matrike sicer izračuna pravilno, vendar na izjemno potraten način,
+saj se sprehodi čez celotno matriko, ne le čez diagonalne elemente. Na primer,
+pri matriki velikosti :math:`1000 \times 1000` bi druga funkcija pregledala
+tisočkrat več elementov (in posledično porabila tisočkrat več časa).
 
 
 Zanka ``for`` na seznamih
 -------------------------
 
-Po vseh elementih danega seznama se lahko sprehodimo z zanko ``for``:
+Tako kot se lahko z zanko ``for`` sprehodimo po vseh znakih v nizu, se lahko
+z njo sprehodimo tudi po vseh elementih danega seznama:
 
 .. testcode::
 
@@ -128,6 +157,23 @@ Po vseh elementih danega seznama se lahko sprehodimo z zanko ``for``:
         for trenutni in seznam:
             vsota += trenutni
         return vsota
+
+.. doctest::
+
+    >>> vsota_elementov([10, 2, 4000, 300])
+    4312
+
+Največji element v danem seznamu lahko poiščemo tako, da zaporedoma vsak element
+seznama primerjamo z do sedaj največjim videnim elementom. Če je trenutni element
+večji, do sedaj največji element popravimo. Ko pregledamo vse elemente v seznamu,
+je do sedaj največji element tudi na splošno največji element. Edina stvar, na
+katero moramo še paziti, je ta, da na začetku izberemo ustrezen največji element.
+Tu imamo dve dobri izbiri. (Slaba izbira bi bila, da bi za največji do zdaj
+viden element vzeli neko dovolj majhno število, na primer 0 ali -9999999 – ta
+izbira je očitno napačna!) Prva dobra izbira je kar prvi element v seznamu,
+pri čemer moramo potem poprej preveriti še to, da je seznam neprazen:
+
+.. testcode::
 
     def najvecji_element(seznam):
         '''Vrne največji element v danem seznamu. Če ga ni, vrne None'''
@@ -139,10 +185,22 @@ Po vseh elementih danega seznama se lahko sprehodimo z zanko ``for``:
                 najvecji_do_zdaj = trenutni
         return najvecji_do_zdaj
 
+Druga izbira pa je ``None``, vendar moramo potem pri vsaki primerjavi pogledati,
+ali imamo že “pravi” največji element ali je to do sedaj še vedno ``None``:
+
+.. testcode::
+
+    def najvecji_element(seznam):
+        '''Vrne največji element v danem seznamu. Če ga ni, vrne None'''
+        najvecji_do_zdaj = None
+        for trenutni in seznam:
+            if najvecji_do_zdaj == None or trenutni > najvecji_do_zdaj:
+                najvecji_do_zdaj = trenutni
+        return najvecji_do_zdaj
+
+
 .. doctest::
 
-    >>> vsota_elementov([10, 2, 4000, 300])
-    4312
     >>> najvecji_element([10, 2, 4000, 300])
     4000
 
@@ -199,31 +257,62 @@ Za razliko od nizov lahko vrednosti v seznamih tudi spreminjamo:
     >>> sez[3] = 200
     >>> sez
     [5, 3, 8, 200, 5, 7, 1, 2]
-    >>> del sez[5]
-    >>> sez
-    [5, 3, 8, 200, 5, 1, 2]
     >>> sez[-1] = 500
     >>> sez
+    [5, 3, 8, 200, 5, 7, 1, 500]
+
+
+Vrednosti lahko tudi brišemo
+
+.. doctest::
+
+    >>> del sez[5]
+    >>> sez
     [5, 3, 8, 200, 5, 1, 500]
+
+
+Spreminjamo lahko tudi celotne rezine:
+
+.. doctest::
+
+    >>> sez[1:3]
+    [3, 8]
     >>> sez[1:3] = [100, 300]
     >>> sez
     [5, 100, 300, 200, 5, 1, 500]
+
+Če nadomestna rezina ni enake dolžine kot prvotna, se seznam ustrezno skrajša
+ali podaljša
+
+.. doctest::
+
     >>> sez[2:5] = []
     >>> sez
     [5, 100, 1, 500]
     >>> sez[2:2] = [0, 0, 0]
     >>> sez
     [5, 100, 0, 0, 0, 1, 500]
+
+Kot vidimo, lahko nadomestimo tudi prazno rezino, s čimer nove elemente vrinemo
+v seznam. Nadomeščanje prazne rezine ni isto kot nadomeščanje elementa z
+istim indeksom kot rezina:
+
+.. doctest::
+
     >>> sez[2] = [20, 20, 20]
     >>> sez
     [5, 100, [20, 20, 20], 0, 0, 1, 500]
+
+Tudi rezine lahko brišemo:
+
+.. doctest::
+
     >>> del sez[1:4]
     >>> sez
     [5, 0, 1, 500]
 
 Pri spreminjanju seznamov je treba biti previden, saj ne deluje tako, kot
 smo navajeni pri spreminjanju vrednosti spremenljivk. Na primer, pišimo
-
 
 .. doctest::
 
@@ -262,22 +351,63 @@ kot ``a``. In z ``a[1] = 20`` smo povedali, naj se na mesto ``1`` v seznamu,
 shranjenem v ``a``, zapiše 20. Ker je v ``b`` shranjen isti (ne le enak) seznam
 kot v ``a``, je s tem tudi seznam v ``b`` drugačen.
 
+Pogosta past, v katero se na začetku ujamemo zaradi spremenljivosti seznamov,
+je izračun identične matrike. Vemo že, da lahko v Pythonu seznam pomnožimo s
+številom:
+
+
+.. doctest::
+
+    >>> 3 * [0]
+    [0, 0, 0]
+
+To nam da idejo, da bi lahko na isti način izračunali ničelno matriko:
+
+.. doctest::
+
+    >>> 3 * [3 * [0]]
+    [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+Izračun je videti pravilen, vendar vse tri vrstice te matrike kažejo na isti
+seznam. To je tako, kot če bi pisali:
+
+.. doctest::
+
+    >>> vrstica = [0, 0, 0]
+    >>> matrika = [vrstica, vrstica, vrstica]
+
+Poskusimo iz te matrike dobiti identično matriko tako, da po diagonali nastavimo
+enice. Najprej nastavimo prvi element v prvi vrstici:
+
+.. doctest::
+
+    >>> matrika[0][0] = 1
+    >>> matrika
+    [[1, 0, 0], [1, 0, 0], [1, 0, 0]]
+
+Kaj se je zgodilo? Ker druga in tretja vrstica kažeta na isti seznam kot prva,
+smo tudi v njima prvi element popravili na 1. Če sedaj nastavimo še drugi
+element v drugi vrstici in tretjega v tretji vrstici se zgodba ponovi:
+
+.. doctest::
+
+    >>> matrika[1][1] = 1
+    >>> matrika[2][2] = 1
+    >>> matrika
+    [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+
+Če želimo identično matriko izračunati na pravilen način, moramo za predstavitev
+vsake vrstice podati svoj seznam, zato ne moremo uporabiti le pomnoževanja
+seznamov. Namesto tega lahko uporabimo izpeljani seznam:
 
 .. testcode::
 
-    def nicelna_matrika(n):
-        '''Vrne ničelno matriko velikosti n x n.'''
-        # razmislite, zakaj n * [n * [0]] ni dobra rešitev
-        return [n * [0] for _ in range(n)]
-
-
     def identicna_matrika(n):
         '''Vrne identično matriko velikosti n x n.'''
-        matrika = nicelna_matrika(n)
+        matrika = [n * [0] for _ in range(n)]
         for k in range(len(matrika)):
             matrika[k][k] = 1
         return matrika
-
 
 .. doctest::
 
@@ -287,6 +417,11 @@ kot v ``a``, je s tem tudi seznam v ``b`` drugačen.
 
 Metode na seznamih
 ------------------
+
+Za večino pogosto uporabljanih stvari na seznamih obstajajo že vgrajene metode.
+Te povečini ne vračajo ničesar, temveč le spremenijo dani seznam. Izjemi sta
+metodi ``index`` in ``count``, ki vrneta vrednost in seznam pustita pri miru, ter
+metoda ``pop`` ki tako spremeni seznam kot vrne vrednost.
 
 * ``sez.append(x)``
     Dodaj element `x` na konec seznama ``sez``.
@@ -320,6 +455,8 @@ Metode na seznamih
 * ``sez.reverse()``
     Obrni seznam ``sez`` na glavo.
 
+Primer uporabe:
+
 .. doctest::
 
     >>> sez = [66.25, 333, 333, 1, 1234.5]
@@ -345,8 +482,21 @@ Metode na seznamih
     >>> sez
     [-1, 1, 66.25, 333, 333]
 
+Metodo ``append`` pogosto uporabljamo za izračun seznama ustreznih elementov.
+To storimo tako, da ustvarimo prazen seznam, nato pa vanj z metodo ``append``
+dodamo vsak ustrezen element. To je podoben postopek kot pri izračunu vsote
+ustreznih elementov, kjer smo ustvarili spremenljivko z začetno vrednostjo 0,
+nato pa ji prištevali ustrezne elemente.
 
 .. testcode::
+
+    def vsota_pozitivnih_elementov(seznam):
+        '''Vrne vsoto vseh pozitivnih elementov danega seznama.'''
+        vsota = 0
+        for element in seznam:
+            if element > 0:
+                vsota += element
+        return vsota
 
     def pozitivni_elementi(seznam):
         '''Vrne seznam vseh pozitivnih elementov danega seznama.'''
@@ -359,9 +509,12 @@ Metode na seznamih
 
 .. doctest::
 
+    >>> vsota_pozitivnih_elementov([1, -5, 2, 3])
+    6
     >>> pozitivni_elementi([1, -5, 2, 3])
     [1, 2, 3]
 
+Seveda bi obe funkciji lepše napisali s pomočjo izpeljanih seznamov:
 
 .. testcode::
 
@@ -369,6 +522,11 @@ Metode na seznamih
         '''Vrne seznam vseh pozitivnih elementov danega seznama.'''
         return [element for element in seznam if element > 0]
 
+    def vsota_pozitivnih_elementov(seznam):
+        '''Vrne seznam vseh pozitivnih elementov danega seznama.'''
+        return sum([element for element in seznam if element > 0])
+        # ali pa kar
+        # return sum(pozitivni_elementi(seznam))
 
 
 Nabori
@@ -377,8 +535,17 @@ Nabori
 Nabori se obnašajo podobno kot seznami, le da njihovih vrednosti ne moremo
 spreminjati. Pišemo jih tako kot sezname, le med običajne oklepaje: ``(1, 2, 3)``.
 Nabor z enim elementom pišemo kot ``(1, )`` (razmislite, zakaj ga ne pišemo kot
-``(1)``). V seznamih so elementi običajno vsi istega tipa in pomenijo iste stvari,
-v naborih pa so lahko tudi različnih tipov, pomen vsakega pa je odvisen od mesta:
+``(1)``). Včasih lahko nabore pišemo kar brez oklepajev:
+
+
+.. doctest::
+
+    >>> 1, 2, 3
+    (1, 2, 3)
+    
+
+Druga razlika pa je ta, da so nabori običajno heterogeni: elementi na različnih
+mestih imajo lahko različne tipe in različne pomene:
 
 .. testcode::
 
@@ -387,12 +554,19 @@ v naborih pa so lahko tudi različnih tipov, pomen vsakega pa je odvisen od mest
     datum = (30, 'marec', 2016)
     datumi = [(30, 'marec', 2016), (1, 'april', 2016), (25, 'junij', 2016)]
 
-
-
-
+Sicer za nabore veljajo podobne lastnosti: lahko jih stikamo in množimo; lahko
+izračunamo njihovo vsoto, minimum, maksimum in dolžino; s predikatom ``in``
+lahko pogledamo, ali vsebujejo dani element; lahko jih indeksiramo in delamo
+rezine; po njih se lahko sprehodimo z zanko ``for``; od metod pa sta na voljo le
+``count`` in ``index``, saj ti dve edini ne spreminjata ničesar.
 
 Razstavljanje naborov
 ---------------------
+
+Kljub temu, da lahko do elementov nabora dostopamo z indeksi, je pogosto
+uporabno, da jih razstavimo. To storimo s hkratnim prireditvenim stavkom, v
+katerem na levi strani naštejemo več spremenljivk, na desni pa podamo nabor, ki
+ga želimo razstaviti:
 
 .. doctest::
 
@@ -402,18 +576,22 @@ Razstavljanje naborov
     30
     >>> mesec
     'marec'
-    
-V resnici gre pri hkratnih prireditvenih stavkih za sestavljanje in razstavljanje
-naborov.
 
+V resnici gre pri hkratnih prireditvenih stavkih za sestavljanje in razstavljanje
+naborov. Pri razstavljanju je treba paziti, da je število spremenljivk na levi
+enako dolžini nabora na desni, saj v nasprotnem primeru pride do napake.
+
+
+Razstavljanje seznamov
+----------------------
 
 .. doctest::
 
     >>> a, b, *c = [1, 10, 30, 50, 80]
-    
-    
-
 
 ``zip`` in ``enumerate``
+------------------------
+
 
 Funkcije s poljubnim številom argumentov
+----------------------------------------
