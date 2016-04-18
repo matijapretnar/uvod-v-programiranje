@@ -237,7 +237,7 @@ matematiki množice pišemo kot :math:`\{ 2 \cdot n \mid n \in \{1, \dots, 9\}\}
     [3, 1, 4, 1, 5, 9, 2]
     
 Če želimo, lahko v izpeljani seznamih oblike
-    ``[izraz for spremenljivka in mozne_vrednosti if pogoj]``
+``[izraz for spremenljivka in mozne_vrednosti if pogoj]``
 s pogojem določimo, katere elemente želimo:
 
 .. doctest::
