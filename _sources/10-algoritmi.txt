@@ -1,0 +1,23 @@
+Algoritmi
+=========
+
+Iskanje v neurejenem slovarju
+
+Iskanje po ključih
+
+Iskanje v urejenem slovarju
+
+Časovna zahtevnost
+
+O-notacija
+
+.. math::
+
+    f \in O(g) \iff \exists n_0, M . \forall n > n_0 . |f(n)| < M \cdot |g(n)|
+
+
+Pravila za računanje z O-notacijo
+
+
+
+časovna zahtevnost: iskanje v neurejenem, iskanje v urejenem, je_podseznam

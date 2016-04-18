@@ -118,6 +118,33 @@ način zapišemo funkcijo za izračun površine tetraedra:</p>
 <span class="go">1816080.0</span>
 </pre></div>
 </div>
+<p>V telesu funkcij lahko pišemo poljubne stavke. Na primer, funkcijo, ki računa
+absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne absolutno vrednost števila x.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<p>Če veje <code class="docutils literal"><span class="pre">else</span></code> ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
+način bi lahko funkcijo <code class="docutils literal"><span class="pre">absolutna_vrednost</span></code> definirali tudi kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne absolutno vrednost števila x.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
+ga vrnemo nespremenjenega.</p>
 </div>
 <div class="section" id="stavek-return">
 <h2>Stavek <code class="docutils literal"><span class="pre">return</span></code><a class="headerlink" href="#stavek-return" title="Povezava na naslov">¶</a></h2>
