@@ -16,9 +16,9 @@ Python za matematike
     10-iskanje
     11-casovna-zahtevnost
     12-urejanje
+    13-slovarji-in-mnozice
 
 ..
-    13-slovarji-in-mnozice
     14-objektno-programiranje
     15-vhod-izhod-in-datoteke
     16-psevdonakljucna-stevila

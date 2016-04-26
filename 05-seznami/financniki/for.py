@@ -12,6 +12,15 @@ def najvecji_element(sez):
     return najvecji_do_zdaj
 
 
+def najvecji_element(seznam):
+    '''Vrne največji element v danem seznamu.'''
+    najvecji_do_zdaj = None
+    for trenutni in seznam:
+        if najvecji_do_zdaj is None or trenutni > najvecji_do_zdaj:
+            najvecji_do_zdaj = trenutni
+    return najvecji_do_zdaj
+
+
 def najvecja_vrednost(sez, f):
     '''Vrne element seznama sez, pri katerem f doseže največjo vrednost.'''
     if len(sez) == 0:
