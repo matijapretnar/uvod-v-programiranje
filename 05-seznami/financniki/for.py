@@ -46,4 +46,7 @@ def pozitivni_elementi(sez):
             pozitivni.append(x)
     return pozitivni
 
+def pozitivni_elementi_izpeljani(sez):
+    return [x for x in sez if x > 0]
+
 # največje število med 1 in 1000000, ki da enak ostanek pri deljenju s 47 in 513
