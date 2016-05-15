@@ -52,7 +52,7 @@ def prestej_znake(niz):
     pojavitve = {}
     for znak in niz:
         if znak in pojavitve:
-            pojavitve[znak] + 1
+            pojavitve[znak] += 1
         else:
             pojavitve[znak] = 1
     return pojavitve
