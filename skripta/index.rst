@@ -17,10 +17,9 @@ Python za matematike
     11-casovna-zahtevnost
     12-urejanje
     13-slovarji-in-mnozice
-    19-kako-deluje-racunalnik
+    20-kako-deluje-racunalnik
 
 ..
-
     14-datoteke
     15-psevdonakljucna-stevila
     16-objektno-programiranje
