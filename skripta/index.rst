@@ -19,9 +19,10 @@ Python za matematike
     13-slovarji-in-mnozice
 
 ..
-    14-objektno-programiranje
-    15-vhod-izhod-in-datoteke
-    16-psevdonakljucna-stevila
+
+    14-datoteke
+    15-psevdonakljucna-stevila
+    16-objektno-programiranje
     17-izjeme
     18-generatorji
     19-tkinter

@@ -106,7 +106,7 @@ Primeri uporabe slovarjev
 Operacije na slovarjih
 ----------------------
 
-.. doctest::
+.. code::
 
     >>> s = {'a': 6, 'b': 2, 'c': 3}
     >>> len(s)
@@ -118,7 +118,7 @@ Operacije na slovarjih
     >>> sum(s.values())
     11
 
-.. doctest::
+.. code::
 
     >>> s = {'a': 6, 'b': 2, 'c': 3}
     >>> s
@@ -160,7 +160,7 @@ Operacije na slovarjih
         return pojavitve
 
 
-.. doctest::
+.. code::
 
     >>> prestej_pojavitve('abrakadabra')
 
@@ -169,7 +169,7 @@ Operacije na slovarjih
 Spreminjanje slovarjev
 ----------------------
 
-.. doctest::
+.. code::
 
     >>> s = {'a': 6, 'b': 2, 'c': 3}
     >>> s['b'] = 8
@@ -186,7 +186,7 @@ Spreminjanje slovarjev
 Zanka ``for`` na slovarjih
 --------------------------
 
-.. doctest::
+.. code::
 
     >>> s = {'a': 6, 'b': 2, 'c': 3}
     >>> list(s.keys())
@@ -249,7 +249,7 @@ Množice
             d += 2
         return True
 
-.. doctest::
+.. code::
 
     >>> s = {6, 2, 3}
     >>> len(s)
@@ -266,7 +266,7 @@ Množice
     23
 
 
-.. doctest::
+.. code::
 
     >>> a = {1, 2, 3, 4}
     >>> a.add(5)
@@ -277,7 +277,7 @@ Množice
     {1, 2, 4, 5}
 
 
-.. doctest::
+.. code::
 
     >>> {1, 2, 3, 4} | {3, 4, 5, 6}
     {1, 2, 3, 4, 5, 6}
@@ -303,7 +303,7 @@ Množice
     def direktna_slika(f, a):
         return {f(x) for x in a}
 
-.. doctest::
+.. code::
 
     >>> direktna_slika(lambda x: x ** 2, {-5, -3, 1, 2})
     {1, 4, 9, 25}
