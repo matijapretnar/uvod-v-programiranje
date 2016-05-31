@@ -26,6 +26,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Slovarji in množice" href="13-slovarji-in-mnozice.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -51,9 +52,8 @@ izjemno hitri, npr. gonilnike za grafične kartice.</p>
 <p>Pri tem bomo uporabljali <a class="reference external" href="http://schweigi.github.io/assembler-simulator/">simulator 8-bitnega
 računalnika</a>, ki
 precej dobro zajame osnovne ideje običajnih računalnikov.</p>
-</div>
 <div class="section" id="sestavni-deli-simulatorja">
-<h1>Sestavni deli simulatorja<a class="headerlink" href="#sestavni-deli-simulatorja" title="Povezava na naslov">¶</a></h1>
+<h2>Sestavni deli simulatorja<a class="headerlink" href="#sestavni-deli-simulatorja" title="Povezava na naslov">¶</a></h2>
 <p>Vsak računalnik je sestavljen iz <em>procesorja</em>, ki izvaja ukaze, in
 <em>pomnilnika</em>, v katerega procesor zapisuje podatke. Ker pa je pomnilnik
 počasen (s stališča procesorja, seveda), lahko procesor podatke shrani
@@ -83,9 +83,12 @@ namenjenih izpisu: kar zapišete v njih, se bo prikazalo v razdelku
 se bo nato prevedel v strojno kodo, ki se bo zapisala v pomnilnik. Da se
 boste lažje sklicevali na dele kode, jim boste pripisali oznake, ki so
 predstavljene v razdelku <strong>Labels</strong> spodaj desno.</p>
+<p>Pod razdelkom <strong>RAM</strong> se <em>View</em> splača nastaviti na <em>Decimal</em>,
+da bodo vrednosti v pomnilniku predstavljene z običajnim
+desetiškim zapisom.</p>
 </div>
 <div class="section" id="ukazi-zbirnika">
-<h1>Ukazi zbirnika<a class="headerlink" href="#ukazi-zbirnika" title="Povezava na naslov">¶</a></h1>
+<h2>Ukazi zbirnika<a class="headerlink" href="#ukazi-zbirnika" title="Povezava na naslov">¶</a></h2>
 <p>Vsak ukaz zbirnika je oblike</p>
 <div class="highlight-python"><div class="highlight"><pre>neobvezna_oznaka:
         IME_UKAZA argumenti         ; neobvezen komentar
@@ -142,6 +145,7 @@ ustrezno zmanjša <code class="docutils literal"><span class="pre">SP</span></co
 <p>Če želite izvedeti več, si poglejte stran <a class="reference external" href="http://schweigi.github.io/assembler-simulator/instruction-set.html">Instruction
 Set</a>.</p>
 </div>
+</div>
 
 
           </div>
@@ -151,14 +155,17 @@ Set</a>.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Seznam Vsebine</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Kako deluje računalnik?</a></li>
+<li><a class="reference internal" href="#">Kako deluje računalnik?</a><ul>
 <li><a class="reference internal" href="#sestavni-deli-simulatorja">Sestavni deli simulatorja</a></li>
 <li><a class="reference internal" href="#ukazi-zbirnika">Ukazi zbirnika</a></li>
+</ul>
+</li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="13-slovarji-in-mnozice.html" title="prejšnje poglavje">Slovarji in množice</a></li>
   </ul></li>
 </ul>
 </div>

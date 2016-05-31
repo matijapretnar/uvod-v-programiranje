@@ -16,7 +16,7 @@ računalnika <http://schweigi.github.io/assembler-simulator/>`__, ki
 precej dobro zajame osnovne ideje običajnih računalnikov.
 
 Sestavni deli simulatorja
-=========================
+-------------------------
 
 Vsak računalnik je sestavljen iz *procesorja*, ki izvaja ukaze, in
 *pomnilnika*, v katerega procesor zapisuje podatke. Ker pa je pomnilnik
@@ -50,8 +50,12 @@ se bo nato prevedel v strojno kodo, ki se bo zapisala v pomnilnik. Da se
 boste lažje sklicevali na dele kode, jim boste pripisali oznake, ki so
 predstavljene v razdelku **Labels** spodaj desno.
 
+Pod razdelkom **RAM** se *View* splača nastaviti na *Decimal*,
+da bodo vrednosti v pomnilniku predstavljene z običajnim
+desetiškim zapisom.
+
 Ukazi zbirnika
-==============
+--------------
 
 Vsak ukaz zbirnika je oblike
 
