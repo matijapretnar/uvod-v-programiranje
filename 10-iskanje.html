@@ -42,16 +42,57 @@
             
   <div class="section" id="iskanje">
 <h1>Iskanje<a class="headerlink" href="#iskanje" title="Povezava na naslov">¶</a></h1>
+<p>Eden najosnovnejših problemov, ki ga rešujemo z računalniki, je iskanje določenega
+podatka v veliki zbirki. Pri tem obravnavamo dve varianti:</p>
+<p>1. Dano imamo zbirko elementov, nas pa zanima, ali iskani element v njej obstaja.
+Na primer, zanima nas, ali se beseda <em>drabostljiv</em> pojavi v slovarju slovenskega
+knjižnega jezika.</p>
+<p>2. Dano imamo zbirko ključev in pripadajočih vrednosti, nas pa zanima, ali ima
+iskani ključ v zbirki pripadajočo vrednost in kakšna je. Na primer, zanima nas
+ne samo to, ali je beseda <em>drabostljiv</em> v slovarju, temveč tudi to, kakšno je
+geslo, ki ji pripada.</p>
 <div class="section" id="iskanje-v-neurejenem-seznamu">
 <h2>Iskanje v neurejenem seznamu<a class="headerlink" href="#iskanje-v-neurejenem-seznamu" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_neurejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Vrne True, kadar se x pojavi v seznamu, in False, kadar se ne.&#39;&#39;&#39;</span>
-    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">seznam</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+<p>Za začetek predpostavimo, da je naša zbirka predstavljena z neurejenim seznamom,
+v katerem so našteti vsi elementi. Na primer:</p>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">sskj</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;miza&#39;</span><span class="p">,</span> <span class="s">&#39;vesel&#39;</span><span class="p">,</span> <span class="s">&#39;žaga&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="s">&#39;razsvetljenstvo&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Če je seznam neurejen, obstaja bolj ali manj le en način, s katerim ugotovimo,
+ali se element v seznamu pojavi: sprehodimo se čez vse elemente seznama od
+prvega do zadnjega (lahko tudi od zadnjega do prvega) in vsakega primerjamo z
+iskanim. Če najdemo enakega, je iskani element v seznamu. Če pa preiščemo vse
+elemente in ne najdemo enakega, iskanega elementa v seznamu ni.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_neurejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne True, kadar se iskani element pojavi v seznamu, in False, kadar se ne.&#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">seznam</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="n">iskani_element</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">True</span>
     <span class="k">return</span> <span class="bp">False</span>
 </pre></div>
 </div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_neurejenem</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_neurejenem</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Boljše rešitve od tega, da preiščemo vse elemente, žal ni. Če kakšen algoritem
+ne bi pregledal vseh elementov, preden bi se odločil, da iskanega elementa ni
+v seznamu, bi lahko vse elemente, ki si jih je ogledal, zamenjali z iskanim,
+algoritem pa bi se še vedno odločil, da iskanega elementa v seznamu ni, saj bi
+v drugo glede na pregledane elemente moral sprejeti iste odločitve kot prvič.</p>
+<p>Z neurejenim seznamom parov lahko predstavimo tudi zbirko ključev in pripadajočih
+vrednosti:</p>
+<div class="code highlight-python"><div class="highlight"><pre>sskj = [(&#39;miza&#39;, &#39;lesen predmet za odlaganje krožnikov),
+        (&#39;vesel&#39;, &#39;tisti, ki izraža veselje&#39;),
+        (&#39;žaga&#39;, &#39;orodje za žaganje&#39;), ...,
+        (&#39;razsvetljenstvo&#39;, &#39;zgodovinsko obdobje, znano po žarnicah&#39;)]
+</pre></div>
+</div>
+<p>Postopek za iskanje je podoben prejšnjemu, le da se tokrat vozimo čez pare in
+ključe primerjamo z iskanim. Če najdemo ujemajoč ključ, vrnemo pripadajočo
+vrednost, sicer pa vrnemo <code class="docutils literal"><span class="pre">None</span></code>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_vrednost_v_neurejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_kljuc</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Vrne pripadajočo vrednost ključa v seznamu. Ce je ni, vrne None.&#39;&#39;&#39;</span>
     <span class="k">for</span> <span class="n">kljuc</span><span class="p">,</span> <span class="n">vrednost</span> <span class="ow">in</span> <span class="n">seznam</span><span class="p">:</span>
@@ -60,9 +101,19 @@
     <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
 </div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_vrednost_v_neurejenem</span><span class="p">([(</span><span class="mi">7</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s">&#39;t&#39;</span><span class="p">)],</span> <span class="mi">7</span><span class="p">)</span>
+<span class="go">&#39;a&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_vrednost_v_neurejenem</span><span class="p">([(</span><span class="mi">7</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s">&#39;t&#39;</span><span class="p">)],</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_vrednost_v_neurejenem</span><span class="p">([(</span><span class="mi">7</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s">&#39;t&#39;</span><span class="p">)],</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tudi v zadnjem klicu smo dobili rezultat <code class="docutils literal"><span class="pre">None</span></code>, saj se <code class="docutils literal"><span class="pre">'r'</span></code> v seznamu
+pojavi le kot vrednost, ne kot ključ.</p>
 </div>
 <div class="section" id="iskanje-v-urejenem-seznamu">
 <h2>Iskanje v urejenem seznamu<a class="headerlink" href="#iskanje-v-urejenem-seznamu" title="Povezava na naslov">¶</a></h2>
+<p>Če je seznam urejen, lahko vrednosti najdemo precej hitreje, saj približno vemo,
+kje bi se iskani element moral pojaviti.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zac</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">kon</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Vrne True, kadar se x pojavi v seznamu, in False, kadar se ne.&#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">kon</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>

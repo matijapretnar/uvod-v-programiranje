@@ -554,17 +554,225 @@ ga želimo razstaviti:</p>
 naborov. Pri razstavljanju je treba paziti, da je število spremenljivk na levi
 enako dolžini nabora na desni, saj v nasprotnem primeru pride do napake.</p>
 </div>
-<div class="section" id="razstavljanje-seznamov">
-<h2>Razstavljanje seznamov<a class="headerlink" href="#razstavljanje-seznamov" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+<div class="section" id="zip-in-enumerate">
+<h2><code class="docutils literal"><span class="pre">zip</span></code> in <code class="docutils literal"><span class="pre">enumerate</span></code><a class="headerlink" href="#zip-in-enumerate" title="Povezava na naslov">¶</a></h2>
+<p>Dostikrat želimo hkrati dostopati do elementov seznama in njihovih indeksov.</p>
+<p>Predstavimo polinome s seznamom koeficientov, urejenim od prostega proti
+vodilnemu členu. Polinom <span class="math">\(3 - x^2\)</span> bi tako predstavili s seznamom
+<code class="docutils literal"><span class="pre">[3,</span> <span class="pre">0,</span> <span class="pre">-1]</span></code>. Pri izračunu vrednosti polinoma želimo hkrati dostopati tako do
+koeficientov kot do njihovih indeksov, ki ustrezajo potenci. To lahko storimo
+na več načinov. Lahko se vozimo po indeksih in prek njih dostopamo do
+koeficientov:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">vrednost_polinoma</span><span class="p">(</span><span class="n">koeficienti</span><span class="p">,</span> <span class="n">tocka</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne vrednost polinoma z danimi koeficienti v dani točki.&#39;&#39;&#39;</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">koeficienti</span><span class="p">)):</span>
+        <span class="n">koeficient</span> <span class="o">=</span> <span class="n">koeficienti</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">koeficient</span> <span class="o">*</span> <span class="n">tocka</span> <span class="o">**</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vrednost_polinoma</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vrednost_polinoma</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">7</span>
+</pre></div>
+</div>
+<p>Lahko se vozimo po koeficientih in hkrati povečujemo števec indeksa:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">vrednost_polinoma</span><span class="p">(</span><span class="n">koeficienti</span><span class="p">,</span> <span class="n">tocka</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne vrednost polinoma z danimi koeficienti v dani točki.&#39;&#39;&#39;</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">koeficient</span> <span class="ow">in</span> <span class="n">koeficienti</span><span class="p">:</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">koeficient</span> <span class="o">*</span> <span class="n">tocka</span> <span class="o">**</span> <span class="n">i</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+<p>Najbolj enostavno pa je, da uporabimo funkcijo <code class="docutils literal"><span class="pre">enumerate</span></code>, ki vrne zaporedje
+parov, v katerih so druge komponente vrednosti danega seznama, prve komponente
+pa njihovi indeksi:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]))</span>
+<span class="go">[(0, 20), (1, 200), (2, 2000)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="s">&#39;beseda&#39;</span><span class="p">))</span>
+<span class="go">[(0, &#39;b&#39;), (1, &#39;e&#39;), (2, &#39;s&#39;), (3, &#39;e&#39;), (4, &#39;d&#39;), (5, &#39;a&#39;)]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>S pomočjo funkcije <code class="docutils literal"><span class="pre">enumerate</span></code> lahko vrednost polinoma izračunamo kot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">vrednost_polinoma</span><span class="p">(</span><span class="n">koeficienti</span><span class="p">,</span> <span class="n">tocka</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne vrednost polinoma z danimi koeficienti v dani točki.&#39;&#39;&#39;</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">koeficient</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">koeficienti</span><span class="p">):</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">koeficient</span> <span class="o">*</span> <span class="n">tocka</span> <span class="o">**</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+<p>Kot vidimo, lahko tudi v zanki <code class="docutils literal"><span class="pre">for</span></code> uporabimo razstavljanje naborov, in
+pare, ki nam jih podaja <code class="docutils literal"><span class="pre">enumerate</span></code>, takoj shranimo v dve spremenljivki.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Previdno</p>
+<p>Paziti moramo, da indeksa ne računamo s pomočjo metode <code class="docutils literal"><span class="pre">.index</span></code>, saj
+je ta način prvič neučinkovit, drugič pa ne bi vedno delovala pravilno, saj
+<code class="docutils literal"><span class="pre">.index</span></code> vrne indeks prve pojavitve iskane vrednosti:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">napacna_vrednost_polinoma</span><span class="p">(</span><span class="n">koeficienti</span><span class="p">,</span> <span class="n">tocka</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne vrednost polinoma z danimi koeficienti v dani točki.&#39;&#39;&#39;</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">koeficient</span> <span class="ow">in</span> <span class="n">koeficienti</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">koeficienti</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">koeficient</span><span class="p">)</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">koeficient</span> <span class="o">*</span> <span class="n">tocka</span> <span class="o">**</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vrednost_polinoma</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">60</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">napacna_vrednost_polinoma</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">12</span>
+</pre></div>
+</div>
+<p class="last">Ker je v spodnjem klicu funkcije metoda <code class="docutils literal"><span class="pre">.index</span></code> za indeks prve pojavitve
+vrednosti 2 obakrat vrnila 1, je funkcija vrnila <span class="math">\(2 \cdot 3^1 + 2 \cdot 3^1 = 6\)</span>
+namesto <span class="math">\(2 \cdot 3^1 + 2 \cdot 3^3 = 60\)</span>.</p>
+</div>
+<p>Podobno kot <code class="docutils literal"><span class="pre">enumerate</span></code> deluje funkcija <code class="docutils literal"><span class="pre">zip</span></code>, ki sprejme več seznamov,
+vrne pa zaporedje naborov istoležnih elementov:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]))</span>
+<span class="go">[(10, 4), (20, 5), (30, 6)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="s">&#39;abc&#39;</span><span class="p">))</span>
+<span class="go">[(10, 4, &#39;a&#39;), (20, 5, &#39;b&#39;), (30, 6, &#39;c&#39;)]</span>
+</pre></div>
+</div>
+<p>Funkciji se reče <code class="docutils literal"><span class="pre">zip</span></code>, ker združuje elemente različnih seznamov tako, kot
+zadrga. Vrnjeno zaporedje ima toliko elementov, kot najkrajši argument funkcije:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="s">&#39;ab&#39;</span><span class="p">))</span>
+<span class="go">[(10, 4, &#39;a&#39;), (20, 5, &#39;b&#39;)]</span>
+</pre></div>
+</div>
+<p>S pomočjo funkcije <code class="docutils literal"><span class="pre">zip</span></code> lahko enostavno izračunamo skalarni produkt:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">skalarni_produkt</span><span class="p">(</span><span class="n">vektor1</span><span class="p">,</span> <span class="n">vektor2</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne skalarni produkt dveh vektorjev iste dimenzije.&#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">vektor1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">vektor2</span><span class="p">)</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vektor1</span><span class="p">,</span> <span class="n">vektor2</span><span class="p">):</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">x2</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">skalarni_produkt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="go">-2</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="zip-in-enumerate">
-<h2><code class="docutils literal"><span class="pre">zip</span></code> in <code class="docutils literal"><span class="pre">enumerate</span></code><a class="headerlink" href="#zip-in-enumerate" title="Povezava na naslov">¶</a></h2>
+<div class="section" id="razstavljanje-seznamov">
+<h2>Razstavljanje seznamov<a class="headerlink" href="#razstavljanje-seznamov" title="Povezava na naslov">¶</a></h2>
+<p>Na podoben način kot nabore lahko razstavljamo tudi sezname:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span><span class="p">,</span> <span class="n">drugi</span><span class="p">,</span> <span class="n">tretji</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tretji</span>
+<span class="go">30</span>
+</pre></div>
 </div>
-<div class="section" id="funkcije-s-poljubnim-stevilom-argumentov">
-<h2>Funkcije s poljubnim številom argumentov<a class="headerlink" href="#funkcije-s-poljubnim-stevilom-argumentov" title="Povezava na naslov">¶</a></h2>
+<p>Toda seznami običajno nimajo definirane dolžine, zato lahko pri njihovem
+razstavljanju uporabimo tudi poseben vzorec, ki v spremenljivko shrani vse
+preostale elemente:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span><span class="p">,</span> <span class="n">drugi</span><span class="p">,</span> <span class="o">*</span><span class="n">ostali</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">drugi</span>
+<span class="go">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ostali</span>
+<span class="go">[30, 40, 50, 60, 70]</span>
+</pre></div>
+</div>
+<p>Vzorec za preostale elemente se lahko pojavi tudi kje drugje kot na koncu:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span><span class="p">,</span> <span class="o">*</span><span class="n">ostali</span><span class="p">,</span> <span class="n">predzadnji</span><span class="p">,</span> <span class="n">zadnji</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ostali</span>
+<span class="go">[20, 30, 40, 50]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">predzadnji</span>
+<span class="go">60</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zadnji</span>
+<span class="go">70</span>
+</pre></div>
+</div>
+<p>Vseeno pa vzorec za preostale elemente lahko uporabimo največ enkrat:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="o">*</span><span class="n">prva_polovica</span><span class="p">,</span> <span class="o">*</span><span class="n">druga_polovica</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">SyntaxError</span>: <span class="n">two starred expressions in assignment</span>
+</pre></div>
+</div>
+<p>Na podoben način lahko razstavljamo tudi nabore, nize in ostale strukture,
+po katerih se lahko sprehajamo z zanko <code class="docutils literal"><span class="pre">for</span></code>, vendar bo v spremenljivki
+vedno shranjen seznam preostalih elementov:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">zacetnica</span><span class="p">,</span> <span class="o">*</span><span class="n">ostale_crke</span> <span class="o">=</span> <span class="s">&#39;abrakadabra&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zacetnica</span>
+<span class="go">&#39;a&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ostale_crke</span>
+<span class="go">[&#39;b&#39;, &#39;r&#39;, &#39;a&#39;, &#39;k&#39;, &#39;a&#39;, &#39;d&#39;, &#39;a&#39;, &#39;b&#39;, &#39;r&#39;, &#39;a&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi_par</span><span class="p">,</span> <span class="o">*</span><span class="n">ostali_pari</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s">&#39;balon&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi_par</span>
+<span class="go">(0, &#39;b&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ostali_pari</span>
+<span class="go">[(1, &#39;a&#39;), (2, &#39;l&#39;), (3, &#39;o&#39;), (4, &#39;n&#39;)]</span>
+</pre></div>
+</div>
+<p>Vzorec za preostale elemente lahko uporabimo tudi v definicijah funkcij:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">vrni_zadnji_argument</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vrni_zadnji_argument</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="go">30</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vrni_zadnji_argument</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>Tak vzorec na primer uporablja funkcija <code class="docutils literal"><span class="pre">max</span></code> (in njej podobne). Ta funkcija
+namreč deluje tako, da v primeru, ko dobi en argument, vrne njegov največji
+element, ko pa dobi več argumentov, pa vrne največjega:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">[4, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p>S pomočjo vzorca za preostale argumente bi tako funkcijo napisali tako, da bi
+najprej preverili, koliko argumentov smo dobili, nato pa ustrezno poiskali
+maksimum:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">maksimum</span><span class="p">(</span><span class="o">*</span><span class="n">argumenti</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Ob več argumentih vrne največjega.</span>
+<span class="sd">    Ob enem argumentu vrne njegov največji element.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">argumenti</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>       <span class="c"># Če nismo dobili nobenega argumenta,</span>
+        <span class="k">return</span> <span class="bp">None</span>               <span class="c"># vrnemo None.</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">argumenti</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>       <span class="c"># Če smo dobili en argument,</span>
+        <span class="n">kandidati</span> <span class="o">=</span> <span class="n">argumenti</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># iščemo maksimum med njegovimi elementi.</span>
+    <span class="k">else</span><span class="p">:</span>                         <span class="c"># Če smo dobili več argumentov,</span>
+        <span class="n">kandidati</span> <span class="o">=</span> <span class="n">argumenti</span>     <span class="c"># iščemo maksimum med njimi.</span>
+
+    <span class="c"># Uporabimo znan postopek za iskanje največjega elementa.</span>
+    <span class="n">najvecji</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">for</span> <span class="n">kandidat</span> <span class="ow">in</span> <span class="n">kandidati</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">najvecji</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">najvecji</span> <span class="o">&lt;</span> <span class="n">kandidat</span><span class="p">:</span>
+            <span class="n">najvecji</span> <span class="o">=</span> <span class="n">kandidat</span>
+    <span class="k">return</span> <span class="n">najvecji</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">maksimum</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">[4, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maksimum</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maksimum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -586,9 +794,8 @@ enako dolžini nabora na desni, saj v nasprotnem primeru pride do napake.</p>
 <li><a class="reference internal" href="#metode-na-seznamih">Metode na seznamih</a></li>
 <li><a class="reference internal" href="#nabori">Nabori</a></li>
 <li><a class="reference internal" href="#razstavljanje-naborov">Razstavljanje naborov</a></li>
-<li><a class="reference internal" href="#razstavljanje-seznamov">Razstavljanje seznamov</a></li>
 <li><a class="reference internal" href="#zip-in-enumerate"><code class="docutils literal"><span class="pre">zip</span></code> in <code class="docutils literal"><span class="pre">enumerate</span></code></a></li>
-<li><a class="reference internal" href="#funkcije-s-poljubnim-stevilom-argumentov">Funkcije s poljubnim številom argumentov</a></li>
+<li><a class="reference internal" href="#razstavljanje-seznamov">Razstavljanje seznamov</a></li>
 </ul>
 </li>
 </ul>

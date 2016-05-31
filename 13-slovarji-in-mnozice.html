@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Slovarji in množice &mdash; Python za matematike 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Urejanje" href="12-urejanje.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="slovarji-in-mnozice">
+<h1>Slovarji in množice<a class="headerlink" href="#slovarji-in-mnozice" title="Povezava na naslov">¶</a></h1>
+<div class="section" id="primeri-uporabe-slovarjev">
+<h2>Primeri uporabe slovarjev<a class="headerlink" href="#primeri-uporabe-slovarjev" title="Povezava na naslov">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nujne_telefonske_stevilke</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">&#39;center za obveščanje&#39;</span><span class="p">:</span> <span class="mi">112</span><span class="p">,</span>
+  <span class="s">&#39;policija&#39;</span><span class="p">:</span> <span class="mi">113</span><span class="p">,</span>
+  <span class="s">&#39;informacije&#39;</span><span class="p">:</span> <span class="mi">1188</span><span class="p">,</span>
+  <span class="s">&#39;točen čas&#39;</span><span class="p">:</span> <span class="mi">195</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre>slo_ang = {
+  &#39;abak&#39;: &#39;abacus&#39;,
+  &#39;abalienacija&#39;: &#39;abalienation&#39;,
+  &#39;abderit&#39;: &#39;abderite&#39;,
+  ...
+  &#39;žvrkljati&#39;: &#39;whisk&#39;
+}
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">rimske_stevilke</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s">&#39;I&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">&#39;II&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">&#39;III&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">&#39;IV&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s">&#39;V&#39;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s">&#39;VI&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s">&#39;VII&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s">&#39;VIII&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s">&#39;IX&#39;</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="s">&#39;X&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="s">&#39;XX&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">:</span> <span class="s">&#39;XXX&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">:</span> <span class="s">&#39;XL&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="s">&#39;L&#39;</span><span class="p">,</span>
+    <span class="mi">100</span><span class="p">:</span> <span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">:</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">:</span> <span class="s">&#39;M&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">vrli_parlamentarci</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;DeSUS&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;NSi&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;SD&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;SDS&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+    <span class="s">&#39;SMC&#39;</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span> <span class="s">&#39;ZaAB&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;ZL&#39;</span><span class="p">:</span> <span class="mi">6</span>
+<span class="p">}</span>
+
+<span class="n">met_kocke</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>
+<span class="p">}</span>
+
+<span class="n">met_dveh_kock</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">3</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">4</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">5</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">6</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="mi">5</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="mi">4</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">3</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">36</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">matrika</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">redka_matrika</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">avtocestni_kriz</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;KR&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span> <span class="s">&#39;CE&#39;</span><span class="p">:</span> <span class="mi">73</span><span class="p">,</span> <span class="s">&#39;PO&#39;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span> <span class="s">&#39;NM&#39;</span><span class="p">:</span> <span class="mi">72</span><span class="p">},</span>
+    <span class="s">&#39;PO&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span> <span class="s">&#39;KP&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span> <span class="s">&#39;GO&#39;</span><span class="p">:</span> <span class="mi">63</span><span class="p">},</span>
+    <span class="s">&#39;CE&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;MB&#39;</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span> <span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="mi">73</span><span class="p">},</span>
+    <span class="s">&#39;MB&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;CE&#39;</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span> <span class="s">&#39;MS&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">},</span>
+    <span class="s">&#39;GO&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;PO&#39;</span><span class="p">:</span> <span class="mi">63</span><span class="p">},</span>
+    <span class="s">&#39;KR&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">},</span>
+    <span class="s">&#39;MS&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;MB&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">},</span>
+    <span class="s">&#39;NM&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="mi">72</span><span class="p">},</span>
+    <span class="s">&#39;KP&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;GO&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">knjiga</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;naslov&#39;</span><span class="p">:</span> <span class="s">&#39;Prišel je velikanski lev&#39;</span><span class="p">,</span>
+    <span class="s">&#39;avtor&#39;</span><span class="p">:</span> <span class="s">&#39;Kristina Brenkova&#39;</span><span class="p">,</span>
+    <span class="s">&#39;ilustrator&#39;</span><span class="p">:</span> <span class="s">&#39;Polona Lovšin&#39;</span><span class="p">,</span>
+    <span class="s">&#39;strani&#39;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+    <span class="s">&#39;leto&#39;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
+    <span class="s">&#39;ključne besede&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;lev&#39;</span><span class="p">,</span> <span class="s">&#39;Afrika&#39;</span><span class="p">,</span> <span class="s">&#39;Matic&#39;</span><span class="p">,</span> <span class="s">&#39;otroci&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">nakljucni_slovar</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s">&#39;abc&#39;</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">):</span> <span class="s">&#39;D&#39;</span><span class="p">,</span>
+    <span class="s">&#39;456&#39;</span><span class="p">:</span> <span class="mi">789</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operacije-na-slovarjih">
+<h2>Operacije na slovarjih<a class="headerlink" href="#operacije-na-slovarjih" title="Povezava na naslov">¶</a></h2>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">&#39;c&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="go">11</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">{&#39;a&#39;: 6, &#39;b&#39;: 2, &#39;c&#39;: 3}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="s">&#39;d&#39;</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;pyshell#20&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">s</span><span class="p">[</span><span class="s">&#39;d&#39;</span><span class="p">]</span>
+<span class="gr">KeyError</span>: <span class="n">&#39;d&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;b&#39;</span> <span class="ow">in</span> <span class="n">s</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;d&#39;</span> <span class="ow">in</span> <span class="n">s</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">prestej_pojavitve</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="n">pojavitve</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">niz</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">pojavitve</span><span class="p">:</span>
+            <span class="n">pojavitve</span><span class="p">[</span><span class="n">znak</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pojavitve</span><span class="p">[</span><span class="n">znak</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">pojavitve</span>
+
+<span class="k">def</span> <span class="nf">prestej_pojavitve</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="n">pojavitve</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">niz</span><span class="p">:</span>
+        <span class="n">pojavitve</span><span class="p">[</span><span class="n">znak</span><span class="p">]</span> <span class="o">=</span> <span class="n">pojavitve</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">znak</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">pojavitve</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prestej_pojavitve</span><span class="p">(</span><span class="s">&#39;abrakadabra&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="spreminjanje-slovarjev">
+<h2>Spreminjanje slovarjev<a class="headerlink" href="#spreminjanje-slovarjev" title="Povezava na naslov">¶</a></h2>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">{&#39;b&#39;: 8, &#39;a&#39;: 6, &#39;c&#39;: 3}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="s">&#39;d&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">{&#39;b&#39;: 8, &#39;a&#39;: 6, &#39;c&#39;: 3, &#39;d&#39;: 10}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">s</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">{&#39;d&#39;: 10, &#39;a&#39;: 6, &#39;c&#39;: 3}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zanka-for-na-slovarjih">
+<h2>Zanka <code class="docutils literal"><span class="pre">for</span></code> na slovarjih<a class="headerlink" href="#zanka-for-na-slovarjih" title="Povezava na naslov">¶</a></h2>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="go">[&#39;b&#39;, &#39;a&#39;, &#39;c&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="go">[2, 6, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="go">[(&#39;b&#39;, 2), (&#39;a&#39;, 6), (&#39;c&#39;, 3)]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">najvecja_vrednost</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="c"># Ideja je podobna kot pri seznamih: po vrsti gledamo vse pare ključev in</span>
+    <span class="c"># vrednosti v slovarju - vsakič, ko vidimo še večjo vrednost, si zapomnimo</span>
+    <span class="c"># njen ključ.</span>
+
+    <span class="c"># Ker slovarji niso urejeni po vrsti, ne moremo začeti s prvim elementom.</span>
+    <span class="c"># Lahko pa si pomagamo z metodo popitem(), ki iz slovarja odstrani naključen</span>
+    <span class="c"># ključ in njegovo vrednost.</span>
+    <span class="n">max_k</span><span class="p">,</span> <span class="n">max_v</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="n">max_v</span><span class="p">:</span>
+            <span class="n">max_k</span><span class="p">,</span> <span class="n">max_v</span> <span class="o">=</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
+    <span class="k">return</span> <span class="n">max_k</span><span class="p">,</span> <span class="n">max_v</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">stevilo_deliteljev</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">)}</span>
+<span class="go">{20: 6, 21: 4, 22: 4, 23: 2, 24: 8, 25: 3, 26: 4, 27: 4, 28: 6}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mnozice">
+<h2>Množice<a class="headerlink" href="#mnozice" title="Povezava na naslov">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">je_prastevilo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">while</span> <span class="n">d</span> <span class="o">*</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="n">d</span> <span class="o">+=</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="n">majhna_prastevila</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">997</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">je_prastevilo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">majhna_prastevila</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">majhna_prastevila</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">while</span> <span class="n">d</span> <span class="o">*</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="n">d</span> <span class="o">+=</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">11</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">sez</span><span class="p">)</span>
+<span class="go">32</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mn</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">sez</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="n">mn</span><span class="p">)</span>
+<span class="go">23</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">{1, 2, 3, 4, 5}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">{1, 2, 4, 5}</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">|</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+<span class="go">{1, 2, 3, 4, 5, 6}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">&amp;</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+<span class="go">{3, 4}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="o">-</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+<span class="go">{1, 2}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">direktna_slika</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="n">slika</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+        <span class="n">slika</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">slika</span>
+
+<span class="k">def</span> <span class="nf">direktna_slika</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">direktna_slika</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">})</span>
+<span class="go">{1, 4, 9, 25}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">3</span><span class="p">}</span>
+<span class="go">{64, 324, 9, 169, 784, 529}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">}</span>
+<span class="go">{98, 68, 38, 8, 73, 43, 13, 83, 53, 23, 88, 58, 28}</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&#39;Borut&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;Janez&#39;</span><span class="p">,</span> <span class="s">&#39;Miro&#39;</span><span class="p">,</span> <span class="s">&#39;Karl&#39;</span><span class="p">},</span>
+    <span class="s">&#39;Janez&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;Borut&#39;</span><span class="p">,</span> <span class="s">&#39;Karl&#39;</span><span class="p">},</span>
+    <span class="s">&#39;Miro&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;Borut&#39;</span><span class="p">,</span> <span class="s">&#39;Karl&#39;</span><span class="p">},</span>
+    <span class="s">&#39;Karl&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;Borut&#39;</span><span class="p">,</span> <span class="s">&#39;Janez&#39;</span><span class="p">,</span> <span class="s">&#39;Miro&#39;</span><span class="p">},</span>
+    <span class="s">&#39;Igor&#39;</span><span class="p">:</span> <span class="nb">set</span><span class="p">(),</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">priporoci_prijatelje</span><span class="p">(</span><span class="n">omrezje</span><span class="p">,</span> <span class="n">oseba</span><span class="p">):</span>
+    <span class="n">novi_prijatelji</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">prijatelj</span> <span class="ow">in</span> <span class="n">omrezje</span><span class="p">[</span><span class="n">oseba</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">prijatelj_prijatelja</span> <span class="ow">in</span> <span class="n">omrezje</span><span class="p">[</span><span class="n">prijatelj</span><span class="p">]:</span>
+            <span class="n">novi_prijatelji</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">prijatelj_prijatelja</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">novi_prijatelji</span> <span class="o">-</span> <span class="p">{</span><span class="n">oseba</span><span class="p">}</span> <span class="o">-</span> <span class="n">omrezje</span><span class="p">[</span><span class="n">oseba</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Slovarji in množice</a><ul>
+<li><a class="reference internal" href="#primeri-uporabe-slovarjev">Primeri uporabe slovarjev</a></li>
+<li><a class="reference internal" href="#operacije-na-slovarjih">Operacije na slovarjih</a></li>
+<li><a class="reference internal" href="#spreminjanje-slovarjev">Spreminjanje slovarjev</a></li>
+<li><a class="reference internal" href="#zanka-for-na-slovarjih">Zanka <code class="docutils literal"><span class="pre">for</span></code> na slovarjih</a></li>
+<li><a class="reference internal" href="#mnozice">Množice</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="12-urejanje.html" title="prejšnje poglavje">Urejanje</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/13-slovarji-in-mnozice.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Vnesi ime modula, razreda ali funkcije.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/13-slovarji-in-mnozice.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

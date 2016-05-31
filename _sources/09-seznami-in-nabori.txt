@@ -582,16 +582,266 @@ naborov. Pri razstavljanju je treba paziti, da je število spremenljivk na levi
 enako dolžini nabora na desni, saj v nasprotnem primeru pride do napake.
 
 
-Razstavljanje seznamov
-----------------------
-
-.. doctest::
-
-    >>> a, b, *c = [1, 10, 30, 50, 80]
-
 ``zip`` in ``enumerate``
 ------------------------
 
+Dostikrat želimo hkrati dostopati do elementov seznama in njihovih indeksov.
 
-Funkcije s poljubnim številom argumentov
-----------------------------------------
+Predstavimo polinome s seznamom koeficientov, urejenim od prostega proti
+vodilnemu členu. Polinom :math:`3 - x^2` bi tako predstavili s seznamom
+``[3, 0, -1]``. Pri izračunu vrednosti polinoma želimo hkrati dostopati tako do
+koeficientov kot do njihovih indeksov, ki ustrezajo potenci. To lahko storimo
+na več načinov. Lahko se vozimo po indeksih in prek njih dostopamo do
+koeficientov:
+
+.. testcode::
+
+    def vrednost_polinoma(koeficienti, tocka):
+        '''Vrne vrednost polinoma z danimi koeficienti v dani točki.'''
+        vsota = 0
+        for i in range(len(koeficienti)):
+            koeficient = koeficienti[i]
+            vsota += koeficient * tocka ** i
+        return vsota
+
+
+.. doctest::
+
+    >>> vrednost_polinoma([3, 0, 1], 1)
+    4
+    >>> vrednost_polinoma([3, 0, 1], 2)
+    7
+
+Lahko se vozimo po koeficientih in hkrati povečujemo števec indeksa:
+
+.. testcode::
+
+    def vrednost_polinoma(koeficienti, tocka):
+        '''Vrne vrednost polinoma z danimi koeficienti v dani točki.'''
+        vsota = 0
+        i = 0
+        for koeficient in koeficienti:
+            vsota += koeficient * tocka ** i
+            i += 1
+        return vsota
+
+Najbolj enostavno pa je, da uporabimo funkcijo ``enumerate``, ki vrne zaporedje
+parov, v katerih so druge komponente vrednosti danega seznama, prve komponente
+pa njihovi indeksi:
+
+ .. doctest::
+ 
+     >>> list(enumerate([20, 200, 2000]))
+     [(0, 20), (1, 200), (2, 2000)]
+     >>> list(enumerate('beseda'))
+     [(0, 'b'), (1, 'e'), (2, 's'), (3, 'e'), (4, 'd'), (5, 'a')]
+
+S pomočjo funkcije ``enumerate`` lahko vrednost polinoma izračunamo kot:
+
+.. testcode::
+
+    def vrednost_polinoma(koeficienti, tocka):
+        '''Vrne vrednost polinoma z danimi koeficienti v dani točki.'''
+        vsota = 0
+        for i, koeficient in enumerate(koeficienti):
+            vsota += koeficient * tocka ** i
+        return vsota
+
+Kot vidimo, lahko tudi v zanki ``for`` uporabimo razstavljanje naborov, in
+pare, ki nam jih podaja ``enumerate``, takoj shranimo v dve spremenljivki.
+
+.. caution::
+
+    Paziti moramo, da indeksa ne računamo s pomočjo metode ``.index``, saj
+    je ta način prvič neučinkovit, drugič pa ne bi vedno delovala pravilno, saj
+    ``.index`` vrne indeks prve pojavitve iskane vrednosti:
+
+
+    .. testcode::
+
+        def napacna_vrednost_polinoma(koeficienti, tocka):
+            '''Vrne vrednost polinoma z danimi koeficienti v dani točki.'''
+            vsota = 0
+            for koeficient in koeficienti:
+                i = koeficienti.index(koeficient)
+                vsota += koeficient * tocka ** i
+            return vsota
+
+    .. doctest::
+
+        >>> vrednost_polinoma([0, 2, 0, 2], 3)
+        60
+        >>> napacna_vrednost_polinoma([0, 2, 0, 2], 3)
+        12
+
+    Ker je v spodnjem klicu funkcije metoda ``.index`` za indeks prve pojavitve
+    vrednosti 2 obakrat vrnila 1, je funkcija vrnila :math:`2 \cdot 3^1 + 2 \cdot 3^1 = 6`
+    namesto :math:`2 \cdot 3^1 + 2 \cdot 3^3 = 60`.
+
+
+Podobno kot ``enumerate`` deluje funkcija ``zip``, ki sprejme več seznamov,
+vrne pa zaporedje naborov istoležnih elementov:
+
+.. doctest::
+
+    >>> list(zip([10, 20, 30], [4, 5, 6]))
+    [(10, 4), (20, 5), (30, 6)]
+    >>> list(zip([10, 20, 30], [4, 5, 6], 'abc'))
+    [(10, 4, 'a'), (20, 5, 'b'), (30, 6, 'c')]
+
+Funkciji se reče ``zip``, ker združuje elemente različnih seznamov tako, kot
+zadrga. Vrnjeno zaporedje ima toliko elementov, kot najkrajši argument funkcije:
+
+    >>> list(zip([10, 20, 30], [4, 5, 6], 'ab'))
+    [(10, 4, 'a'), (20, 5, 'b')]
+
+S pomočjo funkcije ``zip`` lahko enostavno izračunamo skalarni produkt:
+
+.. testcode::
+
+    def skalarni_produkt(vektor1, vektor2):
+        '''Vrne skalarni produkt dveh vektorjev iste dimenzije.'''
+        assert len(vektor1) == len(vektor2)
+        vsota = 0
+        for x1, x2 in zip(vektor1, vektor2):
+            vsota += x1 * x2
+        return vsota
+
+
+.. doctest::
+
+    >>> skalarni_produkt([1, -2, 5], [-2, 5, 2])
+    -2
+
+
+Razstavljanje seznamov
+----------------------
+
+Na podoben način kot nabore lahko razstavljamo tudi sezname:
+
+.. doctest::
+
+    >>> prvi, drugi, tretji = [10, 20, 30]
+    >>> prvi
+    10
+    >>> tretji
+    30
+
+Toda seznami običajno nimajo definirane dolžine, zato lahko pri njihovem
+razstavljanju uporabimo tudi poseben vzorec, ki v spremenljivko shrani vse
+preostale elemente:
+
+.. doctest::
+
+    >>> prvi, drugi, *ostali = [10, 20, 30, 40, 50, 60, 70]
+    >>> prvi
+    10
+    >>> drugi
+    20
+    >>> ostali
+    [30, 40, 50, 60, 70]
+
+Vzorec za preostale elemente se lahko pojavi tudi kje drugje kot na koncu:
+
+.. doctest::
+
+    >>> prvi, *ostali, predzadnji, zadnji = [10, 20, 30, 40, 50, 60, 70]
+    >>> prvi
+    10
+    >>> ostali
+    [20, 30, 40, 50]
+    >>> predzadnji
+    60
+    >>> zadnji
+    70
+
+Vseeno pa vzorec za preostale elemente lahko uporabimo največ enkrat:
+
+.. doctest::
+
+    >>> *prva_polovica, *druga_polovica = [1, 2, 3, 4]
+    Traceback (most recent call last):
+      ...
+    SyntaxError: two starred expressions in assignment
+
+Na podoben način lahko razstavljamo tudi nabore, nize in ostale strukture,
+po katerih se lahko sprehajamo z zanko ``for``, vendar bo v spremenljivki
+vedno shranjen seznam preostalih elementov:
+
+.. doctest::
+
+    >>> zacetnica, *ostale_crke = 'abrakadabra'
+    >>> zacetnica
+    'a'
+    >>> ostale_crke
+    ['b', 'r', 'a', 'k', 'a', 'd', 'a', 'b', 'r', 'a']
+    >>> prvi_par, *ostali_pari = enumerate('balon')
+    >>> prvi_par
+    (0, 'b')
+    >>> ostali_pari
+    [(1, 'a'), (2, 'l'), (3, 'o'), (4, 'n')]
+
+
+Vzorec za preostale elemente lahko uporabimo tudi v definicijah funkcij:
+
+.. testcode::
+
+    def vrni_zadnji_argument(*args):
+        return args[-1]
+
+
+.. doctest::
+
+    >>> vrni_zadnji_argument(10, 20, 30)
+    30
+    >>> vrni_zadnji_argument(1)
+    1
+
+Tak vzorec na primer uporablja funkcija ``max`` (in njej podobne). Ta funkcija
+namreč deluje tako, da v primeru, ko dobi en argument, vrne njegov največji
+element, ko pa dobi več argumentov, pa vrne največjega:
+
+
+.. doctest::
+
+    >>> max([3, 5], [4, 1])
+    [4, 1]
+    >>> max([3, 5, 4, 1])
+    5
+    >>> max(3, 5, 4, 1)
+    5
+
+S pomočjo vzorca za preostale argumente bi tako funkcijo napisali tako, da bi
+najprej preverili, koliko argumentov smo dobili, nato pa ustrezno poiskali
+maksimum:
+
+.. testcode::
+
+    def maksimum(*argumenti):
+        '''
+        Ob več argumentih vrne največjega.
+        Ob enem argumentu vrne njegov največji element.
+        '''
+        if len(argumenti) == 0:       # Če nismo dobili nobenega argumenta,
+            return None               # vrnemo None.
+        if len(argumenti) == 1:       # Če smo dobili en argument,
+            kandidati = argumenti[0]  # iščemo maksimum med njegovimi elementi.
+        else:                         # Če smo dobili več argumentov,
+            kandidati = argumenti     # iščemo maksimum med njimi.
+
+        # Uporabimo znan postopek za iskanje največjega elementa.
+        najvecji = None
+        for kandidat in kandidati:
+            if najvecji is None or najvecji < kandidat:
+                najvecji = kandidat
+        return najvecji
+
+
+.. doctest::
+
+    >>> maksimum([3, 5], [4, 1])
+    [4, 1]
+    >>> maksimum([3, 5, 4, 1])
+    5
+    >>> maksimum(3, 5, 4, 1)
+    5
