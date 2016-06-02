@@ -96,7 +96,7 @@ vrednost, sicer pa vrnemo <code class="docutils literal"><span class="pre">None<
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_vrednost_v_neurejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_kljuc</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Vrne pripadajočo vrednost ključa v seznamu. Ce je ni, vrne None.&#39;&#39;&#39;</span>
     <span class="k">for</span> <span class="n">kljuc</span><span class="p">,</span> <span class="n">vrednost</span> <span class="ow">in</span> <span class="n">seznam</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">iskani_kljuc</span> <span class="o">==</span> <span class="n">kljuc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kljuc</span> <span class="o">==</span> <span class="n">iskani_kljuc</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">vrednost</span>
     <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
@@ -112,8 +112,44 @@ pojavi le kot vrednost, ne kot ključ.</p>
 </div>
 <div class="section" id="iskanje-v-urejenem-seznamu">
 <h2>Iskanje v urejenem seznamu<a class="headerlink" href="#iskanje-v-urejenem-seznamu" title="Povezava na naslov">¶</a></h2>
-<p>Če je seznam urejen, lahko vrednosti najdemo precej hitreje, saj približno vemo,
-kje bi se iskani element moral pojaviti.</p>
+<p>Če je seznam urejen, lahko iskani element poiščemo bistveno hitreje z bisekcijo.
+V seznamu si pogledamo element na sredini. Če je slučajno enak iskanemu elementu,
+smo končali, sicer pa je bodisi večji bodisi manjši. Če je sredinski element
+večji od iskanega, potem vemo, da se iskani element ne more pojaviti v desni
+polovici, saj so vsi tamkajšnji elementi zaradi urejenosti večji od sredinskega.
+Tako lahko iskanje zožimo le na levo polovico seznama. Če je sredinski element
+manjši od iskanega, pa iskanje zožimo na desno polovico seznama. V obeh primerih
+iskanje nadaljujemo na polovico manjšem seznamu, kjer uporabimo enak postopek.
+To nadaljujemo dokler iskanja ne zožimo na seznam dolžine 1. V tem primeru
+le pogledamo, če je edini element enak iskanemu. Če je, smo iskani element našli,
+če ni, pa ga v seznamu ni bilo.</p>
+<p>Bisekcijo lahko implementiramo na več načinov. Prvi je, da v spremenljivkah
+<code class="docutils literal"><span class="pre">zacetek</span></code> in <code class="docutils literal"><span class="pre">konec</span></code> hranimo začetni in končni indeks podseznama, v katerem
+iščemo element. V skladu s Pythonovimi standardi, v spremenljivki <code class="docutils literal"><span class="pre">konec</span></code> ne
+bomo hranili zadnjega indeksa v podseznamu, temveč naslednji indeks. Na začetku
+bomo element iskali v celotnem seznamu, zato bo <code class="docutils literal"><span class="pre">zacetek</span></code> enak 0, <code class="docutils literal"><span class="pre">konec</span></code>
+pa dolžini seznama. Odvisno od tega, kakšen je sredinski element v primerjavi z
+iskanim, bomo spremenljivki <code class="docutils literal"><span class="pre">zacetek</span></code> in <code class="docutils literal"><span class="pre">konec</span></code> ustrezno popravljali. Ko se
+indeksa izenačita, postopek končamo, saj je tedaj podseznam prazen.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne True, kadar se iskani element pojavi v seznamu, in False, kadar se ne.&#39;&#39;&#39;</span>
+    <span class="n">zacetek</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">konec</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">zacetek</span> <span class="o">&lt;</span> <span class="n">konec</span><span class="p">:</span>
+        <span class="n">sredina</span> <span class="o">=</span> <span class="p">(</span><span class="n">zacetek</span> <span class="o">+</span> <span class="n">konec</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">==</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="n">zacetek</span> <span class="o">=</span> <span class="n">sredina</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="n">konec</span> <span class="o">=</span> <span class="n">sredina</span>
+
+    <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>Enak postopek zapišemo tudi rekurzivno, vendar moramo biti pri tem malo bolj
+previdni.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zac</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">kon</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Vrne True, kadar se x pojavi v seznamu, in False, kadar se ne.&#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">kon</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
