@@ -72,7 +72,7 @@ vrednost, sicer pa vrnemo ``None``.
     def poisci_vrednost_v_neurejenem(seznam, iskani_kljuc):
         '''Vrne pripadajočo vrednost ključa v seznamu. Ce je ni, vrne None.'''
         for kljuc, vrednost in seznam:
-            if iskani_kljuc == kljuc:
+            if kljuc == iskani_kljuc:
                 return vrednost
         return None
 
@@ -89,8 +89,47 @@ pojavi le kot vrednost, ne kot ključ.
 Iskanje v urejenem seznamu
 --------------------------
 
-Če je seznam urejen, lahko vrednosti najdemo precej hitreje, saj približno vemo,
-kje bi se iskani element moral pojaviti.
+Če je seznam urejen, lahko iskani element poiščemo bistveno hitreje z bisekcijo.
+V seznamu si pogledamo element na sredini. Če je slučajno enak iskanemu elementu,
+smo končali, sicer pa je bodisi večji bodisi manjši. Če je sredinski element
+večji od iskanega, potem vemo, da se iskani element ne more pojaviti v desni
+polovici, saj so vsi tamkajšnji elementi zaradi urejenosti večji od sredinskega.
+Tako lahko iskanje zožimo le na levo polovico seznama. Če je sredinski element
+manjši od iskanega, pa iskanje zožimo na desno polovico seznama. V obeh primerih
+iskanje nadaljujemo na polovico manjšem seznamu, kjer uporabimo enak postopek.
+To nadaljujemo dokler iskanja ne zožimo na seznam dolžine 1. V tem primeru
+le pogledamo, če je edini element enak iskanemu. Če je, smo iskani element našli,
+če ni, pa ga v seznamu ni bilo.
+
+Bisekcijo lahko implementiramo na več načinov. Prvi je, da v spremenljivkah
+``zacetek`` in ``konec`` hranimo začetni in končni indeks podseznama, v katerem
+iščemo element. V skladu s Pythonovimi standardi, v spremenljivki ``konec`` ne
+bomo hranili zadnjega indeksa v podseznamu, temveč naslednji indeks. Na začetku
+bomo element iskali v celotnem seznamu, zato bo ``zacetek`` enak 0, ``konec``
+pa dolžini seznama. Odvisno od tega, kakšen je sredinski element v primerjavi z
+iskanim, bomo spremenljivki ``zacetek`` in ``konec`` ustrezno popravljali. Ko se
+indeksa izenačita, postopek končamo, saj je tedaj podseznam prazen.
+
+.. testcode::
+
+    def poisci_v_urejenem(seznam, iskani_element):
+        '''Vrne True, kadar se iskani element pojavi v seznamu, in False, kadar se ne.'''
+        zacetek = 0
+        konec = len(seznam)
+
+        while zacetek < konec:
+            sredina = (zacetek + konec // 2)
+            if seznam[sredina] == iskani_element:
+                return True
+            elif seznam[sredina] < iskani_element:
+                zacetek = sredina + 1
+            elif seznam[sredina] > iskani_element:
+                konec = sredina
+
+        return False
+
+Enak postopek zapišemo tudi rekurzivno, vendar moramo biti pri tem malo bolj
+previdni.
 
 .. testcode::
 
