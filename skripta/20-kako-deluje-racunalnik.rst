@@ -70,7 +70,7 @@ ukaza naštejete argumente. Odvisno od ukaza je teh lahko 0, 1 ali 2. Za
 ukazom se vam splača napisati komentar, v katerem lahko po človeško
 napišete, kaj ukaz počne.
 
-Na vajah nam ne bo treba uporabljati vseh ukazov, ki jih nudi simulator,
+Vseh ukazov, ki jih nudi simulator, ne bomo uporabljali,
 temveč se bomo zadovoljili s sledečimi ukazi, v katerih bomo z ``reg``
 označili imena delovnih registrov (``A``, ``B``, ``C``, ``D``), s
 ``konst`` pa konstante (``0``, ``1``, ``7``, ``42``, …).
