@@ -64,7 +64,7 @@ prvega do zadnjega (lahko tudi od zadnjega do prvega) in vsakega primerjamo z
 iskanim. Če najdemo enakega, je iskani element v seznamu. Če pa preiščemo vse
 elemente in ne najdemo enakega, iskanega elementa v seznamu ni.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_neurejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Vrne True, kadar se iskani element pojavi v seznamu, in False, kadar se ne.&#39;&#39;&#39;</span>
+    <span class="sd">&#39;&#39;&#39;Vrne True, če se iskani element pojavi v seznamu, in False, če se ne.&#39;&#39;&#39;</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">seznam</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span> <span class="o">==</span> <span class="n">iskani_element</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">True</span>
@@ -131,13 +131,13 @@ bomo element iskali v celotnem seznamu, zato bo <code class="docutils literal"><
 pa dolžini seznama. Odvisno od tega, kakšen je sredinski element v primerjavi z
 iskanim, bomo spremenljivki <code class="docutils literal"><span class="pre">zacetek</span></code> in <code class="docutils literal"><span class="pre">konec</span></code> ustrezno popravljali. Ko se
 indeksa izenačita, postopek končamo, saj je tedaj podseznam prazen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Vrne True, kadar se iskani element pojavi v seznamu, in False, kadar se ne.&#39;&#39;&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem_z_zanko</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne True, če se iskani element pojavi v urejenem seznamu, in False, če se ne.&#39;&#39;&#39;</span>
     <span class="n">zacetek</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">konec</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
 
     <span class="k">while</span> <span class="n">zacetek</span> <span class="o">&lt;</span> <span class="n">konec</span><span class="p">:</span>
-        <span class="n">sredina</span> <span class="o">=</span> <span class="p">(</span><span class="n">zacetek</span> <span class="o">+</span> <span class="n">konec</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">sredina</span> <span class="o">=</span> <span class="p">(</span><span class="n">zacetek</span> <span class="o">+</span> <span class="n">konec</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
         <span class="k">if</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">==</span> <span class="n">iskani_element</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">True</span>
         <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">iskani_element</span><span class="p">:</span>
@@ -148,27 +148,116 @@ indeksa izenačita, postopek končamo, saj je tedaj podseznam prazen.</p>
     <span class="k">return</span> <span class="bp">False</span>
 </pre></div>
 </div>
-<p>Enak postopek zapišemo tudi rekurzivno, vendar moramo biti pri tem malo bolj
-previdni.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zac</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">kon</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Vrne True, kadar se x pojavi v seznamu, in False, kadar se ne.&#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">kon</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">kon</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">zac</span> <span class="o">==</span> <span class="n">kon</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">False</span>
-
-    <span class="n">sredina</span> <span class="o">=</span> <span class="p">(</span><span class="n">kon</span> <span class="o">+</span> <span class="n">zac</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-
-    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="bp">True</span>
-
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="n">poisci_v_urejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zac</span><span class="p">,</span> <span class="n">sredina</span><span class="p">)</span>
-
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="n">poisci_v_urejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">sredina</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kon</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_z_zanko</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_z_zanko</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">True</span>
 </pre></div>
 </div>
+<p>Seveda funkcija ne bo delala pravilno, če ji ne bomo podali urejenega seznama:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_z_zanko</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Enak postopek zapišemo tudi rekurzivno, vendar moramo biti pri tem malo bolj
+previdni. Načeloma lahko iskanje v podseznamu naredimo tako, da s pomočjo rezin
+ustvarili manjši seznam in iščemo v njem:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem_z_rezinami</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne True, če se iskani element pojavi v urejenem seznamu, in False, če se ne.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sredina</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">==</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">poisci_v_urejenem_z_rezinami</span><span class="p">(</span><span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">iskani_element</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">poisci_v_urejenem_z_rezinami</span><span class="p">(</span><span class="n">seznam</span><span class="p">[:</span><span class="n">sredina</span><span class="p">],</span> <span class="n">iskani_element</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_z_rezinami</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_z_rezinami</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Taka funkcija sicer deluje pravilno, vendar opravlja nepotrebno delo, saj
+ob vsakem rekurzivnem klicu naredi novo rezino (bodisi <code class="docutils literal"><span class="pre">seznam[sredina</span> <span class="pre">+</span> <span class="pre">1:]</span></code>
+bodisi <code class="docutils literal"><span class="pre">seznam[:sredina]</span></code>), kar zahteva, da vse ustrezne elemente presname
+na novo mesto. Bolje je, da tako kot pri rešitvi z zankami ves čas delamo z
+istim seznamom, vendar si zapomnimo, med katerima dvema indeksoma iščemo element.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem_med_indeksoma</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">konec</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne True, če se iskani element pojavi v urejenem seznamu na mestu i,</span>
+<span class="sd">    kjer je zacetek &lt;= i &lt; konec, in False, če se ne.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">zacetek</span> <span class="o">==</span> <span class="n">konec</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sredina</span> <span class="o">=</span> <span class="p">(</span><span class="n">zacetek</span> <span class="o">+</span> <span class="n">konec</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">==</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">,</span> <span class="n">sredina</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">konec</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">sredina</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Ta rešitev je veliko bolj učinkovita, saj ne ustvarja novih elementov, je pa malo
+moteče, ker moramo vsakič podajati meje. Če tega ne želimo, lahko uporabimo bodisi
+pomožno funkcijo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne True, če se iskani element pojavi v urejenem seznamu, in False, če se ne.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>bodisi argumentoma <code class="docutils literal"><span class="pre">zacetek</span></code> in <code class="docutils literal"><span class="pre">konec</span></code> damo privzeti vrednosti:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">poisci_v_urejenem_med_indeksoma</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">,</span> <span class="n">zacetek</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">konec</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne True, če se iskani element pojavi v urejenem seznamu na mestu i,</span>
+<span class="sd">    kjer je zacetek &lt;= i &lt; konec, in False, če se ne.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">konec</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">konec</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">zacetek</span> <span class="o">==</span> <span class="n">konec</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sredina</span> <span class="o">=</span> <span class="p">(</span><span class="n">zacetek</span> <span class="o">+</span> <span class="n">konec</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">==</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">,</span> <span class="n">sredina</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">konec</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">sredina</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">iskani_element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">iskani_element</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">sredina</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">poisci_v_urejenem_med_indeksoma</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Kot vidimo, smo privzeto vrednost argumenta <code class="docutils literal"><span class="pre">zacetek</span></code> nastavili na 0,
+privzete vrednosti argumenta <code class="docutils literal"><span class="pre">konec</span></code> pa nismo nastavili na dolžino seznama.
+Razlog je v tem, da vrednost privzetega argumenta lahko nastavimo le enkrat:
+takrat, ko funkcijo definiramo. Ker pa hočemo funkcijo uporabiti na seznamih
+različnih dolžin, nobena privzeta vrednost ne bo prava. Običajna rešitev je,
+da argumentom, za katere lahko privzete vrednosti izračunamo šele ob klicu
+funkcije, nastavimo privzeto vrednost <code class="docutils literal"><span class="pre">None</span></code>. Nato pa ob klicu funkcije v
+primerih, ko se je uporabila ta privzeta vrednost, vrednost argumenta
+ustrezno popravimo. V našem primeru smo takrat, ko je bila vrednost spremenljivke
+<code class="docutils literal"><span class="pre">konec</span></code> enaka <code class="docutils literal"><span class="pre">None</span></code>, njeno vrednost nastavili na dolžino danega seznama.
+V primeru, ko smo ob klicu funkcije vrednost argumenta <code class="docutils literal"><span class="pre">konec</span></code> podali (torej
+ob rekurzivnih klicih), pa bo ta vrednost različna od <code class="docutils literal"><span class="pre">None</span></code>, zato se ne
+bo zgodilo nič.</p>
 </div>
 </div>
 

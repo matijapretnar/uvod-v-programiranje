@@ -33,7 +33,7 @@ elemente in ne najdemo enakega, iskanega elementa v seznamu ni.
 .. testcode::
 
     def poisci_v_neurejenem(seznam, iskani_element):
-        '''Vrne True, kadar se iskani element pojavi v seznamu, in False, kadar se ne.'''
+        '''Vrne True, če se iskani element pojavi v seznamu, in False, če se ne.'''
         for element in seznam:
             if element == iskani_element:
                 return True
@@ -112,13 +112,13 @@ indeksa izenačita, postopek končamo, saj je tedaj podseznam prazen.
 
 .. testcode::
 
-    def poisci_v_urejenem(seznam, iskani_element):
-        '''Vrne True, kadar se iskani element pojavi v seznamu, in False, kadar se ne.'''
+    def poisci_v_urejenem_z_zanko(seznam, iskani_element):
+        '''Vrne True, če se iskani element pojavi v urejenem seznamu, in False, če se ne.'''
         zacetek = 0
         konec = len(seznam)
 
         while zacetek < konec:
-            sredina = (zacetek + konec // 2)
+            sredina = (zacetek + konec) // 2
             if seznam[sredina] == iskani_element:
                 return True
             elif seznam[sredina] < iskani_element:
@@ -128,25 +128,128 @@ indeksa izenačita, postopek končamo, saj je tedaj podseznam prazen.
 
         return False
 
+.. doctest::
+
+    >>> poisci_v_urejenem_z_zanko([1, 2, 3, 5], 4)
+    False
+    >>> poisci_v_urejenem_z_zanko([1, 2, 3, 5], 3)
+    True
+
+Seveda funkcija ne bo delala pravilno, če ji ne bomo podali urejenega seznama:
+
+.. doctest::
+
+    >>> poisci_v_urejenem_z_zanko([3, 3, 3, 1, 5, 5, 5], 3)
+    False
+
+
 Enak postopek zapišemo tudi rekurzivno, vendar moramo biti pri tem malo bolj
-previdni.
+previdni. Načeloma lahko iskanje v podseznamu naredimo tako, da s pomočjo rezin
+ustvarili manjši seznam in iščemo v njem:
 
 .. testcode::
 
-    def poisci_v_urejenem(seznam, x, zac=0, kon=None):
-        '''Vrne True, kadar se x pojavi v seznamu, in False, kadar se ne.'''
-        if kon == None:
-            kon = len(seznam)
-        if zac == kon:
+    def poisci_v_urejenem_z_rezinami(seznam, iskani_element):
+        '''Vrne True, če se iskani element pojavi v urejenem seznamu, in False, če se ne.'''
+        if len(seznam) == 0:
             return False
+        else:
+            sredina = len(seznam) // 2
+            if seznam[sredina] == iskani_element:
+                return True
+            elif seznam[sredina] < iskani_element:
+                return poisci_v_urejenem_z_rezinami(seznam[sredina + 1:], iskani_element)
+            elif seznam[sredina] > iskani_element:
+                return poisci_v_urejenem_z_rezinami(seznam[:sredina], iskani_element)
 
-        sredina = (kon + zac) // 2
+.. doctest::
 
-        if x == seznam[sredina]:
-            return True
+    >>> poisci_v_urejenem_z_rezinami([1, 2, 3, 5], 4)
+    False
+    >>> poisci_v_urejenem_z_rezinami([1, 2, 3, 5], 3)
+    True
 
-        elif x < seznam[sredina]:
-            return poisci_v_urejenem(seznam, x, zac, sredina)
+Taka funkcija sicer deluje pravilno, vendar opravlja nepotrebno delo, saj
+ob vsakem rekurzivnem klicu naredi novo rezino (bodisi ``seznam[sredina + 1:]``
+bodisi ``seznam[:sredina]``), kar zahteva, da vse ustrezne elemente presname
+na novo mesto. Bolje je, da tako kot pri rešitvi z zankami ves čas delamo z
+istim seznamom, vendar si zapomnimo, med katerima dvema indeksoma iščemo element.
 
-        elif x > seznam[sredina]:
-            return poisci_v_urejenem(seznam, x, sredina + 1, kon)
+.. testcode::
+
+    def poisci_v_urejenem_med_indeksoma(seznam, iskani_element, zacetek, konec):
+        '''Vrne True, če se iskani element pojavi v urejenem seznamu na mestu i,
+        kjer je zacetek <= i < konec, in False, če se ne.'''
+        if zacetek == konec:
+            return False
+        else:
+            sredina = (zacetek + konec) // 2
+            if seznam[sredina] == iskani_element:
+                return True
+            elif seznam[sredina] < iskani_element:
+                return poisci_v_urejenem_med_indeksoma(seznam, iskani_element, sredina + 1, konec)
+            elif seznam[sredina] > iskani_element:
+                return poisci_v_urejenem_med_indeksoma(seznam, iskani_element, zacetek, sredina)
+
+.. doctest::
+
+    >>> poisci_v_urejenem_med_indeksoma([1, 2, 3, 5], 4, 0, 3)
+    False
+    >>> poisci_v_urejenem_med_indeksoma([1, 2, 3, 5], 3, 0, 3)
+    True
+    >>> poisci_v_urejenem_med_indeksoma([1, 2, 3, 5], 3, 0, 2)
+    False
+
+Ta rešitev je veliko bolj učinkovita, saj ne ustvarja novih elementov, je pa malo
+moteče, ker moramo vsakič podajati meje. Če tega ne želimo, lahko uporabimo bodisi
+pomožno funkcijo:
+
+.. testcode::
+
+    def poisci_v_urejenem(seznam, iskani_element):
+        '''Vrne True, če se iskani element pojavi v urejenem seznamu, in False, če se ne.'''
+        return poisci_v_urejenem_med_indeksoma(seznam, iskani_element, 0, len(seznam))
+
+bodisi argumentoma ``zacetek`` in ``konec`` damo privzeti vrednosti:
+
+.. testcode::
+
+    def poisci_v_urejenem_med_indeksoma(seznam, iskani_element, zacetek=0, konec=None):
+        '''Vrne True, če se iskani element pojavi v urejenem seznamu na mestu i,
+        kjer je zacetek <= i < konec, in False, če se ne.'''
+        if konec is None:
+            konec = len(seznam)
+
+        if zacetek == konec:
+            return False
+        else:
+            sredina = (zacetek + konec) // 2
+            if seznam[sredina] == iskani_element:
+                return True
+            elif seznam[sredina] < iskani_element:
+                return poisci_v_urejenem_med_indeksoma(seznam, iskani_element, sredina + 1, konec)
+            elif seznam[sredina] > iskani_element:
+                return poisci_v_urejenem_med_indeksoma(seznam, iskani_element, zacetek, sredina)
+
+.. doctest::
+
+    >>> poisci_v_urejenem_med_indeksoma([1, 2, 3, 5], 3, 0, 3)
+    True
+    >>> poisci_v_urejenem_med_indeksoma([1, 2, 3, 5], 3)
+    True
+    >>> poisci_v_urejenem_med_indeksoma([1, 2, 3, 5], 3, 0, 2)
+    False
+
+Kot vidimo, smo privzeto vrednost argumenta ``zacetek`` nastavili na 0,
+privzete vrednosti argumenta ``konec`` pa nismo nastavili na dolžino seznama.
+Razlog je v tem, da vrednost privzetega argumenta lahko nastavimo le enkrat:
+takrat, ko funkcijo definiramo. Ker pa hočemo funkcijo uporabiti na seznamih
+različnih dolžin, nobena privzeta vrednost ne bo prava. Običajna rešitev je,
+da argumentom, za katere lahko privzete vrednosti izračunamo šele ob klicu
+funkcije, nastavimo privzeto vrednost ``None``. Nato pa ob klicu funkcije v
+primerih, ko se je uporabila ta privzeta vrednost, vrednost argumenta
+ustrezno popravimo. V našem primeru smo takrat, ko je bila vrednost spremenljivke
+``konec`` enaka ``None``, njeno vrednost nastavili na dolžino danega seznama.
+V primeru, ko smo ob klicu funkcije vrednost argumenta ``konec`` podali (torej
+ob rekurzivnih klicih), pa bo ta vrednost različna od ``None``, zato se ne
+bo zgodilo nič.
