@@ -17,15 +17,13 @@ Python za matematike
     11-casovna-zahtevnost
     12-urejanje
     13-slovarji-in-mnozice
-    20-kako-deluje-racunalnik
-
-..
     14-datoteke
     15-psevdonakljucna-stevila
     16-objektno-programiranje
     17-izjeme
-    18-generatorji
+    18-iteratorji-in-generatorji
     19-tkinter
+    20-kako-deluje-racunalnik
 
 
 Kazala
