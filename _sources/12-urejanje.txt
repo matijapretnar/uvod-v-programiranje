@@ -54,25 +54,25 @@ Urejanje z zlivanjem
 
 .. testcode::
 
-    def uredi_z_zlivanjem(seznam, zac=0, kon=None):
-        if kon is None:
-            kon = len(seznam)
-        if kon - zac <= 1:
+    def uredi_z_zlivanjem(seznam, zacetek=0, konec=None):
+        if konec is None:
+            konec = len(seznam)
+        if konec - zacetek <= 1:
             return
         else:
-            sre = (zac + kon) // 2
-            uredi_z_zlivanjem(seznam, zac, sre)
-            uredi_z_zlivanjem(seznam, sre, kon)
-            zlij_na_mestu(seznam, zac, sre, kon)
+            sre = (zacetek + konec) // 2
+            uredi_z_zlivanjem(seznam, zacetek, sre)
+            uredi_z_zlivanjem(seznam, sre, konec)
+            zlij_na_mestu(seznam, zacetek, sre, konec)
 
-    def zlij_na_mestu(seznam, zac, sre, kon):
-        zliti_seznam = (kon - zac) * [None]
-        levi, desni, cilj = zac, sre, 0
-        while levi < sre or desni < kon:
+    def zlij_na_mestu(seznam, zacetek, sre, konec):
+        zliti_seznam = (konec - zacetek) * [None]
+        levi, desni, cilj = zacetek, sre, 0
+        while levi < sre or desni < konec:
             if levi == sre:
                 zliti_seznam[cilj] = seznam[desni]
                 desni += 1
-            elif desni == kon:
+            elif desni == konec:
                 zliti_seznam[cilj] = seznam[levi]
                 levi += 1
             elif seznam[levi] <= seznam[desni]:
@@ -83,7 +83,7 @@ Urejanje z zlivanjem
                 zliti_seznam[cilj] = seznam[desni]
                 desni += 1
             cilj += 1
-        seznam[zac:kon] = zliti_seznam
+        seznam[zacetek:konec] = zliti_seznam
 
 
 
@@ -92,31 +92,31 @@ Hitro urejanje (Quicksort)
 
 .. testcode::
 
-    def premeci(seznam, zac, konec):
-        assert konec - zac > 1
-        pivot = zac
-        zac += 1
+    def premeci(seznam, zacetek, konec):
+        assert konec - zacetek > 1
+        pivot = zacetek
+        zacetek += 1
         konec -= 1
-        while zac < konec:
-            while zac < konec and seznam[zac] <= seznam[pivot]:
-                zac += 1
-            while zac < konec and seznam[konec] > seznam[pivot]:
+        while zacetek < konec:
+            while zacetek < konec and seznam[zacetek] <= seznam[pivot]:
+                zacetek += 1
+            while zacetek < konec and seznam[konec] > seznam[pivot]:
                 konec -= 1
-            zamenjaj(seznam, zac, konec)
-        if seznam[zac] <= seznam[pivot]:
-            novi_pivot = zac
+            zamenjaj(seznam, zacetek, konec)
+        if seznam[zacetek] <= seznam[pivot]:
+            novi_pivot = zacetek
         else:
-            novi_pivot = zac - 1
+            novi_pivot = zacetek - 1
         zamenjaj(seznam, pivot, novi_pivot)
         return novi_pivot
 
 
-    def hitro_uredi(seznam, zac=0, kon=None):
-        if kon is None:
-            kon = len(seznam)
-        if kon - zac <= 1:
+    def hitro_uredi(seznam, zacetek=0, konec=None):
+        if konec is None:
+            konec = len(seznam)
+        if konec - zacetek <= 1:
             return
         else:
-            pivot = premeci(seznam, zac, kon)
-            hitro_uredi(seznam, zac, pivot)
-            hitro_uredi(seznam, pivot + 1, kon)
+            pivot = premeci(seznam, zacetek, konec)
+            hitro_uredi(seznam, zacetek, pivot)
+            hitro_uredi(seznam, pivot + 1, konec)

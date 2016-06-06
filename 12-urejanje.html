@@ -26,6 +26,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
+    <link rel="next" title="Slovarji in množice" href="13-slovarji-in-mnozice.html" />
     <link rel="prev" title="Časovna zahtevnost" href="11-casovna-zahtevnost.html" />
    
   
@@ -85,25 +86,25 @@
 </div>
 <div class="section" id="urejanje-z-zlivanjem">
 <h2>Urejanje z zlivanjem<a class="headerlink" href="#urejanje-z-zlivanjem" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">uredi_z_zlivanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zac</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">kon</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">kon</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">kon</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">kon</span> <span class="o">-</span> <span class="n">zac</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">uredi_z_zlivanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">konec</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">konec</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">konec</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">konec</span> <span class="o">-</span> <span class="n">zacetek</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">sre</span> <span class="o">=</span> <span class="p">(</span><span class="n">zac</span> <span class="o">+</span> <span class="n">kon</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-        <span class="n">uredi_z_zlivanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zac</span><span class="p">,</span> <span class="n">sre</span><span class="p">)</span>
-        <span class="n">uredi_z_zlivanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">sre</span><span class="p">,</span> <span class="n">kon</span><span class="p">)</span>
-        <span class="n">zlij_na_mestu</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zac</span><span class="p">,</span> <span class="n">sre</span><span class="p">,</span> <span class="n">kon</span><span class="p">)</span>
+        <span class="n">sre</span> <span class="o">=</span> <span class="p">(</span><span class="n">zacetek</span> <span class="o">+</span> <span class="n">konec</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">uredi_z_zlivanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">sre</span><span class="p">)</span>
+        <span class="n">uredi_z_zlivanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">sre</span><span class="p">,</span> <span class="n">konec</span><span class="p">)</span>
+        <span class="n">zlij_na_mestu</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">sre</span><span class="p">,</span> <span class="n">konec</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">zlij_na_mestu</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zac</span><span class="p">,</span> <span class="n">sre</span><span class="p">,</span> <span class="n">kon</span><span class="p">):</span>
-    <span class="n">zliti_seznam</span> <span class="o">=</span> <span class="p">(</span><span class="n">kon</span> <span class="o">-</span> <span class="n">zac</span><span class="p">)</span> <span class="o">*</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span>
-    <span class="n">levi</span><span class="p">,</span> <span class="n">desni</span><span class="p">,</span> <span class="n">cilj</span> <span class="o">=</span> <span class="n">zac</span><span class="p">,</span> <span class="n">sre</span><span class="p">,</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">levi</span> <span class="o">&lt;</span> <span class="n">sre</span> <span class="ow">or</span> <span class="n">desni</span> <span class="o">&lt;</span> <span class="n">kon</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">zlij_na_mestu</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">sre</span><span class="p">,</span> <span class="n">konec</span><span class="p">):</span>
+    <span class="n">zliti_seznam</span> <span class="o">=</span> <span class="p">(</span><span class="n">konec</span> <span class="o">-</span> <span class="n">zacetek</span><span class="p">)</span> <span class="o">*</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span>
+    <span class="n">levi</span><span class="p">,</span> <span class="n">desni</span><span class="p">,</span> <span class="n">cilj</span> <span class="o">=</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">sre</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">levi</span> <span class="o">&lt;</span> <span class="n">sre</span> <span class="ow">or</span> <span class="n">desni</span> <span class="o">&lt;</span> <span class="n">konec</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">levi</span> <span class="o">==</span> <span class="n">sre</span><span class="p">:</span>
             <span class="n">zliti_seznam</span><span class="p">[</span><span class="n">cilj</span><span class="p">]</span> <span class="o">=</span> <span class="n">seznam</span><span class="p">[</span><span class="n">desni</span><span class="p">]</span>
             <span class="n">desni</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">elif</span> <span class="n">desni</span> <span class="o">==</span> <span class="n">kon</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">desni</span> <span class="o">==</span> <span class="n">konec</span><span class="p">:</span>
             <span class="n">zliti_seznam</span><span class="p">[</span><span class="n">cilj</span><span class="p">]</span> <span class="o">=</span> <span class="n">seznam</span><span class="p">[</span><span class="n">levi</span><span class="p">]</span>
             <span class="n">levi</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">elif</span> <span class="n">seznam</span><span class="p">[</span><span class="n">levi</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">seznam</span><span class="p">[</span><span class="n">desni</span><span class="p">]:</span>
@@ -114,40 +115,40 @@
             <span class="n">zliti_seznam</span><span class="p">[</span><span class="n">cilj</span><span class="p">]</span> <span class="o">=</span> <span class="n">seznam</span><span class="p">[</span><span class="n">desni</span><span class="p">]</span>
             <span class="n">desni</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">cilj</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">seznam</span><span class="p">[</span><span class="n">zac</span><span class="p">:</span><span class="n">kon</span><span class="p">]</span> <span class="o">=</span> <span class="n">zliti_seznam</span>
+    <span class="n">seznam</span><span class="p">[</span><span class="n">zacetek</span><span class="p">:</span><span class="n">konec</span><span class="p">]</span> <span class="o">=</span> <span class="n">zliti_seznam</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="hitro-urejanje-quicksort">
 <h2>Hitro urejanje (Quicksort)<a class="headerlink" href="#hitro-urejanje-quicksort" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">premeci</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zac</span><span class="p">,</span> <span class="n">konec</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">konec</span> <span class="o">-</span> <span class="n">zac</span> <span class="o">&gt;</span> <span class="mi">1</span>
-    <span class="n">pivot</span> <span class="o">=</span> <span class="n">zac</span>
-    <span class="n">zac</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">premeci</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">konec</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">konec</span> <span class="o">-</span> <span class="n">zacetek</span> <span class="o">&gt;</span> <span class="mi">1</span>
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">zacetek</span>
+    <span class="n">zacetek</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">konec</span> <span class="o">-=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">zac</span> <span class="o">&lt;</span> <span class="n">konec</span><span class="p">:</span>
-        <span class="k">while</span> <span class="n">zac</span> <span class="o">&lt;</span> <span class="n">konec</span> <span class="ow">and</span> <span class="n">seznam</span><span class="p">[</span><span class="n">zac</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">seznam</span><span class="p">[</span><span class="n">pivot</span><span class="p">]:</span>
-            <span class="n">zac</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">while</span> <span class="n">zac</span> <span class="o">&lt;</span> <span class="n">konec</span> <span class="ow">and</span> <span class="n">seznam</span><span class="p">[</span><span class="n">konec</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">seznam</span><span class="p">[</span><span class="n">pivot</span><span class="p">]:</span>
+    <span class="k">while</span> <span class="n">zacetek</span> <span class="o">&lt;</span> <span class="n">konec</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">zacetek</span> <span class="o">&lt;</span> <span class="n">konec</span> <span class="ow">and</span> <span class="n">seznam</span><span class="p">[</span><span class="n">zacetek</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">seznam</span><span class="p">[</span><span class="n">pivot</span><span class="p">]:</span>
+            <span class="n">zacetek</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">zacetek</span> <span class="o">&lt;</span> <span class="n">konec</span> <span class="ow">and</span> <span class="n">seznam</span><span class="p">[</span><span class="n">konec</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">seznam</span><span class="p">[</span><span class="n">pivot</span><span class="p">]:</span>
             <span class="n">konec</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="n">zamenjaj</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zac</span><span class="p">,</span> <span class="n">konec</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">seznam</span><span class="p">[</span><span class="n">zac</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">seznam</span><span class="p">[</span><span class="n">pivot</span><span class="p">]:</span>
-        <span class="n">novi_pivot</span> <span class="o">=</span> <span class="n">zac</span>
+        <span class="n">zamenjaj</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">konec</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">seznam</span><span class="p">[</span><span class="n">zacetek</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">seznam</span><span class="p">[</span><span class="n">pivot</span><span class="p">]:</span>
+        <span class="n">novi_pivot</span> <span class="o">=</span> <span class="n">zacetek</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">novi_pivot</span> <span class="o">=</span> <span class="n">zac</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">novi_pivot</span> <span class="o">=</span> <span class="n">zacetek</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="n">zamenjaj</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">pivot</span><span class="p">,</span> <span class="n">novi_pivot</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">novi_pivot</span>
 
 
-<span class="k">def</span> <span class="nf">hitro_uredi</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zac</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">kon</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">kon</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">kon</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">kon</span> <span class="o">-</span> <span class="n">zac</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">hitro_uredi</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">konec</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">konec</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">konec</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">konec</span> <span class="o">-</span> <span class="n">zacetek</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">pivot</span> <span class="o">=</span> <span class="n">premeci</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zac</span><span class="p">,</span> <span class="n">kon</span><span class="p">)</span>
-        <span class="n">hitro_uredi</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zac</span><span class="p">,</span> <span class="n">pivot</span><span class="p">)</span>
-        <span class="n">hitro_uredi</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kon</span><span class="p">)</span>
+        <span class="n">pivot</span> <span class="o">=</span> <span class="n">premeci</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">konec</span><span class="p">)</span>
+        <span class="n">hitro_uredi</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">pivot</span><span class="p">)</span>
+        <span class="n">hitro_uredi</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">konec</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -175,6 +176,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="11-casovna-zahtevnost.html" title="prejšnje poglavje">Časovna zahtevnost</a></li>
+      <li>Next: <a href="13-slovarji-in-mnozice.html" title="naslednje poglavje">Slovarji in množice</a></li>
   </ul></li>
 </ul>
 </div>

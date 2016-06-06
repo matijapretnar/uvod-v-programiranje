@@ -1,6 +1,25 @@
 Časovna zahtevnost
 ==================
 
+Kako bi lahko natančneje primerjali učinkovitost (običajno nas zanima čas, ki ga
+algoritem potrebuje, da izračuna odgovor) raznih algoritmov, ki smo jih srečali?
+Lahko bi izmerili čas, ki ga potrebujejo za izvedbo, vendar se to število
+spreminja od računalnika do računalnika. Tudi če bi se odločili za standardni
+računalnik, tako kot se odločimo za standardni kilogram ali meter, bi bilo za
+točne številke potrebno veliko truda, saj običajno želimo poznati učinkovitost
+algoritma pri različno velikih vhodnih podatkih, ocenili pa bi jih tudi zelo
+težko, saj bi morali natančno poznati, kako ta standardni računalnik deluje.
+Konec koncev pa v praksi tako natančnih številk sploh ne rabimo. Namesto tega se
+odločimo za pristop, v katerem lahko enostavno izračunamo grobe ocene, ki se v
+praksi izkažejo za dovolj dobre.
+
+Zavoljo poenostavitve bomo privzeli dve predpostavki:
+
+1. Zanimajo nas vrednosti le pri dovolj velikih številih, s čimer lahko zanemarimo
+manjša nihanja zaradi robnih pogojev.
+2. Ne zanimajo nas konstantni faktorji, torej to, ali en algoritem vedno porabi 
+dvakrat več časa od drugega.
+
 O-notacija
 ----------
 
