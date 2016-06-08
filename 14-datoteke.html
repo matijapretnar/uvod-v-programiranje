@@ -56,15 +56,152 @@ lahko na nosilcu naredimo več particij in vsako od njih ločeno formatiramo s
 svojim datotečnim sistemom.</p>
 <p>Datotečni sistem določa, v kakšni obliki je na nosilcu shranjena vsebina datotek
 in v kakšni obliki je predstavljena uporabniku. S prvim se ne bomo ukvarjali,
-pri drugem pa je pomembna le razlika med operacijskimi sistemi Windows in Linux/OS X.</p>
+pri drugem pa je pomembna le razlika med operacijskim sistemom Windows in sistemi,
+osnovanimi na UNIXu (torej Linux ali OS X).</p>
+<p>Datotečni sistem vsebuje datoteke, razporejene po mapah (oz.
+direktorijih), ki so lahko tudi gnezdene. Na vrhu imamo korensko mapo, ki jo
+v operacijskih sistemih, osnovanih na UNIXu, označujemo z <code class="docutils literal"><span class="pre">/</span></code>, na operacijskem
+sistemu Windows pa z <code class="docutils literal"><span class="pre">C:\</span></code>, kjer je <code class="docutils literal"><span class="pre">C</span></code> ime particije: <code class="docutils literal"><span class="pre">C</span></code> običajno označuje
+glavni pogon, <code class="docutils literal"><span class="pre">D</span></code> drugi pogon ali CD/DVD/BlueRay enoto, <code class="docutils literal"><span class="pre">A</span></code> in <code class="docutils literal"><span class="pre">B</span></code> sta se
+uporabljali za diskete, kasnejše črke pa se uporabljajo za USB ključke in podobno.</p>
+<p>Za primer vzemimo datotečni sistem s sledečimi mapami in datotekami:</p>
+<div class="highlight-python"><div class="highlight"><pre>/
+    uvp
+        datoteke
+            vhodna.txt
+            izhodna.txt
+        funkcije.py
+        seznami.py
+        slovarji.py
+        zanke.py
+    praktikum
+        latex
+            pismo.tex
+            pismo.pdf
+            pismo.aux
+        mathematica
+            grafi.nb
+            kolokvij.nb
+    analiza
+        plonkec.tex
+</pre></div>
+</div>
 </div>
 <div class="section" id="relativne-in-absolutne-poti">
 <h2>Relativne in absolutne poti<a class="headerlink" href="#relativne-in-absolutne-poti" title="Povezava na naslov">¶</a></h2>
-<p>Datotečni sistem je sestavljen iz datotek, razporejenih po mapah, ki so lahko tudi
-gnezdene. Do datoteke lahko dostopamo prek njene poti.</p>
+<p>Do datoteke lahko dostopamo prek njene poti, ki našteje vse imenike, v katere
+moramo iti, da pridemo do datoteke.</p>
+<blockquote>
+<div>Te lahko izrazimo na dva načina. Recimo, da so v našem datotečnem sistemu</div></blockquote>
+<p>datoteke razporejene po sledečih mapah, pri čemer z <code class="docutils literal"><span class="pre">/</span></code> označujemo korensko
+mapo, torej tisto mapo</p>
 </div>
 <div class="section" id="delo-z-datotecnim-sistemom-v-pythonu">
 <h2>Delo z datotečnim sistemom v Pythonu<a class="headerlink" href="#delo-z-datotecnim-sistemom-v-pythonu" title="Povezava na naslov">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.listdir(pot)</span></code></dt>
+<dd><p class="first last">Vrne imena vseh datotek v mapi s potjo <code class="docutils literal"><span class="pre">pot</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.path.jon(pot1,</span> <span class="pre">pot2)</span></code></dt>
+<dd><p class="first last">Stakne poti <code class="docutils literal"><span class="pre">pot1</span></code> in <code class="docutils literal"><span class="pre">pot2</span></code>, pri čemer ustrezno poskrbi za prava ločila
+glede na operacijski sistem.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.path.isdir(pot)</span></code></dt>
+<dd><p class="first last">Vrne <code class="docutils literal"><span class="pre">True</span></code>, kadar <code class="docutils literal"><span class="pre">pot</span></code> vodi do mape.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.path.exists(pot)</span></code></dt>
+<dd><p class="first last">Vrne <code class="docutils literal"><span class="pre">True</span></code>, kadar <code class="docutils literal"><span class="pre">pot</span></code> obstaja v datotečnem sistemu.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.path.splitext(pot)</span></code></dt>
+<dd><p class="first last">Večina datotek ima končnico, ki se začne z znakom <code class="docutils literal"><span class="pre">.</span></code> in označuje tip
+datoteke (<code class="docutils literal"><span class="pre">.jpg</span></code> za JPEG slike, <code class="docutils literal"><span class="pre">.docx</span></code> za Wordove dokumente, …).
+Metoda dano <code class="docutils literal"><span class="pre">pot</span></code> loči na del pred končnico in na končnico.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.path.split(pot)</span></code></dt>
+<dd><p class="first last">Dano pot loči na pot do zadnje mape in na ime datoteke.
+Do prve komponente lahko dostopamo tudi z metodo <code class="docutils literal"><span class="pre">os.path.dirname(pot)</span></code>,
+do druge pa z metodo <code class="docutils literal"><span class="pre">os.path.basename(pot)</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.mkdir(pot)</span></code></dt>
+<dd><p class="first last">Naredi mapo z dano potjo.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.makedirs(pot,</span> <span class="pre">exist_ok=False)</span></code></dt>
+<dd><p class="first last">Naredi mapo z dano potjo in vse vmesne imenike. Če je argument <code class="docutils literal"><span class="pre">exist_ok</span></code> nastavljen na <code class="docutils literal"><span class="pre">True</span></code>,
+ne javi napake, če ciljna mapa že obstaja.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.rename(stara_pot,</span> <span class="pre">nova_pot)</span></code></dt>
+<dd><p class="first last">Datoteko ali mapo s potjo <code class="docutils literal"><span class="pre">stara_pot</span></code> preimenuje v <code class="docutils literal"><span class="pre">nova_pot</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.remove(pot)</span></code></dt>
+<dd><p class="first last">Pobriše datoteko z dano potjo.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.rmdir(pot)</span></code></dt>
+<dd><p class="first last">Pobriše mapo z dano potjo.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.removedirs(pot)</span></code></dt>
+<dd><p class="first last">Pobriše mapo z dano potjo in vse vmesne imenike.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.path.normpath(pot)</span></code></dt>
+<dd><p class="first last">Vrne počiščeno različico dane poti.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.path.abspath(pot)</span></code></dt>
+<dd><p class="first last">Vrne počiščeno absolutno pot dane poti.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.chdir(pot)</span></code></dt>
+<dd><p class="first last">Delovni imenik nastavi na <code class="docutils literal"><span class="pre">pot</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">os.getcwd()</span></code></dt>
+<dd><p class="first last">Vrne trenutni delovni imenik.</p>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="branje-in-pisanje-datotek">
 <h2>Branje in pisanje datotek<a class="headerlink" href="#branje-in-pisanje-datotek" title="Povezava na naslov">¶</a></h2>

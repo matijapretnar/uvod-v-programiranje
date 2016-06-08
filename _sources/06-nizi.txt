@@ -169,7 +169,7 @@ Metode na nizih
     Podobno kot prej klic ``s.find(t, i)`` začne iskati pri indeksu ``i``,
     klic ``s.find(t, i, j)`` pa konča pri indeksu ``j``. Če niza ni,
     metoda vrne ``-1``. Metoda ``s.index`` se obnaša enako kot ``s.find``, le
-    da v primeru, ko podniza ne najde, sproži napako.e podniza ne najde
+    da v primeru, ko podniza ne najde, sproži napako.
     
 - ``s.join(sez)``
     Z ločilom ``s`` skupaj stakne vse nize iz seznama ``sez``.
