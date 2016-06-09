@@ -23,9 +23,24 @@ dvakrat več časa od drugega.
 O-notacija (razlaga še manjka)
 ------------------------------
 
+V ta namen bomo uporabili *O-notacijo*, s katero združujemo funkcije, ki se
+v neskončnosti obnašajo podobno. Za funkciji :math:`f` in :math:`g` definiramo
+
 .. math::
 
     f \in O(g) \iff \exists n_0, M . \forall n > n_0 . |f(n)| \le M \cdot |g(n)|
+
+kar preberemo kot “:math:`f` pripada razredu :math:`O(g)`”. V našem primeru nas
+bodo zanimale le pozitivne funkcije (ker algoritem za izvajanje ne bo potreboval
+negativne količine časa), zato definicijo takoj poenostavimo na:
+
+.. math::
+
+    f \in O(g) \iff \exists n_0, M . \forall n > n_0 . f(n) \le M \cdot g(n)
+
+Ideja je sledeča: :math:`f \in O(g)` velja natanko takrat, kadar je funkcija :math:`f`
+od nekod naprej (za vsa števila :math:`n` od nekega :math:`n_0` naprej) omejena
+s funkcijo :math:`g`.
 
 .. math::
 
