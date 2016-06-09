@@ -1,5 +1,5 @@
-Objektno programiranje
-======================
+Objektno programiranje (vsebina še manjka)
+==========================================
 
 Definicija razreda in konstrukcije objektov
 -------------------------------------------

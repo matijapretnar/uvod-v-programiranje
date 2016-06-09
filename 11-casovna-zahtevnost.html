@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
-    <link rel="next" title="Urejanje" href="12-urejanje.html" />
+    <link rel="next" title="Urejanje (razlage še manjkajo)" href="12-urejanje.html" />
     <link rel="prev" title="Iskanje" href="10-iskanje.html" />
    
   
@@ -58,15 +58,22 @@ praksi izkažejo za dovolj dobre.</p>
 manjša nihanja zaradi robnih pogojev.
 2. Ne zanimajo nas konstantni faktorji, torej to, ali en algoritem vedno porabi
 dvakrat več časa od drugega.</p>
-<div class="section" id="o-notacija">
-<h2>O-notacija<a class="headerlink" href="#o-notacija" title="Povezava na naslov">¶</a></h2>
+<div class="section" id="o-notacija-razlaga-se-manjka">
+<h2>O-notacija (razlaga še manjka)<a class="headerlink" href="#o-notacija-razlaga-se-manjka" title="Povezava na naslov">¶</a></h2>
+<p>V ta namen bomo uporabili <em>O-notacijo</em>, s katero združujemo funkcije, ki se
+v neskončnosti obnašajo podobno. Za funkciji <span class="math">\(f\)</span> in <span class="math">\(g\)</span> definiramo</p>
 <div class="math">
 \[\begin{split}f \in O(g) \iff \exists n_0, M . \forall n &gt; n_0 . |f(n)| \le M \cdot |g(n)|\end{split}\]</div>
+<p>kar preberemo kot “<span class="math">\(f\)</span> pripada razredu <span class="math">\(O(g)\)</span>”. V našem primeru nas
+bodo zanimale le pozitivne funkcije (ker algoritem za izvajanje ne bo potreboval
+negativne količine časa), zato definicijo takoj poenostavimo na:</p>
+<div class="math">
+\[\begin{split}f \in O(g) \iff \exists n_0, M . \forall n &gt; n_0 . f(n) \le M \cdot g(n)\end{split}\]</div>
+<p>Ideja je sledeča: <span class="math">\(f \in O(g)\)</span> velja natanko takrat, kadar je funkcija <span class="math">\(f\)</span>
+od nekod naprej (za vsa števila <span class="math">\(n\)</span> od nekega <span class="math">\(n_0\)</span> naprej) omejena
+s funkcijo <span class="math">\(g\)</span>.</p>
 <div class="math">
 \[f \in O(g) \iff f(n) \in O(g(n)) \iff f(n) = O(g(n))\]</div>
-</div>
-<div class="section" id="pravila-za-racunanje-z-o-notacijo">
-<h2>Pravila za računanje z O-notacijo<a class="headerlink" href="#pravila-za-racunanje-z-o-notacijo" title="Povezava na naslov">¶</a></h2>
 <div class="math">
 \[f_1 \in O(g_1) \land f_2 \in O(g_2) \implies f_1 + f_2 \in O(g_1 + g_2)\]</div>
 <p>ali kar</p>
@@ -83,7 +90,9 @@ dvakrat več časa od drugega.</p>
 <p>ali kar</p>
 <div class="math">
 \[k \cdot O(g) = O(g)\]</div>
-<p>časovna zahtevnost: iskanje v neurejenem, iskanje v urejenem, je_podseznam</p>
+</div>
+<div class="section" id="casovne-zahtevnosti-do-sedaj-videnih-algoritmov-vsebina-se-manjka">
+<h2>Časovne zahtevnosti do sedaj videnih algoritmov (vsebina še manjka)<a class="headerlink" href="#casovne-zahtevnosti-do-sedaj-videnih-algoritmov-vsebina-se-manjka" title="Povezava na naslov">¶</a></h2>
 </div>
 </div>
 
@@ -96,8 +105,8 @@ dvakrat več časa od drugega.</p>
   <h3><a href="index.html">Seznam Vsebine</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Časovna zahtevnost</a><ul>
-<li><a class="reference internal" href="#o-notacija">O-notacija</a></li>
-<li><a class="reference internal" href="#pravila-za-racunanje-z-o-notacijo">Pravila za računanje z O-notacijo</a></li>
+<li><a class="reference internal" href="#o-notacija-razlaga-se-manjka">O-notacija (razlaga še manjka)</a></li>
+<li><a class="reference internal" href="#casovne-zahtevnosti-do-sedaj-videnih-algoritmov-vsebina-se-manjka">Časovne zahtevnosti do sedaj videnih algoritmov (vsebina še manjka)</a></li>
 </ul>
 </li>
 </ul>
@@ -106,7 +115,7 @@ dvakrat več časa od drugega.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="10-iskanje.html" title="prejšnje poglavje">Iskanje</a></li>
-      <li>Next: <a href="12-urejanje.html" title="naslednje poglavje">Urejanje</a></li>
+      <li>Next: <a href="12-urejanje.html" title="naslednje poglavje">Urejanje (razlage še manjkajo)</a></li>
   </ul></li>
 </ul>
 </div>

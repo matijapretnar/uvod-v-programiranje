@@ -1,5 +1,5 @@
-Kako deluje računalnik?
-=======================
+Kako deluje računalnik? (nekaj vsebine še manjka)
+=================================================
 
 Tudi, če se vam ni zdelo, smo v Pythonu programe pisali na človeku izjemno
 prijazen način. Tokrat bomo spoznali še drugo stran programiranja, saj bomo
