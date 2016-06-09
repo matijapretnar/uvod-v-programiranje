@@ -1,5 +1,5 @@
-Urejanje
-========
+Urejanje (razlage še manjkajo)
+==============================
 
 Urejanje z izbiranjem
 ---------------------
@@ -87,7 +87,7 @@ Urejanje z zlivanjem
 
 
 
-Hitro urejanje (Quicksort)
+Hitro urejanje / Quicksort
 --------------------------
 
 .. testcode::

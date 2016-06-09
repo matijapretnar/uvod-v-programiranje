@@ -1,5 +1,5 @@
-Iteratorji in generatorji
-=========================
+Iteratorji in generatorji (vsebina še manjka)
+=============================================
 
 Sestavljanje in uporaba iteratorjev
 -----------------------------------

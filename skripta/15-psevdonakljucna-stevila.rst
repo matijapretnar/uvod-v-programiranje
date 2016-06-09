@@ -1,5 +1,5 @@
-Psevdonaključna števila
-=======================
+Psevdonaključna števila (vsebina še manjka)
+===========================================
 
 Uporaba knjižnice ``random``
 ----------------------------

@@ -225,5 +225,5 @@ Funkcijo ``fakulteta`` pa bi napisali kot:
         return produkt
 
 
-Stavki ``break``, ``continue`` in ``pass``
-------------------------------------------
+Stavki ``break``, ``continue`` in ``pass`` (vsebina še manjka)
+--------------------------------------------------------------

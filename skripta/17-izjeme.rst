@@ -1,5 +1,5 @@
-Izjeme
-======
+Izjeme (vsebina še manjka)
+==========================
 
 Lovljenje izjem
 ---------------

@@ -117,13 +117,13 @@ Delo z datotečnim sistemom v Pythonu
 - ``os.getcwd()``
     Vrne trenutni delovni imenik.
 
-Branje in pisanje datotek
--------------------------
+Branje in pisanje datotek (vsebina še manjka)
+---------------------------------------------
 
 
-Kodne tabele
-------------
+Kodne tabele (vsebina še manjka)
+--------------------------------
 
 
-CSV datoteke
-------------
+CSV datoteke (pride naslednje leto)
+-----------------------------------

@@ -20,8 +20,8 @@ manjša nihanja zaradi robnih pogojev.
 2. Ne zanimajo nas konstantni faktorji, torej to, ali en algoritem vedno porabi 
 dvakrat več časa od drugega.
 
-O-notacija
-----------
+O-notacija (razlaga še manjka)
+------------------------------
 
 .. math::
 
@@ -31,9 +31,6 @@ O-notacija
 
     f \in O(g) \iff f(n) \in O(g(n)) \iff f(n) = O(g(n))
 
-
-Pravila za računanje z O-notacijo
----------------------------------
 
 .. math::
 
@@ -67,4 +64,5 @@ ali kar
 
     k \cdot O(g) = O(g)
 
-časovna zahtevnost: iskanje v neurejenem, iskanje v urejenem, je_podseznam
+Časovne zahtevnosti do sedaj videnih algoritmov (vsebina še manjka)
+-------------------------------------------------------------------

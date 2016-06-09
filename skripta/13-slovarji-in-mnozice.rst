@@ -1,5 +1,5 @@
-Slovarji in množice
-===================
+Slovarji in množice (razlage še manjkajo)
+=========================================
 
 
 Primeri uporabe slovarjev
