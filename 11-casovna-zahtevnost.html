@@ -58,33 +58,52 @@ praksi izkažejo za dovolj dobre.</p>
 manjša nihanja zaradi robnih pogojev.
 2. Ne zanimajo nas konstantni faktorji, torej to, ali en algoritem vedno porabi
 dvakrat več časa od drugega.</p>
-<div class="section" id="o-notacija-razlaga-se-manjka">
-<h2>O-notacija (razlaga še manjka)<a class="headerlink" href="#o-notacija-razlaga-se-manjka" title="Povezava na naslov">¶</a></h2>
-<p>V ta namen bomo uporabili <em>O-notacijo</em>, s katero združujemo funkcije, ki se
-v neskončnosti obnašajo podobno. Za funkciji <span class="math">\(f\)</span> in <span class="math">\(g\)</span> definiramo</p>
+<div class="section" id="o-notacija">
+<h2>O-notacija<a class="headerlink" href="#o-notacija" title="Povezava na naslov">¶</a></h2>
+<p>V ta namen bomo uporabili <em>O-notacijo</em>, s katero opišemo, s čim je v neskončnosti
+omejena rast funkcije. Ideja je sledeča.</p>
+<p>Funkcija <span class="math">\(f(n) = n^3 + 3 n^2 + 3\)</span> je od nekod naprej omejena s funkcijo
+<span class="math">\(g(n) = 2 n^3 - 10\)</span>, čeprav je <span class="math">\(f(1) &gt; g(1)\)</span> ali <span class="math">\(f(2) &gt; g(2)\)</span>,
+saj bo vodilni člen pri velikih vrednostih <span class="math">\(n\)</span> prevladal nad ostalimi.
+Na primer, za vse <span class="math">\(n \ge 4\)</span> bo veljalo <span class="math">\(f(n) &lt; g(n)\)</span>.</p>
+<p>Kot smo dejali, nas konstantni faktorji ne zanimajo, zato lahko rečemo, da je
+rast funkcije <span class="math">\(f\)</span> omejena tudi s funkcijo <span class="math">\(k(n) = n^3\)</span>, saj bo
+za neko število <span class="math">\(b\)</span> od nekod naprej vedno veljalo <span class="math">\(f(n) \le b n^3\)</span>.
+Na primer, za vse <span class="math">\(n &gt; 3000\)</span> bo veljalo <span class="math">\(f(n) \le 1.001 n^3\)</span>. Hitro lahko
+vidimo, da je rast kakršnegakoli polinoma <span class="math">\(p(n) = a_k n^k + \cdots + a_1 n + a_0\)</span>
+omejena z njegovo največjo potenco, torej funkcijo <span class="math">\(n \mapsto n^k\)</span>.</p>
+<p>Vendar funkcija <span class="math">\(f\)</span> ni omejena s funkcijo oblike <span class="math">\(h(n) = a n^2\)</span>,
+saj jo sčasoma preseže, ne glede vrednost koeficienta <span class="math">\(a\)</span>.
+Podobno eksponentna funkcija ne more biti omejena z nobenim polinomom.</p>
+<p>Za funkcijo <span class="math">\(f\)</span> definiramo množico</p>
 <div class="math">
-\[\begin{split}f \in O(g) \iff \exists n_0, M . \forall n &gt; n_0 . |f(n)| \le M \cdot |g(n)|\end{split}\]</div>
-<p>kar preberemo kot “<span class="math">\(f\)</span> pripada razredu <span class="math">\(O(g)\)</span>”. V našem primeru nas
-bodo zanimale le pozitivne funkcije (ker algoritem za izvajanje ne bo potreboval
-negativne količine časa), zato definicijo takoj poenostavimo na:</p>
-<div class="math">
-\[\begin{split}f \in O(g) \iff \exists n_0, M . \forall n &gt; n_0 . f(n) \le M \cdot g(n)\end{split}\]</div>
-<p>Ideja je sledeča: <span class="math">\(f \in O(g)\)</span> velja natanko takrat, kadar je funkcija <span class="math">\(f\)</span>
-od nekod naprej (za vsa števila <span class="math">\(n\)</span> od nekega <span class="math">\(n_0\)</span> naprej) omejena
-s funkcijo <span class="math">\(g\)</span>.</p>
-<div class="math">
-\[f \in O(g) \iff f(n) \in O(g(n)) \iff f(n) = O(g(n))\]</div>
+\[\begin{split}O(f) = \{ g \colon \mathbb{N} \to \mathbb{N} \colon \exists n_0, M . \forall n &gt; n_0 . g(n) \le M \cdot f(n) \}\end{split}\]</div>
+<p>(<span class="math">\(O\)</span>-notacija je ponavadi podana za realne funkcije, mi pa se bomo omejili
+na enostavnejši primer naravnih funkcij).</p>
+<p>Množica <span class="math">\(O(f)\)</span> vsebuje vse tiste funkcije <span class="math">\(g\)</span>, ki so od nekod naprej
+omejene z <span class="math">\(f\)</span>. Natančneje, obstajata števili <span class="math">\(n_0\)</span> in <span class="math">\(M\)</span>,
+da velja <span class="math">\(g(n) \le M \cdot f(n)\)</span> za vse <span class="math">\(n &gt; n_0\)</span>. Na primer,
+za funkciji <span class="math">\(f(n) = n^3 + 3 n^2 + 3\)</span> in <span class="math">\(k(n) = n^3\)</span>, kot smo ju
+videli zgoraj, velja <span class="math">\(f \in O(k)\)</span>, saj lahko vzamemo <span class="math">\(n_0 = 3001\)</span>
+in <span class="math">\(M = 1.001\)</span>.</p>
+<p>Dostikrat namesto <span class="math">\(f \in O(g)\)</span> malo bolj površno pišemo kar
+<span class="math">\(f(n) \in O(g(n))\)</span>. V našem primeru bi torej pisali kar <span class="math">\(n^3 + 3 n^2 + 3 \in O(n^3)\)</span>.
+Nekateri pišejo celo <span class="math">\(f(n) = O(g(n))\)</span>, vendar je tu treba paziti, saj ne
+gre za enakost. Velja namreč <span class="math">\(n^2 + 5 = O(n^2)\)</span> ter <span class="math">\(2 n^2 + n = O(n^2)\)</span>,
+vsekakor pa ne velja <span class="math">\(n^2 + 5 = 2 n^2 + n\)</span>.</p>
+<p>Iz zgornje definicije lahko hitro izpeljemo:</p>
 <div class="math">
 \[f_1 \in O(g_1) \land f_2 \in O(g_2) \implies f_1 + f_2 \in O(g_1 + g_2)\]</div>
-<p>ali kar</p>
+<p>kar običajno zapišemo kar kot</p>
 <div class="math">
 \[O(g_1) + O(g_2) = O(g_1 + g_2)\]</div>
-<p>Če sta $g_1$ in $g_2$ pozitivni funkciji.</p>
+<p>Podobno velja:</p>
 <div class="math">
 \[f_1 \in O(g_1) \land f_2 \in O(g_2) \implies f_1 \cdot f_2 \in O(g_1 \cdot g_2)\]</div>
 <p>ali kar</p>
 <div class="math">
 \[O(g_1) \cdot O(g_2) = O(g_1 \cdot g_2)\]</div>
+<p>ter</p>
 <div class="math">
 \[f \in O(g) \implies k \cdot f \in O(g)\]</div>
 <p>ali kar</p>
@@ -105,7 +124,7 @@ s funkcijo <span class="math">\(g\)</span>.</p>
   <h3><a href="index.html">Seznam Vsebine</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Časovna zahtevnost</a><ul>
-<li><a class="reference internal" href="#o-notacija-razlaga-se-manjka">O-notacija (razlaga še manjka)</a></li>
+<li><a class="reference internal" href="#o-notacija">O-notacija</a></li>
 <li><a class="reference internal" href="#casovne-zahtevnosti-do-sedaj-videnih-algoritmov-vsebina-se-manjka">Časovne zahtevnosti do sedaj videnih algoritmov (vsebina še manjka)</a></li>
 </ul>
 </li>
