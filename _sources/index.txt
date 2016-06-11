@@ -29,5 +29,5 @@ Python za matematike
 Kazala
 ======
 
-* :ref:`genindex`
+.. * :ref:`genindex`
 * :ref:`search`
