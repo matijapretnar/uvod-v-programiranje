@@ -10,6 +10,8 @@ def fakulteta(n):
 
 
 def je_prastevilo(n):
+    if n % 2 == 0:
+        return n == 2
     for d in range(3, int(n ** (1 / 2)) + 2, 2):
         if n % d == 0:
             return False
