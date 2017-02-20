@@ -70,26 +70,26 @@ odštejemo najnižjo in najvišjo, ki ju dobimo s pomočjo vgrajenih funkcij ``m
 in ``max``. Skupno oceno dobimo tako, da seštejemo točke za dolžino, točke za
 slog in točke za izravnavo vetra in zaletišča.
 
-Izračunajmo število točk zmagovalnega skoka `Petra Prevca na letalnici v
-Vikersundu`__. Peter je skočil 249 metrov, vendar padel, zaradi česar je dobil
-bolj slabe sodniške ocene: 15,0, 12,5, 14,0, 13,5 in 11,0. Koliko točk je dobil
-za skok? Kodo napišimo tako, da bo delovala tudi v primeru, ko za K-točko,
+Izračunajmo število točk zmagovalnega skoka `Petra Prevca na skakalnici v
+Sapporu`__. Peter je skočil 138 metrov ter dobil sodniške ocene:
+18,5, 18,5, 19,0, 19,0 in 19,0. Koliko točk je dobil za skok?
+Kodo napišimo tako, da bo delovala tudi v primeru, ko za K-točko,
 dolžino skoka, ocene sodnikov in izravnavo vnesemo druga števila. Kot vidimo,
 potrebujemo pogojni stavek, v katerem ustrezno izračunamo točke za dolžino
 skoka.
 
-__ http://medias3.fis-ski.com/pdf/2016/JP/3815/2016JP3815RL.pdf
+__ http://medias2.fis-ski.com/pdf/2017/JP/3906/2017JP3906RL.pdf
 
 .. testcode::
 
-    k_tocka = 200
-    dolzina = 249.0
-    slog_a = 15
-    slog_b = 12.5
-    slog_c = 14
-    slog_d = 13.5
-    slog_e = 11
-    izravnava = 6.4
+    k_tocka = 123
+    dolzina = 138.0
+    slog_a = 18.5
+    slog_b = 18.5
+    slog_c = 19
+    slog_d = 19
+    slog_e = 19
+    izravnava = -16.6
 
     # če je K-točka vsaj 170 metrov, gre za letalnico
     if k_tocka >= 170:
@@ -98,7 +98,7 @@ __ http://medias3.fis-ski.com/pdf/2016/JP/3815/2016JP3815RL.pdf
     else:
         osnovne_tocke = 60
         vrednost_metra = 1.8
-    tocke_dolzina = 120 + vrednost_metra * (dolzina - k_tocka)
+    tocke_dolzina = osnovne_tocke + vrednost_metra * (dolzina - k_tocka)
 
     min_slog = min(slog_a, slog_b, slog_c, slog_d, slog_e)
     max_slog = max(slog_a, slog_b, slog_c, slog_d, slog_e)
@@ -117,12 +117,7 @@ Poglejmo, koliko točk je bil vreden skok:
 .. doctest::
 
     >>> skupne_tocke
-    225.20000000000002
-
-Skok je bil v resnici vreden natanko 225,2 točk. Vse dodatne decimalke pa so
-posledica zaokrožitvenih napak. Računalnik namreč ne računa s pravimi realnimi
-števili, temveč z njihovimi približki, ki jim pravimo *števila s plavajočo
-vejico*.
+    126.9
 
 Razširjeni pogojni stavek
 -------------------------
