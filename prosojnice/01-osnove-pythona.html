@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Osnove Pythona</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        font-family: 'Avenir Next';
+      }
+      h3 {
+        font-weight: normal;
+      }
+      h4 {
+        font-size: 20pt;
+      }
+      p {
+        font-size: 18pt;
+      }
+      .remark-code, .remark-inline-code {
+        font-family: 'Menlo';
+      }
+      .remark-code {
+        font-size: 1.5em;
+      }
+      .small-code .remark-code {
+        font-size: 1.3em;
+      }
+      ol, ul {
+        font-size: 1.5em;
+      }
+
+      a.reveal {
+        font-weight: bold;
+      }
+
+      a.reveal:hover {
+        cursor:pointer;
+      }
+
+      .question {
+        color: white;
+        background-color: black;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .green {
+        color: green;
+      }
+
+      .consecutive pre {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .small {
+        font-size: 0.7em;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Osnove Pythona
+
+### Uvod v programiranje
+
+---
+
+### Splošno o Pythonu
+
+* Python je programski jezik (1991).
+
+* Zaradi zgodovinskih razlogov se še vedno uporablja Python 2 (2000).
+
+* Mi bomo uporabljali izključno **Python 3** (2008).
+
+* Do Pythona dostopamo na več načinov.
+
+---
+
+### Python podpira osnovne aritmetične operacije
+
+```python
+>>> (1 + 5) * (9 - 2)
+42
+>>> 123 / 10
+12.3
+>>> 123 // 10
+12
+>>> 123 % 10
+3
+>>> 2 ** 10
+1024
+```
+
+---
+
+### Velika števila Pythonu ne delajo težav
+
+```python
+>>> 123 ** (45 + 67)
+1173201153236117392747457141184065170953
+5677642838374827872681190070368986845125
+1255657257715618654960276478804149581831
+1329933349581701014867937205332087819177
+5391569637026128172340217475255642875083
+52993790061063457990401206082438721
+
+```
+
+---
+
+class: center, middle, question
+
+# Kaj je predzadnjih sto števil števila \\(2^{123456}\\)?
+
+---
+
+### Python ima vgrajene tudi osnovne funkcije
+
+```python
+>>> max(3, 6)
+6
+>>> min(12, -5)
+-5
+>>> max(min(10, 20), 30 // 2)
+15
+```
+
+---
+
+### Naprednejše funkcije lahko uvozimo iz knjižnic
+
+```python
+>>> import math
+>>> math.sqrt(2) / 2
+0.7071067811865476
+>>> math.sin(math.pi / 4)
+0.7071067811865475
+```
+
+---
+
+### Vrednosti lahko uvozimo tudi poimensko
+
+```python
+>>> from math import sqrt, sin, pi
+>>> sqrt(2) / 2
+0.7071067811865476
+>>> sin(pi / 4)
+0.7071067811865475
+```
+
+---
+
+class: center, middle, question
+
+# Koliko je `math.sin(math.pi)`?
+
+---
+
+### Vrednosti si lahko shranimo v spremenljivke
+
+```python
+>>> x = 3 + 3
+>>> 7 * x
+42
+>>> y = x + 8
+>>> y
+14
+```
+
+---
+
+class: middle, question
+
+```python
+>>> x = 3
+>>> y = 10 * x
+>>> x = 5
+```
+
+# Koliko je `y`?
+
+---
+
+### V programih lahko naredimo tri vrste napak
+
+#### Sintaktične napake
+
+Zapis je napačen in ga Python ne razume (noče razumeti).
+
+#### Semantične napake
+
+Zapis je pravilen, vendar ga Python ne zna izvesti.
+
+#### Logične napake
+
+Zapis je pravilen, Python ga zna izvesti, vendar smo mu dali napačna navodila.
+
+---
+
+class: center, middle, question
+
+# Koliko učiteljev matematike je v Sloveniji?
+
+---
+
+class: center, middle, question
+
+# Koliko je ploščina trikotnika s stranicami dolžin<br> 4, 13 in 15?
+
+---
+
+class: center, middle, question
+
+# Koliko je površina tetraedra s stranicami dolžin<br> 18, 21, 22, 25, 27 in 31?
+
+---
+
+class: question
+
+### Zakaj spodnja rešitev ni najboljša?
+
+.small[```python
+s_abc = (a + b + c) / 2
+p_abc = (s_abc * (s_abc-a) * (s_abc-b) * (s_abc-c)) ** 0.5
+s_aef = (a + e + f) / 2
+p_aef = (s_aef * (s_aef-a) * (s_aef-e) * (s_aef-f)) ** 0.5
+s_cde = (c + d + e) / 2
+p_cde = (s_cde * (s_cde-c) * (s_cde-d) * (s_cde-f)) ** 0.5
+s_bdf = (b + d + f) / 2
+p_bdf = (s_bdf * (s_bdf-b) * (s_bdf-d) * (s_bdf-f)) ** 0.5
+povrsina = p_abc + p_aef + p_bdf + p_cde
+```]
+
+---
+
+### V Pythonu lahko definiramo svoje funkcije
+
+```python
+def ime_funkcije(argument1, argument2):
+    # ukazi, s katerimi
+    # izračunamo iskani
+    # rezultat
+    return iskani_rezultat
+```
+
+---
+
+class: center, middle, question
+
+# Definirajmo funkciji za izračun ploščine trikotnika in površine tetraedra
+
+---
+
+class: center, middle, question
+
+# Definirajmo funkcijo za izračun absolutne vrednosti
+
+---
+
+### Primere lahko ločimo s pogojnim stavkom
+
+```python
+if pogoj:
+    # ukazi, ki naj se izvedejo,
+    # če pogoj velja
+else:
+    # ukazi, ki naj se izvedejo,
+    # če pogoj ne velja
+```
+
+---
+
+class: center, middle, question
+
+# Definirajmo funkcijo za izračun fakultete naravnega števila
+
+
+    </textarea>
+<script   src="http://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script> 
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+      $(document).ready(function() { 
+      
+        $(".spoiler").hide();
+        
+        $('<a class="reveal">???</a>').insertBefore('.spoiler');
+
+        $("a.reveal").click(function(){
+          $(this).next().fadeIn(500);
+          $(this).hide();
+        });
+
+      }); 
+      var slideshow = remark.create({
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>

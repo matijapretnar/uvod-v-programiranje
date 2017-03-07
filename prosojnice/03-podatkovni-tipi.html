@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Podatkovni tipi</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        font-family: 'Avenir Next';
+      }
+      h3 {
+        font-weight: normal;
+      }
+      h4 {
+        font-size: 20pt;
+      }
+      p {
+        font-size: 18pt;
+      }
+      .remark-code, .remark-inline-code {
+        font-family: 'Menlo';
+      }
+      .remark-code {
+        font-size: 1.5em;
+      }
+      .small-code .remark-code {
+        font-size: 1.3em;
+      }
+      ol, ul {
+        font-size: 1.5em;
+      }
+
+      a.reveal {
+        font-weight: bold;
+      }
+
+      a.reveal:hover {
+        cursor:pointer;
+      }
+
+      .question {
+        color: white;
+        background-color: black;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .green {
+        color: green;
+      }
+
+      .consecutive pre {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .small {
+        font-size: 0.7em;
+      }
+      pre {
+        font-size: 0.95em;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Podatkovni tipi
+
+### Uvod v programiranje
+
+---
+### Nekaj podatkovnih tipov že poznamo
+
+#### Cela števila `int`
+
+```python
+3, -10, 0, 444, 123456789, -9999999
+```
+
+#### Števila s plavajočo vejico `float`
+
+```python
+3.0, -10.0, 0.0, 1.2345e20, -1.281e-16
+```
+
+#### Logični (Booleovi) vrednosti
+
+```python
+True, False
+```
+
+---
+
+### Python pozna tudi kompleksna števila
+
+```python
+>>> (2 + 3j) * (4 - 2j)
+(14+8j)
+>>> 2.718281828459 ** 3.141592653590j
+(-1-1.53976491138057e-13j)
+>>> 1j
+1j
+>>> j
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'j' is not defined
+```
+
+---
+
+### Z `None` predstavimo manjkajoče vrednosti
+
+```python
+>>> None
+```
+
+```python
+def f(x):
+    x + 2
+```
+
+```python
+>>> f(5)
+>>> 2 * f(5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s)
+  for *: 'int' and 'NoneType'
+```
+
+---
+
+### Zaporedja znakov predstavimo z nizi (tip `str`)
+
+```python
+>>> pozdrav = 'Dober dan'
+>>> ime = 'Matija'
+>>> pozdrav + ', ' + ime
+'Dober dan, Matija'
+>>> 'tro' + 4 * 'lo'
+'trololololo'
+>>> 'beseda' == 'konj'
+False
+>>> 'komot' in 'lokomotiva'
+True
+```
+
+---
+
+### Po potrebi uporabljamo različne narekovaje
+
+```python
+>>> 'niz' + "niz" + '''niz''' + """niz"""
+'nizniznizniz'
+>>> 'Tole je kr'neki!'
+  File "<stdin>", line 1
+    'Tole je kr'neki!'
+                   ^
+SyntaxError: invalid syntax
+>>> "Tole je kr'neki!"
+"Tole je kr'neki!"
+>>> '"Grem v rudnik," je rekla.'
+'"Grem v rudnik," je rekla.'
+>>> '''"Tole je kr'neki," je rekla.'''
+'"Tole je kr\'neki," je rekla.'
+>>> 'niz' == "niz"
+True
+```
+
+---
+
+### Do posameznih znakov dostopamo z indeksi
+
+```python
+>>> 'rekurzija'[3]
+'u'
+>>> 'rekurzija'[0]
+'r'
+>>> 'rekurzija'[-1]
+'a'
+```
+
+```python
+ 0   1   2   3   4   5   6   7   8
+ R   E   K   U   R   Z   I   J   A
+-9  -8  -7  -6  -5  -4  -3  -2  -1
+```
+
+---
+
+### Do več znakov dostopamo z rezinami
+
+```python
+>>> 'rekurzija'[2]
+'k'
+>>> 'rekurzija'[6]
+'i'
+>>> 'rekurzija'[2:6]
+'kurz'
+>>> 'rekurzija'[:6]
+'rekurz'
+>>> 'rekurzija'[2:]
+'kurzija'
+```
+
+---
+
+### Rezinam lahko določimo velikost koraka
+
+```python
+>>> 'rekurzija'[1:8]
+'ekurzij'
+>>> 'rekurzija'[1:8:1]
+'ekurzij'
+>>> 'rekurzija'[1:8:2]
+'euzj'
+>>> 'rekurzija'[1:8:3]    
+'erj'
+>>> 'rekurzija'[::-1]
+'ajizruker'
+```
+
+---
+
+### Zaporedje vrednosti predstavimo s seznami (tip `list`)
+
+```python
+>>> prastevila = [2, 3, 5, 7, 11, 13, 17]
+>>> ocene = [67.3, 22.2, 51.1, None, 59.2]
+>>> prazen_seznam = []
+>>> [2, 3, 5] + [7, 11, 13]
+[2, 3, 5, 7, 11, 13]
+>>> 3 * [1, 2, 3]
+[1, 2, 3, 1, 2, 3, 1, 2, 3]
+>>> 5 in prastevila
+True
+>>> [5, 7, 11] in prastevila
+False
+```
+
+---
+
+### Do vrednosti v seznamih dostopamo kot pri nizih
+
+```python
+>>> prastevila = [2, 3, 5, 7, 11, 13, 17]
+>>> prastevila[2]
+5
+>>> prastevila[-2]
+17
+>>> prastevila[2:-2]
+[5, 7, 11]
+>>> prastevila[::2]
+[2, 5, 11, 17]
+```
+
+---
+
+### Sezname lahko tudi gnezdimo
+
+```python
+>>> m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> m[1]
+[4, 5, 6]
+>>> m[1][2]
+6
+```
+
+---
+
+### Fiksni nabor vrednosti predstavimo z nabori (tip `tuple`)
+
+```python
+>>> datum = (8, 3, 2017)
+>>> fmf = (46.0422504, 14.4897114)
+>>> matija = ('Matija', 'Pretnar', 27004498)
+>>> prazen_nabor = ()
+>>> enojec = ('Piki',)
+```
+
+---
+
+### Nabori delujejo podobno kot seznami
+
+```python
+>>> (2, 3, 5) + (7, 11, 13)
+(2, 3, 5, 7, 11, 13)
+>>> 3 * (1, 2, 3)
+(1, 2, 3, 1, 2, 3, 1, 2, 3)
+>>> 5 in (1, 2, 3)
+False
+>>> (1, 2, 5, 10, 20, 50)[3]
+10
+>>> (1, 2, 5, 10, 20, 50)[3:]
+(10, 20, 50)
+```
+
+---
+
+### Kdaj uporabimo sezname, kdaj pa nabore?
+
+#### Nabori: fiksna dolžina, različni pomeni
+
+```python
+>>> datum = (8, 3, 2017)
+>>> fmf = (46.0422504, 14.4897114)
+>>> jaz = ('Matija', 'Pretnar', 27004498)
+```
+
+#### Seznami: poljubna dolžina, en pomen
+
+```python
+>>> leta = [2012, 2016, 2020, 2024]
+>>> opravili_bodo_uvp = [27169999]
+>>> datumi = [(8, 3, 2017), (25, 6, 1991)]
+```
+
+---
+
+### Slovarji
+
+```python
+nujne_telefonske_stevilke = {
+  'center za obveščanje': 112,
+  'policija': 113,
+  'informacije': 1188,
+  'točen čas': 195
+}
+```
+
+---
+
+### Slovarji
+
+```python
+slo_ang = {
+  'abak': 'abacus',
+  'abalienacija': 'abalienation',
+  'abderit': 'abderite',
+  ...
+  'žvrkljati': 'whisk'
+}
+```
+
+---
+
+### Slovarji
+
+```python
+rimske_stevilke = {
+    1: 'I', 2: 'II', 3: 'III', 4: 'IV',
+    5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII',
+    9: 'IX', 10: 'X', 20: 'XX', 30: 'XXX',
+    40: 'XL', 50: 'L', 100: 'C', 500: 'D',
+    1000: 'M'
+}
+```
+
+---
+
+### Slovarji
+
+```python
+met_kocke = {
+    1: 1/6, 2: 1/6, 3: 1/6,
+    4: 1/6, 5: 1/6, 6: 1/6
+}
+
+met_dveh_kock = {
+    2: 1/36, 3: 2/36, 4: 3/36, 5: 4/36,
+    6: 5/36, 7: 6/36, 8: 5/36, 9: 4/36,
+    10: 3/36, 11: 2/36, 12: 1/36
+}
+```
+
+---
+
+### Slovarji
+
+```python
+matrika = [
+    [0, 0, 1, 0, 0, 0],
+    [5, 2, 0, 0, 0, 0],
+    [0, 0, 0, 0, 3, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0]
+]
+
+redka_matrika = {
+    (0, 2): 1,
+    (1, 0): 5,
+    (1, 1): 2,
+    (2, 4): 3,
+    (4, 2): 1
+}
+```
+
+---
+
+### Slovarji
+
+```python
+avtocestni_kriz = {
+    'LJ': {'KR': 26, 'CE': 73,
+           'PO': 51, 'NM': 72},
+    'PO': {'LJ': 51, 'KP': 64, 'GO': 63},
+    'CE': {'MB': 54, 'LJ': 73},
+    'MB': {'CE': 54, 'MS': 60},
+    'GO': {'PO': 63},
+    'KR': {'LJ': 26},
+    'MS': {'MB': 60},
+    'NM': {'LJ': 72},
+    'KP': {'GO': 64}
+}
+```
+
+---
+
+## Slovarji
+
+get
+[]
+
+---
+
+## Množice
+
+==
+in
+|, &, -
+
+---
+---
+
+### Več 
+class: center, middle
+
+# objekt
+## =
+# podatki + metode
+
+split
+upper
+isupper, islower
+index, count
+
+---
+
+## Nabori
+
+split, join
+
+---
+
+## Seznami
+
+split, join
+count, index
+
+---
+
+
+
+class: center, middle, question
+
+# Definirajmo funkcijo za izračun fakultete naravnega števila
+
+---
+
+## Pretvorbe med tipi
+
+---
+
+## Vgrajene metode
+
+
+    </textarea>
+<script   src="http://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script> 
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+      $(document).ready(function() { 
+      
+        $(".spoiler").hide();
+        
+        $('<a class="reveal">???</a>').insertBefore('.spoiler');
+
+        $("a.reveal").click(function(){
+          $(this).next().fadeIn(500);
+          $(this).hide();
+        });
+
+      }); 
+      var slideshow = remark.create({
+        highlightLines: true
+      });
+    </script>
+  </body>
+</html>
