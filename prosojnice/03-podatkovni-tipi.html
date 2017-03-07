@@ -47,8 +47,6 @@ True, False
 >>> 1j
 1j
 >>> j
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
 NameError: name 'j' is not defined
 ```
 
@@ -68,8 +66,6 @@ def f(x):
 ```python
 >>> f(5)
 >>> 2 * f(5)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
 TypeError: unsupported operand type(s)
   for *: 'int' and 'NoneType'
 ```
@@ -89,8 +85,24 @@ TypeError: unsupported operand type(s)
 False
 >>> 'komot' in 'lokomotiva'
 True
+>>> len('lokomotiva')
+10
 ```
 
+---
+
+class: middle, question
+
+# Funkcija, ki ustrezno pozdravi osebe
+
+```python
+>>> pozdravi('Matija')
+'Dober dan, gospod profesor.'
+>>> pozdravi('Niels')
+'Živjo, gospod asistent.'
+>>> pozdravi('Francelj')
+'Živjo, Francelj!'
+```
 ---
 
 ### Po potrebi uporabljamo različne narekovaje
@@ -99,8 +111,6 @@ True
 >>> 'niz' + "niz" + '''niz''' + """niz"""
 'nizniznizniz'
 >>> 'Tole je kr'neki!'
-  File "<stdin>", line 1
-    'Tole je kr'neki!'
                    ^
 SyntaxError: invalid syntax
 >>> "Tole je kr'neki!"
@@ -151,6 +161,12 @@ True
 
 ---
 
+class: center, middle, question
+
+# Kako bi definirali `len`?
+
+---
+
 ### Rezinam lahko določimo velikost koraka
 
 ```python
@@ -182,7 +198,15 @@ True
 True
 >>> [5, 7, 11] in prastevila
 False
+>>> sum([1, 2, 3, 4, 5])
+15
 ```
+
+---
+
+class: center, middle, question
+
+# Računanje povprečja elementov seznama
 
 ---
 
@@ -199,6 +223,12 @@ False
 >>> prastevila[::2]
 [2, 5, 11, 17]
 ```
+
+---
+
+class: center, middle, question
+
+# Kako bi definirali<br>`len`, `sum`, `max`?
 
 ---
 
@@ -219,7 +249,7 @@ False
 ```python
 >>> datum = (8, 3, 2017)
 >>> fmf = (46.0422504, 14.4897114)
->>> matija = ('Matija', 'Pretnar', 27004498)
+>>> jaz = ('Matija', 'Pretnar', 27004498)
 >>> prazen_nabor = ()
 >>> enojec = ('Piki',)
 ```
@@ -262,6 +292,186 @@ False
 ```
 
 ---
+
+### Neurejene podatke predstavimo z množicami
+
+```python
+>>> {1, 2, 3, 4} | {3, 4, 5, 6}
+{1, 2, 3, 4, 5, 6}
+>>> {1, 2, 3, 4} & {3, 4, 5, 6}
+{3, 4}
+>>> {1, 2, 3, 4} - {3, 4, 5, 6}
+{1, 2}
+>>> 1 in {1, 2, 3, 4}
+True
+>>> 2 in {3, 4, 5, 6}
+False
+>>> len({1, 2, 3, 2, 1, 2, 3, 2, 1})
+3
+```
+
+---
+
+### Kdaj uporabimo sezname, kdaj pa množice?
+
+#### Seznami: določen vrstni red in število pojavitev
+
+```python
+>>> [1, 2, 3] == [2, 1, 3]
+False
+>>> [1, 2, 3] == [1, 1, 2, 3]
+False
+```
+
+#### Množice: nedoločen vrstni red in število pojavitev
+
+```python
+>>> {1, 2, 3} == {2, 1, 3}
+True
+>>> {1, 2, 3} == {1, 1, 2, 3}
+True
+```
+
+---
+
+class: center, middle
+
+## Pretvorbe med tipi
+
+---
+
+### V nize pretvarjamo s funkcijo `str`
+
+```python
+>>> str(True)
+'True'
+>>> str(10)
+'10'
+>>> str([1, 2, 3])
+'[1, 2, 3]'
+>>> str(['a', 'b', 'c'])
+"['a', 'b', 'c']"
+>>> str('abc')
+'abc'
+```
+
+---
+
+### V Booleove vrednosti pretvarjamo z `bool`
+```python
+>>> bool(1)
+True
+>>> bool('niz')
+True
+>>> bool('')
+False
+>>> bool(0)
+False
+>>> bool([])
+False
+>>> bool('False')
+True
+>>> bool([0, 0, 0])
+True
+```
+
+---
+
+### Pogojni stavek samodejno pretvori z `bool`
+```python
+def povprecje(seznam):
+    if seznam:
+        return sum(seznam) / len(seznam)
+```
+
+---
+
+### V cela števila pretvarjamo s funkcijo `int`
+```python
+>>> int('123')
+123
+>>> int(5.213)
+5
+>>> int('osem')
+...
+ValueError: invalid literal
+  for int() with base 10: 'osem'
+>>> int('5.213')
+...
+ValueError: invalid literal
+  for int() with base 10: '5.213'
+```
+
+---
+
+## Vgrajene metode 
+class: center, middle
+
+---
+
+class: center, middle
+# vse v Pythonu je objekt
+# objekt =  podatki + metode
+
+---
+
+### Vgrajene metode na nizih
+
+```python
+>>> 'lokomotiva'.count('o')
+3
+>>> 'lokomotiva'.index('m')
+4
+>>> '&'.join(['a', 'b', 'c'])
+'a&b&c'
+>>> 'lokomotiva'.replace('o', 'u')
+'lukumutiva'
+>>> '  x  y  z  '.strip()
+'x  y  z'
+>>> 'lokomotiva'.upper()
+'LOKOMOTIVA'
+>>> 'to je stavek'.split()
+['to', 'je', 'stavek']
+```
+
+---
+
+### Vgrajene metode na seznamih in naborih
+
+```python
+>>> [1, 2, 3, 2, 1, 4, 2].count(2)
+3
+>>> [1, 2, 3, 2, 1, 4, 2].index(2)
+1
+>>> [1, 2, 3, 2, 1, 4, 2].index(2, 2)  
+3
+>>> (1, 2, 3, 2, 1, 4, 2).count(2)
+3
+>>> (1, 2, 3, 2, 1, 4, 2).index(2)
+1
+>>> (1, 2, 3, 2, 1, 4, 2).index(2, 2)  
+3
+```
+
+---
+
+```python
+>>> s = {6, 2, 3}
+>>> len(s)
+3
+>>> max(s)
+6
+>>> sum(s)
+11
+>>> sez = [1, 5, 2, 4, 8, 1, 5, 3, 2, 1]
+>>> sum(sez)
+32
+>>> mn = set(sez)
+>>> sum(mn)
+23
+```
+```python
+
 
 ### Slovarji
 
@@ -365,60 +575,49 @@ avtocestni_kriz = {
 
 ## Slovarji
 
-get
-[]
+```python
+>>> s = {'a': 6, 'b': 2, 'c': 3}
+>>> len(s)
+3
+>>> max(s)
+'c'
+>>> max(s.values())
+6
+>>> sum(s.values())
+11
+```
 
 ---
 
-## Množice
-
-==
-in
-|, &, -
-
----
----
-
-### Več 
-class: center, middle
-
-# objekt
-## =
-# podatki + metode
-
-split
-upper
-isupper, islower
-index, count
+```python
+>>> s = {'a': 6, 'b': 2, 'c': 3}
+>>> s
+{'a': 6, 'b': 2, 'c': 3}
+>>> s['a']
+6
+>>> s['b']
+2
+>>> s['d']
+...
+KeyError: 'd'
+```
 
 ---
 
-## Nabori
-
-split, join
-
----
-
-## Seznami
-
-split, join
-count, index
-
----
-
-
-
-class: center, middle, question
-
-# Definirajmo funkcijo za izračun fakultete naravnega števila
+```python
+>>> s = {'a': 6, 'b': 2, 'c': 3}
+>>> s.get('a')
+6
+>>> s.get('d')
+>>> s.get('d', 0)
+0
+>>> 'b' in s
+True
+>>> 'd' in s
+False
+```
 
 ---
-
-## Pretvorbe med tipi
-
----
-
-## Vgrajene metode
 
 
 </textarea>
