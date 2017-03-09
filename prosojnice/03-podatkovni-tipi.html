@@ -15,29 +15,54 @@ class: center, middle
 ### Uvod v programiranje
 
 ---
-### Nekaj podatkovnih tipov že poznamo
 
-#### Cela števila `int`
+class: center, middle
+## vsaka vrednost v Pythonu ima tip
+# tip ~ množica vrednosti
 
-```python
-3, -10, 0, 444, 123456789, -9999999
-```
+---
 
-#### Števila s plavajočo vejico `float`
-
-```python
-3.0, -10.0, 0.0, 1.2345e20, -1.281e-16
-```
-
-#### Logični (Booleovi) vrednosti
+class: center, middle
+## Cela števila
+### `int`
 
 ```python
-True, False
+3   -10   0   444   123456789   -9999999
 ```
 
 ---
 
-### Python pozna tudi kompleksna števila
+class: center, middle
+## Števila s plavajočo vejico
+### `float`
+
+```python
+3.0  -10.0  0.0  1.2345e20  -1.281e-16
+```
+
+---
+
+class: center, middle
+## Logični (Booleovi) vrednosti
+###  `bool`
+
+```python
+True     False
+```
+
+---
+
+class: center, middle
+## Kompleksna števila
+### `complex`
+
+```python
+2 + 3j    4 - 2j    2.1 - 1.6j
+```
+
+---
+
+### Osnovne operacije na kompleksnih številih
 
 ```python
 >>> (2 + 3j) * (4 - 2j)
@@ -48,6 +73,16 @@ True, False
 1j
 >>> j
 NameError: name 'j' is not defined
+```
+
+---
+
+class: center, middle
+## Ničelna vrednost
+### `NoneType`
+
+```python
+None
 ```
 
 ---
@@ -70,14 +105,24 @@ TypeError: unsupported operand type(s)
   for *: 'int' and 'NoneType'
 ```
 
+
 ---
 
-### Zaporedja znakov predstavimo z nizi (tip `str`)
+class: center, middle
+## Nizi
+### `str`
+
+```python
+'Pozdravljen, svet!'    "niz"    '123'
+```
+
+---
+
+### Osnovne operacije na nizih
 
 ```python
 >>> pozdrav = 'Dober dan'
->>> ime = 'Matija'
->>> pozdrav + ', ' + ime
+>>> pozdrav + ', ' + 'Matija'
 'Dober dan, Matija'
 >>> 'tro' + 4 * 'lo'
 'trololololo'
@@ -184,11 +229,22 @@ class: center, middle, question
 
 ---
 
-### Zaporedje vrednosti predstavimo s seznami (tip `list`)
+class: center, middle
+## Seznami
+### `list`
+
+```python
+[1, 2, 3]    ['a', 'b']    []
+
+[[True], [False], [True, False]]
+```
+
+---
+
+### Osnovne operacije na seznamih
 
 ```python
 >>> prastevila = [2, 3, 5, 7, 11, 13, 17]
->>> ocene = [67.3, 22.2, 51.1, None, 59.2]
 >>> prazen_seznam = []
 >>> [2, 3, 5] + [7, 11, 13]
 [2, 3, 5, 7, 11, 13]
@@ -244,19 +300,21 @@ class: center, middle, question
 
 ---
 
-### Fiksni nabor vrednosti predstavimo z nabori (tip `tuple`)
+class: center, middle
+## Nabori
+### `tuple`
 
 ```python
->>> datum = (8, 3, 2017)
->>> fmf = (46.0422504, 14.4897114)
->>> jaz = ('Matija', 'Pretnar', 27004498)
->>> prazen_nabor = ()
->>> enojec = ('Piki',)
+(8, 3, 2017)    ()     (1,)
+
+(46.0422504, 14.4897114)
+
+('Matija', 'Pretnar', 27004498)
 ```
 
 ---
 
-### Nabori delujejo podobno kot seznami
+### Osnovne operacije na naborih
 
 ```python
 >>> (2, 3, 5) + (7, 11, 13)
@@ -287,13 +345,23 @@ False
 
 ```python
 >>> leta = [2012, 2016, 2020, 2024]
->>> opravili_bodo_uvp = [27169999]
+>>> opravili_bodo_uvp = []
 >>> datumi = [(8, 3, 2017), (25, 6, 1991)]
 ```
 
 ---
 
-### Neurejene podatke predstavimo z množicami
+class: center, middle
+## Množice
+### `set`
+
+```python
+{1, 2, 3, 4}    set()
+```
+
+---
+
+### Osnovne operacije na množicah
 
 ```python
 >>> {1, 2, 3, 4} | {3, 4, 5, 6}
@@ -330,6 +398,159 @@ False
 True
 >>> {1, 2, 3} == {1, 1, 2, 3}
 True
+```
+
+---
+
+class: center, middle
+## Slovarji
+### `dict`
+
+```python
+{'a': 1, 'b': 5, 'c': 10}    {}
+
+{1: 'a', 5: 'b', 10: 'c'}
+```
+
+---
+
+```python
+nujne_telefonske_stevilke = {
+  'center za obveščanje': 112,
+  'policija': 113,
+  'informacije': 1188,
+  'točen čas': 195
+}
+```
+
+---
+
+```python
+slo_ang = {
+  'abak': 'abacus',
+  'abalienacija': 'abalienation',
+  'abderit': 'abderite',
+  ...
+  'žvrkljati': 'whisk'
+}
+```
+
+---
+
+```python
+rimske_stevilke = {
+    1: 'I', 2: 'II', 3: 'III', 4: 'IV',
+    5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII',
+    9: 'IX', 10: 'X', 20: 'XX', 30: 'XXX',
+    40: 'XL', 50: 'L', 100: 'C', 500: 'D',
+    1000: 'M'
+}
+```
+
+---
+
+```python
+met_kocke = {
+    1: 1/6, 2: 1/6, 3: 1/6,
+    4: 1/6, 5: 1/6, 6: 1/6
+}
+
+met_dveh_kock = {
+    2: 1/36, 3: 2/36, 4: 3/36, 5: 4/36,
+    6: 5/36, 7: 6/36, 8: 5/36, 9: 4/36,
+    10: 3/36, 11: 2/36, 12: 1/36
+}
+```
+
+---
+
+```python
+matrika = [
+    [0, 0, 1, 0, 0, 0],
+    [5, 2, 0, 0, 0, 0],
+    [0, 0, 0, 0, 3, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0]
+]
+
+redka_matrika = {
+    (0, 2): 1,
+    (1, 0): 5,
+    (1, 1): 2,
+    (2, 4): 3,
+    (4, 2): 1
+}
+```
+
+---
+
+```python
+avtocestni_kriz = {
+    'LJ': {'KR': 26, 'CE': 73,
+           'PO': 51, 'NM': 72},
+    'PO': {'LJ': 51, 'KP': 64, 'GO': 63},
+    'CE': {'MB': 54, 'LJ': 73},
+    'MB': {'CE': 54, 'MS': 60},
+    'GO': {'PO': 63},
+    'KR': {'LJ': 26},
+    'MS': {'MB': 60},
+    'NM': {'LJ': 72},
+    'KP': {'GO': 64}
+}
+```
+
+---
+
+### Osnovne operacije na slovarjih
+
+```python
+>>> s = {'a': 6, 'b': 2, 'c': 3}
+>>> len(s)
+3
+>>> max(s)
+'c'
+>>> 3 in s
+False
+```
+
+---
+
+### Do vrednosti dostopamo prek ključev
+
+```python
+>>> s = {'a': 6, 'b': 2, 'c': 3}
+>>> s['a']
+6
+>>> s['b']
+2
+>>> s['d']
+...
+KeyError: 'd'
+```
+
+---
+
+class: center, middle
+## Funkcije
+### `function` / `builtin_function_or_method`
+
+```python
+round    math.sin
+
+f  # če imamo prej def f(x): return x + 2
+
+lambda x: x + 2
+```
+
+---
+
+class: center, middle
+## Tipi
+### `type`
+
+```python
+int   float   str   list   type
 ```
 
 ---
@@ -404,14 +625,66 @@ ValueError: invalid literal
 
 ---
 
-## Vgrajene metode 
-class: center, middle
+### V sezname pretvarjamo s funkcijo `list`
+```python
+>>> list('abc')
+['a', 'b', 'c']
+>>> list()
+[]
+>>> list((1, 2, 3))
+[1, 2, 3]
+>>> list({1: 'a', 2: 'b'})
+[1, 2]
+```
+
+---
+
+### V nabore pretvarjamo s funkcijo `tuple`
+```python
+>>> tuple('abc')
+('a', 'b', 'c')
+>>> tuple()
+()
+>>> tuple([1])
+(1,)
+>>> tuple({1, 2, 3})
+(1, 2, 3)
+```
+
+---
+
+### V množice pretvarjamo s funkcijo `set`
+```python
+>>> set('abcabcabc')
+{'b', 'c', 'a'}
+>>> set()
+set()
+>>> set([1])
+{1}
+>>> set({1: 'a', 2: 'b'})
+{1, 2}
+```
+
+---
+
+### V slovarje pretvarjamo s funkcijo `dict`
+```python
+>>> dict([(1, 2), (3, 4)])
+{1: 2, 3: 4}
+>>> dict()
+{}
+```
 
 ---
 
 class: center, middle
-# vse v Pythonu je objekt
-# objekt =  podatki + metode
+## Vgrajene metode 
+
+---
+
+class: center, middle
+## vse v Pythonu je objekt
+# objekt ~ podatki + metode
 
 ---
 
@@ -455,154 +728,7 @@ class: center, middle
 
 ---
 
-```python
->>> s = {6, 2, 3}
->>> len(s)
-3
->>> max(s)
-6
->>> sum(s)
-11
->>> sez = [1, 5, 2, 4, 8, 1, 5, 3, 2, 1]
->>> sum(sez)
-32
->>> mn = set(sez)
->>> sum(mn)
-23
-```
-```python
-
-
-### Slovarji
-
-```python
-nujne_telefonske_stevilke = {
-  'center za obveščanje': 112,
-  'policija': 113,
-  'informacije': 1188,
-  'točen čas': 195
-}
-```
-
----
-
-### Slovarji
-
-```python
-slo_ang = {
-  'abak': 'abacus',
-  'abalienacija': 'abalienation',
-  'abderit': 'abderite',
-  ...
-  'žvrkljati': 'whisk'
-}
-```
-
----
-
-### Slovarji
-
-```python
-rimske_stevilke = {
-    1: 'I', 2: 'II', 3: 'III', 4: 'IV',
-    5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII',
-    9: 'IX', 10: 'X', 20: 'XX', 30: 'XXX',
-    40: 'XL', 50: 'L', 100: 'C', 500: 'D',
-    1000: 'M'
-}
-```
-
----
-
-### Slovarji
-
-```python
-met_kocke = {
-    1: 1/6, 2: 1/6, 3: 1/6,
-    4: 1/6, 5: 1/6, 6: 1/6
-}
-
-met_dveh_kock = {
-    2: 1/36, 3: 2/36, 4: 3/36, 5: 4/36,
-    6: 5/36, 7: 6/36, 8: 5/36, 9: 4/36,
-    10: 3/36, 11: 2/36, 12: 1/36
-}
-```
-
----
-
-### Slovarji
-
-```python
-matrika = [
-    [0, 0, 1, 0, 0, 0],
-    [5, 2, 0, 0, 0, 0],
-    [0, 0, 0, 0, 3, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0]
-]
-
-redka_matrika = {
-    (0, 2): 1,
-    (1, 0): 5,
-    (1, 1): 2,
-    (2, 4): 3,
-    (4, 2): 1
-}
-```
-
----
-
-### Slovarji
-
-```python
-avtocestni_kriz = {
-    'LJ': {'KR': 26, 'CE': 73,
-           'PO': 51, 'NM': 72},
-    'PO': {'LJ': 51, 'KP': 64, 'GO': 63},
-    'CE': {'MB': 54, 'LJ': 73},
-    'MB': {'CE': 54, 'MS': 60},
-    'GO': {'PO': 63},
-    'KR': {'LJ': 26},
-    'MS': {'MB': 60},
-    'NM': {'LJ': 72},
-    'KP': {'GO': 64}
-}
-```
-
----
-
-## Slovarji
-
-```python
->>> s = {'a': 6, 'b': 2, 'c': 3}
->>> len(s)
-3
->>> max(s)
-'c'
->>> max(s.values())
-6
->>> sum(s.values())
-11
-```
-
----
-
-```python
->>> s = {'a': 6, 'b': 2, 'c': 3}
->>> s
-{'a': 6, 'b': 2, 'c': 3}
->>> s['a']
-6
->>> s['b']
-2
->>> s['d']
-...
-KeyError: 'd'
-```
-
----
+### Z metodo `get` jemljemo vrednosti iz slovarja
 
 ```python
 >>> s = {'a': 6, 'b': 2, 'c': 3}
@@ -611,13 +737,23 @@ KeyError: 'd'
 >>> s.get('d')
 >>> s.get('d', 0)
 0
->>> 'b' in s
-True
->>> 'd' in s
-False
+>>> s.get('a', 0)
+6
 ```
 
 ---
+
+### Vrstni red elementov ni natanko določen
+
+```python
+>>> s = {'a': 6, 'b': 2, 'c': 3}
+>>> ','.join(s)
+'b,c,a'
+```
+
+---
+
+
 
 
 </textarea>
