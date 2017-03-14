@@ -32,3 +32,9 @@ def vsota_seznama(sez):
     else:
         seznam_brez_glave = sez[1:]
         return sez[0] + vsota_seznama(seznam_brez_glave)
+
+def pobrisi_presledke(niz):
+    if '  ' not in niz:
+        return niz.strip()
+    else:
+        return pobrisi_presledke(niz.replace('  ', ' '))

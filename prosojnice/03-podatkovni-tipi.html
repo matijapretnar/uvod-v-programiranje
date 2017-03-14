@@ -136,18 +136,19 @@ True
 
 ---
 
-class: middle, question
+class: question
 
-# Funkcija, ki ustrezno pozdravi osebe
+## Funkcija, ki vrne ustrezen pozdrav
 
 ```python
->>> pozdravi('Matija')
+>>> pozdrav('Matija')
 'Dober dan, gospod profesor.'
->>> pozdravi('Niels')
+>>> pozdrav('Niels')
 'Živjo, gospod asistent.'
->>> pozdravi('Francelj')
+>>> pozdrav('Francelj')
 'Živjo, Francelj!'
 ```
+
 ---
 
 ### Po potrebi uporabljamo različne narekovaje
@@ -208,7 +209,7 @@ True
 
 class: center, middle, question
 
-# Kako bi definirali `len`?
+# Funkcija,<br>ki vrne dolžino niza
 
 ---
 
@@ -262,7 +263,7 @@ False
 
 class: center, middle, question
 
-# Računanje povprečja elementov seznama
+# Funkcija, ki izračuna povprečje elementov seznama
 
 ---
 
@@ -284,7 +285,7 @@ class: center, middle, question
 
 class: center, middle, question
 
-# Kako bi definirali<br>`len`, `sum`, `max`?
+# Funkcije, ki izračunajo<br>dolžino seznama,<br>vsoto elementov seznama in<br>največji element seznama
 
 ---
 
@@ -466,39 +467,41 @@ met_dveh_kock = {
 
 ```python
 matrika = [
-    [0, 0, 1, 0, 0, 0],
-    [5, 2, 0, 0, 0, 0],
-    [0, 0, 0, 0, 3, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0]
+    [1, 1, 4, 1, 1, 1, 1, 1, 1, 1],
+    [5, 2, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 3, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 4, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ]
 
-redka_matrika = {
-    (0, 2): 1,
+redka_matrika = (6, 10, 1, {
+    (0, 2): 4,
     (1, 0): 5,
     (1, 1): 2,
     (2, 4): 3,
-    (4, 2): 1
-}
+    (4, 2): 4
+})
 ```
 
 ---
 
-```python
+.small[```python
 avtocestni_kriz = {
-    'LJ': {'KR': 26, 'CE': 73,
-           'PO': 51, 'NM': 72},
-    'PO': {'LJ': 51, 'KP': 64, 'GO': 63},
+    'LJ': {'KR': 26, 'CE': 73, 'PO': 51, 'NM': 72},
+    'KR': {'LJ': 26, 'JE': 35},
+    'JE': {'KR': 35},
     'CE': {'MB': 54, 'LJ': 73},
     'MB': {'CE': 54, 'MS': 60},
-    'GO': {'PO': 63},
-    'KR': {'LJ': 26},
     'MS': {'MB': 60},
-    'NM': {'LJ': 72},
-    'KP': {'GO': 64}
+    'PO': {'LJ': 51, 'KP': 64, 'GO': 63},
+    'GO': {'PO': 63},
+    'KP': {'PO': 64},
+    'NM': {'LJ': 72}
 }
-```
+```]
+
+.center[![Avtocestni križ](slike/avtoceste.pdf)]
 
 ---
 
@@ -599,10 +602,39 @@ True
 ---
 
 ### Pogojni stavek samodejno pretvori z `bool`
+
 ```python
-def povprecje(seznam):
-    if seznam:
-        return sum(seznam) / len(seznam)
+if n != 0:
+    ...
+```
+
+```python
+if niz != '':
+    ...
+```
+
+```python
+if sez != []:
+    ...
+```
+
+---
+
+### Pogojni stavek samodejno pretvori z `bool`
+
+```python
+if n:
+    ...
+```
+
+```python
+if niz:
+    ...
+```
+
+```python
+if sez:
+    ...
 ```
 
 ---
@@ -633,8 +665,8 @@ ValueError: invalid literal
 []
 >>> list((1, 2, 3))
 [1, 2, 3]
->>> list({1: 'a', 2: 'b'})
-[1, 2]
+>>> list({'a', 'b', 'c'})
+['b', 'a', 'c']
 ```
 
 ---
@@ -655,6 +687,8 @@ ValueError: invalid literal
 
 ### V množice pretvarjamo s funkcijo `set`
 ```python
+>>> set('abc')
+{'b', 'c', 'a'}
 >>> set('abcabcabc')
 {'b', 'c', 'a'}
 >>> set()
@@ -740,20 +774,6 @@ class: center, middle
 >>> s.get('a', 0)
 6
 ```
-
----
-
-### Vrstni red elementov ni natanko določen
-
-```python
->>> s = {'a': 6, 'b': 2, 'c': 3}
->>> ','.join(s)
-'b,c,a'
-```
-
----
-
-
 
 
 </textarea>
