@@ -79,3 +79,11 @@ def max_seznama(sez):
     elif sez:
         return max(sez[0], max_seznama(sez[1:]))
 
+def stevilo_razlicnih(sez):
+    return len(set(sez))
+
+def stevilo_stevk(n):
+    return len(str(n))
+
+def pocisti_presledke(niz):
+    return ' '.join(niz.strip().split())
