@@ -1,12 +1,11 @@
 Algoritmi
 =========
 
-Zdaj pa je že čas, da si pogledamo še naše prve prave algoritme. Algoritem je
-zaporedje korakov, s katerimi dobimo iskani rezultat. Načeloma lahko pod besedo
-algoritem razumemo tudi zaporedje korakov, s katerimi si skuhamo jajca (vzemi
-posodo, odpri pipo, postavi posodo pod pipo, ko je posoda dovolj polna, …),
-ampak ponavadi si jo prihranimo za postopke, s katerimi izračunamo želene
-vrednosti.
+Algoritem je zaporedje korakov, s katerimi dobimo iskani rezultat. Načeloma
+lahko pod besedo algoritem razumemo tudi zaporedje korakov, s katerimi si
+skuhamo jajca (vzemi posodo; odpri pipo; postavi posodo pod pipo; ko je posoda
+dovolj polna, zapri pipo; …), ampak mi si jo bomo prihranili za postopke, s
+katerimi izračunamo želene vrednosti.
 
 
 Evklidov algoritem

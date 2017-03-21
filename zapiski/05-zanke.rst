@@ -3,6 +3,37 @@ Zanke
 
 Z rekurzijo dosežemo, da nek del kode izvedemo večkrat. 
 
+Zanka ``for`` na nizih
+----------------------
+
+Po vseh znakih danega niza se lahko sprehodimo z zanko ``for``:
+
+.. testcode::
+
+    def stevilo_samoglasnikov(niz):
+        '''Vrne število samoglasnikov v danem nizu.'''
+        stevilo = 0
+        for znak in niz:
+            if znak in 'aeiouAEIOU':
+                stevilo += 1
+        return stevilo
+
+    def pobrisi_samoglasnike(niz):
+        '''Vrne niz enak danemu, le da smo iz njega izpustili vse samoglasnike.'''
+        brez_samoglasnikov = ''
+        for znak in niz:
+            if znak not in 'aeiouAEIOU':
+                brez_samoglasnikov += znak
+        return brez_samoglasnikov
+
+.. doctest::
+
+    >>> stevilo_samoglasnikov('Uvod v programiranje')
+    7
+    >>> pobrisi_samoglasnike('Uvod v programiranje')
+    'vd v prgrmrnj'
+
+
 Zanka ``while``
 ---------------
 

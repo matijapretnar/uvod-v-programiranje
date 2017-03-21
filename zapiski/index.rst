@@ -1,29 +1,21 @@
+####################
 Python za matematike
-====================
+####################
 
 .. toctree::
     :maxdepth: 2
 
-    01-delo-s-pythonom
-    02-logicne-vrednosti
-    03-funkcije
-    04-algoritmi
-    05-zanke
-    06-nizi
-    07-tipi
-    08-zelva
-    09-seznami-in-nabori
-    10-iskanje
-    11-casovna-zahtevnost
-    12-urejanje
-    13-slovarji-in-mnozice
-    14-datoteke
-    15-psevdonakljucna-stevila
-    16-objektno-programiranje
-    17-izjeme
-    18-iteratorji-in-generatorji
-    19-tkinter
-    20-kako-deluje-racunalnik
+    01a-delo-s-pythonom
+    01b-logicne-vrednosti
+    01c-funkcije
+    02a-rekurzija
+    02b-algoritmi
+    03a-osnovni-tipi
+    03b-nizi
+    03b-vgrajene-metode
+    03c-seznami
+    03d-nabori
+    03e-slovarji
 
 
 Kazala
