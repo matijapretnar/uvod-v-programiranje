@@ -1,0 +1,16 @@
+********************
+Osnove programiranja
+********************
+
+.. toctree::
+    :maxdepth: 2
+
+    01-delo-s-pythonom
+    02-logicne-vrednosti
+    03-funkcije
+    05-zanke
+    08-zelva
+    06-nizi
+    07-tipi
+    09-seznami-in-nabori
+    13-slovarji-in-mnozice

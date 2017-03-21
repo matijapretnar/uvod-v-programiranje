@@ -1,0 +1,8 @@
+Funkcijsko programiranje
+========================
+
+.. toctree::
+    :maxdepth: 2
+
+    01-delo-s-pythonom
+    03-funkcije

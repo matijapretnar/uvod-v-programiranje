@@ -26,8 +26,6 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
-    <link rel="next" title="Nizi" href="06-nizi.html" />
-    <link rel="prev" title="Algoritmi" href="04-algoritmi.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -43,6 +41,33 @@
   <div class="section" id="zanke">
 <h1>Zanke<a class="headerlink" href="#zanke" title="Povezava na naslov">¶</a></h1>
 <p>Z rekurzijo dosežemo, da nek del kode izvedemo večkrat.</p>
+<div class="section" id="zanka-for-na-nizih">
+<h2>Zanka <code class="docutils literal"><span class="pre">for</span></code> na nizih<a class="headerlink" href="#zanka-for-na-nizih" title="Povezava na naslov">¶</a></h2>
+<p>Po vseh znakih danega niza se lahko sprehodimo z zanko <code class="docutils literal"><span class="pre">for</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stevilo_samoglasnikov</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne število samoglasnikov v danem nizu.&#39;&#39;&#39;</span>
+    <span class="n">stevilo</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">niz</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">znak</span> <span class="ow">in</span> <span class="s">&#39;aeiouAEIOU&#39;</span><span class="p">:</span>
+            <span class="n">stevilo</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">stevilo</span>
+
+<span class="k">def</span> <span class="nf">pobrisi_samoglasnike</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne niz enak danemu, le da smo iz njega izpustili vse samoglasnike.&#39;&#39;&#39;</span>
+    <span class="n">brez_samoglasnikov</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">niz</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">znak</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s">&#39;aeiouAEIOU&#39;</span><span class="p">:</span>
+            <span class="n">brez_samoglasnikov</span> <span class="o">+=</span> <span class="n">znak</span>
+    <span class="k">return</span> <span class="n">brez_samoglasnikov</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stevilo_samoglasnikov</span><span class="p">(</span><span class="s">&#39;Uvod v programiranje&#39;</span><span class="p">)</span>
+<span class="go">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pobrisi_samoglasnike</span><span class="p">(</span><span class="s">&#39;Uvod v programiranje&#39;</span><span class="p">)</span>
+<span class="go">&#39;vd v prgrmrnj&#39;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="zanka-while">
 <h2>Zanka <code class="docutils literal"><span class="pre">while</span></code><a class="headerlink" href="#zanka-while" title="Povezava na naslov">¶</a></h2>
 <p>Z zanko <code class="docutils literal"><span class="pre">while</span></code> določene ukaze izvajamo toliko časa, dokler velja dani pogoj.</p>
@@ -245,6 +270,7 @@ vrednostih od <code class="docutils literal"><span class="pre">1</span></code> d
   <h3><a href="index.html">Seznam Vsebine</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Zanke</a><ul>
+<li><a class="reference internal" href="#zanka-for-na-nizih">Zanka <code class="docutils literal"><span class="pre">for</span></code> na nizih</a></li>
 <li><a class="reference internal" href="#zanka-while">Zanka <code class="docutils literal"><span class="pre">while</span></code></a></li>
 <li><a class="reference internal" href="#zanka-for">Zanka <code class="docutils literal"><span class="pre">for</span></code></a></li>
 <li><a class="reference internal" href="#stavki-break-continue-in-pass-vsebina-se-manjka">Stavki <code class="docutils literal"><span class="pre">break</span></code>, <code class="docutils literal"><span class="pre">continue</span></code> in <code class="docutils literal"><span class="pre">pass</span></code> (vsebina še manjka)</a></li>
@@ -255,8 +281,6 @@ vrednostih od <code class="docutils literal"><span class="pre">1</span></code> d
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="04-algoritmi.html" title="prejšnje poglavje">Algoritmi</a></li>
-      <li>Next: <a href="06-nizi.html" title="naslednje poglavje">Nizi</a></li>
   </ul></li>
 </ul>
 </div>

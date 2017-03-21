@@ -1,0 +1,11 @@
+*********
+Algoritmi
+*********
+
+.. toctree::
+    :maxdepth: 2
+
+    04-algoritmi
+    10-iskanje
+    11-casovna-zahtevnost
+    12-urejanje

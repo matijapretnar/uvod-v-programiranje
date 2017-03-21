@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Seznami in nabori &mdash; Python za matematike 0.1 documentation</title>
+    <title>Zanka for na seznamih &mdash; Python za matematike 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,6 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
-    <link rel="next" title="Iskanje" href="10-iskanje.html" />
-    <link rel="prev" title="Risanje z želvo" href="08-zelva.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -40,95 +38,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="seznami-in-nabori">
-<h1>Seznami in nabori<a class="headerlink" href="#seznami-in-nabori" title="Povezava na naslov">¶</a></h1>
-<p>Če želimo delati z zaporedjem podatkov, uporabimo sezname.</p>
-<div class="section" id="pisanje-seznamov">
-<h2>Pisanje seznamov<a class="headerlink" href="#pisanje-seznamov" title="Povezava na naslov">¶</a></h2>
-<p>Sename pišemo v oglatih oklepajih, med katerimi napišemo vrednosti, ločene z
-vejicami, na primer <code class="docutils literal"><span class="pre">[10,</span> <span class="pre">20,</span> <span class="pre">30]</span></code> je seznam, ki vsebuje tri števila, <code class="docutils literal"><span class="pre">[]</span></code>
-pa prazen seznam. Če želimo, lahko vejico pišemo tudi za zadnjim elementom.
-Seznami so lahko tudi gnezdeni. Na primer, matriko bi predstavili s seznamom
-seznamov:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
- <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
- <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
-</pre></div>
-</div>
-<p>V sezname lahko spravimo vrednosti različnih tipov, na primer:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s">&quot;Niz&quot;</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Vendar običajno sezname uporabimo za predstavitev homogene zbirke podatkov,
-torej da so vse vrednosti istega tipa.</p>
-</div>
-<div class="section" id="operacije-na-seznamih">
-<h2>Operacije na seznamih<a class="headerlink" href="#operacije-na-seznamih" title="Povezava na naslov">¶</a></h2>
-<p>Tako kot nize lahko tudi sezname stikamo z operacijo <code class="docutils literal"><span class="pre">+</span></code> in množimo s celimi števili:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="go">[10, 20, 30, 6, 5, 4]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="go">[1, 2, 1, 2, 1, 2, 1, 2]</span>
-</pre></div>
-</div>
-<p>Dolžino seznama dobimo s funkcijo <code class="docutils literal"><span class="pre">len</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
-<span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">([])</span>
-<span class="go">0</span>
-</pre></div>
-</div>
-<p>Tudi na seznamih imamo na voljo predikata <code class="docutils literal"><span class="pre">in</span></code> in <code class="docutils literal"><span class="pre">not</span> <span class="pre">in</span></code>, s katerima
-ugotovimo, ali se nek element pojavlja v seznamu:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;Ema&#39;</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;Ana&#39;</span><span class="p">,</span> <span class="s">&#39;Bojan&#39;</span><span class="p">,</span> <span class="s">&#39;Cvetka&#39;</span><span class="p">,</span> <span class="s">&#39;David&#39;</span><span class="p">]</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;Ana&#39;</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;Ana&#39;</span><span class="p">,</span> <span class="s">&#39;Bojan&#39;</span><span class="p">,</span> <span class="s">&#39;Cvetka&#39;</span><span class="p">,</span> <span class="s">&#39;David&#39;</span><span class="p">]</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">stevilo_dni</span><span class="p">(</span><span class="n">mesec</span><span class="p">,</span> <span class="n">leto</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">mesec</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">29</span> <span class="k">if</span> <span class="n">je_prestopno</span><span class="p">(</span><span class="n">leto</span><span class="p">)</span> <span class="k">else</span> <span class="mi">28</span>
-    <span class="k">elif</span> <span class="n">mesec</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="mi">31</span>
-    <span class="k">elif</span> <span class="n">mesec</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="mi">30</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="indeksiranje-in-rezine">
-<h2>Indeksiranje in rezine<a class="headerlink" href="#indeksiranje-in-rezine" title="Povezava na naslov">¶</a></h2>
-<p>Indeksiranje in rezine na seznamih delujejo tako kot na nizih:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="go">8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sez</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-<span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<span class="go">[5, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="go">[3, 8]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
-<span class="go">[2, 5, 2, 1, 2]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="go">[3, 2]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
-<span class="go">[5, 8, 5, 1]</span>
-</pre></div>
-</div>
-<p>Če imamo gnezdene sezname, do elementov dostopamo z gnezdenimi indeksi:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">2</span>
-</pre></div>
-</div>
-<p>Na primer, sled matrike bi lahko izračunali kot:</p>
+  <p>Na primer, sled matrike bi lahko izračunali kot:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">sled</span><span class="p">(</span><span class="n">matrika</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Izračuna sled dane matrike.&#39;&#39;&#39;</span>
     <span class="n">vsota_diagonalnih</span> <span class="o">=</span> <span class="mi">0</span>
@@ -137,7 +47,8 @@ ugotovimo, ali se nek element pojavlja v seznamu:</p>
     <span class="k">return</span> <span class="n">vsota_diagonalnih</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sled</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sled</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
 <span class="go">5</span>
 </pre></div>
 </div>
@@ -157,9 +68,8 @@ način:</p>
 saj se sprehodi čez celotno matriko, ne le čez diagonalne elemente. Na primer,
 pri matriki velikosti <span class="math">\(1000 \times 1000\)</span> bi druga funkcija pregledala
 tisočkrat več elementov (in posledično porabila tisočkrat več časa).</p>
-</div>
 <div class="section" id="zanka-for-na-seznamih">
-<h2>Zanka <code class="docutils literal"><span class="pre">for</span></code> na seznamih<a class="headerlink" href="#zanka-for-na-seznamih" title="Povezava na naslov">¶</a></h2>
+<h1>Zanka <code class="docutils literal"><span class="pre">for</span></code> na seznamih<a class="headerlink" href="#zanka-for-na-seznamih" title="Povezava na naslov">¶</a></h1>
 <p>Tako kot se lahko z zanko <code class="docutils literal"><span class="pre">for</span></code> sprehodimo po vseh znakih v nizu, se lahko
 z njo sprehodimo tudi po vseh elementih danega seznama:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">vsota_elementov</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
@@ -220,7 +130,7 @@ ali imamo že “pravi” največji element ali je to do sedaj še vedno <code c
 </div>
 </div>
 <div class="section" id="izpeljani-seznami">
-<h2>Izpeljani seznami<a class="headerlink" href="#izpeljani-seznami" title="Povezava na naslov">¶</a></h2>
+<h1>Izpeljani seznami<a class="headerlink" href="#izpeljani-seznami" title="Povezava na naslov">¶</a></h1>
 <p>Python omogoča, da sezname tvorimo na enostaven način z <strong>izpeljanimi seznami</strong>,
 ki so oblike <code class="docutils literal"><span class="pre">[izraz</span> <span class="pre">for</span> <span class="pre">spremenljivka</span> <span class="pre">in</span> <span class="pre">mozne_vrednosti]</span></code>, podobno kot v
 matematiki množice pišemo kot <span class="math">\(\{ 2 \cdot n \mid n \in \{1, \dots, 9\}\}\)</span>:</p>
@@ -244,7 +154,7 @@ s pogojem določimo, katere elemente želimo:</p>
 </div>
 </div>
 <div class="section" id="spreminanje-in-brisanje-elementov">
-<h2>Spreminanje in brisanje elementov<a class="headerlink" href="#spreminanje-in-brisanje-elementov" title="Povezava na naslov">¶</a></h2>
+<h1>Spreminanje in brisanje elementov<a class="headerlink" href="#spreminanje-in-brisanje-elementov" title="Povezava na naslov">¶</a></h1>
 <p>Za razliko od nizov lahko vrednosti v seznamih tudi spreminjamo:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
@@ -377,7 +287,7 @@ seznamov. Namesto tega lahko uporabimo izpeljani seznam:</p>
 </div>
 </div>
 <div class="section" id="metode-na-seznamih">
-<h2>Metode na seznamih<a class="headerlink" href="#metode-na-seznamih" title="Povezava na naslov">¶</a></h2>
+<h1>Metode na seznamih<a class="headerlink" href="#metode-na-seznamih" title="Povezava na naslov">¶</a></h1>
 <p>Za večino pogosto uporabljanih stvari na seznamih obstajajo že vgrajene metode.
 Te povečini ne vračajo ničesar, temveč le spremenijo dani seznam. Izjemi sta
 metodi <code class="docutils literal"><span class="pre">index</span></code> in <code class="docutils literal"><span class="pre">count</span></code>, ki vrneta vrednost in seznam pustita pri miru, ter
@@ -512,50 +422,8 @@ nato pa ji prištevali ustrezne elemente.</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="nabori">
-<h2>Nabori<a class="headerlink" href="#nabori" title="Povezava na naslov">¶</a></h2>
-<p>Nabori se obnašajo podobno kot seznami, le da njihovih vrednosti ne moremo
-spreminjati. Pišemo jih tako kot sezname, le med običajne oklepaje: <code class="docutils literal"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code>.
-Nabor z enim elementom pišemo kot <code class="docutils literal"><span class="pre">(1,</span> <span class="pre">)</span></code> (razmislite, zakaj ga ne pišemo kot
-<code class="docutils literal"><span class="pre">(1)</span></code>). Včasih lahko nabore pišemo kar brez oklepajev:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
-<span class="go">(1, 2, 3)</span>
-</pre></div>
-</div>
-<p>Druga razlika pa je ta, da so nabori običajno heterogeni: elementi na različnih
-mestih imajo lahko različne tipe in različne pomene:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">student</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;Ana&#39;</span><span class="p">,</span> <span class="s">&#39;Novak&#39;</span><span class="p">,</span> <span class="mi">27162315</span><span class="p">)</span>
-<span class="n">ucenci</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Ana&#39;</span><span class="p">,</span> <span class="s">&#39;Bojan&#39;</span><span class="p">,</span> <span class="s">&#39;Cvetka&#39;</span><span class="p">,</span> <span class="s">&#39;David&#39;</span><span class="p">]</span>
-<span class="n">datum</span> <span class="o">=</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s">&#39;marec&#39;</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
-<span class="n">datumi</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">30</span><span class="p">,</span> <span class="s">&#39;marec&#39;</span><span class="p">,</span> <span class="mi">2016</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;april&#39;</span><span class="p">,</span> <span class="mi">2016</span><span class="p">),</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="s">&#39;junij&#39;</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)]</span>
-</pre></div>
-</div>
-<p>Sicer za nabore veljajo podobne lastnosti: lahko jih stikamo in množimo; lahko
-izračunamo njihovo vsoto, minimum, maksimum in dolžino; s predikatom <code class="docutils literal"><span class="pre">in</span></code>
-lahko pogledamo, ali vsebujejo dani element; lahko jih indeksiramo in delamo
-rezine; po njih se lahko sprehodimo z zanko <code class="docutils literal"><span class="pre">for</span></code>; od metod pa sta na voljo le
-<code class="docutils literal"><span class="pre">count</span></code> in <code class="docutils literal"><span class="pre">index</span></code>, saj ti dve edini ne spreminjata ničesar.</p>
-</div>
-<div class="section" id="razstavljanje-naborov">
-<h2>Razstavljanje naborov<a class="headerlink" href="#razstavljanje-naborov" title="Povezava na naslov">¶</a></h2>
-<p>Kljub temu, da lahko do elementov nabora dostopamo z indeksi, je pogosto
-uporabno, da jih razstavimo. To storimo s hkratnim prireditvenim stavkom, v
-katerem na levi strani naštejemo več spremenljivk, na desni pa podamo nabor, ki
-ga želimo razstaviti:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">datum</span> <span class="o">=</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s">&#39;marec&#39;</span><span class="p">,</span> <span class="mi">2016</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dan</span><span class="p">,</span> <span class="n">mesec</span><span class="p">,</span> <span class="n">leto</span> <span class="o">=</span> <span class="n">datum</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dan</span>
-<span class="go">30</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesec</span>
-<span class="go">&#39;marec&#39;</span>
-</pre></div>
-</div>
-<p>V resnici gre pri hkratnih prireditvenih stavkih za sestavljanje in razstavljanje
-naborov. Pri razstavljanju je treba paziti, da je število spremenljivk na levi
-enako dolžini nabora na desni, saj v nasprotnem primeru pride do napake.</p>
-</div>
 <div class="section" id="zip-in-enumerate">
-<h2><code class="docutils literal"><span class="pre">zip</span></code> in <code class="docutils literal"><span class="pre">enumerate</span></code><a class="headerlink" href="#zip-in-enumerate" title="Povezava na naslov">¶</a></h2>
+<h1><code class="docutils literal"><span class="pre">zip</span></code> in <code class="docutils literal"><span class="pre">enumerate</span></code><a class="headerlink" href="#zip-in-enumerate" title="Povezava na naslov">¶</a></h1>
 <p>Dostikrat želimo hkrati dostopati do elementov seznama in njihovih indeksov.</p>
 <p>Predstavimo polinome s seznamom koeficientov, urejenim od prostega proti
 vodilnemu členu. Polinom <span class="math">\(3 - x^2\)</span> bi tako predstavili s seznamom
@@ -663,85 +531,6 @@ zadrga. Vrnjeno zaporedje ima toliko elementov, kot najkrajši argument funkcije
 <span class="go">-2</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="razstavljanje-seznamov">
-<h2>Razstavljanje seznamov<a class="headerlink" href="#razstavljanje-seznamov" title="Povezava na naslov">¶</a></h2>
-<p>Na podoben način kot nabore lahko razstavljamo tudi sezname:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span><span class="p">,</span> <span class="n">drugi</span><span class="p">,</span> <span class="n">tretji</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span>
-<span class="go">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">tretji</span>
-<span class="go">30</span>
-</pre></div>
-</div>
-<p>Toda seznami običajno nimajo definirane dolžine, zato lahko pri njihovem
-razstavljanju uporabimo tudi poseben vzorec, ki v spremenljivko shrani vse
-preostale elemente:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span><span class="p">,</span> <span class="n">drugi</span><span class="p">,</span> <span class="o">*</span><span class="n">ostali</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span>
-<span class="go">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">drugi</span>
-<span class="go">20</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ostali</span>
-<span class="go">[30, 40, 50, 60, 70]</span>
-</pre></div>
-</div>
-<p>Vzorec za preostale elemente se lahko pojavi tudi kje drugje kot na koncu:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span><span class="p">,</span> <span class="o">*</span><span class="n">ostali</span><span class="p">,</span> <span class="n">predzadnji</span><span class="p">,</span> <span class="n">zadnji</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi</span>
-<span class="go">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ostali</span>
-<span class="go">[20, 30, 40, 50]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">predzadnji</span>
-<span class="go">60</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">zadnji</span>
-<span class="go">70</span>
-</pre></div>
-</div>
-<p>Vseeno pa vzorec za preostale elemente lahko uporabimo največ enkrat:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="o">*</span><span class="n">prva_polovica</span><span class="p">,</span> <span class="o">*</span><span class="n">druga_polovica</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-<span class="gr">SyntaxError</span>: <span class="n">two starred expressions in assignment</span>
-</pre></div>
-</div>
-<p>Na podoben način lahko razstavljamo tudi nabore, nize in ostale strukture,
-po katerih se lahko sprehajamo z zanko <code class="docutils literal"><span class="pre">for</span></code>, vendar bo v spremenljivki
-vedno shranjen seznam preostalih elementov:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">zacetnica</span><span class="p">,</span> <span class="o">*</span><span class="n">ostale_crke</span> <span class="o">=</span> <span class="s">&#39;abrakadabra&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">zacetnica</span>
-<span class="go">&#39;a&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ostale_crke</span>
-<span class="go">[&#39;b&#39;, &#39;r&#39;, &#39;a&#39;, &#39;k&#39;, &#39;a&#39;, &#39;d&#39;, &#39;a&#39;, &#39;b&#39;, &#39;r&#39;, &#39;a&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi_par</span><span class="p">,</span> <span class="o">*</span><span class="n">ostali_pari</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s">&#39;balon&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">prvi_par</span>
-<span class="go">(0, &#39;b&#39;)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ostali_pari</span>
-<span class="go">[(1, &#39;a&#39;), (2, &#39;l&#39;), (3, &#39;o&#39;), (4, &#39;n&#39;)]</span>
-</pre></div>
-</div>
-<p>Vzorec za preostale elemente lahko uporabimo tudi v definicijah funkcij:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">vrni_zadnji_argument</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vrni_zadnji_argument</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
-<span class="go">30</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vrni_zadnji_argument</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">1</span>
-</pre></div>
-</div>
-<p>Tak vzorec na primer uporablja funkcija <code class="docutils literal"><span class="pre">max</span></code> (in njej podobne). Ta funkcija
-namreč deluje tako, da v primeru, ko dobi en argument, vrne njegov največji
-element, ko pa dobi več argumentov, pa vrne največjega:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="go">[4, 1]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="go">5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="go">5</span>
-</pre></div>
-</div>
 <p>S pomočjo vzorca za preostale argumente bi tako funkcijo napisali tako, da bi
 najprej preverili, koliko argumentov smo dobili, nato pa ustrezno poiskali
 maksimum:</p>
@@ -774,7 +563,6 @@ maksimum:</p>
 </pre></div>
 </div>
 </div>
-</div>
 
 
           </div>
@@ -784,27 +572,16 @@ maksimum:</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Seznam Vsebine</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Seznami in nabori</a><ul>
-<li><a class="reference internal" href="#pisanje-seznamov">Pisanje seznamov</a></li>
-<li><a class="reference internal" href="#operacije-na-seznamih">Operacije na seznamih</a></li>
-<li><a class="reference internal" href="#indeksiranje-in-rezine">Indeksiranje in rezine</a></li>
-<li><a class="reference internal" href="#zanka-for-na-seznamih">Zanka <code class="docutils literal"><span class="pre">for</span></code> na seznamih</a></li>
+<li><a class="reference internal" href="#">Zanka <code class="docutils literal"><span class="pre">for</span></code> na seznamih</a></li>
 <li><a class="reference internal" href="#izpeljani-seznami">Izpeljani seznami</a></li>
 <li><a class="reference internal" href="#spreminanje-in-brisanje-elementov">Spreminanje in brisanje elementov</a></li>
 <li><a class="reference internal" href="#metode-na-seznamih">Metode na seznamih</a></li>
-<li><a class="reference internal" href="#nabori">Nabori</a></li>
-<li><a class="reference internal" href="#razstavljanje-naborov">Razstavljanje naborov</a></li>
 <li><a class="reference internal" href="#zip-in-enumerate"><code class="docutils literal"><span class="pre">zip</span></code> in <code class="docutils literal"><span class="pre">enumerate</span></code></a></li>
-<li><a class="reference internal" href="#razstavljanje-seznamov">Razstavljanje seznamov</a></li>
-</ul>
-</li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="08-zelva.html" title="prejšnje poglavje">Risanje z želvo</a></li>
-      <li>Next: <a href="10-iskanje.html" title="naslednje poglavje">Iskanje</a></li>
   </ul></li>
 </ul>
 </div>

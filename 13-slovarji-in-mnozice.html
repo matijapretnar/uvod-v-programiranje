@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Slovarji in množice (razlage še manjkajo) &mdash; Python za matematike 0.1 documentation</title>
+    <title>Operacije na slovarjih &mdash; Python za matematike 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,6 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
-    <link rel="next" title="Datoteke" href="14-datoteke.html" />
-    <link rel="prev" title="Urejanje (razlage še manjkajo)" href="12-urejanje.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
@@ -40,100 +38,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="slovarji-in-mnozice-razlage-se-manjkajo">
-<h1>Slovarji in množice (razlage še manjkajo)<a class="headerlink" href="#slovarji-in-mnozice-razlage-se-manjkajo" title="Povezava na naslov">¶</a></h1>
-<div class="section" id="primeri-uporabe-slovarjev">
-<h2>Primeri uporabe slovarjev<a class="headerlink" href="#primeri-uporabe-slovarjev" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">nujne_telefonske_stevilke</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">&#39;center za obveščanje&#39;</span><span class="p">:</span> <span class="mi">112</span><span class="p">,</span>
-  <span class="s">&#39;policija&#39;</span><span class="p">:</span> <span class="mi">113</span><span class="p">,</span>
-  <span class="s">&#39;informacije&#39;</span><span class="p">:</span> <span class="mi">1188</span><span class="p">,</span>
-  <span class="s">&#39;točen čas&#39;</span><span class="p">:</span> <span class="mi">195</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="code highlight-python"><div class="highlight"><pre>slo_ang = {
-  &#39;abak&#39;: &#39;abacus&#39;,
-  &#39;abalienacija&#39;: &#39;abalienation&#39;,
-  &#39;abderit&#39;: &#39;abderite&#39;,
-  ...
-  &#39;žvrkljati&#39;: &#39;whisk&#39;
-}
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">rimske_stevilke</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">1</span><span class="p">:</span> <span class="s">&#39;I&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">&#39;II&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">&#39;III&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">&#39;IV&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s">&#39;V&#39;</span><span class="p">,</span>
-    <span class="mi">6</span><span class="p">:</span> <span class="s">&#39;VI&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="s">&#39;VII&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s">&#39;VIII&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s">&#39;IX&#39;</span><span class="p">,</span>
-    <span class="mi">10</span><span class="p">:</span> <span class="s">&#39;X&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="s">&#39;XX&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">:</span> <span class="s">&#39;XXX&#39;</span><span class="p">,</span> <span class="mi">40</span><span class="p">:</span> <span class="s">&#39;XL&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">:</span> <span class="s">&#39;L&#39;</span><span class="p">,</span>
-    <span class="mi">100</span><span class="p">:</span> <span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">:</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">:</span> <span class="s">&#39;M&#39;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">vrli_parlamentarci</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">&#39;DeSUS&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;NSi&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;SD&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;SDS&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
-    <span class="s">&#39;SMC&#39;</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span> <span class="s">&#39;ZaAB&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;ZL&#39;</span><span class="p">:</span> <span class="mi">6</span>
-<span class="p">}</span>
-
-<span class="n">met_kocke</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span>
-<span class="p">}</span>
-
-<span class="n">met_dveh_kock</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">2</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">3</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">4</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">5</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">6</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span>
-    <span class="mi">8</span><span class="p">:</span> <span class="mi">5</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="mi">4</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="mi">3</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">36</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">matrika</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="p">]</span>
-
-<span class="n">redka_matrika</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">1</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">avtocestni_kriz</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;KR&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span> <span class="s">&#39;CE&#39;</span><span class="p">:</span> <span class="mi">73</span><span class="p">,</span> <span class="s">&#39;PO&#39;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span> <span class="s">&#39;NM&#39;</span><span class="p">:</span> <span class="mi">72</span><span class="p">},</span>
-    <span class="s">&#39;PO&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="mi">51</span><span class="p">,</span> <span class="s">&#39;KP&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span> <span class="s">&#39;GO&#39;</span><span class="p">:</span> <span class="mi">63</span><span class="p">},</span>
-    <span class="s">&#39;CE&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;MB&#39;</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span> <span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="mi">73</span><span class="p">},</span>
-    <span class="s">&#39;MB&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;CE&#39;</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span> <span class="s">&#39;MS&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">},</span>
-    <span class="s">&#39;GO&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;PO&#39;</span><span class="p">:</span> <span class="mi">63</span><span class="p">},</span>
-    <span class="s">&#39;KR&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">},</span>
-    <span class="s">&#39;MS&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;MB&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">},</span>
-    <span class="s">&#39;NM&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;LJ&#39;</span><span class="p">:</span> <span class="mi">72</span><span class="p">},</span>
-    <span class="s">&#39;KP&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;GO&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">knjiga</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">&#39;naslov&#39;</span><span class="p">:</span> <span class="s">&#39;Prišel je velikanski lev&#39;</span><span class="p">,</span>
-    <span class="s">&#39;avtor&#39;</span><span class="p">:</span> <span class="s">&#39;Kristina Brenkova&#39;</span><span class="p">,</span>
-    <span class="s">&#39;ilustrator&#39;</span><span class="p">:</span> <span class="s">&#39;Polona Lovšin&#39;</span><span class="p">,</span>
-    <span class="s">&#39;strani&#39;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
-    <span class="s">&#39;leto&#39;</span><span class="p">:</span> <span class="mi">2010</span><span class="p">,</span>
-    <span class="s">&#39;ključne besede&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;lev&#39;</span><span class="p">,</span> <span class="s">&#39;Afrika&#39;</span><span class="p">,</span> <span class="s">&#39;Matic&#39;</span><span class="p">,</span> <span class="s">&#39;otroci&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-
-<span class="n">nakljucni_slovar</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">1</span><span class="p">:</span> <span class="s">&#39;abc&#39;</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">):</span> <span class="s">&#39;D&#39;</span><span class="p">,</span>
-    <span class="s">&#39;456&#39;</span><span class="p">:</span> <span class="mi">789</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="operacije-na-slovarjih">
-<h2>Operacije na slovarjih<a class="headerlink" href="#operacije-na-slovarjih" title="Povezava na naslov">¶</a></h2>
+  <div class="section" id="operacije-na-slovarjih">
+<h1>Operacije na slovarjih<a class="headerlink" href="#operacije-na-slovarjih" title="Povezava na naslov">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="go">3</span>
@@ -189,7 +95,7 @@
 </div>
 </div>
 <div class="section" id="spreminjanje-slovarjev">
-<h2>Spreminjanje slovarjev<a class="headerlink" href="#spreminjanje-slovarjev" title="Povezava na naslov">¶</a></h2>
+<h1>Spreminjanje slovarjev<a class="headerlink" href="#spreminjanje-slovarjev" title="Povezava na naslov">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
@@ -204,7 +110,7 @@
 </div>
 </div>
 <div class="section" id="zanka-for-na-slovarjih">
-<h2>Zanka <code class="docutils literal"><span class="pre">for</span></code> na slovarjih<a class="headerlink" href="#zanka-for-na-slovarjih" title="Povezava na naslov">¶</a></h2>
+<h1>Zanka <code class="docutils literal"><span class="pre">for</span></code> na slovarjih<a class="headerlink" href="#zanka-for-na-slovarjih" title="Povezava na naslov">¶</a></h1>
 <div class="code highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="go">[&#39;b&#39;, &#39;a&#39;, &#39;c&#39;]</span>
@@ -235,7 +141,7 @@
 </div>
 </div>
 <div class="section" id="mnozice">
-<h2>Množice<a class="headerlink" href="#mnozice" title="Povezava na naslov">¶</a></h2>
+<h1>Množice<a class="headerlink" href="#mnozice" title="Povezava na naslov">¶</a></h1>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">je_prastevilo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span>
@@ -332,7 +238,6 @@
 </pre></div>
 </div>
 </div>
-</div>
 
 
           </div>
@@ -342,21 +247,15 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Seznam Vsebine</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Slovarji in množice (razlage še manjkajo)</a><ul>
-<li><a class="reference internal" href="#primeri-uporabe-slovarjev">Primeri uporabe slovarjev</a></li>
-<li><a class="reference internal" href="#operacije-na-slovarjih">Operacije na slovarjih</a></li>
+<li><a class="reference internal" href="#">Operacije na slovarjih</a></li>
 <li><a class="reference internal" href="#spreminjanje-slovarjev">Spreminjanje slovarjev</a></li>
 <li><a class="reference internal" href="#zanka-for-na-slovarjih">Zanka <code class="docutils literal"><span class="pre">for</span></code> na slovarjih</a></li>
 <li><a class="reference internal" href="#mnozice">Množice</a></li>
-</ul>
-</li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="12-urejanje.html" title="prejšnje poglavje">Urejanje (razlage še manjkajo)</a></li>
-      <li>Next: <a href="14-datoteke.html" title="naslednje poglavje">Datoteke</a></li>
   </ul></li>
 </ul>
 </div>
