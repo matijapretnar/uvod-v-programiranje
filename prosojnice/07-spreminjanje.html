@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Spreminjanje</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+# Spreminjanje
+
+### Uvod v programiranje
+
+---
+
+class: center, middle
+
+## Spreminjanje seznamov
+
+---
+
+### Sezname lahko tudi spreminjamo
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez[1]
+20
+>>> sez[1] = 40
+>>> sez
+[10, 40, 30]
+```
+
+---
+
+### Zamenjamo lahko tudi celotno rezino
+
+```python
+>>> sez = [10, 20, 30, 40]
+>>> sez[1:3]
+[20, 30]
+>>> sez[1:3] = [0, 0, 0]
+>>> sez
+[10, 0, 0, 0, 40]
+```
+
+---
+
+### Elemente lahko tudi brišemo
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez[1]
+20
+>>> del sez[1]
+>>> sez
+[10, 30]
+```
+
+---
+
+### Elemente na konec dodajamo z `append`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.append(40)
+>>> sez
+[10, 20, 30, 40]
+```
+
+---
+
+class: question, center, middle
+
+## Podseznam vseh sodih elementov
+
+---
+
+### Zadnji element snamemo s `pop`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.pop()
+30
+>>> sez
+[10, 20]
+```
+
+---
+
+### Elemente na dano mesto dodamo z `insert`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.insert(1, 0)
+>>> sez
+[10, 0, 20, 30]
+```
+
+---
+
+### Več elementov dodamo z `extend`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.extend([40, 50])
+>>> sez
+[10, 20, 30, 40, 50]
+```
+
+---
+
+### Eno pojavitev elementa odstranimo z `remove`
+
+```python
+>>> sez = [1, 2, 1, 2, 3]
+>>> sez.remove(2)
+>>> sez
+[1, 1, 2, 3]
+```
+
+---
+
+### Seznam izpraznimo s `clear`
+
+```python
+>>> sez = [1, 2, 1, 2, 3]
+>>> sez.clear()
+>>> sez
+[]
+```
+
+---
+
+### Seznam obrnemo z `reverse`
+
+```python
+>>> sez = [1, 2, 4, 8, 16]
+>>> sez.reverse()
+>>> sez
+[16, 8, 4, 2, 1]
+```
+
+### Obrnjen seznam dobimo z `reversed`
+
+```python
+>>> sez = [1, 2, 4, 8, 16]
+>>> sez[::-1]
+[16, 8, 4, 2, 1]
+>>> list(reversed(sez))
+[16, 8, 4, 2, 1]
+>>> sez
+[1, 2, 4, 8, 16]
+```
+
+---
+
+### Seznam uredimo z `sort`
+
+```python
+>>> sez = [4, 1, 8, 2, 16]
+>>> sez.sort()
+>>> sez
+[1, 2, 4, 8, 16]
+```
+
+### Urejen seznam dobimo s `sorted`
+
+```python
+>>> sez = [4, 1, 8, 2, 16]
+>>> sorted(sez)
+[1, 2, 4, 8, 16]
+>>> sez
+[4, 1, 8, 2, 16]
+```
+
+---
+
+class: question, center, middle
+
+## Podseznam vseh sodih elementov
+
+---
+
+### Seznami so spremenljive strukture
+
+```python
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x = [2, 2, 2]
+>>> y
+[1, 1, 1]
+```
+
+```python
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x[2] = 2
+>>> y
+[1, 1, 2]
+```
+
+---
+
+### Da je zmeda večja, `+=` ni isto kot `=` & `+`
+
+```python
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x += [2, 2, 2]
+>>> x
+[1, 1, 1, 2, 2, 2]
+>>> y
+[1, 1, 1, 2, 2, 2]
+```
+
+```python
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x = x + [2, 2, 2]
+>>> x
+[1, 1, 1, 2, 2, 2]
+>>> y
+[1, 1, 1]
+```
+
+---
+
+class: question, center, middle
+
+## Eksperimenti s seznami
+
+---
+
+class: center, middle
+
+## Spreminjanje slovarjev
+
+---
+
+### Slovarje lahko tudi spreminjamo
+
+```python
+>>> slovar = {'a': 10, 'b': 20}
+>>> slovar['a'] = 50
+>>> slovar
+{'b': 20, 'a': 50}
+>>> slovar['c'] = 100
+>>> slovar
+{'b': 20, 'a': 50, 'c': 100}
+```
+
+---
+
+class: question, center, middle
+
+## Najbolj pogoste črke in besede v slovenskih klasikih
+
+---
+
+### Elemente lahko tudi brišemo
+
+```python
+>>> slovar = {'a': 10, 'b': 20}
+>>> slovar['a']
+10
+>>> del slovar['a']
+>>> slovar
+{'b': 20}
+```
+
+---
+
+### Pripadajočo vrednost snamemo s `pop`
+
+```python
+>>> slovar = {'a': 10, 'b': 20}
+>>> slovar.pop('a')
+10
+>>> slovar
+{'b': 20}
+```
+
+---
+
+### Naključni par snamemo s `popitem`
+
+```python
+>>> slovar = {'a': 10, 'b': 20}
+>>> slovar.popitem()
+('b', 20)
+>>> slovar.popitem()
+('a', 10)
+>>> slovar
+{}
+```
+
+
+</textarea>
+<script src="pomozne-datoteke/jquery-3.1.1.slim.min.js"></script> 
+<script src="pomozne-datoteke/remark-latest.min.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>

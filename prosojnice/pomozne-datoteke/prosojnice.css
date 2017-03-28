@@ -49,7 +49,7 @@
         margin-bottom: 0;
       }
       .small {
-        font-size: 0.7em;
+        font-size: 0.65em;
       }
       pre {
         font-size: 0.95em;
@@ -59,4 +59,10 @@
       }
       th, td {
         padding: 15px;
+      }
+      .smalltab th, .smalltab td {
+        padding: 2px 12px !important;
+      }
+      .smalltab {
+        font-size: 0.7em;
       }
