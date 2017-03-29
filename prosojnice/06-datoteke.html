@@ -502,6 +502,87 @@ class: center, middle, question
 
 ## Oštevilčene vrstice slovenskih klasikov
 
+---
+
+class: center, middle
+
+## Delo z datotečnim sistemom
+
+---
+
+### Trenutni imenik dobimo z `os.getcwd`
+
+```python
+>>> os.getcwd()
+'/Users/matija'
+```
+
+### Delovni imenik nastavimo z `os.chdir`
+
+```python
+>>> os.chdir('Documents/uvp')
+>>> os.getcwd()
+'/Users/matija/Documents/uvp'
+>>> os.chdir('..')
+>>> os.getcwd()
+'/Users/matija/Documents'
+>>> os.chdir('uvp')
+```
+
+---
+
+### Imena vseh datotek v danem imeniku dobimo z `os.listdir`
+
+```python
+>>> os.listdir()
+['datoteke-s-predavanj', 'prosojnice',
+'zapiski']
+>>> os.chdir('prosojnice')
+>>> os.listdir()
+['01-osnove-pythona.html',
+'03-podatkovni-tipi.html',
+'04-stranski-ucinki.html',
+'05-zanke.html', '06-datoteke.html',
+'07-spreminjanje.html',
+'pomozne-datoteke', 'slike']
+```
+
+---
+
+### Z `os.path.isdir` ugotovimo, ali pot kaže na imenik
+
+```python
+>>> os.path.isdir('slike')
+True
+>>> os.path.isdir('pomozne-datoteke')
+True
+>>> os.path.isdir('05-zanke.html')
+False
+```
+
+---
+
+### Ime po končnici razdelimo z `os.path.splitext`
+
+```python
+>>> os.path.splitext('/imenik/test.txt')
+('/imenik/test', '.txt')
+```
+
+### Ime po imeniku razdelimo z `os.path.split`
+
+```python
+>>> os.path.split('/imenik/test.txt')
+('/imenik', 'test.txt')
+```
+
+---
+
+class: center, middle, question
+
+## Urejanje zmedenih datotek
+
+
 
 </div>
 
