@@ -200,7 +200,7 @@ je četrti stavek.
 
 ---
 
-### Za pretvorbo uporabljamo kodne tabele
+### Za pretvorbo uporabljamo kodne tabele, ki vsakemu znaku dodelijo binarno zaporedje
 
 ```lisp
    nova vrstica      10      00001010
@@ -217,40 +217,6 @@ je četrti stavek.
 
 ---
 
-#### Črke
-
-```lisp
-Python 3
-```
-
-#### Desetiški zapis
-
-```lisp
-80 121 116 104 111 110 32 51
-```
-
-#### Dvojiški zapis
-
-.small[```lisp
-0101000001111001011101000110100001101111011011100010000000110011
-```]
-
-#### Šestnajstiški zapis
-
-```lisp
-50 79 74 68 6F 6E 20 33
-```
-
-
----
-
-class: center, middle, question
-
-## Koliko različnih znakov lahko predstavimo z 8 biti?
-
----
-
-
 ### Kodna tabela ASCII
 
 .smalltab[
@@ -265,6 +231,33 @@ class: center, middle, question
 | **6** | ` | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
 | **7** | p | q | r | s | t | u | v | w | x | y | z | { | ｜ | } | ~ | ␡ |
 ]</div>
+
+---
+
+#### Črke
+
+```lisp
+Python 3
+```
+
+#### Šestnajstiški zapis
+
+```lisp
+50 79 74 68 6F 6E 20 33
+```
+
+#### Dvojiški zapis
+
+.small[```lisp
+0101000001111001011101000110100001101111011011100010000000110011
+```]
+
+
+---
+
+class: center, middle, question
+
+## Koliko različnih znakov lahko predstavimo z 8 biti?
 
 ---
 
@@ -340,6 +333,22 @@ class: center, middle, question
 | **E** | ŕ | á | â | ă | ä | ĺ | ć | ç | č | é | ę | ë | ě | í | î | ď |
 | **F** | đ | ń | ň | ó | ô | ő | ö | ÷ | ř | ů | ú | ű | ü | ý | ţ | ˙ |
 ]</div>
+
+---
+
+### Standard Unicode
+
+```
+𓁒견㠾璉♮𪛅霪곰𐠍𠶌𓂰㷟𓈽늻䭭宿䧩쨸𓊇䳞棞䦥ꄨ𠶗韁쳒𧘹𣭻
+嚉椵㒠격勖ꎆ⋃彺押䅞𦠴앐ᜬ𓌖迧翂𨀿ꋿ뀛🌝琘辉㋠삪㊟𝍕🌯鰴
+🌏雐詮ള𒈱禡勵오𩝇🎽쀰﹁硅𦛨၇🙊氶ꕯṝ쳾챥㾫秾㤻𒉯
+尉쨈脉桥🂒ꋌ𝚑ꗚ𓌯״Ｆ𓄭📫ﴣﺥ𒑲𝗔𓉮䥨⛰🅻澖𓆴⓬𒍬ቡ鉑𓀣
+堡䋧🆗𠂫ʦ溺꜆䡷⇾೧䣦眛缉왟醄㖍⸝ߗ㎏ꓗ𖥭㸎𡡅🗼⏝팡驠튇驆
+盏ྖ䕮💩춽冁뎯ꤓ┫厚圦褒𖣳㞂흔퍰ﮭ㩸佄齩ණꃚ귉𩨜𝑒〸켕䴱莒貄
+╞뚭嵭🀽쎂頄醞𒅉㉃纜坰뷲璑𝐬小쏐殩★𥫗𐃇⤺𤦈薑𨩅㐔🉇𝘀㍢
+𝔟욛𝚎㣇ꙸ🏕𓇁※ᾓ𖧂딗𒌬㗹⍀𤆸𫝶뛗ꖜ瘟ณ𓊘밥ꠄ䌣肨蓮𖡲掊ᗬ솨ﶽ🐏
+𓀻𝙡ฅ凥𒀸🍂ఔ🍗𓎏ቌĜꗹ븴䥪𐆀𩮔⏛㪄𦛚蝰넽ᛕ📠嚢柋弙簌䡙퀠稁땵
+```
 
 ---
 
@@ -510,6 +519,362 @@ class: center, middle
 
 ---
 
+### Do datotek kaže absolutna pot
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+---
+
+### Do datotek kaže absolutna pot
+
+.small[```
+*   /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    /
+```
+
+---
+
+### Do datotek kaže absolutna pot
+
+.small[```
+    /
+*       uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    /uvp/
+```
+
+---
+
+### Do datotek kaže absolutna pot
+
+.small[```
+    /
+        uvp
+*           datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    /uvp/datoteke/
+```
+
+---
+
+### Do datotek kaže absolutna pot
+
+.small[```
+    /
+        uvp
+            datoteke
+*               vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    /uvp/datoteke/vhodna.txt
+```
+
+---
+
+### Na Windowsih je zadeva malo drugačna
+
+.small[```
+    C:\
+        uvp
+            datoteke
+*               vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    C:\uvp\datoteke\vhodna.txt
+```
+
+---
+
+### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+*       --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    
+```
+
+---
+
+### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+        --> mathematica
+*               grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    grafi.nb
+```
+
+---
+
+### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+*       --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    .
+```
+
+---
+
+### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+*       praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+        --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    ..
+```
+
+---
+
+### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+
+.small[```
+*   /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+        --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    ../..
+```
+
+---
+
+### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+*               pismo.tex
+                pismo.pdf
+                pismo.aux
+        --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    ../latex/pismo.tex
+```
+
+---
+
 ### Trenutni imenik dobimo z `os.getcwd`
 
 ```python
@@ -545,19 +910,6 @@ class: center, middle
 '05-zanke.html', '06-datoteke.html',
 '07-spreminjanje.html',
 'pomozne-datoteke', 'slike']
-```
-
----
-
-### Z `os.path.isdir` ugotovimo, ali pot kaže na imenik
-
-```python
->>> os.path.isdir('slike')
-True
->>> os.path.isdir('pomozne-datoteke')
-True
->>> os.path.isdir('05-zanke.html')
-False
 ```
 
 ---
