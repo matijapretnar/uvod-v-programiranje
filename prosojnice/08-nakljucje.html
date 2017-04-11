@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Naključje</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+# Naključje
+
+### Uvod v programiranje
+
+---
+
+class: center, middle
+
+## Generiranje naključnih elementov
+
+---
+
+### `random.random()` vrne naključno realno število na intervalu `[0, 1]`
+
+```python
+for _ in range(10):
+    print(random.random())
+```
+```python
+0.269454709396
+0.150338688416
+0.86826547468
+0.645895807098
+0.772181460437
+0.522534622302
+0.472586885944
+0.0620787396277
+0.913226625841
+0.248149046053
+```
+
+---
+
+### `random.uniform(a, b)` vrne naključno realno število na intervalu `[a, b]`
+
+```python
+for _ in range(10):
+    print(random.uniform(10, 15))
+```
+```python
+12.8787811514
+12.6687121738
+12.1844239968
+11.1800356184
+13.2297206416
+10.4020532268
+14.9780516491
+13.1393786622
+14.3589751972
+12.4133107171
+```
+
+---
+
+### `random.randint(a, b)` vrne naključno naravno število na intervalu `[a, b]`
+
+```python
+for _ in range(10):
+    print(random.randint(10, 15))
+```
+```python
+10
+15
+14
+12
+12
+12
+13
+11
+11
+10
+```
+
+---
+
+### `random.randrange(a, b)` vrne naključno naravno število na intervalu `[a, b)`
+
+```python
+for _ in range(10):
+    print(random.randint(10, 15))
+```
+```python
+14
+11
+11
+14
+14
+11
+14
+13
+10
+14
+```
+
+---
+
+### `random.choice(elementi)` vrne naključno izbran element
+
+```python
+for _ in range(10):
+    print(random.choice([1, 10, 50]))
+```
+```python
+1
+50
+1
+50
+50
+1
+10
+10
+1
+1
+```
+
+---
+
+### `random.choice(elementi)` vrne naključno izbran element
+
+```python
+for _ in range(10):
+    print(random.choice('abc'))
+```
+```python
+b
+c
+b
+b
+c
+a
+a
+c
+b
+b
+```
+
+---
+
+### `random.sample(elementi, k)` vrne `k` naključno izbranih elementov
+
+```python
+for _ in range(10):
+    print(random.sample('abcdefg', 3))
+```
+```python
+['f', 'd', 'g']
+['g', 'a', 'd']
+['f', 'g', 'e']
+['b', 'f', 'a']
+['g', 'c', 'd']
+['g', 'c', 'a']
+['b', 'f', 'c']
+['b', 'f', 'a']
+['g', 'f', 'e']
+['d', 'g', 'e']
+```
+
+---
+
+### `random.shuffle` naključno premeša seznam
+
+```python
+>>> seznam = [10, 20, 30, 40, 50]
+>>> random.shuffle(seznam)
+>>> seznam
+[30, 20, 40, 10, 50]
+```
+
+---
+
+class: center, middle, question
+
+## Met nepoštenega kovanca
+
+---
+
+class: center, middle, question
+
+## Met nepoštene kocke
+
+---
+
+class: center, middle
+
+## Metoda Monte Carlo
+
+---
+
+class: center, middle, question
+
+## Izračun števila \\(\pi\\)
+
+
+</textarea>
+<script src="pomozne-datoteke/jquery-3.1.1.slim.min.js"></script> 
+<script src="pomozne-datoteke/remark-latest.min.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>
