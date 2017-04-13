@@ -89,7 +89,7 @@ for _ in range(10):
 
 ```python
 for _ in range(10):
-    print(random.randint(10, 15))
+    print(random.randrange(10, 15))
 ```
 ```python
 14
@@ -234,6 +234,63 @@ class: center, middle, question
 
 class: center, middle
 
+## Kako generiramo naključne vrednosti?
+
+---
+
+background-image: url(slike/generator.jpg)
+
+---
+
+### Cenejši način je uporaba psevdonaključnih števil
+
+<pre style="font-size: 2em">
+1234<sup>2</sup> = 01<b>5227</b>56
+5227<sup>2</sup> = 27<b>3215</b>29
+3215<sup>2</sup> = 10<b>3362</b>25
+3362<sup>2</sup> = 11<b>3030</b>44
+3030<sup>2</sup> = 09<b>1809</b>00
+</pre>
+
+### Začetnemu številu pravimo seme
+
+---
+
+### Seme lahko nastavimo z `random.seed`
+
+```python
+>>> random.seed(3)
+>>> random.random()
+0.23796462709189137
+>>> random.random()
+0.5442292252959519
+>>> random.seed(3)
+>>> random.random()
+0.23796462709189137
+>>> random.random()
+0.5442292252959519
+```
+
+---
+
+class: center, question, middle
+
+## Generator psevdonaključnih števil
+
+---
+
+class: center, question, middle
+
+## Linearni kongruenčni generator
+
+---
+
+background-image: url(slike/generator.jpg)
+
+---
+
+class: center, middle
+
 ## Metoda Monte Carlo
 
 ---
@@ -241,6 +298,20 @@ class: center, middle
 class: center, middle, question
 
 ## Izračun števila \\(\pi\\)
+
+---
+
+class: center, middle, question
+
+## V 28 metih kovanca je padlo 20 cifer. Je kovanec pošten?
+
+---
+
+class: center, middle, question
+
+## Kako bi se lahko izognili razmišljanju?
+
+---
 
 
 </textarea>

@@ -429,26 +429,6 @@ class: question
 
 ---
 
-### Množico lahko presekamo z `&=`
-
-```python
->>> mn = {10, 20, 30, 40}
->>> mn &= {30, 40, 50}
->>> mn
-{40, 30}
-```
-
-### Množico lahko komplementiramo z `-=`
-
-```python
->>> mn = {10, 20, 30, 40}
->>> mn -= {30, 40, 50}
->>> mn
-{10, 20}
-```
-
----
-
 class: center, middle
 
 ## Spreminjanje naborov in nizov
@@ -581,6 +561,46 @@ gen = generiraj_generator()
 ```python
 gen = (f(x) for x in ... if pogoj)
 ```
+
+---
+
+### Naslednjo vrednost iz generatorja dobimo z `next`
+
+```python
+pet_stevil = (k ** 2 for k in range(5))
+```
+
+```python
+>>> next(pet_stevil)
+0
+>>> next(pet_stevil)
+1
+>>> next(pet_stevil)
+4
+```
+
+---
+
+### Funkcija, ki uporablja `yield`, ob klicu vrne generator
+
+```python
+def stevila(n):
+    for k in range(n):
+        yield k ** 2
+```
+
+```python
+>>> next(stevila(5))
+0
+>>> next(stevila(5))
+0
+>>> pet_stevil = stevila(5)
+>>> next(pet_stevil)
+0
+>>> next(pet_stevil)
+1
+```
+
 
 </textarea>
 <script src="pomozne-datoteke/jquery-3.1.1.slim.min.js"></script> 
