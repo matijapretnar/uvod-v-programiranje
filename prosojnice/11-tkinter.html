@@ -27,6 +27,7 @@ gumb.pack()
 oznaka = tk.Label(okno,
                   text='Ne pritiskaj!')
 oznaka.pack()
+okno.mainloop()
 ```
 
 .center[![okno](slike/tkinter/okno.png)]
@@ -109,18 +110,65 @@ gumb.pack()
 
 ---
 
-### Z metodo `mainloop` dosežemo, da program teče, dokler ne zapremo okna
+### Z objektom `Canvas` predstavimo risarsko platno
 
 ```python
 import tkinter as tk
 
 okno = tk.Tk()
+platno = tk.Canvas(okno,
+                   height=100, width=100)
+platno.pack()
+platno.create_oval(30, 20, 70, 30)
+platno.create_rectangle(70, 30, 50, 100)
+```
 
-...
+.center[![okno](slike/tkinter/canvas.png)]
 
+---
+
+### Z metodo `bind` se vežemo na dogodke
+
+```python
+import tkinter as tk
+
+def opisi_klik(event):
+    print(event.x, event.y)
+
+okno = tk.Tk()
+okno.bind('<Button-1>', opisi_klik)
 okno.mainloop()
 ```
 
+---
+
+### Z metodo `bind` se vežemo na dogodke
+
+```python
+import tkinter as tk
+
+def opisi_pritisk(event):
+    print(event.keysym)
+
+okno = tk.Tk()
+okno.bind('<Key>', opisi_pritisk)
+okno.mainloop()
+```
+
+---
+
+### Z metodo `bind` se vežemo na dogodke
+
+```python
+import tkinter as tk
+
+def opisi_dogodek(event):
+    print(vars(event))
+
+okno = tk.Tk()
+okno.bind('<Key>', opisi_pritisk)
+okno.mainloop()
+```
 
 </textarea>
 <script src="pomozne-datoteke/jquery-3.1.1.slim.min.js"></script> 

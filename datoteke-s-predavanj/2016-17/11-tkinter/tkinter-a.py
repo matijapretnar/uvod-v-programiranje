@@ -1,17 +1,18 @@
 import tkinter as tk
 
 def povecaj():
-    prikaz_stevca.configure(text=vnosno_polje.get())
+    trenutna_vrednost = int(prikaz_stevca['text'])
+    prikaz_stevca.configure(text=str(trenutna_vrednost + 1))
 
 def ponastavi():
-    print(vnosno_polje.get())
+    prikaz_stevca.configure(text='0')
 
 def pomanjsaj():
-    print('Zmanjšujem za 1')
+    trenutna_vrednost = int(prikaz_stevca['text'])
+    prikaz_stevca.configure(text=str(trenutna_vrednost - 1))
 
 okno = tk.Tk()
 
-vnosno_polje = tk.Entry(okno)
 gumbi = tk.Frame(okno)
 gumb_povecaj = tk.Button(gumbi, text='+1', command=povecaj)
 gumb_pomanjsaj = tk.Button(gumbi, text='-1', command=pomanjsaj)
@@ -23,6 +24,5 @@ gumb_ponastavi.grid(row=0, column=1)
 gumb_pomanjsaj.grid(row=0, column=0)
 prikaz_stevca.pack()
 gumbi.pack()
-vnosno_polje.pack()
 
 okno.mainloop()
