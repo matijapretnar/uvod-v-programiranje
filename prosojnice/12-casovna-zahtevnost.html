@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Časovna zahtevnost</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+# Časovna zahtevnost
+
+### Uvod v programiranje
+
+---
+
+### S čim bi merili učinkovitost programov?
+
+```python
+def najvecji_element1(sez):
+    maksi = None
+    for x in sez:
+        if maksi is None or x > maksi:
+            maksi = x
+    return maksi
+```
+
+```python
+def najvecji_element2(sez):
+    for x in sez:
+        if x == max(sez):
+            return x
+```
+
+---
+
+## Z merjenjem porabljenega časa
+
+### 1. rezultati so odvisni od hitrosti računalnika
+### 2. merske napake
+### 3. program moramo izvesti
+
+---
+
+## Z matematično funkcijo
+
+### 1. natančno moramo poznati model računanja
+### 2. analiza je zahtevna
+### 3. tako natančnih rezultatov ne rabimo
+
+---
+
+class: center, middle 
+
+## Notacija veliki \\(O\\)
+
+---
+
+class: center, middle 
+
+## $$f \in O(g)$$
+
+### če za dovolj velike \\(x\\) velja
+
+## $$f(n \cdot x) \lessapprox g(n) \cdot f(x)$$
+
+---
+
+### Primer
+
+## $$f(n) = 2 n^2 - 3 n + 1$$
+## $$g(n) = n^2$$
+## $$f \in O(g)$$
+
+---
+
+### Pri zapisu smo malo površni
+
+## $$(n \mapsto 2 n^2 - 3 n + 1) \in O(n \mapsto n^2)$$
+
+## $$2 n^2 - 3 n + 1 \in O(n^2)$$
+
+## $$2 n^2 - 3 n + 1 = O(n^2)$$
+
+---
+
+### Primeri
+
+## $$2 n^2 - n \in O(n^2)$$
+## $$100000 n + 0.00001 n^2 \in O(n^2)$$
+## $$n \in O(n^2)$$
+## $$n + 2 \log n \in O(n)$$
+## $$n^{1000} + 2^n \in O(2^n)$$
+
+---
+
+class: center, middle 
+
+## $$f \in o(g)$$
+
+### če za dovolj velike \\(x\\) velja
+
+## $$f(n \cdot x) \gtrapprox g(n) \cdot f(x)$$
+
+---
+
+class: center, middle 
+
+## $$f \in \theta(g)$$
+
+### če za dovolj velike \\(x\\) velja
+
+## $$f(n \cdot x) \approx g(n) \cdot f(x)$$
+
+---
+
+class: center, middle 
+
+## Časovna zahtevnost enostavnih algoritmov
+
+---
+
+class: center, middle, question
+
+### Izračun sledi matrike
+
+---
+
+class: center, middle, question
+
+### Izračun največjega elementa v seznamu
+
+---
+
+class: center, middle, question
+
+### Izračun najmanjšega elementa v urejenem seznamu
+
+---
+
+class: center, middle, question
+
+### Iskanje elementa v neurejenem seznamu
+
+---
+
+class: center, middle, question
+
+### Iskanje elementa v urejenem seznamu
+
+---
+
+class: center, middle 
+
+## Kako izračunamo časovno zahtevnost?
+
+### 1. Pri zaporednih programih časovne zahtevnosti seštejemo
+
+### 2. Pri vejah vzamemo največjo časovno zahtevnost
+
+### 3. Pri zankah časovno zahtevnost pomnožimo s številom obhodov
+
+---
+
+class: center, middle 
+
+## Časovna zahtevnost vgrajenih funkcij
+
+---
+
+class: center, middle, question
+
+### Iskanje v seznamu
+
+---
+
+class: center, middle, question
+
+### Iskanje v urejenem seznamu
+
+---
+
+class: center, middle, question
+
+### Največji element seznama
+
+---
+
+class: center, middle, question
+
+### Dolžina seznama
+
+---
+
+class: center, middle, question
+
+### Spreminjanje elementa v seznamu
+
+---
+
+class: center, middle, question
+
+### Dodajanje na konec seznama
+
+---
+
+class: center, middle, question
+
+### Dodajanje na začetek seznama
+
+---
+
+class: center, middle, question
+
+### Iskanje v slovarju
+
+---
+
+class: center, middle, question
+
+### Iskanje v množici
+
+---
+
+class: center, middle, question
+
+### Spreminjanje slovarja
+
+
+</textarea>
+<script src="pomozne-datoteke/jquery-3.1.1.slim.min.js"></script> 
+<script src="pomozne-datoteke/remark-latest.min.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>
