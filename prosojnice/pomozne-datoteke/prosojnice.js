@@ -5,7 +5,7 @@ $(document).ready(function() {
   $('<a class="reveal">???</a>').insertBefore('.spoiler');
 
   $("a.reveal").click(function(){
-    $(this).next().fadeIn(500);
+    $(this).next().show();
     $(this).hide();
   });
 
