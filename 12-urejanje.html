@@ -1,39 +1,30 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
   <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Urejanje (razlage še manjkajo) &mdash; Python za matematike 0.1 documentation</title>
-    
+    <title>Urejanje (razlage še manjkajo) &#8212; Uvod v programiranje 0.2 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Python za matematike 0.1 documentation" href="index.html" />
-    <link rel="next" title="Slovarji in množice (razlage še manjkajo)" href="13-slovarji-in-mnozice.html" />
-    <link rel="prev" title="Časovna zahtevnost" href="11-casovna-zahtevnost.html" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Abecedni seznam" href="genindex.html" />
+    <link rel="search" title="Išči" href="search.html" />
    
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">  
+  </head><body>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -44,7 +35,7 @@
 <h1>Urejanje (razlage še manjkajo)<a class="headerlink" href="#urejanje-razlage-se-manjkajo" title="Povezava na naslov">¶</a></h1>
 <div class="section" id="urejanje-z-izbiranjem">
 <h2>Urejanje z izbiranjem<a class="headerlink" href="#urejanje-z-izbiranjem" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">zamenjaj</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zamenjaj</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
     <span class="n">seznam</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">seznam</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">seznam</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">seznam</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
 
@@ -60,7 +51,7 @@
 </div>
 <div class="section" id="urejanje-z-vstavljanjem">
 <h2>Urejanje z vstavljanjem<a class="headerlink" href="#urejanje-z-vstavljanjem" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">uredi_z_vstavljanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">uredi_z_vstavljanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">prvi_neurejen</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)):</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prvi_neurejen</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">seznam</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">seznam</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
@@ -72,7 +63,7 @@
 </div>
 <div class="section" id="urejanje-z-mehurcki">
 <h2>Urejanje z mehurčki<a class="headerlink" href="#urejanje-z-mehurcki" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">uredi_z_mehurcki</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">uredi_z_mehurcki</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">indeks_zadnjega_neurejenega</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">zamenjava</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">indeks_zadnjega_neurejenega</span><span class="p">):</span>
@@ -86,7 +77,7 @@
 </div>
 <div class="section" id="urejanje-z-zlivanjem">
 <h2>Urejanje z zlivanjem<a class="headerlink" href="#urejanje-z-zlivanjem" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">uredi_z_zlivanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">konec</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">uredi_z_zlivanjem</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">konec</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">konec</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">konec</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">konec</span> <span class="o">-</span> <span class="n">zacetek</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
@@ -121,7 +112,7 @@
 </div>
 <div class="section" id="hitro-urejanje-quicksort">
 <h2>Hitro urejanje / Quicksort<a class="headerlink" href="#hitro-urejanje-quicksort" title="Povezava na naslov">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">premeci</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">konec</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">premeci</span><span class="p">(</span><span class="n">seznam</span><span class="p">,</span> <span class="n">zacetek</span><span class="p">,</span> <span class="n">konec</span><span class="p">):</span>
     <span class="k">assert</span> <span class="n">konec</span> <span class="o">-</span> <span class="n">zacetek</span> <span class="o">&gt;</span> <span class="mi">1</span>
     <span class="n">pivot</span> <span class="o">=</span> <span class="n">zacetek</span>
     <span class="n">zacetek</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -175,29 +166,26 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="11-casovna-zahtevnost.html" title="prejšnje poglavje">Časovna zahtevnost</a></li>
-      <li>Next: <a href="13-slovarji-in-mnozice.html" title="naslednje poglavje">Slovarji in množice (razlage še manjkajo)</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>Trenutna stran</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/12-urejanje.txt"
+      <li><a href="_sources/12-urejanje.rst.txt"
             rel="nofollow">Prikaži izvorno kodo</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Hitro iskanje</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
       <input type="submit" value="Potrdi" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Vnesi ime modula, razreda ali funkcije.
-    </p>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -205,14 +193,14 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2016, Matija Pretnar.
+      &copy;2018, Matija Pretnar.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/12-urejanje.txt"
+      <a href="_sources/12-urejanje.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

@@ -1,0 +1,389 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Delo s Pythonom &#8212; Uvod v programiranje 0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Abecedni seznam" href="../genindex.html" />
+    <link rel="search" title="Išči" href="../search.html" />
+    <link rel="next" title="Funkcije" href="1-2-funkcije.html" />
+    <link rel="prev" title="Uvod v programiranje" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="delo-s-pythonom">
+<h1>Delo s Pythonom<a class="headerlink" href="#delo-s-pythonom" title="Povezava na naslov">¶</a></h1>
+<p>S Pythonom se najenostavneje pogovarjamo prek interaktivne konzole, do katere
+lahko dostopamo na več načinov: neposredno iz ukazne vrstice, z uporabo
+enostavnega okolja IDLE, ki je priloženo vsaki namestitvi Pythona, ali pa prek
+kakšnega od naprednejših razvijalskih okolij, na primer PyCharm. Za navodila,
+kako to storimo, si oglejte video <a class="reference external" href="https://vimeo.com/156327496">Namestitev Pythona pod Windowsi</a>.</p>
+<p>V vseh primerih nas pozdravi približno tak izpis:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">1</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Jan</span> <span class="mi">22</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">08</span><span class="p">:</span><span class="mi">54</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">4.2</span><span class="o">.</span><span class="mi">1</span> <span class="n">Compatible</span> <span class="n">Apple</span> <span class="n">LLVM</span> <span class="mf">7.0</span><span class="o">.</span><span class="mi">2</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">700.1</span><span class="o">.</span><span class="mi">81</span><span class="p">)]</span> <span class="n">on</span> <span class="n">darwin</span>
+<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>Na začetku natančno piše, katero različico Pythona uporabljamo, temu pa sledi
+nekaj kazalcev na osnovne informacije. Mi se bomo osredotočili na zadnjo
+vrstico, v kateri nam poziv <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> kaže, da je Python pripravljen na naš vnos.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Previdno</p>
+<p class="last">Pozorni bodite, da v prvi vrstici piše <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.x.x</span></code> (zadnji dve številki
+nista tako ključni). Če tam piše <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">2.x.x</span></code>, uporabljate Python 2,
+starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob
+prehodu na Python 3 so razvijalci jezika naredili nekaj večjih sprememb, ki
+so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v
+Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji
+starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro,
+tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo
+ukvarjali izključno s Pythonom 3.</p>
+</div>
+<p>Za začetek izračunajmo, koliko je 1 + 1. Vnesemo <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code> ter
+pritisnimo znak za novo vrstico. Ob tem Python prebere naš vnos, ga izračuna in
+izpiše rezultat.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<div class="section" id="stevila-in-aritmeticne-operacije">
+<h2>Števila in aritmetične operacije<a class="headerlink" href="#stevila-in-aritmeticne-operacije" title="Povezava na naslov">¶</a></h2>
+<p>Poleg seštevanja so nam na voljo tudi ostale osnovne računske operacije: <code class="docutils literal notranslate"><span class="pre">-</span></code>
+za odštevanje, <code class="docutils literal notranslate"><span class="pre">*</span></code> za množenje in <code class="docutils literal notranslate"><span class="pre">**</span></code> za potenciranje. Za deljenje Python
+pozna dve operaciji: običajno deljenje <code class="docutils literal notranslate"><span class="pre">/</span></code> in pa celoštevilsko deljenje
+<code class="docutils literal notranslate"><span class="pre">//</span></code>, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek,
+uporabimo <code class="docutils literal notranslate"><span class="pre">%</span></code>. Prioriteta operatorjev je določena tako kot običajno:
+najtesneje veže potenciranje, nato množenje in deljenja, nazadnje pa seštevanje
+in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še
+to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">/</span> <span class="mi">10</span>
+<span class="go">12.3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">//</span> <span class="mi">10</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">%</span> <span class="mi">10</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">**</span> <span class="p">(</span><span class="mi">45</span> <span class="o">+</span> <span class="mi">67</span><span class="p">)</span>
+<span class="go">1173201153236117392747457141184065170953567764283837482787268119007036898684512512556572577156186549602764788041495818311329933349581701014867937205332087819177539156963702612817234021747525564287508352993790061063457990401206082438721</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="uporaba-funkcij">
+<h2>Uporaba funkcij<a class="headerlink" href="#uporaba-funkcij" title="Povezava na naslov">¶</a></h2>
+<p>Vidimo, da velika števila Pythonu ne povzročajo velikih težav. Na voljo so tudi
+osnovne funkcije, kot na primer <code class="docutils literal notranslate"><span class="pre">max</span></code> in <code class="docutils literal notranslate"><span class="pre">min</span></code> za izračun maksimuma in
+minimuma.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">-5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="mi">30</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">15</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="uvazanje-knjiznic">
+<h2>Uvažanje knjižnic<a class="headerlink" href="#uvazanje-knjiznic" title="Povezava na naslov">¶</a></h2>
+<p>Matematične funkcije so na voljo v knjižnici <cite>math</cite>. Do njih lahko dostopamo
+na dva osnovna načina:</p>
+<ol class="arabic">
+<li><p class="first">Knjižnico uvozimo s stavkom <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>, nato pa do funkcij in konstant
+dostopamo tako, da dodamo <code class="docutils literal notranslate"><span class="pre">math.</span></code> pred vsako ime:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">0.7071067811865476</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.7071067811865475</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="go">1.2246467991473532e-16</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div>V zadnjem ukazu nismo dobili pričakovanega odgovora 0. Računalnik namreč ne
+dela s čisto pravimi realnimi števili, temveč z njihovimi približki, ki jim
+pravimo števila s plavajočo vejico. Število, ki smo ga dobili, je enako
+približno <span class="math notranslate">\(1,22 \cdot 10^{-16}\)</span>.
+delaje <code class="docutils literal notranslate"><span class="pre">e-16</span></code> krajši zapis za <span class="math notranslate">\(1 \cdot 10^{-10}\)</span>. V tem
+zapisu plavajočih števil ločeno zapišemo decimalke (čemur rečemo <em>mantisa</em>),
+nato pa še eksponent. Na primer <code class="docutils literal notranslate"><span class="pre">3.2445e2</span></code> je število <span class="math notranslate">\(324,45 = 3,2445 \cdot 10^2\)</span>)</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">...</span></code> uvozimo posamezne vrednosti,</li>
+</ol>
+<blockquote>
+<div><p>nato pa do njih dostopamo direktno:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">0.7071067811865476</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">0.7071067811865475</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Obstaja tudi tretji način, ko iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">*</span></code>
+uvozimo vse naštete vrednosti, vendar ga ne priporočam, ker potem nikoli ne
+veste, kaj vse ste uvozili.</p>
+</div>
+<div class="section" id="prirejanje-vrednosti-spremenljivkam">
+<h2>Prirejanje vrednosti spremenljivkam<a class="headerlink" href="#prirejanje-vrednosti-spremenljivkam" title="Povezava na naslov">¶</a></h2>
+<p>Izračunane vrednosti si lahko shranimo tudi v spremenljivke, ki jih potem
+uporabljamo v kasnejših izračunih. Za to uporabimo <em>prireditveni stavek</em> oblike</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ime_spremenljivke</span> <span class="o">=</span> <span class="n">vrednost_ki_jo_zelimo_shraniti</span>
+</pre></div>
+</div>
+<p>na primer:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">*</span> <span class="n">x</span>
+<span class="go">42</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">14</span>
+</pre></div>
+</div>
+<p>Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo, vendar to na
+preostale spremenljivke ne vpliva, saj se vedno shrani tista vrednost, ki smo jo
+podali v prireditvenem stavku.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">13</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">13</span>
+</pre></div>
+</div>
+<p>Torej, tudi takrat, ko smo v <code class="docutils literal notranslate"><span class="pre">x</span></code> shranili novo vrednost, se vrednost <code class="docutils literal notranslate"><span class="pre">y</span></code> ni
+spremenila, saj prireditveni stavek vedno najprej izračuna vrednost desne
+strani, nato pa v spremenljivko shrani le to vrednost, v našem primeru <code class="docutils literal notranslate"><span class="pre">13</span></code>.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">15</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="napake">
+<h2>Napake<a class="headerlink" href="#napake" title="Povezava na naslov">¶</a></h2>
+<p>Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločimo
+tri vrste napak:</p>
+<ol class="arabic">
+<li><p class="first"><strong>Sintaktične napake</strong>, v katerih program napišemo drugače, kot določajo
+pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico,
+ali pa če narobe pišemo oklepaje:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
+         <span class="o">^</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+             <span class="o">^</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+</pre></div>
+</div>
+<p>Na take napake nas Python opozori, še preden začne z izvajanjem programa,
+zato jih ne moremo zgrešiti.</p>
+</li>
+<li><p class="first"><strong>Napake ob izvajanju</strong>, v katerih program napišemo sintaktično pravilno,
+vendar uporabimo neveljavno operacijo:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">+</span> <span class="n">z</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;z&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si
+zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V
+prvem primeru je bila napaka deljenje z 0, v drugem pa to, da spremenljivka <code class="docutils literal notranslate"><span class="pre">z</span></code>
+ni bila definirana.</p>
+<p>Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi
+prekinejo. To zna biti nerodno, kadar gre za kritično pomemben program (npr.
+za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela
+(recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše
+rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih
+pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova
+prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih
+lahko včasih tudi naknadno rešimo).</p>
+</li>
+<li><p class="first"><strong>Vsebinske napake</strong>, pri katerih program navidez deluje brez težav, vendar
+izračuna napačen odgovor, ker smo mu dali napačna navodila. Recimo, da želimo
+izračunati razdaljo med točkama (2, 3) in (5, 7):</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">12.5</span>
+</pre></div>
+</div>
+<p>Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo
+rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2,
+temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred
+deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa
+ne opazimo. Znan primer te napake je <a class="reference external" href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Climate Orbiter</a>, ki je po
+devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in
+razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami,
+del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="shranjevanje-programov-v-datoteke">
+<h2>Shranjevanje programov v datoteke<a class="headerlink" href="#shranjevanje-programov-v-datoteke" title="Povezava na naslov">¶</a></h2>
+<p>Interaktivna konzola je uporabna za krajše programe, daljše pa raje shranimo v
+datoteko. S tem preprečimo, da izgubili vse svoje delo, pa tudi lažje
+popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe
+shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s
+katerim koli urejevalnikom besedila, na primer <em>Notepad</em>, <em>Notepad++</em>, <em>Emacs</em>
+ali <em>Vi</em>. Pythonovim datotekam običajno damo končnico <code class="docutils literal notranslate"><span class="pre">.py</span></code>. Za natančnejša
+navodila si oglejte video <a class="reference external" href="https://vimeo.com/156465707">Nalaganje programov iz datotek</a>.</p>
+<p>Za primer daljšega programa si oglejmo <a class="reference external" href="https://sl.wikipedia.org/wiki/Fermijev_problem">Fermijevo oceno</a> števila učiteljev
+matematike v slovenskih osnovnih šolah. Sledeče stavke vpišite v datoteko
+<code class="docutils literal notranslate"><span class="pre">fermi.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stevilo_slovencev</span> <span class="o">=</span> <span class="mi">2000000</span>
+<span class="n">pricakovana_zivljenska_doba</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="n">velikost_generacije</span> <span class="o">=</span> <span class="n">stevilo_slovencev</span> <span class="o">/</span> <span class="n">pricakovana_zivljenska_doba</span>
+<span class="n">stevilo_osnovnosolcev</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">velikost_generacije</span>
+<span class="n">stevilo_razredov</span> <span class="o">=</span> <span class="n">stevilo_osnovnosolcev</span> <span class="o">/</span> <span class="mi">25</span>
+<span class="n">stevilo_ur_matematike_na_teden</span> <span class="o">=</span> <span class="mf">4.5</span> <span class="o">*</span> <span class="n">stevilo_razredov</span>
+<span class="n">stevilo_uciteljev_matematike</span> <span class="o">=</span> <span class="n">stevilo_ur_matematike_na_teden</span> <span class="o">/</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>Ko datoteko naložimo, lahko vidimo, da bi moralo v Sloveniji biti približno 2000
+učiteljev matematike:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stevilo_uciteljev_matematike</span>
+<span class="go">2160.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pisanje-preglednih-programov">
+<h2>Pisanje preglednih programov<a class="headerlink" href="#pisanje-preglednih-programov" title="Povezava na naslov">¶</a></h2>
+<p>Vidimo, da lahko imena spremenljivk vsebujejo več kot eno&nbsp;črko, česar smo
+navajeni v matematiki. V programiranju je zelo pomembno, da so imena čimbolj
+opisna, saj tako hitreje razumemo, kaj počne program. Računalnik bi razumel tudi
+sledeč program in izračunal enak odgovor, vendar vidimo, da smiselna imena in
+presledki kodo naredijo veliko bolj berljivo.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">2000000</span><span class="p">,</span><span class="mi">75</span>
+<span class="n">g</span><span class="o">=</span><span class="n">s</span><span class="o">/</span><span class="n">z</span>
+<span class="n">o</span><span class="o">=</span><span class="mi">9</span><span class="o">*</span><span class="n">g</span>
+<span class="n">r</span><span class="o">=</span><span class="n">o</span><span class="o">/</span><span class="mi">25</span>
+<span class="n">m</span><span class="o">=</span><span class="mf">4.5</span><span class="o">*</span><span class="n">r</span>
+<span class="n">u</span><span class="o">=</span><span class="n">m</span><span class="o">/</span><span class="mi">20</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
+<span class="go">2160.0</span>
+</pre></div>
+</div>
+<p>Zato se bomo držali sledečih pravil:</p>
+<ul class="simple">
+<li>Na vsaki strani dvomestne operacije (<code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, …) pišemo presledek.</li>
+<li>Za ločili (na primer <code class="docutils literal notranslate"><span class="pre">,</span></code>) pišemo presledek, pred njimi pa ne.</li>
+<li>Spremenljivkam dajemo opisna imena, ki jih pišemo z malimi črkami. Posamezne besede ločimo z znakom <code class="docutils literal notranslate"><span class="pre">_</span></code>.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Delo s Pythonom</a><ul>
+<li><a class="reference internal" href="#stevila-in-aritmeticne-operacije">Števila in aritmetične operacije</a></li>
+<li><a class="reference internal" href="#uporaba-funkcij">Uporaba funkcij</a></li>
+<li><a class="reference internal" href="#uvazanje-knjiznic">Uvažanje knjižnic</a></li>
+<li><a class="reference internal" href="#prirejanje-vrednosti-spremenljivkam">Prirejanje vrednosti spremenljivkam</a></li>
+<li><a class="reference internal" href="#napake">Napake</a></li>
+<li><a class="reference internal" href="#shranjevanje-programov-v-datoteke">Shranjevanje programov v datoteke</a></li>
+<li><a class="reference internal" href="#pisanje-preglednih-programov">Pisanje preglednih programov</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="prejšnje poglavje">Uvod v programiranje</a></li>
+      <li>Next: <a href="1-2-funkcije.html" title="naslednje poglavje">Funkcije</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/1-prvi-koraki-v-python/1-1-delo-s-pythonom.rst.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/1-prvi-koraki-v-python/1-1-delo-s-pythonom.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
