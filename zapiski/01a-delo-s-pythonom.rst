@@ -108,9 +108,19 @@ na dva osnovna načina:
        0.7071067811865476
        >>> math.sin(math.pi / 4)
        0.7071067811865475
+       >>> math.sin(math.pi)
+       1.2246467991473532e-16
+
+  V zadnjem ukazu nismo dobili pričakovanega odgovora 0. Računalnik namreč ne
+  dela s čisto pravimi realnimi števili, temveč z njihovimi približki, ki jim
+  pravimo števila s plavajočo vejico. Število, ki smo ga dobili, je enako
+  približno :math:`1,22 \cdot 10^{-16}`.
+  delaje ``e-16`` krajši zapis za :math:`1 \cdot 10^{-10}`. V tem
+  zapisu plavajočih števil ločeno zapišemo decimalke (čemur rečemo *mantisa*),
+  nato pa še eksponent. Na primer ``3.2445e2`` je število :math:`324,45 = 3,2445 \cdot 10^2`)
 
 2. Iz knjižnice s stavkom ``from math import ...`` uvozimo posamezne vrednosti,
-   nato pa do njih dostopamo direktno:
+  nato pa do njih dostopamo direktno:
 
        >>> from math import sqrt, sin, pi
        >>> sqrt(2) / 2

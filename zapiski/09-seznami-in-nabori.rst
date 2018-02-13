@@ -12,6 +12,7 @@ Na primer, sled matrike bi lahko izračunali kot:
 
 .. doctest::
 
+    >>> mat = [[5]]
     >>> sled(mat)
     5
 

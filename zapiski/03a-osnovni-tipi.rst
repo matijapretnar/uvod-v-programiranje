@@ -103,3 +103,169 @@ operacijo ``*`` poskušali pomnožiti ``int`` in ``NoneType``, torej neko celo
 število in vrednost ``None`` (saj je to edina vrednost tipa ``NoneType``).
 Rezultat klica ``f(2)`` je torej ``None``, zato smo verjetno pozabili na
 ``return``.
+
+
+Pretvorbe med tipi
+------------------
+
+V zgornjih računih vidimo, da Python števila avtomatično pretvori na skupni
+imenovalec. Na primer, če število tipa ``int`` pomnožimo s številom tipa
+``float``, bo končni rezultat vedno ``float``:
+
+.. doctest::
+
+    >>> 2 * 3.0
+    6.0
+
+Pretvorbo lahko opravimo tudi sami s pomočjo funkcij ``int`` in ``float``:
+
+.. doctest::
+
+    >>> float(2)
+    2.0
+    >>> int(3.1415)
+    3
+
+Funkcijo ``int`` bomo pogosto uporabili za to, da danemu število s plavajočo
+vejico odbijemo decimalke in ga s tem pretvorimo v celo število. Pozor, ta
+funkcija niti ne zaokroži na najbližje celo število, niti ne zaokroži:
+
+
+.. doctest::
+
+    >>> int(3.999)
+    3
+    >>> int(-3.1)
+    -3
+    >>> int(-3.9999)
+    -3
+
+
+ Pretvorbe v logične vrednosti so malo bolj
+posebne: vsa neničelna števila in vsi neprazni nizi se pretvorijo v ``True``,
+ničla in prazen niz pa v ``False``.
+
+    >>> bool(4)
+    True
+    >>> bool(0)
+    False
+    >>> bool(0.00000001)
+    True
+    >>> bool('False')
+    True
+    >>> bool('')
+    False
+
+Tudi v drugo smer so pretvorbe malo posebne: ``True`` se pretvori v število 1
+ali pa niz ``'True'``, ``False`` pa v število 0 oziroma niz ``'False'``.
+
+    >>> int(True)
+    1
+    >>> float(False)
+    0.0
+    >>> str(False)
+    'False'
+    >>> bool(str(False))
+    True
+
+Pretvorbe v logične vrednosti se v pogojnih stavkih izvajajo avtomatično.
+Evklidov algoritem bi lahko zato, če bi želeli, pisali tudi kot:
+
+.. testcode::
+
+    def gcd(m, n):
+        if n:
+            return gcd(n, m % n)
+        else:
+            return m
+
+
+Tip nizov ``str``
+-----------------
+
+Nizi v Pythonu so tipa ``str`` (*string*). Druge vrednosti lahko pretvorimo v
+nize s pomočjo funkcije ``str``:
+
+.. doctest::
+
+    >>> str(1234)
+    '1234'
+    >>> str(1 / 3)
+    '0.3333333333333333'
+    >>> str(2 < 3)
+    'True'
+
+Pretvorbe lahko naredimo tudi v drugo smer, če le napišemo ustrezen niz:
+
+.. doctest::
+
+    >>> int('123')
+    123
+    >>> float('3.14')
+    3.14
+    >>> int('12 + 34')
+    Traceback (most recent call last):
+      ...
+    ValueError: invalid literal for int() with base 10: '12 + 34'
+
+Zadnja napaka pravi, da niz ``12 + 34`` ni veljaven zapis celega števila v
+desetiškem sistemu.
+
+
+Tip tipov ``type``
+------------------
+
+Če želimo, lahko tip ugotovimo tudi s funkcijo ``type``:
+
+.. doctest::
+
+    >>> type(3)
+    <class 'int'>
+    >>> type(3.14)
+    <class 'float'>
+    >>> type(3.0)
+    <class 'float'>
+    >>> type(10 // 2)
+    <class 'int'>
+    >>> type(10 / 2)
+    <class 'float'>
+    >>> type('abc')
+    <class 'str'>
+    >>> type(None)
+    <class 'NoneType'>
+
+Ta funkcija vrača vrednosti, ki predstavljajo tipe. Do teh vrednosti
+lahko dostopamo tudi direktno prek vgrajenih konstant ``int``, ``str``, …
+
+.. doctest::
+
+    >>> type(3) == int
+    True
+    >>> type(3.0) == bool
+    False
+
+Te vgrajene konstante so posebne, saj se hkrati obnašajo kot tipi in kot funkcije, ki pretvarjajo v dane tipe:
+
+.. doctest::
+
+    >>> type(int('123')) == int
+    True
+    >>> type(str(3.14)) == float
+    False
+
+Kot smo povedali na začetku, imajo vse vrednosti v Pythonu svoj tip. Tako ga
+imajo tudi vrednosti, ki predstavljajo tipe, in sicer tip ``type``. Vrednost
+``type``, ki predstavlja ta tip tipov, pa ima spet tip ``type``, s čimer se
+zgodba zaključi.
+
+.. doctest::
+
+    >>> type(3)
+    <class 'int'>
+    >>> type(type(3))
+    <class 'type'>
+    >>> type(int)
+    <class 'type'>
+    >>> type(type)
+    <class 'type'>
+

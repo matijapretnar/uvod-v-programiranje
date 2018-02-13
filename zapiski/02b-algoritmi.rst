@@ -131,10 +131,6 @@ V Pythonu bi algoritem zapisali kot:
     >>> bisekcija(math.sin, 2, 4, 1e-10)
     3.1415926536137704
 
-V zadnjem klicu je ``1e-10`` krajši zapis za :math:`1 \cdot 10^{-10}`. V tem
-zapisu plavajočih števil ločeno zapišemo decimalke (čemur rečemo *mantisa*),
-nato pa še eksponent. Na primer ``3.2445e2`` je število :math:`324,45 = 3,2445 \cdot 10^2`)
-
 
 Funkcije višjega reda
 ---------------------
