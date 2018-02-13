@@ -1,10 +1,6 @@
 Delo s Pythonom
 ===============
 
-
-Interaktivna konzola
---------------------
-
 S Pythonom se najenostavneje pogovarjamo prek interaktivne konzole, do katere
 lahko dostopamo na več načinov: neposredno iz ukazne vrstice, z uporabo
 enostavnega okolja IDLE, ki je priloženo vsaki namestitvi Pythona, ali pa prek
@@ -154,17 +150,6 @@ na primer:
     >>> y
     14
 
-Če želimo, lahko hkrati priredimo tudi več vrednosti:
-
-.. doctest::
-
-    >>> x, y = 10, 15
-    >>> x + y
-    25
-    >>> z = y - x
-    >>> z
-    5
-
 Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo, vendar to na
 preostale spremenljivke ne vpliva, saj se vedno shrani tista vrednost, ki smo jo
 podali v prireditvenem stavku.
@@ -191,23 +176,6 @@ strani, nato pa v spremenljivko shrani le to vrednost, v našem primeru ``13``.
     >>> x = x + 5
     >>> x
     15
-
-Kot vidimo, lahko novo vrednost spremenljivke ``x`` izračunamo iz stare
-vrednosti. V programih bomo to dostikrat izkoristili. Na primer, ko bomo
-prešteli vsa praštevila med 1 in 1000000, bomo imeli spremenljivko, ki bo imela
-na začetku vrednost 0, nato pa jo bomo ob vsakem praštevilu povečali za 1. V ta
-namen lahko uporabimo tudi operator ``+=``, ki spremenljivko na levi poveča za
-vrednost na desni. Namesto ``x = x + 5`` bi lahko pisali tudi ``x += 5``. Tudi
-za ostale operatorje obstajajo podobne bližnjice, na primer ``-=``, ``*=``,
-``//=`` in tako naprej.
-
-.. doctest::
-
-    >>> x = 3
-    >>> x += 2
-    >>> x *= 4
-    >>> x
-    20
 
 
 Napake
@@ -252,21 +220,16 @@ tri vrste napak:
          ...
        ZeroDivisionError: division by zero
 
-   .. testcode::
-       :hide:
-
-       del x
-
    .. doctest::
 
-       >>> 3 + x
+       >>> 3 + z
        Traceback (most recent call last):
          ...
-       NameError: name 'x' is not defined
+       NameError: name 'z' is not defined
 
    Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si
    zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V
-   prvem primeru je bila napaka deljenje z 0, v drugem pa to, da spremenljivka ``x``
+   prvem primeru je bila napaka deljenje z 0, v drugem pa to, da spremenljivka ``z``
    ni bila definirana.
 
    Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi

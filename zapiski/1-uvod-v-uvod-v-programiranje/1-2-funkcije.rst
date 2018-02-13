@@ -68,8 +68,7 @@ sprejme. Funkcije lahko sprejmejo različno število argumentov. Naša sprejme t
 argumente, ki jih bomo shranili v spremenljivke ``a``, ``b`` in ``c``. 
 
 Nato sledi *telo funkcije*, torej ukazi, ki naj se izvedejo, ko funkcijo
-pokličemo. Tako kot veje pogojnega stavka zamaknemo tudi celotno telo funkcije,
-da se jasno vidi, kaj vse spada v definicijo funkcije. Prvo vrstico telesa smo
+pokličemo. Vsako vrstico telesa funkcije moramo zamakniti za štiri presledke, da se jasno vidi, kaj vse funkcija obsega. Prvo vrstico telesa smo
 že videli, v drugi pa z ukazom ``return`` povemo, katero vrednost naj vrne
 funkcija. Tako definirano funkcijo potem kličemo na enak način kot vgrajene
 funkcije.
@@ -96,40 +95,6 @@ način zapišemo funkcijo za izračun površine tetraedra:
 
     >>> povrsina_tetraedra(896, 1073, 1073, 990, 1073, 1073)
     1816080.0
-
-
-V telesu funkcij lahko pišemo poljubne stavke. Na primer, funkcijo, ki računa
-absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:
-
-.. testcode::
-
-    def absolutna_vrednost(x):
-        '''Vrne absolutno vrednost števila x.'''
-        if x >= 0:
-            return x
-        else:
-            return -x
-
-.. doctest::
-
-    >>> absolutna_vrednost(-5)
-    5
-    >>> absolutna_vrednost(3)
-    3
-
-Če veje ``else`` ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
-način bi lahko funkcijo ``absolutna_vrednost`` definirali tudi kot:
-
-.. testcode::
-
-    def absolutna_vrednost(x):
-        '''Vrne absolutno vrednost števila x.'''
-        if x < 0:
-            x *= -1
-        return x
-
-Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
-ga vrnemo nespremenjenega.
 
 
 Stavek ``return``
@@ -171,35 +136,6 @@ Vsakič, ko dobite podobno opozorilo (`TypeError`, v katerem se pojavlja
 `NoneType`), posumite na to, da nekje manjka stavek ``return``.
 
 
-Dokumentacijski niz
--------------------
-
-Pred telesom funkcije dostikrat lahko zapišemo tudi  *dokumentacijski niz*
-oziroma *docstring*. Ta niz ponavadi zapišemo med trojne enojne navednice, v
-njem pa na kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa
-koristna, saj lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s
-pomočjo funkcije ``help``.
-
-.. testcode::
-
-    import math
-
-    def ploscina_trikotnika(a, b, c):
-        '''Vrne ploščino trikotnika z danimi stranicami.'''
-        s = (a + b + c) / 2
-        return math.sqrt(s * (s - a) * (s - b) * (s - c))
-
-
-.. doctest::
-
-    >>> help(ploscina_trikotnika)
-    Help on function ploscina_trikotnika:
-    <BLANKLINE>
-    ploscina_trikotnika(a, b, c)
-        Vrne ploščino trikotnika z danimi stranicami.
-    <BLANKLINE>
-
-
 Lokalnost spremenljivk
 ----------------------
 
@@ -228,3 +164,32 @@ tedaj tudi po klicu funkcije ``f`` ne ``x`` ne ``y`` ne bosta definirana:
     Traceback (most recent call last):
       ...
     NameError: name 'y' is not defined
+
+
+Dokumentacijski niz*
+--------------------
+
+Pred telesom funkcije dostikrat lahko zapišemo tudi  *dokumentacijski niz*
+oziroma *docstring*. Ta niz ponavadi zapišemo med trojne enojne navednice, v
+njem pa na kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa
+koristna, saj lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s
+pomočjo funkcije ``help``.
+
+.. testcode::
+
+    import math
+
+    def ploscina_trikotnika(a, b, c):
+        '''Vrne ploščino trikotnika z danimi stranicami.'''
+        s = (a + b + c) / 2
+        return math.sqrt(s * (s - a) * (s - b) * (s - c))
+
+
+.. doctest::
+
+    >>> help(ploscina_trikotnika)
+    Help on function ploscina_trikotnika:
+    <BLANKLINE>
+    ploscina_trikotnika(a, b, c)
+        Vrne ploščino trikotnika z danimi stranicami.
+    <BLANKLINE>

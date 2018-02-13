@@ -1,59 +1,48 @@
-Logične vrednosti
-=================
-
-Poleg števil Python pozna tudi logični vrednosti ``True`` in ``False``, ki
-označujeta resnico in neresnico. Logične vrednosti ponavadi dobimo kot rezultat
-primerjav, kot so enakost ``==``, neenakost ``!=`` ali urejenostne relacije
-``<``, ``>``, ``<=``, ``>=``, ter prek logičnih operacij ``and``, ``or`` in
-``not``.
+Če želimo, lahko hkrati priredimo tudi več vrednosti:
 
 .. doctest::
 
-    >>> 1 + 1 == 3
-    False
-    >>> 3 != 2
-    True
-    >>> True and False
-    False
-    >>> not (5 == 10)
-    True
-    >>> 3 < 5 or 10 > 20
-    True
+    >>> x, y = 10, 15
+    >>> x + y
+    25
+    >>> z = y - x
+    >>> z
+    5
+
+Kot vidimo, lahko novo vrednost spremenljivke ``x`` izračunamo iz stare
+vrednosti. V programih bomo to dostikrat izkoristili. Na primer, ko bomo
+prešteli vsa praštevila med 1 in 1000000, bomo imeli spremenljivko, ki bo imela
+na začetku vrednost 0, nato pa jo bomo ob vsakem praštevilu povečali za 1. V ta
+namen lahko uporabimo tudi operator ``+=``, ki spremenljivko na levi poveča za
+vrednost na desni. Namesto ``x = x + 5`` bi lahko pisali tudi ``x += 5``. Tudi
+za ostale operatorje obstajajo podobne bližnjice, na primer ``-=``, ``*=``,
+``//=`` in tako naprej.
+
+.. doctest::
+
+    >>> x = 3
+    >>> x += 2
+    >>> x *= 4
+    >>> x
+    20
 
 
-Pogojni stavek
---------------
 
-Logične vrednosti uporabimo v *pogojnih stavkih* (oziroma ``if``-stavkih) oblike
-
-.. code::
-
-    if pogoj:
-        stavki_ki_jih_izvedemo
-        ko_pogoj_drzi
-    else:
-        stavki_ki_jih_izvedemo
-        ko_pogoj_ne_drzi
-
-Ključnima besedama ``if``/``else`` in pripadajočim stavkom pravimo tudi *veje
-pogojnega stavka*. Stavke v obeh vejah moramo zamakniti za štiri presledke,
-da se jasno vidi, kam spadajo.
-
-Na primer, če izvedemo program
+Če veje ``else`` ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
+način bi lahko funkcijo ``absolutna_vrednost`` definirali tudi kot:
 
 .. testcode::
 
-    x = 5
-    if x < 10:
-        x *= 2
-    else:
-        x = 3 * x
-        x -= 1
-    x += 7
+    def absolutna_vrednost(x):
+        '''Vrne absolutno vrednost števila x.'''
+        if x < 0:
+            x *= -1
+        return x
 
-se bo izvedla veja ``if``, zato bo ``x`` na koncu enak 17. V primeru, da bi bila
-začetna vrednost ``x = 12``, pa bi se izvedla veja ``else`` in vrednost ``x`` bi
-na koncu bila 42.
+Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
+ga vrnemo nespremenjenega.
+
+
 
 Primer: smučarski skoki
 -----------------------
