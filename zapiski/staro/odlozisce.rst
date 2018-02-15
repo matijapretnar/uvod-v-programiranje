@@ -1,13 +1,39 @@
-Če želimo, lahko hkrati priredimo tudi več vrednosti:
+Dokumentacijski niz*
+--------------------
+
+Pred telesom funkcije dostikrat lahko zapišemo tudi  *dokumentacijski niz* oziroma *docstring*. Ta niz ponavadi zapišemo med trojne enojne navednice, v njem pa na kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa koristna, saj lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s pomočjo funkcije ``help``.
+
+.. testcode::
+
+    import math
+
+    def ploscina_trikotnika(a, b, c):
+        '''Vrne ploščino trikotnika z danimi stranicami.'''
+        s = (a + b + c) / 2
+        return math.sqrt(s * (s - a) * (s - b) * (s - c))
+
 
 .. doctest::
 
-    >>> x, y = 10, 15
-    >>> x + y
-    25
-    >>> z = y - x
-    >>> z
-    5
+    >>> help(ploscina_trikotnika)
+    Help on function ploscina_trikotnika:
+    <BLANKLINE>
+    ploscina_trikotnika(a, b, c)
+        Vrne ploščino trikotnika z danimi stranicami.
+    <BLANKLINE>
+
+
+Hkratno prirejanje
+------------------
+
+.. doctest::
+
+    >>> x = 10
+    >>> x
+    10
+    >>> x = x + 5
+    >>> x
+    15
 
 Kot vidimo, lahko novo vrednost spremenljivke ``x`` izračunamo iz stare
 vrednosti. V programih bomo to dostikrat izkoristili. Na primer, ko bomo
@@ -25,23 +51,6 @@ za ostale operatorje obstajajo podobne bližnjice, na primer ``-=``, ``*=``,
     >>> x *= 4
     >>> x
     20
-
-
-
-Če veje ``else`` ne napišemo, se ob neresnični vrednosti ne zgodi nič. Na ta
-način bi lahko funkcijo ``absolutna_vrednost`` definirali tudi kot:
-
-.. testcode::
-
-    def absolutna_vrednost(x):
-        '''Vrne absolutno vrednost števila x.'''
-        if x < 0:
-            x *= -1
-        return x
-
-Torej, če je število negativno, ga pomnožimo z -1, preden ga vrnemo, sicer pa
-ga vrnemo nespremenjenega.
-
 
 
 Primer: smučarski skoki
