@@ -17,8 +17,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Abecedni seznam" href="../genindex.html" />
     <link rel="search" title="Išči" href="../search.html" />
-    <link rel="next" title="Funkcije" href="1-2-funkcije.html" />
-    <link rel="prev" title="Uvod v programiranje" href="../index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -55,7 +53,7 @@
 </div>
 <div class="section" id="stevila-in-aritmeticne-operacije">
 <h2>Števila in aritmetične operacije<a class="headerlink" href="#stevila-in-aritmeticne-operacije" title="Povezava na naslov">¶</a></h2>
-<p>Poleg seštevanja so nam na voljo tudi ostale osnovne računske operacije: <code class="docutils literal notranslate"><span class="pre">-</span></code> za odštevanje, <code class="docutils literal notranslate"><span class="pre">*</span></code> za množenje in <code class="docutils literal notranslate"><span class="pre">**</span></code> za potenciranje. Za deljenje Python pozna dve operaciji: običajno deljenje <code class="docutils literal notranslate"><span class="pre">/</span></code> in pa celoštevilsko deljenje <code class="docutils literal notranslate"><span class="pre">//</span></code>, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek, uporabimo <code class="docutils literal notranslate"><span class="pre">%</span></code>. Prioriteta operatorjev je določena tako kot običajno: najtesneje veže potenciranje, nato množenje in deljenja, nazadnje pa seštevanje in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.</p>
+<p>Poleg seštevanja so nam na voljo tudi ostale osnovne računske operacije: <code class="docutils literal notranslate"><span class="pre">-</span></code> za odštevanje, <code class="docutils literal notranslate"><span class="pre">*</span></code> za množenje in <code class="docutils literal notranslate"><span class="pre">**</span></code> za potenciranje. Za deljenje Python pozna dve operaciji: običajno deljenje <code class="docutils literal notranslate"><span class="pre">/</span></code> in pa celoštevilsko deljenje <code class="docutils literal notranslate"><span class="pre">//</span></code>, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek, uporabimo <code class="docutils literal notranslate"><span class="pre">%</span></code>. Prioriteta operatorjev je določena tako kot običajno: najtesneje veže potenciranje, nato množenje in deljenji, nazadnje pa seštevanje in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 <span class="go">42</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">/</span> <span class="mi">10</span>
@@ -68,10 +66,11 @@
 <span class="go">1173201153236117392747457141184065170953567764283837482787268119007036898684512512556572577156186549602764788041495818311329933349581701014867937205332087819177539156963702612817234021747525564287508352993790061063457990401206082438721</span>
 </pre></div>
 </div>
+<p>Vidimo, da velika števila Pythonu ne povzročajo velikih težav.</p>
 </div>
-<div class="section" id="uporaba-funkcij">
-<h2>Uporaba funkcij<a class="headerlink" href="#uporaba-funkcij" title="Povezava na naslov">¶</a></h2>
-<p>Vidimo, da velika števila Pythonu ne povzročajo velikih težav. Na voljo so tudi osnovne funkcije, kot na primer <code class="docutils literal notranslate"><span class="pre">max</span></code> in <code class="docutils literal notranslate"><span class="pre">min</span></code> za izračun maksimuma in minimuma.</p>
+<div class="section" id="uporaba-vgrajenih-funkcij">
+<h2>Uporaba vgrajenih funkcij<a class="headerlink" href="#uporaba-vgrajenih-funkcij" title="Povezava na naslov">¶</a></h2>
+<p>Na voljo so tudi osnovne funkcije, kot na primer <code class="docutils literal notranslate"><span class="pre">max</span></code> in <code class="docutils literal notranslate"><span class="pre">min</span></code> za izračun maksimuma in minimuma.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="go">6</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
@@ -80,10 +79,7 @@
 <span class="go">15</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="uvazanje-knjiznic">
-<h2>Uvažanje knjižnic<a class="headerlink" href="#uvazanje-knjiznic" title="Povezava na naslov">¶</a></h2>
-<p>Matematične funkcije so na voljo v knjižnici <code class="docutils literal notranslate"><span class="pre">math</span></code>. Do njih lahko dostopamo na dva osnovna načina:</p>
+<p>Matematične funkcije so na voljo v ločeni knjižnici <code class="docutils literal notranslate"><span class="pre">math</span></code>. Do njih lahko dostopamo na dva osnovna načina:</p>
 <ol class="arabic">
 <li><p class="first">Knjižnico uvozimo s stavkom <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>, nato pa do funkcij in konstant dostopamo tako, da dodamo <code class="docutils literal notranslate"><span class="pre">math.</span></code> pred vsako ime:</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
@@ -98,7 +94,7 @@
 </li>
 </ol>
 <blockquote>
-<div>V zadnjem ukazu nismo dobili pričakovanega odgovora 0. Računalnik namreč ne dela s čisto pravimi realnimi števili, temveč z njihovimi približki, ki jim pravimo števila s plavajočo vejico. Število, ki smo ga dobili, je enako približno <span class="math notranslate">\(1{,}22 \cdot 10^{-16}\)</span>, kjer je <code class="docutils literal notranslate"><span class="pre">e-16</span></code> krajši zapis za <span class="math notranslate">\(1 \cdot 10^{-16}\)</span>. V tem zapisu plavajočih števil ločeno zapišemo decimalke (čemur rečemo <em>mantisa</em>), nato pa še eksponent. Na primer <code class="docutils literal notranslate"><span class="pre">3.2445e2</span></code> je število <span class="math notranslate">\(324{,}45 = 3{,}2445 \cdot 10^2\)</span>)</div></blockquote>
+<div>V zadnjem ukazu nismo dobili pričakovanega odgovora 0. Računalnik namreč ne dela s čisto pravimi realnimi števili, temveč z njihovimi približki, ki jim pravimo <em>števila s plavajočo vejico</em>. Za ta števila običajno najprej zapišemo decimalke (ki jim pravimo <em>mantisa</em>), nato pa še eksponent. Število, ki smo ga dobili, je tako enako približno <span class="math notranslate">\(1{,}22 \cdot 10^{-16}\)</span>, saj <code class="docutils literal notranslate"><span class="pre">e-16</span></code> pomeni <span class="math notranslate">\(10^{-16}\)</span>. Na primer <code class="docutils literal notranslate"><span class="pre">3.2445e2</span></code> pa označuje število <span class="math notranslate">\(324{,}45 = 3{,}2445 \cdot 10^2\)</span>).</div></blockquote>
 <ol class="arabic" start="2">
 <li><p class="first">Iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">...</span></code> uvozimo posamezne vrednosti, nato pa do njih dostopamo direktno:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
@@ -110,7 +106,7 @@
 </div>
 </li>
 </ol>
-<p>Obstaja tudi tretji način, ko iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">*</span></code> uvozimo vse naštete vrednosti, vendar ga ne priporočam, ker potem nikoli ne veste, kaj vse ste uvozili.</p>
+<p>Obstaja tudi tretji način, ko iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">*</span></code> uvozimo vse naštete vrednosti, vendar je odsvetovan, ker potem nikoli ne vemo, kaj vse smo uvozili.</p>
 </div>
 <div class="section" id="prirejanje-vrednosti-spremenljivkam">
 <h2>Prirejanje vrednosti spremenljivkam<a class="headerlink" href="#prirejanje-vrednosti-spremenljivkam" title="Povezava na naslov">¶</a></h2>
@@ -127,6 +123,15 @@
 <span class="go">14</span>
 </pre></div>
 </div>
+<p>Če želimo, lahko hkrati priredimo tudi več vrednosti:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="go">25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
+<span class="go">5</span>
+</pre></div>
+</div>
 <p>Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo, vendar to na preostale spremenljivke ne vpliva, saj se vedno shrani tista vrednost, ki smo jo podali v prireditvenem stavku.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
@@ -137,15 +142,7 @@
 <span class="go">13</span>
 </pre></div>
 </div>
-<p>Torej, tudi takrat, ko smo v <code class="docutils literal notranslate"><span class="pre">x</span></code> shranili novo vrednost, se vrednost <code class="docutils literal notranslate"><span class="pre">y</span></code> ni spremenila, saj prireditveni stavek vedno najprej izračuna vrednost desne strani, nato pa v spremenljivko shrani le to vrednost, v našem primeru <code class="docutils literal notranslate"><span class="pre">13</span></code>.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">15</span>
-</pre></div>
-</div>
+<p>Ko smo v <code class="docutils literal notranslate"><span class="pre">x</span></code> shranili novo vrednost, se vrednost <code class="docutils literal notranslate"><span class="pre">y</span></code> ni spremenila, saj je prireditveni stavek <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">3</span></code> najprej izračunal vrednost desne strani, torej <code class="docutils literal notranslate"><span class="pre">13</span></code>, in v <code class="docutils literal notranslate"><span class="pre">y</span></code> shranil samo število.</p>
 </div>
 <div class="section" id="napake">
 <h2>Napake<a class="headerlink" href="#napake" title="Povezava na naslov">¶</a></h2>
@@ -250,8 +247,7 @@
   <ul>
 <li><a class="reference internal" href="#">Delo s Pythonom</a><ul>
 <li><a class="reference internal" href="#stevila-in-aritmeticne-operacije">Števila in aritmetične operacije</a></li>
-<li><a class="reference internal" href="#uporaba-funkcij">Uporaba funkcij</a></li>
-<li><a class="reference internal" href="#uvazanje-knjiznic">Uvažanje knjižnic</a></li>
+<li><a class="reference internal" href="#uporaba-vgrajenih-funkcij">Uporaba vgrajenih funkcij</a></li>
 <li><a class="reference internal" href="#prirejanje-vrednosti-spremenljivkam">Prirejanje vrednosti spremenljivkam</a></li>
 <li><a class="reference internal" href="#napake">Napake</a></li>
 <li><a class="reference internal" href="#shranjevanje-programov-v-datoteke">Shranjevanje programov v datoteke</a></li>
@@ -263,15 +259,13 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../index.html" title="prejšnje poglavje">Uvod v programiranje</a></li>
-      <li>Next: <a href="1-2-funkcije.html" title="naslednje poglavje">Funkcije</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>Trenutna stran</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/1-uvod-v-uvod-v-programiranje/1-1-delo-s-pythonom.rst.txt"
+      <li><a href="../_sources/1-uvod-v-python/1-delo-s-pythonom.rst.txt"
             rel="nofollow">Prikaži izvorno kodo</a></li>
     </ul>
    </div>
@@ -299,7 +293,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/1-uvod-v-uvod-v-programiranje/1-1-delo-s-pythonom.rst.txt"
+      <a href="../_sources/1-uvod-v-python/1-delo-s-pythonom.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

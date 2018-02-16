@@ -17,8 +17,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Abecedni seznam" href="../genindex.html" />
     <link rel="search" title="Išči" href="../search.html" />
-    <link rel="next" title="Logične vrednosti" href="1-3-logicne-vrednosti.html" />
-    <link rel="prev" title="Delo s Pythonom" href="1-1-delo-s-pythonom.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -98,7 +96,7 @@
 </div>
 <div class="section" id="stavek-return">
 <h2>Stavek <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#stavek-return" title="Povezava na naslov">¶</a></h2>
-<p>Tako kot drugje v Pythonu, se tudi stavki v telesu funkcije izvajajo od prvega proti zadnjemu. Ko dosežemo stavek <code class="docutils literal notranslate"><span class="pre">return</span></code>, funkcija pa vrne vrednost danega izraza ter zaključi z izvajanjem. Tako tudi funkcija</p>
+<p>Tako kot drugje v Pythonu, se tudi stavki v telesu funkcije izvajajo od prvega proti zadnjemu. Ko dosežemo stavek <code class="docutils literal notranslate"><span class="pre">return</span></code>, funkcija vrne vrednost danega izraza ter zaključi z izvajanjem. Tako tudi funkcija</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="mi">1000</span>
@@ -115,7 +113,7 @@
 <span class="gr">TypeError</span>: <span class="n">unsupported operand type(s) for *: &#39;int&#39; and &#39;NoneType&#39;</span>
 </pre></div>
 </div>
-<p>Pričakovali bi, da bo rezultat klica <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">g(10)</span></code> enak 200. Toda ker smo v funkciji <code class="docutils literal notranslate"><span class="pre">g</span></code> pozabili na <code class="docutils literal notranslate"><span class="pre">return</span></code>, je funkcija vrnila vrednost <code class="docutils literal notranslate"><span class="pre">None</span></code>. To lahko razberemo iz opozorila, v katerem približno piše, da operacije <code class="docutils literal notranslate"><span class="pre">*</span></code> ne moremo uporabiti na celem številu in vrednosti <code class="docutils literal notranslate"><span class="pre">None</span></code>. Vsakič, ko dobite Vsakič, ko dobite podobno opozorilo (<cite>TypeError</cite>, v katerem se pojavlja <cite>NoneType</cite>), posumite na to, da nekje manjka stavek <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+<p>Pričakovali bi, da bo rezultat klica <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">g(10)</span></code> enak 200. Toda ker smo v funkciji <code class="docutils literal notranslate"><span class="pre">g</span></code> pozabili na <code class="docutils literal notranslate"><span class="pre">return</span></code>, je funkcija vrnila vrednost <code class="docutils literal notranslate"><span class="pre">None</span></code>. To lahko razberemo iz opozorila, v katerem približno piše, da operacije <code class="docutils literal notranslate"><span class="pre">*</span></code> ne moremo uporabiti na celem številu in vrednosti <code class="docutils literal notranslate"><span class="pre">None</span></code>. Vsakič, ko dobite opozorilo <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, v katerem se pojavlja <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>, posumite na to, da nekje manjka stavek <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
 </div>
 <div class="section" id="lokalnost-spremenljivk">
 <h2>Lokalnost spremenljivk<a class="headerlink" href="#lokalnost-spremenljivk" title="Povezava na naslov">¶</a></h2>
@@ -136,6 +134,14 @@
 <span class="gt">Traceback (most recent call last):</span>
   <span class="c">...</span>
 <span class="gr">NameError</span>: <span class="n">name &#39;y&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Če pa je <code class="docutils literal notranslate"><span class="pre">y</span></code> na primer že definiran drugje, pa ga klic funkcije <code class="docutils literal notranslate"><span class="pre">f</span></code> ne zmoti:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">10</span>
 </pre></div>
 </div>
 </div>
@@ -160,15 +166,13 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="1-1-delo-s-pythonom.html" title="prejšnje poglavje">Delo s Pythonom</a></li>
-      <li>Next: <a href="1-3-logicne-vrednosti.html" title="naslednje poglavje">Logične vrednosti</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>Trenutna stran</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/1-uvod-v-uvod-v-programiranje/1-2-funkcije.rst.txt"
+      <li><a href="../_sources/1-uvod-v-python/2-funkcije.rst.txt"
             rel="nofollow">Prikaži izvorno kodo</a></li>
     </ul>
    </div>
@@ -196,7 +200,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/1-uvod-v-uvod-v-programiranje/1-2-funkcije.rst.txt"
+      <a href="../_sources/1-uvod-v-python/2-funkcije.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

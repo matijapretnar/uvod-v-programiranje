@@ -1,54 +1,48 @@
 Uvod v programiranje
 ####################
 
-Programiranje različnim ljudem `pomeni <https://sl.wikipedia.org/wiki/Nevrolingvistično_programiranje>`_ `različne <https://sl.wikipedia.org/wiki/Linearno_programiranje>`_ `stvari <https://en.wikipedia.org/wiki/Broadcast_programming>`_.
-
-Mi se bomo ukvarjali z najbolj uveljavljenim pomenom: računalniškim programiranjem. Cilj tega je, da računalniku dopovemo, kako naj namesto nas naredi tisto, česar mi ne zmoremo ali preprosto nočemo.
-
-Računalnike programiramo prek *programskih* jezikov. Tako kot naravni jeziki imajo tudi ti svoja pravila zapisa in pomena, a so običajno bolj preprosti, saj jih morajo razumeti tako ljudje kot računalniki. Nekateri izmed obstoječih programskih jezikov so bliže ljudem, drugi bliže računalnikom, vsi pa slonijo na zelo podobnih idejah. Ko znamo programirati v enem, lahko hitro preklopimo na drugega. Mi se bomo učili programirati v Pythonu, ki je precej prijazen do začetnikov, hkrati pa tudi izjemno popularen, zato bo pridobljeno znanje takoj uporabno.
-
-Uvod v uvod v programiranje
-===========================
-
-Najprej si bomo ogledali osnovne dele, iz katerih sestavljamo programe.
-
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
-    1-uvod-v-uvod-v-programiranje/1-1-delo-s-pythonom
-    1-uvod-v-uvod-v-programiranje/1-2-funkcije
-    1-uvod-v-uvod-v-programiranje/1-3-logicne-vrednosti
-
-Če računalnik rezultate izračunov zadrži v svojih čipih, v katere ne moremo videti, nam to ne pomaga preveč. Zato si bomo ogledali, na kakšen način se računalnik pogovarja z zunanjim svetom.
-
-* Računski učinki
-* Branje in pisanje na konzolo
-* Programiranje želvice
-
-Glavna prednost računalnika je, da se pri ponavljajočih stvareh ne utrudi,
-ne zmoti in ne naveliča. Pogledali bomo, kako računalniku povemo, naj stvar
-naredi večkrat.
+    1-uvod-v-python
 
 * Rekurzija
-* Zanka ``while``
-* Zanka ``for``
+    * Nizi in stavek ``print``
+    * Rekurzivne definicije
 
+* Zanke
+    * Zanka ``while``
+    * Zanka ``for``
+    * Knjižnica ``turtle``
 
-Osnovna orodjarna
-=================
+* Seznami
+    * Seznami
+    * Nabori
+    * Spremenljivost seznamov
 
-Po tem, ko smo dobili grobo idejo o tem, kaj sploh pomeni programirati,
-si bomo podrobneje ogledali najpogosteje uporabljana orodja, ki jih nudi Python.
+* Slovarji
+    * Slovarji
+    * Množice
 
-Izdelava večjega programa
-=========================
+* Funkcije
 
-Naslednji korak je, da s pomočjo programiranja naredimo nekaj koristnega.
-Toda kako napišemo program, ki ga bo znal uporabljati neprogramer?
-In kako se sploh lotimo pisanja programa s tisoč vrsticami, da se ne bomo izgubili?
+* Iterabilni objekti
+    * Izpeljane strukture
+    * Generatorji
 
-Osnove računalništva
-====================
+* Datoteke
+    * Kodne tabele
+    * Branje in pisanje datotek
+    * Delo z datotečnim sistemom
 
-Za konec si bomo ogledali še malo bolj splošno sliko: kaj so algoritmi, kako
-primerjamo njihovo učinkovitost in kako je sploh narejen računalnik.
+* Objekti
+
+* Nadzor različic
+
+* Organizacija kode
+
+* Grafični vmesnik
+
+* Časovna zahtevnost
+
+* Kako deluje računalnik

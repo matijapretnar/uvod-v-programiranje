@@ -1,11 +1,7 @@
 Logične vrednosti
 =================
 
-Poleg števil Python pozna tudi logični vrednosti ``True`` in ``False``, ki
-označujeta resnico in neresnico. Logične vrednosti ponavadi dobimo kot rezultat
-primerjav, kot so enakost ``==``, neenakost ``!=`` ali urejenostne relacije
-``<``, ``>``, ``<=``, ``>=``, ter prek logičnih operacij ``and``, ``or`` in
-``not``.
+Poleg števil Python pozna tudi logični vrednosti ``True`` in ``False``, ki označujeta resnico in neresnico. Logične vrednosti ponavadi dobimo kot rezultat primerjav, kot so enakost ``==``, neenakost ``!=`` ali urejenostne relacije ``<``, ``>``, ``<=``, ``>=``, ter prek logičnih operacij ``and``, ``or`` in ``not``.
 
 .. doctest::
 
@@ -35,8 +31,7 @@ Logične vrednosti uporabimo v *pogojnih stavkih* (oziroma ``if``-stavkih) oblik
         stavki_ki_jih_izvedemo
         ko_pogoj_ne_drzi
 
-Ključnima besedama ``if``/``else`` in pripadajočim stavkom pravimo tudi *veje
-pogojnega stavka*. Stavke v obeh vejah moramo zamakniti za štiri presledke tako kot v funkcijah.
+Ključnima besedama ``if``/``else`` in pripadajočim stavkom pravimo tudi *veje pogojnega stavka*. Stavke v obeh vejah moramo zamakniti za štiri presledke tako kot v funkcijah.
 
 Na primer, če izvedemo program
 
@@ -49,12 +44,9 @@ Na primer, če izvedemo program
         y = 3 * x - 1
     x = y + 7
 
-se bo izvedla veja ``if``, zato bo ``x`` na koncu enak 17, ``y`` pa 10. V primeru, da bi bila
-začetna vrednost ``x = 12``, pa bi se izvedla veja ``else`` in vrednost ``x`` bi
-na koncu bila 42, vrednost ``y`` pa 35.
+se bo izvedla veja ``if``, zato bo ``x`` na koncu enak 17, ``y`` pa 10. V primeru, da bi bila začetna vrednost ``x = 12``, pa bi se izvedla veja ``else`` in vrednost ``x`` bi na koncu bila 42, vrednost ``y`` pa 35.
 
-Pogojne stavke lahko pišemo tudi v funkcijah. Na primer, funkcijo, ki računa
-absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:
+Pogojne stavke lahko pišemo tudi v funkcijah. Na primer, funkcijo, ki računa absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:
 
 .. testcode::
 

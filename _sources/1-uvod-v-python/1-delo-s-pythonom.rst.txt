@@ -32,7 +32,7 @@ Za začetek izračunajmo, koliko je 1 + 1. Vnesemo ``1 + 1`` ter pritisnimo znak
 Števila in aritmetične operacije
 --------------------------------
 
-Poleg seštevanja so nam na voljo tudi ostale osnovne računske operacije: ``-`` za odštevanje, ``*`` za množenje in ``**`` za potenciranje. Za deljenje Python pozna dve operaciji: običajno deljenje ``/`` in pa celoštevilsko deljenje ``//``, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek, uporabimo ``%``. Prioriteta operatorjev je določena tako kot običajno: najtesneje veže potenciranje, nato množenje in deljenja, nazadnje pa seštevanje in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.
+Poleg seštevanja so nam na voljo tudi ostale osnovne računske operacije: ``-`` za odštevanje, ``*`` za množenje in ``**`` za potenciranje. Za deljenje Python pozna dve operaciji: običajno deljenje ``/`` in pa celoštevilsko deljenje ``//``, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek, uporabimo ``%``. Prioriteta operatorjev je določena tako kot običajno: najtesneje veže potenciranje, nato množenje in deljenji, nazadnje pa seštevanje in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.
 
 .. doctest::
 
@@ -47,11 +47,13 @@ Poleg seštevanja so nam na voljo tudi ostale osnovne računske operacije: ``-``
     >>> 123 ** (45 + 67)
     1173201153236117392747457141184065170953567764283837482787268119007036898684512512556572577156186549602764788041495818311329933349581701014867937205332087819177539156963702612817234021747525564287508352993790061063457990401206082438721
 
+Vidimo, da velika števila Pythonu ne povzročajo velikih težav.
 
-Uporaba funkcij
----------------
 
-Vidimo, da velika števila Pythonu ne povzročajo velikih težav. Na voljo so tudi osnovne funkcije, kot na primer ``max`` in ``min`` za izračun maksimuma in minimuma.
+Uporaba vgrajenih funkcij
+-------------------------
+
+Na voljo so tudi osnovne funkcije, kot na primer ``max`` in ``min`` za izračun maksimuma in minimuma.
 
 .. doctest::
 
@@ -62,11 +64,7 @@ Vidimo, da velika števila Pythonu ne povzročajo velikih težav. Na voljo so tu
     >>> max(min(10, 20), 30 // 2)
     15
 
-
-Uvažanje knjižnic
------------------
-
-Matematične funkcije so na voljo v knjižnici ``math``. Do njih lahko dostopamo na dva osnovna načina:
+Matematične funkcije so na voljo v ločeni knjižnici ``math``. Do njih lahko dostopamo na dva osnovna načina:
 
 1. Knjižnico uvozimo s stavkom ``import math``, nato pa do funkcij in konstant dostopamo tako, da dodamo ``math.`` pred vsako ime:
 
@@ -80,7 +78,7 @@ Matematične funkcije so na voljo v knjižnici ``math``. Do njih lahko dostopamo
        >>> math.sin(math.pi)
        1.2246467991473532e-16
 
-  V zadnjem ukazu nismo dobili pričakovanega odgovora 0. Računalnik namreč ne dela s čisto pravimi realnimi števili, temveč z njihovimi približki, ki jim pravimo števila s plavajočo vejico. Število, ki smo ga dobili, je enako približno :math:`1{,}22 \cdot 10^{-16}`, kjer je ``e-16`` krajši zapis za :math:`1 \cdot 10^{-16}`. V tem zapisu plavajočih števil ločeno zapišemo decimalke (čemur rečemo *mantisa*), nato pa še eksponent. Na primer ``3.2445e2`` je število :math:`324{,}45 = 3{,}2445 \cdot 10^2`)
+  V zadnjem ukazu nismo dobili pričakovanega odgovora 0. Računalnik namreč ne dela s čisto pravimi realnimi števili, temveč z njihovimi približki, ki jim pravimo *števila s plavajočo vejico*. Za ta števila običajno najprej zapišemo decimalke (ki jim pravimo *mantisa*), nato pa še eksponent. Število, ki smo ga dobili, je tako enako približno :math:`1{,}22 \cdot 10^{-16}`, saj ``e-16`` pomeni :math:`10^{-16}`. Na primer ``3.2445e2`` pa označuje število :math:`324{,}45 = 3{,}2445 \cdot 10^2`).
 
 2. Iz knjižnice s stavkom ``from math import ...`` uvozimo posamezne vrednosti, nato pa do njih dostopamo direktno:
 
@@ -90,7 +88,7 @@ Matematične funkcije so na voljo v knjižnici ``math``. Do njih lahko dostopamo
        >>> sin(pi / 4)
        0.7071067811865475
 
-Obstaja tudi tretji način, ko iz knjižnice s stavkom ``from math import *`` uvozimo vse naštete vrednosti, vendar ga ne priporočam, ker potem nikoli ne veste, kaj vse ste uvozili.
+Obstaja tudi tretji način, ko iz knjižnice s stavkom ``from math import *`` uvozimo vse naštete vrednosti, vendar je odsvetovan, ker potem nikoli ne vemo, kaj vse smo uvozili.
 
 
 Prirejanje vrednosti spremenljivkam
@@ -113,6 +111,17 @@ na primer:
     >>> y
     14
 
+Če želimo, lahko hkrati priredimo tudi več vrednosti:
+
+.. doctest::
+
+    >>> x, y = 10, 15
+    >>> x + y
+    25
+    >>> z = y - x
+    >>> z
+    5
+
 Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo, vendar to na preostale spremenljivke ne vpliva, saj se vedno shrani tista vrednost, ki smo jo podali v prireditvenem stavku.
 
 .. doctest::
@@ -125,16 +134,7 @@ Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo, vendar to na preos
     >>> y
     13
 
-Torej, tudi takrat, ko smo v ``x`` shranili novo vrednost, se vrednost ``y`` ni spremenila, saj prireditveni stavek vedno najprej izračuna vrednost desne strani, nato pa v spremenljivko shrani le to vrednost, v našem primeru ``13``.
-
-.. doctest::
-
-    >>> x = 10
-    >>> x
-    10
-    >>> x = x + 5
-    >>> x
-    15
+Ko smo v ``x`` shranili novo vrednost, se vrednost ``y`` ni spremenila, saj je prireditveni stavek ``y = x + 3`` najprej izračunal vrednost desne strani, torej ``13``, in v ``y`` shranil samo število.
 
 
 Napake
@@ -144,7 +144,7 @@ Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločim
 
 1. **Sintaktične napake**, v katerih program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:
 
-   .. doctest::
+   .. doctest:: napake
 
       >>> max(2; 4)
       Traceback (most recent call last):
@@ -153,7 +153,7 @@ Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločim
                ^
       SyntaxError: invalid syntax
 
-   .. doctest::
+   .. doctest:: napake
 
       >>> max(2, 4))
       Traceback (most recent call last):
@@ -166,14 +166,14 @@ Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločim
 
 2. **Napake ob izvajanju**, v katerih program napišemo sintaktično pravilno, vendar uporabimo neveljavno operacijo:
 
-   .. doctest::
+   .. doctest:: napake
 
        >>> 1 / 0
        Traceback (most recent call last):
          ...
        ZeroDivisionError: division by zero
 
-   .. doctest::
+   .. doctest:: napake
 
        >>> 3 + z
        Traceback (most recent call last):

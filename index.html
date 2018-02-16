@@ -17,7 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Abecedni seznam" href="genindex.html" />
     <link rel="search" title="Išči" href="search.html" />
-    <link rel="next" title="Delo s Pythonom" href="1-uvod-v-uvod-v-programiranje/1-1-delo-s-pythonom.html" />
+    <link rel="next" title="Uvod v Python" href="1-uvod-v-python.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -34,50 +34,82 @@
             
   <div class="section" id="uvod-v-programiranje">
 <h1>Uvod v programiranje<a class="headerlink" href="#uvod-v-programiranje" title="Povezava na naslov">¶</a></h1>
-<p>Programiranje različnim ljudem <a class="reference external" href="https://sl.wikipedia.org/wiki/Nevrolingvistično_programiranje">pomeni</a> <a class="reference external" href="https://sl.wikipedia.org/wiki/Linearno_programiranje">različne</a> <a class="reference external" href="https://en.wikipedia.org/wiki/Broadcast_programming">stvari</a>.</p>
-<p>Mi se bomo ukvarjali z najbolj uveljavljenim pomenom: računalniškim programiranjem. Cilj tega je, da računalniku dopovemo, kako naj namesto nas naredi tisto, česar mi ne zmoremo ali preprosto nočemo.</p>
-<p>Računalnike programiramo prek <em>programskih</em> jezikov. Tako kot naravni jeziki imajo tudi ti svoja pravila zapisa in pomena, a so običajno bolj preprosti, saj jih morajo razumeti tako ljudje kot računalniki. Nekateri izmed obstoječih programskih jezikov so bliže ljudem, drugi bliže računalnikom, vsi pa slonijo na zelo podobnih idejah. Ko znamo programirati v enem, lahko hitro preklopimo na drugega. Mi se bomo učili programirati v Pythonu, ki je precej prijazen do začetnikov, hkrati pa tudi izjemno popularen, zato bo pridobljeno znanje takoj uporabno.</p>
-<div class="section" id="uvod-v-uvod-v-programiranje">
-<h2>Uvod v uvod v programiranje<a class="headerlink" href="#uvod-v-uvod-v-programiranje" title="Povezava na naslov">¶</a></h2>
-<p>Najprej si bomo ogledali osnovne dele, iz katerih sestavljamo programe.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="1-uvod-v-uvod-v-programiranje/1-1-delo-s-pythonom.html">Delo s Pythonom</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1-uvod-v-uvod-v-programiranje/1-2-funkcije.html">Funkcije</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1-uvod-v-uvod-v-programiranje/1-3-logicne-vrednosti.html">Logične vrednosti</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1-uvod-v-python.html">Uvod v Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1-uvod-v-python.html#delo-s-pythonom">Delo s Pythonom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-uvod-v-python.html#funkcije">Funkcije</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1-uvod-v-python.html#logicne-vrednosti">Logične vrednosti</a></li>
+</ul>
+</li>
 </ul>
 </div>
-<p>Če računalnik rezultate izračunov zadrži v svojih čipih, v katere ne moremo videti, nam to ne pomaga preveč. Zato si bomo ogledali, na kakšen način se računalnik pogovarja z zunanjim svetom.</p>
 <ul class="simple">
-<li>Računski učinki</li>
-<li>Branje in pisanje na konzolo</li>
-<li>Programiranje želvice</li>
+<li><dl class="first docutils">
+<dt>Rekurzija</dt>
+<dd><ul class="first last">
+<li>Nizi in stavek <code class="docutils literal notranslate"><span class="pre">print</span></code></li>
+<li>Rekurzivne definicije</li>
 </ul>
-<p>Glavna prednost računalnika je, da se pri ponavljajočih stvareh ne utrudi,
-ne zmoti in ne naveliča. Pogledali bomo, kako računalniku povemo, naj stvar
-naredi večkrat.</p>
-<ul class="simple">
-<li>Rekurzija</li>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Zanke</dt>
+<dd><ul class="first last">
 <li>Zanka <code class="docutils literal notranslate"><span class="pre">while</span></code></li>
 <li>Zanka <code class="docutils literal notranslate"><span class="pre">for</span></code></li>
+<li>Knjižnica <code class="docutils literal notranslate"><span class="pre">turtle</span></code></li>
 </ul>
-</div>
-<div class="section" id="osnovna-orodjarna">
-<h2>Osnovna orodjarna<a class="headerlink" href="#osnovna-orodjarna" title="Povezava na naslov">¶</a></h2>
-<p>Po tem, ko smo dobili grobo idejo o tem, kaj sploh pomeni programirati,
-si bomo podrobneje ogledali najpogosteje uporabljana orodja, ki jih nudi Python.</p>
-</div>
-<div class="section" id="izdelava-vecjega-programa">
-<h2>Izdelava večjega programa<a class="headerlink" href="#izdelava-vecjega-programa" title="Povezava na naslov">¶</a></h2>
-<p>Naslednji korak je, da s pomočjo programiranja naredimo nekaj koristnega.
-Toda kako napišemo program, ki ga bo znal uporabljati neprogramer?
-In kako se sploh lotimo pisanja programa s tisoč vrsticami, da se ne bomo izgubili?</p>
-</div>
-<div class="section" id="osnove-racunalnistva">
-<h2>Osnove računalništva<a class="headerlink" href="#osnove-racunalnistva" title="Povezava na naslov">¶</a></h2>
-<p>Za konec si bomo ogledali še malo bolj splošno sliko: kaj so algoritmi, kako
-primerjamo njihovo učinkovitost in kako je sploh narejen računalnik.</p>
-</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Seznami</dt>
+<dd><ul class="first last">
+<li>Seznami</li>
+<li>Nabori</li>
+<li>Spremenljivost seznamov</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Slovarji</dt>
+<dd><ul class="first last">
+<li>Slovarji</li>
+<li>Množice</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Funkcije</li>
+<li><dl class="first docutils">
+<dt>Iterabilni objekti</dt>
+<dd><ul class="first last">
+<li>Izpeljane strukture</li>
+<li>Generatorji</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Datoteke</dt>
+<dd><ul class="first last">
+<li>Kodne tabele</li>
+<li>Branje in pisanje datotek</li>
+<li>Delo z datotečnim sistemom</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Objekti</li>
+<li>Nadzor različic</li>
+<li>Organizacija kode</li>
+<li>Grafični vmesnik</li>
+<li>Časovna zahtevnost</li>
+<li>Kako deluje računalnik</li>
+</ul>
 </div>
 
 
@@ -85,22 +117,11 @@ primerjamo njihovo učinkovitost in kako je sploh narejen računalnik.</p>
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Seznam Vsebine</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Uvod v programiranje</a><ul>
-<li><a class="reference internal" href="#uvod-v-uvod-v-programiranje">Uvod v uvod v programiranje</a></li>
-<li><a class="reference internal" href="#osnovna-orodjarna">Osnovna orodjarna</a></li>
-<li><a class="reference internal" href="#izdelava-vecjega-programa">Izdelava večjega programa</a></li>
-<li><a class="reference internal" href="#osnove-racunalnistva">Osnove računalništva</a></li>
-</ul>
-</li>
-</ul>
-<div class="relations">
+        <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="1-uvod-v-uvod-v-programiranje/1-1-delo-s-pythonom.html" title="naslednje poglavje">Delo s Pythonom</a></li>
+      <li>Next: <a href="1-uvod-v-python.html" title="naslednje poglavje">Uvod v Python</a></li>
   </ul></li>
 </ul>
 </div>

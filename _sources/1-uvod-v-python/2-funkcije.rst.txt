@@ -85,7 +85,7 @@ S pomočjo funkcije ``ploscina_trikotnika`` lahko tudi na veliko bolj pregleden 
 Stavek ``return``
 -----------------
 
-Tako kot drugje v Pythonu, se tudi stavki v telesu funkcije izvajajo od prvega proti zadnjemu. Ko dosežemo stavek ``return``, funkcija pa vrne vrednost danega izraza ter zaključi z izvajanjem. Tako tudi funkcija
+Tako kot drugje v Pythonu, se tudi stavki v telesu funkcije izvajajo od prvega proti zadnjemu. Ko dosežemo stavek ``return``, funkcija vrne vrednost danega izraza ter zaključi z izvajanjem. Tako tudi funkcija
 
 .. testcode::
 
@@ -107,7 +107,7 @@ vrne kvadrat števila ``x`` in ne števila 1000, saj se izvajanje ustavi ob prve
       ...
     TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
 
-Pričakovali bi, da bo rezultat klica ``2 * g(10)`` enak 200. Toda ker smo v funkciji ``g`` pozabili na ``return``, je funkcija vrnila vrednost ``None``. To lahko razberemo iz opozorila, v katerem približno piše, da operacije ``*`` ne moremo uporabiti na celem številu in vrednosti ``None``. Vsakič, ko dobite Vsakič, ko dobite podobno opozorilo (`TypeError`, v katerem se pojavlja `NoneType`), posumite na to, da nekje manjka stavek ``return``.
+Pričakovali bi, da bo rezultat klica ``2 * g(10)`` enak 200. Toda ker smo v funkciji ``g`` pozabili na ``return``, je funkcija vrnila vrednost ``None``. To lahko razberemo iz opozorila, v katerem približno piše, da operacije ``*`` ne moremo uporabiti na celem številu in vrednosti ``None``. Vsakič, ko dobite opozorilo ``TypeError``, v katerem se pojavlja ``NoneType``, posumite na to, da nekje manjka stavek ``return``.
 
 
 Lokalnost spremenljivk
@@ -115,7 +115,7 @@ Lokalnost spremenljivk
 
 Argumenti funkcije in spremenljivke, ki jih definiramo v telesu funkcije, se izven funkcije ne vidijo. Pravimo, da so *lokalne*. Namen tega je, da funkcije ne motijo ena druge s spremenljivkami, ki jih uporabljajo. Na primer, če definiramo
 
-.. testcode::
+.. testcode:: lokalnost
 
     def f(x):
         y = 3 * x
@@ -123,7 +123,7 @@ Argumenti funkcije in spremenljivke, ki jih definiramo v telesu funkcije, se izv
 
 tedaj tudi po klicu funkcije ``f`` ne ``x`` ne ``y`` ne bosta definirana:
 
-.. doctest::
+.. doctest:: lokalnost
 
     >>> f(4)
     12
@@ -135,3 +135,13 @@ tedaj tudi po klicu funkcije ``f`` ne ``x`` ne ``y`` ne bosta definirana:
     Traceback (most recent call last):
       ...
     NameError: name 'y' is not defined
+
+Če pa je ``y`` na primer že definiran drugje, pa ga klic funkcije ``f`` ne zmoti:
+
+.. doctest:: lokalnost
+
+    >>> y = 10
+    >>> f(4)
+    12
+    >>> y
+    10

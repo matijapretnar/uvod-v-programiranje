@@ -1,0 +1,288 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Rekurzija &#8212; Uvod v programiranje 0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Abecedni seznam" href="../genindex.html" />
+    <link rel="search" title="Išči" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rekurzija">
+<h1>Rekurzija<a class="headerlink" href="#rekurzija" title="Povezava na naslov">¶</a></h1>
+<div class="section" id="rekurzivni-klici">
+<h2>Rekurzivni klici<a class="headerlink" href="#rekurzivni-klici" title="Povezava na naslov">¶</a></h2>
+<p>Videli smo, da lahko iz funkcij kličemo tudi druge funkcije. Na primer, v
+funkciji <code class="docutils literal notranslate"><span class="pre">povrsina_tetraedra</span></code> smo poklicali funkcijo <code class="docutils literal notranslate"><span class="pre">ploscina_trikotnika</span></code>,
+v tej pa vgrajeno funkcijo <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code>. V resnici pa lahko v funkciji
+pokličemo tudi funkcijo samo. Takemu klicu pravimo <strong>rekurzivni klic</strong>.
+Poglejmo, kako bi izračunali <span class="math notranslate">\(n! = n \cdot (n - 1) \dots 3 \cdot 2 \cdot
+1\)</span>. Kot vidimo velja <span class="math notranslate">\(n! = n \cdot (n - 1)!\)</span>, zato bomo <span class="math notranslate">\(n!\)</span>
+izračunali tako, da bomo <span class="math notranslate">\(n\)</span> pomnožili z <span class="math notranslate">\((n - 1)!\)</span>. Toda od kod
+bomo dobili tega? Preprosto, <span class="math notranslate">\(n - 1\)</span> bomo pomnožili z <span class="math notranslate">\((n - 2)!\)</span>. Od
+kod pa tega? Ja iz <span class="math notranslate">\((n - 3)!\)</span>. In tako naprej vse do <span class="math notranslate">\(2!\)</span>, ki ga
+bomo dobili iz <span class="math notranslate">\(1!\)</span>, tega pa iz <span class="math notranslate">\(0!\)</span>, ki je po definiciji enak
+<span class="math notranslate">\(1\)</span>.</p>
+<p>Torej lahko funkcijo, ki računa fakulteto, napišemo tako, da najprej pogleda
+svoj argument <code class="docutils literal notranslate"><span class="pre">n</span></code>. Če je enak 1, vrne 1, sicer pa izračunamo tako, da <code class="docutils literal notranslate"><span class="pre">n</span></code>
+pomnožimo z rezultatom klica <code class="docutils literal notranslate"><span class="pre">fakulteta(n</span> <span class="pre">-</span> <span class="pre">1)</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne fakulteto naravnega števila n.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ali s pogojnim izrazom kot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne fakulteto naravnega števila n.&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">120</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">3628800</span>
+</pre></div>
+</div>
+<p>Še en primer rekurzivne definicije so Fibonaccijeva števila. Velja <span class="math notranslate">\(F_0 = 0\)</span>,
+<span class="math notranslate">\(F_1 = 1\)</span>, za vse <span class="math notranslate">\(n \ge 2\)</span> pa velja in <span class="math notranslate">\(F_{n} = F_{n - 1} + F_{n - 2}\)</span>.
+Funkcijo tedaj napišemo podobno na podoben način kot zgornjo: če
+je <code class="docutils literal notranslate"><span class="pre">n</span></code> enak 0, vrnemo 0, sicer pogledamo, ali je enak 1. V tem primeru vrnemo
+1. Če pa tudi 1 ni enak, mora biti večji ali enak 2, zato se pokličemo
+rekurzivno.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne n-to Fibonaccijevo število.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="go">6765</span>
+</pre></div>
+</div>
+<p>Kaj se zgodi, če poskušate izračunati <code class="docutils literal notranslate"><span class="pre">fibonacci(35)</span></code>? Po nekaj časa res dobite
+pravilen odgovor 9227465, vendar to kaže, da nekaj ni v redu. Kmalu bomo videli
+razloge, zakaj ta funkcija ni dobro napisana. Bolje bi bilo, če bi jo zastavili
+malo drugače. Poleg Fibonaccijevega zaporedja, ki se začne s številoma 0 in 1,
+obstajajo tudi splošno Fibonaccijevo zaporedje, ki se začne s poljubnima členoma
+<span class="math notranslate">\(a\)</span> in <span class="math notranslate">\(b\)</span>:</p>
+<div class="math notranslate">
+\[a, b, a + b, b + (a + b) = a + 2 b, (a + b) + (a + 2 b) = 2 a + 3 b, \ldots\]</div>
+<p>Vidimo, da je <span class="math notranslate">\(n\)</span>. člen tega zaporedja ravno <span class="math notranslate">\(n - 1\)</span>. člen zaporedja,
+ki se začne s členoma <span class="math notranslate">\(b\)</span> in <span class="math notranslate">\(a + b\)</span>. Tedaj lahko definiramo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kot lahko sami preizkusimo, ta funkcija deluje veliko hitreje od prejšnje:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">9227465</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">-28657</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">150050</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125</span>
+</pre></div>
+</div>
+<p>Pomembno ni torej samo to, da naš program pravilno izračuna iskani rezultat,
+temveč tudi to, kako učinkovito ga izračuna.</p>
+</div>
+<div class="section" id="neobvezni-argumenti">
+<h2>Neobvezni argumenti<a class="headerlink" href="#neobvezni-argumenti" title="Povezava na naslov">¶</a></h2>
+<p>Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost.
+Na primer, za izračun logaritma potrebujemo dve števili: osnovo in argument
+(tudi logaritmand). Toda velikokrat za osnovo vzamemo <span class="math notranslate">\(10\)</span>, zato namesto
+<span class="math notranslate">\(\log_{10} x\)</span> pišemo kar <span class="math notranslate">\(\log x\)</span>. Tudi pri Pythonu je podobno. Če
+se nam ob klicu funkcije ne ljubi navajati vrednosti vseh argumentov, lahko za
+nekatere od njih v prvi vrstici definicije navedemo privzeto vrednost. Na primer, pri funkciji
+<code class="docutils literal notranslate"><span class="pre">splosni_fibonacci</span></code> želimo, da imata <code class="docutils literal notranslate"><span class="pre">a</span></code> in <code class="docutils literal notranslate"><span class="pre">b</span></code> privzeti vrednosti 0 in 1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.&#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tedaj se bo vedno uporabila privzeta vrednost za tiste argumente, ki jih ne
+podamo izrecno.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+<span class="go">9227465</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="go">139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">150050</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">-28657</span>
+</pre></div>
+</div>
+<p>Klic deluje tudi, če neobveznih argumentov ne poimenujemo, vendar lahko to vodi
+do zmede, zato se takih klicev izogibamo.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">-28657</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stavek-assert">
+<h2>Stavek <code class="docutils literal notranslate"><span class="pre">assert</span></code><a class="headerlink" href="#stavek-assert" title="Povezava na naslov">¶</a></h2>
+<p>Tudi funkcija <code class="docutils literal notranslate"><span class="pre">splosni_fibonacci</span></code> še ni popolna. Kaj se zgodi, če pokličemo
+<code class="docutils literal notranslate"><span class="pre">splosni_fibonacci(-2)</span></code>? Ker -2 ni enako ne 0 ne 1, bomo izvedli tretjo
+vejo pogojnega stavka in izračunali <code class="docutils literal notranslate"><span class="pre">splosni_fibonacci(-3,</span> <span class="pre">...)</span></code>, iz tega
+pa podobno <code class="docutils literal notranslate"><span class="pre">splosni_fibonacci(-4,</span> <span class="pre">...)</span></code> in tako naprej, vse do trenutka, ko
+se bo Python pritožil:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">3</span>, in <span class="n">splosni_fibonacci</span>
+<span class="gr">RecursionError</span>: <span class="n">maximum recursion depth exceeded in comparison</span>
+</pre></div>
+</div>
+<p>Pravi nam, da je naša rekurzija šla pregloboko. O tem bomo še bolj natančno
+govorili, zaenkrat pa naj nam tako opozorilo pove, da smo program napisali tako,
+da se ne bo ustavil. Da podobne situacije preprečimo, lahko uporabimo stavek
+<code class="docutils literal notranslate"><span class="pre">assert</span></code>, v katerem napišemo pogoj, ki mu mora program zadoščati. Če mu ne,
+Python javi napako.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.&#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">AssertionError</span>
+</pre></div>
+</div>
+<p>Še vedno dobimo napako, vendar je ta bolj obvladljiva, pa še takoj se pojavi.
+Stavke <code class="docutils literal notranslate"><span class="pre">assert</span></code> uporabljamo, kadar v nadaljevanju programa pričakujemo, da
+je nekim pogojem zadoščeno. Namesto <code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">pogoj</span></code> bi seveda lahko pisali tudi
+nekaj v stilu:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">pogoj</span><span class="p">:</span>
+    <span class="n">ustavi_program</span>
+    <span class="n">javi_napako</span>
+</pre></div>
+</div>
+<p>ampak ker je to pogosto koristno, so v ta namen uvedli <code class="docutils literal notranslate"><span class="pre">assert</span></code>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Rekurzija</a><ul>
+<li><a class="reference internal" href="#rekurzivni-klici">Rekurzivni klici</a></li>
+<li><a class="reference internal" href="#neobvezni-argumenti">Neobvezni argumenti</a></li>
+<li><a class="reference internal" href="#stavek-assert">Stavek <code class="docutils literal notranslate"><span class="pre">assert</span></code></a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/1-uvod-v-uvod-v-programiranje/1-5-rekurzija.rst.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/1-uvod-v-uvod-v-programiranje/1-5-rekurzija.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
