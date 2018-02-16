@@ -4,7 +4,7 @@ Uvod v programiranje
 .. toctree::
     :maxdepth: 2
 
-    1-uvod-v-python
+    01-uvod-v-python
 
 * Rekurzija
     * Nizi in stavek ``print``
