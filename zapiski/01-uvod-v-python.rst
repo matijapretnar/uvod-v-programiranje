@@ -5,6 +5,6 @@ Programiranje različnim ljudem `pomeni <https://sl.wikipedia.org/wiki/Nevroling
 
 Računalnik programiramo preko *programskih* jezikov. Tako kot običajni jeziki, imajo tudi ti pravila zapisa in pomena, vendar so običajno bolj preprosti in nedvoumni, saj jih morajo poleg ljudi razumeti tudi računalniki. Nekateri programski jeziki so bliže ljudem, drugi bliže računalnikom, vsi pa slonijo na zelo podobnih idejah. Ko znamo programirati v enem, lahko hitro preklopimo na drugega. V našem primeru se bomo naučili jezika Python, saj je precej prijazen do začetnikov, hkrati pa tudi izjemno popularen, zato bo pridobljeno znanje takoj uporabno.
 
-.. include:: 1-uvod-v-python/1-delo-s-pythonom.rst
-.. include:: 1-uvod-v-python/2-funkcije.rst
-.. include:: 1-uvod-v-python/3-logicne-vrednosti.rst
+.. include:: 01-uvod-v-python/1-delo-s-pythonom.rst
+.. include:: 01-uvod-v-python/2-funkcije.rst
+.. include:: 01-uvod-v-python/3-logicne-vrednosti.rst
