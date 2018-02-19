@@ -25,11 +25,11 @@ Logične vrednosti uporabimo v *pogojnih stavkih* (oziroma *stavkih ``if``*) obl
 .. code::
 
     if pogoj:
-        stavki_ki_jih_izvedemo
-        ko_pogoj_drzi
+        # stavki, ki jih izvedemo,
+        # ko pogoj drži
     else:
-        stavki_ki_jih_izvedemo
-        ko_pogoj_ne_drzi
+        # stavki, ki jih izvedemo,
+        # ko pogoj ne drži
 
 Ključnima besedama ``if``/``else`` in pripadajočim stavkom pravimo tudi *veji pogojnega stavka*. Stavke v obeh vejah moramo zamakniti za štiri presledke tako kot v funkcijah.
 
@@ -67,47 +67,45 @@ Pogojne stavke lahko pišemo tudi v funkcijah. Na primer, funkcijo, ki računa a
 Razširjeni pogojni stavek
 -------------------------
 
-Če bi želeli vrniti predznak števila, pa moramo ločiti tri primere: pozitivno število, negativno število in nič. To lahko storimo kot:
+Če bi želeli vrniti predznak števila, pa moramo ločiti tri primere: negativno število, nič in pozitivno število. To lahko storimo kot:
 
 
 .. testcode::
 
     def predznak(x):
-        if x > 0:
-            return 1
+        if x < 0:
+            return -1
         else:
-            if x < 0:
-                return -1
-            else:
+            if x == 0:
                 return 0
+            else:
+                return 1
 
 Zgornji pogojni stavek je malo nerodno zapisan. Ker se nam bo dostikrat zgodilo, da se ne bomo odločali le med dvema primeroma, temveč med večimi, nam Python omogoča splošnejše pogojne stavke oblike:
 
 .. code::
 
     if pogoj1:
-        stavki_ki_jih_izvedemo
-        ko_pogoj1_drzi
+        # stavki, ki jih izvedemo,
+        # ko pogoj1 drži
     elif pogoj2:
-        stavki_ki_jih_izvedemo
-        ko_pogoj1_ne_drzi
-        ampak_drzi_pogoj2
+        # stavki, ki jih izvedemo,
+        # ko pogoj1 ne drži, ampak drži pogoj2
     elif pogoj3:
-        stavki_ki_jih_izvedemo
-        ko_tudi_pogoj2_ne_drzi
-        ampak_drzi_pogoj3
+        # stavki, ki jih izvedemo,
+        # ko tudi pogoj2 ne drži, ampak drži pogoj3
     else:
-        stavki_ki_jih_izvedemo
-        ko_noben_od_pogojev_ne_drzi
+        # stavki, ki jih izvedemo,
+        # ko noben od pogojev ne drži
 
 Beseda ``elif`` je okrajšava za ``else``-``if``. Funkcijo za izračun predznaka bi lepše zapisali kot
 
 .. testcode::
 
     def predznak(x):
-        if x > 0:
-            return 1
-        elif x < 0:
+        if x < 0:
             return -1
-        else:
+        elif x == 0:
             return 0
+        else:
+            return 1

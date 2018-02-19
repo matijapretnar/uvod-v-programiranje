@@ -18,7 +18,7 @@ Na začetku natančno piše, katero različico Pythona uporabljamo, temu pa sled
 
 .. caution::
 
-    Pozorni bodite, da v prvi vrstici piše ``Python 3.x.x`` (zadnji dve številki nista tako ključni). Če tam piše ``Python 2.x.x``, uporabljate Python 2, starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob prehodu na Python 3 so razvijalci jezika naredili nekaj večjih sprememb, ki so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro, tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo ukvarjali izključno s Pythonom 3.
+    Pozorni bodite, da v prvi vrstici piše ``Python 3.x.x`` (zadnji dve številki nista tako ključni). Če tam piše ``Python 2.x.x``, uporabljate Python 2, starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob prehodu na Python 3 leta 2008 so razvijalci jezika naredili nekaj večjih sprememb, ki so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro, tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo ukvarjali izključno s Pythonom 3.
 
 Za začetek izračunajmo, koliko je 1 + 1. Vnesemo ``1 + 1`` ter pritisnimo znak za novo vrstico. Ob tem Python prebere naš vnos, ga izračuna in izpiše rezultat.
 

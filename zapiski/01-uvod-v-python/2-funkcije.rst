@@ -30,14 +30,14 @@ Kako pa bi izračunali površino tetraedra, ki ima za lica štiri trikotnike? Na
 
     a, b, c, d, e, f = 896, 1073, 1073, 990, 1073, 1073
     s_abc = (a + b + c) / 2
-    ploscina_abc = math.sqrt(s_abc * (s_abc - a) * (s_abc - b) * (s_abc - c))
+    p_abc = math.sqrt(s_abc * (s_abc - a) * (s_abc - b) * (s_abc - c))
     s_aef = (a + e + f) / 2
-    ploscina_aef = math.sqrt(s_aef * (s_aef - a) * (s_aef - e) * (s_aef - f))
-    s_bdf = (b + d + f) / 2
-    ploscina_bdf = math.sqrt(s_bdf * (s_bdf - b) * (s_bdf - d) * (s_bdf - f))
+    p_aef = math.sqrt(s_aef * (s_aef - a) * (s_aef - e) * (s_aef - f))
     s_cde = (c + d + e) / 2
-    ploscina_cde = math.sqrt(s_cde * (s_cde - c) * (s_cde - d) * (s_cde - e))
-    povrsina = ploscina_abc + ploscina_aef + ploscina_bdf + ploscina_cde
+    p_cde = math.sqrt(s_cde * (s_cde - c) * (s_cde - d) * (s_cde - f))
+    s_bdf = (b + d + f) / 2
+    p_bdf = math.sqrt(s_bdf * (s_bdf - b) * (s_bdf - d) * (s_bdf - f))
+    povrsina = p_abc + p_aef + p_bdf + p_cde
 
 Kot vidimo, to ni najbolj pregledno. V taki kodi z veliko verjetnostjo naredimo kakšno napako. Bolje je, da uporabimo funkcije. Že prej smo uporabili nekaj vgrajenih funkcij, na primer ``min`` in ``max``. Python pa nam omogoča, da si funkcije definiramo tudi sami.
 
@@ -69,12 +69,11 @@ S pomočjo funkcije ``ploscina_trikotnika`` lahko tudi na veliko bolj pregleden 
 .. testcode::
 
     def povrsina_tetraedra(a, b, c, d, e, f):
-        return (
-            ploscina_trikotnika(a, b, c)
-            + ploscina_trikotnika(a, e, f)
-            + ploscina_trikotnika(b, d, f)
-            + ploscina_trikotnika(c, d, e)
-        )
+        p_abc = ploscina_trikotnika(a, b, c)
+        p_aef = ploscina_trikotnika(a, e, f)
+        p_bdf = ploscina_trikotnika(b, d, f)
+        p_cde = ploscina_trikotnika(c, d, e)
+        return p_abc + p_aef + p_bdf + p_cde
 
 .. doctest::
 
