@@ -10,27 +10,32 @@
 
 class: center, middle
 
-# Uvod v Python
-
 ### Uvod v programiranje
+
+# Uvod v Python
 
 ---
 
-### Splošno o Pythonu
+.center[![](https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg)]
 
-* Python je programski jezik (1991).
+* 1991: Guido van Rossum (BDFL) objavi Python 0.9
+* 2000: Python 2.0
+* 2008: Python 3.0
+* 2010: Python 2.7
+* ~~2015: predvideni konec podpore za Python 2.7~~
+* 2020: predvideni konec podpore za Python 2.7
 
-* Zaradi zgodovinskih razlogov se še vedno uporablja Python 2 (2000).
+---
 
-* Mi bomo uporabljali izključno **Python 3** (2008).
+class: center, middle, question
 
-* Do Pythona dostopamo na več načinov.
+# Izračunajmo 1 + 1
 
 ---
 
 ### Python podpira osnovne aritmetične operacije
 
-```python
+```
 >>> (1 + 5) * (9 - 2)
 42
 >>> 123 / 10
@@ -47,7 +52,7 @@ class: center, middle
 
 ### Velika števila Pythonu ne delajo težav
 
-```python
+```
 >>> 123 ** (45 + 67)
 1173201153236117392747457141184065170953
 5677642838374827872681190070368986845125
@@ -55,7 +60,6 @@ class: center, middle
 1329933349581701014867937205332087819177
 5391569637026128172340217475255642875083
 52993790061063457990401206082438721
-
 ```
 
 ---
@@ -68,7 +72,7 @@ class: center, middle, question
 
 ### Python ima vgrajene tudi osnovne funkcije
 
-```python
+```
 >>> max(3, 6)
 6
 >>> min(12, -5)
@@ -81,7 +85,7 @@ class: center, middle, question
 
 ### Naprednejše funkcije lahko uvozimo iz knjižnic
 
-```python
+```
 >>> import math
 >>> math.sqrt(2) / 2
 0.7071067811865476
@@ -93,7 +97,7 @@ class: center, middle, question
 
 ### Vrednosti lahko uvozimo tudi poimensko
 
-```python
+```
 >>> from math import sqrt, sin, pi
 >>> sqrt(2) / 2
 0.7071067811865476
@@ -111,7 +115,7 @@ class: center, middle, question
 
 ### Vrednosti si lahko shranimo v spremenljivke
 
-```python
+```
 >>> x = 3 + 3
 >>> 7 * x
 42
@@ -124,10 +128,10 @@ class: center, middle, question
 
 class: middle, question
 
-```python
->>> x = 3
->>> y = 10 * x
->>> x = 5
+```
+>>> x = 10
+>>> y = x + 3
+>>> x = 25
 ```
 
 # Koliko je `y`?
@@ -140,11 +144,11 @@ class: middle, question
 
 Zapis je napačen in ga Python ne razume (noče razumeti).
 
-#### Semantične napake
+#### Napake ob izvajanju
 
 Zapis je pravilen, vendar ga Python ne zna izvesti.
 
-#### Logične napake
+#### Vsebinske napake
 
 Zapis je pravilen, Python ga zna izvesti, vendar smo mu dali napačna navodila.
 
@@ -164,35 +168,36 @@ class: center, middle, question
 
 class: center, middle, question
 
-# Koliko je površina tetraedra s stranicami dolžin<br> 18, 21, 22, 25, 27 in 31?
+## Koliko je površina tetraedra s stranicami dolžin<br> 18, 21, 22, 25, 27 in 31?
+
+.small[![](slike/tetraeder.png)]
 
 ---
 
-class: question
+class: question, middle
 
-### Zakaj spodnja rešitev ni najboljša?
-
-.small[```python
+.bad-example.fill70[```
 s_abc = (a + b + c) / 2
-p_abc = (s_abc * (s_abc-a) * (s_abc-b) * (s_abc-c)) ** 0.5
+p_abc = math.sqrt(s_abc * (s_abc - a) * (s_abc - b) * (s_abc - c))
 s_aef = (a + e + f) / 2
-p_aef = (s_aef * (s_aef-a) * (s_aef-e) * (s_aef-f)) ** 0.5
+p_aef = math.sqrt(s_aef * (s_aef - a) * (s_aef - e) * (s_aef - f))
 s_cde = (c + d + e) / 2
-p_cde = (s_cde * (s_cde-c) * (s_cde-d) * (s_cde-f)) ** 0.5
+p_cde = math.sqrt(s_cde * (s_cde - c) * (s_cde - d) * (s_cde - f))
 s_bdf = (b + d + f) / 2
-p_bdf = (s_bdf * (s_bdf-b) * (s_bdf-d) * (s_bdf-f)) ** 0.5
+p_bdf = math.sqrt(s_bdf * (s_bdf - b) * (s_bdf - d) * (s_bdf - f))
 povrsina = p_abc + p_aef + p_bdf + p_cde
 ```]
+
+## .center[Zakaj taka rešitev ni najboljša?]
 
 ---
 
 ### V Pythonu lahko definiramo svoje funkcije
 
-```python
+```
 def ime_funkcije(argument1, argument2):
-    # ukazi, s katerimi
-    # izračunamo iskani
-    # rezultat
+    # stavki, s katerimi
+    # izračunamo iskani rezultat
     return iskani_rezultat
 ```
 
@@ -204,27 +209,106 @@ class: center, middle, question
 
 ---
 
+class: middle, question
+
+```
+def f(x):
+    return x ** 2
+    return 1000
+```
+
+# Koliko je `f(10)`?
+
+---
+
+class: middle, question
+
+```
+def g(x):
+    x ** 2
+```
+
+# Koliko je `2 * g(10)`?
+
+---
+
+class: middle, question
+
+```
+def f(x):
+    y = 3 * x
+    return y
+```
+
+```
+>>> f(4)
+12
+```
+
+# Koliko sta `x` in `y`?
+
+---
+
 class: center, middle, question
 
 # Definirajmo funkcijo za izračun absolutne vrednosti
 
 ---
 
+### Python podpira osnovne logične operacije
+
+```
+>>> 1 + 1 == 3
+False
+>>> 3 != 2
+True
+>>> True and False
+False
+>>> not (5 == 10)
+True
+>>> 3 < 5 or 10 > 20
+True
+```
+
+---
+
 ### Primere lahko ločimo s pogojnim stavkom
 
-```python
+```
 if pogoj:
-    # ukazi, ki naj se izvedejo,
-    # če pogoj velja
+    # stavki, ki jih izvedemo,
+    # ko pogoj drži
 else:
-    # ukazi, ki naj se izvedejo,
-    # če pogoj ne velja
+    # stavki, ki jih izvedemo,
+    # ko pogoj ne drži
+```
+
+---
+
+class: center, middle, question
+
+# Definirajmo funkcijo za izračun predznaka (-1/0/1)
+
+---
+
+### Razširjeni pogojni stavek z več vejami
+
+```
+if pogoj1:
+    # stavki, ki jih izvedemo,
+    # ko pogoj1 drži
+elif pogoj2:
+    # stavki, ki jih izvedemo,
+    # ko pogoj1 ne drži, ampak drži pogoj2
+elif pogoj3:
+    # stavki, ki jih izvedemo,
+    # ko tudi pogoj2 ne drži, ampak drži pogoj3
+else:
+    # stavki, ki jih izvedemo,
+    # ko noben od pogojev ne drži
 ```
 
 </textarea>
-<script src="pomozne-datoteke/jquery-3.1.1.slim.min.js"></script> 
-<script src="pomozne-datoteke/remark-latest.min.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="pomozne-datoteke/prosojnice.js"></script>
 </body>
 </html>
