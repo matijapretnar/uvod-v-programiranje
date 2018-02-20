@@ -20,7 +20,7 @@ Poleg števil Python pozna tudi logični vrednosti ``True`` in ``False``, ki ozn
 Pogojni stavek
 --------------
 
-Logične vrednosti uporabimo v *pogojnih stavkih* (oziroma *stavkih ``if``*) oblike
+Logične vrednosti uporabimo v *pogojnih stavkih* (oziroma *stavkih* ``if``) oblike
 
 .. code::
 
