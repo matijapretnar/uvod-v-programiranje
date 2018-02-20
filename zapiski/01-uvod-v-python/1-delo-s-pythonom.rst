@@ -199,7 +199,7 @@ Ko smo v ``x`` shranili novo vrednost, se vrednost ``y`` ni spremenila, saj je p
 Shranjevanje programov v datoteke
 ---------------------------------
 
-Interaktivna konzola je uporabna za krajše programe, daljše pa raje shranimo v datoteko. S tem preprečimo, da izgubili vse svoje delo, pa tudi lažje popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s katerim koli urejevalnikom besedila, na primer *Notepad*, *Notepad++*, *Emacs* ali *Vi*. Pythonovim datotekam običajno damo končnico ``.py``. Za natančnejša navodila si oglejte video `Nalaganje programov iz datotek`__.
+Interaktivna konzola je uporabna za krajše programe, daljše pa raje shranimo v datoteko. S tem preprečimo, da bi izgubili vse svoje delo, pa tudi lažje popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s katerim koli urejevalnikom besedila, na primer *Notepad*, *Notepad++*, *Emacs* ali *Vi*. Pythonovim datotekam običajno damo končnico ``.py``. Za natančnejša navodila si oglejte video `Nalaganje programov iz datotek`__.
 
 __ https://vimeo.com/156465707
 
