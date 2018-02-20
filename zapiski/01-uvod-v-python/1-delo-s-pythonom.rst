@@ -91,6 +91,65 @@ Matematične funkcije so na voljo v ločeni knjižnici ``math``. Do njih lahko d
 Obstaja tudi tretji način, ko iz knjižnice s stavkom ``from math import *`` uvozimo vse naštete vrednosti, vendar je odsvetovan, ker potem nikoli ne vemo, kaj vse smo uvozili.
 
 
+Napake
+------
+
+Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločimo tri vrste napak:
+
+1. **Sintaktične napake**, v katerih program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:
+
+   .. doctest:: napake
+
+      >>> max(2; 4)
+      Traceback (most recent call last):
+        ...
+          max(2; 4)
+               ^
+      SyntaxError: invalid syntax
+
+   .. doctest:: napake
+
+      >>> max(2, 4))
+      Traceback (most recent call last):
+        ...
+          max(2, 4))
+                   ^
+      SyntaxError: invalid syntax
+
+   Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.
+
+2. **Napake ob izvajanju**, v katerih program napišemo sintaktično pravilno, vendar uporabimo neveljavno operacijo:
+
+   .. doctest:: napake
+
+       >>> 1 / 0
+       Traceback (most recent call last):
+         ...
+       ZeroDivisionError: division by zero
+
+   .. doctest:: napake
+
+       >>> mix(3, 5)
+       Traceback (most recent call last):
+         ...
+       NameError: name 'mix' is not defined
+
+   Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V prvem primeru je bila napaka deljenje z 0, v drugem pa to, da ime ``mix`` ni definirano.
+
+   Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi prekinejo. To zna biti nerodno, kadar gre za kritično pomemben program (npr. za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih lahko včasih tudi naknadno rešimo).
+
+3. **Vsebinske napake**, pri katerih program navidez deluje brez težav, vendar izračuna napačen odgovor, ker smo mu dali napačna navodila. Recimo, da želimo izračunati razdaljo med točkama (2, 3) in (5, 7):
+
+   .. doctest::
+
+       >>> ((2 - 5) ** 2 + (3 - 7) ** 2) ** 1 / 2
+       12.5
+
+   Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2, temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa ne opazimo. Znan primer te napake je `Mars Climate Orbiter`__, ki je po devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami, del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.
+
+    __ https://en.wikipedia.org/wiki/Mars_Climate_Orbiter
+
+
 Prirejanje vrednosti spremenljivkam
 -----------------------------------
 
@@ -135,65 +194,6 @@ Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo, vendar to na preos
     13
 
 Ko smo v ``x`` shranili novo vrednost, se vrednost ``y`` ni spremenila, saj je prireditveni stavek ``y = x + 3`` najprej izračunal vrednost desne strani, torej ``13``, in v ``y`` shranil samo število.
-
-
-Napake
-------
-
-Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločimo tri vrste napak:
-
-1. **Sintaktične napake**, v katerih program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:
-
-   .. doctest:: napake
-
-      >>> max(2; 4)
-      Traceback (most recent call last):
-        ...
-          max(2; 4)
-               ^
-      SyntaxError: invalid syntax
-
-   .. doctest:: napake
-
-      >>> max(2, 4))
-      Traceback (most recent call last):
-        ...
-          max(2, 4))
-                   ^
-      SyntaxError: invalid syntax
-
-   Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.
-
-2. **Napake ob izvajanju**, v katerih program napišemo sintaktično pravilno, vendar uporabimo neveljavno operacijo:
-
-   .. doctest:: napake
-
-       >>> 1 / 0
-       Traceback (most recent call last):
-         ...
-       ZeroDivisionError: division by zero
-
-   .. doctest:: napake
-
-       >>> 3 + z
-       Traceback (most recent call last):
-         ...
-       NameError: name 'z' is not defined
-
-   Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V prvem primeru je bila napaka deljenje z 0, v drugem pa to, da spremenljivka ``z`` ni bila definirana.
-
-   Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi prekinejo. To zna biti nerodno, kadar gre za kritično pomemben program (npr. za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih lahko včasih tudi naknadno rešimo).
-
-3. **Vsebinske napake**, pri katerih program navidez deluje brez težav, vendar izračuna napačen odgovor, ker smo mu dali napačna navodila. Recimo, da želimo izračunati razdaljo med točkama (2, 3) in (5, 7):
-
-   .. doctest::
-
-       >>> ((2 - 5) ** 2 + (3 - 7) ** 2) ** 1 / 2
-       12.5
-
-   Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2, temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa ne opazimo. Znan primer te napake je `Mars Climate Orbiter`__, ki je po devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami, del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.
-
-    __ https://en.wikipedia.org/wiki/Mars_Climate_Orbiter
 
 
 Shranjevanje programov v datoteke

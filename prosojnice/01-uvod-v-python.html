@@ -23,6 +23,7 @@ class: center, middle
 * 2008: Python 3.0
 * 2010: Python 2.7
 * ~~2015: predvideni konec podpore za Python 2.7~~
+* 2018: Python 3.6
 * 2020: predvideni konec podpore za Python 2.7
 
 ---
@@ -66,11 +67,11 @@ class: center, middle, question
 
 class: center, middle, question
 
-# Kaj je predzadnjih sto števil števila \\(2^{123456}\\)?
+# Kaj je predzadnjih sto števk števila \\(2^{12345}\\)?
 
 ---
 
-### Python ima vgrajene tudi osnovne funkcije
+### Python ima vgrajenih nekaj osnovnih funkcij
 
 ```
 >>> max(3, 6)
@@ -113,6 +114,22 @@ class: center, middle, question
 
 ---
 
+### V programih lahko naredimo tri vrste napak
+
+#### Sintaktične napake
+
+**Zapis je napačen** in ga Python ne razume (noče razumeti).
+
+#### Napake ob izvajanju
+
+Zapis je pravilen, vendar ga Python **ne zna izvesti**.
+
+#### Vsebinske napake
+
+Zapis je pravilen, Python ga izvede, vendar ima **napačna navodila**.
+
+---
+
 ### Vrednosti si lahko shranimo v spremenljivke
 
 ```
@@ -138,28 +155,6 @@ class: middle, question
 
 ---
 
-### V programih lahko naredimo tri vrste napak
-
-#### Sintaktične napake
-
-Zapis je napačen in ga Python ne razume (noče razumeti).
-
-#### Napake ob izvajanju
-
-Zapis je pravilen, vendar ga Python ne zna izvesti.
-
-#### Vsebinske napake
-
-Zapis je pravilen, Python ga zna izvesti, vendar smo mu dali napačna navodila.
-
----
-
-class: center, middle, question
-
-# Koliko učiteljev matematike je v Sloveniji?
-
----
-
 class: center, middle, question
 
 # Koliko je ploščina trikotnika s stranicami dolžin<br> 4, 13 in 15?
@@ -171,24 +166,6 @@ class: center, middle, question
 ## Koliko je površina tetraedra s stranicami dolžin<br> 18, 21, 22, 25, 27 in 31?
 
 .small[![](slike/tetraeder.png)]
-
----
-
-class: question, middle
-
-.bad-example.fill70[```
-s_abc = (a + b + c) / 2
-p_abc = math.sqrt(s_abc * (s_abc - a) * (s_abc - b) * (s_abc - c))
-s_aef = (a + e + f) / 2
-p_aef = math.sqrt(s_aef * (s_aef - a) * (s_aef - e) * (s_aef - f))
-s_cde = (c + d + e) / 2
-p_cde = math.sqrt(s_cde * (s_cde - c) * (s_cde - d) * (s_cde - f))
-s_bdf = (b + d + f) / 2
-p_bdf = math.sqrt(s_bdf * (s_bdf - b) * (s_bdf - d) * (s_bdf - f))
-povrsina = p_abc + p_aef + p_bdf + p_cde
-```]
-
-## .center[Zakaj taka rešitev ni najboljša?]
 
 ---
 
