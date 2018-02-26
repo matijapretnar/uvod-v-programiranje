@@ -1,0 +1,205 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Nizi in stavek print &#8212; Uvod v programiranje 0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Abecedni seznam" href="../genindex.html" />
+    <link rel="search" title="Išči" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nizi-in-stavek-print">
+<h1>Nizi in stavek <code class="docutils literal notranslate"><span class="pre">print</span></code><a class="headerlink" href="#nizi-in-stavek-print" title="Povezava na naslov">¶</a></h1>
+<p>V programih seveda ne delamo le s števili, temveč tudi z drugimi podatki, na primer besedili. V ta namen Python podpira nize, ki so strnjena zaporedja znakov.</p>
+<div class="section" id="operacije-na-nizih">
+<h2>Operacije na nizih<a class="headerlink" href="#operacije-na-nizih" title="Povezava na naslov">¶</a></h2>
+<p>Nize običajno pišemo v enojnih narekovajih, na primer <code class="docutils literal notranslate"><span class="pre">'to</span> <span class="pre">je</span> <span class="pre">primer</span> <span class="pre">niza'</span></code>. Nize lahko stikamo z operacijo <code class="docutils literal notranslate"><span class="pre">+</span></code> in množimo s celimi števili:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Dober&#39;</span> <span class="o">+</span> <span class="s1">&#39;dan&#39;</span>
+<span class="go">&#39;Doberdan&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">10</span> <span class="o">*</span> <span class="s1">&#39;ha&#39;</span>
+<span class="go">&#39;hahahahahahahahahaha&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;tro&#39;</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s1">&#39;lo&#39;</span>
+<span class="go">&#39;trololololo&#39;</span>
+</pre></div>
+</div>
+<p>Dolžino niza dobimo s funkcijo <code class="docutils literal notranslate"><span class="pre">len</span></code>:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;Uvod v programiranje&#39;</span><span class="p">)</span>
+<span class="go">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;lokomotiva&#39;</span><span class="p">)</span>
+<span class="go">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>Nize lahko med seboj tudi primerjamo. Pri tem Python nize ureja leksikografsko, torej tako, kot bi bili urejeni v leksikonu ali kazalu: najprej primerja prvi črki, če sta ti dve enaki, pogleda drugi dve, in tako naprej. Pri tem velike črke pridejo na vrsto pred malimi, na šumnike pa se brez posebnih knjižnic Python ne spozna.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;beseda&#39;</span> <span class="o">==</span> <span class="s1">&#39;konj&#39;</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abak&#39;</span> <span class="o">&lt;=</span> <span class="s1">&#39;abeceda&#39;</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Z&#39;</span> <span class="o">&lt;=</span> <span class="s1">&#39;a&#39;</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;d&#39;</span> <span class="o">&gt;=</span> <span class="s1">&#39;č&#39;</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Na nizih imamo na voljo tudi predikat <code class="docutils literal notranslate"><span class="pre">in</span></code>, s katerim ugotovimo, ali se nek niz pojavlja kot podniz v drugem nizu. Na voljo je tudi <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>, s katerim bolj berljivo zapišemo ravno nasprotno stvar:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;gram&#39;</span> <span class="ow">in</span> <span class="s1">&#39;Uvod v programiranje&#39;</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;liter&#39;</span> <span class="ow">in</span> <span class="s1">&#39;Uvod v programiranje&#39;</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="ow">not</span> <span class="p">(</span><span class="s1">&#39;liter&#39;</span> <span class="ow">in</span> <span class="s1">&#39;Uvod v programiranje&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;liter&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;Uvod v programiranje&#39;</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">je_samoglasnik</span><span class="p">(</span><span class="n">crka</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">crka</span> <span class="ow">in</span> <span class="s1">&#39;aeiouAEIOU&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zapis-nizov">
+<h2>Zapis nizov<a class="headerlink" href="#zapis-nizov" title="Povezava na naslov">¶</a></h2>
+<p>Nize lahko pišemo tudi z dvojnimi narekovaji, ki jih ponavadi uporabimo takrat, kadar v nizu želimo uporabiti enojni narekovaj: <code class="docutils literal notranslate"><span class="pre">&quot;U</span> <span class="pre">Lublan'</span> <span class="pre">pr'</span> <span class="pre">Šestic'&quot;</span></code>. V tem primeru niza ne moremo pisati med enojnimi narekovaji, saj bi Python po narekovaju za <code class="docutils literal notranslate"><span class="pre">Lublan</span></code> mislil, da je konec niza.</p>
+<p>Včasih želimo uporabiti obe vrsti narekovajev. V tem primeru si pomagamo z <em>ubežnimi znaki</em>. To so znaki, ki jih na običajni način ne moremo zapisati, zato uporabimo poseben zapis, ki se začne z znakom <code class="docutils literal notranslate"><span class="pre">\</span></code>. Tedaj lahko pišemo <code class="docutils literal notranslate"><span class="pre">'Mama</span> <span class="pre">je</span> <span class="pre">iznenada</span> <span class="pre">začela</span> <span class="pre">peti:</span> <span class="pre">&quot;U</span> <span class="pre">Lublan\'</span> <span class="pre">pr\'</span> <span class="pre">Šestic\'…&quot;'</span></code> ali pa <code class="docutils literal notranslate"><span class="pre">&quot;Mama</span> <span class="pre">je</span> <span class="pre">iznenada</span> <span class="pre">začela</span> <span class="pre">peti:</span> <span class="pre">\&quot;U</span> <span class="pre">Lublan'</span> <span class="pre">pr'</span> <span class="pre">Šestic'…\&quot;&quot;</span></code>. Ubežne znake brez težav lahko pišemo tudi tedaj, kadar ni treba <code class="docutils literal notranslate"><span class="pre">'Mama</span> <span class="pre">je</span> <span class="pre">rekla:</span> <span class="pre">\&quot;Dober</span> <span class="pre">dan!\&quot;'</span></code>. Z ubežnimi znaki lahko zapišemo tudi znak za novo vrstico <code class="docutils literal notranslate"><span class="pre">\n</span></code>, za tabulator <code class="docutils literal notranslate"><span class="pre">\t</span></code> in seveda tudi za poševnico <code class="docutils literal notranslate"><span class="pre">\\</span></code>, saj je ne moremo pisati le kot <code class="docutils literal notranslate"><span class="pre">\</span></code>, ker bi Python to razumel kot začetek ubežnega znaka.</p>
+<p>Nize lahko pišemo tudi med tri enojne (<code class="docutils literal notranslate"><span class="pre">'''</span></code>) ali tri dvojne (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>) narekovaje. V tem primeru za en sam narekovaj ne potrebujemo ubežnega znaka. Take nize lahko pišemo tudi čez več vrstic.</p>
+</div>
+<div class="section" id="indeksiranje">
+<h2>Indeksiranje<a class="headerlink" href="#indeksiranje" title="Povezava na naslov">¶</a></h2>
+<p>Do posameznega znaka v nizu pridemo z <em>indeksiranjem</em>. Z izrazom <code class="docutils literal notranslate"><span class="pre">niz[i]</span></code> dostopamo do <code class="docutils literal notranslate"><span class="pre">i</span></code>-tega znaka v danem nizu:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">&#39;u&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;r&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;a&#39;</span>
+</pre></div>
+</div>
+<p>Indeksi se začnejo šteti z 0. Če uporabimo negativna števila, lahko štejemo tudi od zadaj, vendar tam začnemo šteti z -1 (saj je -0 = 0).</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">6</span>   <span class="mi">7</span>   <span class="mi">8</span>
+ <span class="n">R</span>   <span class="n">E</span>   <span class="n">K</span>   <span class="n">U</span>   <span class="n">R</span>   <span class="n">Z</span>   <span class="n">I</span>   <span class="n">J</span>   <span class="n">A</span>
+<span class="o">-</span><span class="mi">9</span>  <span class="o">-</span><span class="mi">8</span>  <span class="o">-</span><span class="mi">7</span>  <span class="o">-</span><span class="mi">6</span>  <span class="o">-</span><span class="mi">5</span>  <span class="o">-</span><span class="mi">4</span>  <span class="o">-</span><span class="mi">3</span>  <span class="o">-</span><span class="mi">2</span>  <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rezine">
+<h2>Rezine<a class="headerlink" href="#rezine" title="Povezava na naslov">¶</a></h2>
+<p>Na podoben način lahko dostopamo tudi do podnizov. Če napišemo <code class="docutils literal notranslate"><span class="pre">niz[i:j]</span></code> bomo dobili niz od vključno <code class="docutils literal notranslate"><span class="pre">i</span></code>-tega do vključno <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">-</span> <span class="pre">1</span></code>-tega znaka. Če kakšno od meja izpustimo, bomo vzeli vse znake od začetka oziroma do konca.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">&#39;k&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<span class="go">&#39;i&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="go">&#39;kurz&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+<span class="go">&#39;rekurz&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="go">&#39;kurzija&#39;</span>
+</pre></div>
+</div>
+<p>Pišemo lahko tudi <code class="docutils literal notranslate"><span class="pre">niz[i:j:k]</span></code>, s čimer vzamemo le vsak <code class="docutils literal notranslate"><span class="pre">k</span></code>-ti znak:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<span class="go">&#39;ekurzij&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;ekurzij&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">&#39;euzj&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">&#39;erj&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;rekurzija&#39;</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;ajizruker&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stavek-print">
+<h2>Stavek <code class="docutils literal notranslate"><span class="pre">print</span></code><a class="headerlink" href="#stavek-print" title="Povezava na naslov">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Nizi in stavek <code class="docutils literal notranslate"><span class="pre">print</span></code></a><ul>
+<li><a class="reference internal" href="#operacije-na-nizih">Operacije na nizih</a></li>
+<li><a class="reference internal" href="#zapis-nizov">Zapis nizov</a></li>
+<li><a class="reference internal" href="#indeksiranje">Indeksiranje</a></li>
+<li><a class="reference internal" href="#rezine">Rezine</a></li>
+<li><a class="reference internal" href="#stavek-print">Stavek <code class="docutils literal notranslate"><span class="pre">print</span></code></a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/02-rekurzija/1-nizi-in-stavek-print.rst.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/02-rekurzija/1-nizi-in-stavek-print.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

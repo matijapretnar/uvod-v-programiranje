@@ -18,7 +18,7 @@ Na začetku natančno piše, katero različico Pythona uporabljamo, temu pa sled
 
 .. caution::
 
-    Pozorni bodite, da v prvi vrstici piše ``Python 3.x.x`` (zadnji dve številki nista tako ključni). Če tam piše ``Python 2.x.x``, uporabljate Python 2, starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob prehodu na Python 3 so razvijalci jezika naredili nekaj večjih sprememb, ki so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro, tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo ukvarjali izključno s Pythonom 3.
+    Pozorni bodite, da v prvi vrstici piše ``Python 3.x.x`` (zadnji dve številki nista tako ključni). Če tam piše ``Python 2.x.x``, uporabljate Python 2, starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob prehodu na Python 3 leta 2008 so razvijalci jezika naredili nekaj večjih sprememb, ki so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro, tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo ukvarjali izključno s Pythonom 3.
 
 Za začetek izračunajmo, koliko je 1 + 1. Vnesemo ``1 + 1`` ter pritisnimo znak za novo vrstico. Ob tem Python prebere naš vnos, ga izračuna in izpiše rezultat.
 
@@ -91,6 +91,65 @@ Matematične funkcije so na voljo v ločeni knjižnici ``math``. Do njih lahko d
 Obstaja tudi tretji način, ko iz knjižnice s stavkom ``from math import *`` uvozimo vse naštete vrednosti, vendar je odsvetovan, ker potem nikoli ne vemo, kaj vse smo uvozili.
 
 
+Napake
+------
+
+Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločimo tri vrste napak:
+
+1. **Sintaktične napake**, v katerih program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:
+
+   .. doctest:: napake
+
+      >>> max(2; 4)
+      Traceback (most recent call last):
+        ...
+          max(2; 4)
+               ^
+      SyntaxError: invalid syntax
+
+   .. doctest:: napake
+
+      >>> max(2, 4))
+      Traceback (most recent call last):
+        ...
+          max(2, 4))
+                   ^
+      SyntaxError: invalid syntax
+
+   Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.
+
+2. **Napake ob izvajanju**, v katerih program napišemo sintaktično pravilno, vendar uporabimo neveljavno operacijo:
+
+   .. doctest:: napake
+
+       >>> 1 / 0
+       Traceback (most recent call last):
+         ...
+       ZeroDivisionError: division by zero
+
+   .. doctest:: napake
+
+       >>> mix(3, 5)
+       Traceback (most recent call last):
+         ...
+       NameError: name 'mix' is not defined
+
+   Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V prvem primeru je bila napaka deljenje z 0, v drugem pa to, da ime ``mix`` ni definirano.
+
+   Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi prekinejo. To zna biti nerodno, kadar gre za kritično pomemben program (npr. za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih lahko včasih tudi naknadno rešimo).
+
+3. **Vsebinske napake**, pri katerih program navidez deluje brez težav, vendar izračuna napačen odgovor, ker smo mu dali napačna navodila. Recimo, da želimo izračunati razdaljo med točkama (2, 3) in (5, 7):
+
+   .. doctest::
+
+       >>> ((2 - 5) ** 2 + (3 - 7) ** 2) ** 1 / 2
+       12.5
+
+   Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2, temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa ne opazimo. Znan primer te napake je `Mars Climate Orbiter`__, ki je po devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami, del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.
+
+    __ https://en.wikipedia.org/wiki/Mars_Climate_Orbiter
+
+
 Prirejanje vrednosti spremenljivkam
 -----------------------------------
 
@@ -137,69 +196,10 @@ Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo, vendar to na preos
 Ko smo v ``x`` shranili novo vrednost, se vrednost ``y`` ni spremenila, saj je prireditveni stavek ``y = x + 3`` najprej izračunal vrednost desne strani, torej ``13``, in v ``y`` shranil samo število.
 
 
-Napake
-------
-
-Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločimo tri vrste napak:
-
-1. **Sintaktične napake**, v katerih program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:
-
-   .. doctest:: napake
-
-      >>> max(2; 4)
-      Traceback (most recent call last):
-        ...
-          max(2; 4)
-               ^
-      SyntaxError: invalid syntax
-
-   .. doctest:: napake
-
-      >>> max(2, 4))
-      Traceback (most recent call last):
-        ...
-          max(2, 4))
-                   ^
-      SyntaxError: invalid syntax
-
-   Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.
-
-2. **Napake ob izvajanju**, v katerih program napišemo sintaktično pravilno, vendar uporabimo neveljavno operacijo:
-
-   .. doctest:: napake
-
-       >>> 1 / 0
-       Traceback (most recent call last):
-         ...
-       ZeroDivisionError: division by zero
-
-   .. doctest:: napake
-
-       >>> 3 + z
-       Traceback (most recent call last):
-         ...
-       NameError: name 'z' is not defined
-
-   Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V prvem primeru je bila napaka deljenje z 0, v drugem pa to, da spremenljivka ``z`` ni bila definirana.
-
-   Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi prekinejo. To zna biti nerodno, kadar gre za kritično pomemben program (npr. za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih lahko včasih tudi naknadno rešimo).
-
-3. **Vsebinske napake**, pri katerih program navidez deluje brez težav, vendar izračuna napačen odgovor, ker smo mu dali napačna navodila. Recimo, da želimo izračunati razdaljo med točkama (2, 3) in (5, 7):
-
-   .. doctest::
-
-       >>> ((2 - 5) ** 2 + (3 - 7) ** 2) ** 1 / 2
-       12.5
-
-   Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2, temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa ne opazimo. Znan primer te napake je `Mars Climate Orbiter`__, ki je po devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami, del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.
-
-    __ https://en.wikipedia.org/wiki/Mars_Climate_Orbiter
-
-
 Shranjevanje programov v datoteke
 ---------------------------------
 
-Interaktivna konzola je uporabna za krajše programe, daljše pa raje shranimo v datoteko. S tem preprečimo, da izgubili vse svoje delo, pa tudi lažje popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s katerim koli urejevalnikom besedila, na primer *Notepad*, *Notepad++*, *Emacs* ali *Vi*. Pythonovim datotekam običajno damo končnico ``.py``. Za natančnejša navodila si oglejte video `Nalaganje programov iz datotek`__.
+Interaktivna konzola je uporabna za krajše programe, daljše pa raje shranimo v datoteko. S tem preprečimo, da bi izgubili vse svoje delo, pa tudi lažje popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s katerim koli urejevalnikom besedila, na primer *Notepad*, *Notepad++*, *Emacs* ali *Vi*. Pythonovim datotekam običajno damo končnico ``.py``. Za natančnejša navodila si oglejte video `Nalaganje programov iz datotek`__.
 
 __ https://vimeo.com/156465707
 

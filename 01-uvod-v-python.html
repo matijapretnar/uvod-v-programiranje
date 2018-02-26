@@ -17,6 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Abecedni seznam" href="genindex.html" />
     <link rel="search" title="Išči" href="search.html" />
+    <link rel="next" title="Rekurzija" href="02-rekurzija.html" />
     <link rel="prev" title="Uvod v programiranje" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -35,7 +36,8 @@
   <div class="section" id="uvod-v-python">
 <h1>Uvod v Python<a class="headerlink" href="#uvod-v-python" title="Povezava na naslov">¶</a></h1>
 <p>Programiranje različnim ljudem <a class="reference external" href="https://sl.wikipedia.org/wiki/Nevrolingvistično_programiranje">pomeni</a> <a class="reference external" href="https://sl.wikipedia.org/wiki/Linearno_programiranje">različne</a> <a class="reference external" href="https://en.wikipedia.org/wiki/Broadcast_programming">stvari</a>. Pri tem predmetu se bomo učili računalniškega programiranja. Naš cilj bo, da računalniku dopovemo, kako naj namesto nas naredi tisto, česar mi ne zmoremo ali preprosto nočemo.</p>
-<p>Računalnik programiramo preko <em>programskih</em> jezikov. Tako kot običajni jeziki, imajo tudi ti pravila zapisa in pomena, vendar so običajno bolj preprosti in nedvoumni, saj jih morajo poleg ljudi razumeti tudi računalniki. Nekateri programski jeziki so bliže ljudem, drugi bliže računalnikom, vsi pa slonijo na zelo podobnih idejah. Ko znamo programirati v enem, lahko hitro preklopimo na drugega. V našem primeru se bomo naučili jezika Python, saj je precej prijazen do začetnikov, hkrati pa tudi izjemno popularen, zato bo pridobljeno znanje takoj uporabno.</p>
+<p>Računalnik programiramo preko <em>programskih</em> jezikov. Tako kot običajni jeziki imajo tudi ti pravila zapisa in pomena, vendar so običajno bolj preprosti in nedvoumni, saj jih morajo poleg ljudi razumeti tudi računalniki. Nekateri programski jeziki so bliže ljudem, drugi bliže računalnikom, vsi pa slonijo na zelo podobnih idejah. Ko znamo programirati v enem, lahko hitro preklopimo na drugega.</p>
+<p>V našem primeru se bomo naučili jezika Python, ki je precej prijazen do začetnikov, hkrati pa tudi izjemno popularen, zato bo pridobljeno znanje takoj uporabno. Pythonov avtor in BDFL (<em>benevolent dictator for life</em> oziroma dobrohotni dosmrtni diktator) je Guido van Rossum.</p>
 <div class="section" id="delo-s-pythonom">
 <h2>Delo s Pythonom<a class="headerlink" href="#delo-s-pythonom" title="Povezava na naslov">¶</a></h2>
 <p>S Pythonom se najenostavneje pogovarjamo prek interaktivne konzole, do katere lahko dostopamo na več načinov: neposredno iz ukazne vrstice, z uporabo enostavnega okolja IDLE, ki je priloženo vsaki namestitvi Pythona, ali pa prek kakšnega od naprednejših razvijalskih okolij, na primer PyCharm. Za navodila, kako to storimo, si oglejte video <a class="reference external" href="https://vimeo.com/156327496">Namestitev Pythona pod Windowsi</a>.</p>
@@ -49,7 +51,7 @@
 <p>Na začetku natančno piše, katero različico Pythona uporabljamo, temu pa sledi nekaj kazalcev na osnovne informacije. Mi se bomo osredotočili na zadnjo vrstico, v kateri nam poziv <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> kaže, da je Python pripravljen na naš vnos.</p>
 <div class="admonition caution">
 <p class="first admonition-title">Previdno</p>
-<p class="last">Pozorni bodite, da v prvi vrstici piše <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.x.x</span></code> (zadnji dve številki nista tako ključni). Če tam piše <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">2.x.x</span></code>, uporabljate Python 2, starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob prehodu na Python 3 so razvijalci jezika naredili nekaj večjih sprememb, ki so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro, tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo ukvarjali izključno s Pythonom 3.</p>
+<p class="last">Pozorni bodite, da v prvi vrstici piše <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.x.x</span></code> (zadnji dve številki nista tako ključni). Če tam piše <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">2.x.x</span></code>, uporabljate Python 2, starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob prehodu na Python 3 leta 2008 so razvijalci jezika naredili nekaj večjih sprememb, ki so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro, tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo ukvarjali izključno s Pythonom 3.</p>
 </div>
 <p>Za začetek izračunajmo, koliko je 1 + 1. Vnesemo <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code> ter pritisnimo znak za novo vrstico. Ob tem Python prebere naš vnos, ga izračuna in izpiše rezultat.</p>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
@@ -113,6 +115,56 @@
 </ol>
 <p>Obstaja tudi tretji način, ko iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">*</span></code> uvozimo vse naštete vrednosti, vendar je odsvetovan, ker potem nikoli ne vemo, kaj vse smo uvozili.</p>
 </div>
+<div class="section" id="napake">
+<h3>Napake<a class="headerlink" href="#napake" title="Povezava na naslov">¶</a></h3>
+<p>Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločimo tri vrste napak:</p>
+<ol class="arabic">
+<li><p class="first"><strong>Sintaktične napake</strong>, v katerih program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
+         <span class="o">^</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+             <span class="o">^</span>
+<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+</pre></div>
+</div>
+<p>Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.</p>
+</li>
+<li><p class="first"><strong>Napake ob izvajanju</strong>, v katerih program napišemo sintaktično pravilno, vendar uporabimo neveljavno operacijo:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;mix&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V prvem primeru je bila napaka deljenje z 0, v drugem pa to, da ime <code class="docutils literal notranslate"><span class="pre">mix</span></code> ni definirano.</p>
+<p>Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi prekinejo. To zna biti nerodno, kadar gre za kritično pomemben program (npr. za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih lahko včasih tudi naknadno rešimo).</p>
+</li>
+<li><p class="first"><strong>Vsebinske napake</strong>, pri katerih program navidez deluje brez težav, vendar izračuna napačen odgovor, ker smo mu dali napačna navodila. Recimo, da želimo izračunati razdaljo med točkama (2, 3) in (5, 7):</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">12.5</span>
+</pre></div>
+</div>
+<p>Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2, temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa ne opazimo. Znan primer te napake je <a class="reference external" href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Climate Orbiter</a>, ki je po devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami, del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+</ol>
+</div>
 <div class="section" id="prirejanje-vrednosti-spremenljivkam">
 <h3>Prirejanje vrednosti spremenljivkam<a class="headerlink" href="#prirejanje-vrednosti-spremenljivkam" title="Povezava na naslov">¶</a></h3>
 <p>Izračunane vrednosti si lahko shranimo tudi v spremenljivke, ki jih potem uporabljamo v kasnejših izračunih. Za to uporabimo <em>prireditveni stavek</em> oblike</p>
@@ -148,56 +200,6 @@
 </pre></div>
 </div>
 <p>Ko smo v <code class="docutils literal notranslate"><span class="pre">x</span></code> shranili novo vrednost, se vrednost <code class="docutils literal notranslate"><span class="pre">y</span></code> ni spremenila, saj je prireditveni stavek <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">3</span></code> najprej izračunal vrednost desne strani, torej <code class="docutils literal notranslate"><span class="pre">13</span></code>, in v <code class="docutils literal notranslate"><span class="pre">y</span></code> shranil samo število.</p>
-</div>
-<div class="section" id="napake">
-<h3>Napake<a class="headerlink" href="#napake" title="Povezava na naslov">¶</a></h3>
-<p>Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločimo tri vrste napak:</p>
-<ol class="arabic">
-<li><p class="first"><strong>Sintaktične napake</strong>, v katerih program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
-         <span class="o">^</span>
-<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
-</pre></div>
-</div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-             <span class="o">^</span>
-<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
-</pre></div>
-</div>
-<p>Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.</p>
-</li>
-<li><p class="first"><strong>Napake ob izvajanju</strong>, v katerih program napišemo sintaktično pravilno, vendar uporabimo neveljavno operacijo:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
-</pre></div>
-</div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">+</span> <span class="n">z</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-<span class="gr">NameError</span>: <span class="n">name &#39;z&#39; is not defined</span>
-</pre></div>
-</div>
-<p>Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V prvem primeru je bila napaka deljenje z 0, v drugem pa to, da spremenljivka <code class="docutils literal notranslate"><span class="pre">z</span></code> ni bila definirana.</p>
-<p>Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi prekinejo. To zna biti nerodno, kadar gre za kritično pomemben program (npr. za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih lahko včasih tudi naknadno rešimo).</p>
-</li>
-<li><p class="first"><strong>Vsebinske napake</strong>, pri katerih program navidez deluje brez težav, vendar izračuna napačen odgovor, ker smo mu dali napačna navodila. Recimo, da želimo izračunati razdaljo med točkama (2, 3) in (5, 7):</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="go">12.5</span>
-</pre></div>
-</div>
-<p>Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2, temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa ne opazimo. Znan primer te napake je <a class="reference external" href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Climate Orbiter</a>, ki je po devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami, del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.</p>
-<blockquote>
-<div></div></blockquote>
-</li>
-</ol>
 </div>
 <div class="section" id="shranjevanje-programov-v-datoteke">
 <h3>Shranjevanje programov v datoteke<a class="headerlink" href="#shranjevanje-programov-v-datoteke" title="Povezava na naslov">¶</a></h3>
@@ -262,14 +264,14 @@
 <p>Kako pa bi izračunali površino tetraedra, ki ima za lica štiri trikotnike? Načeloma bi lahko pisali:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">896</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span>
 <span class="n">s_abc</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="n">ploscina_abc</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_abc</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span>
+<span class="n">p_abc</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_abc</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span>
 <span class="n">s_aef</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="n">ploscina_aef</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_aef</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">-</span> <span class="n">e</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span>
-<span class="n">s_bdf</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="n">ploscina_bdf</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_bdf</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span>
+<span class="n">p_aef</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_aef</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">-</span> <span class="n">e</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_aef</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span>
 <span class="n">s_cde</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="n">ploscina_cde</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_cde</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">-</span> <span class="n">e</span><span class="p">))</span>
-<span class="n">povrsina</span> <span class="o">=</span> <span class="n">ploscina_abc</span> <span class="o">+</span> <span class="n">ploscina_aef</span> <span class="o">+</span> <span class="n">ploscina_bdf</span> <span class="o">+</span> <span class="n">ploscina_cde</span>
+<span class="n">p_cde</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_cde</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_cde</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span>
+<span class="n">s_bdf</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">p_bdf</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_bdf</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span>
+<span class="n">povrsina</span> <span class="o">=</span> <span class="n">p_abc</span> <span class="o">+</span> <span class="n">p_aef</span> <span class="o">+</span> <span class="n">p_bdf</span> <span class="o">+</span> <span class="n">p_cde</span>
 </pre></div>
 </div>
 <p>Kot vidimo, to ni najbolj pregledno. V taki kodi z veliko verjetnostjo naredimo kakšno napako. Bolje je, da uporabimo funkcije. Že prej smo uporabili nekaj vgrajenih funkcij, na primer <code class="docutils literal notranslate"><span class="pre">min</span></code> in <code class="docutils literal notranslate"><span class="pre">max</span></code>. Python pa nam omogoča, da si funkcije definiramo tudi sami.</p>
@@ -291,12 +293,11 @@
 </div>
 <p>S pomočjo funkcije <code class="docutils literal notranslate"><span class="pre">ploscina_trikotnika</span></code> lahko tudi na veliko bolj pregleden način zapišemo funkcijo za izračun površine tetraedra:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">povrsina_tetraedra</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span>
-        <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-        <span class="o">+</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-        <span class="o">+</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-        <span class="o">+</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-    <span class="p">)</span>
+    <span class="n">p_abc</span> <span class="o">=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+    <span class="n">p_aef</span> <span class="o">=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="n">p_bdf</span> <span class="o">=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="n">p_cde</span> <span class="o">=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p_abc</span> <span class="o">+</span> <span class="n">p_aef</span> <span class="o">+</span> <span class="n">p_bdf</span> <span class="o">+</span> <span class="n">p_cde</span>
 </pre></div>
 </div>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">povrsina_tetraedra</span><span class="p">(</span><span class="mi">896</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">)</span>
@@ -375,11 +376,11 @@
 <h3>Pogojni stavek<a class="headerlink" href="#pogojni-stavek" title="Povezava na naslov">¶</a></h3>
 <p>Logične vrednosti uporabimo v <em>pogojnih stavkih</em> (oziroma <em>stavkih ``if``</em>) oblike</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pogoj</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj_drzi</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko pogoj drži</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj_ne_drzi</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko pogoj ne drži</span>
 </pre></div>
 </div>
 <p>Ključnima besedama <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> in pripadajočim stavkom pravimo tudi <em>veji pogojnega stavka</em>. Stavke v obeh vejah moramo zamakniti za štiri presledke tako kot v funkcijah.</p>
@@ -410,42 +411,40 @@
 </div>
 <div class="section" id="razsirjeni-pogojni-stavek">
 <h3>Razširjeni pogojni stavek<a class="headerlink" href="#razsirjeni-pogojni-stavek" title="Povezava na naslov">¶</a></h3>
-<p>Če bi želeli vrniti predznak števila, pa moramo ločiti tri primere: pozitivno število, negativno število in nič. To lahko storimo kot:</p>
+<p>Če bi želeli vrniti predznak števila, pa moramo ločiti tri primere: negativno število, nič in pozitivno število. To lahko storimo kot:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predznak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>Zgornji pogojni stavek je malo nerodno zapisan. Ker se nam bo dostikrat zgodilo, da se ne bomo odločali le med dvema primeroma, temveč med večimi, nam Python omogoča splošnejše pogojne stavke oblike:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pogoj1</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj1_drzi</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko pogoj1 drži</span>
 <span class="k">elif</span> <span class="n">pogoj2</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj1_ne_drzi</span>
-    <span class="n">ampak_drzi_pogoj2</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko pogoj1 ne drži, ampak drži pogoj2</span>
 <span class="k">elif</span> <span class="n">pogoj3</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_tudi_pogoj2_ne_drzi</span>
-    <span class="n">ampak_drzi_pogoj3</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko tudi pogoj2 ne drži, ampak drži pogoj3</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_noben_od_pogojev_ne_drzi</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko noben od pogojev ne drži</span>
 </pre></div>
 </div>
 <p>Beseda <code class="docutils literal notranslate"><span class="pre">elif</span></code> je okrajšava za <code class="docutils literal notranslate"><span class="pre">else</span></code>-<code class="docutils literal notranslate"><span class="pre">if</span></code>. Funkcijo za izračun predznaka bi lepše zapisali kot</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predznak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -464,8 +463,8 @@
 <li><a class="reference internal" href="#delo-s-pythonom">Delo s Pythonom</a><ul>
 <li><a class="reference internal" href="#stevila-in-aritmeticne-operacije">Števila in aritmetične operacije</a></li>
 <li><a class="reference internal" href="#uporaba-vgrajenih-funkcij">Uporaba vgrajenih funkcij</a></li>
-<li><a class="reference internal" href="#prirejanje-vrednosti-spremenljivkam">Prirejanje vrednosti spremenljivkam</a></li>
 <li><a class="reference internal" href="#napake">Napake</a></li>
+<li><a class="reference internal" href="#prirejanje-vrednosti-spremenljivkam">Prirejanje vrednosti spremenljivkam</a></li>
 <li><a class="reference internal" href="#shranjevanje-programov-v-datoteke">Shranjevanje programov v datoteke</a></li>
 <li><a class="reference internal" href="#pisanje-preglednih-programov">Pisanje preglednih programov</a></li>
 </ul>
@@ -489,6 +488,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="prejšnje poglavje">Uvod v programiranje</a></li>
+      <li>Next: <a href="02-rekurzija.html" title="naslednje poglavje">Rekurzija</a></li>
   </ul></li>
 </ul>
 </div>

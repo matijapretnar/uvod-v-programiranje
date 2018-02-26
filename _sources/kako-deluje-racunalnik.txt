@@ -1,8 +1,0 @@
-**********************
-Kako deluje računalnik
-**********************
-
-.. toctree::
-    :maxdepth: 2
-
-    20-kako-deluje-racunalnik

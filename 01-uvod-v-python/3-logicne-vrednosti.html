@@ -48,13 +48,13 @@
 </div>
 <div class="section" id="pogojni-stavek">
 <h2>Pogojni stavek<a class="headerlink" href="#pogojni-stavek" title="Povezava na naslov">¶</a></h2>
-<p>Logične vrednosti uporabimo v <em>pogojnih stavkih</em> (oziroma <em>stavkih ``if``</em>) oblike</p>
+<p>Logične vrednosti uporabimo v <em>pogojnih stavkih</em> (oziroma <em>stavkih</em> <code class="docutils literal notranslate"><span class="pre">if</span></code>) oblike</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pogoj</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj_drzi</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko pogoj drži</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj_ne_drzi</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko pogoj ne drži</span>
 </pre></div>
 </div>
 <p>Ključnima besedama <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> in pripadajočim stavkom pravimo tudi <em>veji pogojnega stavka</em>. Stavke v obeh vejah moramo zamakniti za štiri presledke tako kot v funkcijah.</p>
@@ -85,42 +85,40 @@
 </div>
 <div class="section" id="razsirjeni-pogojni-stavek">
 <h2>Razširjeni pogojni stavek<a class="headerlink" href="#razsirjeni-pogojni-stavek" title="Povezava na naslov">¶</a></h2>
-<p>Če bi želeli vrniti predznak števila, pa moramo ločiti tri primere: pozitivno število, negativno število in nič. To lahko storimo kot:</p>
+<p>Če bi želeli vrniti predznak števila, pa moramo ločiti tri primere: negativno število, nič in pozitivno število. To lahko storimo kot:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predznak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>Zgornji pogojni stavek je malo nerodno zapisan. Ker se nam bo dostikrat zgodilo, da se ne bomo odločali le med dvema primeroma, temveč med večimi, nam Python omogoča splošnejše pogojne stavke oblike:</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pogoj1</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj1_drzi</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko pogoj1 drži</span>
 <span class="k">elif</span> <span class="n">pogoj2</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_pogoj1_ne_drzi</span>
-    <span class="n">ampak_drzi_pogoj2</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko pogoj1 ne drži, ampak drži pogoj2</span>
 <span class="k">elif</span> <span class="n">pogoj3</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_tudi_pogoj2_ne_drzi</span>
-    <span class="n">ampak_drzi_pogoj3</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko tudi pogoj2 ne drži, ampak drži pogoj3</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">stavki_ki_jih_izvedemo</span>
-    <span class="n">ko_noben_od_pogojev_ne_drzi</span>
+    <span class="c1"># stavki, ki jih izvedemo,</span>
+    <span class="c1"># ko noben od pogojev ne drži</span>
 </pre></div>
 </div>
 <p>Beseda <code class="docutils literal notranslate"><span class="pre">elif</span></code> je okrajšava za <code class="docutils literal notranslate"><span class="pre">else</span></code>-<code class="docutils literal notranslate"><span class="pre">if</span></code>. Funkcijo za izračun predznaka bi lepše zapisali kot</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predznak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>

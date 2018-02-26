@@ -5,10 +5,7 @@ Uvod v programiranje
     :maxdepth: 2
 
     01-uvod-v-python
-
-* Rekurzija
-    * Nizi in stavek ``print``
-    * Rekurzivne definicije
+    02-rekurzija
 
 * Zanke
     * Zanka ``while``
