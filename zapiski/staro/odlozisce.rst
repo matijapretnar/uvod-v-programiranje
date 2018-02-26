@@ -1,3 +1,10 @@
+
+
+.. testcode::
+
+    def je_samoglasnik(crka):
+        return crka in 'aeiouAEIOU'
+
 Dokumentacijski niz*
 --------------------
 
@@ -273,3 +280,130 @@ nastaviti. No, načeloma bi jo lahko z
 samo to je preveč natlačeno, da bi bilo berljivo. Pogojni stavki so torej precej
 omejeni, ampak vseeno jih omenjamo, ker znajo včasih kakšno stvar narediti
 preglednejšo.
+
+
+
+Pogojni izraz
+-------------
+
+ali s pogojnim izrazom kot:
+
+.. testcode::
+
+    def fakulteta(n):
+        '''Vrne fakulteto naravnega števila n.'''
+        return 1 if n == 0 else n * fakulteta(n - 1)
+
+ali s pogojnim izrazom kot
+
+.. testcode::
+
+    def gcd(m, n):
+        '''Vrne največji skupni delitelj števil m in n.'''
+        return m if n == 0 else gcd(n, m % n)
+
+
+
+Neobvezni argumenti
+-------------------
+
+Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost.
+Na primer, za izračun logaritma potrebujemo dve števili: osnovo in argument
+(tudi logaritmand). Toda velikokrat za osnovo vzamemo :math:`10`, zato namesto
+:math:`\log_{10} x` pišemo kar :math:`\log x`. Tudi pri Pythonu je podobno. Če
+se nam ob klicu funkcije ne ljubi navajati vrednosti vseh argumentov, lahko za
+nekatere od njih v prvi vrstici definicije navedemo privzeto vrednost. Na primer, pri funkciji
+``splosni_fibonacci`` želimo, da imata ``a`` in ``b`` privzeti vrednosti 0 in 1:
+
+.. testcode::
+
+    def splosni_fibonacci(n, a=0, b=1):
+        '''Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.'''
+        if n == 0:
+            return a
+        elif n == 1:
+            return b
+        else:
+            return splosni_fibonacci(n - 1, b, a + b)
+
+Tedaj se bo vedno uporabila privzeta vrednost za tiste argumente, ki jih ne
+podamo izrecno.
+
+    >>> splosni_fibonacci(35)
+    9227465
+    >>> splosni_fibonacci(500)
+    139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125
+    >>> splosni_fibonacci(25, b=2)
+    150050
+    >>> splosni_fibonacci(25, a=1, b=-1)
+    -28657
+
+Klic deluje tudi, če neobveznih argumentov ne poimenujemo, vendar lahko to vodi
+do zmede, zato se takih klicev izogibamo.
+
+.. doctest::
+
+    >>> splosni_fibonacci(25, 1, -1)
+    -28657
+
+
+Stavek ``assert``
+-----------------
+
+Tudi funkcija ``splosni_fibonacci`` še ni popolna. Kaj se zgodi, če pokličemo
+``splosni_fibonacci(-2)``? Ker -2 ni enako ne 0 ne 1, bomo izvedli tretjo
+vejo pogojnega stavka in izračunali ``splosni_fibonacci(-3, ...)``, iz tega
+pa podobno ``splosni_fibonacci(-4, ...)`` in tako naprej, vse do trenutka, ko
+se bo Python pritožil:
+
+.. doctest::
+
+    >>> splosni_fibonacci(-2)
+    Traceback (most recent call last):
+      ...
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 3, in splosni_fibonacci
+    RecursionError: maximum recursion depth exceeded in comparison
+
+Pravi nam, da je naša rekurzija šla pregloboko. O tem bomo še bolj natančno
+govorili, zaenkrat pa naj nam tako opozorilo pove, da smo program napisali tako,
+da se ne bo ustavil. Da podobne situacije preprečimo, lahko uporabimo stavek
+``assert``, v katerem napišemo pogoj, ki mu mora program zadoščati. Če mu ne,
+Python javi napako.
+
+.. testcode::
+
+    def splosni_fibonacci(n, a=0, b=1):
+        '''Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.'''
+        assert n >= 0
+        if n == 0:
+            return a
+        elif n == 1:
+            return b
+        else:
+            return splosni_fibonacci(n - 1, b, a + b)
+
+.. doctest::
+
+    >>> splosni_fibonacci(-2)
+    Traceback (most recent call last):
+      ...
+    AssertionError
+
+Še vedno dobimo napako, vendar je ta bolj obvladljiva, pa še takoj se pojavi.
+Stavke ``assert`` uporabljamo, kadar v nadaljevanju programa pričakujemo, da
+je nekim pogojem zadoščeno. Namesto ``assert pogoj`` bi seveda lahko pisali tudi
+nekaj v stilu:
+
+.. code::
+
+    if not pogoj:
+        ustavi_program
+        javi_napako
+
+ampak ker je to pogosto koristno, so v ta namen uvedli ``assert``.
