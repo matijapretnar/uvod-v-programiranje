@@ -1,11 +1,7 @@
-Algoritmi
-=========
+Evklidov algoritem
+==================
 
 Algoritem je zaporedje korakov, s katerimi dobimo iskani rezultat. Načeloma lahko pod besedo algoritem razumemo tudi zaporedje korakov, s katerimi si skuhamo jajca (vzemi posodo; odpri pipo; postavi posodo pod pipo; ko je posoda dovolj polna, zapri pipo; …), ampak mi si jo bomo prihranili za postopke, s katerimi izračunamo želene vrednosti.
-
-
-Evklidov algoritem
-------------------
 
 Za prvi algoritem se spodobi, da si pogledamo najstarejši znani algoritem in sicer Evklidov algoritem za iskanje navečjega skupnega delitelja dveh števil. Naj bo :math:`d` največji skupni delitelj števil :math:`m` in :math:`n`. Pišimo :math:`m = k \cdot n + o`, kjer je :math:`0 \le o < n`. Torej: :math:`o` je ostanek pri deljenju števila :math:`m` z :math:`n`. Ker e :math:`d` deli :math:`n`, deli tudi :math:`k \cdot n`. Poleg tega :math:`d` deli tudi :math:`m`, zato deli tudi :math:`o = m - k \cdot n`. Velja tudi obratno, če :math:`d` deli :math:`n` in :math:`o`, potem deli tudi :math:`m = k \cdot n + o`.
 

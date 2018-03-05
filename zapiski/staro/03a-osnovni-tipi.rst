@@ -54,7 +54,7 @@ saj Python kompleksna števila predstavi s parom števil s plavajočo vejico. Ta
 kot pri tipu ``float`` tudi pri kompleksnih številih Python vse ostale vrednosti
 v računu, v katerem se pojavi kakšno kompleksno število, pretvori v tip
 ``complex``. Tako kot deljenje ``/``, ki dve celi števili pretvori v ``float``,
-tudi potenciranje na negativnego število samodejno ustvari kompleksna števila:
+tudi potenciranje na negativno število samodejno ustvari kompleksna števila:
 
 .. doctest::
 
