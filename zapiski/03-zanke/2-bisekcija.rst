@@ -1,6 +1,5 @@
-
-Iskanje ničel z bisekcijo
--------------------------
+Bisekcija
+=========
 
 Poglejmo si še enostaven algoritem, s katerim lahko približno izračunamo ničlo
 zvezne realne funkcije :math:`f` na intervalu :math:`[a, b]`, če vemo, da sta
@@ -82,3 +81,62 @@ za telo napišemo enostaven izraz. Zgornji primer bi z njimi pisali kot:
 Funkcij z zapletenejšim telesom in tistih, v katerih uporabljemo več stavkov,
 ne pišemo z lambdami. Tako ali tako je bolje, da zapletenejšim funkcijam damo
 ime, da se vidi, kaj počnejo.
+
+
+    def bisekcija(f, a, b, eps=1e-12):
+        '''Z metodo bisekcije izračuna ničlo f na intervalu [a, b].'''
+        assert f(a) * f(b) < 0
+        while b - a > eps:
+            c = (a + b) / 2
+            if f(a) * f(c) < 0:
+                b = c
+            else:
+                a = c
+        return c
+
+
+Neobvezni argumenti
+-------------------
+
+Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost.
+Na primer, za izračun logaritma potrebujemo dve števili: osnovo in argument
+(tudi logaritmand). Toda velikokrat za osnovo vzamemo :math:`10`, zato namesto
+:math:`\log_{10} x` pišemo kar :math:`\log x`. Tudi pri Pythonu je podobno. Če
+se nam ob klicu funkcije ne ljubi navajati vrednosti vseh argumentov, lahko za
+nekatere od njih v prvi vrstici definicije navedemo privzeto vrednost. Na primer, pri funkciji
+``splosni_fibonacci`` želimo, da imata ``a`` in ``b`` privzeti vrednosti 0 in 1:
+
+.. testcode::
+
+    def splosni_fibonacci(n, a=0, b=1):
+        '''Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.'''
+        if n == 0:
+            return a
+        elif n == 1:
+            return b
+        else:
+            return splosni_fibonacci(n - 1, b, a + b)
+
+Tedaj se bo vedno uporabila privzeta vrednost za tiste argumente, ki jih ne
+podamo izrecno.
+
+    >>> splosni_fibonacci(35)
+    9227465
+    >>> splosni_fibonacci(500)
+    139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125
+    >>> splosni_fibonacci(25, b=2)
+    150050
+    >>> splosni_fibonacci(25, a=1, b=-1)
+    -28657
+
+Klic deluje tudi, če neobveznih argumentov ne poimenujemo, vendar lahko to vodi
+do zmede, zato se takih klicev izogibamo.
+
+.. doctest::
+
+    >>> splosni_fibonacci(25, 1, -1)
+    -28657
+
+
+
+

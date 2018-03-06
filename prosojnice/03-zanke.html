@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Zanke</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+### Uvod v programiranje
+
+# Zanke
+
+---
+
+### Zanka `while` se izvaja, **dokler** velja pogoj
+
+```python
+n = 12
+while n < 1000:
+    n = n * 2
+    print(n)
+```
+
+```python
+24
+48
+96
+192
+384
+768
+1536
+```
+
+---
+
+### Za **obstoječe spremenljivke** pogosto uporabimo **krajši zapis** prireditvenih stavkov
+
+```python
+n = 12
+while n < 1000:
+*   n *= 2
+    print(n)
+```
+
+```
+>>> x = 3
+>>> x += 2
+>>> x *= 4
+>>> x
+20
+```
+---
+
+class: center, middle, question
+
+## Koliko je najmanjši \\(n\\), da velja
+
+# $$\frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} > 15$$
+
+---
+
+class: question
+
+## Največji skupni delitelj
+
+```
+>>> gcd(15, 24)
+3
+>>> gcd(720, 256)
+16
+>>> gcd(32193220816993627, 32193224764336829)
+179424691
+```
+
+---
+
+class: center, middle, question
+
+## Korenjenje brez `**` in `math`
+
+---
+
+### Argumentom funkcij lahko nastavimo<br>**privzete vrednosti**
+
+```
+def koren(x, k=2):
+    return x ** (1 / k)
+```
+
+```
+>>> koren(8, 3)
+2.0
+>>> koren(2)
+1.4142135623730951
+>>> koren(2, 2)
+1.4142135623730951
+```
+
+---
+
+class: center, middle, question
+
+## Iskanje ničle z bisekcijo
+
+---
+
+class: question, center, middle
+
+## Fibonaccijeva števila
+
+---
+
+### Zanka `for` se izvede **po enkrat**<br>za vsako izmed **podanih vrednosti**
+
+```
+for spremenljivka in podane_vrednosti:
+    # stavki, ki se izvedejo
+    # po enkrat za vsako izmed
+    # podanih vrednost spremenljivke
+```
+
+---
+
+### Z zanko `for` se lahko vozimo **po razponih**
+
+```python
+for x in range(5):
+    print(x)
+```
+
+```python
+0
+1
+2
+3
+4
+```
+
+---
+
+### Z zanko `for` se lahko vozimo **po razponih**
+
+```python
+for x in range(5, 10):
+    print(x)
+```
+
+```python
+5
+6
+7
+8
+9
+```
+
+---
+
+### Z zanko `for` se lahko vozimo **po razponih**
+
+```python
+for x in range(5, 10, 2):
+    print(x)
+```
+
+```python
+5
+7
+9
+```
+
+---
+
+### Z zanko `for` se lahko vozimo **po nizih**
+
+```python
+for x in 'abc':
+    print(x)
+```
+
+```python
+a
+b
+c
+```
+
+---
+
+class: question, middle
+
+```
+>>> stevilo_samoglasnikov('Uvod v programiranje')
+7
+>>> stevilo_samoglasnikov('čmrlj')
+0
+>>> stevilo_samoglasnikov('otorinolaringolog')
+8
+```
+```
+>>> brez_samoglasnikov('Uvod v programiranje')
+'vd v prgrmrnj'
+>>> brez_samoglasnikov('čmrlj')
+''
+>>> brez_samoglasnikov('otorinolaringolog')
+'trnlrnglg'
+```
+
+---
+
+### Stavek `break` zanko **prekine**
+
+```python
+for x in range(1, 10):
+    print(x)
+    if x ** 2 > 10:
+        break
+    print(x ** 2)
+```
+
+```python
+1
+1
+2
+4
+3
+9
+4
+```
+
+---
+
+### Stavek `continue` skoči na **naslednji obhod**
+
+```
+for x in range(1, 6):
+    print(x)
+    if x % 3 == 2:
+        continue
+    print('X')
+```
+
+```
+1
+X
+2
+3
+X
+4
+X
+5
+```
+
+</textarea>
+<script src="pomozne-datoteke/jquery-3.1.1.slim.min.js"></script> 
+<script src="pomozne-datoteke/remark-latest.min.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>

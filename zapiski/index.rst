@@ -6,11 +6,7 @@ Uvod v programiranje
 
     01-uvod-v-python
     02-rekurzija
-
-* Zanke
-    * Zanka ``while``
-    * Zanka ``for``
-    * Knjižnica ``turtle``
+    03-zanke
 
 * Seznami
     * Seznami
