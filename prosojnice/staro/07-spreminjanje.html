@@ -20,44 +20,6 @@ class: center, middle
 
 ## Spreminjanje seznamov
 
----
-
-### Sezname lahko tudi spreminjamo
-
-```python
->>> sez = [10, 20, 30]
->>> sez[1]
-20
->>> sez[1] = 40
->>> sez
-[10, 40, 30]
-```
-
----
-
-### Zamenjamo lahko tudi celotno rezino
-
-```python
->>> sez = [10, 20, 30, 40]
->>> sez[1:3]
-[20, 30]
->>> sez[1:3] = [0, 0, 0]
->>> sez
-[10, 0, 0, 0, 40]
-```
-
----
-
-### Elemente lahko tudi brišemo
-
-```python
->>> sez = [10, 20, 30]
->>> sez[1]
-20
->>> del sez[1]
->>> sez
-[10, 30]
-```
 
 ---
 
@@ -190,50 +152,6 @@ class: question, center, middle
 class: question, center, middle
 
 ## Seznam delnih vsot
-
----
-
-### Seznami so spremenljive strukture
-
-```python
->>> x = [1, 1, 1]
->>> y = x
->>> x = [2, 2, 2]
->>> y
-[1, 1, 1]
-```
-
-```python
->>> x = [1, 1, 1]
->>> y = x
->>> x[2] = 2
->>> y
-[1, 1, 2]
-```
-
----
-
-### Da je zmeda večja, `+=` ni isto kot `=` & `+`
-
-```python
->>> x = [1, 1, 1]
->>> y = x
->>> x += [2, 2, 2]
->>> x
-[1, 1, 1, 2, 2, 2]
->>> y
-[1, 1, 1, 2, 2, 2]
-```
-
-```python
->>> x = [1, 1, 1]
->>> y = x
->>> x = x + [2, 2, 2]
->>> x
-[1, 1, 1, 2, 2, 2]
->>> y
-[1, 1, 1]
-```
 
 ---
 
