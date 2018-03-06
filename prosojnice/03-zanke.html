@@ -108,6 +108,22 @@ class: center, middle, question
 
 ---
 
+### Kratke in preproste funkcije *lahko*<br>zapišemo z **anonimnimi funkcijami**
+
+```
+def moj_polinom(x):
+    return x ** 2 - 2
+```
+
+```
+>>> bisekcija(moj_polinom, 0, 2)
+1.414213562355144
+>>> bisekcija(lamdbda x: x ** 2 - 2, 0, 2)
+1.414213562355144
+```
+
+---
+
 class: question, center, middle
 
 ## Fibonaccijeva števila
@@ -213,21 +229,19 @@ class: question, middle
 ### Stavek `break` zanko **prekine**
 
 ```python
-for x in range(1, 10):
+for x in range(1, 5):
     print(x)
-    if x ** 2 > 10:
+    if x % 3 == 0:
         break
-    print(x ** 2)
+    print('x')
 ```
 
 ```python
 1
-1
+x
 2
-4
+x
 3
-9
-4
 ```
 
 ---
@@ -235,22 +249,44 @@ for x in range(1, 10):
 ### Stavek `continue` skoči na **naslednji obhod**
 
 ```
-for x in range(1, 6):
+for x in range(1, 5):
     print(x)
-    if x % 3 == 2:
+    if x % 3 == 0:
         continue
-    print('X')
+    print('x')
 ```
 
 ```
 1
-X
+x
 2
+x
 3
-X
 4
-X
-5
+x
+```
+
+---
+
+### Stavek `pass` ne naredi **ničesar**
+
+```
+for x in range(1, 5):
+    print(x)
+    if x % 3 == 0:
+        pass
+    print('x')
+```
+
+```
+1
+x
+2
+x
+3
+x
+4
+x
 ```
 
 </textarea>

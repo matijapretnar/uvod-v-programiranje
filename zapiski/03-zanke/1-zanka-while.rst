@@ -6,9 +6,9 @@ Z zanko ``while`` določene ukaze izvajamo toliko časa, dokler velja dani pogoj
 .. code::
 
     while pogoj:
-        stavki
-        ki_naj_se_izvajajo
-        dokler_velja_pogoj
+        # stavki, 
+        # ki naj se izvajajo
+        # dokler velja pogoj
 
 Na primer, program
 
