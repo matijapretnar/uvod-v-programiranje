@@ -17,6 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Abecedni seznam" href="genindex.html" />
     <link rel="search" title="Išči" href="search.html" />
+    <link rel="next" title="Zanke" href="03-zanke.html" />
     <link rel="prev" title="Uvod v Python" href="01-uvod-v-python.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -201,44 +202,6 @@
 </div>
 <p>Pomembno ni torej samo to, da naš program pravilno izračuna iskani rezultat, temveč tudi to, kako učinkovito ga izračuna.</p>
 </div>
-<div class="section" id="algoritmi">
-<h2>Algoritmi<a class="headerlink" href="#algoritmi" title="Povezava na naslov">¶</a></h2>
-<p>Algoritem je zaporedje korakov, s katerimi dobimo iskani rezultat. Načeloma lahko pod besedo algoritem razumemo tudi zaporedje korakov, s katerimi si skuhamo jajca (vzemi posodo; odpri pipo; postavi posodo pod pipo; ko je posoda dovolj polna, zapri pipo; …), ampak mi si jo bomo prihranili za postopke, s katerimi izračunamo želene vrednosti.</p>
-<div class="section" id="evklidov-algoritem">
-<h3>Evklidov algoritem<a class="headerlink" href="#evklidov-algoritem" title="Povezava na naslov">¶</a></h3>
-<p>Za prvi algoritem se spodobi, da si pogledamo najstarejši znani algoritem in sicer Evklidov algoritem za iskanje navečjega skupnega delitelja dveh števil. Naj bo <span class="math notranslate">\(d\)</span> največji skupni delitelj števil <span class="math notranslate">\(m\)</span> in <span class="math notranslate">\(n\)</span>. Pišimo <span class="math notranslate">\(m = k \cdot n + o\)</span>, kjer je <span class="math notranslate">\(0 \le o &lt; n\)</span>. Torej: <span class="math notranslate">\(o\)</span> je ostanek pri deljenju števila <span class="math notranslate">\(m\)</span> z <span class="math notranslate">\(n\)</span>. Ker e <span class="math notranslate">\(d\)</span> deli <span class="math notranslate">\(n\)</span>, deli tudi <span class="math notranslate">\(k \cdot n\)</span>. Poleg tega <span class="math notranslate">\(d\)</span> deli tudi <span class="math notranslate">\(m\)</span>, zato deli tudi <span class="math notranslate">\(o = m - k \cdot n\)</span>. Velja tudi obratno, če <span class="math notranslate">\(d\)</span> deli <span class="math notranslate">\(n\)</span> in <span class="math notranslate">\(o\)</span>, potem deli tudi <span class="math notranslate">\(m = k \cdot n + o\)</span>.</p>
-<p>Zato lahko iskanje največjega skupnega delitelja števil <span class="math notranslate">\(m\)</span> in <span class="math notranslate">\(n\)</span> prevedemo na iskanje največjega skupnega delitelja števil <span class="math notranslate">\(n\)</span> in <span class="math notranslate">\(o\)</span>. Videti je, kot da se vrtimo v krogu, vendar se ne. Poglejmo, kaj se zgodi:</p>
-<ol class="arabic simple">
-<li>Največji skupni delitelj števil <span class="math notranslate">\(456\)</span> in <span class="math notranslate">\(123\)</span> je enak
-največjemu skupnemu delitelju števil <span class="math notranslate">\(123\)</span> in <span class="math notranslate">\(456 - 3 \cdot 123 = 87\)</span>.</li>
-<li>Največji skupni delitelj števil <span class="math notranslate">\(123\)</span> in <span class="math notranslate">\(87\)</span> je enak
-največjemu skupnemu delitelju števil <span class="math notranslate">\(87\)</span> in <span class="math notranslate">\(123 - 1 \cdot 87 = 36\)</span>.</li>
-<li>Največji skupni delitelj števil <span class="math notranslate">\(87\)</span> in <span class="math notranslate">\(36\)</span> je enak
-največjemu skupnemu delitelju števil <span class="math notranslate">\(36\)</span> in <span class="math notranslate">\(123 - 2 \cdot 36 = 15\)</span>.</li>
-<li>Največji skupni delitelj števil <span class="math notranslate">\(36\)</span> in <span class="math notranslate">\(15\)</span> je enak
-največjemu skupnemu delitelju števil <span class="math notranslate">\(15\)</span> in <span class="math notranslate">\(36 - 2 \cdot 15 = 6\)</span>.</li>
-<li>Največji skupni delitelj števil <span class="math notranslate">\(15\)</span> in <span class="math notranslate">\(6\)</span> je enak
-največjemu skupnemu delitelju števil <span class="math notranslate">\(6\)</span> in <span class="math notranslate">\(15 - 2 \cdot 6 = 3\)</span>.</li>
-<li>Največji skupni delitelj števil <span class="math notranslate">\(6\)</span> in <span class="math notranslate">\(3\)</span> je enak
-največjemu skupnemu delitelju števil <span class="math notranslate">\(3\)</span> in <span class="math notranslate">\(6 - 2 \cdot 3 = 0\)</span>.</li>
-</ol>
-<p>Postopka ne moremo več nadaljevati, ker ne moremo deliti z nič. Kaj pa je največji skupni delitelj števil 3 in 0? Ja, 3 vendar. Torej, ko je drugo število enako 0, je prvo število ravno njun največji skupni delitelj, po vseh prejšnjih sklepih pa tudi največji skupni delitelj vseh prejšnjih parov vključno s prvim.</p>
-<p>Evklidov algoritem je torej sledeč: če je <span class="math notranslate">\(n = 0\)</span>, potem je največji skupni delitelj števil <span class="math notranslate">\(m\)</span> in <span class="math notranslate">\(n\)</span> enak kar <span class="math notranslate">\(m\)</span>, sicer pa je enak največjemu skupnemu delitelju števil <span class="math notranslate">\(n\)</span> in <span class="math notranslate">\(o\)</span>, kjer je <span class="math notranslate">\(o\)</span> ostanek pri deljenju <span class="math notranslate">\(m\)</span> z <span class="math notranslate">\(n\)</span>. Ta postopek enostavno prevedemo v Python:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">m</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Pri tem je <code class="docutils literal notranslate"><span class="pre">gcd</span></code> (<em>greatest common divisor</em>) običajna oznaka za največjega skupnega delitelja.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gcd</span><span class="p">(</span><span class="mi">456</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
-<span class="go">3</span>
-</pre></div>
-</div>
-<p>Algoritem deluje tudi, kadar je <span class="math notranslate">\(n &lt; m\)</span>, saj je v tem primeru <span class="math notranslate">\(n = 0 \cdot m + n\)</span>, zato v naslednjem koraku njuni mesti zamenjamo in nadaljujemo kot prej.</p>
-</div>
-</div>
 </div>
 
 
@@ -259,10 +222,6 @@ največjemu skupnemu delitelju števil <span class="math notranslate">\(3\)</spa
 </ul>
 </li>
 <li><a class="reference internal" href="#rekurzivni-klici">Rekurzivni klici</a></li>
-<li><a class="reference internal" href="#algoritmi">Algoritmi</a><ul>
-<li><a class="reference internal" href="#evklidov-algoritem">Evklidov algoritem</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -271,6 +230,7 @@ največjemu skupnemu delitelju števil <span class="math notranslate">\(3\)</spa
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="01-uvod-v-python.html" title="prejšnje poglavje">Uvod v Python</a></li>
+      <li>Next: <a href="03-zanke.html" title="naslednje poglavje">Zanke</a></li>
   </ul></li>
 </ul>
 </div>
