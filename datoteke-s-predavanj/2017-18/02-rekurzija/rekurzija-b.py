@@ -20,16 +20,13 @@ def pocasni_fibonacci(n):
 
 
 
-def posploseni_fibonacci(a, b, n):
+def fibonacci(n, a=0, b=1):
     if n == 0:
         return a
     elif n == 1:
         return b
     else:
-        return posploseni_fibonacci(b, a + b, n - 1)
-
-def fibonacci(n):
-    return posploseni_fibonacci(0, 1, n)
+        return fibonacci(n - 1, a=b, b=(a + b))
 
 
 def stevilo_samoglasnikov(niz):
@@ -80,11 +77,25 @@ def stevilo_stolpov(n):
 def stevilo_izmenjujocih_stolpov(n):
     if n == 0:
         return 1
+    else:
+        return stevilo_rdecih_stolpov(n) + stevilo_modrih_stolpov(n)
+
+def stevilo_modrih_stolpov(n):
+    if n == 0:
+        return 1
     elif n < 0:
         return 0
     else:
-        na_dnu_rdeca_1 = stevilo_izmenjujocih_stolpov(n - 1)
-        na_dnu_rdeca_2 = stevilo_izmenjujocih_stolpov(n - 2)
-        na_dnu_modra_2 = stevilo_izmenjujocih_stolpov(n - 2)
-        na_dnu_modra_3 = stevilo_izmenjujocih_stolpov(n - 3)
-        return na_dnu_rdeca_1 + na_dnu_rdeca_2 + na_dnu_modra_2 + na_dnu_modra_3
+        na_dnu_modra_2 = stevilo_rdecih_stolpov(n - 2)
+        na_dnu_modra_3 = stevilo_rdecih_stolpov(n - 3)
+        return na_dnu_modra_2 + na_dnu_modra_3
+
+def stevilo_rdecih_stolpov(n):
+    if n == 0:
+        return 1
+    elif n < 0:
+        return 0
+    else:
+        na_dnu_rdeca_1 = stevilo_modrih_stolpov(n - 1)
+        na_dnu_rdeca_2 = stevilo_modrih_stolpov(n - 2)
+        return na_dnu_rdeca_1 + na_dnu_rdeca_2
