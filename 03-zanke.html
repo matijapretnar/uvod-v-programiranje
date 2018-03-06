@@ -366,19 +366,9 @@ prekinemo.</p>
 </div>
 <div class="section" id="manjkajoca-veja-else">
 <h3>Manjkajoča veja <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#manjkajoca-veja-else" title="Povezava na naslov">¶</a></h3>
-<p>Če želimo, lahko vejo <code class="docutils literal notranslate"><span class="pre">else</span></code> tudi izpustimo (tako v običajnem kot v razširjenem pogojnem stavku). V tem primeru se ob neizpolnjevanju pogoja ne zgodi nič. Na ta način bi izračun osnovnih točk lahko pisali tudi kot:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="go">osnovne_tocke = 60</span>
-<span class="go">if k_tocka &gt;= 170:</span>
-<span class="go">    osnovne_tocke = 120</span>
-</pre></div>
-</div>
-<p>Torej, <code class="docutils literal notranslate"><span class="pre">osnovne_tocke</span></code> najprej nastavimo na 60, v primeru da gre za letalnico, pa jih popravimo na 120. Vrstni red izvajanja je seveda pomemben. Če bi pisali</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="go">if k_tocka &gt;= 170:</span>
-<span class="go">    osnovne_tocke = 120</span>
-<span class="go">osnovne_tocke = 60</span>
-</pre></div>
-</div>
-<p>bi osnovne točke vedno nastavili na 60.</p>
+<p>Kot vidimo zgoraj, lahko vejo <code class="docutils literal notranslate"><span class="pre">else</span></code> tudi izpustimo (tako v običajnem kot v
+razširjenem pogojnem stavku). V tem primeru se ob neizpolnjevanju pogoja ne
+zgodi nič.</p>
 </div>
 <div class="section" id="stavki-break-continue-in-pass">
 <h3>Stavki <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> in <code class="docutils literal notranslate"><span class="pre">pass</span></code><a class="headerlink" href="#stavki-break-continue-in-pass" title="Povezava na naslov">¶</a></h3>
