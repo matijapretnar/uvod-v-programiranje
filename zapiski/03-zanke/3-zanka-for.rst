@@ -14,7 +14,7 @@ Zanko ``while`` torej uporabimo takrat, kadar želimo ukaze ponavljati, dokler v
             i += 1
         return produkt
 
-vendar vemo, da se bo zanka izvedla natanko enkrat za vsako število od n do 0. Poleg tega se nam hitro zgodi, da vrstico ``i += 1`` po nesreči pozabimo ali napišemo kot ``i + 1`` ali kot ``i = 1``, zaradi česar se zanka izvaja v neskončnost. Za primere, ko vemo, kolikokrat izvedemo določeno kodo, raje uporabimo zanko ``for``.
+vendar vemo, da se bo zanka izvedla natanko enkrat za vsako število od 1 do :math:`n`. Poleg tega se nam hitro zgodi, da vrstico ``i += 1`` po nesreči pozabimo ali napišemo kot ``i + 1`` ali kot ``i = 1``, zaradi česar se zanka izvaja v neskončnost. Za primere, ko vemo, kolikokrat izvedemo določeno kodo, raje uporabimo zanko ``for``.
 
 .. code::
 

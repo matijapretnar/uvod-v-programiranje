@@ -10,7 +10,7 @@ Poglejmo si enostaven algoritem, s katerim lahko izračunamo kvadratni koren poz
 * Če je :math:`c^2 > n`, je tudi :math:`c > \sqrt{n}`, zato lahko na podoben način nadaljujemo z iskanjem korena na intervalu :math:`[a, c]`.
 * V nasprotnem primeru pa mora biti :math:`c^2 < n` in :math:`c < \sqrt{n}`, zato lahko z iskanjem nadaljujemo na intervalu :math:`[c, b]`.
 
-Ker interval vedno razdelimo na pol, postopku pravimo *bisekcija*. Ker lahko realna števila poljubno delimo, se zgornji postopek ne bo nikoli ustavil (razen, če imamo srečo in naletimo točno na ničlo). Toda ker nas zanima le približek ničle, lahko postopek ustavimo takrat, ko se krajišči intervala razlikujeta za dovolj majhno vrednost :math:`\varepsilon`. Načeloma v algoritmu prvo možnost (ko je :math:`c^2 = n`) kar izpustimo, saj je preveč redka, pa tudi brez nje algoritem najde pravo rešitev.
+Ker interval vedno razdelimo na pol, postopku pravimo *bisekcija*. Ker lahko realna števila poljubno delimo, se zgornji postopek ne bo nikoli ustavil (razen, če imamo srečo in naletimo točno na koren). Toda ker nas zanima le približek korena, lahko postopek ustavimo takrat, ko se krajišči intervala razlikujeta za dovolj majhno vrednost :math:`\varepsilon`. Načeloma v algoritmu prvo možnost (ko je :math:`c^2 = n`) kar izpustimo, saj je preveč redka, pa tudi brez nje algoritem najde pravo rešitev.
 
 V Pythonu bi algoritem zapisali kot:
 
