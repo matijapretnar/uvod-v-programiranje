@@ -164,7 +164,7 @@ prekinemo.</p>
 <li>Če je <span class="math notranslate">\(c^2 &gt; n\)</span>, je tudi <span class="math notranslate">\(c &gt; \sqrt{n}\)</span>, zato lahko na podoben način nadaljujemo z iskanjem korena na intervalu <span class="math notranslate">\([a, c]\)</span>.</li>
 <li>V nasprotnem primeru pa mora biti <span class="math notranslate">\(c^2 &lt; n\)</span> in <span class="math notranslate">\(c &lt; \sqrt{n}\)</span>, zato lahko z iskanjem nadaljujemo na intervalu <span class="math notranslate">\([c, b]\)</span>.</li>
 </ul>
-<p>Ker interval vedno razdelimo na pol, postopku pravimo <em>bisekcija</em>. Ker lahko realna števila poljubno delimo, se zgornji postopek ne bo nikoli ustavil (razen, če imamo srečo in naletimo točno na ničlo). Toda ker nas zanima le približek ničle, lahko postopek ustavimo takrat, ko se krajišči intervala razlikujeta za dovolj majhno vrednost <span class="math notranslate">\(\varepsilon\)</span>. Načeloma v algoritmu prvo možnost (ko je <span class="math notranslate">\(c^2 = n\)</span>) kar izpustimo, saj je preveč redka, pa tudi brez nje algoritem najde pravo rešitev.</p>
+<p>Ker interval vedno razdelimo na pol, postopku pravimo <em>bisekcija</em>. Ker lahko realna števila poljubno delimo, se zgornji postopek ne bo nikoli ustavil (razen, če imamo srečo in naletimo točno na koren). Toda ker nas zanima le približek korena, lahko postopek ustavimo takrat, ko se krajišči intervala razlikujeta za dovolj majhno vrednost <span class="math notranslate">\(\varepsilon\)</span>. Načeloma v algoritmu prvo možnost (ko je <span class="math notranslate">\(c^2 = n\)</span>) kar izpustimo, saj je preveč redka, pa tudi brez nje algoritem najde pravo rešitev.</p>
 <p>V Pythonu bi algoritem zapisali kot:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kvadratni_koren</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">eps</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;Z metodo bisekcije poišče koren števila n.&#39;&#39;&#39;</span>
@@ -281,7 +281,7 @@ prekinemo.</p>
     <span class="k">return</span> <span class="n">produkt</span>
 </pre></div>
 </div>
-<p>vendar vemo, da se bo zanka izvedla natanko enkrat za vsako število od n do 0. Poleg tega se nam hitro zgodi, da vrstico <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">1</span></code> po nesreči pozabimo ali napišemo kot <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+</span> <span class="pre">1</span></code> ali kot <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">1</span></code>, zaradi česar se zanka izvaja v neskončnost. Za primere, ko vemo, kolikokrat izvedemo določeno kodo, raje uporabimo zanko <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p>
+<p>vendar vemo, da se bo zanka izvedla natanko enkrat za vsako število od 1 do <span class="math notranslate">\(n\)</span>. Poleg tega se nam hitro zgodi, da vrstico <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">1</span></code> po nesreči pozabimo ali napišemo kot <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+</span> <span class="pre">1</span></code> ali kot <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">1</span></code>, zaradi česar se zanka izvaja v neskončnost. Za primere, ko vemo, kolikokrat izvedemo določeno kodo, raje uporabimo zanko <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p>
 <div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">spremenljivka</span> <span class="ow">in</span> <span class="n">podane_vrednosti</span><span class="p">:</span>
     <span class="c1"># stavki, ki se izvedejo</span>
     <span class="c1"># po enkrat za vsako izmed</span>
@@ -363,15 +363,96 @@ prekinemo.</p>
 <span class="go">&#39;vd v prgrmrnj&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="manjkajoca-veja-else">
-<h3>Manjkajoča veja <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#manjkajoca-veja-else" title="Povezava na naslov">¶</a></h3>
 <p>Kot vidimo zgoraj, lahko vejo <code class="docutils literal notranslate"><span class="pre">else</span></code> tudi izpustimo (tako v običajnem kot v
 razširjenem pogojnem stavku). V tem primeru se ob neizpolnjevanju pogoja ne
 zgodi nič.</p>
 </div>
 <div class="section" id="stavki-break-continue-in-pass">
 <h3>Stavki <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> in <code class="docutils literal notranslate"><span class="pre">pass</span></code><a class="headerlink" href="#stavki-break-continue-in-pass" title="Povezava na naslov">¶</a></h3>
+<p>V zankah lahko uporabimo tudi posebne ukaze, ki spreminjajo običajen potek programa. Stavek <code class="docutils literal notranslate"><span class="pre">break</span></code> prekine trenutno zanko. Na primer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>izmenično izpisuje števila od 1 do 4 ter znak <code class="docutils literal notranslate"><span class="pre">x</span></code>. V trenutku, ko pride do števila 2, ki zadošča pogoju <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">2</span> <span class="pre">or</span> <span class="pre">n</span> <span class="pre">==</span> <span class="pre">3</span></code>, izvajanje zanke v celoti prekine, zato izpiše le</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+x
+2
+</pre></div>
+</div>
+<p>Primer je napisan za zanko <code class="docutils literal notranslate"><span class="pre">for</span></code>, vendar enako deluje tudi za zanko <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
+<p>Stavek <code class="docutils literal notranslate"><span class="pre">continue</span></code> zanke ne ustavi, temveč le preskoči preostanek trenutnega obhoda zanke in gre nazaj na začetek z naslednjo vrednostjo. Na primer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>pri številih 2 in 3, ki zadoščata pogoju, preskoči izpis znaka <code class="docutils literal notranslate"><span class="pre">x</span></code>, ki bi moral slediti. Celoten izpis je tako:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+x
+2
+3
+4
+x
+</pre></div>
+</div>
+<p>Tudi stavek <code class="docutils literal notranslate"><span class="pre">continue</span></code> deluje tako za zanko <code class="docutils literal notranslate"><span class="pre">for</span></code> kot za zanko <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
+<p>Stavek <code class="docutils literal notranslate"><span class="pre">pass</span></code> pa ne stori ničesar. Na primer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>pri številih 2 in 3, ki zadoščata pogoju, vstopi v pogojni stavek, vendar tam ne stori ničesar. Tako je izpis enak, kakor bi bil za program brez pogojnega stavka:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+x
+2
+x
+3
+x
+4
+x
+</pre></div>
+</div>
+<p>Stavek <code class="docutils literal notranslate"><span class="pre">pass</span></code> lahko uporabljamo kjerkoli v Pythonu, ne le v zankah. Najpogosteje ga uporabimo takrat, kadar Python zahteva, da napišemo vsaj en ukaz, vendar ne želimo storiti ničesar. Recimo, da imamo program:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je sod&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je lih&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>in za trenutek želimo izklopiti izpisovanje sodih števil. Če bi napisali le</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># print(x, &#39;je sod&#39;)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je lih&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>bi se Python pritožil, da je prva veja pogojnega stavka prazna, saj komentarje ignorira. Seveda bi lahko celoten program preuredili v</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je lih&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>vendar tega ne želimo (sploh pri večjih programih). S pomočjo stavka <code class="docutils literal notranslate"><span class="pre">pass</span></code> pa lahko napišemo</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># print(x, &#39;je sod&#39;)</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je lih&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tudi če se odločimo, da bi zopet vklopili izpisovanje, lahko stavek <code class="docutils literal notranslate"><span class="pre">pass</span></code> pustimo v kodi, ker ne stori ničesar.</p>
 </div>
 </div>
 </div>
@@ -396,7 +477,6 @@ zgodi nič.</p>
 <li><a class="reference internal" href="#zanka-for">Zanka <code class="docutils literal notranslate"><span class="pre">for</span></code></a><ul>
 <li><a class="reference internal" href="#zanka-for-na-razponih">Zanka <code class="docutils literal notranslate"><span class="pre">for</span></code> na razponih</a></li>
 <li><a class="reference internal" href="#zanka-for-na-nizih">Zanka <code class="docutils literal notranslate"><span class="pre">for</span></code> na nizih</a></li>
-<li><a class="reference internal" href="#manjkajoca-veja-else">Manjkajoča veja <code class="docutils literal notranslate"><span class="pre">else</span></code></a></li>
 <li><a class="reference internal" href="#stavki-break-continue-in-pass">Stavki <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> in <code class="docutils literal notranslate"><span class="pre">pass</span></code></a></li>
 </ul>
 </li>
