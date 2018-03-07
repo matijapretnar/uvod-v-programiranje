@@ -35,13 +35,27 @@ False
 
 ---
 
-class: center, middle, question
+class: middle, question
 
-## Funkcija, ki izračuna povprečje elementov seznama
+```
+>>> povprecje([1, 2, 3])
+2.0
+>>> povprecje([])
+>>> povprecje([1, 2, 4, 8, 16])
+6.2
+```
+
+```
+>>> razpon([1, 2, 3])
+2
+>>> razpon([])
+>>> razpon([1, 2, 4, 8, 16])
+15
+```
 
 ---
 
-### Do vrednosti v seznamih dostopamo **kot pri nizih**
+### Do vrednosti dostopamo **kot pri nizih**
 
 ```
 >>> prastevila = [2, 3, 5, 7, 11, 13, 17]
@@ -74,98 +88,44 @@ class: center, middle, question
 ```python
 for x in [10, 20, 30]:
     print(x)
-    print('A')
-    print(x)
 ```
 
 ```python
-10
-A
 10
 20
-A
-20
-30
-A
 30
 ```
 
 ---
 
-class: center, middle, question
-
-## Funkcije, ki izračunajo<br>dolžino seznama,<br>vsoto elementov seznama in<br>največji element seznama
-
----
-
-class: center, middle, question
-
-## Funkcija, ki izračuna najdaljši podseznam
-
----
-
-class: center, middle, question
-
-## Funkcija, ki izračuna vsoto vseh elementov matrike
-
----
-
-class: center, middle, question
-
-## Funkcija, ki izračuna sled matrike
-
----
-
-### Poleg seznamov Python pozna tudi **nabore**
+class: middle, question
 
 ```
->>> (True, False) + (True,)
-(True, False, True)
->>> 3 * ('x', 'y')
-('x', 'y', 'x', 'y', 'x', 'y')
->>> 5 in (1, 2, 3)
-False
->>> (1, 2, 5, 10, 20, 50)[3]
-10
->>> (1, 2, 5, 10, 20, 50)[3:]
-(10, 20, 50)
+>>> najdaljsi_podseznam([[1, 2], [3, 4, 5], [6]])
+[3, 4, 5]
+>>> najdaljsi_podseznam([])
+>>> najdaljsi_podseznam([[1, 2, 3], [4, 5, 6]])
+[1, 2, 3]
+```
+
+```
+>>> absolutno_najvecji([-5, 2, 10, -13, 0])
+-13
+>>> absolutno_najvecji([])
+>>> absolutno_najvecji([10, 20, 30, -40])
+-40
 ```
 
 ---
 
-### Tudi na naborih imamo na voljo zanko `for`
-
-```python
-for x in ('a', 'b', 'c'):
-    print(x)
-```
-
---
-
-```python
-a
-b
-c
-```
-
----
-
-### Kdaj uporabimo sezname, kdaj pa nabore?
-
-#### Nabori: fiksna dolžina, različni pomeni
+class: middle, question
 
 ```
->>> datum = (8, 3, 2017)
->>> fmf = (46.0422504, 14.4897114)
->>> jaz = ('Matija', 'Pretnar', 27004498)
-```
-
-#### Seznami: poljubna dolžina, en pomen
-
-```
->>> leta = [2012, 2016, 2020, 2024]
->>> opravili_bodo_uvp = []
->>> datumi = [(8, 3, 2017), (25, 6, 1991)]
+>>> m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> vsota_elementov(m)
+45
+>>> sled(m)
+15
 ```
 
 ---
@@ -235,8 +195,6 @@ c
 >>> x = [1, 1, 1]
 >>> y = x
 >>> x += [2, 2, 2]
->>> x
-[1, 1, 1, 2, 2, 2]
 >>> y
 [1, 1, 1, 2, 2, 2]
 ```
@@ -245,14 +203,63 @@ c
 >>> x = [1, 1, 1]
 >>> y = x
 >>> x = x + [2, 2, 2]
->>> x
-[1, 1, 1, 2, 2, 2]
 >>> y
 [1, 1, 1]
 ```
 
 ---
 
+### Poleg seznamov Python pozna tudi **nabore**
+
+```
+>>> (True, False) + (True,)
+(True, False, True)
+>>> 3 * ('x', 'y')
+('x', 'y', 'x', 'y', 'x', 'y')
+>>> 5 in (1, 2, 3)
+False
+>>> (1, 2, 5, 10, 20, 50)[3]
+10
+>>> (1, 2, 5, 10, 20, 50)[3:]
+(10, 20, 50)
+```
+
+---
+
+### Tudi na naborih imamo na voljo zanko `for`
+
+```python
+for x in ('a', 'b', 'c'):
+    print(x)
+```
+
+```python
+a
+b
+c
+```
+
+---
+
+### Kdaj uporabimo sezname, kdaj pa nabore?
+
+#### Nabori: fiksna dolžina, različni pomeni
+
+```
+>>> datum = (8, 3, 2017)
+>>> fmf = (46.0422504, 14.4897114)
+>>> jaz = ('Matija', 'Pretnar', 27004498)
+```
+
+#### Seznami: poljubna dolžina, en pomen
+
+```
+>>> leta = [2012, 2016, 2020, 2024]
+>>> opravili_bodo_uvp = []
+>>> datumi = [(8, 3, 2017), (25, 6, 1991)]
+```
+
+---
 
 ### Nabori in nizi so **nespremenljive strukture**
 
