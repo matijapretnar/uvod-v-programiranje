@@ -7,17 +7,13 @@ Uvod v programiranje
     01-uvod-v-python
     02-rekurzija
     03-zanke
+    04-seznami
 
-* Seznami
-    * Seznami
-    * Nabori
-    * Spremenljivost seznamov
+* Objekti
 
 * Slovarji
     * Slovarji
     * Množice
-
-* Funkcije
 
 * Iterabilni objekti
     * Izpeljane strukture
@@ -27,8 +23,6 @@ Uvod v programiranje
     * Kodne tabele
     * Branje in pisanje datotek
     * Delo z datotečnim sistemom
-
-* Objekti
 
 * Nadzor različic
 

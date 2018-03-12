@@ -71,18 +71,6 @@ class: middle, question
 
 ---
 
-### Sezname lahko tudi **gnezdimo**
-
-```
->>> m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
->>> m[1]
-[4, 5, 6]
->>> m[1][2]
-6
-```
-
----
-
 ### Po seznamih se lahko vozimo z **zanko** `for`
 
 ```python
@@ -94,6 +82,30 @@ for x in [10, 20, 30]:
 10
 20
 30
+```
+
+---
+
+class: middle, question
+
+```
+>>> vsota_elementov([-5, 2, 10, -13, 0])
+-6
+>>> vsota_elementov([])
+0
+```
+
+```
+>>> stevilo_elementov([-5, 2, 10, -13, 0])
+5
+>>> stevilo_elementov([])
+0
+```
+
+```
+>>> najvecji_element([-5, 2, 10, -13, 0])
+10
+>>> najvecji_element([])
 ```
 
 ---
@@ -114,6 +126,18 @@ class: middle, question
 >>> absolutno_najvecji([])
 >>> absolutno_najvecji([10, 20, 30, -40])
 -40
+```
+
+---
+
+### Sezname lahko tudi **gnezdimo**
+
+```
+>>> m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> m[1]
+[4, 5, 6]
+>>> m[1][2]
+6
 ```
 
 ---

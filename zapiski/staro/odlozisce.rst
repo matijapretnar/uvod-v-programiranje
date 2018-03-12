@@ -1,29 +1,18 @@
-
-Dokumentacijski niz*
---------------------
-
-Pred telesom funkcije dostikrat lahko zapišemo tudi  *dokumentacijski niz* oziroma *docstring*. Ta niz ponavadi zapišemo med trojne enojne navednice, v njem pa na kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa koristna, saj lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s pomočjo funkcije ``help``.
+ Namesto tega lahko uporabimo izpeljani seznam:
 
 .. testcode::
 
-    import math
-
-    def ploscina_trikotnika(a, b, c):
-        '''Vrne ploščino trikotnika z danimi stranicami.'''
-        s = (a + b + c) / 2
-        return math.sqrt(s * (s - a) * (s - b) * (s - c))
-
+    def identicna_matrika(n):
+        '''Vrne identično matriko velikosti n x n.'''
+        matrika = [n * [0] for _ in range(n)]
+        for k in range(len(matrika)):
+            matrika[k][k] = 1
+        return matrika
 
 .. doctest::
 
-    >>> help(ploscina_trikotnika)
-    Help on function ploscina_trikotnika:
-    <BLANKLINE>
-    ploscina_trikotnika(a, b, c)
-        Vrne ploščino trikotnika z danimi stranicami.
-    <BLANKLINE>
-
-
+    >>> identicna_matrika(3)
+    [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
 
 Primer: smučarski skoki
 -----------------------
@@ -192,9 +181,7 @@ vpliv na nadaljnje izvajanje programov.
 Pogojni izraz
 -------------
 
-O razliki med izrazi in stavki govorimo o tem, ker Python poleg pogojnih stavkov
-podpira tudi pogojne izraze, s katerimi nekatere stvari napišemo malo elegantneje.
-Na primer, zgornjo določitev osnovnih točk bi lahko pisali kot:
+Python poleg pogojnih stavkov podpira tudi pogojne izraze, s katerimi nekatere stvari napišemo malo elegantneje. Na primer, zgornjo določitev osnovnih točk bi lahko pisali kot:
 
 .. testcode::
 
@@ -209,18 +196,13 @@ Na primer, zgornjo določitev osnovnih točk bi lahko pisali kot:
     else:
         60
 
-bi dobili sintaktično napako, saj smo na mestu izraza uporabili stavek. V
-pogojnih izrazih moramo vedno napisati obe možnosti, prav tako pa ne moremo
-uporabiti ``elif``-a, zato spremenljivke ``vrednost_metra`` z njimi ne bi mogli
-nastaviti. No, načeloma bi jo lahko z
+bi dobili sintaktično napako, saj smo na mestu izraza uporabili stavek. V pogojnih izrazih moramo vedno napisati obe možnosti, prav tako pa ne moremo uporabiti ``elif``-a, zato spremenljivke ``vrednost_metra`` z njimi ne bi mogli nastaviti. No, načeloma bi jo lahko z
 
 .. testcode::
 
     vrednost_metra = 1.2 if k_tocka >= 170 else 1.8 if k_tocka >= 100 else 2
 
-samo to je preveč natlačeno, da bi bilo berljivo. Pogojni stavki so torej precej
-omejeni, ampak vseeno jih omenjamo, ker znajo včasih kakšno stvar narediti
-preglednejšo.
+samo to je preveč natlačeno, da bi bilo berljivo. Pogojni stavki so torej precej omejeni, ampak vseeno jih omenjamo, ker znajo včasih kakšno stvar narediti preglednejšo.
 
 
 
@@ -245,63 +227,3 @@ ali s pogojnim izrazom kot
 
 
 
-Stavek ``assert``
------------------
-
-Tudi funkcija ``splosni_fibonacci`` še ni popolna. Kaj se zgodi, če pokličemo
-``splosni_fibonacci(-2)``? Ker -2 ni enako ne 0 ne 1, bomo izvedli tretjo
-vejo pogojnega stavka in izračunali ``splosni_fibonacci(-3, ...)``, iz tega
-pa podobno ``splosni_fibonacci(-4, ...)`` in tako naprej, vse do trenutka, ko
-se bo Python pritožil:
-
-.. doctest::
-
-    >>> splosni_fibonacci(-2)
-    Traceback (most recent call last):
-      ...
-      File "...", line 8, in splosni_fibonacci
-      File "...", line 8, in splosni_fibonacci
-      File "...", line 8, in splosni_fibonacci
-      File "...", line 8, in splosni_fibonacci
-      File "...", line 8, in splosni_fibonacci
-      File "...", line 8, in splosni_fibonacci
-      File "...", line 3, in splosni_fibonacci
-    RecursionError: maximum recursion depth exceeded in comparison
-
-Pravi nam, da je naša rekurzija šla pregloboko. O tem bomo še bolj natančno
-govorili, zaenkrat pa naj nam tako opozorilo pove, da smo program napisali tako,
-da se ne bo ustavil. Da podobne situacije preprečimo, lahko uporabimo stavek
-``assert``, v katerem napišemo pogoj, ki mu mora program zadoščati. Če mu ne,
-Python javi napako.
-
-.. testcode::
-
-    def splosni_fibonacci(n, a=0, b=1):
-        '''Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.'''
-        assert n >= 0
-        if n == 0:
-            return a
-        elif n == 1:
-            return b
-        else:
-            return splosni_fibonacci(n - 1, b, a + b)
-
-.. doctest::
-
-    >>> splosni_fibonacci(-2)
-    Traceback (most recent call last):
-      ...
-    AssertionError
-
-Še vedno dobimo napako, vendar je ta bolj obvladljiva, pa še takoj se pojavi.
-Stavke ``assert`` uporabljamo, kadar v nadaljevanju programa pričakujemo, da
-je nekim pogojem zadoščeno. Namesto ``assert pogoj`` bi seveda lahko pisali tudi
-nekaj v stilu:
-
-.. code::
-
-    if not pogoj:
-        ustavi_program
-        javi_napako
-
-ampak ker je to pogosto koristno, so v ta namen uvedli ``assert``.

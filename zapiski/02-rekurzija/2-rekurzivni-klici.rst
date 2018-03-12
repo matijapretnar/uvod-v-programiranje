@@ -22,6 +22,7 @@ Torej lahko funkcijo, ki računa fakulteto, napišemo tako, da najprej pogleda s
     >>> fakulteta(10)
     3628800
 
+
 Še en primer rekurzivne definicije so Fibonaccijeva števila. Velja :math:`F_0 = 0`, :math:`F_1 = 1`, za vse :math:`n \ge 2` pa velja in :math:`F_{n} = F_{n - 1} + F_{n - 2}`. Funkcijo tedaj napišemo podobno na podoben način kot zgornjo: če je ``n`` enak 0, vrnemo 0, sicer pogledamo, ali je enak 1. V tem primeru vrnemo 1. Če pa tudi 1 ni enak, mora biti večji ali enak 2, zato se pokličemo rekurzivno.
 
 .. testcode::
@@ -77,3 +78,54 @@ Kot lahko sami preizkusimo, ta funkcija deluje veliko hitreje od prejšnje:
     139423224561697880139724382870407283950070256587697307264108962948325571622863290691557658876222521294125
 
 Pomembno ni torej samo to, da naš program pravilno izračuna iskani rezultat, temveč tudi to, kako učinkovito ga izračuna.
+
+
+Stavek ``assert``
+-----------------
+
+Tudi funkcija ``splosni_fibonacci`` še ni popolna. Kaj se zgodi, če pokličemo ``splosni_fibonacci(-2, 0, 1)``? Ker -2 ni enako ne 0 ne 1, bomo izvedli tretjo vejo pogojnega stavka in izračunali ``splosni_fibonacci(-3,  0, 1)``, iz tega pa podobno ``splosni_fibonacci(-4,  0, 1)`` in tako naprej, vse do trenutka, ko se bo Python pritožil:
+
+.. doctest::
+
+    >>> splosni_fibonacci(-2, 0, 1)
+    Traceback (most recent call last):
+      ...
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 8, in splosni_fibonacci
+      File "...", line 3, in splosni_fibonacci
+    RecursionError: maximum recursion depth exceeded in comparison
+
+Pravi nam, da je naša rekurzija šla pregloboko. O tem bomo še bolj natančno govorili, zaenkrat pa naj nam tako opozorilo pove, da smo program napisali tako, da se ne bo ustavil. Da podobne situacije preprečimo, lahko uporabimo stavek ``assert``, v katerem napišemo pogoj, ki mu mora program zadoščati. Če mu ne, Python javi napako.
+
+.. testcode::
+
+    def splosni_fibonacci(n, a, b):
+        '''Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.'''
+        assert n >= 0
+        if n == 0:
+            return a
+        elif n == 1:
+            return b
+        else:
+            return splosni_fibonacci(n - 1, b, a + b)
+
+.. doctest::
+
+    >>> splosni_fibonacci(-2, 0, 1)
+    Traceback (most recent call last):
+      ...
+    AssertionError
+
+Še vedno dobimo napako, vendar je ta bolj obvladljiva, pa še takoj se pojavi. Stavke ``assert`` uporabljamo, kadar v nadaljevanju programa pričakujemo, da je nekim pogojem zadoščeno. Namesto ``assert pogoj`` bi seveda lahko pisali tudi nekaj v stilu:
+
+.. code::
+
+    if not pogoj:
+        # ustavi program
+        # javi napako
+
+ampak ker je to pogosto koristno, so v ta namen uvedli ``assert``.
