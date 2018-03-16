@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Objekti</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+### Uvod v programiranje
+
+# Objekti
+
+---
+
+class: center, middle
+## vse v Pythonu je objekt
+# objekt ~ podatki + metode
+
+---
+
+### Vgrajene metode na nizih
+
+```python
+>>> 'lokomotiva'.count('o')
+3
+>>> 'lokomotiva'.index('m')
+4
+>>> '&'.join(['a', 'b', 'c'])
+'a&b&c'
+>>> 'lokomotiva'.replace('o', 'u')
+'lukumutiva'
+>>> '  x  y  z  '.strip()
+'x  y  z'
+>>> 'lokomotiva'.upper()
+'LOKOMOTIVA'
+>>> 'to je stavek'.split()
+['to', 'je', 'stavek']
+```
+
+---
+
+### Vgrajene metode na seznamih in naborih
+
+```python
+>>> [1, 2, 3, 2, 1, 4, 2].count(2)
+3
+>>> [1, 2, 3, 2, 1, 4, 2].index(2)
+1
+>>> [1, 2, 3, 2, 1, 4, 2].index(2, 2)  
+3
+>>> (1, 2, 3, 2, 1, 4, 2).count(2)
+3
+>>> (1, 2, 3, 2, 1, 4, 2).index(2)
+1
+>>> (1, 2, 3, 2, 1, 4, 2).index(2, 2)  
+3
+```
+
+---
+
+### Elemente na konec dodajamo z `append`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.append(40)
+>>> sez
+[10, 20, 30, 40]
+```
+
+---
+
+class: question, center, middle
+
+## Podseznam vseh sodih elementov
+
+---
+
+### Zadnji element snamemo s `pop`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.pop()
+30
+>>> sez
+[10, 20]
+```
+
+---
+
+### Elemente na dano mesto dodamo z `insert`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.insert(1, 0)
+>>> sez
+[10, 0, 20, 30]
+```
+
+---
+
+### Več elementov dodamo z `extend`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.extend([40, 50])
+>>> sez
+[10, 20, 30, 40, 50]
+```
+
+### Okrajšava za `extend` je `+=`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez += [40, 50]
+>>> sez
+[10, 20, 30, 40, 50]
+```
+
+---
+
+### Eno pojavitev elementa odstranimo z `remove`
+
+```python
+>>> sez = [1, 2, 1, 2, 3]
+>>> sez.remove(2)
+>>> sez
+[1, 1, 2, 3]
+```
+
+---
+
+### Seznam izpraznimo s `clear`
+
+```python
+>>> sez = [1, 2, 1, 2, 3]
+>>> sez.clear()
+>>> sez
+[]
+```
+
+---
+
+### Seznam obrnemo z `reverse`
+
+```python
+>>> sez = [1, 2, 4, 8, 16]
+>>> sez.reverse()
+>>> sez
+[16, 8, 4, 2, 1]
+```
+
+### Obrnjen seznam dobimo z `reversed`
+
+```python
+>>> sez = [1, 2, 4, 8, 16]
+>>> sez[::-1]
+[16, 8, 4, 2, 1]
+>>> list(reversed(sez))
+[16, 8, 4, 2, 1]
+>>> sez
+[1, 2, 4, 8, 16]
+```
+
+---
+
+### Seznam uredimo z `sort`
+
+```python
+>>> sez = [4, 1, 8, 2, 16]
+>>> sez.sort()
+>>> sez
+[1, 2, 4, 8, 16]
+```
+
+### Urejen seznam dobimo s `sorted`
+
+```python
+>>> sez = [4, 1, 8, 2, 16]
+>>> sorted(sez)
+[1, 2, 4, 8, 16]
+>>> sez
+[4, 1, 8, 2, 16]
+```
+
+---
+
+class: center, middle
+
+## Risanje z želvo
+
+---
+
+class: center, middle
+
+## Izpeljane strukture
+
+---
+
+### Spodnji postopek je zelo pogost
+
+```python
+def seznam_kvadratov(seznam):
+    kvadrati = []
+    for x in seznam:
+        kvadrati.append(x ** 2)
+    return kvadrati
+```
+
+---
+
+### Spodnji postopek je zelo pogost
+
+```python
+def seznam_absolutnih_vrednosti(seznam):
+    absolutne_vrednosti = []
+    for x in seznam:
+        absolutne_vrednosti.append(abs(x))
+    return absolutne_vrednosti
+```
+
+---
+
+### Spodnji postopek je zelo pogost
+
+```python
+def dolzine_besed(besede):
+    dolzine = []
+    for beseda in besede:
+        dolzine.append(len(beseda))
+    return dolzine
+```
+
+---
+
+### Spodnji postopek je zelo pogost
+
+```python
+seznam = []
+for x in ...:
+    seznam.append(f(x))
+```
+
+```python
+seznam = [f(x) for x in ...]
+```
+
+---
+
+class: question, middle, center
+
+## Seznami kvadratov, absolutnih vrednosti in dolžin
+
+---
+
+### V izpeljanih seznamih imamo lahko pogoje
+
+```python
+sez = []
+for x in ...:
+    if pogoj:
+        sez.append(f(x))
+```
+
+```python
+sez = [f(x) for x in ... if pogoj]
+```
+
+
+
+</textarea>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>
