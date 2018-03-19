@@ -20,15 +20,13 @@ class: center, middle
 ## vse v Pythonu je objekt
 # objekt ~ podatki + metode
 
+### `objekt.metoda(argumenti)`
+
 ---
 
-### Vgrajene metode na nizih
+### Na nizih obstaja kup **vgrajenih metod**
 
 ```python
->>> 'lokomotiva'.count('o')
-3
->>> 'lokomotiva'.index('m')
-4
 >>> '&'.join(['a', 'b', 'c'])
 'a&b&c'
 >>> 'lokomotiva'.replace('o', 'u')
@@ -43,26 +41,93 @@ class: center, middle
 
 ---
 
-### Vgrajene metode na seznamih in naborih
+### S `count` **preštejemo** elemente
 
 ```python
->>> [1, 2, 3, 2, 1, 4, 2].count(2)
+>>> [1, 5, 3, 5, 1, 4, 5].count(5)
 3
->>> [1, 2, 3, 2, 1, 4, 2].index(2)
-1
->>> [1, 2, 3, 2, 1, 4, 2].index(2, 2)  
+>>> (1, 5, 3, 5, 1, 4, 5).count(5)
 3
->>> (1, 2, 3, 2, 1, 4, 2).count(2)
-3
->>> (1, 2, 3, 2, 1, 4, 2).index(2)
-1
->>> (1, 2, 3, 2, 1, 4, 2).index(2, 2)  
+>>> 'lokomotiva'.count('o')
 3
 ```
 
 ---
 
-### Elemente na konec dodajamo z `append`
+### Z `index` **poiščemo mesto** danega elementa
+
+```python
+>>> [1, 5, 3, 5, 1, 4, 5].index(5)
+1
+>>> (1, 5, 3, 5, 1, 4, 5).index(5)
+1
+>>> 'lokomotiva'.index('o')
+1
+```
+
+```
+>>> [1, 5, 3, 5, 1, 4, 5].index(5, 2)  
+3
+>>> (1, 5, 3, 5, 1, 4, 5).index(5, 2)  
+3
+>>> 'lokomotiva'.index('o', 2)
+3
+```
+
+---
+
+### Do **vgrajene pomoči** dostopamo s `help`
+
+```
+>>> help(math.sin)
+Help on built-in function sin in module math:
+
+sin(...)
+    sin(x)
+    
+    Return the sine of x (measured in radians).
+```
+
+---
+
+### Do **vgrajene pomoči** dostopamo s `help`
+
+
+```
+>>> help('niz'.strip)
+Help on built-in function strip:
+
+strip(...) method of builtins.str instance
+    S.strip([chars]) -> str
+    
+    Return a copy of the string S with leading
+    and trailing whitespace removed.
+    If chars is given and not None,
+    remove characters in chars instead.
+```
+
+---
+
+### Tudi **lastnim funkcijam** lahko dodamo pomoč
+
+
+```
+def kvadriraj(x):
+    '''Vrne kvadrat števila x.'''
+    return x ** 2
+```
+
+```
+>>> help(kvadriraj)
+Help on function kvadriraj in module __main__:
+
+kvadriraj(x)
+    Vrne kvadrat števila x.
+```
+
+---
+
+### Elemente **na konec dodajamo** z `append`
 
 ```python
 >>> sez = [10, 20, 30]
@@ -79,7 +144,19 @@ class: question, center, middle
 
 ---
 
-### Zadnji element snamemo s `pop`
+class: question, center, middle
+
+## Seznam delnih vsot
+
+---
+
+class: question, center, middle
+
+## Ničelna in identična matrika
+
+---
+
+### Zadnji element **snamemo** s `pop`
 
 ```python
 >>> sez = [10, 20, 30]
@@ -91,7 +168,7 @@ class: question, center, middle
 
 ---
 
-### Elemente na dano mesto dodamo z `insert`
+### Elemente na dano mesto **vstavimo** z `insert`
 
 ```python
 >>> sez = [10, 20, 30]
@@ -102,7 +179,7 @@ class: question, center, middle
 
 ---
 
-### Več elementov dodamo z `extend`
+### **Več elementov** dodamo z `extend`
 
 ```python
 >>> sez = [10, 20, 30]
@@ -111,7 +188,7 @@ class: question, center, middle
 [10, 20, 30, 40, 50]
 ```
 
-### Okrajšava za `extend` je `+=`
+### **Okrajšava** za `extend` je `+=`
 
 ```python
 >>> sez = [10, 20, 30]
@@ -122,7 +199,7 @@ class: question, center, middle
 
 ---
 
-### Eno pojavitev elementa odstranimo z `remove`
+### Eno pojavitev elementa **odstranimo** z `remove`
 
 ```python
 >>> sez = [1, 2, 1, 2, 3]
@@ -133,7 +210,7 @@ class: question, center, middle
 
 ---
 
-### Seznam izpraznimo s `clear`
+### Seznam **izpraznimo** s `clear`
 
 ```python
 >>> sez = [1, 2, 1, 2, 3]
@@ -144,7 +221,7 @@ class: question, center, middle
 
 ---
 
-### Seznam obrnemo z `reverse`
+### Seznam **obrnemo** z `reverse`
 
 ```python
 >>> sez = [1, 2, 4, 8, 16]
@@ -153,13 +230,11 @@ class: question, center, middle
 [16, 8, 4, 2, 1]
 ```
 
-### Obrnjen seznam dobimo z `reversed`
+### **Obrnjen seznam** dobimo z rezinami
 
 ```python
 >>> sez = [1, 2, 4, 8, 16]
 >>> sez[::-1]
-[16, 8, 4, 2, 1]
->>> list(reversed(sez))
 [16, 8, 4, 2, 1]
 >>> sez
 [1, 2, 4, 8, 16]
@@ -167,7 +242,7 @@ class: question, center, middle
 
 ---
 
-### Seznam uredimo z `sort`
+### Seznam **uredimo** z `sort`
 
 ```python
 >>> sez = [4, 1, 8, 2, 16]
@@ -176,7 +251,7 @@ class: question, center, middle
 [1, 2, 4, 8, 16]
 ```
 
-### Urejen seznam dobimo s `sorted`
+### **Urejen seznam** dobimo s `sorted`
 
 ```python
 >>> sez = [4, 1, 8, 2, 16]
@@ -188,87 +263,9 @@ class: question, center, middle
 
 ---
 
-class: center, middle
+class: center, middle, question
 
 ## Risanje z želvo
-
----
-
-class: center, middle
-
-## Izpeljane strukture
-
----
-
-### Spodnji postopek je zelo pogost
-
-```python
-def seznam_kvadratov(seznam):
-    kvadrati = []
-    for x in seznam:
-        kvadrati.append(x ** 2)
-    return kvadrati
-```
-
----
-
-### Spodnji postopek je zelo pogost
-
-```python
-def seznam_absolutnih_vrednosti(seznam):
-    absolutne_vrednosti = []
-    for x in seznam:
-        absolutne_vrednosti.append(abs(x))
-    return absolutne_vrednosti
-```
-
----
-
-### Spodnji postopek je zelo pogost
-
-```python
-def dolzine_besed(besede):
-    dolzine = []
-    for beseda in besede:
-        dolzine.append(len(beseda))
-    return dolzine
-```
-
----
-
-### Spodnji postopek je zelo pogost
-
-```python
-seznam = []
-for x in ...:
-    seznam.append(f(x))
-```
-
-```python
-seznam = [f(x) for x in ...]
-```
-
----
-
-class: question, middle, center
-
-## Seznami kvadratov, absolutnih vrednosti in dolžin
-
----
-
-### V izpeljanih seznamih imamo lahko pogoje
-
-```python
-sez = []
-for x in ...:
-    if pogoj:
-        sez.append(f(x))
-```
-
-```python
-sez = [f(x) for x in ... if pogoj]
-```
-
 
 
 </textarea>
