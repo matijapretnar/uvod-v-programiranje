@@ -93,6 +93,25 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="dokumentacijski-niz">
+<h2>Dokumentacijski niz*<a class="headerlink" href="#dokumentacijski-niz" title="Povezava na naslov">¶</a></h2>
+<p>Pred telesom funkcije dostikrat lahko zapišemo tudi  <em>dokumentacijski niz</em> oziroma <em>docstring</em>. Ta niz ponavadi zapišemo med trojne enojne navednice, v njem pa na kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa koristna, saj lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s pomočjo funkcije <code class="docutils literal notranslate"><span class="pre">help</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne ploščino trikotnika z danimi stranicami.&#39;&#39;&#39;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">ploscina_trikotnika</span><span class="p">)</span>
+<span class="go">Help on function ploscina_trikotnika:</span>
+
+<span class="go">ploscina_trikotnika(a, b, c)</span>
+<span class="go">    Vrne ploščino trikotnika z danimi stranicami.</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="stavek-return">
 <h2>Stavek <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#stavek-return" title="Povezava na naslov">¶</a></h2>
 <p>Tako kot drugje v Pythonu, se tudi stavki v telesu funkcije izvajajo od prvega proti zadnjemu. Ko dosežemo stavek <code class="docutils literal notranslate"><span class="pre">return</span></code>, funkcija vrne vrednost danega izraza ter zaključi z izvajanjem. Tako tudi funkcija</p>
@@ -156,6 +175,7 @@
   <ul>
 <li><a class="reference internal" href="#">Funkcije</a><ul>
 <li><a class="reference internal" href="#definicije-lastnih-funkcij">Definicije lastnih funkcij</a></li>
+<li><a class="reference internal" href="#dokumentacijski-niz">Dokumentacijski niz*</a></li>
 <li><a class="reference internal" href="#stavek-return">Stavek <code class="docutils literal notranslate"><span class="pre">return</span></code></a></li>
 <li><a class="reference internal" href="#lokalnost-spremenljivk">Lokalnost spremenljivk</a></li>
 </ul>

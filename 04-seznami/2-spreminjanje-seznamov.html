@@ -1,0 +1,207 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Spreminjanje seznamov &#8212; Uvod v programiranje 0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Abecedni seznam" href="../genindex.html" />
+    <link rel="search" title="Išči" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="spreminjanje-seznamov">
+<h1>Spreminjanje seznamov<a class="headerlink" href="#spreminjanje-seznamov" title="Povezava na naslov">¶</a></h1>
+<div class="section" id="spreminanje-posameznih-elementov">
+<h2>Spreminanje posameznih elementov<a class="headerlink" href="#spreminanje-posameznih-elementov" title="Povezava na naslov">¶</a></h2>
+<p>Za razliko od nizov lahko vrednosti v seznamih tudi spreminjamo:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[5, 3, 8, 200, 5, 7, 1, 2]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[5, 3, 8, 200, 5, 7, 1, 500]</span>
+</pre></div>
+</div>
+<p>Vrednosti lahko tudi brišemo</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">sez</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[5, 3, 8, 200, 5, 1, 500]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="spreminjanje-rezin">
+<h2>Spreminjanje rezin<a class="headerlink" href="#spreminjanje-rezin" title="Povezava na naslov">¶</a></h2>
+<p>Spreminjamo lahko tudi celotne rezine:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="go">[3, 8]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[5, 100, 300, 200, 5, 1, 500]</span>
+</pre></div>
+</div>
+<p>Če nadomestna rezina ni enake dolžine kot prvotna, se seznam ustrezno skrajša ali podaljša</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[5, 100, 1, 500]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[5, 100, 0, 0, 0, 1, 500]</span>
+</pre></div>
+</div>
+<p>Kot vidimo, lahko nadomestimo tudi prazno rezino, s čimer nove elemente vrinemo v seznam. Nadomeščanje prazne rezine ni isto kot nadomeščanje elementa z istim indeksom kot rezina:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[5, 100, [20, 20, 20], 0, 0, 1, 500]</span>
+</pre></div>
+</div>
+<p>Tudi rezine lahko brišemo:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[5, 0, 1, 500]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="previdnost-pri-spreminjanju-seznamov">
+<h2>Previdnost pri spreminjanju seznamov<a class="headerlink" href="#previdnost-pri-spreminjanju-seznamov" title="Povezava na naslov">¶</a></h2>
+<p>Pri spreminjanju seznamov je treba biti previden, saj ne deluje tako, kot smo navajeni pri spreminjanju vrednosti spremenljivk. Na primer, pišimo</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p>Vidimo, da se vrednost spremenljivke <code class="docutils literal notranslate"><span class="pre">b</span></code> ni spremenila, saj smo jo v drugi vrstici nastavili na število 5. Pri seznamih je stvar malo drugačna. Če pišemo</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+<p>so stvari še vedno take, kot bi jih pričakovali. Vrednost <code class="docutils literal notranslate"><span class="pre">b</span></code> smo nastavili na isti seznam kot <code class="docutils literal notranslate"><span class="pre">a</span></code>, vendar smo potem rekli, da naj bo v <code class="docutils literal notranslate"><span class="pre">a</span></code> shranjen drugačen seznam, s čimer na vrednost v <code class="docutils literal notranslate"><span class="pre">b</span></code> nismo vplivali. Če pa pišemo</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="go">[1, 20, 3]</span>
+</pre></div>
+</div>
+<p>se je s tem, ko smo spremenili <code class="docutils literal notranslate"><span class="pre">a</span></code>, spremenil tudi <code class="docutils literal notranslate"><span class="pre">b</span></code>. Kaj se je zgodilo? Ko smo napisali <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">a</span></code>, smo povedali, naj bo v <code class="docutils literal notranslate"><span class="pre">b</span></code> shranjen isti seznam kot <code class="docutils literal notranslate"><span class="pre">a</span></code>. In z <code class="docutils literal notranslate"><span class="pre">a[1]</span> <span class="pre">=</span> <span class="pre">20</span></code> smo povedali, naj se na mesto <code class="docutils literal notranslate"><span class="pre">1</span></code> v seznamu, shranjenem v <code class="docutils literal notranslate"><span class="pre">a</span></code>, zapiše 20. Ker je v <code class="docutils literal notranslate"><span class="pre">b</span></code> shranjen isti (ne le enak) seznam kot v <code class="docutils literal notranslate"><span class="pre">a</span></code>, je s tem tudi seznam v <code class="docutils literal notranslate"><span class="pre">b</span></code> drugačen.</p>
+<p>Pogosta past, v katero se na začetku ujamemo zaradi spremenljivosti seznamov, je izračun identične matrike. Vemo že, da lahko v Pythonu seznam pomnožimo s številom:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">[0, 0, 0]</span>
+</pre></div>
+</div>
+<p>To nam da idejo, da bi lahko na isti način izračunali ničelno matriko:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">*</span> <span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="go">[[0, 0, 0], [0, 0, 0], [0, 0, 0]]</span>
+</pre></div>
+</div>
+<p>Izračun je videti pravilen, vendar vse tri vrstice te matrike kažejo na isti seznam. To je tako, kot če bi pisali:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vrstica</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matrika</span> <span class="o">=</span> <span class="p">[</span><span class="n">vrstica</span><span class="p">,</span> <span class="n">vrstica</span><span class="p">,</span> <span class="n">vrstica</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Poskusimo iz te matrike dobiti identično matriko tako, da po diagonali nastavimo enice. Najprej nastavimo prvi element v prvi vrstici:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matrika</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matrika</span>
+<span class="go">[[1, 0, 0], [1, 0, 0], [1, 0, 0]]</span>
+</pre></div>
+</div>
+<p>Kaj se je zgodilo? Ker druga in tretja vrstica kažeta na isti seznam kot prva, smo tudi v njima prvi element popravili na 1. Če sedaj nastavimo še drugi element v drugi vrstici in tretjega v tretji vrstici se zgodba ponovi:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matrika</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matrika</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matrika</span>
+<span class="go">[[1, 1, 1], [1, 1, 1], [1, 1, 1]]</span>
+</pre></div>
+</div>
+<p>Če želimo identično matriko izračunati na pravilen način, moramo za predstavitev vsake vrstice podati svoj seznam, zato ne moremo uporabiti le pomnoževanja seznamov.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Spreminjanje seznamov</a><ul>
+<li><a class="reference internal" href="#spreminanje-posameznih-elementov">Spreminanje posameznih elementov</a></li>
+<li><a class="reference internal" href="#spreminjanje-rezin">Spreminjanje rezin</a></li>
+<li><a class="reference internal" href="#previdnost-pri-spreminjanju-seznamov">Previdnost pri spreminjanju seznamov</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/04-seznami/2-spreminjanje-seznamov.rst.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/04-seznami/2-spreminjanje-seznamov.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

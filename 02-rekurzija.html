@@ -201,6 +201,48 @@
 </pre></div>
 </div>
 <p>Pomembno ni torej samo to, da naš program pravilno izračuna iskani rezultat, temveč tudi to, kako učinkovito ga izračuna.</p>
+<div class="section" id="stavek-assert">
+<h3>Stavek <code class="docutils literal notranslate"><span class="pre">assert</span></code><a class="headerlink" href="#stavek-assert" title="Povezava na naslov">¶</a></h3>
+<p>Tudi funkcija <code class="docutils literal notranslate"><span class="pre">splosni_fibonacci</span></code> še ni popolna. Kaj se zgodi, če pokličemo <code class="docutils literal notranslate"><span class="pre">splosni_fibonacci(-2,</span> <span class="pre">0,</span> <span class="pre">1)</span></code>? Ker -2 ni enako ne 0 ne 1, bomo izvedli tretjo vejo pogojnega stavka in izračunali <code class="docutils literal notranslate"><span class="pre">splosni_fibonacci(-3,</span>&#160; <span class="pre">0,</span> <span class="pre">1)</span></code>, iz tega pa podobno <code class="docutils literal notranslate"><span class="pre">splosni_fibonacci(-4,</span>&#160; <span class="pre">0,</span> <span class="pre">1)</span></code> in tako naprej, vse do trenutka, ko se bo Python pritožil:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">8</span>, in <span class="n">splosni_fibonacci</span>
+  File <span class="nb">&quot;...&quot;</span>, line <span class="m">3</span>, in <span class="n">splosni_fibonacci</span>
+<span class="gr">RecursionError</span>: <span class="n">maximum recursion depth exceeded in comparison</span>
+</pre></div>
+</div>
+<p>Pravi nam, da je naša rekurzija šla pregloboko. O tem bomo še bolj natančno govorili, zaenkrat pa naj nam tako opozorilo pove, da smo program napisali tako, da se ne bo ustavil. Da podobne situacije preprečimo, lahko uporabimo stavek <code class="docutils literal notranslate"><span class="pre">assert</span></code>, v katerem napišemo pogoj, ki mu mora program zadoščati. Če mu ne, Python javi napako.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne n-ti člen Fibonaccijevega zaporedja, ki se začne z a in b.&#39;&#39;&#39;</span>
+    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">AssertionError</span>
+</pre></div>
+</div>
+<p>Še vedno dobimo napako, vendar je ta bolj obvladljiva, pa še takoj se pojavi. Stavke <code class="docutils literal notranslate"><span class="pre">assert</span></code> uporabljamo, kadar v nadaljevanju programa pričakujemo, da je nekim pogojem zadoščeno. Namesto <code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">pogoj</span></code> bi seveda lahko pisali tudi nekaj v stilu:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">pogoj</span><span class="p">:</span>
+    <span class="c1"># ustavi program</span>
+    <span class="c1"># javi napako</span>
+</pre></div>
+</div>
+<p>ampak ker je to pogosto koristno, so v ta namen uvedli <code class="docutils literal notranslate"><span class="pre">assert</span></code>.</p>
+</div>
 </div>
 </div>
 
@@ -221,7 +263,10 @@
 <li><a class="reference internal" href="#stavek-print">Stavek <code class="docutils literal notranslate"><span class="pre">print</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#rekurzivni-klici">Rekurzivni klici</a></li>
+<li><a class="reference internal" href="#rekurzivni-klici">Rekurzivni klici</a><ul>
+<li><a class="reference internal" href="#stavek-assert">Stavek <code class="docutils literal notranslate"><span class="pre">assert</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

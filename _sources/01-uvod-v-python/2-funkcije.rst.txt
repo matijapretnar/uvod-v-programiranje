@@ -81,6 +81,31 @@ S pomočjo funkcije ``ploscina_trikotnika`` lahko tudi na veliko bolj pregleden 
     1816080.0
 
 
+Dokumentacijski niz*
+--------------------
+
+Pred telesom funkcije dostikrat lahko zapišemo tudi  *dokumentacijski niz* oziroma *docstring*. Ta niz ponavadi zapišemo med trojne enojne navednice, v njem pa na kratko opišemo, kaj funkcija počne. Ta vrstica ni obvezna, je pa koristna, saj lahko uporabnik, ki ne ve, kaj funkcija počne, to pogleda s pomočjo funkcije ``help``.
+
+.. testcode::
+
+    import math
+
+    def ploscina_trikotnika(a, b, c):
+        '''Vrne ploščino trikotnika z danimi stranicami.'''
+        s = (a + b + c) / 2
+        return math.sqrt(s * (s - a) * (s - b) * (s - c))
+
+
+.. doctest::
+
+    >>> help(ploscina_trikotnika)
+    Help on function ploscina_trikotnika:
+    <BLANKLINE>
+    ploscina_trikotnika(a, b, c)
+        Vrne ploščino trikotnika z danimi stranicami.
+    <BLANKLINE>
+
+
 Stavek ``return``
 -----------------
 
