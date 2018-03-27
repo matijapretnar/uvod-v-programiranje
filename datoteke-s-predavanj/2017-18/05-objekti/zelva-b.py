@@ -22,3 +22,7 @@ def kochova_krivulja(zelve, n, d):
         for zelva in zelve:
             zelva.left(60)
         kochova_krivulja(zelve, n - 1, d / 3)
+
+for z in zelve:
+    z.speed(0)
+kochova_krivulja(zelve, 5, 250)

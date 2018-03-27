@@ -16,84 +16,7 @@ class: center, middle, question
 class: center, middle, question
 
 # Risanje zvezdic z želvo
----
 
-### Z zanko `for` se lahko vozimo po množicah:
-
-```python
-for x in {'a', 'b', 'c'}:
-    print(x)
-```
-
---
-
-```python
-c
-b
-a
-```
-
----
-
-### Z zanko `for` se lahko vozimo po slovarjih:
-
-```python
-for x in {'a': 1, 'b': 2, 'c': 3}:
-    print(x)
-```
-
---
-
-```python
-c
-a
-b
-```
-
----
-
-### Z zanko `for` se lahko vozimo po slovarjih:
-
-```python
-for x in {'a': 1, 'b': 2, 'c': 3}.keys():
-    print(x)
-```
-
-```python
-c
-a
-b
-```
-
----
-
-### Z zanko `for` se lahko vozimo po slovarjih:
-
-```python
-for x in {'a': 1, 'b': 2, 'c': 3}.values():
-    print(x)
-```
-
-```python
-3
-1
-2
-```
-
----
-
-### Z zanko `for` se lahko vozimo po slovarjih:
-
-```python
-for x in {'a': 1, 'b': 2, 'c': 3}.items():
-    print(x)
-```
-
-```python
-('c', 3)
-('a', 1)
-('b', 2)
-```
 
 ---
 
@@ -266,4 +189,91 @@ for x in ...:
 ```python
 sez = [f(x) for x in ... if pogoj]
 ```
+
+---
+
+### Obstajajo tudi izpeljane množice
+
+```python
+mno = set()
+for x in ...:
+    if pogoj:
+        mno.add(f(x))
+```
+
+```python
+mno = {f(x) for x in ... if pogoj}
+```
+
+---
+
+### Obstajajo tudi izpeljani slovarji
+
+```python
+slo = {}
+for x in ...:
+    if pogoj:
+        slo[k(x)] = v(x)
+```
+
+```python
+slo = {k(x): v(x) for x in ... if pogoj}
+```
+
+---
+
+### Obstajajo tudi izpeljani generatorji
+
+```python
+def generiraj_generator():
+    for x in ...:
+        if pogoj:
+            yield f(x)
+gen = generiraj_generator()
+```
+
+```python
+gen = (f(x) for x in ... if pogoj)
+```
+
+---
+
+### Naslednjo vrednost iz generatorja dobimo z `next`
+
+```python
+pet_stevil = (k ** 2 for k in range(5))
+```
+
+```python
+>>> next(pet_stevil)
+0
+>>> next(pet_stevil)
+1
+>>> next(pet_stevil)
+4
+```
+
+---
+
+### Funkcija, ki uporablja `yield`, ob klicu vrne generator
+
+```python
+def stevila(n):
+    for k in range(n):
+        yield k ** 2
+```
+
+```python
+>>> next(stevila(5))
+0
+>>> next(stevila(5))
+0
+>>> pet_stevil = stevila(5)
+>>> next(pet_stevil)
+0
+>>> next(pet_stevil)
+1
+```
+
+
 

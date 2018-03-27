@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Slovarji</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+### Uvod v programiranje
+
+# Slovarji
+
+---
+
+```
+nujne_telefonske_stevilke = {
+  'center za obveščanje': 112,
+  'policija': 113,
+  'informacije': 1188,
+  'točen čas': 195
+}
+
+slo_ang = {
+  'abak': 'abacus',
+  'abalienacija': 'abalienation',
+  'abderit': 'abderite',
+  ...
+  'žvrkljati': 'whisk'
+}
+```
+
+---
+
+```
+rimske_stevilke = {
+    1: 'I', 2: 'II', 3: 'III', 4: 'IV',
+    5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII',
+    9: 'IX', 10: 'X', 20: 'XX', 30: 'XXX',
+    40: 'XL', 50: 'L', 100: 'C', 500: 'D',
+    1000: 'M'
+}
+
+met_kocke = {
+    1: 1/6, 2: 1/6, 3: 1/6,
+    4: 1/6, 5: 1/6, 6: 1/6
+}
+
+met_dveh_kock = {
+    2: 1/36, 3: 2/36, 4: 3/36, 5: 4/36,
+    6: 5/36, 7: 6/36, 8: 5/36, 9: 4/36,
+    10: 3/36, 11: 2/36, 12: 1/36
+}
+```
+
+---
+
+```
+matrika = [
+    [1, 1, 4, 1, 1, 1, 1, 1, 1, 1],
+    [5, 2, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 3, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 4, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+]
+
+redka_matrika = (6, 10, 1, {
+    (0, 2): 4,
+    (1, 0): 5,
+    (1, 1): 2,
+    (2, 4): 3,
+    (4, 2): 4
+})
+```
+
+---
+
+.small[```
+avtocestni_kriz = {
+    'LJ': {'KR': 26, 'CE': 73, 'PO': 51, 'NM': 72},
+    'KR': {'LJ': 26, 'JE': 35},
+    'JE': {'KR': 35},
+    'CE': {'MB': 54, 'LJ': 73},
+    'MB': {'CE': 54, 'MS': 60},
+    'MS': {'MB': 60},
+    'PO': {'LJ': 51, 'KP': 64, 'GO': 63},
+    'GO': {'PO': 63},
+    'KP': {'PO': 64},
+    'NM': {'LJ': 72}
+}
+```
+
+.center[![](slike/avtoceste.png)]
+
+---
+
+### **Osnovne operacije** na slovarjih
+
+```
+>>> s = {'a': 6, 'b': 2, 'c': 3}
+>>> len(s)
+3
+>>> max(s)
+'c'
+>>> 3 in s
+False
+```
+
+---
+
+### Do vrednosti dostopamo **prek ključev**
+
+```
+>>> s = {'a': 6, 'b': 2, 'c': 3}
+>>> s['a']
+6
+>>> s['b']
+2
+>>> s['d']
+...
+KeyError: 'd'
+```
+
+---
+
+### Slovarje lahko tudi **spreminjamo**
+
+```
+>>> slovar = {'a': 10, 'b': 20}
+>>> slovar['a'] = 50
+>>> slovar
+{'b': 20, 'a': 50}
+>>> slovar['c'] = 100
+>>> slovar
+{'b': 20, 'a': 50, 'c': 100}
+```
+
+---
+
+### Elemente lahko tudi **brišemo**
+
+```
+>>> slovar = {'a': 10, 'b': 20}
+>>> slovar['a']
+10
+>>> del slovar['a']
+>>> slovar
+{'b': 20}
+```
+
+---
+
+### Za **varen dostop** uporabljamo metodo `get`
+
+```
+>>> s = {'a': 6, 'b': 2, 'c': 3}
+>>> s.get('a')
+6
+>>> s.get('d')
+>>> s.get('d', 0)
+0
+>>> s.get('a', 0)
+6
+```
+
+---
+
+class: question, center, middle
+
+## Kaj so najpogostejše črke v Krstu pri Savici?
+
+---
+
+### Z zanko `for` se vozimo po **ključih slovarja**
+
+```
+for x in {'a': 1, 'b': 2, 'c': 3}:
+    print(x)
+```
+
+--
+
+```
+c
+a
+b
+```
+
+Vrstni red je odvisen od različice Pythona
+
+---
+
+### Metoda `keys` vrača **ključe** slovarja
+
+```
+for x in {'a': 1, 'b': 2, 'c': 3}.keys():
+    print(x)
+```
+
+```
+c
+a
+b
+```
+
+---
+
+### Metoda `values` vrača **vrednosti** slovarja
+
+```
+for x in {'a': 1, 'b': 2, 'c': 3}.values():
+    print(x)
+```
+
+```
+3
+1
+2
+```
+
+---
+
+### Metoda `items` vrača **pare** ključev in vrednosti
+
+```
+for x in {'a': 1, 'b': 2, 'c': 3}.items():
+    print(x)
+```
+
+```
+('c', 3)
+('a', 1)
+('b', 2)
+```
+
+---
+
+### Pripadajočo vrednost **snamemo** s `pop`
+
+```
+>>> slovar = {'a': 10, 'b': 20}
+>>> slovar.pop('a')
+10
+>>> slovar
+{'b': 20}
+```
+
+---
+
+### **Naključni par** snamemo s `popitem`
+
+```
+>>> slovar = {'a': 10, 'b': 20}
+>>> slovar.popitem()
+('b', 20)
+>>> slovar.popitem()
+('a', 10)
+>>> slovar
+{}
+```
+
+---
+
+class: question, center, middle
+
+## Kaj so najpogostejše besede v Krstu pri Savici?
+
+---
+
+### Python pozna tudi **množice**
+
+```
+>>> {1, 2, 3, 4} | {3, 4, 5, 6}
+{1, 2, 3, 4, 5, 6}
+>>> {1, 2, 3, 4} & {3, 4, 5, 6}
+{3, 4}
+>>> {1, 2, 3, 4} - {3, 4, 5, 6}
+{1, 2}
+>>> 1 in {1, 2, 3, 4}
+True
+>>> 2 in set()
+False
+>>> len({1, 2, 3, 2, 1, 2, 3, 2, 1})
+3
+```
+
+---
+
+### Z zanko `for` se vozimo po elementih množice
+
+```
+for x in {'a', 'b', 'c'}:
+    print(x)
+```
+
+--
+
+```
+c
+b
+a
+```
+
+Vrstni red je odvisen od različice Pythona
+
+---
+
+### Kdaj uporabimo sezname, kdaj pa množice?
+
+#### Seznami: določen vrstni red in število pojavitev
+
+```
+>>> [1, 2, 3] == [2, 1, 3]
+False
+>>> [1, 2, 3] == [1, 1, 2, 3]
+False
+```
+
+#### Množice: nedoločen vrstni red in število pojavitev
+
+```
+>>> {1, 2, 3} == {2, 1, 3}
+True
+>>> {1, 2, 3} == {1, 1, 2, 3}
+True
+```
+
+---
+
+### Elemente **dodajamo** z metodo `add`
+
+```
+>>> mn = {10, 20, 30}
+>>> mn.add(40)
+>>> mn
+{40, 10, 20, 30}
+```
+
+---
+
+### Element **odstranimo** z `remove`/`discard`
+
+```
+>>> mn = {10, 20, 30, 40}
+>>> mn.remove(20)
+>>> mn
+{40, 10, 30}
+>>> mn.remove(50)
+...
+KeyError: 50
+```
+
+```
+>>> mn = {10, 20, 30, 40}
+>>> mn.discard(20)
+>>> mn.discard(50)
+>>> mn
+{40, 10, 30}
+```
+
+---
+
+### **Naključni** element **snamemo** s `pop`
+
+```
+>>> mn = {10, 20, 30}
+>>> mn.pop()
+20
+>>> mn
+{30, 10}
+>>> mn.pop()
+10
+>>> mn
+{30}
+>>> mn.pop()
+30
+>>> mn
+set()
+```
+
+---
+
+### **Več elementov** dodamo z `update`
+
+```
+>>> mn = {10, 20, 30}
+>>> mn.update([40, 50])
+>>> mn
+{40, 10, 20, 50, 30}
+```
+
+### Množico lahko dodamo tudi z `|=`
+
+```
+>>> mn = {10, 20, 30}
+>>> mn |= {40, 50}
+>>> mn
+{40, 10, 20, 50, 30}
+```
+
+---
+
+### Množico lahko **presekamo** z `&=`
+
+```
+>>> mn = {10, 20, 30, 40}
+>>> mn &= {30, 40, 50}
+>>> mn
+{40, 30}
+```
+
+### Množico lahko **komplementiramo** z `-=`
+
+```
+>>> mn = {10, 20, 30, 40}
+>>> mn -= {30, 40, 50}
+>>> mn
+{10, 20}
+```
+
+---
+
+class: question
+
+### Ali sta sledeča programa ekvivalentna?
+
+```
+>>> mn &= {10, 20}
+``` 
+
+```
+>>> mn = mn & {10, 20}
+```
+
+---
+
+class: question, middle
+
+```
+knjiga_obrazov = {
+    'Anka': {'Bogomir', 'Cvetka'},
+    'Bogomir': {'Cvetka', 'Dragomir'},
+    'Cvetka': {'Anka'},
+    'Dragomir': {'Anka', 'Cvetka'},
+}
+```
+
+```
+>>> priporoci_prijatelja(knjiga_obrazov, 'Bogomir')
+{'Anka'}
+>>> priporoci_prijatelja(knjiga_obrazov, 'Cvetka')
+{'Bogomir', 'Cvetka'}
+```
+
+---
+
+### Slovarje lahko uporabimo za **memoizacijo**
+
+```
+kvadrati = {}
+def mem_kvadrat(x):
+    if x not in kvadrati:
+        print('Računam', x)
+        y = x ** 2
+        kvadrati[x] = y
+    return kvadrati[x]
+```
+
+```
+>>> mem_kvadrat(10)
+Računam 10
+100
+>>> mem_kvadrat(10)
+100
+```
+
+---
+
+class: question
+
+## Število vseh stolpov iz danih kock
+
+.small.center[![](slike/stolpi.png)]
+
+.left[```
+>>> stevilo_stolpov(2)
+2
+>>> stevilo_stolpov(4)
+7
+```]
+
+---
+
+### Memoizacija s **funkcijo višjega reda**
+
+```
+def memoiziraj(f):
+    rezultati = {}
+    def mem_f(x):
+        if x not in rezultati:
+            rezultati[x] = f(x)
+        return rezultati[x]
+    return mem_f
+```
+
+---
+
+### V Pythonu lahko definicije **dekoriramo**
+
+```
+def f(x):
+    ...
+
+f = deko(f)
+```
+
+```
+@deko
+def f(x):
+    ...
+```
+
+---
+
+class: question, middle
+
+```
+@povej_kaj_racunas
+def kvadriraj(x):
+    return x ** 2
+```
+
+```
+>>> kvadriraj(4)
+Računam 4
+16
+>>> kvadriraj(5)
+Računam 5
+25
+```
+
+---
+
+### Memoizacija z **dekoratorjem**
+
+```
+@memoiziraj
+def fib(n):
+    print(n, end='')
+    if n == 0 or n == 1:
+        return n
+    else:
+        return fib(n - 1) + fib(n - 2)
+```
+
+```
+>>> fib(10)
+10987654321055
+>>> fib(10)
+55
+```
+
+</textarea>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>
