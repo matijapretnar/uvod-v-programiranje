@@ -135,6 +135,10 @@ p {
     font-size: 0.65em;
 }
 
+.small pre {
+    font-size: 0.65em;
+}
+
 pre {
     font-size: 0.95em;
 }
@@ -150,7 +154,7 @@ td {
 
 .smalltab th,
 .smalltab td {
-    padding: 2px 12px !important;
+    padding: 0px 0px !important;
 }
 
 .smalltab {

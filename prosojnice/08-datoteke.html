@@ -10,28 +10,23 @@
 
 class: center, middle
 
-# Datoteke
-
 ### Uvod v programiranje
 
----
+# Datoteke
 
-class: center, middle
-
-## Branje datotek
 
 ---
 
-### Datoteko za branje odpremo s funkcijo `open`
+### Datoteko **za branje odpremo** s funkcijo `open`
 
 `stavki.txt`
-```python
+```
 To je prvi stavek. To je drugi
 stavek. To je tretji stavek. To
 je četrti stavek.
 ```
 
-```python
+```
 >>> open('stavki.txt')
 <_io.TextIOWrapper name='stavki.txt'
  mode='r' encoding='UTF-8'>
@@ -42,7 +37,7 @@ je četrti stavek.
 class: question
 
 `stavki.txt`
-```python
+```
 To je prvi stavek. To je drugi
 stavek. To je tretji stavek. To
 je četrti stavek.
@@ -50,22 +45,22 @@ je četrti stavek.
 
 ### Kaj izpiše spodnji ukaz?
 
-```python
+```
 >>> print('stavki.txt')
 ```
 
 ---
 
-### Z `read` preberemo dano število znakov
+### Z `read` preberemo **dano število znakov**
 
 `stavki.txt`
-```python
+```
 To je prvi stavek. To je drugi
 stavek. To je tretji stavek. To
 je četrti stavek.
 ```
 
-```python
+```
 >>> dat = open('stavki.txt')
 >>> dat.read(35)
 'To je prvi stavek. To je drugi\nstav'
@@ -79,16 +74,16 @@ je četrti stavek.
 
 ---
 
-### Z `readline` preberemo naslednjo vrstico
+### Z `readline` preberemo **naslednjo vrstico**
 
 `stavki.txt`
-```python
+```
 To je prvi stavek. To je drugi
 stavek. To je tretji stavek. To
 je četrti stavek.
 ```
 
-```python
+```
 >>> dat = open('stavki.txt')
 >>> dat.readline()
 'To je prvi stavek. To je drugi\n'
@@ -102,16 +97,16 @@ je četrti stavek.
 
 ---
 
-### Z `readlines` preberemo vse vrstice
+### Z `readlines` preberemo **vse vrstice**
 
 `stavki.txt`
-```python
+```
 To je prvi stavek. To je drugi
 stavek. To je tretji stavek. To
 je četrti stavek.
 ```
 
-```python
+```
 >>> dat = open('stavki.txt')
 >>> dat.readlines()
 ['To je prvi stavek. To je drugi\n',
@@ -121,16 +116,16 @@ je četrti stavek.
 
 ---
 
-### Po vrsticah se lahko zapeljemo z zanko `for`
+### Po vrsticah se lahko **zapeljemo z zanko** `for`
 
 `stavki.txt`
-```python
+```
 To je prvi stavek. To je drugi
 stavek. To je tretji stavek. To
 je četrti stavek.
 ```
 
-```python
+```
 >>> dat = open('stavki.txt')
 >>> for vrstica in dat:
 ...     print(len(vrstica), vrstica)
@@ -144,17 +139,17 @@ je četrti stavek.
 
 ---
 
-### Datoteko je po uporabi dobro zapreti
+### Datoteko je po uporabi **dobro zapreti**
 
-```python
+```
 dat = open('ime_datoteke.txt')
 ...
 dat.close()
 ```
 
-### Namesto tega raje pišemo
+### Namesto tega **raje pišemo**
 
-```python
+```
 with open('ime_datoteke.txt') as dat:
     ...
 ```
@@ -167,23 +162,17 @@ class: center, middle, question
 
 ---
 
-class: center, middle
-
-## Kodne tabele
-
----
-
 ### Računalnik si lahko zapomni le `0` in `1`
 
 `stavki.txt`
-```python
+```
 To je prvi stavek. To je drugi
 stavek. To je tretji stavek. To
 je četrti stavek.
 ```
 
 .small[
-```python
+```
 0101010001101111001000000110101001100101001000000111000001110010
 0111011001101001001000000111001101110100011000010111011001100101
 0110101100101110001000000101010001101111001000000110101001100101
@@ -200,7 +189,7 @@ je četrti stavek.
 
 ---
 
-### Za pretvorbo uporabljamo kodne tabele, ki vsakemu znaku dodelijo binarno zaporedje
+### Za pretvorbo uporabljamo **kodne tabele**, ki vsakemu znaku dodelijo **binarno zaporedje**
 
 ```lisp
    nova vrstica      10      00001010
@@ -230,7 +219,7 @@ je četrti stavek.
 | **5** | P | Q | R | S | T | U | V | W | X | Y | Z | [ | \ | ] | ^ | _ |
 | **6** | ` | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
 | **7** | p | q | r | s | t | u | v | w | x | y | z | { | ｜ | } | ~ | ␡ |
-]</div>
+]
 
 ---
 
@@ -261,7 +250,7 @@ class: center, middle, question
 
 ---
 
-### Kodna tabela ISO-8859-1
+Kodna tabela ISO-8859-1
 
 .smalltab[
 |       | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | A | B | C | D | E | F |
@@ -274,19 +263,19 @@ class: center, middle, question
 | **5** | P | Q | R | S | T | U | V | W | X | Y | Z | [ | \ | ] | ^ | _ |
 | **6** | ` | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
 | **7** | p | q | r | s | t | u | v | w | x | y | z | { | ｜ | } | ~ | ␡ |
-| **8** | � | � | � | � | � | � | � | � | � | � | � | � | � | � | � | � |
-| **9** | � | � | � | � | � | � | � | � | � | � | � | � | � | � | � | � |
+| **8** |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| **9** |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
 | **A** |   | ¡ | ¢ | £ | ¤ | ¥ | ¦ | § | ¨ | © | ª | « | ¬ | - | ® | ¯ |
 | **B** | ° | ± | ² | ³ | ´ | µ | ¶ | · | ¸ | ¹ | º | » | ¼ | ½ | ¾ | ¿ |
 | **C** | À | Á | Â | Ã | Ä | Å | Æ | Ç | È | É | Ê | Ë | Ì | Í | Î | Ï |
 | **D** | Ð | Ñ | Ò | Ó | Ô | Õ | Ö | × | Ø | Ù | Ú | Û | Ü | Ý | Þ | ß |
 | **E** | à | á | â | ã | ä | å | æ | ç | è | é | ê | ë | ì | í | î | ï |
 | **F** | ð | ñ | ò | ó | ô | õ | ö | ÷ | ø | ù | ú | û | ü | ý | þ | ÿ |
-]</div>
+]
 
 ---
 
-### Kodna tabela ISO-8859-2
+Kodna tabela ISO-8859-2
 
 .smalltab[
 |       | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | A | B | C | D | E | F |
@@ -299,19 +288,19 @@ class: center, middle, question
 | **5** | P | Q | R | S | T | U | V | W | X | Y | Z | [ | \ | ] | ^ | _ |
 | **6** | ` | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
 | **7** | p | q | r | s | t | u | v | w | x | y | z | { | ｜ | } | ~ | ␡ |
-| **8** | � | � | � | � | � | � | � | � | � | � | � | � | � | � | � | � |
-| **9** | � | � | � | � | � | � | � | � | � | � | � | � | � | � | � | � |
+| **8** |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| **9** |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
 | **A** |   | Ą | ˘ | Ł | ¤ | Ľ | Ś | § | ¨ | Š | Ş | Ť | Ź | - | Ž | Ż |
 | **B** | ° | ą | ˛ | ł | ´ | ľ | ś | ˇ | ¸ | š | ş | ť | ź | ˝ | ž | ż |
 | **C** | Ŕ | Á | Â | Ă | Ä | Ĺ | Ć | Ç | Č | É | Ę | Ë | Ě | Í | Î | Ď |
 | **D** | Đ | Ń | Ň | Ó | Ô | Ő | Ö | × | Ř | Ů | Ú | Ű | Ü | Ý | Ţ | ß |
 | **E** | ŕ | á | â | ă | ä | ĺ | ć | ç | č | é | ę | ë | ě | í | î | ď |
 | **F** | đ | ń | ň | ó | ô | ő | ö | ÷ | ř | ů | ú | ű | ü | ý | ţ | ˙ |
-]</div>
+]
 
 ---
 
-### Kodna tabela Windows-1250
+Kodna tabela Windows-1250
 
 .smalltab[
 |       | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | A | B | C | D | E | F |
@@ -324,15 +313,15 @@ class: center, middle, question
 | **5** | P | Q | R | S | T | U | V | W | X | Y | Z | [ | \ | ] | ^ | _ |
 | **6** | ` | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
 | **7** | p | q | r | s | t | u | v | w | x | y | z | { | ｜ | } | ~ | ␡ |
-| **8** | € | � | ‚ | � | „ | … | † | ‡ | � | ‰ | Š | ‹ | Ś | Ť | Ž | Ź |
-| **9** | � | ‘ | ’ | “ | ” | • | – | — | � | ™ | š | › | ś | ť | ž | ź |
+| **8** | € |   | ‚ |   | „ | … | † | ‡ |   | ‰ | Š | ‹ | Ś | Ť | Ž | Ź |
+| **9** |   | ‘ | ’ | “ | ” | • | – | — |   | ™ | š | › | ś | ť | ž | ź |
 | **A** |   | ˇ | ˘ | Ł | ¤ | Ą | ¦ | § | ¨ | © | Ş | « | ¬ | -­ | ® | Ż |
 | **B** | ° | ± | ˛ | ł | ´ | µ | ¶ | · | ¸ | ą | ş | » | Ľ | ˝ | ľ | ż |
 | **C** | Ŕ | Á | Â | Ă | Ä | Ĺ | Ć | Ç | Č | É | Ę | Ë | Ě | Í | Î | Ď |
 | **D** | Đ | Ń | Ň | Ó | Ô | Ő | Ö | × | Ř | Ů | Ú | Ű | Ü | Ý | Ţ | ß |
 | **E** | ŕ | á | â | ă | ä | ĺ | ć | ç | č | é | ę | ë | ě | í | î | ď |
 | **F** | đ | ń | ň | ó | ô | ő | ö | ÷ | ř | ů | ú | ű | ü | ý | ţ | ˙ |
-]</div>
+]
 
 ---
 
@@ -375,34 +364,28 @@ a   01100001
 
 ---
 
-### Kodno tabelo nastavimo s parametrom `encoding`
+### Kodno tabelo nastavimo s **parametrom `encoding`**
 
-```python
+```
 with open(..., encoding='utf-8') as d:
     ...
 ```
 
-```python
+```
 with open(..., encoding='cp1250') as d:
     ...
 ```
 
-```python
+```
 with open(..., encoding='latin2') as d:
     ...
 ```
 
 ---
 
-class: center, middle
+### Datoteko za **pisanje** odpremo s parametrom `w`
 
-## Pisanje datotek
-
----
-
-### Datoteko za pisanje odpremo s parametrom `w`
-
-```python
+```
 with open(..., 'w') as d:
     ...
 ```
@@ -411,14 +394,14 @@ with open(..., 'w') as d:
 
 ### V datoteko pišemo z metodo `write`
 
-```python
+```
 with open('izpis.txt', 'w') as d:
     d.write('To je ')
     d.write('en stavek.\nTo je drugi.')
 ```
 
 `izpis.txt`
-```python
+```
 To je en stavek.
 To je drugi.
 ```
@@ -427,78 +410,78 @@ To je drugi.
 
 ### V datoteko pišemo tudi s `print`
 
-```python
+```
 with open('izpis.txt', 'w') as d:
     print('To je en stavek.', file=d)
     print('1 + 1 =', 1 + 1, file=d)
 ```
 
 `izpis.txt`
-```python
+```
 To je en stavek
 1 + 1 = 2
 ```
 
 ---
 
-### Vsakič, ko datoteko odpremo za pisanje, jo povozimo
+### Vsakič, ko datoteko odpremo za pisanje, jo **povozimo**
 
-```python
+```
 with open('izpis.txt', 'w') as d:
     print('To je en stavek.', file=d)
     print('To je drugi.', file=d)
 ```
 
 `izpis.txt`
-```python
+```
 To je en stavek.
 To je drugi.
 ```
 
 ---
 
-### Vsakič, ko datoteko odpremo za pisanje, jo povozimo
+### Vsakič, ko datoteko odpremo za pisanje, jo **povozimo**
 
-```python
+```
 with open('izpis.txt', 'w') as d:
     print('To je tretji stavek.', file=d)
     print('To je četrti.', file=d)
 ```
 
 `izpis.txt`
-```python
+```
 To je tretji stavek.
 To je četrti.
 ```
 
 ---
 
-### Datoteko za dodajanje odpremo s parametrom `a`
+### Datoteko **za dodajanje** odpremo s parametrom `a`
 
-```python
+```
 with open('izpis.txt', 'a') as d:
     print('To je en stavek.', file=d)
     print('To je drugi.', file=d)
 ```
 
 `izpis.txt`
-```python
+```
 To je en stavek.
 To je drugi.
 ```
 
 ---
 
-### Datoteko za dodajanje odpremo s parametrom `a`
+### Datoteko **za dodajanje** odpremo s parametrom `a`
 
-```python
+```
 with open('izpis.txt', 'a') as d:
     print('To je tretji stavek.', file=d)
     print('To je četrti.', file=d)
 ```
 
 `izpis.txt`
-```python
+```
 To je en stavek.
 To je drugi.
 To je tretji stavek.
@@ -513,13 +496,7 @@ class: center, middle, question
 
 ---
 
-class: center, middle
-
-## Delo z datotečnim sistemom
-
----
-
-### Do datotek kaže absolutna pot
+### Do datotek kaže **absolutna pot**
 
 .small[```
     /
@@ -545,7 +522,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže absolutna pot
+### Do datotek kaže **absolutna pot**
 
 .small[```
 *   /
@@ -575,7 +552,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže absolutna pot
+### Do datotek kaže **absolutna pot**
 
 .small[```
     /
@@ -605,7 +582,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže absolutna pot
+### Do datotek kaže **absolutna pot**
 
 .small[```
     /
@@ -635,7 +612,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže absolutna pot
+### Do datotek kaže **absolutna pot**
 
 .small[```
     /
@@ -695,7 +672,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
 
 .small[```
     /
@@ -725,7 +702,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
 
 .small[```
     /
@@ -755,7 +732,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
 
 .small[```
     /
@@ -785,7 +762,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
 
 .small[```
     /
@@ -815,7 +792,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
 
 .small[```
 *   /
@@ -845,7 +822,7 @@ class: center, middle
 
 ---
 
-### Do datotek kaže tudi relativna pot, odvisna od trenutnega imenika
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
 
 .small[```
     /
@@ -875,16 +852,16 @@ class: center, middle
 
 ---
 
-### Trenutni imenik dobimo z `os.getcwd`
+### **Trenutni imenik** dobimo z `os.getcwd`
 
-```python
+```
 >>> os.getcwd()
 '/Users/matija'
 ```
 
-### Delovni imenik nastavimo z `os.chdir`
+### Trenutni imenik **nastavimo** z `os.chdir`
 
-```python
+```
 >>> os.chdir('Documents/uvp')
 >>> os.getcwd()
 '/Users/matija/Documents/uvp'
@@ -896,9 +873,9 @@ class: center, middle
 
 ---
 
-### Imena vseh datotek v danem imeniku dobimo z `os.listdir`
+### **Imena vseh datotek** v danem imeniku dobimo z `os.listdir`
 
-```python
+```
 >>> os.listdir()
 ['datoteke-s-predavanj', 'prosojnice',
 'zapiski']
@@ -914,16 +891,16 @@ class: center, middle
 
 ---
 
-### Ime po končnici razdelimo z `os.path.splitext`
+### Ime **po končnici razdelimo** z `os.path.splitext`
 
-```python
+```
 >>> os.path.splitext('/imenik/test.txt')
 ('/imenik/test', '.txt')
 ```
 
-### Ime po imeniku razdelimo z `os.path.split`
+### Ime **po imeniku razdelimo** z `os.path.split`
 
-```python
+```
 >>> os.path.split('/imenik/test.txt')
 ('/imenik', 'test.txt')
 ```
@@ -934,20 +911,8 @@ class: center, middle, question
 
 ## Urejanje zmedenih datotek
 
----
-
-class: question, center, middle
-
-## Najbolj pogoste črke in besede v slovenskih klasikih
-
-
-</div>
-
 
 </textarea>
-<script src="pomozne-datoteke/jquery-3.1.1.slim.min.js"></script> 
-<script src="pomozne-datoteke/remark-latest.min.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="pomozne-datoteke/prosojnice.js"></script>
 </body>
 </html>

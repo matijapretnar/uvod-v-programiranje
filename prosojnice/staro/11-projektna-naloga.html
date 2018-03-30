@@ -4,17 +4,15 @@
 <meta charset="utf-8">
 <title>Projektna naloga</title>
 <link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
-<style>
-</style>
 </head>
 <body>
 <textarea id="source">
 
 class: center, middle
 
-# Projektna naloga
-
 ### Uvod v programiranje
+
+# Projektna naloga
 
 ---
 
@@ -64,10 +62,60 @@ class: center, middle
 * Izračun delovne dobe
 * Poraba goriva
 
+---
+
+---
+
+### Funkcija `input` vrne prebrani niz
+
+```python
+>>> input()
+*tipk tipk tipk
+'tipk tipk tipk'
+>>> input('Kaj bi rad? ')
+*Kaj bi rad? veliko čokolado z lešniki
+'veliko čokolado z lešniki'
+>>> ime = input('Kako ti je ime? ')
+*Kako ti je ime? Matija
+>>> ime
+'Matija'
+```
+
+---
+
+class: question
+
+## Funkcija, ki vrne ustrezen pozdrav
+
+```python
+>>> pozdrav('Matija')
+'Dober dan, gospod profesor.'
+>>> pozdrav('Niels')
+'Živjo, gospod asistent.'
+>>> pozdrav('Francelj')
+'Živjo, Francelj!'
+```
+
+---
+
+class: question
+
+## Funkcija, ki pozdravi uporabnika
+
+```python
+>>> pozdravi()
+*Kako ti je ime? Matija
+*Dober dan, gospod profesor.
+>>> pozdravi()
+*Kako ti je ime? Niels
+*Živjo, gospod asistent.
+>>> pozdravi()
+*Kako ti je ime? Francelj
+*Živjo, Francelj!
+```
+
+
 </textarea>
-<script src="pomozne-datoteke/jquery-3.1.1.slim.min.js"></script> 
-<script src="pomozne-datoteke/remark-latest.min.js"></script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="pomozne-datoteke/prosojnice.js"></script>
 </body>
 </html>

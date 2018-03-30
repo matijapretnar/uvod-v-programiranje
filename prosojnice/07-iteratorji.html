@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Iteratorji</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+### Uvod v programiranje
+
+# Iteratorji
+
+---
+
+### Z zanko `for` se lahko vozimo po seznamih:
+
+```
+for x in [10, 20, 30]:
+    print(x)
+```
+
+```
+10
+20
+30
+```
+
+---
+
+### Z zanko `for` se lahko vozimo po nizih:
+
+```
+for x in 'abc':
+    print(x)
+```
+
+```
+a
+b
+c
+```
+
+
+---
+
+### Z zanko `for` se lahko vozimo po množicah:
+
+```
+for x in {'a', 'b', 'c'}:
+    print(x)
+```
+
+```
+c
+b
+a
+```
+
+---
+
+### Z zanko `for` se lahko vozimo po slovarjih:
+
+```
+for x in {'a': 1, 'b': 2, 'c': 3}.items():
+    print(x)
+```
+
+```
+('c', 3)
+('a', 1)
+('b', 2)
+```
+
+---
+
+### Z zanko `for` se lahko vozimo po `enumerate`:
+
+```
+for x in enumerate('abc'):
+    print(x)
+```
+
+```
+(0, 'a')
+(1, 'b')
+(2, 'c')
+```
+
+---
+
+### Z zanko `for` se lahko vozimo po `zip`:
+
+```
+for x in zip('xyz', [10, 20, 30, 40]):
+    print(x)
+```
+
+```
+('x', 10)
+('y', 20)
+('z', 30)
+```
+
+---
+
+### Funkcija `iter` vrne **iterator** objekta,<br> `next` pa **naslednjo vrednost** iteratorja
+
+```
+>>> it = iter('abc')
+>>> next(it)
+'a'
+>>> next(it)
+'b'
+>>> next(it)
+'c'
+>>> next(it)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+```
+
+---
+
+### Zanka `for` **na iteratorju** kliče `next`,<br>dokler ni sprožena izjema `StopIteration`
+
+```
+>>> it = iter('abc')
+>>> next(it)
+'a'
+>>> for x in it: print(x)
+b
+c
+```
+
+---
+
+### Pri vseh ostalih objektih<br>zanka `for` **ustvari nov iterator**
+
+```
+>>> niz = 'abc'
+>>> it = iter(niz)
+>>> next(it)
+'a'
+>>> for x in niz: print(x)
+a
+b
+c
+>>> for x in it: print(x)
+b
+c
+```
+
+---
+
+### Objektom z iteratorji pravimo<br>**iterabilni objekti** (_iterable_)
+
+```
+>>> for x in max: print(x)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'builtin_function_or_method'
+  object is not iterable
+```
+
+---
+
+### Pri hkratnem prireditvenem stavku gre za<br>**sestavljanje in razstavljanje** naborov
+
+```
+>>> a, b, c = 1, 'dva', 3
+>>> (a + c) * b
+'dvadvadvadva'
+```
+
+```
+>>> nabor = (1, 'dva', 3)
+>>> a, b, c = nabor
+>>> (a + c) * b
+'dvadvadvadva'
+```
+
+---
+
+### Nabore lahko **razstavljamo v zankah**
+
+```
+>>> s = {'a': 2, 'b': 5, 'c': 3}
+>>> for k, v in s.items():
+...     print(v * k)
+... 
+aa
+bbbbb
+ccc```
+
+---
+
+### Razstavimo lahko **vsak iterabilni** objekt
+
+```
+>>> a, b, c = [1, 2, 3]
+>>> a + b + c
+6
+>>> x, y, z = 'ABC'
+>>> 3 * z + 2 * y + x
+'CCCBBA'
+```
+
+---
+
+### Seznam **preostalih vrednosti** shranimo z `*`
+
+```
+>>> x, y, *z = [1, 2, 3, 4, 5]
+>>> x
+1
+>>> y
+2
+>>> z
+[3, 4, 5]
+```
+```
+>>> prva, *ostale = 'nek niz'
+>>> prva
+'n'
+>>> ostale
+['e', 'k', ' ', 'n', 'i', 'z']
+```
+
+---
+
+### Vzorec `*` se lahko pojavi tudi **na sredini**
+
+```
+>>> x, *y, z = [1, 2, 3, 4, 5]
+>>> x
+1
+>>> y
+[2, 3, 4]
+>>> z
+5
+```
+
+---
+
+### Vzorec `*` se lahko pojavi tudi **v funkcijah**,<br>kjer preostale argumente shrani v **nabor**
+
+```
+def f(x, *args):
+    return x * args
+```
+
+```
+>>> f(2, 4, 6, 8)
+(4, 6, 8, 4, 6, 8)
+>>> f(5)
+()
+```
+
+---
+
+### V funkcijah vzorec `**` preostale<br>imenovane argumente shrani v **slovar**
+
+```
+def f(x=2, **kwargs):
+    for k, v in kwargs.items():
+        print(k, x * '>>', v)
+```
+
+```
+>>> f(x=4, y=3, z=4)
+y >>>>>>>> 3
+z >>>>>>>> 4
+>>> f(y=3, z=4)
+y >>>> 3
+z >>>> 4
+```
+
+---
+
+### **Generatorji** so iteratorji,<br>definirani **podobno kot funkcije**
+
+```
+def en_dva_tri():
+    yield 1
+    yield 5 - 3
+    yield 2 + 1
+```
+
+```
+>>> for x in en_dva_tri(): print(x)
+1
+2
+3
+```
+
+`en_dva_tri` je funkcija, ki ob **vsakem klicu** vrne **nov generator**.
+
+---
+
+### Z generatorji lahko predstavimo **neskončne sezname**
+
+```
+def fibonacci():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+for x in fibonacci():
+    print(x, end=', ')
+```
+
+```
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,
+144, 233, 377, 610, 987, 1597, 2584, 4181,
+6765, 10946, 17711, 28657, 46368, 75025,
+121393, 196418, 317811, 514229, 832040 ...
+```
+
+---
+
+### Spodnji postopek je **zelo pogost**
+
+```
+def seznam_kvadratov(seznam):
+    kvadrati = []
+    for x in seznam:
+        kvadrati.append(x ** 2)
+    return kvadrati
+```
+
+---
+
+### Spodnji postopek je **zelo pogost**
+
+```
+def seznam_absolutnih_vrednosti(seznam):
+    absolutne_vrednosti = []
+    for x in seznam:
+        absolutne_vrednosti.append(abs(x))
+    return absolutne_vrednosti
+```
+
+---
+
+### Spodnji postopek je **zelo pogost**
+
+```
+def dolzine_besed(besede):
+    dolzine = []
+    for beseda in besede:
+        dolzine.append(len(beseda))
+    return dolzine
+```
+
+---
+
+### Sezname dostikrat lepše zgradimo z **izpeljanimi seznami**
+
+```
+seznam = []
+for x in ...:
+    seznam.append(f(x))
+```
+
+```
+seznam = [f(x) for x in ...]
+```
+
+---
+
+### V izpeljanih seznamih imamo lahko tudi **gnezdene zanke**
+
+```
+seznam = []
+for x in ...:
+    for y in ...:
+        seznam.append(f(x, y))
+```
+
+```
+seznam = [f(x, y) for x in ... for y in ...]
+```
+
+---
+
+### V izpeljanih seznamih imamo lahko **pogoje**
+
+```
+seznam = []
+for x in ...:
+    if pogoj:
+        seznam.append(f(x))
+```
+
+```
+seznam = [f(x) for x in ... if pogoj]
+```
+
+---
+
+### Obstajajo tudi **izpeljane množice**
+
+```
+mnozica = set()
+for x in ...:
+    if pogoj:
+        mnozica.add(f(x))
+```
+
+```
+mnozica = {f(x) for x in ... if pogoj}
+```
+
+---
+
+### Obstajajo tudi **izpeljani slovarji**
+
+```
+slovar = {}
+for x in ...:
+    if pogoj:
+        slovar[k(x)] = v(x)
+```
+
+```
+slovar = {k(x): v(x) for x in ... if pogoj}
+```
+
+---
+
+### Obstajajo tudi **izpeljani generatorji**
+
+```
+def generiraj_generator():
+    for x in ...:
+        if pogoj:
+            yield f(x)
+generator = generiraj_generator()
+```
+
+```
+generator = (f(x) for x in ... if pogoj)
+```
+
+</textarea>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>

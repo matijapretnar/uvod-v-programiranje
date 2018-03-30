@@ -607,7 +607,7 @@ def prestej_pojavitve(seznam):
     return pojavitve
 
 def izlusci_besede(niz, najmanjsa_dolzina=3):
-    for znak in ',.!?':
+    for znak in ',.!?-':
          niz = niz.replace(znak, ' ')
     besede = []
     for beseda in niz.split():
@@ -622,20 +622,6 @@ def kljuc_z_najvecjo_vrednostjo(slovar):
         if max_kljuc is None or slovar[kljuc] >= slovar[max_kljuc]:
             max_kljuc = kljuc
     return max_kljuc
-
-knjiga_obrazov = {
-    'Anka': {'Bogomir', 'Cvetka'},
-    'Bogomir': {'Cvetka', 'Dragomir'},
-    'Cvetka': {'Anka'},
-    'Dragomir': {'Anka', 'Cvetka'},
-}
-
-def priporoci_prijatelja(omrezje, oseba):
-    priporocila = set()
-    for prijatelj in omrezje[oseba]:
-        prijatelji_prijatelja = omrezje[prijatelj]
-        priporocila |= prijatelji_prijatelja
-    return priporocila - omrezje[oseba] - {oseba}
 
 # print(len(krst_pri_savici))
 
