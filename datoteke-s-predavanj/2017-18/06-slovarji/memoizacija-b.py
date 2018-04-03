@@ -611,10 +611,10 @@ def mem_kvadrat(x):
 
 def memoiziraj(f):
     rezultati = {}
-    def mem_f(x):
-        if x not in rezultati:
-            rezultati[x] = f(x)
-        return rezultati[x]
+    def mem_f(*args):
+        if args not in rezultati:
+            rezultati[args] = f(*args)
+        return rezultati[args]
     return mem_f
 
 
@@ -632,14 +632,14 @@ def stevilo_stolpov(n):
 
 
 @memoiziraj
-def najdaljsi_podpalindrom(niz):
-    if len(niz) <= 1:
-        return niz
-    elif niz[0] == niz[-1]:
-        return niz[0] + najdaljsi_podpalindrom(niz[1:-1]) + niz[-1]
+def najdaljsi_podpalindrom(niz, i, j):
+    if j - i <= 1:
+        return niz[i:j]
+    elif niz[i] == niz[j - 1]:
+        return niz[i] + najdaljsi_podpalindrom(niz, i + 1, j - 1) + niz[j - 1]
     else:
-        brez_prve = najdaljsi_podpalindrom(niz[1:])
-        brez_zadnje = najdaljsi_podpalindrom(niz[:-1])
+        brez_prve = najdaljsi_podpalindrom(niz, i + 1, j)
+        brez_zadnje = najdaljsi_podpalindrom(niz, i, j - 1)
         if len(brez_prve) > len(brez_zadnje):
             return brez_prve
         else:

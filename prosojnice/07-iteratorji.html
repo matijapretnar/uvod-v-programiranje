@@ -281,6 +281,31 @@ z >>>> 4
 
 ---
 
+### Vzorca `*` in `**` lahko uporabimo pri **klicih**
+
+```
+def f(x, y):
+    return x + y
+```
+
+```
+>>> f(1, 2)
+3
+>>> seznam = [1, 2]
+>>> f(*seznam)
+3
+```
+
+```
+>>> '{a} --- {b}'.format(a=10, b=20)
+'10 --- 20'
+>>> slovar = {'a': 10, 'b': 20}
+>>> '{a} --- {b}'.format(**slovar)
+'10 --- 20'
+```
+
+---
+
 ### **Generatorji** so iteratorji,<br>definirani **podobno kot funkcije**
 
 ```
@@ -320,6 +345,35 @@ for x in fibonacci():
 6765, 10946, 17711, 28657, 46368, 75025,
 121393, 196418, 317811, 514229, 832040 ...
 ```
+
+---
+
+### Z `yield from` predajamo vrednosti **drugega generatorja**
+
+```
+def odstevaj():
+    for i in range(10, 0, -1):
+        yield i
+    yield 'Bum!'
+```
+
+```
+def odstevaj():
+    yield from range(10, 0, -1)
+    yield 'Bum!'
+```
+
+---
+
+class: center, question, middle
+
+## Razponi s seznami in generatorji
+
+---
+
+class: center, question, middle
+
+## Generator deliteljev
 
 ---
 
@@ -388,6 +442,12 @@ seznam = [f(x, y) for x in ... for y in ...]
 
 ---
 
+class: center, question, middle
+
+## Identična in transponirana matrika
+
+---
+
 ### V izpeljanih seznamih imamo lahko **pogoje**
 
 ```
@@ -446,6 +506,24 @@ generator = generiraj_generator()
 ```
 generator = (f(x) for x in ... if pogoj)
 ```
+
+---
+
+class: center, question, middle
+
+## Kartezični produkt
+
+---
+
+class: center, question, middle
+
+## Permutacije
+
+---
+
+class: center, question, middle
+
+## Potenčna množica
 
 </textarea>
 <script src="pomozne-datoteke/prosojnice.js"></script>
