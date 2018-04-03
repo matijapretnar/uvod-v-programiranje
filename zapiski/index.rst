@@ -9,13 +9,17 @@ Uvod v programiranje
     03-zanke
     04-seznami
 
-* Objekti
+* Metode
+    * Metode na nizih
+    * Metode na seznamih
+    * Risanje z želvo
 
 * Slovarji
     * Slovarji
     * Množice
 
-* Iterabilni objekti
+* Iteracija
+    * Iteratorji
     * Izpeljane strukture
     * Generatorji
 
