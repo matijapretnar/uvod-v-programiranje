@@ -39,8 +39,8 @@ def polepsaj_ime_datoteke(cela_pot):
 
 def preimenuj(grdo_ime):
     lepo_ime = polepsaj_ime_datoteke(grdo_ime)
-    # print(grdo_ime, '~~>', lepo_ime)
-    os.rename(grdo_ime, lepo_ime)
+    print(grdo_ime, '~~>', lepo_ime)
+    # os.rename(grdo_ime, lepo_ime)
 
 for pot in relevantne_datoteke('igra'):
     preimenuj(pot)
