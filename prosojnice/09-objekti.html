@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Objektno programiranje</title>
+<title>Objekti</title>
 <link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
@@ -12,7 +12,7 @@ class: center, middle
 
 ### Uvod v programiranje
 
-# Objektno programiranje
+# Objekti
 
 ---
 
@@ -30,13 +30,7 @@ class: center, middle
 
 ---
 
-class: center, middle
-
-## Definicija lastnih razredov
-
----
-
-### Definicija razreda sestoji iz definicij metod
+### Definicija razreda sestoji iz definicij **metod**
 
 ```python
 class Pes:
@@ -53,7 +47,7 @@ hovhovhovhovhov!
 
 ---
 
-### V metodah lahko dostopamo do atributov
+### V metodah lahko dostopamo do **atributov**
 
 ```python
 class Pes:
@@ -67,8 +61,6 @@ class Pes:
 ```python
 >>> fido = Pes()
 >>> fido.vzpostavi_zacetno_veselje()
->>> fido.daj_glas()
-hov!
 >>> fido.razveseli()
 >>> fido.daj_glas()
 hovhov!
@@ -76,7 +68,7 @@ hovhov!
 
 ---
 
-### Začetne atribute nastavimo z `__init__`
+### **Začetne atribute** nastavimo z `__init__`
 
 ```python
 class Pes:
@@ -99,7 +91,7 @@ hovhov!
 
 ---
 
-### Ustvarimo lahko tudi več objektov
+### Ustvarimo lahko tudi **več objektov**
 
 ```python
 >>> fido = Pes()
@@ -128,8 +120,6 @@ class Pes:
 
 ```python
 >>> fido = Pes(glas='vuf')
->>> fido.daj_glas()
-vuf!
 >>> fido.razveseli()
 >>> fido.daj_glas()
 vufvuf!
@@ -137,13 +127,7 @@ vufvuf!
 
 ---
 
-class: center, middle
-
-## Posebne metode
-
----
-
-### Za prikaz v konzoli uporabljamo `__repr__`
+### Za **prikaz v konzoli** uporabljamo `__repr__`
 
 ```python
 class Pes:
@@ -158,7 +142,7 @@ class Pes:
 
 ---
 
-### Za prikaz v konzoli uporabljamo `__repr__`
+### Za **prikaz v konzoli** uporabljamo `__repr__`
 
 ```python
 class Pes:
@@ -178,7 +162,7 @@ Pes(glas='hov')
 
 ---
 
-### Za človeški izpis uporabljamo `__str__`
+### Za **človeški izpis** uporabljamo `__str__`
 
 ```python
 class Pes:
@@ -198,18 +182,21 @@ Pes, ki dela hov.
 
 ---
 
-class: center, middle
+class: center, middle, question
 
-## Medklic: metoda `format`
-
----
-
+## Tekoči računi
 
 ---
 
 class: center, middle, question
 
-## Tekoči računi
+## Geometrijske konstrukcije
+
+---
+
+class: center, middle, question
+
+## Dinamične geometrijske konstrukcije
 
 
 </textarea>
