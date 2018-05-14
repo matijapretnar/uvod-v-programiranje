@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Uporabniški vmesnik</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+### Uvod v programiranje
+
+# Projektna naloga
+
+---
+
+### Napišete lahko **igrico**
+
+* ~~Vislice~~
+* **Potapljanje ladjic** (lani A)
+* **Kača** (lani B)
+* 2048
+* Kviz
+* Labirint
+* Minolovec
+* Sudoku
+* Štiri v vrsto
+
+---
+
+### Napišete lahko **matematični** program
+
+* ~~Kalkulator~~
+* **Dinamična geometrija** (letos B)
+* Kotne funkcije
+* Lastnosti likov
+* Odstranjevanje šuma
+* Računanje z matrikami
+* Risanje vektorjev
+* Skladovni kalkulator
+* Učenje računanja
+
+---
+
+### Napišete lahko program za **delo s podatki**
+
+* **Bančne transakcije** (letos A)
+* Analiza spanja
+* Generator gesel
+* Izposoja knjig
+* Izračun delovne dobe
+* Izračun kalorij
+* Moja denarnica
+* Poraba goriva
+* Pretvornik enot
+
+---
+
+class: center, middle
+
+## Zahteve projektne naloge
+
+### 1\. uporabljati mora **večino pokrite snovi**
+
+### 2\. napisana mora biti **skladno s smernicami**
+
+### 3\. uporaba mora biti na voljo **neprogramerju**
+
+---
+
+class: center, middle
+
+### Uvod v programiranje
+
+# Uporabniški vmesnik
+
+---
+
+### Najenostavnejši vmesnik je prek<br>**tekstovnega vnosa** v konzoli
+
+```python
+>>> input()
+*tipk tipk tipk
+'tipk tipk tipk'
+>>> input('Kaj bi rad? ')
+*Kaj bi rad? veliko čokolado z lešniki
+'veliko čokolado z lešniki'
+>>> ime = input('Kako ti je ime? ')
+*Kako ti je ime? Matija
+>>> ime
+'Matija'
+```
+
+---
+
+class: question
+
+## Funkcija, ki vrne ustrezen pozdrav
+
+```python
+>>> pozdrav('Matija')
+'Dober dan, gospod profesor.'
+>>> pozdrav('Niels')
+'Živjo, gospod asistent.'
+>>> pozdrav('Francelj')
+'Živjo, Francelj!'
+```
+
+---
+
+class: question
+
+## Program, ki v nedogled pozdravlja uporabnika
+
+```python
+>>> zacni_pozdravljati()
+*Kako ti je ime? Matija
+*Dober dan, gospod profesor.
+*Kako ti je ime? Niels
+*Živjo, gospod asistent.
+*Kako ti je ime? Francelj
+*Živjo, Francelj!
+```
+
+---
+
+### Knjižnica TkInter omogoča delo z **grafičnim vmesnikom**
+
+```python
+import tkinter as tk
+
+okno = tk.Tk()
+gumb = tk.Button(okno, text='KLIK')
+oznaka = tk.Label(okno, text='Ne pritiskaj!')
+gumb.pack()
+oznaka.pack()
+
+okno.mainloop()
+```
+
+.center[![okno](slike/tkinter/tkinter.png)]
+
+---
+
+### Metoda `pack` elemente razporedi **samodejno**. Če jih želimo **ročno**, uporabimo `grid`
+
+```python
+okno = tk.Tk()
+gumb = tk.Button(okno, text='KLIK')
+oznaka = tk.Label(okno, text='Ne pritiskaj!')
+gumb.grid(row=0, column=1)
+oznaka.grid(row=1, column=0)
+```
+
+Obeh metod hkrati ne smemo uporabljati.
+
+.center[![okno](slike/tkinter/grid.png)]
+
+---
+
+### Objekt `Frame` predstavlja okvir, s katerim **natančneje razporejamo elemente**
+
+```python
+okno = tk.Tk()
+zgoraj = tk.Frame(okno)
+spodaj = tk.Frame(okno)
+zgoraj.pack()
+spodaj.pack()
+tk.Button(zgoraj, text='A').pack()
+tk.Button(spodaj, text='B1').grid(row=0, column=0)
+tk.Button(spodaj, text='B2').grid(row=0, column=1)
+tk.Button(spodaj, text='B3').grid(row=0, column=2)
+```
+
+.center[![okno](slike/tkinter/frame.png)]
+
+---
+
+### Gumbom s parametrom `command` nastavimo **funkcijo, ki naj se izvede** ob pritisku
+
+```python
+def odzdravi():
+    print('Dober dan, človek!')
+
+okno = tk.Tk()
+gumb = tk.Button(okno, text='Živjo, Python!',
+                 command=odzdravi)
+gumb.pack()
+```
+
+.center[![okno](slike/tkinter/command.png)]
+
+---
+
+### Objekt `Entry` predstavlja **vnosno polje**
+
+```python
+def odzdravi():
+    print('Dober dan, {}!'.format(vhod.get()))
+
+okno = tk.Tk()
+vhod = tk.Entry(okno)
+gumb = tk.Button(okno, text='Živjo, Python!',
+                 command=odzdravi)
+vhod.pack()
+gumb.pack()
+```
+
+.center[![okno](slike/tkinter/entry.png)]
+
+---
+
+### Objekt `Canvas` predstavlja **risarsko platno**
+
+```python
+okno = tk.Tk()
+platno = tk.Canvas(okno, height=100, width=100)
+platno.pack()
+platno.create_oval(30, 20, 70, 30)
+platno.create_rectangle(70, 30, 50, 100)
+```
+
+.center[![okno](slike/tkinter/canvas.png)]
+
+---
+
+### Z metodo `bind` se **vežemo na dogodke**
+
+```python
+def opisi_klik(event):
+    print(event.x, event.y)
+
+okno = tk.Tk()
+okno.bind('<Button-1>', opisi_klik)
+okno.mainloop()
+```
+
+---
+
+### Z metodo `bind` se **vežemo na dogodke**
+
+```python
+def opisi_pritisk(event):
+    print(event.keysym)
+
+okno = tk.Tk()
+okno.bind('<Key>', opisi_pritisk)
+okno.mainloop()
+```
+
+---
+
+### Z metodo `bind` se **vežemo na dogodke**
+
+```python
+def opisi_dogodek(event):
+    print(vars(event))
+
+okno = tk.Tk()
+okno.bind('<Key>', opisi_pritisk)
+okno.mainloop()
+```
+
+</textarea>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>
