@@ -10,6 +10,19 @@ class Tocka:
     def koordinate(self):
         return self.x, self.y
 
+    def slika_na_platnu(self, platno):
+        POLMER_TOCKE = 3
+        x, y = self.koordinate()
+        return platno.create_oval(
+            x - POLMER_TOCKE,
+            y - POLMER_TOCKE,
+            x + POLMER_TOCKE,
+            y + POLMER_TOCKE,
+            activefill='blue',
+            activeoutline='blue',
+            fill='white',
+        )
+
 
 class Premica:
     def __init__(self, a, b, c):
@@ -23,6 +36,20 @@ class Premica:
 
     def parametri(self):
         return self.a, self.b, self.c
+
+    def slika_na_platnu(self, platno):
+        a, b, c = self.parametri()
+        x1 = 0
+        y1 = (c - a * x1) / b
+        x2 = platno.winfo_width()
+        y2 = (c - a * x2) / b
+        return platno.create_line(
+            x1,
+            y1,
+            x2,
+            y2,
+            activefill='blue',
+        )
 
 
 class PremicaSkoziTocki(Premica):
@@ -64,7 +91,7 @@ class Pravokotnica(Premica):
         a = -b0
         b = a0
         x, y = self.tocka.koordinate()
-        c = -(a * x + b * y)
+        c = a * x + b * y
         return (a, b, c)
 
 
@@ -78,17 +105,5 @@ class Vzporednica(Premica):
         a = a0
         b = b0
         x, y = self.tocka.koordinate()
-        c = -(a * x + b * y)
+        c = a * x + b * y
         return (a, b, c)
-
-
-class Konstrukcija:
-    def __init__(self):
-        self.tocke = []
-        self.premice = []
-
-    def dodaj_tocko(self, tocka):
-        self.tocke.append(tocka)
-
-    def dodaj_premico(self, premica):
-        self.premice.append(premica)
