@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Računska zahtevnost</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+### Uvod v programiranje
+
+# Računska zahtevnost
+
+---
+
+### **Časovna** zahtevnost
+
+Koliko **časa v odvisnosti od vhodnih podatkov** potrebuje algoritem za izračun rezultata.
+
+### **Prostorska** zahtevnost
+
+Koliko **(dodatnega) prostora** v odvisnosti od vhodnih podatkov potrebuje algoritem za izračun rezultata.
+
+### Mi se bomo povečini ukvarjali s **časovno zahtevnostjo**.
+
+---
+
+### **Kako bi določili** časovno zahtevnost?
+
+```python
+def najvecji_element1(sez):
+    maksi = None
+    for x in sez:
+        if maksi == None or x > maksi:
+            maksi = x
+    return maksi
+```
+
+```python
+def najvecji_element2(sez):
+    for x in sez:
+        if x == max(sez):
+            return x
+```
+
+---
+
+### Z **merjenjem** porabljenega časa
+
+1. rezultati so **odvisni od računalnika**
+2. pri meritvah prihaja do **napak**
+3. program moramo **dejansko izvesti**
+
+### Z natančno **matematično analizo**
+
+1. natančno moramo **poznati model** računanja
+2. analiza je **zahtevna**
+3. tako natančnih rezultatov **ne rabimo**
+
+---
+
+### Analizo poenostavimo z **notacijo velikega O**
+
+## .center[$$f \in O(g)$$]
+
+## $$\exists M, x_0. \forall x > x_0. |f(x)| \leq M \cdot |g(x)|$$
+
+---
+
+### Kaj je **pomen** definicije?
+
+### $$\exists \color{purple}{M}, \color{red}{x_0}. \forall x > \color{red}{x_0}. |f(x)| \leq \color{purple}{M} \cdot |\color{blue}{g}(x)|$$
+
+### .center[![](slike/O-graf.png)]
+
+--
+
+### Rast funkcije \\(f\\) je **omejena** s funkcijo \\(g\\)
+
+---
+
+### **Lastnosti** notacije velikega O
+
+### $$f \in O(g), a \in \mathbb{R} \implies a \cdot f \in O(g)$$
+
+### $$f_1 \in O(g_1), f_2 \in O(g_2) \implies f_1 + f_2 \in O(|g_1| + |g_2|)$$
+
+### $$f_1 \in O(g_1), f_2 \in O(g_2) \implies f_1 \cdot f_2 \in O(g_1 \cdot g_2)$$
+
+---
+
+### Pri zapisu smo dostikrat **površni**
+
+### $$n \mapsto n^2 + 3 n \in O(n \mapsto n^2)$$
+### $$n^2 + 3 n \in O(n^2)$$
+### $$n^2 + 3 n = O(n^2)$$
+
+### Površni smo tudi pri **lastnostih**
+
+### $$a \cdot O(g) = O(g)$$
+### $$O(g_1) + O(g_2) = O(g_1 + g_2)$$
+### $$O(g_1) \cdot O(g_2) = O(g_1 \cdot g_2)$$
+
+---
+
+class: question, center
+
+## Katere trditve so veljavne?
+
+|                     |
+| :-----------------: | :-:
+| \\( 3 n^2 - 1000 n \in O(n^2) \\)  | .green.spoiler[**DA**]
+| \\( 1000 n^2 + 0.0001 n^3 \in O(n^2) \\)  | .red.spoiler[**NE**]
+| \\( 1000 n^2 + 0.0001 n^3 \in O(n^3) \\)  | .green.spoiler[**DA**]
+| \\( 1000 n^2 + 0.0001 n^3 \in O(n^4) \\)  | .green.spoiler[**DA**]
+| \\( n^{1000} + 2^n \in O(n^{1000}) \\)  | .red.spoiler[**NE**]
+| \\( n^{1000} + 2^n \in O(2^n) \\)  | .green.spoiler[**DA**]
+
+---
+
+class: center, middle 
+
+## Časovna zahtevnost enostavnih algoritmov
+
+---
+
+class: center, middle
+
+### Izračun sledi matrike
+
+## .spoiler[$$O(n)$$]
+
+---
+
+class: center, middle
+
+### Izračun največjega elementa v seznamu
+
+## .spoiler[$$O(n)$$]
+
+---
+
+class: center, middle
+
+### Izračun najmanjšega elementa v urejenem seznamu
+
+## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### Iskanje elementa v neurejenem seznamu
+
+## .spoiler[$$O(n)$$]
+
+---
+
+class: center, middle
+
+### Iskanje elementa v urejenem seznamu
+
+## .spoiler[$$O(\log n)$$]
+
+---
+
+### **Kako izračunamo** časovno zahtevnost?
+
+1. Pri **zaporednih** programih časovne zahtevnosti **seštejemo**
+
+2. Pri **vejah** vzamemo **največjo** časovno zahtevnost
+
+3. Pri **zankah** časovno zahtevnost **pomnožimo** s številom obhodov
+
+---
+
+class: center, middle 
+
+## Časovna zahtevnost vgrajenih funkcij
+
+---
+
+class: center, middle
+
+### Iskanje v seznamu
+
+## .spoiler[$$O(n)$$]
+
+---
+
+class: center, middle
+
+### Iskanje v urejenem seznamu
+
+## .spoiler[$$O(n)$$]
+
+---
+
+class: center, middle
+
+### Največji element seznama
+
+## .spoiler[$$O(n)$$]
+
+---
+
+class: center, middle
+
+### Dolžina seznama
+
+## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### Spreminjanje elementa v seznamu
+
+## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### Dodajanje na konec seznama
+
+## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### Dodajanje na začetek seznama
+
+## .spoiler[$$O(n)$$]
+
+---
+
+class: center, middle
+
+### Iskanje v slovarju
+
+## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### Iskanje v množici
+
+## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### Spreminjanje slovarja
+
+## .spoiler[$$O(1)$$]
+
+
+</textarea>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>
