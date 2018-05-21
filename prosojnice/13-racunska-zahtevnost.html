@@ -16,19 +16,7 @@ class: center, middle
 
 ---
 
-### **Časovna** zahtevnost
-
-Koliko **časa v odvisnosti od vhodnih podatkov** potrebuje algoritem za izračun rezultata.
-
-### **Prostorska** zahtevnost
-
-Koliko **(dodatnega) prostora** v odvisnosti od vhodnih podatkov potrebuje algoritem za izračun rezultata.
-
-### Mi se bomo povečini ukvarjali s **časovno zahtevnostjo**.
-
----
-
-### **Kako bi določili** časovno zahtevnost?
+### Kateri od spodnjih programov je **boljši**?
 
 ```python
 def najvecji_element1(sez):
@@ -48,13 +36,27 @@ def najvecji_element2(sez):
 
 ---
 
-### Z **merjenjem** porabljenega časa
+### **Časovna** zahtevnost
+
+Koliko **časa v odvisnosti od vhodnih podatkov** potrebuje algoritem za izračun rezultata.
+
+### **Prostorska** zahtevnost
+
+Koliko **(dodatnega) prostora** v odvisnosti od vhodnih podatkov potrebuje algoritem za izračun rezultata.
+
+### Mi se bomo povečini ukvarjali s **časovno zahtevnostjo**.
+
+---
+
+### Kako **določiti** časovno zahtevnost?
+
+#### Z merjenjem porabljenega časa
 
 1. rezultati so **odvisni od računalnika**
 2. pri meritvah prihaja do **napak**
 3. program moramo **dejansko izvesti**
 
-### Z natančno **matematično analizo**
+#### Z natančno matematično analizo
 
 1. natančno moramo **poznati model** računanja
 2. analiza je **zahtevna**
@@ -68,6 +70,8 @@ def najvecji_element2(sez):
 
 ## $$\exists M, x_0. \forall x > x_0. |f(x)| \leq M \cdot |g(x)|$$
 
+### Rast funkcije \\(f\\) je **omejena** s funkcijo \\(g\\)
+
 ---
 
 ### Kaj je **pomen** definicije?
@@ -75,10 +79,6 @@ def najvecji_element2(sez):
 ### $$\exists \color{purple}{M}, \color{red}{x_0}. \forall x > \color{red}{x_0}. |f(x)| \leq \color{purple}{M} \cdot |\color{blue}{g}(x)|$$
 
 ### .center[![](slike/O-graf.png)]
-
---
-
-### Rast funkcije \\(f\\) je **omejena** s funkcijo \\(g\\)
 
 ---
 
