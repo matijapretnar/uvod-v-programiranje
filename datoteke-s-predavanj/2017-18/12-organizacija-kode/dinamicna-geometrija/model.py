@@ -11,7 +11,7 @@ class Tocka:
         return self.x, self.y
 
     def slika_na_platnu(self, platno):
-        POLMER_TOCKE = 3
+        POLMER_TOCKE = 8
         x, y = self.koordinate()
         return platno.create_oval(
             x - POLMER_TOCKE,
@@ -107,3 +107,59 @@ class Vzporednica(Premica):
         x, y = self.tocka.koordinate()
         c = a * x + b * y
         return (a, b, c)
+
+
+class Kroznica:
+    def __init__(self, sredisce, polmer):
+        self.sredisce = sredisce
+        self.polmer = polmer
+
+    def parametri(self):
+        return self.sredisce, self.polmer
+
+    def slika_na_platnu(self, platno):
+        sredisce, polmer = self.parametri()
+        x, y = sredisce.koordinate()
+        return platno.create_oval(
+            x - polmer,
+            y - polmer,
+            x + polmer,
+            y + polmer,
+            activeoutline='blue',
+        )
+
+
+class KroznicaSkoziTocki(Kroznica):
+    def __init__(self, sredisce, obodna):
+        self.sredisce = sredisce
+        self.obodna = obodna
+
+    def parametri(self):
+        x1, y1 = self.sredisce.koordinate()
+        x2, y2 = self.obodna.koordinate()
+        r = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
+        return self.sredisce, r
+
+
+class PreseciscePremiceInKroznice(Tocka):
+    def __init__(self, premica, kroznica, je_prvo):
+        self.premica = premica
+        self.kroznica = kroznica
+        self.je_prvo = je_prvo
+
+    def koordinate(self):
+        a x + b y = c
+        (x - x0)^2 + (y - y0)^2 = r^2
+
+        y = (c - a x) / b
+
+        (x - x0)^2 + ((c - a x) / b - y0)^2 = r^2
+        x^2 - 2 x0 x + x0^2 + (c / b - y0 - a / b x)^2 = r^2
+        x^2 - 2 x0 x + x0^2 + (a^2 / b^2) x^2 + (c / b - y0)^2 - a / b x)^2 = r^2
+
+        (x - x0)
+
+        x1, y1 = self.sredisce.koordinate()
+        x2, y2 = self.obodna.koordinate()
+        r = ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
+        return self.sredisce, r

@@ -1,18 +1,13 @@
 import tkinter as tk
 
-def prezrcali(*args):
-    obrnjen_niz_var.set(niz_var.get()[::-1])
-
+def kvadriraj(*args):
+    kvadrat_var.set(stevilo_var.get() ** 2)
 okno = tk.Tk()
-
-niz_var = tk.StringVar()
-obrnjen_niz_var = tk.StringVar()
-
-vhod = tk.Entry(okno, textvariable=niz_var, font=("Courier", 50))
-izhod = tk.Label(okno, textvariable=obrnjen_niz_var, font=("Courier", 50))
-niz_var.trace('w', prezrcali)
-
+stevilo_var = tk.DoubleVar()
+stevilo_var.trace('w', kvadriraj)
+kvadrat_var = tk.DoubleVar()
+vhod = tk.Entry(okno, textvariable=stevilo_var)
 vhod.pack()
+izhod = tk.Label(okno, textvariable=kvadrat_var)
 izhod.pack()
-
 okno.mainloop()
