@@ -6,7 +6,7 @@
   <head>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Metode na seznamih * &#8212; Uvod v programiranje 0.2 documentation</title>
+    <title>Metode na seznamih &#8212; Uvod v programiranje 0.2 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="../_static/documentation_options.js"></script>
@@ -32,7 +32,111 @@
           <div class="body" role="main">
             
   <div class="section" id="metode-na-seznamih">
-<h1>Metode na seznamih *<a class="headerlink" href="#metode-na-seznamih" title="Povezava na naslov">¶</a></h1>
+<h1>Metode na seznamih<a class="headerlink" href="#metode-na-seznamih" title="Povezava na naslov">¶</a></h1>
+<p>Za večino pogosto uporabljanih stvari na seznamih obstajajo že vgrajene metode. Te povečini ne vračajo ničesar, temveč le spremenijo dani seznam. Izjemi sta metodi <code class="docutils literal notranslate"><span class="pre">index</span></code> in <code class="docutils literal notranslate"><span class="pre">count</span></code>, ki vrneta vrednost in seznam pustita pri miru, ter metoda <code class="docutils literal notranslate"><span class="pre">pop</span></code> ki tako spremeni seznam kot vrne vrednost.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.append(x)</span></code></dt>
+<dd>Dodaj element <cite>x</cite> na konec seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.extend(sez2)</span></code></dt>
+<dd>Na konec seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> dodaj vse elemente iz seznama <code class="docutils literal notranslate"><span class="pre">sez2</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.insert(i,</span> <span class="pre">x)</span></code></dt>
+<dd>Pred element na mestu <code class="docutils literal notranslate"><span class="pre">i</span></code> v seznamu <code class="docutils literal notranslate"><span class="pre">sez</span></code> vstavi element <code class="docutils literal notranslate"><span class="pre">x</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.remove(x)</span></code></dt>
+<dd>Iz seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> odstrani prvo pojavitev vrednosti <code class="docutils literal notranslate"><span class="pre">x</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.pop(i=-1)</span></code></dt>
+<dd>Vrni element na mestu <code class="docutils literal notranslate"><span class="pre">i</span></code> v seznamu <code class="docutils literal notranslate"><span class="pre">sez</span></code> in odstrani ta element iz seznama.
+Če indeksa <code class="docutils literal notranslate"><span class="pre">i</span></code> ne podamo, metoda odstrani zadnji element.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.clear()</span></code></dt>
+<dd>Iz seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> pobriši vse elemente.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.index(x)</span></code></dt>
+<dd>Vrni prvo mesto, na katerem se v seznamu <code class="docutils literal notranslate"><span class="pre">sez</span></code> nahaja vrednost <code class="docutils literal notranslate"><span class="pre">x</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.count(x)</span></code></dt>
+<dd>Vrni število pojavitev vrednosti <code class="docutils literal notranslate"><span class="pre">x</span></code> v seznamu <code class="docutils literal notranslate"><span class="pre">sez</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.sort(key=None,</span> <span class="pre">reverse=False)</span></code></dt>
+<dd>Na mestu uredi seznam glede na vrednosti funkcije <code class="docutils literal notranslate"><span class="pre">key</span></code>. Če parameter
+<code class="docutils literal notranslate"><span class="pre">reverse</span></code> nastavimo na <code class="docutils literal notranslate"><span class="pre">True</span></code>, bo seznam urejen padajoče.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">sez.reverse()</span></code></dt>
+<dd>Obrni seznam <code class="docutils literal notranslate"><span class="pre">sez</span></code> na glavo.</dd>
+</dl>
+</li>
+</ul>
+<p>Primer uporabe:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mf">66.25</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1234.5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">sez</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">333</span><span class="p">),</span> <span class="n">sez</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mf">66.25</span><span class="p">),</span> <span class="n">sez</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">))</span>
+<span class="go">(2, 1, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">333</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[66.25, 333, -1, 333, 1, 1234.5, 333]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">333</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">333</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[66.25, -1, 333, 1, 1234.5, 333]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[333, 1234.5, 1, 333, -1, 66.25]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[-1, 1, 66.25, 333, 333, 1234.5]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="go">1234.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sez</span>
+<span class="go">[-1, 1, 66.25, 333, 333]</span>
+</pre></div>
+</div>
+<p>Metodo <code class="docutils literal notranslate"><span class="pre">append</span></code> pogosto uporabljamo za izračun seznama ustreznih elementov. To storimo tako, da ustvarimo prazen seznam, nato pa vanj z metodo <code class="docutils literal notranslate"><span class="pre">append</span></code> dodamo vsak ustrezen element. To je podoben postopek kot pri izračunu vsote ustreznih elementov, kjer smo ustvarili spremenljivko z začetno vrednostjo 0, nato pa ji prištevali ustrezne elemente.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vsota_pozitivnih_elementov</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne vsoto vseh pozitivnih elementov danega seznama.&#39;&#39;&#39;</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">seznam</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">vsota</span> <span class="o">+=</span> <span class="n">element</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+
+<span class="k">def</span> <span class="nf">pozitivni_elementi</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Vrne seznam vseh pozitivnih elementov danega seznama.&#39;&#39;&#39;</span>
+    <span class="n">pozitivni</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">seznam</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">pozitivni</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pozitivni</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vsota_pozitivnih_elementov</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pozitivni_elementi</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
 </div>
 
 
