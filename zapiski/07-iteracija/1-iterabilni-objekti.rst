@@ -1,0 +1,2 @@
+Iterabilni objekti *
+==================

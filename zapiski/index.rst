@@ -8,32 +8,11 @@ Uvod v programiranje
     02-rekurzija
     03-zanke
     04-seznami
-
-* Metode
-    * Metode na nizih
-    * Metode na seznamih
-    * Risanje z želvo
-
-* Slovarji
-    * Slovarji
-    * Množice
-
-* Iteracija
-    * Iteratorji
-    * Izpeljane strukture
-    * Generatorji
-
-* Datoteke
-    * Kodne tabele
-    * Branje in pisanje datotek
-    * Delo z datotečnim sistemom
-
-* Nadzor različic
-
-* Organizacija kode
-
-* Grafični vmesnik
-
-* Časovna zahtevnost
-
-* Kako deluje računalnik
+    05-metode
+    06-slovarji
+    07-iteracija
+    08-datoteke
+    09-objekti
+    11-uporabniski-vmesnik
+    12-organizacija-kode
+    13-racunska-zahtevnost

@@ -1,31 +1,11 @@
-Datoteke
-========
+Datotečni sistem
+================
 
-Datotečni sistemi
------------------
+Tako, kot si daljše programe shranjujemo v datoteke, si tudi večje količine podatkov shranimo v datoteke. Poglejmo si najprej, kako so datoteke na računalniku sploh organizirane. Vsak nosilec podatkov (trdi disk, SSD, DVD, USB ključek) ima podatke zapisane v določenem datotečnem sistemu, ki je odvisen od vrste nosilca in operacijskega sistema. Na primer, trdi diski pod Windowsi so običajno formatirani v sistemu NTFS, pod Linuxom v sistemu Ext, na Macintoshu pa v sistemu HFS. USB ključki so zaradi lažje prenosljivosti ponavadi vsi formatirani v sistemu FAT (ki se je včasih uporabljal pod Windowsi). Če želimo, lahko na nosilcu naredimo več particij in vsako od njih ločeno formatiramo s svojim datotečnim sistemom.
 
-Tako, kot si daljše programe shranjujemo v datoteke, si tudi večje količine
-podatkov shranimo v datoteke. Poglejmo si najprej, kako so datoteke na
-računalniku sploh organizirane. Vsak nosilec podatkov (trdi disk, SSD, DVD,
-USB ključek) ima podatke zapisane v določenem datotečnem sistemu, ki je odvisen
-od vrste nosilca in operacijskega sistema. Na primer, trdi diski pod Windowsi
-so običajno formatirani v sistemu NTFS, pod Linuxom v sistemu Ext, na Macintoshu
-pa v sistemu HFS. USB ključki so zaradi lažje prenosljivosti ponavadi vsi
-formatirani v sistemu FAT (ki se je včasih uporabljal pod Windowsi). Če želimo,
-lahko na nosilcu naredimo več particij in vsako od njih ločeno formatiramo s
-svojim datotečnim sistemom.
+Datotečni sistem določa, v kakšni obliki je na nosilcu shranjena vsebina datotek in v kakšni obliki je predstavljena uporabniku. S prvim se ne bomo ukvarjali, pri drugem pa je pomembna le razlika med operacijskim sistemom Windows in sistemi, osnovanimi na UNIXu (torej Linux ali OS X).
 
-Datotečni sistem določa, v kakšni obliki je na nosilcu shranjena vsebina datotek
-in v kakšni obliki je predstavljena uporabniku. S prvim se ne bomo ukvarjali,
-pri drugem pa je pomembna le razlika med operacijskim sistemom Windows in sistemi,
-osnovanimi na UNIXu (torej Linux ali OS X).
-
-Datotečni sistem vsebuje datoteke, razporejene po mapah (oz.
-direktorijih), ki so lahko tudi gnezdene. Na vrhu imamo korensko mapo, ki jo
-v operacijskih sistemih, osnovanih na UNIXu, označujemo z ``/``, na operacijskem
-sistemu Windows pa z ``C:\``, kjer je ``C`` ime particije: ``C`` običajno označuje
-glavni pogon, ``D`` drugi pogon ali CD/DVD/BlueRay enoto, ``A`` in ``B`` sta se
-uporabljali za diskete, kasnejše črke pa se uporabljajo za USB ključke in podobno.
+Datotečni sistem vsebuje datoteke, razporejene po mapah (oz. direktorijih), ki so lahko tudi gnezdene. Na vrhu imamo korensko mapo, ki jo v operacijskih sistemih, osnovanih na UNIXu, označujemo z ``/``, na operacijskem sistemu Windows pa z ``C:\``, kjer je ``C`` ime particije: ``C`` običajno označuje glavni pogon, ``D`` drugi pogon ali CD/DVD/BlueRay enoto, ``A`` in ``B`` sta se uporabljali za diskete, kasnejše črke pa se uporabljajo za USB ključke in podobno.
 
 Za primer vzemimo datotečni sistem s sledečimi mapami in datotekami::
 
@@ -52,12 +32,6 @@ Za primer vzemimo datotečni sistem s sledečimi mapami in datotekami::
 
 Relativne in absolutne poti
 ---------------------------
-
-Do datoteke lahko dostopamo prek njene poti, ki našteje vse imenike, v katere
-moramo iti, da pridemo do datoteke.
- Te lahko izrazimo na dva načina. Recimo, da so v našem datotečnem sistemu
-datoteke razporejene po sledečih mapah, pri čemer z ``/`` označujemo korensko
-mapo, torej tisto mapo
 
 Delo z datotečnim sistemom v Pythonu
 ------------------------------------
@@ -116,14 +90,3 @@ Delo z datotečnim sistemom v Pythonu
 
 - ``os.getcwd()``
     Vrne trenutni delovni imenik.
-
-Branje in pisanje datotek (vsebina še manjka)
----------------------------------------------
-
-
-Kodne tabele (vsebina še manjka)
---------------------------------
-
-
-CSV datoteke (pride naslednje leto)
------------------------------------

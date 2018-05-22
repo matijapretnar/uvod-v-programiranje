@@ -1,13 +1,7 @@
-
-
-
 Izpeljani seznami
 -----------------
 
-Python omogoča, da sezname tvorimo na enostaven način z **izpeljanimi seznami**,
-ki so oblike ``[izraz for spremenljivka in mozne_vrednosti]``, podobno kot v
-matematiki množice pišemo kot :math:`\{ 2 \cdot n \mid n \in \{1, \dots, 9\}\}`:
-
+Python omogoča, da sezname tvorimo na enostaven način z **izpeljanimi seznami**, ki so oblike ``[izraz for spremenljivka in mozne_vrednosti]``, podobno kot v matematiki množice pišemo kot :math:`\{ 2 \cdot n \mid n \in \{1, \dots, 9\}\}`:
 .. doctest::
 
     >>> [2 * n for n in range(1, 10)]
@@ -20,9 +14,7 @@ matematiki množice pišemo kot :math:`\{ 2 \cdot n \mid n \in \{1, \dots, 9\}\}
     >>> [int(stevka) for stevka in str(3141592)]
     [3, 1, 4, 1, 5, 9, 2]
     
-Če želimo, lahko v izpeljani seznamih oblike
-``[izraz for spremenljivka in mozne_vrednosti if pogoj]``
-s pogojem določimo, katere elemente želimo:
+Če želimo, lahko v izpeljani seznamih oblike ``[izraz for spremenljivka in mozne_vrednosti if pogoj]`` s pogojem določimo, katere elemente želimo:
 
 .. doctest::
 
@@ -34,10 +26,7 @@ s pogojem določimo, katere elemente želimo:
 Metode na seznamih
 ------------------
 
-Za večino pogosto uporabljanih stvari na seznamih obstajajo že vgrajene metode.
-Te povečini ne vračajo ničesar, temveč le spremenijo dani seznam. Izjemi sta
-metodi ``index`` in ``count``, ki vrneta vrednost in seznam pustita pri miru, ter
-metoda ``pop`` ki tako spremeni seznam kot vrne vrednost.
+Za večino pogosto uporabljanih stvari na seznamih obstajajo že vgrajene metode. Te povečini ne vračajo ničesar, temveč le spremenijo dani seznam. Izjemi sta metodi ``index`` in ``count``, ki vrneta vrednost in seznam pustita pri miru, ter metoda ``pop`` ki tako spremeni seznam kot vrne vrednost.
 
 * ``sez.append(x)``
     Dodaj element `x` na konec seznama ``sez``.
@@ -98,11 +87,7 @@ Primer uporabe:
     >>> sez
     [-1, 1, 66.25, 333, 333]
 
-Metodo ``append`` pogosto uporabljamo za izračun seznama ustreznih elementov.
-To storimo tako, da ustvarimo prazen seznam, nato pa vanj z metodo ``append``
-dodamo vsak ustrezen element. To je podoben postopek kot pri izračunu vsote
-ustreznih elementov, kjer smo ustvarili spremenljivko z začetno vrednostjo 0,
-nato pa ji prištevali ustrezne elemente.
+Metodo ``append`` pogosto uporabljamo za izračun seznama ustreznih elementov. To storimo tako, da ustvarimo prazen seznam, nato pa vanj z metodo ``append`` dodamo vsak ustrezen element. To je podoben postopek kot pri izračunu vsote ustreznih elementov, kjer smo ustvarili spremenljivko z začetno vrednostjo 0, nato pa ji prištevali ustrezne elemente.
 
 .. testcode::
 

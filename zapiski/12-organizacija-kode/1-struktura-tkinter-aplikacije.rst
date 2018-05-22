@@ -1,0 +1,2 @@
+Struktura TkInter aplikacije *
+============================

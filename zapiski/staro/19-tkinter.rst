@@ -1,2 +1,0 @@
-TkInter (pride naslednje leto)
-==============================
