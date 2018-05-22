@@ -18,3 +18,4 @@ Razdelki, označeni z ``*``, še niso napisani.
     11-uporabniski-vmesnik
     12-organizacija-kode
     13-racunska-zahtevnost
+    14-kako-deluje-racunalnik
