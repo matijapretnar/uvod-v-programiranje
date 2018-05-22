@@ -1,0 +1,2 @@
+Ločitev modela in vmesnika *
+==========================

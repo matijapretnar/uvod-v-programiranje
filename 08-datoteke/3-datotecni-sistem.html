@@ -1,0 +1,217 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Datotečni sistem &#8212; Uvod v programiranje 0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Abecedni seznam" href="../genindex.html" />
+    <link rel="search" title="Išči" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="datotecni-sistem">
+<h1>Datotečni sistem<a class="headerlink" href="#datotecni-sistem" title="Povezava na naslov">¶</a></h1>
+<p>Tako, kot si daljše programe shranjujemo v datoteke, si tudi večje količine podatkov shranimo v datoteke. Poglejmo si najprej, kako so datoteke na računalniku sploh organizirane. Vsak nosilec podatkov (trdi disk, SSD, DVD, USB ključek) ima podatke zapisane v določenem datotečnem sistemu, ki je odvisen od vrste nosilca in operacijskega sistema. Na primer, trdi diski pod Windowsi so običajno formatirani v sistemu NTFS, pod Linuxom v sistemu Ext, na Macintoshu pa v sistemu HFS. USB ključki so zaradi lažje prenosljivosti ponavadi vsi formatirani v sistemu FAT (ki se je včasih uporabljal pod Windowsi). Če želimo, lahko na nosilcu naredimo več particij in vsako od njih ločeno formatiramo s svojim datotečnim sistemom.</p>
+<p>Datotečni sistem določa, v kakšni obliki je na nosilcu shranjena vsebina datotek in v kakšni obliki je predstavljena uporabniku. S prvim se ne bomo ukvarjali, pri drugem pa je pomembna le razlika med operacijskim sistemom Windows in sistemi, osnovanimi na UNIXu (torej Linux ali OS X).</p>
+<p>Datotečni sistem vsebuje datoteke, razporejene po mapah (oz. direktorijih), ki so lahko tudi gnezdene. Na vrhu imamo korensko mapo, ki jo v operacijskih sistemih, osnovanih na UNIXu, označujemo z <code class="docutils literal notranslate"><span class="pre">/</span></code>, na operacijskem sistemu Windows pa z <code class="docutils literal notranslate"><span class="pre">C:\</span></code>, kjer je <code class="docutils literal notranslate"><span class="pre">C</span></code> ime particije: <code class="docutils literal notranslate"><span class="pre">C</span></code> običajno označuje glavni pogon, <code class="docutils literal notranslate"><span class="pre">D</span></code> drugi pogon ali CD/DVD/BlueRay enoto, <code class="docutils literal notranslate"><span class="pre">A</span></code> in <code class="docutils literal notranslate"><span class="pre">B</span></code> sta se uporabljali za diskete, kasnejše črke pa se uporabljajo za USB ključke in podobno.</p>
+<p>Za primer vzemimo datotečni sistem s sledečimi mapami in datotekami:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span>
+    <span class="n">uvp</span>
+        <span class="n">datoteke</span>
+            <span class="n">vhodna</span><span class="o">.</span><span class="n">txt</span>
+            <span class="n">izhodna</span><span class="o">.</span><span class="n">txt</span>
+        <span class="n">funkcije</span><span class="o">.</span><span class="n">py</span>
+        <span class="n">seznami</span><span class="o">.</span><span class="n">py</span>
+        <span class="n">slovarji</span><span class="o">.</span><span class="n">py</span>
+        <span class="n">zanke</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">praktikum</span>
+        <span class="n">latex</span>
+            <span class="n">pismo</span><span class="o">.</span><span class="n">tex</span>
+            <span class="n">pismo</span><span class="o">.</span><span class="n">pdf</span>
+            <span class="n">pismo</span><span class="o">.</span><span class="n">aux</span>
+        <span class="n">mathematica</span>
+            <span class="n">grafi</span><span class="o">.</span><span class="n">nb</span>
+            <span class="n">kolokvij</span><span class="o">.</span><span class="n">nb</span>
+    <span class="n">analiza</span>
+        <span class="n">plonkec</span><span class="o">.</span><span class="n">tex</span>
+</pre></div>
+</div>
+<div class="section" id="relativne-in-absolutne-poti">
+<h2>Relativne in absolutne poti<a class="headerlink" href="#relativne-in-absolutne-poti" title="Povezava na naslov">¶</a></h2>
+</div>
+<div class="section" id="delo-z-datotecnim-sistemom-v-pythonu">
+<h2>Delo z datotečnim sistemom v Pythonu<a class="headerlink" href="#delo-z-datotecnim-sistemom-v-pythonu" title="Povezava na naslov">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.listdir(pot)</span></code></dt>
+<dd>Vrne imena vseh datotek v mapi s potjo <code class="docutils literal notranslate"><span class="pre">pot</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.path.jon(pot1,</span> <span class="pre">pot2)</span></code></dt>
+<dd>Stakne poti <code class="docutils literal notranslate"><span class="pre">pot1</span></code> in <code class="docutils literal notranslate"><span class="pre">pot2</span></code>, pri čemer ustrezno poskrbi za prava ločila
+glede na operacijski sistem.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.path.isdir(pot)</span></code></dt>
+<dd>Vrne <code class="docutils literal notranslate"><span class="pre">True</span></code>, kadar <code class="docutils literal notranslate"><span class="pre">pot</span></code> vodi do mape.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.path.exists(pot)</span></code></dt>
+<dd>Vrne <code class="docutils literal notranslate"><span class="pre">True</span></code>, kadar <code class="docutils literal notranslate"><span class="pre">pot</span></code> obstaja v datotečnem sistemu.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.path.splitext(pot)</span></code></dt>
+<dd>Večina datotek ima končnico, ki se začne z znakom <code class="docutils literal notranslate"><span class="pre">.</span></code> in označuje tip
+datoteke (<code class="docutils literal notranslate"><span class="pre">.jpg</span></code> za JPEG slike, <code class="docutils literal notranslate"><span class="pre">.docx</span></code> za Wordove dokumente, …).
+Metoda dano <code class="docutils literal notranslate"><span class="pre">pot</span></code> loči na del pred končnico in na končnico.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.path.split(pot)</span></code></dt>
+<dd>Dano pot loči na pot do zadnje mape in na ime datoteke.
+Do prve komponente lahko dostopamo tudi z metodo <code class="docutils literal notranslate"><span class="pre">os.path.dirname(pot)</span></code>,
+do druge pa z metodo <code class="docutils literal notranslate"><span class="pre">os.path.basename(pot)</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.mkdir(pot)</span></code></dt>
+<dd>Naredi mapo z dano potjo.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.makedirs(pot,</span> <span class="pre">exist_ok=False)</span></code></dt>
+<dd>Naredi mapo z dano potjo in vse vmesne imenike. Če je argument <code class="docutils literal notranslate"><span class="pre">exist_ok</span></code> nastavljen na <code class="docutils literal notranslate"><span class="pre">True</span></code>,
+ne javi napake, če ciljna mapa že obstaja.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.rename(stara_pot,</span> <span class="pre">nova_pot)</span></code></dt>
+<dd>Datoteko ali mapo s potjo <code class="docutils literal notranslate"><span class="pre">stara_pot</span></code> preimenuje v <code class="docutils literal notranslate"><span class="pre">nova_pot</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.remove(pot)</span></code></dt>
+<dd>Pobriše datoteko z dano potjo.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.rmdir(pot)</span></code></dt>
+<dd>Pobriše mapo z dano potjo.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.removedirs(pot)</span></code></dt>
+<dd>Pobriše mapo z dano potjo in vse vmesne imenike.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.path.normpath(pot)</span></code></dt>
+<dd>Vrne počiščeno različico dane poti.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.path.abspath(pot)</span></code></dt>
+<dd>Vrne počiščeno absolutno pot dane poti.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.chdir(pot)</span></code></dt>
+<dd>Delovni imenik nastavi na <code class="docutils literal notranslate"><span class="pre">pot</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code></dt>
+<dd>Vrne trenutni delovni imenik.</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Seznam Vsebine</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Datotečni sistem</a><ul>
+<li><a class="reference internal" href="#relativne-in-absolutne-poti">Relativne in absolutne poti</a></li>
+<li><a class="reference internal" href="#delo-z-datotecnim-sistemom-v-pythonu">Delo z datotečnim sistemom v Pythonu</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Trenutna stran</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/08-datoteke/3-datotecni-sistem.rst.txt"
+            rel="nofollow">Prikaži izvorno kodo</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Hitro iskanje</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Potrdi" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Matija Pretnar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/08-datoteke/3-datotecni-sistem.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

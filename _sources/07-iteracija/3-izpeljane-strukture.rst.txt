@@ -1,0 +1,2 @@
+Izpeljane strukture *
+===================

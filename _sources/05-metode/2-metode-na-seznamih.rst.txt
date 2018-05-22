@@ -1,0 +1,2 @@
+Metode na seznamih *
+==================
