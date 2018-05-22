@@ -121,9 +121,13 @@ class: question, center
 
 ---
 
-class: center, middle 
+### **Kako izračunamo** časovno zahtevnost?
 
-## Časovna zahtevnost enostavnih algoritmov
+1. Pri **zaporednih** programih časovne zahtevnosti **seštejemo**
+
+2. Pri **vejah** vzamemo **največjo** časovno zahtevnost
+
+3. Pri **zankah** časovno zahtevnost **pomnožimo** s številom obhodov
 
 ---
 
@@ -167,25 +171,9 @@ class: center, middle
 
 ---
 
-### **Kako izračunamo** časovno zahtevnost?
-
-1. Pri **zaporednih** programih časovne zahtevnosti **seštejemo**
-
-2. Pri **vejah** vzamemo **največjo** časovno zahtevnost
-
-3. Pri **zankah** časovno zahtevnost **pomnožimo** s številom obhodov
-
----
-
-class: center, middle 
-
-## Časovna zahtevnost vgrajenih funkcij
-
----
-
 class: center, middle
 
-### Iskanje v seznamu
+### `x in sez`
 
 ## .spoiler[$$O(n)$$]
 
@@ -193,7 +181,7 @@ class: center, middle
 
 class: center, middle
 
-### Iskanje v urejenem seznamu
+### `x in urejen_sez`
 
 ## .spoiler[$$O(n)$$]
 
@@ -201,7 +189,7 @@ class: center, middle
 
 class: center, middle
 
-### Največji element seznama
+### `max(sez)`
 
 ## .spoiler[$$O(n)$$]
 
@@ -209,7 +197,7 @@ class: center, middle
 
 class: center, middle
 
-### Dolžina seznama
+### `len(sez)`
 
 ## .spoiler[$$O(1)$$]
 
@@ -217,7 +205,7 @@ class: center, middle
 
 class: center, middle
 
-### Spreminjanje elementa v seznamu
+### `sez[i] = x`
 
 ## .spoiler[$$O(1)$$]
 
@@ -225,7 +213,7 @@ class: center, middle
 
 class: center, middle
 
-### Dodajanje na konec seznama
+### `sez.append(x)`
 
 ## .spoiler[$$O(1)$$]
 
@@ -233,7 +221,7 @@ class: center, middle
 
 class: center, middle
 
-### Dodajanje na začetek seznama
+### `sez.insert(0, x)`
 
 ## .spoiler[$$O(n)$$]
 
@@ -241,7 +229,7 @@ class: center, middle
 
 class: center, middle
 
-### Iskanje v slovarju
+### `k in slovar`<br>`x in mnozica`
 
 ## .spoiler[$$O(1)$$]
 
@@ -249,18 +237,9 @@ class: center, middle
 
 class: center, middle
 
-### Iskanje v množici
+### `slovar[k] = v`<br>`mnozica.add(x)`
 
 ## .spoiler[$$O(1)$$]
-
----
-
-class: center, middle
-
-### Spreminjanje slovarja
-
-## .spoiler[$$O(1)$$]
-
 
 </textarea>
 <script src="pomozne-datoteke/prosojnice.js"></script>
