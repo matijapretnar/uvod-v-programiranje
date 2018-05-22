@@ -1,6 +1,8 @@
 Uvod v programiranje
 ####################
 
+Razdelki, označeni z ``*``, še niso napisani.
+
 .. toctree::
     :maxdepth: 2
 
