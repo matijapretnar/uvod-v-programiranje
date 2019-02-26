@@ -8,7 +8,7 @@ h3 {
 
 .remark-code,
 .remark-inline-code {
-    font-family: Iosevka, Monaco, Consolas, monospace;
+    font-family: Monaco, Consolas, monospace;
 }
 
 .remark-inline-code {
@@ -16,7 +16,7 @@ h3 {
 }
 
 .remark-code {
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
 ol,
@@ -93,6 +93,10 @@ table {
 .mini img {
     width: 45%;
     height: 45%;
+}
+
+.full-height {
+    height: 90%;
 }
 
 .left-column,
