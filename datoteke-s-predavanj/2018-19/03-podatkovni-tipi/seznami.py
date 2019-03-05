@@ -20,3 +20,19 @@ def vsota_elementov(seznam):
         return 0
     else:
         return seznam[0] + vsota_elementov(seznam[1:])
+
+def vsebuje_sodega(seznam):
+    if seznam == []:
+        return False
+    elif seznam[0] % 2 == 0:
+        return True
+    else:
+        return vsebuje_sodega(seznam[1:])
+
+def ne_vsebuje_sodega(seznam):
+    if seznam == []:
+        return True
+    elif seznam[0] % 2 == 0:
+        return False
+    else:
+        return ne_vsebuje_sodega(seznam[1:])

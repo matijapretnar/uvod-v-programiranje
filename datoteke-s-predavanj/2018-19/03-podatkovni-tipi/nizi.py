@@ -22,3 +22,30 @@ def stevilo_samoglasnikov(niz):
         return stevilo_samoglasnikov(niz[1:])
 
 stevilo_samoglasnikov('miza')
+
+
+def max_podpalindrom(niz):
+    if len(niz) <= 1:
+        return niz
+    elif niz[0] == niz[-1]:
+        return niz[0] + max_podpalindrom(niz[1:-1]) + niz[-1]
+    else:
+        brez_prvega = max_podpalindrom(niz[1:])
+        brez_zadnjega = max_podpalindrom(niz[:-1])
+        # return max(brez_prvega, brez_zadnjega, key=len)
+        if len(brez_prvega) < len(brez_zadnjega):
+            return brez_zadnjega
+        else:
+            return brez_prvega
+
+# abXXXXXXXXXcd
+# ~> bXXXXXXXXXcd
+#   ~> XXXXXXXXXcd
+#      ...
+#   ~> bXXXXXXXXXc
+#      ...
+# ~> abXXXXXXXXXc
+#   ~> bXXXXXXXXXc
+#      ...
+#   ~> abXXXXXXXXX
+# ...
