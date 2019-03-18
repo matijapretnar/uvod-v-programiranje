@@ -41,57 +41,6 @@ class: center, middle
 
 ---
 
-### Do **vgrajene pomoči** dostopamo s `help`
-
-```
->>> help(math.sin)
-Help on built-in function sin in module math:
-
-sin(...)
-    sin(x)
-    
-    Return the sine of x (measured in radians).
-```
-
----
-
-### Do **vgrajene pomoči** dostopamo s `help`
-
-
-```
->>> help('niz'.strip)
-Help on built-in function strip:
-
-strip(...) method of builtins.str instance
-    S.strip([chars]) -> str
-    
-    Return a copy of the string S with leading
-    and trailing whitespace removed.
-    If chars is given and not None,
-    remove characters in chars instead.
-```
-
----
-
-### Tudi **lastnim funkcijam** lahko dodamo pomoč
-
-
-```
-def kvadriraj(x):
-    '''Vrne kvadrat števila x.'''
-    return x ** 2
-```
-
-```
->>> help(kvadriraj)
-Help on function kvadriraj in module __main__:
-
-kvadriraj(x)
-    Vrne kvadrat števila x.
-```
-
----
-
 class: question, middle
 
 ```
@@ -199,6 +148,107 @@ class: question, middle
 
 ---
 
+### Sezname lahko tudi **spreminjamo**
+
+```
+>>> sez = [10, 20, 30]
+>>> sez[1]
+20
+>>> sez[1] = 40
+>>> sez
+[10, 40, 30]
+```
+
+---
+
+### Zamenjamo lahko tudi celotno **rezino**
+
+```
+>>> sez = [10, 20, 30, 40]
+>>> sez[1:3]
+[20, 30]
+>>> sez[1:3] = [0, 0, 0]
+>>> sez
+[10, 0, 0, 0, 40]
+```
+
+---
+
+### Elemente lahko tudi **brišemo**
+
+```
+>>> sez = [10, 20, 30]
+>>> sez[1]
+20
+>>> del sez[1]
+>>> sez
+[10, 30]
+```
+
+---
+
+### Seznami so **spremenljive strukture**
+
+```
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x = [2, 2, 2]
+>>> y
+[1, 1, 1]
+```
+
+```
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x[2] = 2
+>>> y
+[1, 1, 2]
+```
+
+---
+
+### Da je zmeda večja, `+=` **ni isto** kot `=` & `+`
+
+```
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x += [2, 2, 2]
+>>> y
+[1, 1, 1, 2, 2, 2]
+```
+
+```
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x = x + [2, 2, 2]
+>>> y
+[1, 1, 1]
+```
+
+---
+
+### Nabori in nizi so **nespremenljive strukture**
+
+```
+>>> x = (1, 1, 1)
+>>> x[2] = 2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError:
+  'tuple' object does not support item assignment
+```
+
+```
+>>> x = 'abc'
+>>> x[2] = 'd'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError:
+  'str' object does not support item assignment
+```
+
+---
+
 ### Elemente **na konec dodajamo** z `append`
 
 ```python
@@ -213,6 +263,92 @@ class: question, middle
 class: question, center, middle
 
 ## Podseznam vseh sodih elementov
+
+---
+
+### Spodnji postopek je **zelo pogost**
+
+```
+def seznam_kvadratov(seznam):
+    kvadrati = []
+    for x in seznam:
+        kvadrati.append(x ** 2)
+    return kvadrati
+```
+
+---
+
+### Spodnji postopek je **zelo pogost**
+
+```
+def seznam_absolutnih_vrednosti(seznam):
+    absolutne_vrednosti = []
+    for x in seznam:
+        absolutne_vrednosti.append(abs(x))
+    return absolutne_vrednosti
+```
+
+---
+
+### Spodnji postopek je **zelo pogost**
+
+```
+def dolzine_besed(besede):
+    dolzine = []
+    for beseda in besede:
+        dolzine.append(len(beseda))
+    return dolzine
+```
+
+---
+
+### Sezname dostikrat lepše zgradimo z **izpeljanimi seznami**
+
+```
+seznam = []
+for x in ...:
+    seznam.append(f(x))
+```
+
+```
+seznam = [f(x) for x in ...]
+```
+
+---
+
+### V izpeljanih seznamih imamo lahko tudi **gnezdene zanke**
+
+```
+seznam = []
+for x in ...:
+    for y in ...:
+        seznam.append(f(x, y))
+```
+
+```
+seznam = [f(x, y) for x in ... for y in ...]
+```
+
+---
+
+class: center, question, middle
+
+## Identična in transponirana matrika
+
+---
+
+### V izpeljanih seznamih imamo lahko **pogoje**
+
+```
+seznam = []
+for x in ...:
+    if pogoj:
+        seznam.append(f(x))
+```
+
+```
+seznam = [f(x) for x in ... if pogoj]
+```
 
 ---
 
@@ -339,6 +475,128 @@ class: center, middle, question
 
 ## Risanje z želvo
 
+
+---
+
+### Elemente **dodajamo** z metodo `add`
+
+```
+>>> mn = {10, 20, 30}
+>>> mn.add(40)
+>>> mn
+{40, 10, 20, 30}
+```
+
+---
+
+### Obstajajo tudi **izpeljane množice**
+
+```
+mnozica = set()
+for x in ...:
+    if pogoj:
+        mnozica.add(f(x))
+```
+
+```
+mnozica = {f(x) for x in ... if pogoj}
+```
+
+---
+
+### Element **odstranimo** z `remove`/`discard`
+
+```
+>>> mn = {10, 20, 30, 40}
+>>> mn.remove(20)
+>>> mn
+{40, 10, 30}
+>>> mn.remove(50)
+...
+KeyError: 50
+```
+
+```
+>>> mn = {10, 20, 30, 40}
+>>> mn.discard(20)
+>>> mn.discard(50)
+>>> mn
+{40, 10, 30}
+```
+
+---
+
+### **Naključni** element **snamemo** s `pop`
+
+```
+>>> mn = {10, 20, 30}
+>>> mn.pop()
+20
+>>> mn
+{30, 10}
+>>> mn.pop()
+10
+>>> mn
+{30}
+>>> mn.pop()
+30
+>>> mn
+set()
+```
+
+---
+
+### **Več elementov** dodamo z `update`
+
+```
+>>> mn = {10, 20, 30}
+>>> mn.update([40, 50])
+>>> mn
+{40, 10, 20, 50, 30}
+```
+
+### Množico lahko dodamo tudi z `|=`
+
+```
+>>> mn = {10, 20, 30}
+>>> mn |= {40, 50}
+>>> mn
+{40, 10, 20, 50, 30}
+```
+
+---
+
+### Množico lahko **presekamo** z `&=`
+
+```
+>>> mn = {10, 20, 30, 40}
+>>> mn &= {30, 40, 50}
+>>> mn
+{40, 30}
+```
+
+### Množico lahko **komplementiramo** z `-=`
+
+```
+>>> mn = {10, 20, 30, 40}
+>>> mn -= {30, 40, 50}
+>>> mn
+{10, 20}
+```
+
+---
+
+class: question
+
+### Ali sta sledeča programa ekvivalentna?
+
+```
+>>> mn &= {10, 20}
+``` 
+
+```
+>>> mn = mn & {10, 20}
+```
 
 </textarea>
 <script src="pomozne-datoteke/prosojnice.js"></script>
