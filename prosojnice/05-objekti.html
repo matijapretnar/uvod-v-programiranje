@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Metode</title>
+<title>Objekti</title>
 <link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
@@ -12,7 +12,7 @@ class: center, middle
 
 ### Uvod v programiranje
 
-# Metode
+# Objekti
 
 ---
 
@@ -89,7 +89,7 @@ class: question, middle
 
 ---
 
-### Z metodo `format` v nizu zapolnimo luknje
+### Z metodo `format` v nizu **zapolnimo luknje**
 
 ```python
 >>> '{0} ima {1}'.format('mama', 'stol')
@@ -103,7 +103,7 @@ class: question, middle
 
 ---
 
-### Argumenti niso nujno nizi
+### Argumenti **niso nujno nizi**
 
 ```python
 >>> vsota = '{0} + {1} = {2}'
@@ -115,7 +115,7 @@ class: question, middle
 
 ---
 
-### Lukenj ni treba oštevilčiti
+### Lukenj ni treba **oštevilčiti**
 
 ```python
 >>> vsota = '{} + {} = {}'
@@ -125,7 +125,7 @@ class: question, middle
 '[1] + [2] = [1, 2]'
 ```
 
-### Luknje lahko tudi poimenujemo
+### Luknje lahko tudi **poimenujemo**
 
 ```python
 >>> vsota = '{x} + {y} = {z}'
@@ -135,7 +135,7 @@ class: question, middle
 
 ---
 
-### Luknje lahko tudi oblikujemo
+### Luknje lahko tudi **oblikujemo**
 
 ```python
 >>> 'pi = {0:.5}'.format(22 / 7)
@@ -260,44 +260,20 @@ TypeError:
 
 ---
 
-class: question, center, middle
+class: question, middle
 
-## Podseznam vseh sodih elementov
+```python
+>>> seznam_kvadratov([1, 6, -3, 0, 4, 2])
+[1, 36, 9, 0, 16, 4]
 
----
+>>> dolzine_besed(['mama', 'je', 'tam'])
+[4, 2, 3]
 
-### Spodnji postopek je **zelo pogost**
+>>> seznam_delnih_vsot([1, 6, -3, 0, 4, 2])
+[1, 7, 4, 4, 8, 10]
 
-```
-def seznam_kvadratov(seznam):
-    kvadrati = []
-    for x in seznam:
-        kvadrati.append(x ** 2)
-    return kvadrati
-```
-
----
-
-### Spodnji postopek je **zelo pogost**
-
-```
-def seznam_absolutnih_vrednosti(seznam):
-    absolutne_vrednosti = []
-    for x in seznam:
-        absolutne_vrednosti.append(abs(x))
-    return absolutne_vrednosti
-```
-
----
-
-### Spodnji postopek je **zelo pogost**
-
-```
-def dolzine_besed(besede):
-    dolzine = []
-    for beseda in besede:
-        dolzine.append(len(beseda))
-    return dolzine
+>>> sodi_elementi([1, 6, -3, 0, 4, 2])
+[6, 0, 4, 2]
 ```
 
 ---
@@ -316,6 +292,86 @@ seznam = [f(x) for x in ...]
 
 ---
 
+### Sezname dostikrat lepše zgradimo z **izpeljanimi seznami**
+
+.bad-example[```
+def seznam_kvadratov(seznam):
+    kvadrati = []
+    for x in seznam:
+        kvadrati.append(x ** 2)
+    return kvadrati
+```]
+
+
+.good-example[```
+def seznam_kvadratov(seznam):
+    return [x ** 2 for x in seznam]
+```]
+
+
+---
+
+### Sezname dostikrat lepše zgradimo z **izpeljanimi seznami**
+
+.bad-example[```
+def seznam_absolutnih_vrednosti(seznam):
+    absolutne_vrednosti = []
+    for x in seznam:
+        absolutne_vrednosti.append(abs(x))
+    return absolutne_vrednosti
+```]
+
+
+.good-example[```
+def seznam_absolutnih_vrednosti(seznam):
+    return [abs(x) for x in seznam]
+```]
+
+
+---
+
+### Sezname dostikrat lepše zgradimo z **izpeljanimi seznami**
+
+.bad-example[```
+def dolzine_besed(besede):
+    dolzine = []
+    for beseda in besede:
+        dolzine.append(len(beseda))
+    return dolzine
+```]
+
+
+.good-example[```
+def dolzine_besed(besede):
+    return [len(beseda) for beseda in besede]
+```]
+
+
+---
+
+### Izpeljani seznami **niso vedno rešitev**
+
+.good-example[```
+def delne_vsote(seznam):
+    vsote = []
+    vsota = 0
+    for x in seznam:
+        vsota += x
+        vsote.append(vsota)
+    return vsote
+```]
+
+
+.bad-example[```
+def delne_vsote(seznam):
+    return [
+        sum(seznam[:i + 1])
+        for i in range(len(seznam))
+    ]
+```]
+
+---
+
 ### V izpeljanih seznamih imamo lahko tudi **gnezdene zanke**
 
 ```
@@ -328,12 +384,6 @@ for x in ...:
 ```
 seznam = [f(x, y) for x in ... for y in ...]
 ```
-
----
-
-class: center, question, middle
-
-## Identična in transponirana matrika
 
 ---
 
@@ -350,11 +400,25 @@ for x in ...:
 seznam = [f(x) for x in ... if pogoj]
 ```
 
+
 ---
 
-class: question, center, middle
+### V izpeljanih seznamih imamo lahko **pogoje**
 
-## Seznam delnih vsot
+.bad-example[```
+def sodi_elementi(seznam):
+    sodi = []
+    for x in seznam:
+        if x % 2 == 0:
+            sodi.append(x)
+    return sodi
+```]
+
+
+.good-example[```
+def sodi_elementi(seznam):
+    return [x for x in seznam if x % 2 == 0]
+```]
 
 ---
 
@@ -475,128 +539,6 @@ class: center, middle, question
 
 ## Risanje z želvo
 
-
----
-
-### Elemente **dodajamo** z metodo `add`
-
-```
->>> mn = {10, 20, 30}
->>> mn.add(40)
->>> mn
-{40, 10, 20, 30}
-```
-
----
-
-### Obstajajo tudi **izpeljane množice**
-
-```
-mnozica = set()
-for x in ...:
-    if pogoj:
-        mnozica.add(f(x))
-```
-
-```
-mnozica = {f(x) for x in ... if pogoj}
-```
-
----
-
-### Element **odstranimo** z `remove`/`discard`
-
-```
->>> mn = {10, 20, 30, 40}
->>> mn.remove(20)
->>> mn
-{40, 10, 30}
->>> mn.remove(50)
-...
-KeyError: 50
-```
-
-```
->>> mn = {10, 20, 30, 40}
->>> mn.discard(20)
->>> mn.discard(50)
->>> mn
-{40, 10, 30}
-```
-
----
-
-### **Naključni** element **snamemo** s `pop`
-
-```
->>> mn = {10, 20, 30}
->>> mn.pop()
-20
->>> mn
-{30, 10}
->>> mn.pop()
-10
->>> mn
-{30}
->>> mn.pop()
-30
->>> mn
-set()
-```
-
----
-
-### **Več elementov** dodamo z `update`
-
-```
->>> mn = {10, 20, 30}
->>> mn.update([40, 50])
->>> mn
-{40, 10, 20, 50, 30}
-```
-
-### Množico lahko dodamo tudi z `|=`
-
-```
->>> mn = {10, 20, 30}
->>> mn |= {40, 50}
->>> mn
-{40, 10, 20, 50, 30}
-```
-
----
-
-### Množico lahko **presekamo** z `&=`
-
-```
->>> mn = {10, 20, 30, 40}
->>> mn &= {30, 40, 50}
->>> mn
-{40, 30}
-```
-
-### Množico lahko **komplementiramo** z `-=`
-
-```
->>> mn = {10, 20, 30, 40}
->>> mn -= {30, 40, 50}
->>> mn
-{10, 20}
-```
-
----
-
-class: question
-
-### Ali sta sledeča programa ekvivalentna?
-
-```
->>> mn &= {10, 20}
-``` 
-
-```
->>> mn = mn & {10, 20}
-```
 
 </textarea>
 <script src="pomozne-datoteke/prosojnice.js"></script>
