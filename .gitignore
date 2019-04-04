@@ -1,2 +1,8 @@
 _build
 __pycache__
+_minted-*
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz

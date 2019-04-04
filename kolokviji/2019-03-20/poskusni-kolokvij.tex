@@ -1,0 +1,268 @@
+\documentclass[arhiv, 10pt]{{izpit}}
+\usepackage{{fouriernc}}
+\usepackage{{minted}}
+\usepackage{{multicol}}
+\usepackage{{paralist}}
+\usepackage{{inconsolata}}
+\usepackage[T1]{{fontenc}}
+\usepackage{{xcolor}}
+\usepackage[most]{{tcolorbox}}
+\definecolor{{light-red}}{{rgb}}{{1,0.5,0.5}}
+\usemintedstyle{{colorful}}
+\setlength{{\columnsep}}{{30pt}}
+\tcbset{{enhanced jigsaw,size=tight,colback=light-red,boxrule=0pt,extrude by=1pt,rounded corners,interior style={{opacity=0.3}}}}
+
+\begin{{document}}
+
+\izpit{{Uvod v programiranje: poskusni kolokvij}}{{20.\ marec 2019}}{{
+  Pri vsaki nalogi obkrožite črko pred pravilnim odgovorom ali vpišite pravilno vrednost v ustrezen prostor. \\
+  Čas reševanja je 30 minut. Veliko uspeha!
+}}
+\newcommand{{\inlinepy}}[1]{{\mintinline{{python}}{{#1}}}}
+\newcommand{{\answerbox}}[1]{{\framebox{{\vphantom{{\large M}}\hspace{{#1cm}}}}}}
+\newcommand{{\wrongbox}}[1]{{\tcbox{{\vphantom{{M}}#1}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naloga
+\begin{{multicols}}{{2}}
+\noindent
+Program na desni je izjemno grdo napisan in vsebuje cel kup napak (v zadnji vrstici pri \inlinepy{{n}} manjka \inlinepy{{return}}). Natanko \textbf{{tri}} od osenčenih napak so \textbf{{sintaktične}}. Obkrožite jih.
+
+\columnbreak
+
+\begin{{minted}}[baselinestretch=1.2,escapeinside=||]{{python}}
+def fakulteta|\wrongbox{{[n]}}|:
+    if|\wrongbox{{    }}|n|\wrongbox{{==}}|0:
+        return |\wrongbox{{(1)}}|
+    |\wrongbox{{   }}|else|\wrongbox{{  }}|
+        |\wrongbox{{n}}| * |\wrongbox{{fakotleta}}|(n - |\wrongbox{{2}}|)
+\end{{minted}}
+\end{{multicols}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naloga
+Kaj izračuna spodnja funkcija?
+
+\begin{{multicols}}{{2}}
+  \begin{{minted}}{{python}}
+  def f(sez):
+      v = 0
+      for x in sez:
+          if x > 0:
+              v += x
+      return v > 0
+  \end{{minted}}
+
+
+  \begin{{enumerate}}[(a)]
+    \item ali seznam vsebuje kakšno pozitivno število
+    \item število pozitivnih števil v seznamu
+    \item ali seznam vsebuje samo pozitivna števila
+    \item vsoto vseh pozitivnih števil v seznamu
+  \end{{enumerate}}
+\end{{multicols}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naloga
+Katera izmed spodnjih funkcij izračuna produkt vseh elementov danega seznama?
+
+\begin{{multicols}}{{2}}
+\begin{{enumerate}}[(a)]
+\item \begin{{minted}}{{python}}
+def prod(sez):
+    if sez == []:
+        return 1
+    else:
+        return sez[0] * prod(sez[1:])
+\end{{minted}}
+
+\item \begin{{minted}}{{python}}
+def prod(sez):
+    if sez == []:
+        return 1
+    else:
+        return prod(sez[0] * sez[1:])
+\end{{minted}}
+
+\item \begin{{minted}}{{python}}
+def prod(sez):
+    if sez[0] == 1:
+        return prod(sez[1:])
+    else:
+        return prod(sez)
+\end{{minted}}
+
+\item \begin{{minted}}{{python}}
+def prod(sez):
+    if sez[0] == 0:
+        return 0
+    else:
+        return sez[0] * prod(sez[1:])
+\end{{minted}}
+\end{{enumerate}}
+\end{{multicols}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naloga
+Katere vrstice izpiše klic \inlinepy{{print(f(g(3)))}}, če sta funkciji \inlinepy{{f}} in \inlinepy{{g}} definirani kot spodaj?
+
+\begin{{multicols}}{{2}}
+\begin{{minted}}{{python}}
+def f(x):
+    print(x)
+    return x + 10
+\end{{minted}}
+
+\begin{{minted}}{{python}}
+def g(x):
+    return 2 * x
+    print(x)
+\end{{minted}}
+
+\begin{{enumerate}}[(a)]
+  \item \inlinepy{{3}}, \inlinepy{{6}}, \inlinepy{{16}}\hfill
+  \item \inlinepy{{6}}, \inlinepy{{16}}\hfill
+  \item \inlinepy{{16}}, \inlinepy{{6}}, \inlinepy{{3}}\hfill
+  \item \inlinepy{{16}}, \inlinepy{{6}}
+\end{{enumerate}}
+\end{{multicols}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naloga
+Dopolnite spodnji program tako, da bo na koncu v spremenljivki \inlinepy{{m}} shranjeno največje od števil \inlinepy{{x}}, \inlinepy{{y}} in \inlinepy{{z}}:
+
+\begin{{minted}}[baselinestretch=1.2,escapeinside=||]{{python}}
+m = |\answerbox{{1.5}}|
+if x < y:
+    if |\answerbox{{1.5}}| < |\answerbox{{1.5}}|:
+        m = z
+    else:
+        |\answerbox{{3}}|
+\end{{minted}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naloga
+Katera izmed spodnjih funkcij vrača drugačen rezultat kot ostale?
+
+\begin{{multicols}}{{2}}
+\begin{{enumerate}}[(a)]
+\item \begin{{minted}}{{python}}
+def f(x, y):
+    if x >= y:
+        return x * y
+    return x + y
+\end{{minted}}
+
+\item \begin{{minted}}{{python}}
+def f(x, y):
+    if x < y:
+        return x + y
+    elif x >= y:
+        return x * y
+\end{{minted}}
+
+\item \begin{{minted}}{{python}}
+def f(x, y):
+    return x + y
+    if x >= y:
+        return x * y
+\end{{minted}}
+
+
+\item \begin{{minted}}{{python}}
+def f(x, y):
+    if x >= y:
+        return x * y
+    if x < y:
+        return x + y
+\end{{minted}}
+\end{{enumerate}}
+\end{{multicols}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naloga
+Pri vsakem od programov na desni zapišite ustrezno črko programa na levi, ki ima pri začetni vrednosti \inlinepy{{i = 0}} enak izpis.
+
+\begin{{multicols}}{{2}}
+\begin{{enumerate}}[(a)]
+\item \begin{{minted}}{{python}}
+while i > 10:
+    i = 10
+    print(i)
+\end{{minted}}
+
+\item \begin{{minted}}{{python}}
+if i < 10:
+    print(i)
+    i = 10
+\end{{minted}}
+\item \begin{{minted}}{{python}}
+while i < 10:
+    i += 1
+print(i)
+\end{{minted}}
+\end{{enumerate}}
+\begin{{itemize}}[\answerbox{{0.5}}]
+\item \begin{{minted}}{{python}}
+if i > 10:
+    print(i)
+    i = 10
+\end{{minted}}
+\item \begin{{minted}}{{python}}
+print(i)
+while i < 10:
+    i += 1
+\end{{minted}}
+\item \begin{{minted}}{{python}}
+while i < 10:
+    i = 10
+    print(i)
+\end{{minted}}
+\end{{itemize}}
+\end{{multicols}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naloga
+
+\begin{{multicols}}{{2}}
+\noindent
+Definirana naj bo funkcija \inlinepy{{f}}:
+
+\begin{{minted}}{{python}}
+def f(x, y):
+    z = 0
+    while x > 0:
+        if x % 10 > y:
+            z += 1
+        x = x // 10
+    return z
+\end{{minted}}
+\columnbreak
+Napišite katerikoli števili \inlinepy{{x}} in \inlinepy{{y}}, za kateri klic \inlinepy{{f(x, y)}} vrne rezultat \inlinepy{{5}}.
+
+\begin{{minted}}[baselinestretch=1.2, escapeinside=||]{{python}}
+  x = |\answerbox{{3}}|
+  y = |\answerbox{{3}}|
+\end{{minted}}
+\end{{multicols}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naloga
+
+\begin{{multicols}}{{2}}
+\noindent
+S številkami od $0$ do $4$ označite vrstni red, v katerem moramo izvesti ukaze na desni, da bo na koncu v spremenljivki \inlinepy{{z}} shranjen niz \inlinepy{{'mama'}}?
+\columnbreak
+\begin{{minted}}[baselinestretch=1.2, escapeinside=||]{{python}}
+|\answerbox{{0.5}}| z += w
+|\answerbox{{0.5}}| z += 'm'
+|\answerbox{{0.5}}| z = ''
+|\answerbox{{0.5}}| z += 'a'
+|\answerbox{{0.5}}| w = z
+\end{{minted}}
+\end{{multicols}}
+
+\end{{document}}

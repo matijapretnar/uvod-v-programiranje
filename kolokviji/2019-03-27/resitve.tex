@@ -1,0 +1,179 @@
+
+        \documentclass[arhiv, 10pt]{../izpit}
+        \usepackage{fouriernc}
+        \usepackage{minted}
+        \usepackage{booktabs}
+        \usepackage{multicol}
+        \usepackage{paralist}
+        \usepackage{inconsolata}
+        \usepackage[T1]{fontenc}
+        \usepackage{xcolor}
+        \usepackage[most]{tcolorbox}
+
+        \definecolor{light-red}{rgb}{1,0.5,0.5}
+        \usemintedstyle{colorful}
+        \setlength{\columnsep}{30pt}
+        \setlength{\textheight}{1.1\textheight}
+        \tcbset{enhanced jigsaw,size=tight,colback=light-red,boxrule=0pt,extrude by=1pt,rounded corners,interior style={opacity=0.3}}
+        \newcommand{\inlinepy}[1]{\mintinline{python}{#1}}
+        \newcommand{\answerbox}[1]{\framebox{\vphantom{\large M}\hspace{#1cm}}}
+        \newcommand{\wrongbox}[1]{\tcbox{\vphantom{M}#1}}
+    
+            \begin{document}
+            \makebox[\textwidth][c]{\begin{tabular}{rcccccccccc} \toprule
+            \textbf{Kolokvij} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \midrule
+        \textbf{\#001} & a & c & a & b & \inlinepy{00yx} & d & a & c & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 20134\\
+\textbf{\#002} & d & b & c & a & \inlinepy{00ab} & b & a & a & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 31402\\
+\textbf{\#003} & a & d & d & b & \inlinepy{q01p} & a & b & d & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 40123\\
+\textbf{\#004} & b & b & c & d & \inlinepy{00xy} & d & d & a & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 21430\\
+\textbf{\#005} & a & c & a & b & \inlinepy{q01p} & a & d & a & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 10234\\
+\textbf{\#006} & a & a & c & a & \inlinepy{00xy} & a & d & c & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 34210\\
+\textbf{\#007} & c & b & c & c & \inlinepy{00yx} & d & c & a & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 30124\\
+\textbf{\#008} & c & b & a & b & \inlinepy{p01q} & a & b & c & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 24310\\
+\textbf{\#009} & a & c & a & b & \inlinepy{00ab} & a & d & d & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 14023\\
+\textbf{\#010} & a & c & d & b & \inlinepy{a01b} & c & d & c & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 41320\\
+\textbf{\#011} & a & c & b & a & \inlinepy{00ab} & a & a & c & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 04321\\
+\textbf{\#012} & b & d & b & a & \inlinepy{x01y} & a & b & b & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 14230\\
+\textbf{\#013} & d & c & c & b & \inlinepy{y01x} & a & c & b & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 12340\\
+\textbf{\#014} & a & c & a & b & \inlinepy{q01p} & c & b & d & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 30214\\
+\textbf{\#015} & b & d & c & b & \inlinepy{y01x} & d & d & b & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 01234\\
+\textbf{\#016} & a & b & a & a & \inlinepy{x01y} & d & d & a & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 10324\\
+\textbf{\#017} & d & a & d & c & \inlinepy{p01q} & d & c & b & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 12034\\
+\textbf{\#018} & c & b & a & b & \inlinepy{q01p} & d & a & c & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 10342\\
+\textbf{\#019} & b & a & a & d & \inlinepy{b01a} & d & c & a & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 30124\\
+\textbf{\#020} & c & a & c & c & \inlinepy{x01y} & d & c & c & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 34201\\
+\textbf{\#021} & d & a & c & d & \inlinepy{y01x} & a & a & a & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 32410\\
+\textbf{\#022} & a & d & c & d & \inlinepy{00yx} & b & c & a & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 24130\\
+\textbf{\#023} & a & a & d & a & \inlinepy{p01q} & a & c & a & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 21430\\
+\textbf{\#024} & d & c & a & c & \inlinepy{00ab} & d & b & d & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 40132\\
+\textbf{\#025} & b & c & a & b & \inlinepy{x01y} & c & a & d & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 01234\\
+\textbf{\#026} & d & a & a & d & \inlinepy{00pq} & b & b & b & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 20413\\
+\textbf{\#027} & d & c & a & a & \inlinepy{00yx} & b & d & a & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 01423\\
+\textbf{\#028} & b & d & c & d & \inlinepy{00yx} & c & d & b & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 21403\\
+\textbf{\#029} & a & a & d & b & \inlinepy{x01y} & d & a & b & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 24301\\
+\textbf{\#030} & a & c & b & c & \inlinepy{00ba} & a & c & c & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 41023\\
+\textbf{\#031} & d & c & b & a & \inlinepy{a01b} & c & b & c & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 24031\\
+\textbf{\#032} & b & a & a & c & \inlinepy{a01b} & b & d & b & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 02314\\
+\textbf{\#033} & d & a & c & a & \inlinepy{00ba} & c & d & d & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 40132\\
+\textbf{\#034} & c & d & a & b & \inlinepy{b01a} & b & d & b & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 13420\\
+\textbf{\#035} & d & c & b & d & \inlinepy{x01y} & b & d & d & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 34021\\
+\textbf{\#036} & b & b & d & c & \inlinepy{x01y} & a & a & d & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 32410\\
+\textbf{\#037} & a & c & d & b & \inlinepy{00ab} & b & b & d & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 31204\\
+\textbf{\#038} & b & c & d & c & \inlinepy{00qp} & a & a & a & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 41032\\
+\textbf{\#039} & b & a & b & c & \inlinepy{b01a} & a & b & a & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 02431\\
+\textbf{\#040} & a & d & d & c & \inlinepy{b01a} & a & b & b & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 13024\\
+\textbf{\#041} & b & b & b & d & \inlinepy{00ab} & d & d & a & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 20413\\
+\textbf{\#042} & c & b & c & c & \inlinepy{00qp} & d & a & b & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 13024\\
+\textbf{\#043} & a & a & c & c & \inlinepy{00qp} & c & d & d & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 12430\\
+\textbf{\#044} & a & c & c & a & \inlinepy{a01b} & b & a & c & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 24301\\
+\textbf{\#045} & d & b & d & a & \inlinepy{00yx} & a & c & a & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 03241\\
+\textbf{\#046} & d & d & a & b & \inlinepy{a01b} & c & c & c & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 42310\\
+\textbf{\#047} & b & a & b & d & \inlinepy{q01p} & c & d & b & 
+        \inlinepy{sez1} in \inlinepy{sez2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 10432\\
+\textbf{\#048} & d & b & a & b & \inlinepy{q01p} & b & a & d & 
+        \inlinepy{lst1} in \inlinepy{lst2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 43210\\
+\textbf{\#049} & c & b & d & c & \inlinepy{00pq} & c & a & a & 
+        \inlinepy{niz1} in \inlinepy{niz2} dolžine vsaj 3, ki se ujemata na lihih mestih
+     & 43102\\
+\textbf{\#050} & c & d & d & c & \inlinepy{p01q} & c & b & b & 
+        \inlinepy{str1} in \inlinepy{str2} dolžine vsaj 3, ki se ujemata na sodih mestih
+     & 34210\\
+
+            \bottomrule
+            \end{tabular}}
+            \end{document}
+        
