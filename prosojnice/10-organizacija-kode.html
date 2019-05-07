@@ -1,0 +1,178 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Organizacija kode</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+# Organizacija kode
+
+### Uvod v programiranje
+
+---
+
+### Za **projektno nalogo** morate napisati program, ki je uporaben za **neprogramerja**
+
+* ~~Vislice~~
+* ~~Kalkulator~~
+* Potapljanje ladjic, minolovec, sudoku, …
+* Kviz, utrjevanje poštevanke, …
+* Računanje z matrikami, skladovni kalkulator, …
+* Vodenje stroškov, kalorij, izposojenih knjig, …
+* Pretvornik enot, menjalni tečaji, …
+
+#### [Pravila ocenjevanja](https://ucilnica.fmf.uni-lj.si/mod/page/view.php?id=14305)
+
+---
+
+### Programov se splača lotiti **od zgoraj navzdol**
+
+```
+def vislice():
+    igra = nova_igra()
+    while not konec(igra):
+        igra = ugani_crko(igra)
+
+def nova_igra():
+    ...
+def konec(igra):
+    ...
+def ugani_crko(igra):
+    ...
+
+vislice()
+```
+
+---
+
+### Dobro je, da sta **model in vmesnik ločena**
+
+.bad-example[```
+def ugani_crko(igra):
+    crka = input('Vpiši črko:')
+    pravilno = crka in igra.geslo
+    if pravilno:
+        print('Bravo!')
+    else:
+        print('Narobe!')
+        obesen += 1
+    igra.odkrite.add(crka)
+```]
+
+Kaj bomo morali spremeniti za spletni vmesnik?
+
+---
+
+### Dobro je, da sta **model in vmesnik ločena**
+
+.good-example[```
+
+def ugani_crko_model(igra, crka):
+    igra.odkrite.add(crka)
+    pravilno = crka in igra.geslo
+    if not pravilno:
+        obesen += 1
+    return pravilno
+
+def ugani_crko_vmesnik(igra):
+    crka = input('Vpiši črko:')
+    if ugani_crko_model(igra, crka):
+        print('Bravo!')
+    else:
+        print('Narobe!')
+```]
+
+---
+
+### Model je običajno svoj **razred**
+
+.good-example[```
+class Igra:
+  def ugani_crko(self, crka):
+    self.odkrite.add(crka)
+    pravilno = crka in self.geslo
+    if not pravilno:
+        obesen += 1
+    return pravilno
+
+def ugani_crko_vmesnik(igra):
+    crka = input('Vpiši črko:')
+    if igra.ugani_crko(crka):
+        print('Bravo!')
+    else:
+        print('Narobe!')
+```]
+
+---
+
+class: question, middle, center
+
+## Primer
+
+---
+
+class: middle, center
+
+## Shranjevanje
+
+---
+
+### Eden najpogostejših zapisov je **JSON**
+
+```json
+{
+  "ime": "Anka Cvetnik",
+  "vpisnaStevilka": 27123456,
+  "visina": 167.8,
+  "prijatelji": [27154321, 27165432],
+  "predmetnik": [
+    {"predmet": "Analiza 1", "ocena": 10},
+    {"predmet": "Algebra 1", "ocena": 10},
+    {
+      "predmet": "Uvod v programiranje",
+      "ocena": null
+    }
+  ]
+}
+```
+
+---
+
+### **JSON niz iz Pythonove vrednosti** dobimo s funkcijo `json.dumps`
+
+```
+>>> json.dumps([1, {3: True, 4: None}])
+'[1, {"3": true, "4": null}]'
+```
+
+### **Pythonovo vrednost iz JSON niza** dobimo s funkcijo `json.loads`
+
+```
+>>> json.loads('[1, {"3": true, "4": null}]')
+[1, {'3': True, '4': None}]
+```
+
+---
+
+### **JSON datoteko iz Pythonove vrednosti** dobimo s funkcijo `json.dump`
+
+```
+with open('primer.json', 'w') as datoteka:
+    json.dump(vrednost, datoteka)
+```
+
+### **Pythonovo vrednost iz JSON datoteke** dobimo s funkcijo `json.load`
+
+```
+with open('primer.json') as datoteka:
+    vrednost = json.load(datoteka)
+```
+
+</textarea>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>
