@@ -23,10 +23,10 @@ class ZbirkaVprasanj:
         self.trenutno_vprasanje.glasuj_za_odgovor(indeks_odgovora)
     
     def dodaj_vprasanje(self, besedilo_vprasanja, besedila_odgovorov):
-        print('TO ŠE NE DELA!')
+        self.vprasanja.append(Vprasanje(besedilo_vprasanja, [Odgovor(odgovor) for odgovor in besedila_odgovorov]))
     
     def podvoji_vprasanje(self, indeks_vprasanja):
-        pass
+        self.vprasanja.append(self.vprasanja[indeks_vprasanja].podvoji())
 
 
 class Vprasanje:
@@ -44,7 +44,7 @@ class Vprasanje:
         return stevilo
 
     def podvoji(self):
-        pass
+        return Vprasanje(self.besedilo, [Odgovor(odgovor.besedilo) for odgovor in self.odgovori])
 
 
 class Odgovor:
