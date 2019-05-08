@@ -9,51 +9,68 @@ zbirka_vprasanj = ZbirkaVprasanj(ime='UVP 2018/19', vprasanja=[
 ])
 zbirka_vprasanj.odpri_vprasanje(0)
 
+
 def pozdrav():
     print('Pozdravljen v programu ???')
 
+
+def izberi(mozni_odgovori):
+    for indeks, odgovor in enumerate(mozni_odgovori):
+        print('{}) {}'.format(indeks + 1, odgovor))
+    izbira = input('> ')
+    return int(izbira) - 1
+
+
 def osnovni_meni():
     print('Kaj bi rad naredil?')
-    print('1) dodaj vprašanje')
-    print('2) glasuj za trenutno vprašanje')
-    print('3) odpri vprašanje')
-    izbira = input('> ')
-    if izbira == '1':
+    izbira = izberi([
+        'dodaj vprašanje',
+        'glasuj za trenutno vprašanje',
+        'odpri vprašanje',
+    ])
+    if izbira == 0:
         dodaj_vprasanje()
-    elif izbira == '2':
+    elif izbira == 1:
         glasuj_za_trenutno_vprasanje()
-    elif izbira == '3':
+    elif izbira == 2:
         odpri_vprasanje()
     else:
-        print('Izbrati moraš eno od zgornjih možnosti.')
+        assert False
+
 
 def dodaj_vprasanje():
     print('Uspešno si dodal vprašanje.')
 
+
+def oznake_odgovorov(vprasanje):
+    return [
+        '{besedilo} ({glasovi_odgovora}/{vsi_glasovi})'.format(
+            besedilo=odgovor.besedilo,
+            glasovi_odgovora=odgovor.stevilo_glasov(),
+            vsi_glasovi=vprasanje.stevilo_glasov(),
+        ) for odgovor in vprasanje.odgovori
+    ]
+
+
 def glasuj_za_trenutno_vprasanje():
-    besedilo = zbirka_vprasanj.besedilo_trenutnega_vprasanja()
-    if besedilo == None:
+    vprasanje = zbirka_vprasanj.trenutno_vprasanje
+    if vprasanje == None:
         print('Trenutno ni odprtega vprašanja!')
     else:
-        print(besedilo)
-        for indeks, odgovor in enumerate(zbirka_vprasanj.trenutno_vprasanje.odgovori):
-            print('{mesto}) {besedilo} ({glasovi_odgovora}/{vsi_glasovi})'.format(
-                mesto=indeks + 1,
-                besedilo=odgovor.besedilo,
-                glasovi_odgovora=odgovor.stevilo_glasov(),
-                vsi_glasovi=zbirka_vprasanj.trenutno_vprasanje.stevilo_glasov(),
-            ))
-        izbira = input('> ')
-        indeks_odgovora = int(izbira) - 1
+        print(vprasanje.besedilo)
+        indeks_odgovora = izberi(oznake_odgovorov(vprasanje))
         zbirka_vprasanj.glasuj(indeks_odgovora)
         print('Uspešno si glasoval!')
 
+
 def odpri_vprasanje():
     print('Uspešno si odprl vprašanje.')
+
 
 def main():
     pozdrav()
     while True:
         osnovni_meni()
+
 
 main()

@@ -10,25 +10,32 @@ zbirka_vprasanj = ZbirkaVprasanj(ime='UVP 2018/19', vprasanja=[
 zbirka_vprasanj.odpri_vprasanje(0)
 
 SIRINA_VRSTICE = 40
+SIRINA_GRAFA = 16
+
 
 def napaka(niz):
     print('\033[1;91m' + niz + '\033[0m')
 
+
 def uspeh(niz):
     print('\033[1;94m' + niz + '\033[0m')
+
 
 def male_stevke(n):
     return ''.join('₀₁₂₃₄₅₆₇₈₉'[int(stevka)] for stevka in str(n))
 
-def narisi_delez(m, n, max_dolzina=16):
+
+def narisi_delez(m, n, max_dolzina=SIRINA_GRAFA):
     if n == 0:
         stolpec = ''
     else:
         stolpec = round(max_dolzina * m / n) * '═'
     return '╞' + stolpec.ljust(max_dolzina)
 
+
 def preberi():
     return input('> ')
+
 
 def preberi_stevilo():
     while True:
@@ -38,6 +45,7 @@ def preberi_stevilo():
         else:
             napaka('Vpišite številko')
 
+
 def preberi_seznam():
     seznam = []
     while True:
@@ -45,9 +53,10 @@ def preberi_seznam():
         if seznam[-1] == '':
             return seznam[:-1]
 
+
 def izberi(moznosti):
     for i, (oznaka, _) in enumerate(moznosti, 1):
-        print('{}) {}'.format(i, oznaka))
+        print(f'{i}) {oznaka}')
     while True:
         izbira = preberi_stevilo()
         if 1 <= izbira <= len(moznosti):
@@ -55,8 +64,10 @@ def izberi(moznosti):
         else:
             napaka(f'Vpišite številko med 1 in {len(moznosti)}')
 
+
 def izberi_indeks(oznake):
     return izberi([(oznaka, i) for (i, oznaka) in enumerate(oznake)])
+
 
 def prikaz_odgovorov(odgovori):
     dolzina_najdaljsega_odgovora = max(len(odgovor.besedilo) for odgovor in odgovori)
@@ -67,6 +78,7 @@ def prikaz_odgovorov(odgovori):
         graf = narisi_delez(stevilo_glasov, stevilo_vseh_glasov)
         yield f'{poravnano_besedilo} {graf} ₍{male_stevke(stevilo_glasov)}₎'
 
+
 def prikazi_trenutno_vprasanje():
     vprasanje = zbirka_vprasanj.trenutno_vprasanje
     if vprasanje is None:
@@ -76,6 +88,7 @@ def prikazi_trenutno_vprasanje():
         print(vprasanje.besedilo)
         for odgovor in prikaz_odgovorov(vprasanje.odgovori):
             print('  - {}'.format(odgovor))
+
 
 def osnovni_meni():
     print(SIRINA_VRSTICE * '═')
@@ -95,6 +108,7 @@ def osnovni_meni():
     naslednji_korak = izberi(mozni_koraki)
     naslednji_korak()
 
+
 def dodaj_vprasanje():
     print('Kakšno naj bo besedilo vprašanja?')
     vprasanje = preberi()
@@ -103,17 +117,20 @@ def dodaj_vprasanje():
     zbirka_vprasanj.dodaj_vprasanje(vprasanje, odgovori)
     uspeh('Uspešno ste dodali vprašanje.')
 
+
 def odpri_vprasanje():
     print('Katero vprašanje želite odpreti?')
     indeks_vprasanja = izberi_indeks(vprasanje.besedilo for vprasanje in zbirka_vprasanj.vprasanja)
     zbirka_vprasanj.odpri_vprasanje(indeks_vprasanja)
     uspeh('Uspešno ste odprli vprašanje.')
 
+
 def podvoji_vprasanje():
     print('Katero vprašanje želite podvojiti?')
     indeks_vprasanja = izberi_indeks(vprasanje.besedilo for vprasanje in zbirka_vprasanj.vprasanja)
     zbirka_vprasanj.podvoji_vprasanje(indeks_vprasanja)
     uspeh('Uspešno ste podvojili vprašanje.')
+
 
 def glasuj_za_trenutno_vprasanje():
     vprasanje = zbirka_vprasanj.trenutno_vprasanje
@@ -122,13 +139,16 @@ def glasuj_za_trenutno_vprasanje():
     zbirka_vprasanj.glasuj(indeks_odgovora)
     uspeh('Uspešno ste glasovali!')
 
+
 def zapri_trenutno_vprasanje():
     zbirka_vprasanj.zapri_trenutno_vprasanje()
     uspeh('Vprašanje zaprto!')
+
 
 def main():
     uspeh('Pozdravljeni v programu ???')
     while True:
         osnovni_meni()
+
 
 main()
