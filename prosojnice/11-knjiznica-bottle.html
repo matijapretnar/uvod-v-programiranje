@@ -59,6 +59,23 @@ def pozdravi(ime):
 
 ---
 
+### V spletne naslove lahko dajemo tudi **filtre**
+
+.bad-example[```
+@bottle.get('/kvadriraj/<n>')
+def kvadriraj(n):
+    n = int(n)
+    return '{}^2 = {}'.format(n, n ** 2)
+```]
+
+.good-example[```
+@bottle.get('/kvadriraj/<n:int>')
+def kvadriraj(n):
+    return '{}^2 = {}'.format(n, n ** 2)
+```]
+
+---
+
 ### Funkcije običajno vračajo **HTML**
 
 ```
@@ -98,7 +115,7 @@ def pozdravi(ime):
 ```
 vrstica besedila
 % a = 7 * 6
-odgovor je {{ a }}
+odgovor je {{a}}
 ```
 
 - - -
@@ -118,7 +135,7 @@ odgovor je 42
 % else:
 %        a = 100
 % end
-odgovor je {{ a }}
+odgovor je {{a}}
 ```
 
 - - -
@@ -135,7 +152,7 @@ odgovor je 42
 ```
 <ul>
 % for i in range(5):
-    <li>{{ i ** 2 }}</li>
+    <li>{{i ** 2}}</li>
 % end
 </ul>
 ```
@@ -150,6 +167,62 @@ odgovor je 42
    <li>9</li>
    <li>16</li>
 </ul>
+```
+
+---
+
+### Za **skupne dele predlog** uporabimo `rebase`
+
+.bad-example[```
+<html>
+  <body>
+     To je moja prva stran.
+     <footer>© 2019, Ime Priimek</footer>
+  </body>
+</html>
+```]
+
+.bad-example[```
+<html>
+  <body>
+     To je moja druga stran.
+     <footer>© 2019, Ime Priimek</footer>
+  </body>
+</html>
+```]
+
+---
+
+### Za **skupne dele predlog** uporabimo `rebase`
+
+.good-example[```
+<html>
+  <body>
+     {{!base}}
+     <footer>© 2019, Ime Priimek</footer>
+  </body>
+</html>
+```]
+
+.good-example[```
+% rebase('osnova.tpl')
+To je moja prva stran.
+```]
+
+.good-example[```
+% rebase('osnova.tpl')
+To je moja druga stran.
+```]
+
+---
+
+### S funkcijo `static_file` lahko ponujamo tudi<br>**statične datoteke** (slike, CSS stili, …)
+
+```
+@bottle.get('/static/<ime_dat:path>')
+def server_static(ime_dat):
+  pot = '/pot/do/mape/z/datotekami'
+  return bottle.static_file(ime_dat, root=pot)
 ```
 
 ---
@@ -234,6 +307,59 @@ def glasuj():
     return 'Glas je bil uspešno zabeležen!'
 ```
 
+---
+
+### Po uspešno izvedeni POST poizvedbi naredimo **preusmeritev**
+
+.bad-example[```
+@bottle.post('/glasuj/')
+def glasuj():
+    glas = bottle.request.forms['glas']
+    model.zabelezi_glas(glas)
+    return 'Glas je bil uspešno zabeležen!'
+```]
+
+Če preusmeritve ne naredimo,<br>lahko osveževanje vodi do **večkratnih sprememb**.
+
+---
+
+### Po uspešno izvedeni POST poizvedbi naredimo **preusmeritev**
+
+.good-example[```
+@bottle.post('/glasuj/')
+def glasuj():
+    glas = bottle.request.forms['glas']
+    model.zabelezi_glas(glas)
+    bottle.redirect('/glasuj/')
+
+@bottle.get('/glasuj/')
+def glasuj_rezultat():
+    return 'Glas je bil uspešno zabeležen!'
+```]
+
+
+---
+
+### Podatke si lahko shranjujemo<br>v **piškotke** na uporabnikovem računalniku
+
+```
+@bottle.post('/glasuj/')
+def glasuj():
+  piskot = bottle.request.get_cookie('glas')
+  if piskot is None:
+    glas = bottle.request.forms['glas']
+    model.zabelezi_glas(glas)
+    bottle.response.set_cookie('glas', glas)
+    bottle.redirect('/glasuj/')
+  else:
+    return 'Ne glasuj dvakrat!'
+```
+
+---
+
+class: question, middle, center
+
+## Primer
 
 </textarea>
 <script src="pomozne-datoteke/prosojnice.js"></script>

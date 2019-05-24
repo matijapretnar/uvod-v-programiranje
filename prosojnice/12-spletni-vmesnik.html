@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Spletni vmesnik</title>
+<link href="pomozne-datoteke/prosojnice.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+# Spletni vmesnik
+
+### Uvod v programiranje
+
+---
+
+class: middle, center
+
+### Spletna ogrodja
+
+---
+
+class: middle, center
+
+### Shranjevanje
+
+---
+
+### Eden najpogostejših zapisov je **JSON**
+
+```json
+{
+  "ime": "Anka Cvetnik",
+  "vpisnaStevilka": 27123456,
+  "visina": 167.8,
+  "prijatelji": [27154321, 27165432],
+  "predmetnik": [
+    {"predmet": "Analiza 1", "ocena": 10},
+    {"predmet": "Algebra 1", "ocena": 10},
+    {
+      "predmet": "Uvod v programiranje",
+      "ocena": null
+    }
+  ]
+}
+```
+
+---
+
+### **JSON niz iz Pythonove vrednosti** dobimo s funkcijo `json.dumps`
+
+```
+>>> json.dumps([1, {3: True, 4: None}])
+'[1, {"3": true, "4": null}]'
+```
+
+### **Pythonovo vrednost iz JSON niza** dobimo s funkcijo `json.loads`
+
+```
+>>> json.loads('[1, {"3": true, "4": null}]')
+[1, {'3': True, '4': None}]
+```
+
+---
+
+### **JSON datoteko iz Pythonove vrednosti** dobimo s funkcijo `json.dump`
+
+```
+with open('primer.json', 'w') as datoteka:
+    json.dump(vrednost, datoteka)
+```
+
+### **Pythonovo vrednost iz JSON datoteke** dobimo s funkcijo `json.load`
+
+```
+with open('primer.json') as datoteka:
+    vrednost = json.load(datoteka)
+```
+
+---
+
+class: question, middle, center
+
+## Primer
+
+</textarea>
+<script src="pomozne-datoteke/prosojnice.js"></script>
+</body>
+</html>
