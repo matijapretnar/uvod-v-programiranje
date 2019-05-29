@@ -10,29 +10,9 @@
 
 class: center, middle
 
-### Uvod v programiranje
-
 # Računska zahtevnost
 
----
-
-### Kateri od spodnjih programov je **boljši**?
-
-```python
-def najvecji_element1(sez):
-    maksi = None
-    for x in sez:
-        if maksi == None or x > maksi:
-            maksi = x
-    return maksi
-```
-
-```python
-def najvecji_element2(sez):
-    for x in sez:
-        if x == max(sez):
-            return x
-```
+### Uvod v programiranje
 
 ---
 
@@ -66,19 +46,11 @@ Koliko **(dodatnega) prostora** v odvisnosti od vhodnih podatkov potrebuje algor
 
 ### Analizo poenostavimo z **notacijo velikega O**
 
-## .center[$$f \in O(g)$$]
-
-## $$\exists M, x_0. \forall x > x_0. |f(x)| \leq M \cdot |g(x)|$$
-
-### Rast funkcije \\(f\\) je **omejena** s funkcijo \\(g\\)
-
----
-
-### Kaj je **pomen** definicije?
-
-### $$\exists \color{purple}{M}, \color{red}{x_0}. \forall x > \color{red}{x_0}. |f(x)| \leq \color{purple}{M} \cdot |\color{blue}{g}(x)|$$
+### $$f \in O(g) \iff \exists \color{purple}{M}, \color{red}{x_0}. \forall x > \color{red}{x_0}. |f(x)| \leq \color{purple}{M} \cdot |\color{blue}{g}(x)|$$
 
 ### .center[![](slike/O-graf.png)]
+
+### Rast funkcije \\(f\\) je **omejena** s funkcijo \\(g\\)
 
 ---
 
@@ -133,7 +105,31 @@ class: question, center
 
 class: center, middle
 
-### Izračun sledi matrike
+### `sez[i]`<br>`sez[i] = x`
+
+## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### `len(sez)`
+
+## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### `sez.append(x)`
+
+## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### `sez.insert(0, x)`
 
 ## .spoiler[$$O(n)$$]
 
@@ -141,7 +137,7 @@ class: center, middle
 
 class: center, middle
 
-### Izračun največjega elementa v seznamu
+### Izračun najmanjšega elementa v seznamu
 
 ## .spoiler[$$O(n)$$]
 
@@ -152,6 +148,22 @@ class: center, middle
 ### Izračun najmanjšega elementa v urejenem seznamu
 
 ## .spoiler[$$O(1)$$]
+
+---
+
+class: center, middle
+
+### `min(sez)`
+
+## .spoiler[$$O(n)$$]
+
+---
+
+class: center, middle
+
+### `min(urejen_sez)`
+
+## .spoiler[$$O(n)$$]
 
 ---
 
@@ -182,46 +194,6 @@ class: center, middle
 class: center, middle
 
 ### `x in urejen_sez`
-
-## .spoiler[$$O(n)$$]
-
----
-
-class: center, middle
-
-### `max(sez)`
-
-## .spoiler[$$O(n)$$]
-
----
-
-class: center, middle
-
-### `len(sez)`
-
-## .spoiler[$$O(1)$$]
-
----
-
-class: center, middle
-
-### `sez[i] = x`
-
-## .spoiler[$$O(1)$$]
-
----
-
-class: center, middle
-
-### `sez.append(x)`
-
-## .spoiler[$$O(1)$$]
-
----
-
-class: center, middle
-
-### `sez.insert(0, x)`
 
 ## .spoiler[$$O(n)$$]
 
