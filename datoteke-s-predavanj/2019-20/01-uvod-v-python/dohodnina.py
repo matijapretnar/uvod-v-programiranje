@@ -1,5 +1,5 @@
 def odmera_dohodnine(letna_davcna_osnova):
-    '''Izračuna letni znesek dohodnine pri dani davčni osnovi.'''
+    """Izračuna letni znesek dohodnine pri dani davčni osnovi."""
     if letna_davcna_osnova < 8500.00:
         return 0.16 * letna_davcna_osnova
     elif letna_davcna_osnova < 25000.00:
@@ -12,14 +12,14 @@ def odmera_dohodnine(letna_davcna_osnova):
         return 22480.00 + 0.50 * (letna_davcna_osnova - 72000.00)
 
 def splosna_olajsava(skupni_dohodek):
-    '''Izračuna splošno olajšavo pri skupnem letnem dohodku.'''
+    """Izračuna splošno olajšavo pri skupnem letnem dohodku."""
     if skupni_dohodek <= 13316.83:
         return 3500.00 + (18700.38 - 1.40427 * skupni_dohodek)
     else:
         return 3500.00
 
 def koliko_mi_ostane_na_mesec(mesecni_dohodek):
-    '''Izračuna, koliko mesečnega dohodka ostane po obračunu dohodnine.'''
+    """Izračuna, koliko mesečnega dohodka ostane po obračunu dohodnine."""
     letni_dohodek = 12 * mesecni_dohodek
     # Ker smo leni, program upošteva le splošno olajšavo,
     # ostalih osebnih in posebnih olajšav pa ne.
@@ -29,4 +29,3 @@ def koliko_mi_ostane_na_mesec(mesecni_dohodek):
     letni_ostanek = letni_dohodek - dohodnina
     mesecni_ostanek = round(letni_ostanek / 12, 2)
     return mesecni_ostanek
-
