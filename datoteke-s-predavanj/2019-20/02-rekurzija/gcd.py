@@ -16,3 +16,8 @@ def gcd(m, n):
 #  ^
 #  |
 # gcd(m, n)
+
+# Isto lahko napišemo tudi na krajše s pogojnim izrazom
+
+def gcd(m, n):
+    return m if n == 0 else gcd(n, m % n)
