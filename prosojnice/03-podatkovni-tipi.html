@@ -121,8 +121,8 @@ class: center, middle
 ### Osnovne operacije na nizih
 
 ```python
->>> 'Dober' + 'dan'
-'Doberdan'
+>>> 'zala' + 'gasper'
+'zalagasper'
 >>> 'tro' + 4 * 'lo'
 'trololololo'
 >>> len('lokomotiva')
@@ -144,10 +144,10 @@ class: question
 ```python
 >>> pozdrav('Matija')
 'Dober dan, gospod profesor.'
->>> pozdrav('Žiga')
-'Pozdravljeni, gospod asistent.'
 >>> pozdrav('Anja')
 'Pozdravljena, gospa asistentka.'
+>>> pozdrav('Filip')
+'Pozdravljeni, gospod asistent.'
 >>> pozdrav('Francelj')
 'Živjo, Francelj!'
 ```
@@ -256,6 +256,23 @@ class: question
 'erj'
 >>> 'rekurzija'[::-1]
 'ajizruker'
+```
+
+---
+
+### Med tipi lahko tudi **pretvarjamo**
+
+```
+>>> int(3.14)
+3
+>>> float(3)
+3.0
+>>> str(True)
+'True'
+>>> bool(4)
+True
+>>> bool('False')
+True
 ```
 
 ---
@@ -372,7 +389,7 @@ class: center, middle
 ### `tuple`
 
 ```python
-(8, 3, 2017)    ()     (1,)
+(3, 3, 2020)    ()     (1,)
 
 (46.0422504, 14.4897114)
 
@@ -403,7 +420,7 @@ False
 #### Nabori: fiksna dolžina, različni pomeni
 
 ```
->>> datum = (4, 3, 2019)
+>>> datum = (3, 3, 2020)
 >>> fmf = (46.0422504, 14.4897114)
 >>> jaz = ('Matija', 'Pretnar', 27004498)
 ```
@@ -413,7 +430,7 @@ False
 ```
 >>> leta = [2012, 2016, 2020, 2024]
 >>> opravili_bodo_uvp = []
->>> datumi = [(4, 3, 2019), (25, 6, 1991)]
+>>> datumi = [(3, 3, 2020), (25, 6, 1991)]
 ```
 
 ---
