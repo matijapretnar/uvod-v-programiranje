@@ -175,3 +175,48 @@ set()
 >>> dict()
 {}
 ```
+
+
+
+---
+
+class: question
+
+## Največji skupni delitelj
+
+```
+>>> gcd(15, 24)
+3
+>>> gcd(720, 256)
+16
+>>> gcd(32193220816993627, 32193224764336829)
+179424691
+```
+
+---
+
+class: center, middle, question
+
+## Korenjenje brez `**` in `math`
+
+---
+
+class: center, middle, question
+
+## Iskanje ničle z bisekcijo
+
+---
+
+### Kratke in preproste funkcije *lahko*<br>zapišemo z **anonimnimi funkcijami**
+
+```
+def moj_polinom(x):
+    return x ** 2 - 2
+```
+
+```
+>>> bisekcija(moj_polinom, 0, 2)
+1.414213562355144
+>>> bisekcija(lambda x: x ** 2 - 2, 0, 2)
+1.414213562355144
+```

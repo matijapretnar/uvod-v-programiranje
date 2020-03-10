@@ -10,14 +10,6 @@
 
 class: center, middle
 
-![](slike/qr.png)
-
-### http://bit.do/uvp-test
-
----
-
-class: center, middle
-
 # Zanke
 
 ### Uvod v programiranje
@@ -152,82 +144,21 @@ while n < 1000:
 
 class: center, middle, question
 
-### Kako hitra so predavanja?
-
-![](slike/qr.png)
-
-### http://bit.do/uvp-test
-
----
-
-class: center, middle, question
-
 ## Koliko je najmanjši \\(n\\), da velja
 
 # $$\frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} > 15$$
 
 ---
 
-class: question
+class: center, middle, question
 
-## Največji skupni delitelj
-
-```
->>> gcd(15, 24)
-3
->>> gcd(720, 256)
-16
->>> gcd(32193220816993627, 32193224764336829)
-179424691
-```
+## Iskanje elementa<br>v urejenem seznamu
 
 ---
 
 class: center, middle, question
 
-## Korenjenje brez `**` in `math`
-
----
-
-### Argumentom funkcij lahko nastavimo<br>**privzete vrednosti**
-
-```
-def koren(x, k=2):
-    return x ** (1 / k)
-```
-
-```
->>> koren(8, k=3)
-2.0
->>> koren(8, 3)
-2.0
->>> koren(2)
-1.4142135623730951
->>> koren(2, k=2)
-1.4142135623730951
-```
-
----
-
-class: center, middle, question
-
-## Iskanje ničle z bisekcijo
-
----
-
-### Kratke in preproste funkcije *lahko*<br>zapišemo z **anonimnimi funkcijami**
-
-```
-def moj_polinom(x):
-    return x ** 2 - 2
-```
-
-```
->>> bisekcija(moj_polinom, 0, 2)
-1.414213562355144
->>> bisekcija(lambda x: x ** 2 - 2, 0, 2)
-1.414213562355144
-```
+## Iskanje elementa<br>v neurejenem seznamu
 
 ---
 
