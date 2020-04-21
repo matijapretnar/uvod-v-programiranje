@@ -13,29 +13,24 @@ class Slovar:
         self.zasedeni = 0
         self.prostori = velikost * [None]
 
+    def _mesta_za_kljuc(self, kljuc):
+        mesto = kljuc
+        # Več kot toliko korakov ne bomo naredili, ker ni prostih prostorov.
+        for korak in range(1, len(self.prostori) + 1):
+            yield mesto % len(self.prostori)
+            mesto += korak ** 2
+
     def _poisci_za_pisanje(self, kljuc):
-        mesto = kljuc % len(self.prostori)
-        korak = 1
-        while True:
-            if self.prostori[mesto] is None:
+        for mesto in self._mesta_za_kljuc(kljuc):
+            if self.prostori[mesto] is None or self.prostori[mesto][0] == kljuc:
                 return mesto
-            elif self.prostori[mesto][0] == kljuc:
-                return mesto
-            else:
-                mesto = (mesto + korak ** 2) % len(self.prostori)
-                korak += 1
 
     def _poisci_za_branje(self, kljuc):
-        mesto = kljuc % len(self.prostori)
-        korak = 1
-        while True:
+        for mesto in self._mesta_za_kljuc(kljuc):
             if self.prostori[mesto] is None:
                 return
             elif self.prostori[mesto][0] == kljuc:
                 return mesto
-            else:
-                mesto = (mesto + korak ** 2) % len(self.prostori)
-                korak += 1
 
     def _razsiri(self):
         stari_prostori = self.prostori
