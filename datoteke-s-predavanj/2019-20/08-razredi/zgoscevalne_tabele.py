@@ -36,14 +36,11 @@ class Slovar:
         stari_prostori = self.prostori
         velikost = len(stari_prostori)
         print(f'Razširjam tabelo z {velikost} na {2 * velikost}')
-        novi_prostori = 2 * velikost * [None]
+        self.prostori = 2 * velikost * [None]
         for par in stari_prostori:
             if par is not None:
                 kljuc, vrednost = par
-                mesto = self._poisci_za_pisanje(kljuc)
-                novi_prostori[mesto] = (kljuc, vrednost)
-        self.prostori = novi_prostori
-
+                self[kljuc] = vrednost
 
     def __setitem__(self, kljuc, vrednost):
         mesto = self._poisci_za_pisanje(kljuc)
