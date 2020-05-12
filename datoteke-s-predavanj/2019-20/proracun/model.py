@@ -20,6 +20,11 @@ class Proracun:
     def __str__(self):
         return f'Računi: {self.racuni}'
 
+    def v_slovar(self):
+        return {
+            'racuni': [racun.v_slovar() for racun in self.racuni],
+            'kuverte': [kuverta.v_slovar() for kuverta in self.kuverte],
+        }
 
 class Racun:
     def __init__(self, ime, proracun):
@@ -37,6 +42,12 @@ class Racun:
     def stanje(self):
         return sum([preliv.znesek for preliv in self.prelivi])
 
+    def v_slovar(self):
+        return {
+            'ime': self.ime,
+            'prelivi': [preliv.v_slovar() for preliv in self.prelivi],
+        }
+
 
 class Kuverta:
     def __init__(self, ime, proracun):
@@ -51,6 +62,11 @@ class Kuverta:
     def stanje(self):
         return sum([preliv.znesek for preliv in self.prelivi])
 
+    def v_slovar(self):
+        return {
+            'ime': self.ime,
+            'prelivi': [preliv.v_slovar() for preliv in self.prelivi],
+        }
 
 class Preliv:
     def __init__(self, znesek, datum, opis, racun, kuverta):
@@ -61,3 +77,12 @@ class Preliv:
         self.racun.prelivi.append(self)
         self.kuverta = kuverta
         self.kuverta.prelivi.append(self)
+
+    def v_slovar(self):
+        return {
+            'znesek': self.znesek,
+            'datum': str(self.datum),
+            'opis': self.opis,
+            'racun': self.racun.ime,
+            'kuverta': self.kuverta.ime,
+        }

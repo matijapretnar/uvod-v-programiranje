@@ -1,3 +1,4 @@
+import json
 from datetime import date
 from model import Proracun
 
@@ -16,4 +17,6 @@ proracun.dodaj_preliv(-100, date(2020, 4, 30), 'najemnina', tekoci_racun, vreca)
 proracun.dodaj_preliv(-10, date(2020, 4, 30), 'telefon', tekoci_racun, vreca)
 proracun.dodaj_preliv(-40, date(2020, 5, 4), 'hrana', gotovina, vreca)
 
-print(proracun)
+stanje = proracun.v_slovar()
+with open('stanje.json', 'w') as datoteka:
+    json.dump(stanje, datoteka, ensure_ascii=False, indent=4)
