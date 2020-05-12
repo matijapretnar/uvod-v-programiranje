@@ -60,15 +60,21 @@ def izberi(seznam):
 
 def glavni_meni():
     while True:
-        moznosti = [
-            ('dodal preliv', dodaj_preliv),
-            ('dodal račun', dodaj_racun),
-            ('dodal kuverto', dodaj_kuverto),
-            ('pogledal stanje', poglej_stanje),
-        ]
-        print('Kaj bi rad naredil?')
-        izbira = izberi(moznosti)
-        izbira()
+        try:
+            moznosti = [
+                ('dodal preliv', dodaj_preliv),
+                ('dodal račun', dodaj_racun),
+                ('dodal kuverto', dodaj_kuverto),
+                ('pogledal stanje', poglej_stanje),
+            ]
+            print('Kaj bi rad naredil?')
+            izbira = izberi(moznosti)
+            izbira()
+        except ValueError as e:
+            napaka(e.args[0])
+        except KeyboardInterrupt:
+            print('Nasvidenje!')
+            return
 
 
 def dodaj_preliv():
