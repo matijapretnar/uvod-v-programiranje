@@ -2,20 +2,34 @@ class Proracun:
     def __init__(self):
         self.racuni = []
         self.kuverte = []
+        self.prelivi = []
 
-    def dodaj_racun(self, ime):
-        return Racun(ime, self)
+    def nov_racun(self, ime):
+        for racun in self.racuni:
+            if racun.ime == ime:
+                raise ValueError('Račun s tem imenom že obstaja!')
+        nov = Racun(ime, self)
+        self.racuni.append(nov)
+        return nov
 
-    def dodaj_kuverto(self, ime):
-        return Kuverta(ime, self)
+    def nov_kuverto(self, ime):
+        for kuverta in self.kuverte:
+            if kuverta.ime == ime:
+                raise ValueError('Račun s tem imenom že obstaja!')
+        nova = Kuverta(ime, self)
+        self.kuverte.append(nova)
+        return nova
     
-    def dodaj_preliv(self, znesek, datum, opis, racun, kuverta):
+    def nov_preliv(self, znesek, datum, opis, racun, kuverta):
         if racun.proracun != self:
-            print('Tole pa ni dobro!')
+            raise ValueError(f'Račun {racun} ne spada v ta proračun!')
         elif kuverta.proracun != self:
-            print('Tole pa ni dobro!')
+            raise ValueError(f'Kuverta {kuverta} ne spada v ta proračun!')
         else:
-            return Preliv(znesek, datum, opis, racun, kuverta)
+            nov = Preliv(znesek, datum, opis, racun, kuverta)
+            self.prelivi.append(nov)
+            return nov
+
 
     def __str__(self):
         return f'Računi: {self.racuni}'
@@ -24,14 +38,13 @@ class Proracun:
         return {
             'racuni': [racun.v_slovar() for racun in self.racuni],
             'kuverte': [kuverta.v_slovar() for kuverta in self.kuverte],
+            'prelivi': [preliv.v_slovar() for preliv in self.prelivi],
         }
 
 class Racun:
     def __init__(self, ime, proracun):
         self.ime = ime
         self.proracun = proracun
-        self.proracun.racuni.append(self)
-        self.prelivi = []
     
     def __repr__(self):
         return f'<Racun: {self}>'
@@ -45,7 +58,6 @@ class Racun:
     def v_slovar(self):
         return {
             'ime': self.ime,
-            'prelivi': [preliv.v_slovar() for preliv in self.prelivi],
         }
 
 
@@ -53,8 +65,6 @@ class Kuverta:
     def __init__(self, ime, proracun):
         self.ime = ime
         self.proracun = proracun
-        self.proracun.kuverte.append(self)
-        self.prelivi = []
     
     def __str__(self):
         return f'{self.ime}: {self.stanje()}€'
@@ -65,7 +75,6 @@ class Kuverta:
     def v_slovar(self):
         return {
             'ime': self.ime,
-            'prelivi': [preliv.v_slovar() for preliv in self.prelivi],
         }
 
 class Preliv:
@@ -74,9 +83,7 @@ class Preliv:
         self.datum = datum
         self.opis = opis
         self.racun = racun
-        self.racun.prelivi.append(self)
         self.kuverta = kuverta
-        self.kuverta.prelivi.append(self)
 
     def v_slovar(self):
         return {
