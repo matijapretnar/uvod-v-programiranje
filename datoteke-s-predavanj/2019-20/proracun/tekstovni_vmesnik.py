@@ -20,6 +20,13 @@ proracun.dodaj_preliv(-40, date(2020, 5, 4), 'hrana', gotovina, vreca)
 
 # Pomožne funkcije za vnos
 
+def napaka(niz):
+    print('\033[1;91m' + niz + '\033[0m')
+
+
+def uspeh(niz):
+    print('\033[1;94m' + niz + '\033[0m')
+
 
 def vnesi_stevilo(pozdrav):
     while True:
@@ -27,46 +34,41 @@ def vnesi_stevilo(pozdrav):
         if stevilo.isdigit():
             return int(stevilo)
         else:
-            print(f'Prosim, da vneseš število!')
+            napaka(f'Prosim, da vneseš število!')
 
 
 def izberi(seznam):
-    for indeks, element in enumerate(seznam, 1):
-        print(f'{indeks}) {element}')
+    '''
+    >>> izberi([('deset', 10), ('trideset', 30)])
+    1) deset
+    2) trideset
+    > 2
+    30
+    '''
+    for indeks, (oznaka, _) in enumerate(seznam, 1):
+        print(f'{indeks}) {oznaka}')
     while True:
         izbira = vnesi_stevilo('> ')
         if 1 <= izbira <= len(seznam):
-            return seznam[izbira - 1]
+            _, element = seznam[izbira - 1]
+            return element
         else:
-            print(f'Izberi število med 1 in {len(seznam)}')
+            napaka(f'Izberi število med 1 in {len(seznam)}')
 
 # Sestavni deli uporabniškega vmesnika
 
 
 def glavni_meni():
     while True:
-        print('''
-        Kaj bi rad naredil?
-        1) dodal preliv
-        2) dodal račun
-        3) dodal kuverto
-        4) pogledal stanje
-        5) šel iz programa
-        ''')
-        izbira = input('> ')
-        if izbira == '1':
-            dodaj_preliv()
-        elif izbira == '2':
-            dodaj_racun()
-        elif izbira == '3':
-            dodaj_kuverto()
-        elif izbira == '4':
-            poglej_stanje()
-        elif izbira == '5':
-            print('Nasvidenje!')
-            break
-        else:
-            print('Neveljavna izbira')
+        moznosti = [
+            ('dodal preliv', dodaj_preliv),
+            ('dodal račun', dodaj_racun),
+            ('dodal kuverto', dodaj_kuverto),
+            ('pogledal stanje', poglej_stanje),
+        ]
+        print('Kaj bi rad naredil?')
+        izbira = izberi(moznosti)
+        izbira()
 
 
 def dodaj_preliv():
@@ -74,23 +76,23 @@ def dodaj_preliv():
     datum = date.today()
     opis = input('Opis> ')
     print('Račun:')
-    racun = izberi(proracun.racuni)
+    racun = izberi([(racun.ime, racun) for racun in proracun.racuni])
     print('Kuverta:')
-    kuverta = izberi(proracun.kuverte)
+    kuverta = izberi([(kuverta.ime, kuverta) for kuverta in proracun.kuverte])
     proracun.dodaj_preliv(znesek, datum, opis, racun, kuverta)
-    print('Preliv uspešno dodan!')
+    uspeh('Preliv uspešno dodan!')
 
 
 def dodaj_racun():
     ime_racuna = input('Vnesi ime računa> ')
     proracun.dodaj_racun(ime_racuna)
-    print('Račun uspešno dodan!')
+    uspeh('Račun uspešno dodan!')
 
 
 def dodaj_kuverto():
     ime_kuverte = input('Vnesi ime kuverte> ')
     proracun.dodaj_racun(ime_kuverte)
-    print('Kuverta uspešno dodana!')
+    uspeh('Kuverta uspešno dodana!')
 
 
 def poglej_stanje():
