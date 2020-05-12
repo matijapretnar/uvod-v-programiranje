@@ -3,6 +3,8 @@ from model import Proracun
 
 proracun = Proracun()
 
+# Polnjenje začetnega proračuna s testnimi podatki (bo šlo ven)
+
 gotovina = proracun.dodaj_racun('gotovina')
 tekoci_racun = proracun.dodaj_racun('tekoči račun')
 vreca = proracun.dodaj_kuverto('💰')
@@ -15,6 +17,9 @@ proracun.dodaj_preliv(-150, date(2020, 4, 20), 'hlače', tekoci_racun, vreca)
 proracun.dodaj_preliv(-100, date(2020, 4, 30), 'najemnina', tekoci_racun, vreca)
 proracun.dodaj_preliv(-10, date(2020, 4, 30), 'telefon', tekoci_racun, vreca)
 proracun.dodaj_preliv(-40, date(2020, 5, 4), 'hrana', gotovina, vreca)
+
+# Pomožne funkcije za vnos
+
 
 def vnesi_stevilo(pozdrav):
     while True:
@@ -34,6 +39,8 @@ def izberi(seznam):
             return seznam[izbira - 1]
         else:
             print(f'Izberi število med 1 in {len(seznam)}')
+
+# Sestavni deli uporabniškega vmesnika
 
 
 def glavni_meni():
@@ -61,6 +68,7 @@ def glavni_meni():
         else:
             print('Neveljavna izbira')
 
+
 def dodaj_preliv():
     znesek = vnesi_stevilo('Znesek> ')
     datum = date.today()
@@ -72,15 +80,18 @@ def dodaj_preliv():
     proracun.dodaj_preliv(znesek, datum, opis, racun, kuverta)
     print('Preliv uspešno dodan!')
 
+
 def dodaj_racun():
     ime_racuna = input('Vnesi ime računa> ')
     proracun.dodaj_racun(ime_racuna)
     print('Račun uspešno dodan!')
 
+
 def dodaj_kuverto():
     ime_kuverte = input('Vnesi ime kuverte> ')
     proracun.dodaj_racun(ime_kuverte)
     print('Kuverta uspešno dodana!')
+
 
 def poglej_stanje():
     for racun in proracun.racuni:
