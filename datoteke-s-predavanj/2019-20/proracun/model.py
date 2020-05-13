@@ -12,7 +12,7 @@ class Proracun:
         self.racuni.append(nov)
         return nov
 
-    def nov_kuverto(self, ime):
+    def nova_kuverta(self, ime):
         for kuverta in self.kuverte:
             if kuverta.ime == ime:
                 raise ValueError('Račun s tem imenom že obstaja!')
@@ -53,12 +53,17 @@ class Racun:
         return f'{self.ime}: {self.stanje()}€'
 
     def stanje(self):
-        return sum([preliv.znesek for preliv in self.prelivi])
+        return sum([preliv.znesek for preliv in self.prelivi()])
 
     def v_slovar(self):
         return {
             'ime': self.ime,
         }
+    
+    def prelivi(self):
+        for preliv in self.proracun.prelivi:
+            if preliv.racun == self:
+                yield preliv
 
 
 class Kuverta:
@@ -70,12 +75,17 @@ class Kuverta:
         return f'{self.ime}: {self.stanje()}€'
 
     def stanje(self):
-        return sum([preliv.znesek for preliv in self.prelivi])
+        return sum([preliv.znesek for preliv in self.prelivi()])
 
     def v_slovar(self):
         return {
             'ime': self.ime,
         }
+
+    def prelivi(self):
+        for preliv in self.proracun.prelivi:
+            if preliv.kuverta == self:
+                yield preliv
 
 class Preliv:
     def __init__(self, znesek, datum, opis, racun, kuverta):

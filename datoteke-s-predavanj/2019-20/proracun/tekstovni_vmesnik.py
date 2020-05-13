@@ -7,7 +7,7 @@ proracun = Proracun()
 
 gotovina = proracun.nov_racun('gotovina')
 tekoci_racun = proracun.nov_racun('tekoči račun')
-vreca = proracun.nov_kuverto('💰')
+vreca = proracun.nova_kuverta('💰')
 
 proracun.nov_preliv(230, date(2020, 4, 1), 'štipendija', tekoci_racun, vreca)
 proracun.nov_preliv(-30, date(2020, 4, 3), 'prevoz', tekoci_racun, vreca)
@@ -29,22 +29,27 @@ def uspeh(niz):
 
 
 def vnesi_stevilo(pozdrav):
+    """S standardnega vhoda prebere naravno število."""
     while True:
-        stevilo = input(pozdrav)
-        if stevilo.isdigit():
+        try:
+            stevilo = input(pozdrav)
             return int(stevilo)
-        else:
-            napaka(f'Prosim, da vneseš število!')
+        except ValueError:
+            napaka(f'Prosim, da vnesete število!')
 
 
 def izberi(seznam):
-    '''
+    """
+    Uporabniku omogoči interaktivno izbiro elementa iz seznama.
+    
+    Funkcija sprejme seznam parov (oznaka, element), prikaže seznam
+    oznak ter vrne element, ki ustreza vpisani oznaki.
     >>> izberi([('deset', 10), ('trideset', 30)])
     1) deset
     2) trideset
     > 2
     30
-    '''
+    """
     for indeks, (oznaka, _) in enumerate(seznam, 1):
         print(f'{indeks}) {oznaka}')
     while True:
@@ -57,22 +62,38 @@ def izberi(seznam):
 
 # Sestavni deli uporabniškega vmesnika
 
+LOGO = '''
+______                     ___                                 _ _       
+| ___ \                    \_/                                | (_)      
+| |_/ / __ ___  _ __ __ _  ___ _   _ _ __   _____   _____   __| |_  __ _ 
+|  __/ '__/ _ \| '__/ _` |/ __| | | | '_ \ / _ \ \ / / _ \ / _` | |/ _` |
+| |  | | | (_) | | | (_| | (__| |_| | | | | (_) \ V / (_) | (_| | | (_| |
+\_|  |_|  \___/|_|  \__,_|\___|\__,_|_| |_|\___/ \_/ \___/ \__,_| |\__,_|
+                                                               _/ |      
+                                                              |__/
+'''
+
 
 def glavni_meni():
+    print(LOGO)
+    print('Pozdravljeni v programu računovodja!')
+    print('Za izhod pritisnite Ctrl-C.')
     while True:
         try:
+            print()
+            print('Kaj bi radi naredili?')
             moznosti = [
-                ('dodal preliv', dodaj_preliv),
-                ('dodal račun', dodaj_racun),
-                ('dodal kuverto', dodaj_kuverto),
+                ('vnesel priliv/odliv', dodaj_preliv),
+                ('dodal nov račun', dodaj_racun),
+                ('dodal novo kuverto', dodaj_kuverto),
                 ('pogledal stanje', poglej_stanje),
             ]
-            print('Kaj bi rad naredil?')
             izbira = izberi(moznosti)
             izbira()
         except ValueError as e:
             napaka(e.args[0])
         except KeyboardInterrupt:
+            print()
             print('Nasvidenje!')
             return
 
@@ -102,8 +123,12 @@ def dodaj_kuverto():
 
 
 def poglej_stanje():
+    print('RAČUNI:')
     for racun in proracun.racuni:
         print(racun)
+    print('KUVERTE:')
+    for kuverta in proracun.kuverte:
+        print(kuverta)
 
 
 glavni_meni()
