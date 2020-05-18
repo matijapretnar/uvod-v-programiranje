@@ -20,13 +20,31 @@ proracun.nov_preliv(-40, date(2020, 5, 4), 'hrana', gotovina, vreca)
 
 # Pomožne funkcije za vnos
 
-def napaka(niz):
-    print('\033[1;91m' + niz + '\033[0m')
+def krepko(niz):
+    return f'\033[1m{niz}\033[0m'
 
+def dobro(niz):
+    return f'\033[1;94m{niz}\033[0m'
 
-def uspeh(niz):
-    print('\033[1;94m' + niz + '\033[0m')
+def slabo(niz):
+    return f'\033[1;91m{niz}\033[0m'
 
+def prikaz_zneska(ime, stanje):
+    if stanje > 0:
+        return f'{ime}: {dobro(stanje)} €'
+    elif stanje < 0:
+        return f'{ime}: {slabo(stanje)} €'
+    else:
+        return f'{ime}: 0 €'
+
+def prikaz_racuna(racun):
+    return prikaz_zneska(racun.ime, racun.stanje())
+
+def prikaz_kuverte(kuverta):
+    if kuverta is None:
+        return prikaz_zneska('nerazporejeno', proracun.nerazporejena_sredstva())
+    else:
+        return prikaz_zneska(kuverta.ime, kuverta.stanje())
 
 def vnesi_stevilo(pozdrav):
     """S standardnega vhoda prebere naravno število."""
@@ -35,7 +53,7 @@ def vnesi_stevilo(pozdrav):
             stevilo = input(pozdrav)
             return int(stevilo)
         except ValueError:
-            napaka(f'Prosim, da vnesete število!')
+            print(slabo(f'Prosim, da vnesete število!'))
 
 
 def izberi(seznam):
@@ -58,7 +76,16 @@ def izberi(seznam):
             _, element = seznam[izbira - 1]
             return element
         else:
-            napaka(f'Izberi število med 1 in {len(seznam)}')
+            print(slabo(f'Izberi število med 1 in {len(seznam)}'))
+
+
+def izberi_kuverto(kuverte):
+    return izberi([(prikaz_kuverte(kuverta), kuverta) for kuverta in kuverte])
+
+def izberi_racun(racuni):
+    return izberi([(prikaz_racuna(racun), racun) for racun in proracun.racuni])
+
+
 
 # Sestavni deli uporabniškega vmesnika
 
@@ -75,27 +102,45 @@ ______                     ___                                 _ _
 
 
 def glavni_meni():
-    print(LOGO)
-    print('Pozdravljeni v programu računovodja!')
+    print(krepko(LOGO))
+    print(krepko('Pozdravljeni v programu računovodja!'))
     print('Za izhod pritisnite Ctrl-C.')
     while True:
         try:
+            print(80 * '=')
+            povzetek_stanja()
             print()
-            print('Kaj bi radi naredili?')
+            print(krepko('Kaj bi radi naredili?'))
             moznosti = [
                 ('vnesel priliv/odliv', dodaj_preliv),
+                ('prenesel denar med kuvertama', prenesi_denar),
                 ('dodal nov račun', dodaj_racun),
                 ('dodal novo kuverto', dodaj_kuverto),
                 ('pogledal stanje', poglej_stanje),
             ]
             izbira = izberi(moznosti)
+            print(80 * '-')
             izbira()
+            print()
+            input('Pritisnite Enter za vrnitev v osnovni meni...')
         except ValueError as e:
-            napaka(e.args[0])
+            print(slabo(e.args[0]))
         except KeyboardInterrupt:
             print()
             print('Nasvidenje!')
             return
+
+
+def povzetek_stanja():
+    for kuverta in proracun.kuverte:
+        stanje_kuverte = kuverta.stanje()
+        if stanje_kuverte < 0:
+            print(slabo(f'V kuverti {kuverta.ime} je {-stanje_kuverte} € premalo!'))
+    nerazporejena_sredstva = proracun.nerazporejena_sredstva()
+    if nerazporejena_sredstva > 0:
+        print(dobro(f'Razporedite lahko še {nerazporejena_sredstva} €'))
+    elif nerazporejena_sredstva < 0:
+        print(slabo(f'Razporedili ste {-nerazporejena_sredstva} € preveč!'))
 
 
 def dodaj_preliv():
@@ -103,34 +148,46 @@ def dodaj_preliv():
     datum = date.today()
     opis = input('Opis> ')
     print('Račun:')
-    racun = izberi([(racun.ime, racun) for racun in proracun.racuni])
+    racun = izberi_racun(proracun.racuni)
     print('Kuverta:')
-    kuverta = izberi([(kuverta.ime, kuverta) for kuverta in proracun.kuverte])
+    kuverta = izberi_kuverto([None] + proracun.kuverte)
     proracun.nov_preliv(znesek, datum, opis, racun, kuverta)
-    uspeh('Preliv uspešno dodan!')
+    print(dobro('Preliv uspešno dodan!'))
+
+
+def prenesi_denar():
+    print('Od kod bi prenesli denar?')
+    kuverte_s_prazno = [None] + proracun.kuverte
+    kuverta1 = izberi_kuverto(kuverte_s_prazno)
+    print('Kam bi prenesli denar?')
+    kuverta2 = izberi_kuverto([kuverta for kuverta in kuverte_s_prazno if kuverta != kuverta1])
+    znesek = vnesi_stevilo('Znesek> ')
+    proracun.premakni_denar(kuverta1, kuverta2, znesek)
+    print('Novo stanje:')
+    print(f'- {prikaz_kuverte(kuverta1)}')
+    print(f'- {prikaz_kuverte(kuverta2)}')
 
 
 def dodaj_racun():
     ime_racuna = input('Vnesi ime računa> ')
     proracun.nov_racun(ime_racuna)
-    uspeh('Račun uspešno dodan!')
+    print(dobro('Račun uspešno dodan!'))
 
 
 def dodaj_kuverto():
     ime_kuverte = input('Vnesi ime kuverte> ')
     proracun.nova_kuverta(ime_kuverte)
-    uspeh('Kuverta uspešno dodana!')
+    print(dobro('Kuverta uspešno dodana!'))
 
 
 def poglej_stanje():
-    print('RAČUNI:')
+    print(krepko('RAČUNI:'))
     for racun in proracun.racuni:
-        print(racun)
-    print('KUVERTE:')
+        print(f'- {prikaz_racuna(racun)}')
+    print(krepko('KUVERTE:'))
     for kuverta in proracun.kuverte:
-        print(kuverta)
-    print('NERAZPOREJENO:')
-    print(proracun.nerazporejena_sredstva())
+        print(f'- {prikaz_kuverte(kuverta)}')
+    print(f'- {prikaz_kuverte(None)}')
 
 
 glavni_meni()
