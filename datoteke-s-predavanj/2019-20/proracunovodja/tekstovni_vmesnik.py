@@ -1,22 +1,22 @@
 from datetime import date
 from model import Proracun
 
-proracun = Proracun()
+LOGO = '''
+______                     ___                                 _ _       
+| ___ \                    \_/                                | (_)      
+| |_/ / __ ___  _ __ __ _  ___ _   _ _ __   _____   _____   __| |_  __ _ 
+|  __/ '__/ _ \| '__/ _` |/ __| | | | '_ \ / _ \ \ / / _ \ / _` | |/ _` |
+| |  | | | (_) | | | (_| | (__| |_| | | | | (_) \ V / (_) | (_| | | (_| |
+\_|  |_|  \___/|_|  \__,_|\___|\__,_|_| |_|\___/ \_/ \___/ \__,_| |\__,_|
+                                                               _/ |      
+                                                              |__/
+'''
+DATOTEKA_S_STANJEM = 'stanje.json'
 
-# Polnjenje začetnega proračuna s testnimi podatki (bo šlo ven)
-
-gotovina = proracun.nov_racun('gotovina')
-tekoci_racun = proracun.nov_racun('tekoči račun')
-vreca = proracun.nova_kuverta('💰')
-
-proracun.nov_preliv(230, date(2020, 4, 1), 'štipendija', tekoci_racun, None)
-proracun.nov_preliv(-30, date(2020, 4, 3), 'prevoz', tekoci_racun, vreca)
-proracun.nov_preliv(-40, date(2020, 4, 5), 'hlače', gotovina, vreca)
-proracun.nov_preliv(150, date(2020, 4, 20), 'krizni dodatek', tekoci_racun, None)
-proracun.nov_preliv(-150, date(2020, 4, 20), 'hlače', tekoci_racun, vreca)
-proracun.nov_preliv(-100, date(2020, 4, 30), 'najemnina', tekoci_racun, vreca)
-proracun.nov_preliv(-10, date(2020, 4, 30), 'telefon', tekoci_racun, vreca)
-proracun.nov_preliv(-40, date(2020, 5, 4), 'hrana', gotovina, vreca)
+try:
+    proracun = Proracun.nalozi_stanje(DATOTEKA_S_STANJEM)
+except:
+    proracun = Proracun()
 
 # Pomožne funkcije za vnos
 
@@ -89,17 +89,6 @@ def izberi_racun(racuni):
 
 # Sestavni deli uporabniškega vmesnika
 
-LOGO = '''
-______                     ___                                 _ _       
-| ___ \                    \_/                                | (_)      
-| |_/ / __ ___  _ __ __ _  ___ _   _ _ __   _____   _____   __| |_  __ _ 
-|  __/ '__/ _ \| '__/ _` |/ __| | | | '_ \ / _ \ \ / / _ \ / _` | |/ _` |
-| |  | | | (_) | | | (_| | (__| |_| | | | | (_) \ V / (_) | (_| | | (_| |
-\_|  |_|  \___/|_|  \__,_|\___|\__,_|_| |_|\___/ \_/ \___/ \__,_| |\__,_|
-                                                               _/ |      
-                                                              |__/
-'''
-
 
 def glavni_meni():
     print(krepko(LOGO))
@@ -123,7 +112,8 @@ def glavni_meni():
             print(80 * '-')
             izbira()
             print()
-            input('Pritisnite Enter za vrnitev v osnovni meni...')
+            input('Pritisnite Enter za shranjevanje in vrnitev v osnovni meni...')
+            proracun.shrani_stanje(DATOTEKA_S_STANJEM)
         except ValueError as e:
             print(slabo(e.args[0]))
         except KeyboardInterrupt:
@@ -146,7 +136,7 @@ def povzetek_stanja():
 
 def dodaj_preliv():
     znesek = vnesi_stevilo('Znesek> ')
-    datum = date.today()
+    datum = date.today().strftime('%Y-%m-%d')
     opis = input('Opis> ')
     print('Račun:')
     racun = izberi_racun(proracun.racuni)

@@ -1,3 +1,5 @@
+import json
+
 class Proracun:
     def __init__(self):
         self.racuni = []
@@ -12,11 +14,11 @@ class Proracun:
         self.racuni.append(nov)
         return nov
 
-    def nova_kuverta(self, ime):
+    def nova_kuverta(self, ime, razporeditev=0):
         for kuverta in self.kuverte:
             if kuverta.ime == ime:
-                raise ValueError('Račun s tem imenom že obstaja!')
-        nova = Kuverta(ime, 0, self)
+                raise ValueError('Kuverta s tem imenom že obstaja!')
+        nova = Kuverta(ime, razporeditev, self)
         self.kuverte.append(nova)
         return nova
     
@@ -57,19 +59,46 @@ class Proracun:
     def _slovar_s_stanjem(self):
         return {
             'racuni': [{
-                'ime': self.ime,
+                'ime': racun.ime,
             } for racun in self.racuni],
             'kuverte': [{
-                'ime': self.ime,
+                'ime': kuverta.ime,
+                'razporeditev': kuverta.razporeditev,
             } for kuverta in self.kuverte],
             'prelivi': [{
-                'znesek': self.znesek,
-                'datum': str(self.datum),
-                'opis': self.opis,
-                'racun': self.racun.ime,
-                'kuverta': None if self.kuverta is None else self.kuverta.ime,
+                'znesek': preliv.znesek,
+                'datum': str(preliv.datum),
+                'opis': preliv.opis,
+                'racun': preliv.racun.ime,
+                'kuverta': None if preliv.kuverta is None else preliv.kuverta.ime,
             } for preliv in self.prelivi],
         }
+    
+    def shrani_stanje(self, ime_datoteke):
+        with open(ime_datoteke, 'w') as datoteka:
+            json.dump(self._slovar_s_stanjem(), datoteka, ensure_ascii=False, indent=4)
+    
+    @staticmethod
+    def nalozi_stanje(ime_datoteke):
+        with open(ime_datoteke) as datoteka:
+            slovar_s_stanjem = json.load(datoteka)
+        racuni_po_imenu = {}
+        kuverte_po_imenu = {None: None}
+        for racun in slovar_s_stanjem['racuni']:
+            nov_racun = proracun.nov_racun(racun['ime'])
+            racuni_po_imenu[racun['ime']] = nov_racun
+        for kuverta in slovar_s_stanjem['kuverte']:
+            nova_kuverta = proracun.nova_kuverta(kuverta['ime'], kuverta['razporeditev'])
+            kuverte_po_imenu[kuverta['ime']] = nova_kuverta
+        for preliv in slovar_s_stanjem['prelivi']:
+            proracun.nov_preliv(
+                preliv['znesek'],
+                preliv['datum'],
+                preliv['opis'],
+                racuni_po_imenu[preliv['racun']],
+                kuverte_po_imenu[preliv['kuverta']],
+            )
+        return proracun
 
 
 class Racun:
