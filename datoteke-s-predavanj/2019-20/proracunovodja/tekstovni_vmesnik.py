@@ -116,6 +116,7 @@ def glavni_meni():
                 ('prenesel denar med kuvertama', prenesi_denar),
                 ('dodal nov račun', dodaj_racun),
                 ('dodal novo kuverto', dodaj_kuverto),
+                ('odstranil kuverto', odstrani_kuverto),
                 ('pogledal stanje', poglej_stanje),
             ]
             izbira = izberi(moznosti)
@@ -178,6 +179,15 @@ def dodaj_kuverto():
     ime_kuverte = input('Vnesi ime kuverte> ')
     proracun.nova_kuverta(ime_kuverte)
     print(dobro('Kuverta uspešno dodana!'))
+
+def odstrani_kuverto():
+    print('Izberite kuverto, ki bi jo radi izbrisali.')
+    kuverta = izberi_kuverto(proracun.kuverte)
+    if input(f'Ste prepričani, da želite odstraniti kuverto {kuverta.ime}? [da/NE]') == 'da':
+        proracun.odstrani_kuverto(kuverta)
+        print(dobro('Kuverta uspešno odstranjena!'))
+    else:
+        print('Odstranitev kuverte preklicana.')
 
 
 def poglej_stanje():

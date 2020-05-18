@@ -20,6 +20,12 @@ class Proracun:
         self.kuverte.append(nova)
         return nova
     
+    def odstrani_kuverto(self, kuverta):
+        self._preveri_kuverto(kuverta)
+        for preliv in kuverta.prelivi():
+            preliv.kuverta = None
+        self.kuverte.remove(kuverta)
+    
     def nov_preliv(self, znesek, datum, opis, racun, kuverta):
         self._preveri_kuverto(kuverta)
         self._preveri_racun(racun)
