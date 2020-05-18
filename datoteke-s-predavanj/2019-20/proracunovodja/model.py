@@ -82,6 +82,7 @@ class Proracun:
     def nalozi_stanje(ime_datoteke):
         with open(ime_datoteke) as datoteka:
             slovar_s_stanjem = json.load(datoteka)
+        proracun = Proracun()
         racuni_po_imenu = {}
         kuverte_po_imenu = {None: None}
         for racun in slovar_s_stanjem['racuni']:

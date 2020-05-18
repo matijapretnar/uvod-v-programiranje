@@ -83,7 +83,7 @@ def izberi_kuverto(kuverte):
     return izberi([(prikaz_kuverte(kuverta), kuverta) for kuverta in kuverte])
 
 def izberi_racun(racuni):
-    return izberi([(prikaz_racuna(racun), racun) for racun in proracun.racuni])
+    return izberi([(prikaz_racuna(racun), racun) for racun in racuni])
 
 
 
