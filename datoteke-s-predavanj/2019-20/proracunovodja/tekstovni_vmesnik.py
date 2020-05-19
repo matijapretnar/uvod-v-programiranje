@@ -15,7 +15,7 @@ DATOTEKA_S_STANJEM = 'stanje.json'
 
 try:
     proracun = Proracun.nalozi_stanje(DATOTEKA_S_STANJEM)
-except:
+except FileNotFoundError:
     proracun = Proracun()
 
 # Pomožne funkcije za vnos
