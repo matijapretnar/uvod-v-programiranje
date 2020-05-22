@@ -1,0 +1,15 @@
+<label for="{{id}}">{{oznaka}}: </label>
+
+<select name="{{id}}" id="{{id}}">
+    % if get('nerazporejeno', True):
+    <option value="">nerazporejeno</option>
+    % else:
+    <option disabled selected> -- izberi kuverto -- </option>
+    % end
+    % for kuverta in proracun.kuverte:
+    <option value="{{kuverta.ime}}">
+        {{kuverta.ime}}
+        ({{kuverta.stanje()}})
+    </option>
+    % end
+</select>

@@ -44,6 +44,12 @@ class Proracun:
         self._prelivi_po_racunih[racun].append(nov)
         self._prelivi_po_kuvertah[kuverta].append(nov)
         return nov
+    
+    def poisci_kuverto(self, ime):
+        return self._kuverte_po_imenih[ime]
+    
+    def poisci_racun(self, ime):
+        return self._racuni_po_imenih[ime]
 
     def prelivi_racuna(self, racun):
         yield from self._prelivi_po_racunih[racun]

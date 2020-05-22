@@ -19,16 +19,44 @@ ______                     ___                                 _ _
 </ul>
 
 <h1>Stanje kuvert</h1>
+<strong>
+    Nerazporejeno stanje: {{proracun.nerazporejena_sredstva()}}
+</strong>
 <ul>
     % for kuverta in proracun.kuverte:
     <li>{{kuverta.ime}}: {{kuverta.stanje()}}</li>
     % end
 </ul>
-<strong>
-    Nerazporejeno stanje: {{proracun.nerazporejena_sredstva()}}
-</strong>
 
-<form action="/dodaj/" method="POST">
-    Ime računa: <input type="text" name="ime">
+<form action="/dodaj-preliv/" method="POST">
+    % include('_izberi_znesek.html', id='znesek', oznaka='Znesek')
+    % include('_izberi_kuverto.html', id='kuverta', oznaka='Kuverta')
+    % include('_izberi_racun.html', id='racun', oznaka='Račun')
+    <label for="opis">Opis: </label>
+    <input type="text" id="opis" name="opis">
+    <input type="submit" value="Premakni denar!">
+</form>
+
+<form action="/premakni-denar/" method="POST">
+    % include('_izberi_kuverto.html', id='kuverta1', oznaka='Premakni iz')
+    % include('_izberi_kuverto.html', id='kuverta2', oznaka='Premakni v')
+    % include('_izberi_znesek.html', id='znesek', oznaka='Znesek')
+    <input type="submit" value="Premakni denar!">
+</form>
+
+<form action="/dodaj-racun/" method="POST">
+    <label for="ime">Ime računa: </label>
+    <input type="text" id="ime" name="ime">
     <input type="submit" value="Dodaj račun!">
+</form>
+
+<form action="/dodaj-kuverto/" method="POST">
+    <label for="ime">Ime kuverte: </label>
+    <input type="text" id="ime" name="ime">
+    <input type="submit" value="Dodaj kuverto!">
+</form>
+
+<form action="/odstrani-kuverto/" method="POST">
+    % include('_izberi_kuverto.html', id='kuverta', oznaka='Kuverta', nerazporejeno=False)
+    <input type="submit" value="Odstrani kuverto!">
 </form>

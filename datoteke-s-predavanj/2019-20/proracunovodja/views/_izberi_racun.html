@@ -1,0 +1,9 @@
+<label for="{{id}}">{{oznaka}}: </label>
+
+<select name="{{id}}" id="{{id}}">
+    % for racun in proracun.racuni:
+    <option value="{{racun.ime}}">
+        {{racun.ime}}
+    </option>
+    % end
+</select>
