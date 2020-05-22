@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>ime</th>
+      <th>stanje</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    % for kuverta in proracun.kuverte:
+    <tr>
+      <td>{{kuverta.ime}}</td>
+      <td>{{kuverta.stanje()}}</td>
+      <td>
+        <form action="/odstrani-kuverto/" method="POST" style="display: inline">
+          <input type="hidden" name="kuverta" value="{{kuverta.ime}}">
+          <input type="submit" value="odstrani">
+        </form>    
+      </td>
+    </tr>
+    % end
+    <form action="/dodaj-kuverto/" method="POST">
+      <tr>
+        <td><input type="text" id="ime" name="ime"></td>
+        <td><input type="submit" value="dodaj kuverto"></td>
+      </tr>
+    </form>
+  </tbody>
+</table>

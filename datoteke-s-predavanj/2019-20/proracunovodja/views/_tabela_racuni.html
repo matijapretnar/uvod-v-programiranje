@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>ime</th>
+      <th>stanje</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    % for racun in proracun.racuni:
+    <tr>
+      <td>{{racun.ime}}</td>
+      <td>{{racun.stanje()}}</td>
+      <td></td>
+    </tr>
+    % end
+    <form action="/dodaj-racun/" method="POST">
+      <tr>
+        <td><input type="text" id="ime" name="ime"></td>
+        <td><input type="submit" value="dodaj račun"></td>
+      </tr>
+    </form>
+  </tbody>
+</table>
