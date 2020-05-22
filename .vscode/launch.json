@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Proračunovodja",
+            "type": "python",
+            "request": "launch",
+            "program": "spletni_vmesnik.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/datoteke-s-predavanj/2019-20/proracunovodja"
+        }
+    ]
+}
