@@ -11,11 +11,6 @@ except:
 def zacetna_stran():
     return bottle.template('zacetna_stran.html', proracun=proracun)
 
-@bottle.get('/zivjo/<ime>/')
-def pozdravi(ime):
-    return bottle.template('pozdrav.html',
-        ime_osebe=ime
-    )
 
 @bottle.post('/dodaj/')
 def dodaj_racun():
