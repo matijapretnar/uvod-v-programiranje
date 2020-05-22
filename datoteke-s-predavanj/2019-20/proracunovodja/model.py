@@ -156,3 +156,6 @@ class Preliv:
         self.opis = opis
         self.racun = racun
         self.kuverta = kuverta
+
+    def __lt__(self, other):
+        return self.datum < other.datum

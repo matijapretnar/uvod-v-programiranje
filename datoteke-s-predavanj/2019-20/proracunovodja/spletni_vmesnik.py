@@ -8,6 +8,15 @@ try:
 except:
     proracun = Proracun()
 
+def poisci_racun(ime_polja):
+    ime_racuna = bottle.request.forms.getunicode(ime_polja)
+    return proracun.poisci_racun(ime_racuna)
+
+def poisci_kuverto(ime_polja):
+    ime_kuverte = bottle.request.forms.getunicode(ime_polja)
+    return proracun.poisci_kuverto(ime_kuverte or None)
+
+
 @bottle.get('/')
 def zacetna_stran():
     return bottle.template('zacetna_stran.html', proracun=proracun)
@@ -18,15 +27,15 @@ def dodaj_preliv():
     znesek = int(bottle.request.forms['znesek'])
     datum = date.today().strftime('%Y-%m-%d')
     opis = bottle.request.forms.getunicode('opis')
-    racun = proracun.poisci_racun(bottle.request.forms['racun'] or None)
-    kuverta = proracun.poisci_kuverto(bottle.request.forms['kuverta'] or None)
+    racun = poisci_racun('racun')
+    kuverta = poisci_kuverto('kuverta')
     proracun.nov_preliv(znesek, datum, opis, racun, kuverta)
     bottle.redirect('/')
 
 @bottle.post('/premakni-denar/')
 def premakni_denar():
-    kuverta1 = proracun.poisci_kuverto(bottle.request.forms['kuverta1'] or None)
-    kuverta2 = proracun.poisci_kuverto(bottle.request.forms['kuverta2'] or None)
+    kuverta1 = poisci_kuverto('kuverta1')
+    kuverta2 = poisci_kuverto('kuverta2')
     znesek = int(bottle.request.forms['znesek'])
     proracun.premakni_denar(kuverta1, kuverta2, znesek)
     bottle.redirect('/')
@@ -43,7 +52,7 @@ def dodaj_kuverto():
 
 @bottle.post('/odstrani-kuverto/')
 def odstrani_kuverto():
-    kuverta = proracun.poisci_kuverto(bottle.request.forms['kuverta'] or None)
+    kuverta = poisci_kuverto('kuverta')
     proracun.odstrani_kuverto(kuverta)
     bottle.redirect('/')
 

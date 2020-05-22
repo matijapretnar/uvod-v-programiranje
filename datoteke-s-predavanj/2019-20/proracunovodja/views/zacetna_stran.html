@@ -11,52 +11,96 @@ ______                     ___                                 _ _
                                                               |__/
 </pre></h1>
 
-<h1>Stanje računov</h1>
+<h1>Računi</h1>
 <ul>
     % for racun in proracun.racuni:
     <li>{{racun.ime}}: {{racun.stanje()}}</li>
     % end
+    <li>
+        <form action="/dodaj-racun/" method="POST">
+            <input type="text" id="ime" name="ime">
+            <input type="submit" value="dodaj račun">
+        </form>
+    </li>
 </ul>
 
-<h1>Stanje kuvert</h1>
+<h1>Kuverte</h1>
 <strong>
     Nerazporejeno stanje: {{proracun.nerazporejena_sredstva()}}
 </strong>
-<ul>
-    % for kuverta in proracun.kuverte:
-    <li>{{kuverta.ime}}: {{kuverta.stanje()}}</li>
-    % end
-</ul>
-
-<form action="/dodaj-preliv/" method="POST">
-    % include('_izberi_znesek.html', id='znesek', oznaka='Znesek')
-    % include('_izberi_kuverto.html', id='kuverta', oznaka='Kuverta')
-    % include('_izberi_racun.html', id='racun', oznaka='Račun')
-    <label for="opis">Opis: </label>
-    <input type="text" id="opis" name="opis">
-    <input type="submit" value="Premakni denar!">
-</form>
-
 <form action="/premakni-denar/" method="POST">
     % include('_izberi_kuverto.html', id='kuverta1', oznaka='Premakni iz')
     % include('_izberi_kuverto.html', id='kuverta2', oznaka='Premakni v')
     % include('_izberi_znesek.html', id='znesek', oznaka='Znesek')
     <input type="submit" value="Premakni denar!">
 </form>
+<ul>
+    % for kuverta in proracun.kuverte:
+    <li>
+        {{kuverta.ime}}: {{kuverta.stanje()}}
+        <form action="/odstrani-kuverto/" method="POST" style="display: inline">
+            <input type="hidden" name="kuverta" value="{{kuverta.ime}}">
+            <input type="submit" value="odstrani">
+        </form>        
+    </li>
+    % end
+    <li>
+        <form action="/dodaj-kuverto/" method="POST">
+            <input type="text" id="ime" name="ime">
+            <input type="submit" value="dodaj kuverto">
+        </form>
+    </li>
+</ul>
 
-<form action="/dodaj-racun/" method="POST">
-    <label for="ime">Ime računa: </label>
-    <input type="text" id="ime" name="ime">
-    <input type="submit" value="Dodaj račun!">
-</form>
+<h1>Prelivi</h1>
 
-<form action="/dodaj-kuverto/" method="POST">
-    <label for="ime">Ime kuverte: </label>
-    <input type="text" id="ime" name="ime">
-    <input type="submit" value="Dodaj kuverto!">
-</form>
-
-<form action="/odstrani-kuverto/" method="POST">
-    % include('_izberi_kuverto.html', id='kuverta', oznaka='Kuverta', nerazporejeno=False)
-    <input type="submit" value="Odstrani kuverto!">
-</form>
+<table>
+    <thead>
+        <tr>
+            <th>datum</th>
+            <th>račun</th>
+            <th>kuverta</th>
+            <th>znesek</th>
+            <th>opis</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <form action="/dodaj-preliv/" method="POST">
+            <tr>
+                <td></td>
+                <td>
+                    % include('_izberi_racun.html', id='racun')
+                </td>
+                <td>
+                    % include('_izberi_kuverto.html', id='kuverta')
+                </td>
+                <td>
+                    % include('_izberi_znesek.html', id='znesek')
+                </td>
+                <td>
+                    <input type="text" id="opis" name="opis">
+                </td>
+                <td>
+                    <input type="submit" value="dodaj preliv">
+                </td>
+            </tr>
+        </form>
+        % for preliv in sorted(proracun.prelivi, reverse=True):
+        <tr>
+            <td>{{preliv.datum}}</td>
+            <td>{{preliv.racun.ime}}</td>
+            <td>
+                % if preliv.kuverta is None:
+                nerazporejeno
+                % else:
+                {{preliv.kuverta.ime}}
+                % end
+            </td>
+            <td>{{preliv.znesek}}</td>
+            <td>{{preliv.opis}}</td>
+            <td></td>
+        </tr>
+        % end
+    </tbody>
+</table>
