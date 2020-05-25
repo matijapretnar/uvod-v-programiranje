@@ -1,11 +1,14 @@
-% if defined('oznaka'):
-<label for="{{id}}">{{oznaka}}: </label>
-% end
-
-<select name="{{id}}" id="{{id}}">
-    % for racun in proracun.racuni:
-    <option value="{{racun.ime}}">
+<div class="control has-icons-left">
+  <div class="select is-fullwidth is-small">
+    <select name="{{name}}">
+      % for racun in proracun.racuni:
+      <option value="{{racun.ime}}">
         {{racun.ime}}
-    </option>
-    % end
-</select>
+      </option>
+      % end
+    </select>
+  </div>
+  <span class="icon is-small is-left">
+    <i class="fas fa-piggy-bank"></i>
+  </span>
+</div>

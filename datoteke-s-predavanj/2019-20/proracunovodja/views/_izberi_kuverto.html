@@ -1,13 +1,20 @@
-% if defined('oznaka'):
-<label for="{{id}}">{{oznaka}}: </label>
-% end
-
-<select name="{{id}}" id="{{id}}">
-    <option value="">nerazporejeno</option>
-    % for kuverta in proracun.kuverte:
-    <option value="{{kuverta.ime}}">
-        {{kuverta.ime}}
-        ({{kuverta.stanje()}})
-    </option>
-    % end
-</select>
+<div class="control has-icons-left">
+  <div class="select is-fullwidth is-small">
+    <select name="{{name}}">
+      % if defined('oznaka'):
+        <option disabled selected>{{oznaka}}</option>
+      % end
+      <option value="">
+        nerazporejeno
+      </option>
+      % for kuverta in proracun.kuverte:
+        <option value="{{kuverta.ime}}">
+          {{kuverta.ime}}
+        </option>
+      % end
+    </select>
+  </div>
+  <span class="icon is-small is-left">
+    <i class="{{icon}}"></i>
+  </span>
+</div>

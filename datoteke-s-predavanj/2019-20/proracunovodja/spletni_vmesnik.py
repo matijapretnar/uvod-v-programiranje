@@ -16,10 +16,21 @@ def poisci_kuverto(ime_polja):
     ime_kuverte = bottle.request.forms.getunicode(ime_polja)
     return proracun.poisci_kuverto(ime_kuverte or None)
 
-
 @bottle.get('/')
 def zacetna_stran():
-    return bottle.template('zacetna_stran.html', proracun=proracun)
+    bottle.redirect('/proracun/')
+
+@bottle.get('/proracun/')
+def nacrtovanje_proracuna():
+    return bottle.template('proracun.html', proracun=proracun)
+
+@bottle.get('/analiza/')
+def analiza():
+    return bottle.template('analiza.html')
+
+@bottle.get('/pomoc/')
+def pomoc():
+    return bottle.template('pomoc.html')
 
 
 @bottle.post('/dodaj-preliv/')
