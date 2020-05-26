@@ -1,5 +1,26 @@
+% rebase('base.html')
+
 <form method="POST">
-    <input type="text" name="uporabnisko_ime">
-    <input type="password" name="geslo">
-    <input type="submit" value="prijavi se">
+  <div class="control">
+    <input class="input" type="text" placeholder="uporabniško ime" name="uporabnisko_ime">
+  </div>
+  <div class="control">
+    <input class="input" type="password" placeholder="geslo" name="geslo">
+  </div>
+  <div class="control">
+    <input type="submit" class="button" value="prijavi se">
+  </div>
+</form>
+
+<form method="POST">
+  <input type="hidden" name="nov_racun">
+  <div class="control">
+    <input class="input" type="text" placeholder="uporabniško ime" name="uporabnisko_ime">
+  </div>
+  <div class="control">
+    <input class="input" type="password" placeholder="geslo" name="geslo">
+  </div>
+  <div class="control">
+    <input type="submit" class="button" value="registriraj se">
+  </div>
 </form>
