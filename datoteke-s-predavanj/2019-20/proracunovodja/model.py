@@ -1,5 +1,35 @@
 import json
 
+
+class Uporabnik:
+    def __init__(self, uporabnisko_ime, geslo, proracun):
+        self.uporabnisko_ime = uporabnisko_ime
+        self.geslo = geslo
+        self.proracun = proracun
+    
+    def preveri_geslo(self, geslo):
+        if self.geslo != geslo:
+            raise ValueError('Geslo je napačno!')
+    
+    def shrani_stanje(self, ime_datoteke):
+        slovar_stanja = {
+            'uporabnisko_ime': self.uporabnisko_ime,
+            'geslo': self.geslo,
+            'proracun': self.proracun.slovar_s_stanjem(),
+        }
+        with open(ime_datoteke, 'w') as datoteka:
+            json.dump(slovar_stanja, datoteka, ensure_ascii=False, indent=4)
+    
+    @classmethod
+    def nalozi_stanje(cls, ime_datoteke):
+        with open(ime_datoteke) as datoteka:
+            slovar_stanja = json.load(datoteka)
+        uporabnisko_ime = slovar_stanja['uporabnisko_ime']
+        geslo = slovar_stanja['geslo']
+        proracun = Proracun.nalozi_iz_slovarja(slovar_stanja['proracun'])
+        return cls(uporabnisko_ime, geslo, proracun)
+
+
 class Proracun:
     def __init__(self):
         self.racuni = []
@@ -78,7 +108,7 @@ class Proracun:
         if kuverta2 is not None:
             kuverta2.razporeditev += znesek
 
-    def _slovar_s_stanjem(self):
+    def slovar_s_stanjem(self):
         return {
             'racuni': [{
                 'ime': racun.ime,
@@ -97,7 +127,7 @@ class Proracun:
         }
     
     @classmethod
-    def _nalozi_iz_slovarja(cls, slovar_s_stanjem):
+    def nalozi_iz_slovarja(cls, slovar_s_stanjem):
         proracun = cls()
         for racun in slovar_s_stanjem['racuni']:
             nov_racun = proracun.nov_racun(racun['ime'])
@@ -115,13 +145,13 @@ class Proracun:
     
     def shrani_stanje(self, ime_datoteke):
         with open(ime_datoteke, 'w') as datoteka:
-            json.dump(self._slovar_s_stanjem(), datoteka, ensure_ascii=False, indent=4)
+            json.dump(self.slovar_s_stanjem(), datoteka, ensure_ascii=False, indent=4)
     
     @classmethod
     def nalozi_stanje(cls, ime_datoteke):
         with open(ime_datoteke) as datoteka:
             slovar_s_stanjem = json.load(datoteka)
-        return cls._nalozi_iz_slovarja(slovar_s_stanjem)
+        return cls.nalozi_iz_slovarja(slovar_s_stanjem)
 
 
 class Racun:
