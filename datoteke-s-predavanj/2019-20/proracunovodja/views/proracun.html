@@ -54,7 +54,7 @@
         Računi
       </p>
       % for racun in proracun.racuni:
-      % include('_prikaz_stanja.html', ime=racun.ime, stanje=kuverta.stanje())
+      % include('_prikaz_stanja.html', ime=racun.ime, stanje=racun.stanje())
       % end
       <div class="panel-block">
         <form action="/dodaj-racun/" method="POST">
