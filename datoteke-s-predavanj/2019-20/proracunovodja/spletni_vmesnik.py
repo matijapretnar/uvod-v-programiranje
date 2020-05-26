@@ -7,6 +7,7 @@ from model import Uporabnik, Proracun
 uporabniki = {
     'matija': Uporabnik('matija', 'geslo', Proracun())
 }
+skrivnost = 'TO JE ENA HUDA SKRIVNOST'
 
 for ime_datoteke in os.listdir('uporabniki'):
     uporabnik = Uporabnik.nalozi_stanje(os.path.join('uporabniki', ime_datoteke))
@@ -23,7 +24,7 @@ def poisci_kuverto(ime_polja):
     return proracun.poisci_kuverto(ime_kuverte or None)
 
 def trenutni_uporabnik():
-    uporabnisko_ime = bottle.request.get_cookie('uporabnisko_ime')
+    uporabnisko_ime = bottle.request.get_cookie('uporabnisko_ime', secret=skrivnost)
     if uporabnisko_ime is None:
         bottle.redirect('/prijava/')
     return uporabniki[uporabnisko_ime]
@@ -70,7 +71,7 @@ def prijava_post():
     else:
         uporabnik = uporabniki[uporabnisko_ime]
         uporabnik.preveri_geslo(geslo)
-    bottle.response.set_cookie('uporabnisko_ime', uporabnik.uporabnisko_ime, path='/')
+    bottle.response.set_cookie('uporabnisko_ime', uporabnik.uporabnisko_ime, path='/', secret=skrivnost)
     bottle.redirect('/')
 
 @bottle.post('/odjava/')
