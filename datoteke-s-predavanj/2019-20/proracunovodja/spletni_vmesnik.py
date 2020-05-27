@@ -2,11 +2,10 @@ from datetime import date
 import bottle
 import os
 import random
+import hashlib
 from model import Uporabnik, Proracun
 
-uporabniki = {
-    'matija': Uporabnik('matija', 'geslo', Proracun())
-}
+uporabniki = {}
 skrivnost = 'TO JE ENA HUDA SKRIVNOST'
 
 for ime_datoteke in os.listdir('uporabniki'):
@@ -59,18 +58,21 @@ def prijava_get():
 
 @bottle.post('/prijava/')
 def prijava_post():
-    uporabnisko_ime = bottle.request.forms['uporabnisko_ime']
-    geslo = bottle.request.forms['geslo']
+    uporabnisko_ime = bottle.request.forms.getunicode('uporabnisko_ime')
+    geslo = bottle.request.forms.getunicode('geslo')
+    h = hashlib.blake2b()
+    h.update(geslo.encode(encoding='utf-8'))
+    zasifrirano_geslo = h.hexdigest()
     if 'nov_racun' in bottle.request.forms and uporabnisko_ime not in uporabniki:
         uporabnik = Uporabnik(
             uporabnisko_ime,
-            geslo,
+            zasifrirano_geslo,
             Proracun()
         )
         uporabniki[uporabnisko_ime] = uporabnik
     else:
         uporabnik = uporabniki[uporabnisko_ime]
-        uporabnik.preveri_geslo(geslo)
+        uporabnik.preveri_geslo(zasifrirano_geslo)
     bottle.response.set_cookie('uporabnisko_ime', uporabnik.uporabnisko_ime, path='/', secret=skrivnost)
     bottle.redirect('/')
 
