@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Podatkovni tipi</title>
+<link rel="stylesheet" href="../pomozno/prosojnice.css" />
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+# Podatkovni tipi
+
+### Uvod v programiranje
+
+---
+
+class: center, middle
+## vsaka vrednost v Pythonu ima tip
+# tip ~ množica vrednosti
+
+---
+
+class: center, middle
+## Cela števila
+### `int`
+
+```python
+3   -10   0   444   123456789   -9999999
+```
+
+---
+
+class: center, middle
+## Števila s plavajočo vejico
+### `float`
+
+```python
+3.14  -10.0  0.0  1.2345e20  -1.281e-16
+```
+
+---
+
+class: center, middle
+## Logični (Booleovi) vrednosti
+###  `bool`
+
+```python
+True     False
+```
+
+---
+
+class: center, middle
+## Kompleksna števila
+### `complex`
+
+```python
+2 + 3j    4 - 2j    2.1 - 1.6j
+```
+
+---
+
+### Osnovne operacije na kompleksnih številih
+
+```python
+>>> (2 + 3j) * (4 - 2j)
+(14+8j)
+>>> 2.718281828459 ** 3.141592653590j
+(-1-1.53976491138057e-13j)
+>>> 1j
+1j
+>>> j
+NameError: name 'j' is not defined
+```
+
+---
+
+class: center, middle
+## Ničelna vrednost
+### `NoneType`
+
+```python
+None
+```
+
+---
+
+### Z `None` predstavimo manjkajoče vrednosti
+
+```python
+>>> None
+```
+
+```python
+def f(x):
+    x + 2
+```
+
+```python
+>>> f(5)
+>>> 2 * f(5)
+TypeError: unsupported operand type(s)
+  for *: 'int' and 'NoneType'
+```
+
+
+---
+
+class: center, middle
+## Nizi
+### `str`
+
+```python
+'Pozdravljen, svet!'    "niz"    '123'
+```
+
+---
+
+### Osnovne operacije na nizih
+
+```python
+>>> 'zala' + 'gasper'
+'zalagasper'
+>>> 'tro' + 4 * 'lo'
+'trololololo'
+>>> len('lokomotiva')
+10
+>>> 'beseda' == 'konj'
+False
+>>> 'abak' <= 'abeceda'
+True
+>>> 'gram' in 'Uvod v programiranje'
+True
+```
+
+---
+
+class: question
+
+## Funkcija, ki vrne ustrezen pozdrav
+
+```python
+>>> pozdrav('Matija')
+'Dober dan, gospod profesor.'
+>>> pozdrav('Anja')
+'Pozdravljena, gospa asistentka.'
+>>> pozdrav('Filip')
+'Pozdravljeni, gospod asistent.'
+>>> pozdrav('Francelj')
+'Živjo, Francelj!'
+```
+
+---
+
+### Po potrebi uporabljamo **različne narekovaje**
+
+.bad-example[```
+>>> 'Tole je kr'neki!'
+                   ^
+SyntaxError: invalid syntax
+```]
+
+```
+>>> "Tole je kr'neki!"
+"Tole je kr'neki!"
+>>> '"Grem v rudnik," je rekla.'
+'"Grem v rudnik," je rekla.'
+>>> '''"Tole je kr'neki," je rekla.'''
+'"Tole je kr\'neki," je rekla.'
+>>> 'niz' == "niz"
+True
+>>> 'niz' + "niz" + '''niz''' + """niz"""
+'nizniznizniz'
+```
+
+---
+
+### Do posameznih znakov dostopamo z **indeksi**
+
+```
+>>> 'rekurzija'[3]
+'u'
+>>> 'rekurzija'[0]
+'r'
+>>> 'rekurzija'[-1]
+'a'
+```
+
+```
+ 0   1   2   3   4   5   6   7   8
+ R   E   K   U   R   Z   I   J   A
+-9  -8  -7  -6  -5  -4  -3  -2  -1
+```
+
+---
+
+### Do več znakov dostopamo z **rezinami**
+
+```
+>>> 'rekurzija'[2]
+'k'
+>>> 'rekurzija'[6]
+'i'
+>>> 'rekurzija'[2:6]
+'kurz'
+>>> 'rekurzija'[:6]
+'rekurz'
+>>> 'rekurzija'[2:]
+'kurzija'
+```
+
+---
+
+class: question
+
+## Število samoglasnikov
+
+```
+>>> stevilo_samoglasnikov('UVP je zakon!!!')
+4
+>>> stevilo_samoglasnikov('čmrlj')
+0
+>>> stevilo_samoglasnikov('otorinolaringolog')
+8
+```
+
+---
+
+class: question
+
+## Najdaljši podniz, ki je palindrom
+
+```
+>>> max_podpalindrom('otorinolaringolog')
+'ooriroo'
+>>> max_podpalindrom('ventrilokvist')
+'tilit'
+>>> max_podpalindrom('neradodaren')
+'neradodaren'
+```
+
+---
+
+### Rezinam lahko določimo **velikost koraka**
+
+```
+>>> 'rekurzija'[1:8]
+'ekurzij'
+>>> 'rekurzija'[1:8:1]
+'ekurzij'
+>>> 'rekurzija'[1:8:2]
+'euzj'
+>>> 'rekurzija'[1:8:3]    
+'erj'
+>>> 'rekurzija'[::-1]
+'ajizruker'
+```
+
+---
+
+### Med tipi lahko tudi **pretvarjamo**
+
+```
+>>> int(3.14)
+3
+>>> float(3)
+3.0
+>>> str(True)
+'True'
+>>> bool(4)
+True
+>>> bool('False')
+True
+```
+
+---
+
+class: center, middle
+## Seznami
+### `list`
+
+```python
+[1, 2, 3]    ['a', 'b']    []
+
+[[True], [False], [True, False]]
+```
+
+---
+
+### Osnovne operacije na seznamih
+
+```python
+>>> prastevila = [2, 3, 5, 7, 11, 13, 17]
+>>> prazen_seznam = []
+>>> [True, False] + [True]
+[True, False, True]
+>>> 3 * ['x', 'y']
+['x', 'y', 'x', 'y', 'x', 'y']
+>>> 5 in prastevila
+True
+>>> [5, 7, 11] in prastevila
+False
+>>> sum([1, 2, 3, 4, 5])
+15
+```
+
+---
+
+class: middle, question
+
+```
+>>> povprecje([1, 2, 3])
+2.0
+>>> povprecje([])
+>>> povprecje([1, 2, 4, 8, 16])
+6.2
+```
+
+```
+>>> razpon([1, 2, 3])
+2
+>>> razpon([])
+>>> razpon([1, 2, 4, 8, 16])
+15
+```
+
+---
+
+### Do vrednosti dostopamo **kot pri nizih**
+
+```python
+>>> prastevila = [2, 3, 5, 7, 11, 13, 17]
+>>> prastevila[2]
+5
+>>> prastevila[-2]
+13
+>>> prastevila[2:-2]
+[5, 7, 11]
+>>> prastevila[::2]
+[2, 5, 11, 17]
+```
+
+---
+
+class: middle, question
+
+```
+>>> vsota_elementov([-5, 2, 10, -13, 0])
+-6
+>>> vsota_elementov([])
+0
+```
+
+```
+>>> stevilo_elementov([-5, 2, 10, -13, 0])
+5
+>>> stevilo_elementov([])
+0
+```
+
+```
+>>> vsebuje_sodega([-5, 2, 10, -13, 0])
+True
+>>> vsebuje_sodega([])
+False
+>>> vsebuje_sodega([1, 3, 5])
+False
+```
+
+---
+
+
+### Sezname lahko tudi **gnezdimo**
+
+```python
+>>> m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> m[1]
+[4, 5, 6]
+>>> m[1][2]
+6
+```
+
+---
+
+class: center, middle
+## Nabori
+### `tuple`
+
+```python
+(3, 3, 2020)    ()     (1,)
+
+(46.0422504, 14.4897114)
+
+('Matija', 'Pretnar', 27004498)
+```
+
+---
+
+### Osnovne operacije na naborih
+
+```python
+>>> (True, False) + (True,)
+(True, False, True)
+>>> 3 * ('x', 'y')
+('x', 'y', 'x', 'y', 'x', 'y')
+>>> 5 in (1, 2, 3)
+False
+>>> (1, 2, 5, 10, 20, 50)[3]
+10
+>>> (1, 2, 5, 10, 20, 50)[3:]
+(10, 20, 50)
+```
+
+---
+
+### **Kdaj uporabimo** sezname, kdaj pa nabore?
+
+#### Nabori: fiksna dolžina, različni pomeni
+
+```
+>>> datum = (3, 3, 2020)
+>>> fmf = (46.0422504, 14.4897114)
+>>> jaz = ('Matija', 'Pretnar', 27004498)
+```
+
+#### Seznami: poljubna dolžina, en pomen
+
+```
+>>> leta = [2012, 2016, 2020, 2024]
+>>> opravili_bodo_uvp = []
+>>> datumi = [(3, 3, 2020), (25, 6, 1991)]
+```
+
+---
+
+class: center, middle
+## Množice
+### `set`
+
+```python
+{1, 2, 3, 4}    set()
+```
+
+---
+
+### Osnovne operacije na množicah
+
+```python
+>>> {1, 2, 3, 4} | {3, 4, 5, 6}
+{1, 2, 3, 4, 5, 6}
+>>> {1, 2, 3, 4} & {3, 4, 5, 6}
+{3, 4}
+>>> {1, 2, 3, 4} - {3, 4, 5, 6}
+{1, 2}
+>>> 1 in {1, 2, 3, 4}
+True
+>>> 2 in set()
+False
+>>> len({1, 2, 3, 2, 1, 2, 3, 2, 1})
+3
+```
+
+---
+
+### **Kdaj uporabimo** sezname, kdaj pa množice?
+
+#### Seznami: določen vrstni red in število pojavitev
+
+```python
+>>> [1, 2, 3] == [2, 1, 3]
+False
+>>> [1, 2, 3] == [1, 1, 2, 3]
+False
+```
+
+#### Množice: nedoločen vrstni red in število pojavitev
+
+```python
+>>> {1, 2, 3} == {2, 1, 3}
+True
+>>> {1, 2, 3} == {1, 1, 2, 3}
+True
+```
+
+---
+
+class: center, middle
+## Slovarji
+### `dict`
+
+```python
+{'a': 1, 'b': 5, 'c': 10}    {}
+
+{1: 'a', 5: 'b', 10: 'c'}
+```
+
+---
+
+```python
+nujne_telefonske_stevilke = {
+  'center za obveščanje': 112,
+  'policija': 113,
+  'informacije': 1188,
+  'točen čas': 195
+}
+```
+
+---
+
+```python
+slo_ang = {
+  'abak': 'abacus',
+  'abalienacija': 'abalienation',
+  'abderit': 'abderite',
+  ...
+  'žvrkljati': 'whisk'
+}
+```
+
+---
+
+```python
+rimske_stevilke = {
+    1: 'I', 2: 'II', 3: 'III', 4: 'IV',
+    5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII',
+    9: 'IX', 10: 'X', 20: 'XX', 30: 'XXX',
+    40: 'XL', 50: 'L', 100: 'C', 500: 'D',
+    1000: 'M'
+}
+```
+
+---
+
+```python
+met_kocke = {
+    1: 1/6, 2: 1/6, 3: 1/6,
+    4: 1/6, 5: 1/6, 6: 1/6
+}
+
+met_dveh_kock = {
+    2: 1/36, 3: 2/36, 4: 3/36, 5: 4/36,
+    6: 5/36, 7: 6/36, 8: 5/36, 9: 4/36,
+    10: 3/36, 11: 2/36, 12: 1/36
+}
+```
+
+---
+
+```python
+matrika = [
+    [1, 1, 4, 1, 1, 1, 1, 1, 1, 1],
+    [5, 2, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 3, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 4, 1, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+]
+
+redka_matrika = (6, 10, 1, {
+    (0, 2): 4,
+    (1, 0): 5,
+    (1, 1): 2,
+    (2, 4): 3,
+    (4, 2): 4
+})
+```
+
+---
+
+.small[```python
+avtocestni_kriz = {
+    'LJ': {'KR': 26, 'CE': 73, 'PO': 51, 'NM': 72},
+    'KR': {'LJ': 26, 'JE': 35},
+    'JE': {'KR': 35},
+    'CE': {'MB': 54, 'LJ': 73},
+    'MB': {'CE': 54, 'MS': 60},
+    'MS': {'MB': 60},
+    'PO': {'LJ': 51, 'KP': 64, 'GO': 63},
+    'GO': {'PO': 63},
+    'KP': {'PO': 64},
+    'NM': {'LJ': 72}
+}
+```]
+
+.center[![Avtocestni križ](slike/avtoceste.png)]
+
+---
+
+class: center, middle
+## Funkcije
+### `function` / `builtin_function_or_method`
+
+```python
+round    math.sin
+
+f  # če imamo prej def f(x): return x + 2
+
+lambda x: x + 2
+```
+
+---
+
+class: center, middle
+## Tipi
+### `type`
+
+```python
+int   float   str   list   type
+```
+
+
+</textarea>
+<script src="../pomozno/prosojnice.js"></script>
+</body>
+</html>

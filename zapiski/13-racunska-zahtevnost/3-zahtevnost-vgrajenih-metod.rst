@@ -1,2 +1,0 @@
-Zahtevnost vgrajenih metod *
-==========================

@@ -1,2 +1,0 @@
-Osnove elektronike *
-==================

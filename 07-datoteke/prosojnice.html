@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Datoteke</title>
+<link rel="stylesheet" href="../pomozno/prosojnice.css" />
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+# Datoteke
+
+### Uvod v programiranje
+
+---
+
+class: question
+
+`stavki.txt`
+```
+To je prvi stavek. To je drugi
+stavek. To je tretji stavek. To
+je četrti stavek.
+```
+
+### Kaj izpiše spodnji ukaz?
+
+```
+>>> print('stavki.txt')
+```
+
+---
+
+### Datoteko **za branje odpremo** s funkcijo `open`
+
+`stavki.txt`
+```
+To je prvi stavek. To je drugi
+stavek. To je tretji stavek. To
+je četrti stavek.
+```
+
+```
+>>> open('stavki.txt')
+<_io.TextIOWrapper name='stavki.txt'
+ mode='r' encoding='UTF-8'>
+```
+
+---
+
+### Z `read` preberemo **dano število znakov**
+
+`stavki.txt`
+```
+To je prvi stavek. To je drugi
+stavek. To je tretji stavek. To
+je četrti stavek.
+```
+
+```
+>>> dat = open('stavki.txt')
+>>> dat.read(35)
+'To je prvi stavek. To je drugi\nstav'
+>>> dat.read(20)
+'ek. To je tretji sta'
+>>> dat.read()
+'vek. To\nje četrti stavek.\n'
+>>> dat.read()
+''
+```
+
+---
+
+### Z `readline` preberemo **naslednjo vrstico**
+
+`stavki.txt`
+```
+To je prvi stavek. To je drugi
+stavek. To je tretji stavek. To
+je četrti stavek.
+```
+
+```
+>>> dat = open('stavki.txt')
+>>> dat.readline()
+'To je prvi stavek. To je drugi\n'
+>>> dat.readline()
+'stavek. To je tretji stavek. To\n'
+>>> dat.readline()
+'je četrti stavek.\n'
+>>> dat.readline()
+''
+```
+
+---
+
+### Z `readlines` preberemo **vse vrstice**
+
+`stavki.txt`
+```
+To je prvi stavek. To je drugi
+stavek. To je tretji stavek. To
+je četrti stavek.
+```
+
+```
+>>> dat = open('stavki.txt')
+>>> dat.readlines()
+['To je prvi stavek. To je drugi\n',
+ 'stavek. To je tretji stavek. To\n',
+ 'je četrti stavek.\n']
+```
+
+---
+
+### Po vrsticah se lahko **zapeljemo z zanko** `for`
+
+`stavki.txt`
+```
+To je prvi stavek. To je drugi
+stavek. To je tretji stavek. To
+je četrti stavek.
+```
+
+```
+>>> dat = open('stavki.txt')
+>>> for vrstica in dat:
+...     print(len(vrstica), vrstica)
+...
+*31 To je prvi stavek. To je drugi
+*
+*32 stavek. To je tretji stavek. To
+*
+*18 je četrti stavek.```
+
+
+---
+
+### Datoteko je po uporabi **dobro zapreti**
+
+```
+dat = open('ime_datoteke.txt')
+...
+dat.close()
+```
+
+### Namesto tega **raje pišemo**
+
+```
+with open('ime_datoteke.txt') as dat:
+    ...
+```
+
+---
+
+class: center, middle, question
+
+## Število<br>vrstic, znakov in besed<br>v slovenskih klasikih
+
+---
+
+class: center, middle, question
+
+## Naključno generirani<br>slovenski klasiki
+
+---
+
+### Računalnik si lahko zapomni le `0` in `1`
+
+`stavki.txt`
+```
+To je prvi stavek. To je drugi
+stavek. To je tretji stavek. To
+je četrti stavek.
+```
+
+.small[
+```
+0101010001101111001000000110101001100101001000000111000001110010
+0111011001101001001000000111001101110100011000010111011001100101
+0110101100101110001000000101010001101111001000000110101001100101
+0010000001100100011100100111010101100111011010010000101001110011
+0111010001100001011101100110010101101011001011100010000001010100
+0110111100100000011010100110010100100000011101000111001001100101
+0111010001101010011010010010000001110011011101000110000101110110
+0110010101101011001011100010000001010100011011110000101001101010
+0110010100100000110001001000110101100101011101000111001001110100
+0110100100100000011100110111010001100001011101100110010101101011
+0010111000001010
+```
+]
+
+---
+
+### Za pretvorbo uporabljamo **kodne tabele**, ki vsakemu znaku dodelijo **binarno zaporedje**
+
+```lisp
+   nova vrstica      10      00001010
+    presledek        32      00100000
+        0            48      00110000
+        1            49      00110001
+        @            64      01000000
+        A            65      01000001
+        B            66      01000010
+        P            80      01010000
+        a            97      01100001
+        d            100     01100100
+```
+
+---
+
+### Kodna tabela ASCII
+
+.smalltab[
+|       | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | A | B | C | D | E | F |
+| ----  |:-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| **0** | ␀ | ␁ | ␂ | ␃ | ␄ | ␅ | ␆ | ␇ | ␈ | ␉ | ␊ | ␋ | ␌ | ␍ | ␎ | ␏ |
+| **1** | ␐ | ␑ | ␒ | ␓ | ␔ | ␕ | ␖ | ␗ | ␘ | ␙ | ␚ | ␛ | ␜ | ␝ | ␞ | ␟ |
+| **2** | ␠ | ! | " | # | $ | % | & | ' | ( | ) | * | + | , | - | . | / |
+| **3** | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | : | ; | < | = | > | ? |
+| **4** | @ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O |
+| **5** | P | Q | R | S | T | U | V | W | X | Y | Z | [ | \ | ] | ^ | _ |
+| **6** | ` | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
+| **7** | p | q | r | s | t | u | v | w | x | y | z | { | ｜ | } | ~ | ␡ |
+]
+
+---
+
+#### Črke
+
+```lisp
+Python 3
+```
+
+#### Šestnajstiški zapis
+
+```lisp
+50 79 74 68 6F 6E 20 33
+```
+
+#### Dvojiški zapis
+
+.small[```lisp
+0101000001111001011101000110100001101111011011100010000000110011
+```]
+
+
+---
+
+class: center, middle, question
+
+## Koliko različnih znakov lahko predstavimo z 8 biti?
+
+---
+
+Kodna tabela ISO-8859-1
+
+.smalltab[
+|       | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | A | B | C | D | E | F |
+| ----  |:-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| **0** | ␀ | ␁ | ␂ | ␃ | ␄ | ␅ | ␆ | ␇ | ␈ | ␉ | ␊ | ␋ | ␌ | ␍ | ␎ | ␏ |
+| **1** | ␐ | ␑ | ␒ | ␓ | ␔ | ␕ | ␖ | ␗ | ␘ | ␙ | ␚ | ␛ | ␜ | ␝ | ␞ | ␟ |
+| **2** | ␠ | ! | " | # | $ | % | & | ' | ( | ) | * | + | , | - | . | / |
+| **3** | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | : | ; | < | = | > | ? |
+| **4** | @ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O |
+| **5** | P | Q | R | S | T | U | V | W | X | Y | Z | [ | \ | ] | ^ | _ |
+| **6** | ` | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
+| **7** | p | q | r | s | t | u | v | w | x | y | z | { | ｜ | } | ~ | ␡ |
+| **8** |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| **9** |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| **A** |   | ¡ | ¢ | £ | ¤ | ¥ | ¦ | § | ¨ | © | ª | « | ¬ | - | ® | ¯ |
+| **B** | ° | ± | ² | ³ | ´ | µ | ¶ | · | ¸ | ¹ | º | » | ¼ | ½ | ¾ | ¿ |
+| **C** | À | Á | Â | Ã | Ä | Å | Æ | Ç | È | É | Ê | Ë | Ì | Í | Î | Ï |
+| **D** | Ð | Ñ | Ò | Ó | Ô | Õ | Ö | × | Ø | Ù | Ú | Û | Ü | Ý | Þ | ß |
+| **E** | à | á | â | ã | ä | å | æ | ç | è | é | ê | ë | ì | í | î | ï |
+| **F** | ð | ñ | ò | ó | ô | õ | ö | ÷ | ø | ù | ú | û | ü | ý | þ | ÿ |
+]
+
+---
+
+Kodna tabela ISO-8859-2
+
+.smalltab[
+|       | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | A | B | C | D | E | F |
+| ----  |:-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| **0** | ␀ | ␁ | ␂ | ␃ | ␄ | ␅ | ␆ | ␇ | ␈ | ␉ | ␊ | ␋ | ␌ | ␍ | ␎ | ␏ |
+| **1** | ␐ | ␑ | ␒ | ␓ | ␔ | ␕ | ␖ | ␗ | ␘ | ␙ | ␚ | ␛ | ␜ | ␝ | ␞ | ␟ |
+| **2** | ␠ | ! | " | # | $ | % | & | ' | ( | ) | * | + | , | - | . | / |
+| **3** | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | : | ; | < | = | > | ? |
+| **4** | @ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O |
+| **5** | P | Q | R | S | T | U | V | W | X | Y | Z | [ | \ | ] | ^ | _ |
+| **6** | ` | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
+| **7** | p | q | r | s | t | u | v | w | x | y | z | { | ｜ | } | ~ | ␡ |
+| **8** |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| **9** |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| **A** |   | Ą | ˘ | Ł | ¤ | Ľ | Ś | § | ¨ | Š | Ş | Ť | Ź | - | Ž | Ż |
+| **B** | ° | ą | ˛ | ł | ´ | ľ | ś | ˇ | ¸ | š | ş | ť | ź | ˝ | ž | ż |
+| **C** | Ŕ | Á | Â | Ă | Ä | Ĺ | Ć | Ç | Č | É | Ę | Ë | Ě | Í | Î | Ď |
+| **D** | Đ | Ń | Ň | Ó | Ô | Ő | Ö | × | Ř | Ů | Ú | Ű | Ü | Ý | Ţ | ß |
+| **E** | ŕ | á | â | ă | ä | ĺ | ć | ç | č | é | ę | ë | ě | í | î | ď |
+| **F** | đ | ń | ň | ó | ô | ő | ö | ÷ | ř | ů | ú | ű | ü | ý | ţ | ˙ |
+]
+
+---
+
+Kodna tabela Windows-1250
+
+.smalltab[
+|       | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | A | B | C | D | E | F |
+| ----  |:-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| **0** | ␀ | ␁ | ␂ | ␃ | ␄ | ␅ | ␆ | ␇ | ␈ | ␉ | ␊ | ␋ | ␌ | ␍ | ␎ | ␏ |
+| **1** | ␐ | ␑ | ␒ | ␓ | ␔ | ␕ | ␖ | ␗ | ␘ | ␙ | ␚ | ␛ | ␜ | ␝ | ␞ | ␟ |
+| **2** | ␠ | ! | " | # | $ | % | & | ' | ( | ) | * | + | , | - | . | / |
+| **3** | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | : | ; | < | = | > | ? |
+| **4** | @ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O |
+| **5** | P | Q | R | S | T | U | V | W | X | Y | Z | [ | \ | ] | ^ | _ |
+| **6** | ` | a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
+| **7** | p | q | r | s | t | u | v | w | x | y | z | { | ｜ | } | ~ | ␡ |
+| **8** | € |   | ‚ |   | „ | … | † | ‡ |   | ‰ | Š | ‹ | Ś | Ť | Ž | Ź |
+| **9** |   | ‘ | ’ | “ | ” | • | – | — |   | ™ | š | › | ś | ť | ž | ź |
+| **A** |   | ˇ | ˘ | Ł | ¤ | Ą | ¦ | § | ¨ | © | Ş | « | ¬ | -­ | ® | Ż |
+| **B** | ° | ± | ˛ | ł | ´ | µ | ¶ | · | ¸ | ą | ş | » | Ľ | ˝ | ľ | ż |
+| **C** | Ŕ | Á | Â | Ă | Ä | Ĺ | Ć | Ç | Č | É | Ę | Ë | Ě | Í | Î | Ď |
+| **D** | Đ | Ń | Ň | Ó | Ô | Ő | Ö | × | Ř | Ů | Ú | Ű | Ü | Ý | Ţ | ß |
+| **E** | ŕ | á | â | ă | ä | ĺ | ć | ç | č | é | ę | ë | ě | í | î | ď |
+| **F** | đ | ń | ň | ó | ô | ő | ö | ÷ | ř | ů | ú | ű | ü | ý | ţ | ˙ |
+]
+
+---
+
+### Standard Unicode
+
+```
+𓁒견㠾璉♮𪛅霪곰𐠍𠶌𓂰㷟𓈽늻䭭宿䧩쨸𓊇䳞棞䦥ꄨ𠶗韁쳒𧘹𣭻
+嚉椵㒠격勖ꎆ⋃彺押䅞𦠴앐ᜬ𓌖迧翂𨀿ꋿ뀛🌝琘辉㋠삪㊟𝍕🌯鰴
+🌏雐詮ള𒈱禡勵오𩝇🎽쀰﹁硅𦛨၇🙊氶ꕯṝ쳾챥㾫秾㤻𒉯
+尉쨈脉桥🂒ꋌ𝚑ꗚ𓌯״Ｆ𓄭📫ﴣﺥ𒑲𝗔𓉮䥨⛰🅻澖𓆴⓬𒍬ቡ鉑𓀣
+堡䋧🆗𠂫ʦ溺꜆䡷⇾೧䣦眛缉왟醄㖍⸝ߗ㎏ꓗ𖥭㸎𡡅🗼⏝팡驠튇驆
+盏ྖ䕮💩춽冁뎯ꤓ┫厚圦褒𖣳㞂흔퍰ﮭ㩸佄齩ණꃚ귉𩨜𝑒〸켕䴱莒貄
+╞뚭嵭🀽쎂頄醞𒅉㉃纜坰뷲璑𝐬小쏐殩★𥫗𐃇⤺𤦈薑𨩅㐔🉇𝘀㍢
+𝔟욛𝚎㣇ꙸ🏕𓇁※ᾓ𖧂딗𒌬㗹⍀𤆸𫝶뛗ꖜ瘟ณ𓊘밥ꠄ䌣肨蓮𖡲掊ᗬ솨ﶽ🐏
+𓀻𝙡ฅ凥𒀸🍂ఔ🍗𓎏ቌĜꗹ븴䥪𐆀𩮔⏛㪄𦛚蝰넽ᛕ📠嚢柋弙簌䡙퀠稁땵
+```
+
+---
+
+### Kodna tabela UTF-8
+
+
+#### Predstavitev znakov ASCII je enaka kot doslej
+
+```lisp
+0   00110000
+@   01000000
+A   01000001
+a   01100001
+```
+
+#### Ostale znake predstavimo z več kot 8 biti
+
+```lisp
+č  11000100 10001101
+Θ  11001110 10011000
+㧔  11100011 10100111 10010100
+💩  11110000 10011111 10010010 10101001
+```
+
+---
+
+### Kodno tabelo nastavimo s **parametrom `encoding`**
+
+```
+with open(..., encoding='utf-8') as d:
+    ...
+```
+
+```
+with open(..., encoding='cp1250') as d:
+    ...
+```
+
+```
+with open(..., encoding='latin2') as d:
+    ...
+```
+
+---
+
+### Datoteko za **pisanje** odpremo s parametrom `w`
+
+```
+with open(..., 'w') as d:
+    ...
+```
+
+---
+
+### V datoteko pišemo z metodo `write`
+
+```
+with open('izpis.txt', 'w') as d:
+    d.write('To je ')
+    d.write('en stavek.\nTo je drugi.')
+```
+
+`izpis.txt`
+```
+To je en stavek.
+To je drugi.
+```
+
+---
+
+### V datoteko pišemo tudi s `print`
+
+```
+with open('izpis.txt', 'w') as d:
+    print('To je en stavek.', file=d)
+    print('1 + 1 =', 1 + 1, file=d)
+```
+
+`izpis.txt`
+```
+To je en stavek
+1 + 1 = 2
+```
+
+---
+
+### Vsakič, ko datoteko odpremo za pisanje, jo **povozimo**
+
+```
+with open('izpis.txt', 'w') as d:
+    print('To je en stavek.', file=d)
+    print('To je drugi.', file=d)
+```
+
+`izpis.txt`
+```
+To je en stavek.
+To je drugi.
+```
+
+---
+
+### Vsakič, ko datoteko odpremo za pisanje, jo **povozimo**
+
+```
+with open('izpis.txt', 'w') as d:
+    print('To je tretji stavek.', file=d)
+    print('To je četrti.', file=d)
+```
+
+`izpis.txt`
+```
+To je tretji stavek.
+To je četrti.
+```
+
+---
+
+### Datoteko **za dodajanje** odpremo s parametrom `a`
+
+```
+with open('izpis.txt', 'a') as d:
+    print('To je en stavek.', file=d)
+    print('To je drugi.', file=d)
+```
+
+`izpis.txt`
+```
+To je en stavek.
+To je drugi.
+```
+
+---
+
+### Datoteko **za dodajanje** odpremo s parametrom `a`
+
+```
+with open('izpis.txt', 'a') as d:
+    print('To je tretji stavek.', file=d)
+    print('To je četrti.', file=d)
+```
+
+`izpis.txt`
+```
+To je en stavek.
+To je drugi.
+To je tretji stavek.
+To je četrti.
+```
+
+---
+
+class: center, middle, question
+
+## Oštevilčene vrstice slovenskih klasikov
+
+---
+
+### Do datotek kaže **absolutna pot**
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+---
+
+### Do datotek kaže **absolutna pot**
+
+.small[```
+*   /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    /
+```
+
+---
+
+### Do datotek kaže **absolutna pot**
+
+.small[```
+    /
+*       uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    /uvp/
+```
+
+---
+
+### Do datotek kaže **absolutna pot**
+
+.small[```
+    /
+        uvp
+*           datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    /uvp/datoteke/
+```
+
+---
+
+### Do datotek kaže **absolutna pot**
+
+.small[```
+    /
+        uvp
+            datoteke
+*               vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    /uvp/datoteke/vhodna.txt
+```
+
+---
+
+### Na Windowsih je zadeva malo drugačna
+
+.small[```
+    C:\
+        uvp
+            datoteke
+*               vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+            mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    C:\uvp\datoteke\vhodna.txt
+```
+
+---
+
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+*       --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    
+```
+
+---
+
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+        --> mathematica
+*               grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    grafi.nb
+```
+
+---
+
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+*       --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    .
+```
+
+---
+
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+*       praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+        --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    ..
+```
+
+---
+
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
+
+.small[```
+*   /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+                pismo.tex
+                pismo.pdf
+                pismo.aux
+        --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    ../..
+```
+
+---
+
+### Do datotek kaže tudi **relativna pot**, odvisna od trenutnega imenika
+
+.small[```
+    /
+        uvp
+            datoteke
+                vhodna.txt
+                izhodna.txt
+            funkcije.py
+            seznami.py
+            slovarji.py
+            zanke.py
+        praktikum
+            latex
+*               pismo.tex
+                pismo.pdf
+                pismo.aux
+        --> mathematica
+                grafi.nb
+                kolokvij.nb
+        analiza
+            plonkec.tex
+```]
+
+```
+    ../latex/pismo.tex
+```
+
+---
+
+### **Trenutni imenik** dobimo z `os.getcwd`
+
+```
+>>> os.getcwd()
+'/Users/matija'
+```
+
+### Trenutni imenik **nastavimo** z `os.chdir`
+
+```
+>>> os.chdir('Documents/uvp')
+>>> os.getcwd()
+'/Users/matija/Documents/uvp'
+>>> os.chdir('..')
+>>> os.getcwd()
+'/Users/matija/Documents'
+>>> os.chdir('uvp')
+```
+
+---
+
+### **Imena vseh datotek** v danem imeniku dobimo z `os.listdir`
+
+```
+>>> os.listdir()
+['datoteke-s-predavanj', 'prosojnice',
+'zapiski']
+>>> os.chdir('prosojnice')
+>>> os.listdir()
+['01-uvod-v-python.html', '02-rekurzija.html',
+'03-zanke.html', '04-seznami.html',
+'05-metode.html', '06-slovarji.html',
+'07-iteracija.html', '08-datoteke.html',
+'pomozne-datoteke', 'slike', 'staro']
+```
+
+---
+
+### Ime **po končnici razdelimo** z `os.path.splitext`
+
+```
+>>> os.path.splitext('/imenik/test.txt')
+('/imenik/test', '.txt')
+```
+
+### Ime **po imeniku razdelimo** z `os.path.split`
+
+```
+>>> os.path.split('/imenik/test.txt')
+('/imenik', 'test.txt')
+```
+
+---
+
+class: center, middle, question
+
+## Urejanje zmedenih datotek
+
+
+</textarea>
+<script src="../pomozno/prosojnice.js"></script>
+</body>
+</html>

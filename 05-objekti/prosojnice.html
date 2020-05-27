@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Objekti</title>
+<link rel="stylesheet" href="../pomozno/prosojnice.css" />
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+# Objekti
+
+### Uvod v programiranje
+
+---
+
+class: center, middle
+## vse v Pythonu je objekt
+# objekt ~ podatki + metode
+
+### `objekt.metoda(argumenti)`
+
+---
+
+### Na nizih obstaja kup **vgrajenih metod**
+
+```python
+>>> '&'.join(['a', 'b', 'c'])
+'a&b&c'
+>>> 'lokomotiva'.replace('o', 'u')
+'lukumutiva'
+>>> '  x  y  z  '.strip()
+'x  y  z'
+>>> 'lokomotiva'.upper()
+'LOKOMOTIVA'
+>>> 'to je stavek'.split()
+['to', 'je', 'stavek']
+```
+
+---
+
+class: question, middle
+
+```
+>>> yoda('Jaz sem Yoda!')
+'Yoda jaz sem!'
+>>> yoda('Kdo si ti?')
+'Ti kdo si?'
+```
+
+.center[![](slike/yoda.jpg)]
+
+---
+
+### S `count` **preštejemo** elemente
+
+```python
+>>> [1, 5, 3, 5, 1, 4, 5].count(5)
+3
+>>> (1, 5, 3, 5, 1, 4, 5).count(5)
+3
+>>> 'lokomotiva'.count('o')
+3
+```
+
+---
+
+### Z `index` **poiščemo mesto** danega elementa
+
+```python
+>>> [1, 5, 3, 5, 1, 4, 5].index(5)
+1
+>>> (1, 5, 3, 5, 1, 4, 5).index(5)
+1
+>>> 'lokomotiva'.index('o')
+1
+```
+
+```
+>>> [1, 5, 3, 5, 1, 4, 5].index(5, 2)  
+3
+>>> (1, 5, 3, 5, 1, 4, 5).index(5, 2)  
+3
+>>> 'lokomotiva'.index('o', 2)
+3
+```
+
+---
+
+### Z metodo `format` v nizu **zapolnimo luknje**
+
+```python
+>>> '{0} ima {1}'.format('mama', 'stol')
+'mama ima stol'
+>>> niz = '{0} vzklika: "{1}, {1}, {1}!"'
+>>> niz.format('Mama', 'joj')
+'Mama vzklika: "joj, joj, joj!"'
+>>> niz.format('Tone', 'FMF')
+'Tone vzklika: "FMF, FMF, FMF!"'
+```
+
+---
+
+### Argumente lahko tudi **oblikujemo**
+
+```python
+>>> a, b = 22, 7
+>>> '{0}/{1} = {2:.5}'.format(a, b, a / b)
+'pi = 3.1429'
+>>> 'popust znaša {0:.2%}'.format(1 / 3)
+'popust znaša 33.33%'
+>>> '{0:*^30}'.format('NASLOV')
+'************NASLOV************'
+```
+
+---
+
+### Od Pythona 3.6 naprej uporabljamo **`f`-nize**
+
+```python
+>>> a, b = 22, 7
+>>> f'{a}/{b} = {a / b:.5}'
+'22/7 = 3.1429'
+>>> f'popust znaša {1 / 3:.2%}'
+'popust znaša 33.33%'
+>>> f'{"NASLOV":*^30}'
+'************NASLOV************'
+```
+
+---
+
+### Sezname lahko tudi **spreminjamo**
+
+```
+>>> sez = [10, 20, 30]
+>>> sez[1]
+20
+>>> sez[1] = 40
+>>> sez
+[10, 40, 30]
+```
+
+---
+
+### Zamenjamo lahko tudi celotno **rezino**
+
+```
+>>> sez = [10, 20, 30, 40]
+>>> sez[1:3]
+[20, 30]
+>>> sez[1:3] = [0, 0, 0]
+>>> sez
+[10, 0, 0, 0, 40]
+```
+
+---
+
+### Elemente lahko tudi **brišemo**
+
+```
+>>> sez = [10, 20, 30]
+>>> sez[1]
+20
+>>> del sez[1]
+>>> sez
+[10, 30]
+```
+
+---
+
+### Seznami so **spremenljive strukture**
+
+```
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x = [2, 2, 2]
+>>> y
+[1, 1, 1]
+```
+
+```
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x[2] = 2
+>>> y
+[1, 1, 2]
+```
+
+---
+
+### Da je zmeda večja, `+=` **ni isto** kot `=` & `+`
+
+```
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x += [2, 2, 2]
+>>> y
+[1, 1, 1, 2, 2, 2]
+```
+
+```
+>>> x = [1, 1, 1]
+>>> y = x
+>>> x = x + [2, 2, 2]
+>>> y
+[1, 1, 1]
+```
+
+---
+
+### Nabori in nizi so **nespremenljive strukture**
+
+```
+>>> x = (1, 1, 1)
+>>> x[2] = 2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError:
+  'tuple' object does not support item assignment
+```
+
+```
+>>> x = 'abc'
+>>> x[2] = 'd'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError:
+  'str' object does not support item assignment
+```
+
+---
+
+### Elemente **na konec dodajamo** z `append`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.append(40)
+>>> sez
+[10, 20, 30, 40]
+```
+
+---
+
+class: question, middle
+
+```python
+>>> seznam_kvadratov([1, 6, -3, 0, 4, 2])
+[1, 36, 9, 0, 16, 4]
+
+>>> dolzine_besed(['mama', 'je', 'tam'])
+[4, 2, 3]
+
+>>> seznam_delnih_vsot([1, 6, -3, 0, 4, 2])
+[1, 7, 4, 4, 8, 10]
+
+>>> sodi_elementi([1, 6, -3, 0, 4, 2])
+[6, 0, 4, 2]
+```
+
+---
+
+### Sezname dostikrat lepše zgradimo z **izpeljanimi seznami**
+
+```
+seznam = []
+for x in ...:
+    seznam.append(f(x))
+```
+
+```
+seznam = [f(x) for x in ...]
+```
+
+---
+
+### Sezname dostikrat lepše zgradimo z **izpeljanimi seznami**
+
+.bad-example[```
+def seznam_kvadratov(seznam):
+    kvadrati = []
+    for x in seznam:
+        kvadrati.append(x ** 2)
+    return kvadrati
+```]
+
+
+.good-example[```
+def seznam_kvadratov(seznam):
+    return [x ** 2 for x in seznam]
+```]
+
+
+---
+
+### Sezname dostikrat lepše zgradimo z **izpeljanimi seznami**
+
+.bad-example[```
+def seznam_absolutnih_vrednosti(seznam):
+    absolutne_vrednosti = []
+    for x in seznam:
+        absolutne_vrednosti.append(abs(x))
+    return absolutne_vrednosti
+```]
+
+
+.good-example[```
+def seznam_absolutnih_vrednosti(seznam):
+    return [abs(x) for x in seznam]
+```]
+
+
+---
+
+### Sezname dostikrat lepše zgradimo z **izpeljanimi seznami**
+
+.bad-example[```
+def dolzine_besed(besede):
+    dolzine = []
+    for beseda in besede:
+        dolzine.append(len(beseda))
+    return dolzine
+```]
+
+
+.good-example[```
+def dolzine_besed(besede):
+    return [len(beseda) for beseda in besede]
+```]
+
+
+---
+
+### Izpeljani seznami **niso vedno rešitev**
+
+.good-example[```
+def delne_vsote(seznam):
+    vsote = []
+    vsota = 0
+    for x in seznam:
+        vsota += x
+        vsote.append(vsota)
+    return vsote
+```]
+
+
+.bad-example[```
+def delne_vsote(seznam):
+    return [
+        sum(seznam[:i + 1])
+        for i in range(len(seznam))
+    ]
+```]
+
+---
+
+### V izpeljanih seznamih imamo lahko tudi **gnezdene zanke**
+
+```
+seznam = []
+for x in ...:
+    for y in ...:
+        seznam.append(f(x, y))
+```
+
+```
+seznam = [f(x, y) for x in ... for y in ...]
+```
+
+---
+
+### V izpeljanih seznamih imamo lahko **pogoje**
+
+```
+seznam = []
+for x in ...:
+    if pogoj:
+        seznam.append(f(x))
+```
+
+```
+seznam = [f(x) for x in ... if pogoj]
+```
+
+
+---
+
+### V izpeljanih seznamih imamo lahko **pogoje**
+
+.bad-example[```
+def sodi_elementi(seznam):
+    sodi = []
+    for x in seznam:
+        if x % 2 == 0:
+            sodi.append(x)
+    return sodi
+```]
+
+
+.good-example[```
+def sodi_elementi(seznam):
+    return [x for x in seznam if x % 2 == 0]
+```]
+
+---
+
+class: question, center, middle
+
+## Ničelna in identična matrika
+
+---
+
+### Zadnji element **snamemo** s `pop`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.pop()
+30
+>>> sez
+[10, 20]
+```
+
+---
+
+### Elemente na dano mesto **vstavimo** z `insert`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.insert(1, 0)
+>>> sez
+[10, 0, 20, 30]
+```
+
+---
+
+### **Več elementov** dodamo z `extend`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez.extend([40, 50])
+>>> sez
+[10, 20, 30, 40, 50]
+```
+
+### **Okrajšava** za `extend` je `+=`
+
+```python
+>>> sez = [10, 20, 30]
+>>> sez += [40, 50]
+>>> sez
+[10, 20, 30, 40, 50]
+```
+
+---
+
+### Eno pojavitev elementa **odstranimo** z `remove`
+
+```python
+>>> sez = [1, 2, 1, 2, 3]
+>>> sez.remove(2)
+>>> sez
+[1, 1, 2, 3]
+```
+
+---
+
+### Seznam **izpraznimo** s `clear`
+
+```python
+>>> sez = [1, 2, 1, 2, 3]
+>>> sez.clear()
+>>> sez
+[]
+```
+
+---
+
+### Seznam **obrnemo** z `reverse`
+
+```python
+>>> sez = [1, 2, 4, 8, 16]
+>>> sez.reverse()
+>>> sez
+[16, 8, 4, 2, 1]
+```
+
+### **Obrnjen seznam** dobimo z rezinami
+
+```python
+>>> sez = [1, 2, 4, 8, 16]
+>>> sez[::-1]
+[16, 8, 4, 2, 1]
+>>> sez
+[1, 2, 4, 8, 16]
+```
+
+---
+
+### Seznam **uredimo** z `sort`
+
+```python
+>>> sez = [4, 1, 8, 2, 16]
+>>> sez.sort()
+>>> sez
+[1, 2, 4, 8, 16]
+```
+
+### **Urejen seznam** dobimo s `sorted`
+
+```python
+>>> sez = [4, 1, 8, 2, 16]
+>>> sorted(sez)
+[1, 2, 4, 8, 16]
+>>> sez
+[4, 1, 8, 2, 16]
+```
+
+---
+
+class: center, middle, question
+
+## Risanje z želvo
+
+
+</textarea>
+<script src="../pomozno/prosojnice.js"></script>
+</body>
+</html>
