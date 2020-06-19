@@ -1,21 +1,8 @@
-<html>
-<head>
-<meta charset="utf-8">
-<title>Knjižnica bottle</title>
-<link rel="stylesheet" href="../pomozno/prosojnice.css" />
-</head>
-<body>
-<textarea id="source">
+# Spletni vmesnik
 
-class: center, middle
+## Knjižnica `bottle`
 
-# Knjižnica `bottle`
-
-### Uvod v programiranje
-
----
-
-### Spletni vmesnik v `bottle`-u<br>gradimo **prek funkcij**
+Spletni vmesnik v `bottle`-u gradimo **prek funkcij**
 
 ```
 import bottle
@@ -27,29 +14,27 @@ def pozdravi():
 bottle.run()
 ```
 
----
-
-### Možnost `debug` omogoča **izpisovanje napak**
+Možnost `debug` omogoča **izpisovanje napak**
 
 ```
 bottle.run(debug=True)
 ```
 
-### Možnost `reloader` **samodejno požene**<br>strežnik ob spremembi kode
+Možnost `reloader` **samodejno požene** strežnik ob spremembi kode
 
 ```
 bottle.run(reloader=True)
 ```
 
-### Med razvojem imamo običajno vklopljeni<br>**obe možnosti**
+Med razvojem imamo običajno vklopljeni **obe možnosti**
 
 ```
 bottle.run(debug=True, reloader=True)
 ```
 
----
+## Dinamične spletne strani
 
-### Funkcije lahko sprejmejo tudi **argumente**
+Funkcije lahko sprejmejo tudi **argumente**
 
 ```
 @bottle.get('/<ime>/')
@@ -57,26 +42,24 @@ def pozdravi(ime):
     return 'Živjo, {}!'.format(ime)
 ```
 
----
+V spletne naslove lahko dajemo tudi **filtre**
 
-### V spletne naslove lahko dajemo tudi **filtre**
-
-.bad-example[```
+```
 @bottle.get('/kvadriraj/<n>')
 def kvadriraj(n):
     n = int(n)
     return '{}^2 = {}'.format(n, n ** 2)
-```]
+```
 
-.good-example[```
+```
 @bottle.get('/kvadriraj/<n:int>')
 def kvadriraj(n):
     return '{}^2 = {}'.format(n, n ** 2)
-```]
+```
 
----
+## Predloge
 
-### Funkcije običajno vračajo **HTML**
+Funkcije običajno vračajo **HTML**
 
 ```
 @bottle.get('/<ime>/')
@@ -84,9 +67,7 @@ def pozdravi(ime):
     return 'Živjo, <b>{}</b>!'.format(ime)
 ```
 
----
-
-### Besedilo **iz predloge** ustvarimo s `template`
+Besedilo **iz predloge** ustvarimo s `template`
 
 ```
 @bottle.get('/<ime>/')
@@ -107,10 +88,7 @@ def pozdravi(ime):
 </html>
 ```
 
-
----
-
-### Za `%` pišemo poljubno **Python kodo**
+Za `%` pišemo poljubno **Python kodo**
 
 ```
 vrstica besedila
@@ -118,16 +96,14 @@ vrstica besedila
 odgovor je {{a}}
 ```
 
-- - -
+--------------------------------------------------------------------------------
 
 ```
 vrstica besedila
 odgovor je 42
 ```
 
----
-
-### Presledki **niso pomembni**,<br>vendar moramo zamike končati s `% end`
+Presledki **niso pomembni**, vendar moramo zamike končati s `% end`
 
 ```
 %        if 3 < 7:
@@ -138,16 +114,13 @@ odgovor je 42
 odgovor je {{a}}
 ```
 
-- - -
+--------------------------------------------------------------------------------
 
 ```
 odgovor je 42
 ```
 
-
----
-
-### Vse vrstice brez `%` gradijo **izpis**
+Vse vrstice brez `%` gradijo **izpis**
 
 ```
 <ul>
@@ -157,7 +130,7 @@ odgovor je 42
 </ul>
 ```
 
-- - -
+--------------------------------------------------------------------------------
 
 ```
 <ul>
@@ -169,54 +142,48 @@ odgovor je 42
 </ul>
 ```
 
----
+Za **skupne dele predlog** uporabimo `rebase`
 
-### Za **skupne dele predlog** uporabimo `rebase`
-
-.bad-example[```
+```
 <html>
   <body>
      To je moja prva stran.
      <footer>© 2019, Ime Priimek</footer>
   </body>
 </html>
-```]
+```
 
-.bad-example[```
+```
 <html>
   <body>
      To je moja druga stran.
      <footer>© 2019, Ime Priimek</footer>
   </body>
 </html>
-```]
+```
 
----
+Za **skupne dele predlog** uporabimo `rebase`
 
-### Za **skupne dele predlog** uporabimo `rebase`
-
-.good-example[```
+```
 <html>
   <body>
      {{!base}}
      <footer>© 2019, Ime Priimek</footer>
   </body>
 </html>
-```]
+```
 
-.good-example[```
+```
 % rebase('osnova.tpl')
 To je moja prva stran.
-```]
+```
 
-.good-example[```
+```
 % rebase('osnova.tpl')
 To je moja druga stran.
-```]
+```
 
----
-
-### S funkcijo `static_file` lahko ponujamo tudi<br>**statične datoteke** (slike, CSS stili, …)
+S funkcijo `static_file` lahko ponujamo tudi **statične datoteke** (slike, CSS stili, ...)
 
 ```
 @bottle.get('/static/<ime_dat:path>')
@@ -225,9 +192,9 @@ def server_static(ime_dat):
   return bottle.static_file(ime_dat, root=pot)
 ```
 
----
+## Obrazci
 
-### Podatke vnašamo prek **obrazcev**
+Podatke vnašamo prek **obrazcev**
 
 ```
 <form action="/sestej/">
@@ -237,9 +204,7 @@ def server_static(ime_dat):
 </form>
 ```
 
----
-
-### Podatke preberemo iz `request.query`
+Podatke preberemo iz `request.query`
 
 ```
 @bottle.get('/sestej/')
@@ -249,9 +214,7 @@ def sestej():
     return '{} + {} = {}'.format(a, b, a + b)
 ```
 
----
-
-### Vsi podatki so prenešeni **kot nizi**
+Vsi podatki so prenešeni **kot nizi**
 
 ```
 @bottle.get('/sestej/')
@@ -261,29 +224,25 @@ def sestej():
     return '{} + {} = {}'.format(a, b, a + b)
 ```
 
----
+**Unicode** moramo zahtevati eksplicitno
 
-### **Unicode** moramo zahtevati eksplicitno
-
-.bad-example[```
+```
 @bottle.get('/pozdravi/')
 def pozdravi():
   ime = bottle.request.query['ime']
   return 'Živjo, {}!'.format(ime)
-```]
+```
 
-
-.good-example[```
+```
 @bottle.get('/pozdravi/')
 def pozdravi():
   ime = bottle.request.query.getunicode('ime')
   return 'Živjo, {}!'.format(ime)
-```]
+```
 
+## Metoda `POST` in preusmeritve
 
----
-
-### Obrazce, ki **spreminjajo** stanje,<br>pošiljamo z metodo **POST**
+Obrazce, ki **spreminjajo** stanje, pošiljamo z metodo **POST**
 
 ```
 <form action="/sestej/" method="POST">
@@ -295,9 +254,7 @@ def pozdravi():
 </form>
 ```
 
----
-
-### Podatke, poslane prek POST poizvedb,<br>preberemo iz `request.forms`
+Podatke, poslane prek POST poizvedb, preberemo iz `request.forms`
 
 ```
 @bottle.post('/glasuj/')
@@ -307,25 +264,21 @@ def glasuj():
     return 'Glas je bil uspešno zabeležen!'
 ```
 
----
+Po uspešno izvedeni POST poizvedbi naredimo **preusmeritev**
 
-### Po uspešno izvedeni POST poizvedbi naredimo **preusmeritev**
-
-.bad-example[```
+```
 @bottle.post('/glasuj/')
 def glasuj():
     glas = bottle.request.forms['glas']
     model.zabelezi_glas(glas)
     return 'Glas je bil uspešno zabeležen!'
-```]
+```
 
-Če preusmeritve ne naredimo,<br>lahko osveževanje vodi do **večkratnih sprememb**.
+Če preusmeritve ne naredimo, lahko osveževanje vodi do **večkratnih sprememb**.
 
----
+Po uspešno izvedeni POST poizvedbi naredimo **preusmeritev**
 
-### Po uspešno izvedeni POST poizvedbi naredimo **preusmeritev**
-
-.good-example[```
+```
 @bottle.post('/glasuj/')
 def glasuj():
     glas = bottle.request.forms['glas']
@@ -335,33 +288,6 @@ def glasuj():
 @bottle.get('/glasuj/')
 def glasuj_rezultat():
     return 'Glas je bil uspešno zabeležen!'
-```]
-
-
----
-
-### Podatke si lahko shranjujemo<br>v **piškotke** na uporabnikovem računalniku
-
-```
-@bottle.post('/glasuj/')
-def glasuj():
-  piskot = bottle.request.get_cookie('glas')
-  if piskot is None:
-    glas = bottle.request.forms['glas']
-    model.zabelezi_glas(glas)
-    bottle.response.set_cookie('glas', glas)
-    bottle.redirect('/glasuj/')
-  else:
-    return 'Ne glasuj dvakrat!'
 ```
 
----
-
-class: question, middle, center
-
-## Primer
-
-</textarea>
-<script src="../pomozno/prosojnice.js"></script>
-</body>
-</html>
+## Spletna ogrodja

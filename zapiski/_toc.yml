@@ -1,0 +1,22 @@
+- file: 00-uvod
+
+- header: Osnove Pythona
+- file: 01-uvod-v-python
+- file: 02-nizi
+- file: 03-zanke
+- file: 04-seznami-in-nabori
+- file: 05-kako-deluje-python
+- file: 06-slovarji-in-mnozice
+- file: 07-datoteke
+- file: 08-razredi
+- file: 09-izjeme-in-iterabilni-objekti
+
+- header: Pisanje večjih programov
+- file: 10-git
+- file: 11-tekstovni-vmesnik
+- file: 12-spletni-vmesnik
+- file: 13-spletna-storitev
+
+- header: Kako deluje računalnik
+- file: 14-od-silicija-do-strojne-kode
+- file: 15-od-zbirnika-do-generatorja-prastevil
