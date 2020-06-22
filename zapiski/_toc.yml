@@ -5,14 +5,14 @@
 - file: 02-nizi
 - file: 03-zanke
 - file: 04-seznami-in-nabori
-- file: 05-kako-deluje-python
+- file: 05-osnovni-algoritmi
 - file: 06-slovarji-in-mnozice
 - file: 07-datoteke
 - file: 08-razredi
 - file: 09-izjeme-in-iterabilni-objekti
 
 - header: Pisanje večjih programov
-- file: 10-git
+- file: 10-nadzor-razlicic
 - file: 11-tekstovni-vmesnik
 - file: 12-spletni-vmesnik
 - file: 13-spletna-storitev

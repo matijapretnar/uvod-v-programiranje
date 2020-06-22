@@ -192,6 +192,8 @@ def server_static(ime_dat):
   return bottle.static_file(ime_dat, root=pot)
 ```
 
+### Spletna ogrodja
+
 ## Obrazci
 
 Podatke vnašamo prek **obrazcev**
@@ -289,5 +291,3 @@ def glasuj():
 def glasuj_rezultat():
     return 'Glas je bil uspešno zabeležen!'
 ```
-
-## Spletna ogrodja

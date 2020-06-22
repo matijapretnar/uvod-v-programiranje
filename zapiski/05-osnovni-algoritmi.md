@@ -13,8 +13,14 @@ kernelspec:
   name: python3
 ---
 
-# Uvod v programiranje
+# Osnovni algoritmi
 
-## O Pythonu
+## Določitev največjega elementa
 
-## Delo s Pythonom
+## Iskanje danega elementa v seznamu
+
+## Računska zahtevnost
+
+## O-notacija
+
+## Časovna zahtevnost vgrajenih operacij

@@ -13,8 +13,12 @@ kernelspec:
   name: python3
 ---
 
-# Uvod v programiranje
+# Nadzor različic
 
-## O Pythonu
+## Spremembe in repozitoriji
 
-## Delo s Pythonom
+## Sinhronizacija med repozitoriji
+
+## Zlivanje sprememb in konflikti
+
+## `README.md` in `.gitignore`

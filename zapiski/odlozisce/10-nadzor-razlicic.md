@@ -1,4 +1,4 @@
-# Git
+# Nadzor različic
 
 ## Spremembe in repozitoriji
 
