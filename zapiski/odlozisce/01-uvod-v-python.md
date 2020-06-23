@@ -1,47 +1,8 @@
 # Uvod v Python
 
-## Zgodovina Pythona
-
-.center[![](https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg)]
-
-- 1991: Guido van Rossum (~~BDFL~~) objavi Python 0.9
-- 2000: Python 2.0
-- 2008: Python 3.0
-- 2010: Python 2.7
-- ~~2015: predvideni konec podpore za Python 2.7~~
-- 2019: Python 3.8
-- 2020: konec podpore za Python 2.7
-
-## Kako uporabljamo Python
-
-S Pythonom se najenostavneje pogovarjamo prek interaktivne konzole, do katere lahko dostopamo na več načinov: neposredno iz ukazne vrstice, z uporabo enostavnega okolja IDLE, ki je priloženo vsaki namestitvi Pythona, ali pa prek kakšnega od naprednejših razvijalskih okolij, na primer PyCharm. Za navodila, kako to storimo, si oglejte video [Namestitev Pythona pod Windowsi](https://vimeo.com/156327496).
-
-V vseh primerih nas pozdravi približno tak izpis:
-
-```
-Python 3.7.3 (default, Nov 15 2019, 04:04:52) 
-[Clang 11.0.0 (clang-1100.0.33.16)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
->>>
-```
-
-Na začetku natančno piše, katero različico Pythona uporabljamo, temu pa sledi nekaj kazalcev na osnovne informacije. Mi se bomo osredotočili na zadnjo vrstico, v kateri nam poziv `>>>` kaže, da je Python pripravljen na naš vnos.
-
-```
-Pozorni bodite, da v prvi vrstici piše `Python 3.x.x` (zadnji dve številki nista tako ključni). Če tam piše `Python 2.x.x`, uporabljate Python 2, starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob prehodu na Python 3 leta 2008 so razvijalci jezika naredili nekaj večjih sprememb, ki so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro, tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo ukvarjali izključno s Pythonom 3.
-```
-
-Za začetek izračunajmo, koliko je 1 + 1\. Vnesemo `1 + 1` ter pritisnimo znak za novo vrstico. Ob tem Python prebere naš vnos, ga izračuna in izpiše rezultat.
-
-```
-1 + 1
-```
-
-REPL, Jupyter, datoteke
-
 ## Aritmetični izrazi
 
-Poleg seštevanja so nam na voljo tudi ostale osnovne računske operacije: `-` za odštevanje, `*` za množenje in `**` za potenciranje. Za deljenje Python pozna dve operaciji: običajno deljenje `/` in pa celoštevilsko deljenje `//`, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek, uporabimo `%`. Prioriteta operatorjev je določena tako kot običajno: najtesneje veže potenciranje, nato množenje in deljenji, nazadnje pa seštevanje in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.
+Videli smo, da lahko v Pythonu seštevamo, seveda pa so nam voljo tudi ostale osnovne računske operacije: `-` za odštevanje, `*` za množenje in `**` za potenciranje. Za deljenje Python pozna dve operaciji: običajno deljenje `/` in pa celoštevilsko deljenje `//`, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek, uporabimo `%`. Prioriteta operatorjev je določena tako kot običajno: najtesneje veže potenciranje, nato množenje in deljenji, nazadnje pa seštevanje in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.
 
 ```
 (1 + 5) ** (9 - 2)
@@ -134,7 +95,6 @@ Ko smo v `x` shranili novo vrednost, se vrednost `y` ni spremenila, saj je prire
 
 ## Shranjevanje programov v datoteke
 
-Interaktivna konzola je uporabna za krajše programe, daljše pa raje shranimo v datoteko. S tem preprečimo, da bi izgubili vse svoje delo, pa tudi lažje popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s katerim koli urejevalnikom besedila, na primer _Notepad_, _Notepad++_, _Emacs_ ali _Vi_. Pythonovim datotekam običajno damo končnico `.py`. Za natančnejša navodila si oglejte video [Nalaganje programov iz datotek](https://vimeo.com/156465707).
 
 Za primer daljšega programa si oglejmo [Fermijevo oceno](https://sl.wikipedia.org/wiki/Fermijev_problem) števila učiteljev matematike v slovenskih osnovnih šolah. Sledeče stavke vpišite v datoteko `fermi.py`:
 
