@@ -1,12 +1,11 @@
 
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Index &#8212; Uvod v programiranje</title>
+    <title>Datoteke &#8212; Uvod v programiranje</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -30,8 +29,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Razredi" href="08-razredi.html" />
+    <link rel="prev" title="Slovarji &amp; množice" href="06-slovarji-in-mnozice.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -88,8 +89,8 @@
   <li class="">
     <a href="06-slovarji-in-mnozice.html">Slovarji & množice</a>
   </li>
-  <li class="">
-    <a href="07-datoteke.html">Datoteke</a>
+  <li class="active">
+    <a href="">Datoteke</a>
   </li>
   <li class="">
     <a href="08-razredi.html">Razredi</a>
@@ -158,6 +159,21 @@
             class="fas fa-download"></i></button>
 
     
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/07-datoteke.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/07-datoteke.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -169,11 +185,47 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/zapiski?urlpath=tree/07-datoteke.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#branje-datotek" class="nav-link">Branje datotek</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pisanje-datotek" class="nav-link">Pisanje datotek</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#delo-z-datotecnim-sistemom" class="nav-link">Delo z datotečnim sistemom</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#pogosti-zapisi-datotek" class="nav-link">Pogosti zapisi datotek</a>
+        </li>
     
     </ul>
 </nav>
@@ -186,11 +238,20 @@
         
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="datoteke">
+<h1>Datoteke<a class="headerlink" href="#datoteke" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="branje-datotek">
+<h2>Branje datotek<a class="headerlink" href="#branje-datotek" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pisanje-datotek">
+<h2>Pisanje datotek<a class="headerlink" href="#pisanje-datotek" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="delo-z-datotecnim-sistemom">
+<h2>Delo z datotečnim sistemom<a class="headerlink" href="#delo-z-datotecnim-sistemom" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pogosti-zapisi-datotek">
+<h2>Pogosti zapisi datotek<a class="headerlink" href="#pogosti-zapisi-datotek" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -202,6 +263,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="06-slovarji-in-mnozice.html" title="previous page">Slovarji &amp; množice</a>
+    <a class='right-next' id="next-link" href="08-razredi.html" title="next page">Razredi</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

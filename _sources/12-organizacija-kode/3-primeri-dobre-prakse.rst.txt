@@ -1,2 +1,0 @@
-Primeri dobre prakse *
-====================

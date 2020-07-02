@@ -1,2 +1,0 @@
-Posebne metode *
-==============

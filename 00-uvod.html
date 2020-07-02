@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Zanke &#8212; Uvod v programiranje</title>
+    <title>Uvod v programiranje &#8212; Uvod v programiranje</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -31,8 +31,7 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Seznami &amp; nabori" href="04-seznami-in-nabori.html" />
-    <link rel="prev" title="Nizi" href="02-nizi.html" />
+    <link rel="next" title="Uvod v Python" href="01-uvod-v-python.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -65,8 +64,8 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="00-uvod.html">Uvod v programiranje</a>
+  <li class="active">
+    <a href="#">Uvod v programiranje</a>
   </li>
 <li class="navbar-special">
 <p class="margin-caption">Osnove Pythona</p>
@@ -77,8 +76,8 @@
   <li class="">
     <a href="02-nizi.html">Nizi</a>
   </li>
-  <li class="active">
-    <a href="">Zanke</a>
+  <li class="">
+    <a href="03-zanke.html">Zanke</a>
   </li>
   <li class="">
     <a href="04-seznami-in-nabori.html">Seznami & nabori</a>
@@ -162,11 +161,11 @@
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="_sources/03-zanke.ipynb"><button type="button"
+            href="_sources/00-uvod.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/03-zanke.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/00-uvod.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -190,7 +189,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/zapiski?urlpath=tree/03-zanke.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/zapiski?urlpath=tree/00-uvod.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -212,19 +211,11 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#zanka-while" class="nav-link">Zanka while</a>
+            <a href="#o-pythonu" class="nav-link">O Pythonu</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#zanka-for" class="nav-link">Zanka for</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#stavki-break-continue-in-pass" class="nav-link">Stavki break, continue in pass</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#metoda-monte-carlo" class="nav-link">Metoda Monte-Carlo</a>
+            <a href="#delo-s-pythonom" class="nav-link">Delo s Pythonom</a>
         </li>
     
     </ul>
@@ -238,19 +229,51 @@
         
               <div>
                 
-  <div class="section" id="zanke">
-<h1>Zanke<a class="headerlink" href="#zanke" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="zanka-while">
-<h2>Zanka <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#zanka-while" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="uvod-v-programiranje">
+<h1>Uvod v programiranje<a class="headerlink" href="#uvod-v-programiranje" title="Permalink to this headline">¶</a></h1>
+<p>Programiranje različnim ljudem <a class="reference external" href="https://sl.wikipedia.org/wiki/Nevrolingvisti%C4%8Dno_programiranje">pomeni</a> <a class="reference external" href="https://sl.wikipedia.org/wiki/Linearno_programiranje">različne</a> <a class="reference external" href="https://en.wikipedia.org/wiki/Broadcast_programming">stvari</a>. Pri tem predmetu se bomo učili računalniškega programiranja. Cilj tega je, da računalniku dopovemo, kako naj namesto nas naredi tisto, česar mi ne zmoremo ali preprosto nočemo.</p>
+<p>Računalnike programiramo preko <em>programskih</em> jezikov. Tako kot običajni jeziki imajo tudi ti pravila zapisa in pomena, vendar so običajno bolj preprosti in nedvoumni, saj jih morajo poleg ljudi razumeti tudi računalniki. Nekateri programski jeziki so bliže ljudem, drugi bliže računalnikom, vsi pa slonijo na zelo podobnih idejah. Ko znamo programirati v enem, lahko hitro preklopimo na drugega.</p>
+<div class="section" id="o-pythonu">
+<h2>O Pythonu<a class="headerlink" href="#o-pythonu" title="Permalink to this headline">¶</a></h2>
+<p>Pri tem predmetu se bomo naučili jezika Python, ki je precej prijazen do začetnikov, hkrati pa tudi izjemno popularen, zato bo pridobljeno znanje takoj uporabno. Python se imenuje po skupini Monty Python, kar se vidi tudi v dokumentaciji, kjer je precej referenc na njihove skeče. Avtor Pythona je Guido van Rossum, ki je bil do nedavnega tudi BDFL (benevolent dictator for life), torej tisti z zadnjo besedo pri pomembnih odločitvah glede prihodnosti Pythona. Leta 2018 je z mesta odstopil ter nadzor predal skupnosti.</p>
+<p>Tudi če vas zgodovina Pythona ne zanima, ji bomo posvetili malo pozornosti, saj se jo je treba zavedati v vsakdanji uporabi. Pythonova prva javna objavljena različica je bil Python 0.9 leta 1991, vendar se je pravi razmah začel šele leta 2000 z različico 2.0. Kljub nekaj posodobitvam je postalo očitno, da je za prihodnji razvoj potrebno narediti nekaj večjih sprememb, ki bodo jezik prečistile, vendar bodo zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati.</p>
+<p>Tako je leta 2008 izšel Python 3.0, prva različica Pythona 3, leta 2010 pa Python 2.7 zadnja različica Pythona 2. Razvijalci Pythona so upali, da bodo avtorji starih programov prešli na Python 3 in napovedali, da bo Python 2 podprt samo še do leta 2015. Žal pa je bil Python 2 do takrat že tako uveljavljen, da veliko uporabnikov ni želelo opraviti prehoda, zato je bil rok zamaknjen na 1. januar 2020. V zadnjih letih so tako vse večje knjižnice in večina uporabnikov prešli na Python 3, vendar Python 2 še vedno živi, zato morate biti pozorni, katero različico uporabljate. Pri tem predmetu bomo uporabljali izključno Python 3, lahko pa se zgodi, da si ponesreči namestite in poženete Python 2, v katerem bodo stvari delovale precej podobno, na vsake toliko časa pa bo neka stvar delovala drugače in vas presenetila.</p>
 </div>
-<div class="section" id="zanka-for">
-<h2>Zanka <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#zanka-for" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="delo-s-pythonom">
+<h2>Delo s Pythonom<a class="headerlink" href="#delo-s-pythonom" title="Permalink to this headline">¶</a></h2>
+<p>Python najenostavneje uporabljamo prek interaktivne konzole, v katero pišemo ukaze, ki jih računalnik nato izvede ter vrne odgovor. Do interaktivne konzole lahko dostopamo na več načinov: neposredno iz ukazne vrstice, prek okolja IDLE, ki je priloženo vsaki namestitvi Pythona, ali pa iz naprednejšega urejevalnika besedil. V vseh primerih nas pozdravi približno tak izpis:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.7</span><span class="o">.</span><span class="mi">3</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Nov</span> <span class="mi">15</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">04</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">52</span><span class="p">)</span> 
+<span class="p">[</span><span class="n">Clang</span> <span class="mf">11.0</span><span class="o">.</span><span class="mi">0</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">1100.0</span><span class="o">.</span><span class="mf">33.16</span><span class="p">)]</span> <span class="n">on</span> <span class="n">darwin</span>
+<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
 </div>
-<div class="section" id="stavki-break-continue-in-pass">
-<h2>Stavki <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> in <code class="docutils literal notranslate"><span class="pre">pass</span></code><a class="headerlink" href="#stavki-break-continue-in-pass" title="Permalink to this headline">¶</a></h2>
+<p>Na začetku natančno piše, katero različico Pythona uporabljamo. Bodite pozorni, da piše <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.x.x</span></code> (zadnji dve številki nista tako ključni), in ne <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">2.x.x</span></code>. Številki različice sledi nekaj kazalcev na osnovne informacije, v zadnji vrstici pa poziv <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>, ki kaže, da je računalnik pripravljen na naš vnos.</p>
+<p>Za začetek izračunajmo, koliko je 1 + 1. Vnesemo <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code> ter pritisnimo znak za novo vrstico. Ob tem Python prebere naš vnos, ga izračuna in izpiše rezultat.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">2</span>
+</pre></div>
 </div>
-<div class="section" id="metoda-monte-carlo">
-<h2>Metoda Monte-Carlo<a class="headerlink" href="#metoda-monte-carlo" title="Permalink to this headline">¶</a></h2>
+<p>Interaktivna konzola je uporabna za krajše programe, daljše pa raje shranimo v datoteko. S tem preprečimo, da bi izgubili vse svoje delo, pa tudi lažje popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s katerim koli urejevalnikom besedila. Pythonovim datotekam običajno damo končnico <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</p>
+<p>V tem učbeniku bomo uporabljali tretji način in sicer interaktivne zvezke, ki jih ponuja orodje Jupyter. Ti zvezki so sestavljeni iz celic, v katerih se programi izmenjujejo z besedilom. Celicam s programi sledijo celice z odzivom, vse skupaj pa je videti takole:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -263,8 +286,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="02-nizi.html" title="previous page">Nizi</a>
-    <a class='right-next' id="next-link" href="04-seznami-in-nabori.html" title="next page">Seznami &amp; nabori</a>
+    <a class='right-next' id="next-link" href="01-uvod-v-python.html" title="next page">Uvod v Python</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

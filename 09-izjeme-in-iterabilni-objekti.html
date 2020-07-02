@@ -1,12 +1,11 @@
 
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Index &#8212; Uvod v programiranje</title>
+    <title>Izjeme &amp; iterabilni objekti &#8212; Uvod v programiranje</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -30,8 +29,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nadzor različic" href="10-nadzor-razlicic.html" />
+    <link rel="prev" title="Razredi" href="08-razredi.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -94,8 +95,8 @@
   <li class="">
     <a href="08-razredi.html">Razredi</a>
   </li>
-  <li class="">
-    <a href="09-izjeme-in-iterabilni-objekti.html">Izjeme & iterabilni objekti</a>
+  <li class="active">
+    <a href="">Izjeme & iterabilni objekti</a>
   </li>
 <li class="navbar-special">
 <p class="margin-caption">Pisanje večjih programov</p>
@@ -158,6 +159,21 @@
             class="fas fa-download"></i></button>
 
     
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/09-izjeme-in-iterabilni-objekti.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/09-izjeme-in-iterabilni-objekti.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -169,11 +185,55 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/zapiski?urlpath=tree/09-izjeme-in-iterabilni-objekti.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#sprozanje-in-lovljenje-izjem" class="nav-link">Sprožanje in lovljenje izjem</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#iteratorji" class="nav-link">Iteratorji</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#iterabilni-objekti" class="nav-link">Iterabilni objekti</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#generatorji" class="nav-link">Generatorji</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#razstavljanje-iterabilnih-objektov" class="nav-link">Razstavljanje iterabilnih objektov</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#funkcije-s-poljubno-mnogo-argumenti" class="nav-link">Funkcije s poljubno mnogo argumenti</a>
+        </li>
     
     </ul>
 </nav>
@@ -186,11 +246,26 @@
         
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="izjeme-iterabilni-objekti">
+<h1>Izjeme &amp; iterabilni objekti<a class="headerlink" href="#izjeme-iterabilni-objekti" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sprozanje-in-lovljenje-izjem">
+<h2>Sprožanje in lovljenje izjem<a class="headerlink" href="#sprozanje-in-lovljenje-izjem" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="iteratorji">
+<h2>Iteratorji<a class="headerlink" href="#iteratorji" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="iterabilni-objekti">
+<h2>Iterabilni objekti<a class="headerlink" href="#iterabilni-objekti" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="generatorji">
+<h2>Generatorji<a class="headerlink" href="#generatorji" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="razstavljanje-iterabilnih-objektov">
+<h2>Razstavljanje iterabilnih objektov<a class="headerlink" href="#razstavljanje-iterabilnih-objektov" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="funkcije-s-poljubno-mnogo-argumenti">
+<h2>Funkcije s poljubno mnogo argumenti<a class="headerlink" href="#funkcije-s-poljubno-mnogo-argumenti" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -202,6 +277,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="08-razredi.html" title="previous page">Razredi</a>
+    <a class='right-next' id="next-link" href="10-nadzor-razlicic.html" title="next page">Nadzor različic</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -1,12 +1,11 @@
 
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Index &#8212; Uvod v programiranje</title>
+    <title>Nadzor različic &#8212; Uvod v programiranje</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -30,8 +29,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tekstovni vmesnik" href="11-tekstovni-vmesnik.html" />
+    <link rel="prev" title="Izjeme &amp; iterabilni objekti" href="09-izjeme-in-iterabilni-objekti.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -100,8 +101,8 @@
 <li class="navbar-special">
 <p class="margin-caption">Pisanje večjih programov</p>
 </li>
-  <li class="">
-    <a href="10-nadzor-razlicic.html">Nadzor različic</a>
+  <li class="active">
+    <a href="">Nadzor različic</a>
   </li>
   <li class="">
     <a href="11-tekstovni-vmesnik.html">Tekstovni vmesnik</a>
@@ -158,6 +159,21 @@
             class="fas fa-download"></i></button>
 
     
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/10-nadzor-razlicic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/10-nadzor-razlicic.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -169,11 +185,47 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/zapiski?urlpath=tree/10-nadzor-razlicic.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#spremembe-in-repozitoriji" class="nav-link">Spremembe in repozitoriji</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#sinhronizacija-med-repozitoriji" class="nav-link">Sinhronizacija med repozitoriji</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#zlivanje-sprememb-in-konflikti" class="nav-link">Zlivanje sprememb in konflikti</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#readme-md-in-gitignore" class="nav-link">README.md in .gitignore</a>
+        </li>
     
     </ul>
 </nav>
@@ -186,11 +238,20 @@
         
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="nadzor-razlicic">
+<h1>Nadzor različic<a class="headerlink" href="#nadzor-razlicic" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="spremembe-in-repozitoriji">
+<h2>Spremembe in repozitoriji<a class="headerlink" href="#spremembe-in-repozitoriji" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="sinhronizacija-med-repozitoriji">
+<h2>Sinhronizacija med repozitoriji<a class="headerlink" href="#sinhronizacija-med-repozitoriji" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="zlivanje-sprememb-in-konflikti">
+<h2>Zlivanje sprememb in konflikti<a class="headerlink" href="#zlivanje-sprememb-in-konflikti" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="readme-md-in-gitignore">
+<h2><code class="docutils literal notranslate"><span class="pre">README.md</span></code> in <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code><a class="headerlink" href="#readme-md-in-gitignore" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -202,6 +263,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="09-izjeme-in-iterabilni-objekti.html" title="previous page">Izjeme &amp; iterabilni objekti</a>
+    <a class='right-next' id="next-link" href="11-tekstovni-vmesnik.html" title="next page">Tekstovni vmesnik</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

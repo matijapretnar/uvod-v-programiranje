@@ -1,12 +1,11 @@
 
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Index &#8212; Uvod v programiranje</title>
+    <title>Spletni vmesnik &#8212; Uvod v programiranje</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -30,8 +29,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Spletna storitev" href="13-spletna-storitev.html" />
+    <link rel="prev" title="Tekstovni vmesnik" href="11-tekstovni-vmesnik.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -106,8 +107,8 @@
   <li class="">
     <a href="11-tekstovni-vmesnik.html">Tekstovni vmesnik</a>
   </li>
-  <li class="">
-    <a href="12-spletni-vmesnik.html">Spletni vmesnik</a>
+  <li class="active">
+    <a href="">Spletni vmesnik</a>
   </li>
   <li class="">
     <a href="13-spletna-storitev.html">Spletna storitev</a>
@@ -158,6 +159,21 @@
             class="fas fa-download"></i></button>
 
     
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/12-spletni-vmesnik.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/12-spletni-vmesnik.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -169,11 +185,51 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/zapiski?urlpath=tree/12-spletni-vmesnik.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#knjiznica-bottle" class="nav-link">Knjižnica bottle</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#dinamicne-spletne-strani" class="nav-link">Dinamične spletne strani</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#predloge" class="nav-link">Predloge</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#obrazci" class="nav-link">Obrazci</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#metoda-post-in-preusmeritve" class="nav-link">Metoda POST in preusmeritve</a>
+        </li>
     
     </ul>
 </nav>
@@ -186,11 +242,23 @@
         
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="spletni-vmesnik">
+<h1>Spletni vmesnik<a class="headerlink" href="#spletni-vmesnik" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="knjiznica-bottle">
+<h2>Knjižnica <code class="docutils literal notranslate"><span class="pre">bottle</span></code><a class="headerlink" href="#knjiznica-bottle" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="dinamicne-spletne-strani">
+<h2>Dinamične spletne strani<a class="headerlink" href="#dinamicne-spletne-strani" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="predloge">
+<h2>Predloge<a class="headerlink" href="#predloge" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="obrazci">
+<h2>Obrazci<a class="headerlink" href="#obrazci" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="metoda-post-in-preusmeritve">
+<h2>Metoda POST in preusmeritve<a class="headerlink" href="#metoda-post-in-preusmeritve" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -202,6 +270,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="11-tekstovni-vmesnik.html" title="previous page">Tekstovni vmesnik</a>
+    <a class='right-next' id="next-link" href="13-spletna-storitev.html" title="next page">Spletna storitev</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

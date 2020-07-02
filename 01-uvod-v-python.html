@@ -1,268 +1,698 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Uvod v Python &#8212; Uvod v programiranje 0.2 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <meta charset="utf-8" />
+    <title>Uvod v Python &#8212; Uvod v programiranje</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Abecedni seznam" href="genindex.html" />
-    <link rel="search" title="Išči" href="search.html" />
-    <link rel="next" title="Rekurzija" href="02-rekurzija.html" />
-    <link rel="prev" title="Uvod v programiranje" href="index.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nizi" href="02-nizi.html" />
+    <link rel="prev" title="Uvod v programiranje" href="00-uvod.html" />
 
-  </head><body>
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Uvod v programiranje</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="00-uvod.html">Uvod v programiranje</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Osnove Pythona</p>
+</li>
+  <li class="active">
+    <a href="">Uvod v Python</a>
+  </li>
+  <li class="">
+    <a href="02-nizi.html">Nizi</a>
+  </li>
+  <li class="">
+    <a href="03-zanke.html">Zanke</a>
+  </li>
+  <li class="">
+    <a href="04-seznami-in-nabori.html">Seznami & nabori</a>
+  </li>
+  <li class="">
+    <a href="05-osnovni-algoritmi.html">Osnovni algoritmi</a>
+  </li>
+  <li class="">
+    <a href="06-slovarji-in-mnozice.html">Slovarji & množice</a>
+  </li>
+  <li class="">
+    <a href="07-datoteke.html">Datoteke</a>
+  </li>
+  <li class="">
+    <a href="08-razredi.html">Razredi</a>
+  </li>
+  <li class="">
+    <a href="09-izjeme-in-iterabilni-objekti.html">Izjeme & iterabilni objekti</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Pisanje večjih programov</p>
+</li>
+  <li class="">
+    <a href="10-nadzor-razlicic.html">Nadzor različic</a>
+  </li>
+  <li class="">
+    <a href="11-tekstovni-vmesnik.html">Tekstovni vmesnik</a>
+  </li>
+  <li class="">
+    <a href="12-spletni-vmesnik.html">Spletni vmesnik</a>
+  </li>
+  <li class="">
+    <a href="13-spletna-storitev.html">Spletna storitev</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Kako deluje računalnik</p>
+</li>
+  <li class="">
+    <a href="14-od-silicija-do-strojne-kode.html">Od silicija do strojne kode</a>
+  </li>
+  <li class="">
+    <a href="15-od-zbirnika-do-generatorja-prastevil.html">Od zbirnika do generatorja praštevil</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/01-uvod-v-python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/01-uvod-v-python.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/zapiski?urlpath=tree/01-uvod-v-python.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aritmeticni-izrazi" class="nav-link">Aritmetični izrazi</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#spremenljivke" class="nav-link">Spremenljivke</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#funkcije" class="nav-link">Funkcije</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#preprecevanje-napak" class="nav-link">Preprečevanje napak</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#sintakticne-napake" class="nav-link">Sintaktične napake</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#napake-ob-izvajanju" class="nav-link">Napake ob izvajanju</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#vsebinske-napake" class="nav-link">Vsebinske napake</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#definicije-funkcij" class="nav-link">Definicije funkcij</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#logicne-vrednosti" class="nav-link">Logične vrednosti</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#izrazi-stavki" class="nav-link">Izrazi & stavki</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#rekurzivne-definicije" class="nav-link">Rekurzivne definicije</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
   <div class="section" id="uvod-v-python">
-<h1>Uvod v Python<a class="headerlink" href="#uvod-v-python" title="Povezava na naslov">¶</a></h1>
-<p>Programiranje različnim ljudem <a class="reference external" href="https://sl.wikipedia.org/wiki/Nevrolingvistično_programiranje">pomeni</a> <a class="reference external" href="https://sl.wikipedia.org/wiki/Linearno_programiranje">različne</a> <a class="reference external" href="https://en.wikipedia.org/wiki/Broadcast_programming">stvari</a>. Pri tem predmetu se bomo učili računalniškega programiranja. Naš cilj bo, da računalniku dopovemo, kako naj namesto nas naredi tisto, česar mi ne zmoremo ali preprosto nočemo.</p>
-<p>Računalnik programiramo preko <em>programskih</em> jezikov. Tako kot običajni jeziki imajo tudi ti pravila zapisa in pomena, vendar so običajno bolj preprosti in nedvoumni, saj jih morajo poleg ljudi razumeti tudi računalniki. Nekateri programski jeziki so bliže ljudem, drugi bliže računalnikom, vsi pa slonijo na zelo podobnih idejah. Ko znamo programirati v enem, lahko hitro preklopimo na drugega.</p>
-<p>V našem primeru se bomo naučili jezika Python, ki je precej prijazen do začetnikov, hkrati pa tudi izjemno popularen, zato bo pridobljeno znanje takoj uporabno. Pythonov avtor in BDFL (<em>benevolent dictator for life</em> oziroma dobrohotni dosmrtni diktator) je Guido van Rossum.</p>
-<div class="section" id="delo-s-pythonom">
-<h2>Delo s Pythonom<a class="headerlink" href="#delo-s-pythonom" title="Povezava na naslov">¶</a></h2>
-<p>S Pythonom se najenostavneje pogovarjamo prek interaktivne konzole, do katere lahko dostopamo na več načinov: neposredno iz ukazne vrstice, z uporabo enostavnega okolja IDLE, ki je priloženo vsaki namestitvi Pythona, ali pa prek kakšnega od naprednejših razvijalskih okolij, na primer PyCharm. Za navodila, kako to storimo, si oglejte video <a class="reference external" href="https://vimeo.com/156327496">Namestitev Pythona pod Windowsi</a>.</p>
-<p>V vseh primerih nas pozdravi približno tak izpis:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.5</span><span class="o">.</span><span class="mi">1</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Jan</span> <span class="mi">22</span> <span class="mi">2016</span><span class="p">,</span> <span class="mi">08</span><span class="p">:</span><span class="mi">54</span><span class="p">:</span><span class="mi">32</span><span class="p">)</span>
-<span class="p">[</span><span class="n">GCC</span> <span class="mf">4.2</span><span class="o">.</span><span class="mi">1</span> <span class="n">Compatible</span> <span class="n">Apple</span> <span class="n">LLVM</span> <span class="mf">7.0</span><span class="o">.</span><span class="mi">2</span> <span class="p">(</span><span class="n">clang</span><span class="o">-</span><span class="mf">700.1</span><span class="o">.</span><span class="mi">81</span><span class="p">)]</span> <span class="n">on</span> <span class="n">darwin</span>
-<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<span class="o">&gt;&gt;&gt;</span>
+<h1>Uvod v Python<a class="headerlink" href="#uvod-v-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="aritmeticni-izrazi">
+<h2>Aritmetični izrazi<a class="headerlink" href="#aritmeticni-izrazi" title="Permalink to this headline">¶</a></h2>
+<p>Videli smo, da lahko v Pythonu seštevamo, seveda pa so nam voljo tudi ostale osnovne računske operacije: <code class="docutils literal notranslate"><span class="pre">-</span></code> za odštevanje, <code class="docutils literal notranslate"><span class="pre">*</span></code> za množenje in <code class="docutils literal notranslate"><span class="pre">**</span></code> za potenciranje. Za deljenje Python pozna dve operaciji: običajno deljenje <code class="docutils literal notranslate"><span class="pre">/</span></code> in pa celoštevilsko deljenje <code class="docutils literal notranslate"><span class="pre">//</span></code>, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek, uporabimo <code class="docutils literal notranslate"><span class="pre">%</span></code>. Prioriteta operatorjev je določena tako kot običajno: najtesneje veže potenciranje, nato množenje in deljenji, nazadnje pa seštevanje in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Na začetku natančno piše, katero različico Pythona uporabljamo, temu pa sledi nekaj kazalcev na osnovne informacije. Mi se bomo osredotočili na zadnjo vrstico, v kateri nam poziv <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> kaže, da je Python pripravljen na naš vnos.</p>
-<div class="admonition caution">
-<p class="first admonition-title">Previdno</p>
-<p class="last">Pozorni bodite, da v prvi vrstici piše <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.x.x</span></code> (zadnji dve številki nista tako ključni). Če tam piše <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">2.x.x</span></code>, uporabljate Python 2, starejšo, a še vedno precej razširjeno starejšo različico Pythona. Ob prehodu na Python 3 leta 2008 so razvijalci jezika naredili nekaj večjih sprememb, ki so jezik prečistile, vendar so zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati. Razvijalci Pythona so upali, da bodo avtorji starih programov prešli na Python 3, vendar se to ni zgodilo dovolj hitro, tako da sta danes še vedno v uporabi obe različici. V tem učbeniku se bomo ukvarjali izključno s Pythonom 3.</p>
 </div>
-<p>Za začetek izračunajmo, koliko je 1 + 1. Vnesemo <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span></code> ter pritisnimo znak za novo vrstico. Ob tem Python prebere naš vnos, ga izračuna in izpiše rezultat.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="go">2</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>279936
 </pre></div>
 </div>
-<div class="section" id="stevila-in-aritmeticne-operacije">
-<h3>Števila in aritmetične operacije<a class="headerlink" href="#stevila-in-aritmeticne-operacije" title="Povezava na naslov">¶</a></h3>
-<p>Poleg seštevanja so nam na voljo tudi ostale osnovne računske operacije: <code class="docutils literal notranslate"><span class="pre">-</span></code> za odštevanje, <code class="docutils literal notranslate"><span class="pre">*</span></code> za množenje in <code class="docutils literal notranslate"><span class="pre">**</span></code> za potenciranje. Za deljenje Python pozna dve operaciji: običajno deljenje <code class="docutils literal notranslate"><span class="pre">/</span></code> in pa celoštevilsko deljenje <code class="docutils literal notranslate"><span class="pre">//</span></code>, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek, uporabimo <code class="docutils literal notranslate"><span class="pre">%</span></code>. Prioriteta operatorjev je določena tako kot običajno: najtesneje veže potenciranje, nato množenje in deljenji, nazadnje pa seštevanje in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">42</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">/</span> <span class="mi">10</span>
-<span class="go">12.3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">//</span> <span class="mi">10</span>
-<span class="go">12</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">%</span> <span class="mi">10</span>
-<span class="go">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">**</span> <span class="p">(</span><span class="mi">45</span> <span class="o">+</span> <span class="mi">67</span><span class="p">)</span>
-<span class="go">1173201153236117392747457141184065170953567764283837482787268119007036898684512512556572577156186549602764788041495818311329933349581701014867937205332087819177539156963702612817234021747525564287508352993790061063457990401206082438721</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">123</span> <span class="o">/</span> <span class="mi">10</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>12.3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">123</span> <span class="o">//</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">123</span> <span class="o">%</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">123</span> <span class="o">**</span> <span class="p">(</span><span class="mi">45</span> <span class="o">+</span> <span class="mi">67</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1173201153236117392747457141184065170953567764283837482787268119007036898684512512556572577156186549602764788041495818311329933349581701014867937205332087819177539156963702612817234021747525564287508352993790061063457990401206082438721
+</pre></div>
+</div>
+</div>
 </div>
 <p>Vidimo, da velika števila Pythonu ne povzročajo velikih težav.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Razmislite, kako bi izračunali predzadnjih sto števk števila <span class="math notranslate nohighlight">\(2^{12345}\)</span>?</p>
 </div>
-<div class="section" id="uporaba-vgrajenih-funkcij">
-<h3>Uporaba vgrajenih funkcij<a class="headerlink" href="#uporaba-vgrajenih-funkcij" title="Povezava na naslov">¶</a></h3>
-<p>Na voljo so tudi osnovne funkcije, kot na primer <code class="docutils literal notranslate"><span class="pre">max</span></code> in <code class="docutils literal notranslate"><span class="pre">min</span></code> za izračun maksimuma in minimuma.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="go">6</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">min</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">-5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="mi">30</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">15</span>
-</pre></div>
 </div>
-<p>Matematične funkcije so na voljo v ločeni knjižnici <code class="docutils literal notranslate"><span class="pre">math</span></code>. Do njih lahko dostopamo na dva osnovna načina:</p>
-<ol class="arabic">
-<li><p class="first">Knjižnico uvozimo s stavkom <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>, nato pa do funkcij in konstant dostopamo tako, da dodamo <code class="docutils literal notranslate"><span class="pre">math.</span></code> pred vsako ime:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="go">0.7071067811865476</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
-<span class="go">0.7071067811865475</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="go">1.2246467991473532e-16</span>
-</pre></div>
-</div>
-</li>
-</ol>
-<blockquote>
-<div>V zadnjem ukazu nismo dobili pričakovanega odgovora 0. Računalnik namreč ne dela s čisto pravimi realnimi števili, temveč z njihovimi približki, ki jim pravimo <em>števila s plavajočo vejico</em>. Za ta števila običajno najprej zapišemo decimalke (ki jim pravimo <em>mantisa</em>), nato pa še eksponent. Število, ki smo ga dobili, je tako enako približno <span class="math notranslate">\(1{,}22 \cdot 10^{-16}\)</span>, saj <code class="docutils literal notranslate"><span class="pre">e-16</span></code> pomeni <span class="math notranslate">\(10^{-16}\)</span>. Na primer <code class="docutils literal notranslate"><span class="pre">3.2445e2</span></code> pa označuje število <span class="math notranslate">\(324{,}45 = 3{,}2445 \cdot 10^2\)</span>).</div></blockquote>
-<ol class="arabic" start="2">
-<li><p class="first">Iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">...</span></code> uvozimo posamezne vrednosti, nato pa do njih dostopamo direktno:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="go">0.7071067811865476</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
-<span class="go">0.7071067811865475</span>
-</pre></div>
-</div>
-</li>
-</ol>
-<p>Obstaja tudi tretji način, ko iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">*</span></code> uvozimo vse naštete vrednosti, vendar je odsvetovan, ker potem nikoli ne vemo, kaj vse smo uvozili.</p>
-</div>
-<div class="section" id="napake">
-<h3>Napake<a class="headerlink" href="#napake" title="Povezava na naslov">¶</a></h3>
-<p>Pri programiranju dostikrat naredimo tudi kakšno napako. Načeloma lahko ločimo tri vrste napak:</p>
-<ol class="arabic">
-<li><p class="first"><strong>Sintaktične napake</strong>, v katerih program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
-         <span class="o">^</span>
-<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
-</pre></div>
-</div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-             <span class="o">^</span>
-<span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
-</pre></div>
-</div>
-<p>Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.</p>
-</li>
-<li><p class="first"><strong>Napake ob izvajanju</strong>, v katerih program napišemo sintaktično pravilno, vendar uporabimo neveljavno operacijo:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
-</pre></div>
-</div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-<span class="gr">NameError</span>: <span class="n">name &#39;mix&#39; is not defined</span>
-</pre></div>
-</div>
-<p>Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V prvem primeru je bila napaka deljenje z 0, v drugem pa to, da ime <code class="docutils literal notranslate"><span class="pre">mix</span></code> ni definirano.</p>
-<p>Take napake se pojavijo šele ob izvajanju programa, in izvajanje tudi prekinejo. To zna biti nerodno, kadar gre za kritično pomemben program (npr. za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih lahko včasih tudi naknadno rešimo).</p>
-</li>
-<li><p class="first"><strong>Vsebinske napake</strong>, pri katerih program navidez deluje brez težav, vendar izračuna napačen odgovor, ker smo mu dali napačna navodila. Recimo, da želimo izračunati razdaljo med točkama (2, 3) in (5, 7):</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
-<span class="go">12.5</span>
-</pre></div>
-</div>
-<p>Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2, temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa ne opazimo. Znan primer te napake je <a class="reference external" href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Climate Orbiter</a>, ki je po devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami, del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.</p>
-<blockquote>
-<div></div></blockquote>
-</li>
-</ol>
-</div>
-<div class="section" id="prirejanje-vrednosti-spremenljivkam">
-<h3>Prirejanje vrednosti spremenljivkam<a class="headerlink" href="#prirejanje-vrednosti-spremenljivkam" title="Povezava na naslov">¶</a></h3>
+<div class="section" id="spremenljivke">
+<h2>Spremenljivke<a class="headerlink" href="#spremenljivke" title="Permalink to this headline">¶</a></h2>
 <p>Izračunane vrednosti si lahko shranimo tudi v spremenljivke, ki jih potem uporabljamo v kasnejših izračunih. Za to uporabimo <em>prireditveni stavek</em> oblike</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ime_spremenljivke</span> <span class="o">=</span> <span class="n">vrednost_ki_jo_zelimo_shraniti</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ime_spremenljivke</span> <span class="o">=</span> <span class="n">vrednost_ki_jo_zelimo_shraniti</span>
 </pre></div>
 </div>
 <p>na primer:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">7</span> <span class="o">*</span> <span class="n">x</span>
-<span class="go">42</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">14</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span>
 </pre></div>
 </div>
-<p>Če želimo, lahko hkrati priredimo tudi več vrednosti:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="go">25</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
-<span class="go">5</span>
+</div>
+</div>
+<p>Za razliko od aritmetičnih izrazov prireditveni stavek ne vrne nobene vrednosti, zato se izhodna celica ne prikaže. Vseeno pa lahko vidimo, da je Python vrednost izračunal in jo shranil, saj sledeči izraz upošteva, da je <code class="docutils literal notranslate"><span class="pre">a</span></code> enak 6:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="o">*</span> <span class="n">a</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<p>V celici lahko zaporedoma izvedemo tudi več ukazov:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">8</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">b</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>210
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vidimo, da se je v izhodni celici prikazala le vrednost zadnjega izraza.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>25
+</pre></div>
+</div>
+</div>
 </div>
 <p>Vrednost spremenljivke lahko tudi povozimo z novo vrednostjo, vendar to na preostale spremenljivke ne vpliva, saj se vedno shrani tista vrednost, ki smo jo podali v prireditvenem stavku.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">13</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">13</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="n">b</span>
 </pre></div>
 </div>
-<p>Ko smo v <code class="docutils literal notranslate"><span class="pre">x</span></code> shranili novo vrednost, se vrednost <code class="docutils literal notranslate"><span class="pre">y</span></code> ni spremenila, saj je prireditveni stavek <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">3</span></code> najprej izračunal vrednost desne strani, torej <code class="docutils literal notranslate"><span class="pre">13</span></code>, in v <code class="docutils literal notranslate"><span class="pre">y</span></code> shranil samo število.</p>
 </div>
-<div class="section" id="shranjevanje-programov-v-datoteke">
-<h3>Shranjevanje programov v datoteke<a class="headerlink" href="#shranjevanje-programov-v-datoteke" title="Povezava na naslov">¶</a></h3>
-<p>Interaktivna konzola je uporabna za krajše programe, daljše pa raje shranimo v datoteko. S tem preprečimo, da izgubili vse svoje delo, pa tudi lažje popravljamo napake, saj nam ni treba vsega ponovno vnašati. Pythonove programe shranjujemo v običajne tekstovne datoteke, kar pomeni, da jih lahko odpremo s katerim koli urejevalnikom besedila, na primer <em>Notepad</em>, <em>Notepad++</em>, <em>Emacs</em> ali <em>Vi</em>. Pythonovim datotekam običajno damo končnico <code class="docutils literal notranslate"><span class="pre">.py</span></code>. Za natančnejša navodila si oglejte video <a class="reference external" href="https://vimeo.com/156465707">Nalaganje programov iz datotek</a>.</p>
-<p>Za primer daljšega programa si oglejmo <a class="reference external" href="https://sl.wikipedia.org/wiki/Fermijev_problem">Fermijevo oceno</a> števila učiteljev matematike v slovenskih osnovnih šolah. Sledeče stavke vpišite v datoteko <code class="docutils literal notranslate"><span class="pre">fermi.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stevilo_slovencev</span> <span class="o">=</span> <span class="mi">2000000</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na primer, če vrednost <code class="docutils literal notranslate"><span class="pre">a</span></code> povozimo, se vrednost <code class="docutils literal notranslate"><span class="pre">b</span></code> ne spremeni, saj je prireditveni stavek <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">3</span></code> najprej izračunal vrednost desne strani, torej <code class="docutils literal notranslate"><span class="pre">13</span></code>, in v <code class="docutils literal notranslate"><span class="pre">b</span></code> shranil število samo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+<p>Za primer daljšega programa si oglejmo <a class="reference external" href="https://sl.wikipedia.org/wiki/Fermijev_problem">Fermijevo oceno</a> števila učiteljev matematike v slovenskih osnovnih šolah:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stevilo_slovencev</span> <span class="o">=</span> <span class="mi">2000000</span>
 <span class="n">pricakovana_zivljenska_doba</span> <span class="o">=</span> <span class="mi">75</span>
 <span class="n">velikost_generacije</span> <span class="o">=</span> <span class="n">stevilo_slovencev</span> <span class="o">/</span> <span class="n">pricakovana_zivljenska_doba</span>
 <span class="n">stevilo_osnovnosolcev</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">velikost_generacije</span>
 <span class="n">stevilo_razredov</span> <span class="o">=</span> <span class="n">stevilo_osnovnosolcev</span> <span class="o">/</span> <span class="mi">25</span>
 <span class="n">stevilo_ur_matematike_na_teden</span> <span class="o">=</span> <span class="mf">4.5</span> <span class="o">*</span> <span class="n">stevilo_razredov</span>
 <span class="n">stevilo_uciteljev_matematike</span> <span class="o">=</span> <span class="n">stevilo_ur_matematike_na_teden</span> <span class="o">/</span> <span class="mi">20</span>
-</pre></div>
-</div>
-<p>Ko datoteko naložimo, lahko vidimo, da bi moralo v Sloveniji biti približno 2000 učiteljev matematike:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stevilo_uciteljev_matematike</span>
-<span class="go">2160.0</span>
+<span class="n">stevilo_uciteljev_matematike</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="pisanje-preglednih-programov">
-<h3>Pisanje preglednih programov<a class="headerlink" href="#pisanje-preglednih-programov" title="Povezava na naslov">¶</a></h3>
-<p>Vidimo, da lahko imena spremenljivk vsebujejo več kot eno&nbsp;črko, česar smo navajeni v matematiki. V programiranju je zelo pomembno, da so imena čimbolj opisna, saj tako hitreje razumemo, kaj počne program. Računalnik bi razumel tudi sledeč program in izračunal enak odgovor, vendar vidimo, da smiselna imena in presledki kodo naredijo veliko bolj berljivo.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">2000000</span><span class="p">,</span><span class="mi">75</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2160.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>V Sloveniji bi tako moralo biti približno 2000 učiteljev matematike. Opazimo, da lahko imena spremenljivk vsebujejo več kot eno črko, česar smo navajeni v matematiki. V programiranju je zelo pomembno, da so imena čimbolj opisna, saj tako hitreje razumemo, kaj počne program.</p>
+</div>
+<div class="section" id="funkcije">
+<h2>Funkcije<a class="headerlink" href="#funkcije" title="Permalink to this headline">¶</a></h2>
+<p>Pod imeni pa se ne skrivajo samo števila temveč tudi funkcije. Na primer, Python poleg aritmetičnih operacij ponuja osnovne funkcije, kot na primer <code class="docutils literal notranslate"><span class="pre">max</span></code> in <code class="docutils literal notranslate"><span class="pre">min</span></code> za izračun maksimuma in minimuma. Pokličemo jih tako, da za imenom funkcije v oklepajih naštejemo argumente, ločene z vejicami:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="mi">30</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matematične funkcije so na voljo v ločeni knjižnici <code class="docutils literal notranslate"><span class="pre">math</span></code>. Do njih lahko dostopamo na dva osnovna načina:</p>
+<p>Knjižnico uvozimo s stavkom <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code>, nato pa do funkcij in konstant dostopamo tako, da dodamo <code class="docutils literal notranslate"><span class="pre">math.</span></code> pred vsako ime:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.7071067811865476
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Drugi način pa je, da iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">...</span></code> uvozimo posamezne vrednosti, nato pa do njih dostopamo direktno:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.7071067811865476
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1.2246467991473532e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>V zadnjem ukazu nismo dobili pričakovanega odgovora 0. Računalnik namreč ne dela s čisto pravimi realnimi števili, temveč z njihovimi približki, ki jim pravimo <em>števila s plavajočo vejico</em>. Za ta števila običajno najprej zapišemo decimalke (ki jim pravimo <em>mantisa</em>), nato pa še eksponent. Število, ki smo ga dobili, je tako enako približno <span class="math notranslate nohighlight">\(1{,}22 \cdot 10^{-16}\)</span>, saj <code class="docutils literal notranslate"><span class="pre">e-16</span></code> pomeni <span class="math notranslate nohighlight">\(10^{-16}\)</span>. Na primer <code class="docutils literal notranslate"><span class="pre">3.2445e2</span></code> pa označuje število <span class="math notranslate nohighlight">\(324{,}45 = 3{,}2445 \cdot 10^2\)</span>).</p>
+</div>
+<p>Obstaja tudi tretji način, ko iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">*</span></code> uvozimo vse naštete vrednosti, vendar je odsvetovan, ker potem nikoli ne vemo, kaj vse smo uvozili.</p>
+</div>
+<div class="section" id="preprecevanje-napak">
+<h2>Preprečevanje napak<a class="headerlink" href="#preprecevanje-napak" title="Permalink to this headline">¶</a></h2>
+<p>V programih lahko naredimo tri glavne vrste napak</p>
+<div class="section" id="sintakticne-napake">
+<h3>Sintaktične napake<a class="headerlink" href="#sintakticne-napake" title="Permalink to this headline">¶</a></h3>
+<p>Pri teh napakah program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-20-23d2e39deb4e&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
+         <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-21-27f24031ec66&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+             <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.</p>
+</div>
+<div class="section" id="napake-ob-izvajanju">
+<h3>Napake ob izvajanju<a class="headerlink" href="#napake-ob-izvajanju" title="Permalink to this headline">¶</a></h3>
+<p>Pri teh napakah program napišemo sintaktično pravilno, vendar ga Python ne zna ali ne more izvesti:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="n">bc757c3fda29</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="mi">9</span><span class="n">d837f1cf0f2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;mix&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V prvem primeru je bila napaka deljenje z 0, v drugem pa to, da ime <code class="docutils literal notranslate"><span class="pre">mix</span></code> ni definirano.</p>
+<p>Na precej takih napak (npr. na to, da uporabimo nedefinirano ime) nas bo opozoril že urejevalnik, lahko pa se zgodi, da se bodo pojavile šele ob izvajanju. Pri Uvodu v programiranje to običajno ne bo težava, v praksi pa zna biti precej nerodno, sploh kadar gre za kritično pomemben program (npr. za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih lahko včasih tudi naknadno rešimo).</p>
+</div>
+<div class="section" id="vsebinske-napake">
+<h3>Vsebinske napake<a class="headerlink" href="#vsebinske-napake" title="Permalink to this headline">¶</a></h3>
+<p>Pri vsebinskih napakah je vse videti v redu, vendar je koncu dobimo napačen odgovor, ker smo podali napačna navodila. Recimo, da želimo izračunati razdaljo med točkama (2, 3) in (5, 7):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Program smo napisali brez sintaktičnih napak in izvajanje je uspešno vrnilo rezultat, ki pa je žal napačen, ker nismo potencirali na 1/2, temveč potencirali na 1 in delili z 2, saj ima potenciranje prednost pred deljenjem. Take napake so še posebej zlobne, ker jih lahko precej dolgo časa ne opazimo. Znan primer te napake je <a class="reference external" href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Climate Orbiter</a>, ki je po devetih mesecih potovanja proti Marsu prehitro vstopil v atmosfero in razpadel. Vzrok je bil v tem, da je del kode delal s SI merskimi enotami, del kode pa z imperialnimi. Škode je bilo za 300 milijonov dolarjev.</p>
+<p>Na vsebinske napake nas računalnik ne more opozoriti, saj nam ne zna brati misli. Izognemo se jim lahko tako, da programe pišemo strukturirano iz manjših delov, ki jih sproti preverjamo. Ključno pa je, da jih pišemo berljivo:</p>
+<ul class="simple">
+<li><p>Na vsaki strani dvomestne operacije (<code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, …) pišemo presledek (tako bi hitreje prepoznali, da <code class="docutils literal notranslate"><span class="pre">**</span> <span class="pre">1/2</span></code> v resnici pomeni <code class="docutils literal notranslate"><span class="pre">**</span> <span class="pre">1</span> <span class="pre">/</span> <span class="pre">2</span></code>).</p></li>
+<li><p>Za ločili (na primer <code class="docutils literal notranslate"><span class="pre">,</span></code>) pišemo presledek, pred njimi pa ne.</p></li>
+<li><p>Spremenljivkam dajemo opisna imena, ki jih pišemo z malimi črkami. Posamezne besede ločimo z znakom <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p></li>
+</ul>
+<p>Na primer, računalnik bi razumel tudi sledeči izračun števila učiteljev matematike:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">2000000</span><span class="p">,</span><span class="mi">75</span>
 <span class="n">g</span><span class="o">=</span><span class="n">s</span><span class="o">/</span><span class="n">z</span>
 <span class="n">o</span><span class="o">=</span><span class="mi">9</span><span class="o">*</span><span class="n">g</span>
 <span class="n">r</span><span class="o">=</span><span class="n">o</span><span class="o">/</span><span class="mi">25</span>
 <span class="n">m</span><span class="o">=</span><span class="mf">4.5</span><span class="o">*</span><span class="n">r</span>
 <span class="n">u</span><span class="o">=</span><span class="n">m</span><span class="o">/</span><span class="mi">20</span>
+<span class="n">u</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
-<span class="go">2160.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2160.0
 </pre></div>
 </div>
-<p>Zato se bomo držali sledečih pravil:</p>
-<ul class="simple">
-<li>Na vsaki strani dvomestne operacije (<code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, …) pišemo presledek.</li>
-<li>Za ločili (na primer <code class="docutils literal notranslate"><span class="pre">,</span></code>) pišemo presledek, pred njimi pa ne.</li>
-<li>Spremenljivkam dajemo opisna imena, ki jih pišemo z malimi črkami. Posamezne besede ločimo z znakom <code class="docutils literal notranslate"><span class="pre">_</span></code>.</li>
-</ul>
 </div>
 </div>
-<div class="section" id="funkcije">
-<h2>Funkcije<a class="headerlink" href="#funkcije" title="Povezava na naslov">¶</a></h2>
-<p>Ploščino trikotnika s stranicami <span class="math notranslate">\(a, b, c\)</span> lahko izračunamo po Heronovi formuli</p>
-<div class="math notranslate">
+<p>ali celo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">2000000</span><span class="p">,</span><span class="mi">75</span><span class="p">;</span><span class="n">g</span><span class="o">=</span><span class="n">s</span><span class="o">/</span><span class="n">z</span><span class="p">;</span><span class="n">o</span><span class="o">=</span><span class="mi">9</span><span class="o">*</span><span class="n">g</span><span class="p">;</span><span class="n">r</span><span class="o">=</span><span class="n">o</span><span class="o">/</span><span class="mi">25</span><span class="p">;</span><span class="n">m</span><span class="o">=</span><span class="mf">4.5</span><span class="o">*</span><span class="n">r</span><span class="p">;</span><span class="n">u</span><span class="o">=</span><span class="n">m</span><span class="o">/</span><span class="mi">20</span><span class="p">;</span><span class="n">u</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2160.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>a pri takem pisanju se nam bo hitro pojavila napaka.</p>
+</div>
+</div>
+<div class="section" id="definicije-funkcij">
+<h2>Definicije funkcij<a class="headerlink" href="#definicije-funkcij" title="Permalink to this headline">¶</a></h2>
+<p>Kako bi izračunali ploščino trikotnika s stranicami dolžin 4, 13 in 15? Pomagamo si lahko s Heronovo formulo</p>
+<div class="math notranslate nohighlight">
 \[\sqrt{s (s - a) (s - b) (s - c)}\]</div>
-<p>kjer je <span class="math notranslate">\(s = (a + b + c) / 2\)</span>. Ploščino trikotnika s stranicami 4, 13 in 15 bi v Pythonu lahko torej izračunali s programom:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span>
+<p>kjer je <span class="math notranslate nohighlight">\(s = (a + b + c) / 2\)</span>. Tako bi lahko napisali:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span>
 <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="n">ploscina</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span>
+<span class="n">ploscina</span>
 </pre></div>
 </div>
-<p>Tedaj je</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ploscina</span>
-<span class="go">24.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>24.0
 </pre></div>
 </div>
-<p>Kako pa bi izračunali površino tetraedra, ki ima za lica štiri trikotnike? Načeloma bi lahko pisali:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">896</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span>
+</div>
+</div>
+<p>Kako pa bi izračunali površino tetraedra pa bi izračunali površino tetraedra, ki ima za lica štiri trikotnike? Načeloma bi lahko pisali:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">896</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span>
 <span class="n">s_abc</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="n">p_abc</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_abc</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_abc</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span>
 <span class="n">s_aef</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
@@ -272,110 +702,284 @@
 <span class="n">s_bdf</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="n">p_bdf</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_bdf</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span>
 <span class="n">povrsina</span> <span class="o">=</span> <span class="n">p_abc</span> <span class="o">+</span> <span class="n">p_aef</span> <span class="o">+</span> <span class="n">p_bdf</span> <span class="o">+</span> <span class="n">p_cde</span>
+<span class="n">povrsina</span>
 </pre></div>
 </div>
-<p>Kot vidimo, to ni najbolj pregledno. V taki kodi z veliko verjetnostjo naredimo kakšno napako. Bolje je, da uporabimo funkcije. Že prej smo uporabili nekaj vgrajenih funkcij, na primer <code class="docutils literal notranslate"><span class="pre">min</span></code> in <code class="docutils literal notranslate"><span class="pre">max</span></code>. Python pa nam omogoča, da si funkcije definiramo tudi sami.</p>
-<div class="section" id="definicije-lastnih-funkcij">
-<h3>Definicije lastnih funkcij<a class="headerlink" href="#definicije-lastnih-funkcij" title="Povezava na naslov">¶</a></h3>
-<p>Definicija funkcije, ki izračuna ploščino trikotnika, je sledeča:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="k">def</span> <span class="nf">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1816080.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kot vidimo, to ni najbolj pregledno. V taki kodi z veliko verjetnostjo naredimo kakšno napako. Bolje je, da uporabimo funkcije. Že prej smo uporabili nekaj vgrajenih funkcij, Python pa nam omogoča, da si funkcije definiramo tudi sami. Na primer, definicija funkcije za izračun ploščine trikotnika je sledeča:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne ploščino trikotnika z danimi stranicami.&quot;&quot;&quot;</span>
     <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span>
+    <span class="n">ploscina</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">c</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ploscina</span>
 </pre></div>
 </div>
-<p>Oglejmo si njene sestavne dele. Vsaka definicija funkcije se začne s ključno besedo <code class="docutils literal notranslate"><span class="pre">def</span></code>, ki ji sledi ime funkcije, v našem primeru <code class="docutils literal notranslate"><span class="pre">ploscina_trikotnika</span></code>, tej pa v oklepajih našteti argumenti, ki jih funkcija sprejme. Funkcije lahko sprejmejo različno število argumentov. Naša sprejme tri argumente, ki jih bomo shranili v spremenljivke <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> in <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
-<p>Nato sledi <em>telo funkcije</em>, torej ukazi, ki naj se izvedejo, ko funkcijo pokličemo. Vsako vrstico telesa funkcije moramo zamakniti za štiri presledke, da se jasno vidi, kaj vse funkcija obsega. Prvo vrstico telesa smo že videli, v drugi pa z ukazom <code class="docutils literal notranslate"><span class="pre">return</span></code> povemo, katero vrednost naj vrne funkcija. Tako definirano funkcijo potem kličemo na enak način kot vgrajene funkcije.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="go">24.0</span>
+</div>
+</div>
+<p>Oglejmo si njene sestavne dele. Vsaka definicija funkcije se začne s ključno besedo <code class="docutils literal notranslate"><span class="pre">def</span></code>, ki ji sledi ime funkcije, v našem primeru <code class="docutils literal notranslate"><span class="pre">ploscina_trikotnika</span></code>, tej pa v oklepajih našteti argumenti, ki jih funkcija sprejme. Funkcije lahko sprejmejo različno število argumentov. Naša sprejme tri argumente, ki jih bomo shranili v spremenljivke <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> in <code class="docutils literal notranslate"><span class="pre">c</span></code>. Za dvopičjem sledi glavni del: <em>telo funkcije</em>, torej ukazi, ki naj se izvedejo, ko funkcijo pokličemo. Telo moramo zamakniti za štiri presledke, da se jasno vidi, kaj vse obsega.</p>
+<p>V prvo vrstico telesa lahko zapišemo neobvezni <em>dokumentacijski niz</em> oziroma <em>docstring</em>, v katerem na kratko opišemo, kaj funkcija počne. Dokumentacijski niz ni obvezen, je pa koristen, saj uporabniku prek ustrezne podpore v urejevalniku ali funkcije <code class="docutils literal notranslate"><span class="pre">help</span></code> pove, kaj funkcija počne. Drugo in tretjo vrstico telesa smo že videli, v zadnji pa z ukazom <code class="docutils literal notranslate"><span class="pre">return</span></code> povemo, katero vrednost naj vrne funkcija. Tako definirano funkcijo potem kličemo na enak način kot vgrajene funkcije.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>24.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>S pomočjo funkcije <code class="docutils literal notranslate"><span class="pre">ploscina_trikotnika</span></code> lahko tudi na veliko bolj pregleden način zapišemo funkcijo za izračun površine tetraedra:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">povrsina_tetraedra</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">povrsina_tetraedra</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="n">p_abc</span> <span class="o">=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
     <span class="n">p_aef</span> <span class="o">=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
     <span class="n">p_bdf</span> <span class="o">=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
     <span class="n">p_cde</span> <span class="o">=</span> <span class="n">ploscina_trikotnika</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">p_abc</span> <span class="o">+</span> <span class="n">p_aef</span> <span class="o">+</span> <span class="n">p_bdf</span> <span class="o">+</span> <span class="n">p_cde</span>
+
+<span class="n">povrsina_tetraedra</span><span class="p">(</span><span class="mi">896</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">povrsina_tetraedra</span><span class="p">(</span><span class="mi">896</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">)</span>
-<span class="go">1816080.0</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1816080.0
 </pre></div>
 </div>
 </div>
-<div class="section" id="stavek-return">
-<h3>Stavek <code class="docutils literal notranslate"><span class="pre">return</span></code><a class="headerlink" href="#stavek-return" title="Povezava na naslov">¶</a></h3>
+</div>
 <p>Tako kot drugje v Pythonu, se tudi stavki v telesu funkcije izvajajo od prvega proti zadnjemu. Ko dosežemo stavek <code class="docutils literal notranslate"><span class="pre">return</span></code>, funkcija vrne vrednost danega izraza ter zaključi z izvajanjem. Tako tudi funkcija</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="mi">1000</span>
 </pre></div>
 </div>
-<p>vrne kvadrat števila <code class="docutils literal notranslate"><span class="pre">x</span></code> in ne števila 1000, saj se izvajanje ustavi ob prvem stavku <code class="docutils literal notranslate"><span class="pre">return</span></code>, zato do drugega sploh ne pride. Če stavka <code class="docutils literal notranslate"><span class="pre">return</span></code> ne napišemo, funkcija vrne posebno vrednost <code class="docutils literal notranslate"><span class="pre">None</span></code>, ki označuje manjkajočo vrednost. Pozorno se ji bomo posvetili kasneje, zaenkrat pa jo omenimo le zato, da bomo znali razumeti spodnjo (precej pogosto) napako:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+</div>
+</div>
+<p>vrne kvadrat števila <code class="docutils literal notranslate"><span class="pre">x</span></code> in ne števila 1000, saj se izvajanje ustavi ob prvem stavku <code class="docutils literal notranslate"><span class="pre">return</span></code>, zato do drugega sploh ne pride.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-<span class="gr">TypeError</span>: <span class="n">unsupported operand type(s) for *: &#39;int&#39; and &#39;NoneType&#39;</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>100
 </pre></div>
+</div>
+</div>
+</div>
+<p>Če stavka <code class="docutils literal notranslate"><span class="pre">return</span></code> ne napišemo, funkcija vrne posebno vrednost <code class="docutils literal notranslate"><span class="pre">None</span></code>, ki označuje manjkajočo vrednost. Pozorno se ji bomo posvetili kasneje, zaenkrat pa jo omenimo le zato, da bomo znali razumeti spodnjo (precej pogosto) napako:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="mi">2</span> <span class="o">*</span> <span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">33</span><span class="o">-</span><span class="n">e520ed781892</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for *: &#39;int&#39; and &#39;NoneType&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Pričakovali bi, da bo rezultat klica <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">g(10)</span></code> enak 200. Toda ker smo v funkciji <code class="docutils literal notranslate"><span class="pre">g</span></code> pozabili na <code class="docutils literal notranslate"><span class="pre">return</span></code>, je funkcija vrnila vrednost <code class="docutils literal notranslate"><span class="pre">None</span></code>. To lahko razberemo iz opozorila, v katerem približno piše, da operacije <code class="docutils literal notranslate"><span class="pre">*</span></code> ne moremo uporabiti na celem številu in vrednosti <code class="docutils literal notranslate"><span class="pre">None</span></code>. Vsakič, ko dobite opozorilo <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, v katerem se pojavlja <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>, posumite na to, da nekje manjka stavek <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
-</div>
-<div class="section" id="lokalnost-spremenljivk">
-<h3>Lokalnost spremenljivk<a class="headerlink" href="#lokalnost-spremenljivk" title="Povezava na naslov">¶</a></h3>
 <p>Argumenti funkcije in spremenljivke, ki jih definiramo v telesu funkcije, se izven funkcije ne vidijo. Pravimo, da so <em>lokalne</em>. Namen tega je, da funkcije ne motijo ena druge s spremenljivkami, ki jih uporabljajo. Na primer, če definiramo</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
     <span class="k">return</span> <span class="n">y</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>tedaj tudi po klicu funkcije <code class="docutils literal notranslate"><span class="pre">f</span></code> ne <code class="docutils literal notranslate"><span class="pre">x</span></code> ne <code class="docutils literal notranslate"><span class="pre">y</span></code> ne bosta definirana:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="go">12</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-<span class="gr">NameError</span>: <span class="n">name &#39;x&#39; is not defined</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="gt">Traceback (most recent call last):</span>
-  <span class="c">...</span>
-<span class="gr">NameError</span>: <span class="n">name &#39;y&#39; is not defined</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Če pa je <code class="docutils literal notranslate"><span class="pre">y</span></code> na primer že definiran drugje, pa ga klic funkcije <code class="docutils literal notranslate"><span class="pre">f</span></code> ne zmoti:</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="go">12</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">10</span>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">35</span><span class="o">-</span><span class="mi">6</span><span class="n">fcf9dfbd479</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span>
+
+<span class="ne">NameError</span>: name &#39;x&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">36</span><span class="o">-</span><span class="mi">9063</span><span class="n">a9f0e032</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y</span>
+
+<span class="ne">NameError</span>: name &#39;y&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če pa je <code class="docutils literal notranslate"><span class="pre">y</span></code> na primer že definiran drugje, pa ga klic funkcije <code class="docutils literal notranslate"><span class="pre">f</span></code> ne zmoti:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Včasih imamo za nekatere argumente funkcij v mislih že prav določeno vrednost. Na primer, za izračun logaritma potrebujemo dve števili: osnovo in argument (tudi logaritmand). Toda velikokrat za osnovo vzamemo <span class="math notranslate nohighlight">\(10\)</span>, zato namesto <span class="math notranslate nohighlight">\(\log_{10} x\)</span> pišemo kar <span class="math notranslate nohighlight">\(\log x\)</span>. V Pythonu lahko neobvezne argumente določimo tako, da jim podamo privzeto vrednost:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">koren</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pozor, okoli enačajev pri neobveznih argumentih <strong>ne pišemo presledkov</strong>. Na podoben način take funkcije tudi kličemo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">koren</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.9999999999999996
+</pre></div>
+</div>
+</div>
+</div>
+<p>V primeru, da drugega argumenta ne podamo, bi Python uporabil privzeto vrednost:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">koren</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>8.0
+</pre></div>
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="logicne-vrednosti">
-<h2>Logične vrednosti<a class="headerlink" href="#logicne-vrednosti" title="Povezava na naslov">¶</a></h2>
+<h2>Logične vrednosti<a class="headerlink" href="#logicne-vrednosti" title="Permalink to this headline">¶</a></h2>
 <p>Poleg števil Python pozna tudi logični vrednosti <code class="docutils literal notranslate"><span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">False</span></code>, ki označujeta resnico in neresnico. Logične vrednosti ponavadi dobimo kot rezultat primerjav, kot so enakost <code class="docutils literal notranslate"><span class="pre">==</span></code>, neenakost <code class="docutils literal notranslate"><span class="pre">!=</span></code> ali urejenostne relacije <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, ter prek logičnih operacij <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> in <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">3</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">2</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="bp">True</span> <span class="ow">and</span> <span class="bp">False</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="ow">not</span> <span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">20</span>
-<span class="go">True</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">3</span>
 </pre></div>
 </div>
-<div class="section" id="pogojni-stavek">
-<h3>Pogojni stavek<a class="headerlink" href="#pogojni-stavek" title="Povezava na naslov">¶</a></h3>
-<p>Logične vrednosti uporabimo v <em>pogojnih stavkih</em> (oziroma <em>stavkih ``if``</em>) oblike</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pogoj</span><span class="p">:</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Logične vrednosti uporabimo v <em>pogojnih stavkih</em> (oziroma <em>stavkih</em> <code class="docutils literal notranslate"><span class="pre">if</span></code>) oblike</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pogoj</span><span class="p">:</span>
     <span class="c1"># stavki, ki jih izvedemo,</span>
     <span class="c1"># ko pogoj drži</span>
 <span class="k">else</span><span class="p">:</span>
@@ -385,7 +989,9 @@
 </div>
 <p>Ključnima besedama <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> in pripadajočim stavkom pravimo tudi <em>veji pogojnega stavka</em>. Stavke v obeh vejah moramo zamakniti za štiri presledke tako kot v funkcijah.</p>
 <p>Na primer, če izvedemo program</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
 <span class="k">else</span><span class="p">:</span>
@@ -393,26 +999,49 @@
 <span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">7</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>se bo izvedla veja <code class="docutils literal notranslate"><span class="pre">if</span></code>, zato bo <code class="docutils literal notranslate"><span class="pre">x</span></code> na koncu enak 17, <code class="docutils literal notranslate"><span class="pre">y</span></code> pa 10. V primeru, da bi bila začetna vrednost <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">12</span></code>, pa bi se izvedla veja <code class="docutils literal notranslate"><span class="pre">else</span></code> in vrednost <code class="docutils literal notranslate"><span class="pre">x</span></code> bi na koncu bila 42, vrednost <code class="docutils literal notranslate"><span class="pre">y</span></code> pa 35.</p>
 <p>Pogojne stavke lahko pišemo tudi v funkcijah. Na primer, funkcijo, ki računa absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">x</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">-</span><span class="n">x</span>
 </pre></div>
 </div>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">5</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">3</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="razsirjeni-pogojni-stavek">
-<h3>Razširjeni pogojni stavek<a class="headerlink" href="#razsirjeni-pogojni-stavek" title="Povezava na naslov">¶</a></h3>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">absolutna_vrednost</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
 <p>Če bi želeli vrniti predznak števila, pa moramo ločiti tri primere: negativno število, nič in pozitivno število. To lahko storimo kot:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predznak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predznak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
@@ -422,8 +1051,10 @@
             <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>Zgornji pogojni stavek je malo nerodno zapisan. Ker se nam bo dostikrat zgodilo, da se ne bomo odločali le med dvema primeroma, temveč med večimi, nam Python omogoča splošnejše pogojne stavke oblike:</p>
-<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pogoj1</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pogoj1</span><span class="p">:</span>
     <span class="c1"># stavki, ki jih izvedemo,</span>
     <span class="c1"># ko pogoj1 drži</span>
 <span class="k">elif</span> <span class="n">pogoj2</span><span class="p">:</span>
@@ -438,7 +1069,7 @@
 </pre></div>
 </div>
 <p>Beseda <code class="docutils literal notranslate"><span class="pre">elif</span></code> je okrajšava za <code class="docutils literal notranslate"><span class="pre">else</span></code>-<code class="docutils literal notranslate"><span class="pre">if</span></code>. Funkcijo za izračun predznaka bi lepše zapisali kot</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predznak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predznak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
     <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -448,87 +1079,241 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="izrazi-stavki">
+<h2>Izrazi &amp; stavki<a class="headerlink" href="#izrazi-stavki" title="Permalink to this headline">¶</a></h2>
+<p>V Pythonovih programih ločimo med <em>izrazi</em> in <em>stavki</em>. Izrazi so vse, kar sestavimo iz funkcij in operacij ter uporabljamo kot argumente funkcij, desne strani prireditvenih izrazov ali pogoje v pogojnih stavkih. Stavki pa so osnovni gradniki Pythonovih programov in jih pišemo enega pod drugim. Zaenkrat smo videli tri vrste stavkov: prva so bili prireditveni stavki, drugi pogojni stavki (ki so potem spet sestavljeni iz gnezdenih stavkov), tretja in najmanj opazna pa so bili izrazi. Običajne izraze lahko prav tako pišemo v programe, vendar ne bodo imeli posebnega učinka. Če napišemo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="mi">10</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>se bo vsota <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">+</span> <span class="pre">10</span></code> res izračunala, vendar se ne bo nikamor shranila in Python bo na njo hitro pozabil. Kmalu pa bomo srečali tudi izraze, ki bodo imeli vpliv na nadaljnje izvajanje programov.</p>
+<p>Python poleg pogojnih stavkov podpira tudi pogojne izraze, s katerimi nekatere stvari napišemo malo elegantneje. Na primer, zgornjo določitev osnovnih točk bi lahko pisali kot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">absolutna_vrednost</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="n">x</span>
+</pre></div>
+</div>
+<p>V pogojnih izrazih moramo vedno napisati obe možnosti, prav tako pa ne moremo uporabiti <code class="docutils literal notranslate"><span class="pre">elif</span></code>-a. Načeloma lahko pogojne izraze verižimo kot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predznak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>samo to je preveč natlačeno, da bi bilo berljivo. Pogojni stavki so torej precej omejeni, ampak vseeno jih omenjamo, ker znajo včasih kakšno stvar narediti preglednejšo.</p>
+</div>
+<div class="section" id="rekurzivne-definicije">
+<h2>Rekurzivne definicije<a class="headerlink" href="#rekurzivne-definicije" title="Permalink to this headline">¶</a></h2>
+<p>Videli smo, da probleme rešujemo s prevajanjem na manjše, dokler ne pridemo do čisto osnovnih. Na primer, površino tetraedra izračunamo iz ploščin trikotnikov, te pa lahko prevedemo na vgrajene aritmetične operacije.</p>
+<p>Dostikrat pa bodo manjši problemi iste oblike kot prvotni problem. Poglejmo, kako bi izračunali <span class="math notranslate nohighlight">\(n! = n \cdot (n - 1) \dots 3 \cdot 2 \cdot 1\)</span>. Kot vidimo velja <span class="math notranslate nohighlight">\(n! = n \cdot (n - 1)!\)</span>, zato bomo <span class="math notranslate nohighlight">\(n!\)</span> izračunali tako, da bomo <span class="math notranslate nohighlight">\(n\)</span> pomnožili z <span class="math notranslate nohighlight">\((n - 1)!\)</span>. Toda od kod bomo dobili tega? Preprosto, <span class="math notranslate nohighlight">\(n - 1\)</span> bomo pomnožili z <span class="math notranslate nohighlight">\((n - 2)!\)</span>. Od kod pa tega? Ja iz <span class="math notranslate nohighlight">\((n - 3)!\)</span>. In tako naprej vse do <span class="math notranslate nohighlight">\(2!\)</span>, ki ga bomo dobili iz <span class="math notranslate nohighlight">\(1!\)</span>, tega pa iz <span class="math notranslate nohighlight">\(0!\)</span>, ki je po definiciji enak <span class="math notranslate nohighlight">\(1\)</span>. Torej lahko funkcijo, ki računa fakulteto, napišemo tako, da najprej pogleda svoj argument <code class="docutils literal notranslate"><span class="pre">n</span></code>. Če je enak 1, vrne 1, sicer pa <code class="docutils literal notranslate"><span class="pre">n</span></code> pomnožimo z rezultatom klica <code class="docutils literal notranslate"><span class="pre">fakulteta(n</span> <span class="pre">-</span> <span class="pre">1)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ali s pogojnim izrazom kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3628800
+</pre></div>
+</div>
+</div>
+</div>
+<p>Funkcijam, ki so definirane s pomočjo same sebe pravimo, da so <strong>rekurzivne</strong>. Izkaže se, da lahko s pomočjo rekurzije napišemo <strong>čisto vse</strong> izračunljive funkcije na celih številih: ugotovimo lahko, katera števila so praštevila, katera so si prijateljska, katera so popolna, …</p>
+<p>Še en primer rekurzivne definicije so Fibonaccijeva števila. Velja <span class="math notranslate nohighlight">\(F_0 = 0\)</span>, <span class="math notranslate nohighlight">\(F_1 = 1\)</span>, za vse <span class="math notranslate nohighlight">\(n \ge 2\)</span> pa velja in <span class="math notranslate nohighlight">\(F_{n} = F_{n - 1} + F_{n - 2}\)</span>. Funkcijo tedaj napišemo podobno na podoben način kot zgornjo: če je <code class="docutils literal notranslate"><span class="pre">n</span></code> enak 0, vrnemo 0, sicer pogledamo, ali je enak 1. V tem primeru vrnemo 1. Če pa tudi 1 ni enak, mora biti večji ali enak 2, zato se pokličemo rekurzivno.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>6765
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kaj se zgodi, če poskušate izračunati <code class="docutils literal notranslate"><span class="pre">fibonacci(35)</span></code>? Po nekaj časa res dobite pravilen odgovor 9227465, vendar to kaže, da nekaj ni v redu. Težava je, da se pri <code class="docutils literal notranslate"><span class="pre">fibonacci(35)</span></code> funkcija pokliče dvakrat: enkrat na 34 in enkrat na 33. Tudi vsak od teh dveh klicov povzroči dva nadaljnja klica in tako naprej, vse dokler ne pridemo do 0 ali 1. Bolje bi bilo, če bi jo zastavili malo drugače.</p>
+<p>Poleg Fibonaccijevega zaporedja, ki se začne s številoma 0 in 1, obstaja tudi splošno Fibonaccijevo zaporedje, ki se začne s poljubnima členoma <span class="math notranslate nohighlight">\(a\)</span> in <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[a, b, a + b, b + (a + b) = a + 2 b, (a + b) + (a + 2 b) = 2 a + 3 b, \ldots\]</div>
+<p>Vidimo, da je <span class="math notranslate nohighlight">\(n\)</span>. člen tega zaporedja ravno <span class="math notranslate nohighlight">\(n - 1\)</span>. člen zaporedja, ki se začne s členoma <span class="math notranslate nohighlight">\(b\)</span> in <span class="math notranslate nohighlight">\(a + b\)</span>. Tedaj lahko definiramo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne n-ti člen zaporedja a, b, a + b, a + 2 b, …&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kot lahko sami preizkusimo, ta funkcija deluje veliko hitreje od prejšnje:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>9227465
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>92274650
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pomembno ni torej samo to, da naš program pravilno izračuna iskani rezultat, temveč tudi to, kako učinkovito ga izračuna.</p>
+<p>Ker smo argumentoma <code class="docutils literal notranslate"><span class="pre">a</span></code> in <code class="docutils literal notranslate"><span class="pre">b</span></code> v definiciji podali privzeti vrednosti, nam jih pri klicu ni treba podati:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>9227465
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
 
-          </div>
+              </div>
+              
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Seznam Vsebine</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Uvod v Python</a><ul>
-<li><a class="reference internal" href="#delo-s-pythonom">Delo s Pythonom</a><ul>
-<li><a class="reference internal" href="#stevila-in-aritmeticne-operacije">Števila in aritmetične operacije</a></li>
-<li><a class="reference internal" href="#uporaba-vgrajenih-funkcij">Uporaba vgrajenih funkcij</a></li>
-<li><a class="reference internal" href="#napake">Napake</a></li>
-<li><a class="reference internal" href="#prirejanje-vrednosti-spremenljivkam">Prirejanje vrednosti spremenljivkam</a></li>
-<li><a class="reference internal" href="#shranjevanje-programov-v-datoteke">Shranjevanje programov v datoteke</a></li>
-<li><a class="reference internal" href="#pisanje-preglednih-programov">Pisanje preglednih programov</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#funkcije">Funkcije</a><ul>
-<li><a class="reference internal" href="#definicije-lastnih-funkcij">Definicije lastnih funkcij</a></li>
-<li><a class="reference internal" href="#stavek-return">Stavek <code class="docutils literal notranslate"><span class="pre">return</span></code></a></li>
-<li><a class="reference internal" href="#lokalnost-spremenljivk">Lokalnost spremenljivk</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#logicne-vrednosti">Logične vrednosti</a><ul>
-<li><a class="reference internal" href="#pogojni-stavek">Pogojni stavek</a></li>
-<li><a class="reference internal" href="#razsirjeni-pogojni-stavek">Razširjeni pogojni stavek</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="prejšnje poglavje">Uvod v programiranje</a></li>
-      <li>Next: <a href="02-rekurzija.html" title="naslednje poglavje">Rekurzija</a></li>
-  </ul></li>
-</ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>Trenutna stran</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/01-uvod-v-python.rst.txt"
-            rel="nofollow">Prikaži izvorno kodo</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Hitro iskanje</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Potrdi" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
     </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2018, Matija Pretnar.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
-      
-      |
-      <a href="_sources/01-uvod-v-python.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
     
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="00-uvod.html" title="previous page">Uvod v programiranje</a>
+    <a class='right-next' id="next-link" href="02-nizi.html" title="next page">Nizi</a>
 
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matija Pretnar<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
     
   </body>
 </html>
