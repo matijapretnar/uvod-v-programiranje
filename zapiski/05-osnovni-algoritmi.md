@@ -15,6 +15,8 @@ kernelspec:
 
 # Osnovni algoritmi
 
+## Izračun največjega skupnega delitelja
+
 ## Določitev največjega elementa
 
 ## Iskanje danega elementa v seznamu

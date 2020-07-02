@@ -21,7 +21,7 @@ Računalnike programiramo preko _programskih_ jezikov. Tako kot običajni jeziki
 
 ## O Pythonu
 
-Pri tem predmetu se bomo naučili jezika Python, ki je precej prijazen do začetnikov, hkrati pa tudi izjemno popularen, zato bo pridobljeno znanje takoj uporabno. Python se imenuje po skupini Monty Python, kar se vidi tudi v dokumentaciji, kjer je precej referenc na njihove skeče. Avtor in glavna avtoriteta Pythona je Guido van Rossum, do nedavnega pa je bil tudi BDFL (benevolent dictator for life), torej tisti z zadnjo besedo pri pomembnih odločitvah glede prihodnosti Pythona. Leta 2018 je z mesta odstopil ter nadzor predal skupnosti.
+Pri tem predmetu se bomo naučili jezika Python, ki je precej prijazen do začetnikov, hkrati pa tudi izjemno popularen, zato bo pridobljeno znanje takoj uporabno. Python se imenuje po skupini Monty Python, kar se vidi tudi v dokumentaciji, kjer je precej referenc na njihove skeče. Avtor Pythona je Guido van Rossum, ki je bil do nedavnega tudi BDFL (benevolent dictator for life), torej tisti z zadnjo besedo pri pomembnih odločitvah glede prihodnosti Pythona. Leta 2018 je z mesta odstopil ter nadzor predal skupnosti.
 
 Tudi če vas zgodovina Pythona ne zanima, ji bomo posvetili malo pozornosti, saj se jo je treba zavedati v vsakdanji uporabi. Pythonova prva javna objavljena različica je bil Python 0.9 leta 1991, vendar se je pravi razmah začel šele leta 2000 z različico 2.0\. Kljub nekaj posodobitvam je postalo očitno, da je za prihodnji razvoj potrebno narediti nekaj večjih sprememb, ki bodo jezik prečistile, vendar bodo zaradi njih nekateri programi, napisani v Pythonu 2, prenehali delovati.
 
