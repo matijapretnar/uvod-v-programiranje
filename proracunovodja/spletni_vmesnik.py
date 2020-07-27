@@ -5,11 +5,15 @@ import random
 import hashlib
 from model import Uporabnik, Proracun
 
+imenik_s_podatki = 'uporabniki'
 uporabniki = {}
 skrivnost = 'TO JE ENA HUDA SKRIVNOST'
 
-for ime_datoteke in os.listdir('uporabniki'):
-    uporabnik = Uporabnik.nalozi_stanje(os.path.join('uporabniki', ime_datoteke))
+if not os.path.isdir(imenik_s_podatki):
+    os.mkdir(imenik_s_podatki)
+
+for ime_datoteke in os.listdir(imenik_s_podatki):
+    uporabnik = Uporabnik.nalozi_stanje(os.path.join(imenik_s_podatki, ime_datoteke))
     uporabniki[uporabnik.uporabnisko_ime] = uporabnik
 
 def poisci_racun(ime_polja):
