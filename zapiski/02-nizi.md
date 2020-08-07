@@ -200,7 +200,7 @@ Vse metode, ki so na voljo na nizih lahko najdete v [uradni dokumentaciji](https
 
 - `s.index(t)` vrne najmanjši indeks v nizu `s`, kjer se niz `t` pojavi kot podniz. Podobno kot prej klic `s.index(t, i)` začne iskati pri indeksu `i`, klic `s.index(t, i, j)` pa konča pri indeksu `j`. Če niza ni, metoda sproži napako. Metoda `s.find` se obnaša enako kot `s.index`, le da v primeru, ko podniza ne najde, vrne `-1`.
 
-- `s.join(sez)` z ločilom `s` skupaj stakne vse nize iz seznama (te bomo spoznali [kmalu](TODO)) `sez`.
+- `s.join(sez)` z ločilom `s` skupaj stakne vse nize iz seznama `sez` (te bomo spoznali {ref}`kmalu <seznami-in-nabori>`).
 
 - `s.replace(t1, t2)` vrne niz `s`, v katerem smo vse pojavitve podniza `t1` zamenjali s podnizi `t2`. Klic `s.replace(t1, t2, n)` pa zamenja le prvih `n` pojavitev.
 
@@ -231,7 +231,7 @@ niz.format('Mama', 'joj')
 niz.format('Tone', 'FMF')
 ```
 
-Argumente lahko tudi oblikujemo in poimenujemo, kar je razloženo v [uradni dokumentaciji](TODO). Po novem, od Pythona 3.6 naprej, pa lahko uporabljamo tudi _`f`-nize_. To so nizi, ki jih na začetku označimo z znakom `f`, nato pa v zavite oklepaje zapišemo vrednost, ki naj jo Python izračuna in vstavi v niz. Na primer:
+Argumente lahko tudi oblikujemo in poimenujemo, kar je razloženo v [uradni dokumentaciji](https://docs.python.org/3/library/string.html#format-string-syntax). Po novem, od Pythona 3.6 naprej, pa lahko uporabljamo tudi _`f`-nize_. To so nizi, ki jih na začetku označimo z znakom `f`, nato pa v zavite oklepaje zapišemo vrednost, ki naj jo Python izračuna in vstavi v niz. Na primer:
 
 ```{code-cell}
 kdo = 'Mama'
@@ -261,7 +261,7 @@ f'popust znaša {1 / 3:.2%}'
 f'{"NASLOV":*^30}'
 ```
 
-Možnosti za oblikovanje je veliko, vse pa so opisane v [uradni dokumentaciji](TODO).
+Možnosti za oblikovanje je veliko, vse pa so opisane v [uradni dokumentaciji](https://docs.python.org/3/reference/lexical_analysis.html#f-strings).
 
 ## Pisanje na konzolo in branje s konzole
 

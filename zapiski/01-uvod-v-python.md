@@ -74,7 +74,7 @@ a + b + c
 5 * c
 ```
 
-Vidimo, da se je v izhodni celici prikazala le vrednost zadnjega izraza.
+Vidimo, da se je v izhodni celici prikazala le vrednost zadnjega izraza. Če želimo, lahko v prireditvenem stavku nastavimo več vrednosti hkrati:
 
 ```{code-cell}
 a, b = 10, 15
@@ -402,7 +402,7 @@ not (5 == 10)
 
 Logične vrednosti uporabimo v _pogojnih stavkih_ (oziroma _stavkih_ `if`) oblike
 
-```
+```{code-block}
 if pogoj:
     # stavki, ki jih izvedemo,
     # ko pogoj drži
@@ -425,6 +425,16 @@ x = y + 7
 ```
 
 se bo izvedla veja `if`, zato bo `x` na koncu enak 17, `y` pa 10\. V primeru, da bi bila začetna vrednost `x = 12`, pa bi se izvedla veja `else` in vrednost `x` bi na koncu bila 42, vrednost `y` pa 35.
+
+Če želimo, lahko vejo `else` v pogojnem stavku tudi izpustimo. V tem primeru se ob neizpolnjevanju pogoja ne zgodi nič.
+
+```{code-cell}
+x = 5
+y = 8
+if x > 10:
+    y = 2 * x
+y
+```
 
 Pogojne stavke lahko pišemo tudi v funkcijah. Na primer, funkcijo, ki računa absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:
 
@@ -547,7 +557,7 @@ fakulteta(5)
 fakulteta(10)
 ```
 
-Funkcijam, ki so definirane s pomočjo same sebe pravimo, da so **rekurzivne**. Izkaže se, da lahko s pomočjo rekurzije napišemo **čisto vse** izračunljive funkcije na celih številih: ugotovimo lahko, katera števila so praštevila, katera so si prijateljska, katera so popolna, ...
+Funkcijam, ki so definirane s pomočjo same sebe pravimo, da so _rekurzivne_. Izkaže se, da lahko s pomočjo rekurzije napišemo **čisto vse** izračunljive funkcije na celih številih: ugotovimo lahko, katera števila so praštevila, katera so si prijateljska, katera so popolna, ...
 
 Še en primer rekurzivne definicije so Fibonaccijeva števila. Velja $F_0 = 0$, $F_1 = 1$, za vse $n \ge 2$ pa velja in $F_{n} = F_{n - 1} + F_{n - 2}$. Funkcijo tedaj napišemo podobno na podoben način kot zgornjo: če je `n` enak 0, vrnemo 0, sicer pogledamo, ali je enak 1\. V tem primeru vrnemo 1\. Če pa tudi 1 ni enak, mora biti večji ali enak 2, zato se pokličemo rekurzivno.
 
