@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
@@ -29,6 +30,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Seznami &amp; nabori" href="04-seznami-in-nabori.html" />
@@ -63,66 +71,110 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="00-uvod.html">Uvod v programiranje</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Osnove Pythona</p>
-</li>
-  <li class="">
-    <a href="01-uvod-v-python.html">Uvod v Python</a>
-  </li>
-  <li class="">
-    <a href="02-nizi.html">Nizi</a>
-  </li>
-  <li class="active">
-    <a href="">Zanke</a>
-  </li>
-  <li class="">
-    <a href="04-seznami-in-nabori.html">Seznami & nabori</a>
-  </li>
-  <li class="">
-    <a href="05-osnovni-algoritmi.html">Osnovni algoritmi</a>
-  </li>
-  <li class="">
-    <a href="06-slovarji-in-mnozice.html">Slovarji & množice</a>
-  </li>
-  <li class="">
-    <a href="07-datoteke.html">Datoteke</a>
-  </li>
-  <li class="">
-    <a href="08-razredi.html">Razredi</a>
-  </li>
-  <li class="">
-    <a href="09-izjeme-in-iterabilni-objekti.html">Izjeme & iterabilni objekti</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Pisanje večjih programov</p>
-</li>
-  <li class="">
-    <a href="10-nadzor-razlicic.html">Nadzor različic</a>
-  </li>
-  <li class="">
-    <a href="11-tekstovni-vmesnik.html">Tekstovni vmesnik</a>
-  </li>
-  <li class="">
-    <a href="12-spletni-vmesnik.html">Spletni vmesnik</a>
-  </li>
-  <li class="">
-    <a href="13-spletna-storitev.html">Spletna storitev</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Kako deluje računalnik</p>
-</li>
-  <li class="">
-    <a href="14-od-silicija-do-strojne-kode.html">Od silicija do strojne kode</a>
-  </li>
-  <li class="">
-    <a href="15-od-zbirnika-do-generatorja-prastevil.html">Od zbirnika do generatorja praštevil</a>
-  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-uvod.html">
+   Uvod v programiranje
+  </a>
+ </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Osnove Pythona
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-uvod-v-python.html">
+   Uvod v Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-nizi.html">
+   Nizi
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Zanke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-seznami-in-nabori.html">
+   Seznami &amp; nabori
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-osnovni-algoritmi.html">
+   Osnovni algoritmi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-slovarji-in-mnozice.html">
+   Slovarji &amp; množice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-datoteke.html">
+   Datoteke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-razredi.html">
+   Razredi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-izjeme-in-iterabilni-objekti.html">
+   Izjeme &amp; iterabilni objekti
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pisanje večjih programov
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-nadzor-razlicic.html">
+   Nadzor različic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-tekstovni-vmesnik.html">
+   Tekstovni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-spletni-vmesnik.html">
+   Spletni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-spletna-storitev.html">
+   Spletna storitev
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Kako deluje računalnik
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-od-silicija-do-strojne-kode.html">
+   Od silicija do strojne kode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-od-zbirnika-do-generatorja-prastevil.html">
+   Od zbirnika do generatorja praštevil
+  </a>
+ </li>
+</ul>
+
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -203,34 +255,64 @@
 </div>
 
     </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zanka-while">
+   Zanka
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     while
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zanka-for">
+   Zanka
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     for
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stavki-break-continue-in-pass">
+   Stavki
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     break
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     continue
+    </span>
+   </code>
+   in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pass
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metoda-monte-carlo">
+   Metoda Monte-Carlo
+  </a>
+ </li>
+</ul>
 
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#zanka-while" class="nav-link">Zanka while</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#zanka-for" class="nav-link">Zanka for</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#stavki-break-continue-in-pass" class="nav-link">Stavki break, continue in pass</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#metoda-monte-carlo" class="nav-link">Metoda Monte-Carlo</a>
-        </li>
-    
-    </ul>
-</nav>
-
-
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -240,20 +322,557 @@
                 
   <div class="section" id="zanke">
 <h1>Zanke<a class="headerlink" href="#zanke" title="Permalink to this headline">¶</a></h1>
+<p>Rekurzivni klici nam omogočajo, da se pri izvajanju poljubno mnogokrat vrnemo na poljubne konce programa. V veliki večini primerov pa nam je dovolj že to, da ponovimo določen del programa. Temu so namenjene zanke.</p>
 <div class="section" id="zanka-while">
 <h2>Zanka <code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#zanka-while" title="Permalink to this headline">¶</a></h2>
+<p>Z zanko <code class="docutils literal notranslate"><span class="pre">while</span></code> določene ukaze izvajamo toliko časa, dokler velja dani pogoj. Pišemo jo kot</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">pogoj</span><span class="p">:</span>
+    <span class="c1"># stavki, ki jih ponavljamo</span>
+    <span class="c1"># od prvega do zadnjega,</span>
+    <span class="c1"># dokler velja pogoj</span>
+</pre></div>
+</div>
+<p>Na primer, program</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>24
+48
+96
+192
+384
+768
+1536
+</pre></div>
+</div>
+</div>
+</div>
+<p>bo <code class="docutils literal notranslate"><span class="pre">n</span></code> nastavil na 12, nato pa ga toliko časa podvojeval in izpisoval, dokler njegova vrednost ne bo presegla 1000.</p>
+<p>V programih bomo pogostokrat novo vrednost spremenljivke izračunali tako, da bomo spremenili staro (zato tudi govorimo o spremenljivkah). Na primer, ko bomo šteli vsa praštevila med 1 in 1000000, bomo imeli spremenljivko, ki bo imela na začetku vrednost 0, nato pa jo bomo ob vsakem praštevilu povečali za 1. V ta namen lahko namesto <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">2</span></code> pišemo kar operator <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">*=</span> <span class="pre">2</span></code>, saj je <code class="docutils literal notranslate"><span class="pre">*=</span></code> operacija, ki spremenljivko na levi pomnoži z vrednostjo na desni. Tudi za ostale operacije obstajajo podobne bližnjice, na primer <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">//=</span></code> in tako naprej.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">2</span>
+<span class="n">x</span> <span class="o">*=</span> <span class="mi">4</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zgornji program bi tako na krajše lahko napisali kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">*=</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>24
+48
+96
+192
+384
+768
+1536
+</pre></div>
+</div>
+</div>
+</div>
+<p>Za primer izračunajmo stopnjo največje potence števila 2, ki še deli število 1580160. To storimo tako, da število zaporedoma celoštevilsko delimo z 2 in ob vsakem deljenju števec stopnje povečamo za 1. Ukaze ponavljamo toliko časa, dokler je ostanek pri deljenju z 2 enak 0:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1580160</span>
+<span class="n">stopnja</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">//=</span> <span class="mi">2</span>
+    <span class="n">stopnja</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">stopnja</span><span class="p">)</span>
+<span class="n">stopnja</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Program bi lahko pretvorili tudi v splošnejšo funkcijo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">celostevilski_logaritem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne stopnjo največje potence števila k, ki še deli n.&quot;&quot;&quot;</span>
+    <span class="n">stopnja</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">//=</span> <span class="n">k</span>
+        <span class="n">stopnja</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">stopnja</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">celostevilski_logaritem</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">celostevilski_logaritem</span><span class="p">(</span><span class="mi">1580160</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Isto funkcijo bi lahko napisali tudi z rekurzijo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">celostevilski_logaritem_rek</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne stopnjo največje potence števila k, ki še deli n.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">celostevilski_logaritem_rek</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">celostevilski_logaritem_rek</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">celostevilski_logaritem_rek</span><span class="p">(</span><span class="mi">1580160</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vseeno v praksi za tiste programe, pri katerih neko stvar ponavljamo toliko časa, dokler velja določen pogoj, raje uporabimo zanko <code class="docutils literal notranslate"><span class="pre">while</span></code>, saj je učinkovitejša (vsaj v Pythonu, v drugih jezikih je rekurzija ravno tako učinkovita). Poleg tega se Python pritoži, če gremo pri rekurziji pregloboko. Običajno se to zgodi takrat, kadar smo rekurzijo napisali tako, da se ne ustavi. Vendar računalnik tega ne more vedeti, zato se Python ustavi po določenem številu klicev ustavi:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">celostevilski_logaritem_rek</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2959</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2959
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">celostevilski_logaritem_rek</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2960</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RecursionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">aae401b5e439</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">celostevilski_logaritem_rek</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2960</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-8-fbdf32098d56&gt;</span> in <span class="ni">celostevilski_logaritem_rek</span><span class="nt">(n, k)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="sd">&quot;&quot;&quot;Vrne stopnjo največje potence števila k, ki še deli n.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>         <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">celostevilski_logaritem_rek</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="k">return</span> <span class="mi">0</span>
+
+<span class="o">...</span> <span class="n">last</span> <span class="mi">1</span> <span class="n">frames</span> <span class="n">repeated</span><span class="p">,</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">frame</span> <span class="n">below</span> <span class="o">...</span>
+
+<span class="nn">&lt;ipython-input-8-fbdf32098d56&gt;</span> in <span class="ni">celostevilski_logaritem_rek</span><span class="nt">(n, k)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="sd">&quot;&quot;&quot;Vrne stopnjo največje potence števila k, ki še deli n.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>         <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">celostevilski_logaritem_rek</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="k">return</span> <span class="mi">0</span>
+
+<span class="ne">RecursionError</span>: maximum recursion depth exceeded in comparison
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pri zankah teh težav ni:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">celostevilski_logaritem</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2959</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2959
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">celostevilski_logaritem</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">2960</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2960
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">celostevilski_logaritem</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se pa lahko pri zanki <code class="docutils literal notranslate"><span class="pre">while</span></code> zgodi, da se njeno izvajanje nikoli ne zaključi. Na primer, če bi poklicali <code class="docutils literal notranslate"><span class="pre">celostevilski_logaritem(12345,</span> <span class="pre">1)</span></code>,
+bi bil ostanek pri deljenju z 1 v pogoju vedno enak 0 in zanka bi tekla v neskončnost. Ko se naveličamo čakanja, lahko pritisnemo <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> in izvajanje prekinemo.</p>
 </div>
 <div class="section" id="zanka-for">
 <h2>Zanka <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#zanka-for" title="Permalink to this headline">¶</a></h2>
+<p>Zanko <code class="docutils literal notranslate"><span class="pre">while</span></code> torej uporabimo takrat, kadar želimo ukaze ponavljati, dokler velja nek pogoj. Včasih pa že vnaprej vemo, kolikokrat bomo te ukaze ponovili. Na primer, funkcijo za izračun fakultete bi lahko pisali kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne fakulteto naravnega števila n.&quot;&quot;&quot;</span>
+    <span class="n">produkt</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">produkt</span> <span class="o">*=</span> <span class="n">i</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">produkt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>vendar vemo, da se bo zanka izvedla natanko enkrat za vsako število od 1 do <code class="docutils literal notranslate"><span class="pre">n</span></code>. Poleg tega se nam hitro zgodi, da vrstico <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">1</span></code> po nesreči pozabimo ali napišemo kot <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+</span> <span class="pre">1</span></code> ali kot <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">1</span></code>, zaradi česar se zanka izvaja v neskončnost. Za primere, ko vemo, kolikokrat izvedemo določeno kodo, raje uporabimo zanko <code class="docutils literal notranslate"><span class="pre">for</span></code>, ki jo pišemo kot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">spremenljivka</span> <span class="ow">in</span> <span class="n">vrednosti</span><span class="p">:</span>
+    <span class="c1"># stavki, ki jih izvedemo</span>
+    <span class="c1"># po enkrat za vsako izmed</span>
+    <span class="c1"># podanih vrednost spremenljivke</span>
+</pre></div>
+</div>
+<p>izvede pa se enako, kot če bi napisali</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># v spremenljivko shrani prvo vrednost</span>
+<span class="c1"># izvedi vse stavke v telesu zanke</span>
+<span class="c1"># v spremenljivko shrani drugo vrednost</span>
+<span class="c1"># izvedi vse stavke v telesu zanke</span>
+<span class="c1"># ...</span>
+<span class="c1"># v spremenljivko shrani zadnjo vrednost</span>
+<span class="c1"># izvedi vse stavke v telesu zanke</span>
+</pre></div>
+</div>
+<p>Na primer, čez vse črke danega niza se sprehodimo kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="s1">&#39;to je en niz&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">znak</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>t
+o
+ 
+j
+e
+ 
+e
+n
+ 
+n
+i
+z
+</pre></div>
+</div>
+</div>
+</div>
+<p>samoglasnike pa lahko preštejemo kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stevilo_samoglasnikov</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="n">stevilo</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">niz</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">znak</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="s1">&#39;aeiou&#39;</span><span class="p">:</span>
+            <span class="n">stevilo</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">stevilo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stevilo_samoglasnikov</span><span class="p">(</span><span class="s1">&#39;Uvod v programiranje&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če se želimo sprehoditi po številih, uporabimo funkcijo <code class="docutils literal notranslate"><span class="pre">range</span></code>. Ta zaporedoma vrača vsa števila v danem razponu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>25
+36
+49
+64
+81
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vidimo, da tako kot rezine tudi <code class="docutils literal notranslate"><span class="pre">range</span></code> ne doseže zgornje meje. Če funkciji <code class="docutils literal notranslate"><span class="pre">range</span></code> podamo en argument, bo začela šteti z 0, če pa ji podamo še tretji argument, ga bo uporabila za velikost koraka (kot pri rezinah).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>5
+7
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>S pomočjo funkcije <code class="docutils literal notranslate"><span class="pre">range</span></code> bi fakulteto torej napisali kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne fakulteto naravnega števila n.&quot;&quot;&quot;</span>
+    <span class="n">produkt</span> <span class="o">=</span> <span class="mi">1</span> 
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">produkt</span> <span class="o">*=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">produkt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2432902008176640000
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="stavki-break-continue-in-pass">
 <h2>Stavki <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code> in <code class="docutils literal notranslate"><span class="pre">pass</span></code><a class="headerlink" href="#stavki-break-continue-in-pass" title="Permalink to this headline">¶</a></h2>
+<p>V zankah lahko uporabimo tudi posebne ukaze, ki spreminjajo običajen potek programa. Stavek <code class="docutils literal notranslate"><span class="pre">break</span></code> prekine trenutno zanko. Na primer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1
+x
+2
+</pre></div>
+</div>
+</div>
+</div>
+<p>izmenično izpisuje števila od 1 do 4 ter znak <code class="docutils literal notranslate"><span class="pre">x</span></code>. V trenutku, ko pride do števila 2, ki zadošča pogoju <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">==</span> <span class="pre">2</span> <span class="pre">or</span> <span class="pre">n</span> <span class="pre">==</span> <span class="pre">3</span></code>, izvajanje zanke v celoti prekine in preneha z izpisovanjem.</p>
+<p>Primer je napisan za zanko <code class="docutils literal notranslate"><span class="pre">for</span></code>, vendar enako deluje tudi za zanko <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
+<p>Stavek <code class="docutils literal notranslate"><span class="pre">continue</span></code> zanke ne ustavi, temveč le preskoči preostanek trenutnega obhoda zanke in gre nazaj na začetek z naslednjo vrednostjo. Na primer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1
+x
+2
+3
+4
+x
+</pre></div>
+</div>
+</div>
+</div>
+<p>pri številih 2 in 3, ki zadoščata pogoju, preskoči izpis znaka <code class="docutils literal notranslate"><span class="pre">x</span></code>, ki bi moral slediti.</p>
+<p>Tudi stavek <code class="docutils literal notranslate"><span class="pre">continue</span></code> deluje tako za zanko <code class="docutils literal notranslate"><span class="pre">for</span></code> kot za zanko <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
+<p>Stavek <code class="docutils literal notranslate"><span class="pre">pass</span></code> pa ne stori ničesar. Na primer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1
+x
+2
+x
+3
+x
+4
+x
+</pre></div>
+</div>
+</div>
+</div>
+<p>pri številih 2 in 3, ki zadoščata pogoju, vstopi v pogojni stavek, vendar tam ne stori ničesar, zato je izpis enak, kakor bi bil za program brez pogojnega stavka.</p>
+<p>Stavek <code class="docutils literal notranslate"><span class="pre">pass</span></code> lahko uporabljamo kjerkoli v Pythonu, ne le v zankah. Najpogosteje ga uporabimo takrat, kadar Python zahteva, da napišemo vsaj en ukaz, vendar ne želimo storiti ničesar. Recimo, da imamo program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je sod&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je lih&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>in za trenutek želimo izklopiti izpisovanje sodih števil. Če bi napisali le</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># print(x, &#39;je sod&#39;)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je lih&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>bi se Python pritožil, da je prva veja pogojnega stavka prazna, saj komentarje ignorira. Seveda bi lahko celoten program preuredili v</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je lih&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>vendar tega ne želimo (sploh pri večjih programih). S pomočjo stavka <code class="docutils literal notranslate"><span class="pre">pass</span></code> pa lahko napišemo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># print(x, &#39;je sod&#39;)</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;je lih&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tudi če se odločimo, da bi zopet vklopili izpisovanje, lahko stavek <code class="docutils literal notranslate"><span class="pre">pass</span></code> pustimo v kodi, ker ne stori ničesar.</p>
 </div>
 <div class="section" id="metoda-monte-carlo">
 <h2>Metoda Monte-Carlo<a class="headerlink" href="#metoda-monte-carlo" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               

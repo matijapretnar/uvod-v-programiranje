@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
@@ -29,6 +30,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Osnovni algoritmi" href="05-osnovni-algoritmi.html" />
@@ -63,66 +71,110 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="00-uvod.html">Uvod v programiranje</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Osnove Pythona</p>
-</li>
-  <li class="">
-    <a href="01-uvod-v-python.html">Uvod v Python</a>
-  </li>
-  <li class="">
-    <a href="02-nizi.html">Nizi</a>
-  </li>
-  <li class="">
-    <a href="03-zanke.html">Zanke</a>
-  </li>
-  <li class="active">
-    <a href="">Seznami & nabori</a>
-  </li>
-  <li class="">
-    <a href="05-osnovni-algoritmi.html">Osnovni algoritmi</a>
-  </li>
-  <li class="">
-    <a href="06-slovarji-in-mnozice.html">Slovarji & množice</a>
-  </li>
-  <li class="">
-    <a href="07-datoteke.html">Datoteke</a>
-  </li>
-  <li class="">
-    <a href="08-razredi.html">Razredi</a>
-  </li>
-  <li class="">
-    <a href="09-izjeme-in-iterabilni-objekti.html">Izjeme & iterabilni objekti</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Pisanje večjih programov</p>
-</li>
-  <li class="">
-    <a href="10-nadzor-razlicic.html">Nadzor različic</a>
-  </li>
-  <li class="">
-    <a href="11-tekstovni-vmesnik.html">Tekstovni vmesnik</a>
-  </li>
-  <li class="">
-    <a href="12-spletni-vmesnik.html">Spletni vmesnik</a>
-  </li>
-  <li class="">
-    <a href="13-spletna-storitev.html">Spletna storitev</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Kako deluje računalnik</p>
-</li>
-  <li class="">
-    <a href="14-od-silicija-do-strojne-kode.html">Od silicija do strojne kode</a>
-  </li>
-  <li class="">
-    <a href="15-od-zbirnika-do-generatorja-prastevil.html">Od zbirnika do generatorja praštevil</a>
-  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-uvod.html">
+   Uvod v programiranje
+  </a>
+ </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Osnove Pythona
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-uvod-v-python.html">
+   Uvod v Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-nizi.html">
+   Nizi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-zanke.html">
+   Zanke
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Seznami &amp; nabori
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-osnovni-algoritmi.html">
+   Osnovni algoritmi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-slovarji-in-mnozice.html">
+   Slovarji &amp; množice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-datoteke.html">
+   Datoteke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-razredi.html">
+   Razredi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-izjeme-in-iterabilni-objekti.html">
+   Izjeme &amp; iterabilni objekti
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pisanje večjih programov
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-nadzor-razlicic.html">
+   Nadzor različic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-tekstovni-vmesnik.html">
+   Tekstovni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-spletni-vmesnik.html">
+   Spletni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-spletna-storitev.html">
+   Spletna storitev
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Kako deluje računalnik
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-od-silicija-do-strojne-kode.html">
+   Od silicija do strojne kode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-od-zbirnika-do-generatorja-prastevil.html">
+   Od zbirnika do generatorja praštevil
+  </a>
+ </li>
+</ul>
+
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -203,38 +255,63 @@
 </div>
 
     </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#osnovne-operacije-na-seznamih">
+   Osnovne operacije na seznamih
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zanke-na-seznamih">
+   Zanke na seznamih
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spreminjanje-seznamov">
+   Spreminjanje seznamov
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vgrajene-metode-na-seznamih">
+   Vgrajene metode na seznamih
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#izpeljani-seznami">
+   Izpeljani seznami
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nabori">
+   Nabori
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funkciji-enumerate-in-zip">
+   Funkciji
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     enumerate
+    </span>
+   </code>
+   in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     zip
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
 
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#osnovne-operacije-na-seznamih" class="nav-link">Osnovne operacije na seznamih</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#spreminjanje-seznamov" class="nav-link">Spreminjanje seznamov</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#vgrajene-metode-na-seznamih" class="nav-link">Vgrajene metode na seznamih</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#izpeljani-seznami" class="nav-link">Izpeljani seznami</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#nabori" class="nav-link">Nabori</a>
-        </li>
-    
-    </ul>
-</nav>
-
-
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -243,24 +320,1265 @@
               <div>
                 
   <div class="section" id="seznami-nabori">
-<h1>Seznami &amp; nabori<a class="headerlink" href="#seznami-nabori" title="Permalink to this headline">¶</a></h1>
+<span id="seznami-in-nabori"></span><h1>Seznami &amp; nabori<a class="headerlink" href="#seznami-nabori" title="Permalink to this headline">¶</a></h1>
+<p>Če želimo delati z zaporedjem podatkov, uporabimo sezname. Sename pišemo v oglatih oklepajih, med katerimi napišemo vrednosti, ločene z vejicami, na primer <code class="docutils literal notranslate"><span class="pre">[10,</span> <span class="pre">20,</span> <span class="pre">30]</span></code> je seznam, ki vsebuje tri števila, <code class="docutils literal notranslate"><span class="pre">[]</span></code> pa prazen seznam. Če želimo, lahko vejico pišemo tudi za zadnjim elementom. Seznami so lahko tudi gnezdeni. Na primer, matriko bi predstavili s seznamom seznamov <code class="docutils literal notranslate"><span class="pre">[[1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">[4,</span> <span class="pre">5,</span> <span class="pre">6],</span> <span class="pre">[7,</span> <span class="pre">8,</span> <span class="pre">9]]</span></code>. V sezname lahko spravimo vrednosti različnih tipov, na primer: <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">True,</span> <span class="pre">[2,</span> <span class="pre">5],</span> <span class="pre">&quot;Niz&quot;,</span> <span class="pre">3.14]</span></code> Vendar običajno sezname uporabimo za predstavitev homogene zbirke podatkov, torej da so vse vrednosti istega tipa.</p>
 <div class="section" id="osnovne-operacije-na-seznamih">
 <h2>Osnovne operacije na seznamih<a class="headerlink" href="#osnovne-operacije-na-seznamih" title="Permalink to this headline">¶</a></h2>
+<p>Precej operacij na seznamih je enakih kot na nizih. Sezname lahko stikamo z operacijo <code class="docutils literal notranslate"><span class="pre">+</span></code> in množimo s celimi števili:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[True, False, True]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dolžino seznama dobimo s funkcijo <code class="docutils literal notranslate"><span class="pre">len</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">([])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sezname med seboj primerjamo leksikografsko: najprej prvi par, če sta ta dva enaka, naslednji par in tako naprej.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]</span> <span class="o">&lt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Prav tako imamo na voljo predikata <code class="docutils literal notranslate"><span class="pre">in</span></code> in <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>, s katerima ugotovimo, ali se nek element pojavlja v seznamu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prastevila</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
+<span class="mi">5</span> <span class="ow">in</span> <span class="n">prastevila</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">15</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">prastevila</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Predikat <code class="docutils literal notranslate"><span class="pre">in</span></code> na seznamih se razlikuje od tistega na nizih v tem, da preverja le pojavitev elementov, ne pa podseznamov:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="ow">in</span> <span class="n">prastevila</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na primer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stevilo_dni</span><span class="p">(</span><span class="n">mesec</span><span class="p">,</span> <span class="n">leto</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">mesec</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">29</span> <span class="k">if</span> <span class="n">je_prestopno</span><span class="p">(</span><span class="n">leto</span><span class="p">)</span> <span class="k">else</span> <span class="mi">28</span>
+    <span class="k">elif</span> <span class="n">mesec</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="mi">30</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">31</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indeksiranje in rezine na seznamih delujejo tako kot na nizih:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prastevila</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prastevila</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prastevila</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prastevila</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">prastevila</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prastevila</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[5, 7, 11]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prastevila</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[2, 5, 11, 17]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če imamo gnezdene sezname, do elementov dostopamo z gnezdenimi indeksi:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
+<span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na primer, sled matrike bi lahko izračunali kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sled</span><span class="p">(</span><span class="n">matrika</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Izračuna sled dane matrike.&quot;&quot;&quot;</span>
+    <span class="n">vsota_diagonalnih</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrika</span><span class="p">)):</span>
+        <span class="n">vsota_diagonalnih</span> <span class="o">+=</span> <span class="n">matrika</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">vsota_diagonalnih</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sled</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sledi pa nikakor ne bomo izračunali na sledeči (pri študentih dostikrat videni) način:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grozna_sled</span><span class="p">(</span><span class="n">matrika</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Na popolnoma napačen izračuna sled dane matrike.&quot;&quot;&quot;</span>
+    <span class="n">vsota_diagonalnih</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrika</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrika</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">vsota_diagonalnih</span> <span class="o">+=</span> <span class="n">matrika</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">vsota_diagonalnih</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Funkcija sled matrike sicer izračuna pravilno, vendar na izjemno potraten način, saj se sprehodi čez celotno matriko, ne le čez diagonalne elemente. Na primer, pri matriki velikosti <span class="math notranslate nohighlight">\(1000 \times 1000\)</span> bi druga funkcija pregledala tisočkrat več elementov (in posledično porabila tisočkrat več časa).</p>
+</div>
+<div class="section" id="zanke-na-seznamih">
+<h2>Zanke na seznamih<a class="headerlink" href="#zanke-na-seznamih" title="Permalink to this headline">¶</a></h2>
+<p>Tako kot se lahko z zanko <code class="docutils literal notranslate"><span class="pre">for</span></code> sprehodimo po vseh znakih v nizu, se lahko z njo sprehodimo tudi po vseh elementih danega seznama:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>10
+20
+30
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na primer, vsoto vseh elementov seznama bi definirali kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vsota_elementov</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne vsoto elementov v danem seznamu.&quot;&quot;&quot;</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">seznam</span><span class="p">:</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">element</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vsota_elementov</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4312
+</pre></div>
+</div>
+</div>
+</div>
+<p>Največji element v danem seznamu lahko poiščemo tako, da zaporedoma vsak element seznama primerjamo z do sedaj največjim videnim elementom. Če je trenutni element večji, do sedaj največji element popravimo. Ko pregledamo vse elemente v seznamu, je do sedaj največji element tudi na splošno največji element. Edina stvar, na katero moramo še paziti, je ta, da na začetku izberemo ustrezen največji element. Tu imamo dve dobri izbiri. (Slaba izbira bi bila, da bi za največji do zdaj viden element vzeli neko dovolj majhno število, na primer 0 ali -9999999 – ta izbira je očitno napačna!) Prva dobra izbira je kar prvi element v seznamu, pri čemer moramo potem poprej preveriti še to, da je seznam neprazen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">najvecji_element</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne največji element v danem seznamu. Če ga ni, vrne None&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">seznam</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">najvecji_do_zdaj</span> <span class="o">=</span> <span class="n">seznam</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">seznam</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="o">&gt;</span> <span class="n">najvecji_do_zdaj</span><span class="p">:</span>
+            <span class="n">najvecji_do_zdaj</span> <span class="o">=</span> <span class="n">element</span>
+    <span class="k">return</span> <span class="n">najvecji_do_zdaj</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">najvecji_element</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Seveda lahko uporabimo tudi vgrajene funkcije:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4312
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4000
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="spreminjanje-seznamov">
 <h2>Spreminjanje seznamov<a class="headerlink" href="#spreminjanje-seznamov" title="Permalink to this headline">¶</a></h2>
+<p>Za razliko od nizov lahko vrednosti v seznamih tudi spreminjamo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 40, 30]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zamenjamo lahko tudi celotno <strong>rezino</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[20, 30]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 0, 0, 0, 40]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če nadomestna rezina ni enake dolžine kot prvotna, se seznam ustrezno skrajša ali podaljša. Nadomestimo tudi prazno rezino, s čimer nove elemente vrinemo v seznam. Nadomeščanje prazne rezine ni isto kot nadomeščanje elementa z istim indeksom kot rezina:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">sez</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20, 0, 0, 0, 30, 40]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">sez</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20, [0, 0, 0], 40]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tako elemente kot rezine lahko tudi <strong>brišemo</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">sez</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 30, 40, 50]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">sez</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pri spreminjanju seznamov je treba biti previden, saj ne deluje tako, kot smo navajeni pri spreminjanju vrednosti spremenljivk. Na primer, če pišemo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vidimo, da se vrednost spremenljivke <code class="docutils literal notranslate"><span class="pre">b</span></code> ni spremenila, ko smo spremenili <code class="docutils literal notranslate"><span class="pre">a</span></code>, saj smo jo v drugi vrstici nastavili na število 5. Pri seznamih je stvar malo drugačna. Če pišemo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 1, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>so stvari še vedno take, kot bi jih pričakovali. Vrednost <code class="docutils literal notranslate"><span class="pre">b</span></code> smo nastavili na isti seznam kot <code class="docutils literal notranslate"><span class="pre">a</span></code>, vendar smo potem rekli, da naj bo v <code class="docutils literal notranslate"><span class="pre">a</span></code> shranjen drugačen seznam, s čimer na vrednost v <code class="docutils literal notranslate"><span class="pre">b</span></code> nismo vplivali. Če pa pišemo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 2, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>se je s tem, ko smo spremenili <code class="docutils literal notranslate"><span class="pre">a</span></code>, spremenil tudi <code class="docutils literal notranslate"><span class="pre">b</span></code>. Kaj se je zgodilo? Ko smo napisali <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">a</span></code>, smo povedali, naj bo v <code class="docutils literal notranslate"><span class="pre">b</span></code> shranjen isti seznam kot <code class="docutils literal notranslate"><span class="pre">a</span></code>. In z <code class="docutils literal notranslate"><span class="pre">a[1]</span> <span class="pre">=</span> <span class="pre">2</span></code> smo povedali, naj se na mesto <code class="docutils literal notranslate"><span class="pre">1</span></code> v seznamu, shranjenem v <code class="docutils literal notranslate"><span class="pre">a</span></code>, zapiše 2. Ker je v <code class="docutils literal notranslate"><span class="pre">b</span></code> shranjen isti (ne le enak) seznam kot v <code class="docutils literal notranslate"><span class="pre">a</span></code>, je s tem tudi seznam v <code class="docutils literal notranslate"><span class="pre">b</span></code> drugačen. Da je zmeda večja, <code class="docutils literal notranslate"><span class="pre">+=</span></code> ni samo okrajšava za <code class="docutils literal notranslate"><span class="pre">=</span></code> in <code class="docutils literal notranslate"><span class="pre">+</span></code>, kot smo navajeni pri številih:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 1, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 1, 1, 2, 2, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>V prvem primeru izračunamo nov seznam <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">[2,</span> <span class="pre">2,</span> <span class="pre">2]</span></code> in ga shranimo pod ime <code class="docutils literal notranslate"><span class="pre">a</span></code>, s čimer se <code class="docutils literal notranslate"><span class="pre">b</span></code> ne spremeni. V drugem primeru pa je <code class="docutils literal notranslate"><span class="pre">+=</span></code> operacija, ki razširi obstoječi seznam. Ker gre pri <code class="docutils literal notranslate"><span class="pre">a</span></code> in <code class="docutils literal notranslate"><span class="pre">b</span></code> za isti seznam, se spremeni tudi seznam v <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>Pogosta past, v katero se na začetku ujamemo zaradi spremenljivosti seznamov, je izračun identične matrike. Vemo že, da lahko v Pythonu seznam pomnožimo s številom:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[0, 0, 0]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To nam da idejo, da bi lahko na isti način izračunali ničelno matriko:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Izračun je videti pravilen, vendar vse tri vrstice te matrike kažejo na isti seznam. To je tako, kot če bi pisali:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vrstica</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">matrika</span> <span class="o">=</span> <span class="p">[</span><span class="n">vrstica</span><span class="p">,</span> <span class="n">vrstica</span><span class="p">,</span> <span class="n">vrstica</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Poskusimo iz te matrike dobiti identično matriko tako, da po diagonali nastavimo enice. Najprej nastavimo prvi element v prvi vrstici:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">matrika</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">matrika</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[[1, 0, 0], [1, 0, 0], [1, 0, 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kaj se je zgodilo? Ker druga in tretja vrstica kažeta na isti seznam kot prva, smo tudi v njima prvi element popravili na 1. Če sedaj nastavimo še drugi element v drugi vrstici in tretjega v tretji vrstici se zgodba ponovi:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">matrika</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">matrika</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">matrika</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če želimo identično matriko izračunati na pravilen način, moramo za predstavitev vsake vrstice podati svoj seznam, zato ne moremo uporabiti le pomnoževanja seznamov.</p>
 </div>
 <div class="section" id="vgrajene-metode-na-seznamih">
 <h2>Vgrajene metode na seznamih<a class="headerlink" href="#vgrajene-metode-na-seznamih" title="Permalink to this headline">¶</a></h2>
+<p>Kot pri nizih za večino pogosto uporabljanih stvari na seznamih obstajajo že vgrajene metode. Te povečini ne vračajo ničesar, temveč le spremenijo dani seznam. Izjemi sta metodi <code class="docutils literal notranslate"><span class="pre">index</span></code> in <code class="docutils literal notranslate"><span class="pre">count</span></code>, ki vrneta vrednost in seznam pustita pri miru, ter metoda <code class="docutils literal notranslate"><span class="pre">pop</span></code> ki tako spremeni seznam kot vrne vrednost. Vse metode so naštete v <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">uradni dokumentaciji</a>, najbolj osnovne izmed njih pa so:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.append(x)</span></code> na konec seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> doda element <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">sez</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20, 30, 40]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Metodo <code class="docutils literal notranslate"><span class="pre">append</span></code> pogosto uporabljamo za izračun seznama ustreznih elementov. To storimo tako, da ustvarimo prazen seznam, nato pa vanj z metodo <code class="docutils literal notranslate"><span class="pre">append</span></code> dodamo vsak ustrezen element. To je podoben postopek kot pri izračunu vsote ustreznih elementov, kjer smo ustvarili spremenljivko z začetno vrednostjo 0, nato pa ji prištevali ustrezne elemente.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.extend(sez2)</span></code> na konec seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> doda vse elemente iz seznama <code class="docutils literal notranslate"><span class="pre">sez2</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">sez</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20, 30, 40, 50]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Okrajšava <code class="docutils literal notranslate"><span class="pre">+=</span></code>, ki smo jo videli prej, pokliče natanko metodo <code class="docutils literal notranslate"><span class="pre">extend</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">sez</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20, 30, 40, 50]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.insert(i,</span> <span class="pre">x)</span></code> pred element na mestu <code class="docutils literal notranslate"><span class="pre">i</span></code> v seznamu <code class="docutils literal notranslate"><span class="pre">sez</span></code> vstavi element <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">sez</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">sez</span>
+<span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 0, 20, 30]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.remove(x)</span></code> iz seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> odstrani prvo pojavitev vrednosti <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">sez</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.pop(i=-1)</span></code> vrne element na mestu <code class="docutils literal notranslate"><span class="pre">i</span></code> v seznamu <code class="docutils literal notranslate"><span class="pre">sez</span></code> in odstrani ta element iz seznama. Če indeksa <code class="docutils literal notranslate"><span class="pre">i</span></code> ne podamo, metoda odstrani zadnji element.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">sez</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>30
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[10, 20]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.clear()</span></code> iz seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> pobriše vse elemente.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">sez</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.index(x)</span></code> vrne prvo mesto, na katerem se v seznamu <code class="docutils literal notranslate"><span class="pre">sez</span></code> nahaja vrednost <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.count(x)</span></code> vrne število pojavitev vrednosti <code class="docutils literal notranslate"><span class="pre">x</span></code> v seznamu <code class="docutils literal notranslate"><span class="pre">sez</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.sort(key=None,</span> <span class="pre">reverse=False)</span></code> na mestu uredi seznam glede na vrednosti funkcije <code class="docutils literal notranslate"><span class="pre">key</span></code>. Če parameter <code class="docutils literal notranslate"><span class="pre">reverse</span></code> nastavimo na <code class="docutils literal notranslate"><span class="pre">True</span></code>, bo seznam urejen padajoče.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">sez</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 2, 4, 8, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="nb">sorted</span><span class="p">(</span><span class="n">sez</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 2, 4, 8, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sez.reverse()</span></code> obrne seznam <code class="docutils literal notranslate"><span class="pre">sez</span></code> na glavo.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">sez</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[16, 8, 4, 2, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>TODO: primerjava z rezinami</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sez</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">sez</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">sez</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 2, 4, 8, 16]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="izpeljani-seznami">
 <h2>Izpeljani seznami<a class="headerlink" href="#izpeljani-seznami" title="Permalink to this headline">¶</a></h2>
+<p>Sezname dostikrat lepše zgradimo z <em>izpeljanimi seznami</em>, ki so oblike <code class="docutils literal notranslate"><span class="pre">[izraz</span> <span class="pre">for</span> <span class="pre">spremenljivka</span> <span class="pre">in</span> <span class="pre">mozne_vrednosti]</span></code>. Podobno kot v matematiki množice pišemo kot <span class="math notranslate nohighlight">\({ 2 \cdot n \mid n \in {1, \dots, 9}}\)</span>, lahko v Pythonu napišemo seznam:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[2, 4, 6, 8, 10, 12, 14, 16, 18]
+</pre></div>
+</div>
+</div>
+</div>
+<p>ali pa na primer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">potence</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">**</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">potence</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">potence</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[0, 1, 3, 7, 15, 31, 63, 127, 255, 511]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">stevka</span><span class="p">)</span> <span class="k">for</span> <span class="n">stevka</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="mi">3141592</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[3, 1, 4, 1, 5, 9, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če želimo, lahko v izpeljani seznamih oblike <code class="docutils literal notranslate"><span class="pre">[izraz</span> <span class="pre">for</span> <span class="pre">spremenljivka</span> <span class="pre">in</span> <span class="pre">mozne_vrednosti</span> <span class="pre">if</span> <span class="pre">pogoj]</span></code> s pogojem določimo, katere elemente želimo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[2, 8, 14]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vsota_pozitivnih_elementov</span><span class="p">(</span><span class="n">seznam</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne seznam vseh pozitivnih elementov danega seznama.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">seznam</span> <span class="k">if</span> <span class="n">element</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">vsota_pozitivnih_elementov</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>60
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zanke v izpeljanih seznamih so lahko gnezdene na dva načina. Prvi je, da kot elemente izpeljanega seznama spet podamo izpeljane sezname. Na primer, identično matriko lahko naredimo kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">identicna_matrika</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lahko pa v izpeljanem seznamu naštejemo več zank, pri čemer ob vsakem koraku v obhodu prve spremenljivke naredimo obhod vseh preostalih:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">razlicni_pari</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
+<span class="n">razlicni_pari</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(0, 0),
+ (0, 1),
+ (0, 2),
+ (0, 3),
+ (0, 4),
+ (1, 1),
+ (1, 2),
+ (1, 3),
+ (1, 4),
+ (2, 2),
+ (2, 3),
+ (2, 4),
+ (3, 3),
+ (3, 4),
+ (4, 4)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Izpeljani seznami pa niso vedno rešitev, tudi če so krajši. Na primer, če je vsaka vrednost v seznamu odvisna od prejšnjih, jih ne moremo uporabiti. Z saj je</p>
 </div>
 <div class="section" id="nabori">
 <h2>Nabori<a class="headerlink" href="#nabori" title="Permalink to this headline">¶</a></h2>
+<p>Nabori so prav tako kot seznami sestavljeni iz več elementov, pišemo pa jih med običajne oklepaje: <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code>. Nabor z enim elementom pišemo kot <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">)</span></code> (razmislite, zakaj ga ne pišemo kot <code class="docutils literal notranslate"><span class="pre">(1)</span></code>). Namen naborov je hranjenje heterogenih podatkov. To pomeni, da imajo elementi na različnih mestih različne pomene. Na primer, če vemo da vsako število v seznamu <code class="docutils literal notranslate"><span class="pre">[103,</span> <span class="pre">111,</span> <span class="pre">98,</span> <span class="pre">106]</span></code> predstavlja rezultat neke meritve, bi podobno sklepali tudi, če bi v seznam dodali še kakšno drugo številko. Pri datumu <code class="docutils literal notranslate"><span class="pre">(25,</span> <span class="pre">6,</span> <span class="pre">1991)</span></code> pa imajo različne komponente različne pomene: prva predstavlja dan, druga mesec in tretje leto. Če bi dodali še četrto številko, bi morali povedati, kaj pomeni. Python nam seveda omogoča, da bi meritve zapisali kot <code class="docutils literal notranslate"><span class="pre">(103,</span> <span class="pre">111,</span> <span class="pre">98,</span> <span class="pre">106)</span></code>, datum pa kot <code class="docutils literal notranslate"><span class="pre">[25,</span> <span class="pre">6,</span> <span class="pre">1991]</span></code>, vendar bomo sezname uporabljali za <strong>poljubno število podatkov z enakim pomenom</strong>, nabore pa za <strong>fiksno število podatkov z različnimi pomeni</strong>.</p>
+<p>S tem namenom so nabori v Pythonu nespremenljivi:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">68</span><span class="o">-</span><span class="mi">042</span><span class="n">b39bcc772</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sicer pa za nabore veljajo podobne lastnosti kot za sezname: lahko jih stikamo in množimo; lahko izračunamo njihovo vsoto, minimum, maksimum in dolžino; s predikatom <code class="docutils literal notranslate"><span class="pre">in</span></code> lahko pogledamo, ali vsebujejo dani element; lahko jih indeksiramo in delamo rezine; po njih se lahko sprehodimo z zanko <code class="docutils literal notranslate"><span class="pre">for</span></code>; od metod pa sta na voljo le <code class="docutils literal notranslate"><span class="pre">count</span></code> in <code class="docutils literal notranslate"><span class="pre">index</span></code>, saj ti dve edini ne spreminjata ničesar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">True</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(True, False, True)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(&#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;, &#39;x&#39;, &#39;y&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">)[</span><span class="mi">3</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(10, 20, 50)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če imamo nabor, ga lahko razstavimo na posamezne spremenljivke, na primer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">datum</span> <span class="o">=</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1991</span><span class="p">)</span>
+<span class="n">dan</span><span class="p">,</span> <span class="n">mesec</span><span class="p">,</span> <span class="n">leto</span> <span class="o">=</span> <span class="n">datum</span>
+<span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dan</span><span class="si">}</span><span class="s1">. </span><span class="si">{</span><span class="n">mesec</span><span class="si">}</span><span class="s1">. </span><span class="si">{</span><span class="n">leto</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;25. 6. 1991&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>V resnici gre pri hkratnem prireditvenem stavku kot je</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>za to, da najprej naredimo torej nabor z dvema komponentama oziroma par <code class="docutils literal notranslate"><span class="pre">(10,</span> <span class="pre">20)</span></code>, nato pa ga razstavimo na dve spremenljivki.</p>
+</div>
+<div class="section" id="funkciji-enumerate-in-zip">
+<h2>Funkciji <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> in <code class="docutils literal notranslate"><span class="pre">zip</span></code><a class="headerlink" href="#funkciji-enumerate-in-zip" title="Permalink to this headline">¶</a></h2>
+<p>Dostikrat želimo hkrati dostopati do elementov seznama in njihovih indeksov.</p>
+<p>Predstavimo polinome s seznamom koeficientov, urejenim od prostega proti vodilnemu členu. Polinom <span class="math notranslate nohighlight">\(3 - x^2\)</span> bi tako predstavili s seznamom <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">0,</span> <span class="pre">-1]</span></code>. Pri izračunu vrednosti polinoma želimo hkrati dostopati tako do koeficientov kot do njihovih indeksov, ki ustrezajo potenci. To lahko storimo na več načinov. Lahko se vozimo po indeksih in prek njih dostopamo do koeficientov:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vrednost_polinoma</span><span class="p">(</span><span class="n">polinom</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">polinom</span><span class="p">)):</span>
+        <span class="n">koef</span> <span class="o">=</span> <span class="n">polinom</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">koef</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vrednost_polinoma</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vrednost_polinoma</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lahko se vozimo po koeficientih in hkrati povečujemo števec indeksa:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vrednost_polinoma</span><span class="p">(</span><span class="n">polinom</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">koef</span> <span class="ow">in</span> <span class="n">polinom</span><span class="p">:</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">koef</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Paziti moramo, da indeksa ne računamo s pomočjo metode <code class="docutils literal notranslate"><span class="pre">index</span></code>, saj ta vrne indeks prve pojavitve iskane vrednosti, kar je narobe (pa še počasno):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```{code-cell}
+def napacna_vrednost_polinoma(polinom, x):
+    vsota = 0
+    for koef in polinom:
+        i = polinom.index(koef)
+        vsota += koef * x ** i
+    return vsota
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{code-cell}
+vrednost_polinoma([0, 2, 0, 2], 3)
+```
+
+```{code-cell}
+napacna_vrednost_polinoma([0, 2, 0, 2], 3)
+```
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Ker je v spodnjem klicu funkcije metoda `index` za indeks prve pojavitve vrednosti 2 obakrat vrnila 1, je funkcija vrnila $2 \cdot 3^1 + 2 \cdot 3^1 = 6$ namesto $2 \cdot 3^1 + 2 \cdot 3^3 = 60$.
+
+Najbolj enostavno pa je, da uporabimo funkcijo `enumerate`, ki zaporedoma vrača pare, v katerih so druge komponente vrednosti danega seznama, prve komponente pa njihovi indeksi:
+
+```{code-cell}
+for x in enumerate(&#39;abc&#39;):
+    print(x)
+</pre></div>
+</div>
+<p>Pare, ki nam jih podaja <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> lahko v dve spremenljivki razstavimo tudi v zanki <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0 a
+1 b
+2 c
+</pre></div>
+</div>
+</div>
+</div>
+<p>S pomočjo funkcije <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> lahko vrednost polinoma izračunamo kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vrednost_polinoma</span><span class="p">(</span><span class="n">polinom</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">koef</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">polinom</span><span class="p">):</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">koef</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ali še krajše z izpeljanim seznamom:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vrednost_polinoma</span><span class="p">(</span><span class="n">polinom</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">koef</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">koef</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">polinom</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podobno kot <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> deluje funkcija <code class="docutils literal notranslate"><span class="pre">zip</span></code>, ki sprejme več seznamov, vrne pa zaporedje naborov istoležnih elementov:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(&#39;x&#39;, 10, 4)
+(&#39;y&#39;, 20, 5)
+(&#39;z&#39;, 30, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Funkciji se reče <code class="docutils literal notranslate"><span class="pre">zip</span></code>, ker združuje elemente različnih seznamov tako kot zadrga. Vrnjeno zaporedje ima toliko elementov, kot najkrajši argument funkcije:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(&#39;x&#39;, 10)
+(&#39;y&#39;, 20)
+(&#39;z&#39;, 30)
+</pre></div>
+</div>
+</div>
+</div>
+<p>S pomočjo funkcije <code class="docutils literal notranslate"><span class="pre">zip</span></code> lahko enostavno izračunamo skalarni produkt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">skalarni_produkt</span><span class="p">(</span><span class="n">vektor1</span><span class="p">,</span> <span class="n">vektor2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne skalarni produkt dveh vektorjev iste dimenzije.&quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">vektor1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">vektor2</span><span class="p">)</span>
+    <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vektor1</span><span class="p">,</span> <span class="n">vektor2</span><span class="p">):</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">x2</span>
+    <span class="k">return</span> <span class="n">vsota</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ali kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">skalarni_produkt</span><span class="p">(</span><span class="n">vektor1</span><span class="p">,</span> <span class="n">vektor2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne skalarni produkt dveh vektorjev iste dimenzije.&quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">vektor1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">vektor2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x1</span> <span class="o">*</span> <span class="n">x2</span> <span class="k">for</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vektor1</span><span class="p">,</span> <span class="n">vektor2</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">skalarni_produkt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>-2
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               

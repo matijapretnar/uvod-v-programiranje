@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
@@ -29,6 +30,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Zanke" href="03-zanke.html" />
@@ -63,66 +71,110 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="00-uvod.html">Uvod v programiranje</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Osnove Pythona</p>
-</li>
-  <li class="">
-    <a href="01-uvod-v-python.html">Uvod v Python</a>
-  </li>
-  <li class="active">
-    <a href="">Nizi</a>
-  </li>
-  <li class="">
-    <a href="03-zanke.html">Zanke</a>
-  </li>
-  <li class="">
-    <a href="04-seznami-in-nabori.html">Seznami & nabori</a>
-  </li>
-  <li class="">
-    <a href="05-osnovni-algoritmi.html">Osnovni algoritmi</a>
-  </li>
-  <li class="">
-    <a href="06-slovarji-in-mnozice.html">Slovarji & množice</a>
-  </li>
-  <li class="">
-    <a href="07-datoteke.html">Datoteke</a>
-  </li>
-  <li class="">
-    <a href="08-razredi.html">Razredi</a>
-  </li>
-  <li class="">
-    <a href="09-izjeme-in-iterabilni-objekti.html">Izjeme & iterabilni objekti</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Pisanje večjih programov</p>
-</li>
-  <li class="">
-    <a href="10-nadzor-razlicic.html">Nadzor različic</a>
-  </li>
-  <li class="">
-    <a href="11-tekstovni-vmesnik.html">Tekstovni vmesnik</a>
-  </li>
-  <li class="">
-    <a href="12-spletni-vmesnik.html">Spletni vmesnik</a>
-  </li>
-  <li class="">
-    <a href="13-spletna-storitev.html">Spletna storitev</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Kako deluje računalnik</p>
-</li>
-  <li class="">
-    <a href="14-od-silicija-do-strojne-kode.html">Od silicija do strojne kode</a>
-  </li>
-  <li class="">
-    <a href="15-od-zbirnika-do-generatorja-prastevil.html">Od zbirnika do generatorja praštevil</a>
-  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-uvod.html">
+   Uvod v programiranje
+  </a>
+ </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Osnove Pythona
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-uvod-v-python.html">
+   Uvod v Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Nizi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-zanke.html">
+   Zanke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-seznami-in-nabori.html">
+   Seznami &amp; nabori
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-osnovni-algoritmi.html">
+   Osnovni algoritmi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-slovarji-in-mnozice.html">
+   Slovarji &amp; množice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-datoteke.html">
+   Datoteke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-razredi.html">
+   Razredi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-izjeme-in-iterabilni-objekti.html">
+   Izjeme &amp; iterabilni objekti
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pisanje večjih programov
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-nadzor-razlicic.html">
+   Nadzor različic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-tekstovni-vmesnik.html">
+   Tekstovni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-spletni-vmesnik.html">
+   Spletni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-spletna-storitev.html">
+   Spletna storitev
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Kako deluje računalnik
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-od-silicija-do-strojne-kode.html">
+   Od silicija do strojne kode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-od-zbirnika-do-generatorja-prastevil.html">
+   Od zbirnika do generatorja praštevil
+  </a>
+ </li>
+</ul>
+
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -203,38 +255,52 @@
 </div>
 
     </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#osnovne-operacije-na-nizih">
+   Osnovne operacije na nizih
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indeksi-in-rezine">
+   Indeksi in rezine
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zapisi-nizov">
+   Zapisi nizov
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vgrajene-metode-na-nizih">
+   Vgrajene metode na nizih
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#f-nizi">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f
+    </span>
+   </code>
+   -nizi
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pisanje-na-konzolo-in-branje-s-konzole">
+   Pisanje na konzolo in branje s konzole
+  </a>
+ </li>
+</ul>
 
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#osnovne-operacije-na-nizih" class="nav-link">Osnovne operacije na nizih</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#f-nizi" class="nav-link">f-nizi</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#vgrajene-metode-na-nizih" class="nav-link">Vgrajene metode na nizih</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#pisanje-na-konzolo-in-branje-s-konzole" class="nav-link">Pisanje na konzolo in branje s konzole</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#ubezni-znaki" class="nav-link">Ubežni znaki</a>
-        </li>
-    
-    </ul>
-</nav>
-
-
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -244,23 +310,533 @@
                 
   <div class="section" id="nizi">
 <h1>Nizi<a class="headerlink" href="#nizi" title="Permalink to this headline">¶</a></h1>
+<p>V programih seveda ne delamo le s števili, temveč tudi z drugimi podatki, na primer besedili. V ta namen Python podpira nize, ki so strnjena zaporedja znakov. Nize običajno pišemo v enojnih narekovajih, na primer <code class="docutils literal notranslate"><span class="pre">'to</span> <span class="pre">je</span> <span class="pre">primer</span> <span class="pre">niza'</span></code>.</p>
 <div class="section" id="osnovne-operacije-na-nizih">
 <h2>Osnovne operacije na nizih<a class="headerlink" href="#osnovne-operacije-na-nizih" title="Permalink to this headline">¶</a></h2>
+<p>Nize lahko stikamo z operacijo <code class="docutils literal notranslate"><span class="pre">+</span></code> in množimo s celimi števili:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;zala&#39;</span> <span class="o">+</span> <span class="s1">&#39;gasper&#39;</span>
+</pre></div>
 </div>
-<div class="section" id="f-nizi">
-<h2><code class="docutils literal notranslate"><span class="pre">f</span></code>-nizi<a class="headerlink" href="#f-nizi" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;zalagasper&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;tro&#39;</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="s1">&#39;lo&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;trololololo&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dolžino niza dobimo s funkcijo <code class="docutils literal notranslate"><span class="pre">len</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;lokomotiva&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nize lahko med seboj tudi primerjamo. Pri tem Python nize ureja leksikografsko, torej tako, kot bi bili urejeni v leksikonu ali kazalu: najprej primerja prvi črki, če sta ti dve enaki, pogleda drugi dve, in tako naprej. Pri tem velike črke pridejo na vrsto pred malimi, na šumnike pa se brez posebnih knjižnic Python ne spozna.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;beseda&#39;</span> <span class="o">==</span> <span class="s1">&#39;konj&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;abak&#39;</span> <span class="o">&lt;=</span> <span class="s1">&#39;abeceda&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Na nizih imamo na voljo tudi predikat <code class="docutils literal notranslate"><span class="pre">in</span></code>, s katerim ugotovimo, ali se nek niz pojavlja kot podniz v drugem nizu. Na voljo je tudi <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>, s katerim bolj berljivo zapišemo ravno nasprotno stvar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;gram&#39;</span> <span class="ow">in</span> <span class="s1">&#39;Uvod v programiranje&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;liter&#39;</span> <span class="ow">in</span> <span class="s1">&#39;Uvod v programiranje&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="p">(</span><span class="s1">&#39;liter&#39;</span> <span class="ow">in</span> <span class="s1">&#39;Uvod v programiranje&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;liter&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;Uvod v programiranje&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indeksi-in-rezine">
+<h2>Indeksi in rezine<a class="headerlink" href="#indeksi-in-rezine" title="Permalink to this headline">¶</a></h2>
+<p>Do posameznega znaka v nizu pridemo z <em>indeksi</em>. Z izrazom <code class="docutils literal notranslate"><span class="pre">niz[i]</span></code> dostopamo do <code class="docutils literal notranslate"><span class="pre">i</span></code>-tega znaka v danem nizu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;U&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;R&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;A&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indeksi se začnejo šteti z 0. Če uporabimo negativna števila, lahko štejemo tudi od zadaj, vendar tam začnemo šteti z -1 (saj je -0 = 0).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\ <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">6</span>   <span class="mi">7</span>   <span class="mi">8</span>
+ <span class="n">R</span>   <span class="n">E</span>   <span class="n">K</span>   <span class="n">U</span>   <span class="n">R</span>   <span class="n">Z</span>   <span class="n">I</span>   <span class="n">J</span>   <span class="n">A</span>
+<span class="o">-</span><span class="mi">9</span>  <span class="o">-</span><span class="mi">8</span>  <span class="o">-</span><span class="mi">7</span>  <span class="o">-</span><span class="mi">6</span>  <span class="o">-</span><span class="mi">5</span>  <span class="o">-</span><span class="mi">4</span>  <span class="o">-</span><span class="mi">3</span>  <span class="o">-</span><span class="mi">2</span>  <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Na podoben način lahko dostopamo tudi do podnizov. Če napišemo <code class="docutils literal notranslate"><span class="pre">niz[i:j]</span></code> bomo dobili niz, ki mu pravimo <em>rezina</em> in sega od vključno <code class="docutils literal notranslate"><span class="pre">i</span></code>-tega do vključno <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">-</span> <span class="pre">1</span></code>-tega znaka. Če kakšno od meja izpustimo, bomo vzeli vse znake od začetka oziroma do konca.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Videli bomo, da razpon od <span class="math notranslate nohighlight">\(i\)</span> do <span class="math notranslate nohighlight">\(j\)</span> v Pythonu pogosto pomeni vse od vključno <span class="math notranslate nohighlight">\(i\)</span> do vključno <span class="math notranslate nohighlight">\(j - 1\)</span>. To je malo neobičajno, vendar ima nekaj prednosti: razpon od <span class="math notranslate nohighlight">\(i\)</span> do <span class="math notranslate nohighlight">\(j\)</span> vedno vsebuje <span class="math notranslate nohighlight">\(j - i\)</span> elementov, hkrati pa lahko razpone sestavljamo brez prekrivanja. Na primer, <code class="docutils literal notranslate"><span class="pre">niz[i:j]</span> <span class="pre">+</span> <span class="pre">niz[j:k]</span></code> je enako kot <code class="docutils literal notranslate"><span class="pre">niz[i:k]</span></code> (vsaj, če velja <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">j</span> <span class="pre">&lt;</span> <span class="pre">k</span></code>).</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;K&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;I&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;KURZ&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;REKURZ&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;KURZIJA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pišemo lahko tudi <code class="docutils literal notranslate"><span class="pre">niz[i:j:k]</span></code>, s čimer vzamemo le vsak <code class="docutils literal notranslate"><span class="pre">k</span></code>-ti znak:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;EKURZIJ&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;EKURZIJ&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;EUZJ&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;ERJ&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;AJIZRUKER&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>S pomočjo indeksov in rezin lahko napišemo (ne najbolj učinkovito) funkcijo, ki prešteje vse samoglasnike v danem nizu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stevilo_samoglasnikov</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">niz</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">niz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39;aeiouAEIOU&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">stevilo_samoglasnikov</span><span class="p">(</span><span class="n">niz</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">stevilo_samoglasnikov</span><span class="p">(</span><span class="n">niz</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+<span class="n">stevilo_samoglasnikov</span><span class="p">(</span><span class="s1">&#39;Uvod v programiranje&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Funkcija deluje tako, da najprej pogleda, če je niz prazen. Če je, v njem ni samoglasnikov, zato vrne 0. Če ni, pogleda prvi znak. Če je samoglasnik, potem je število samoglasnikov za ena večje od števila samoglasnikov v preostanku niza (ki ga dobimo s pomočjo rezine), sicer pa je enako številu samoglasnikov v preostanku.</p>
+</div>
+<div class="section" id="zapisi-nizov">
+<h2>Zapisi nizov<a class="headerlink" href="#zapisi-nizov" title="Permalink to this headline">¶</a></h2>
+<p>Nize lahko pišemo tudi z dvojnimi narekovaji, ki jih ponavadi uporabimo takrat, kadar v nizu želimo uporabiti enojni narekovaj: <code class="docutils literal notranslate"><span class="pre">&quot;Tole</span> <span class="pre">je</span> <span class="pre">kr'neki!&quot;</span></code>. V tem primeru niza ne moremo pisati med enojnimi narekovaji, saj bi Python po narekovaju za <code class="docutils literal notranslate"><span class="pre">kr</span></code> mislil, da je konec niza.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&#39;Tole je kr&#39;neki!&#39;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-24-8b1bbdf018b9&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="s1">&#39;Tole je kr&#39;</span><span class="n">neki</span><span class="o">!</span><span class="err">&#39;</span>
+                   <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Včasih želimo uporabiti obe vrsti narekovajev. V tem primeru si pomagamo z <em>ubežnimi znaki</em>. To so znaki, ki jih na običajni način ne moremo zapisati, zato uporabimo poseben zapis, ki se začne z znakom <code class="docutils literal notranslate"><span class="pre">\</span></code>. Tedaj lahko pišemo <code class="docutils literal notranslate"><span class="pre">'&quot;Tole</span> <span class="pre">je</span> <span class="pre">kr'neki,&quot;</span> <span class="pre">je</span> <span class="pre">rekla.'</span></code> ali pa <code class="docutils literal notranslate"><span class="pre">&quot;\&quot;Tole</span> <span class="pre">je</span> <span class="pre">kr'neki,\&quot;</span> <span class="pre">je</span> <span class="pre">rekla.\&quot;</span></code>. Ubežne znake brez težav lahko pišemo tudi tedaj, kadar ni treba <code class="docutils literal notranslate"><span class="pre">'\&quot;Grem</span> <span class="pre">v</span> <span class="pre">rudnik,\&quot;</span> <span class="pre">je</span> <span class="pre">rekla.'</span></code>. Z ubežnimi znaki lahko zapišemo tudi znak za novo vrstico <code class="docutils literal notranslate"><span class="pre">\n</span></code>, za tabulator <code class="docutils literal notranslate"><span class="pre">\t</span></code> in seveda tudi za poševnico <code class="docutils literal notranslate"><span class="pre">\\</span></code>, saj je ne moremo pisati le kot <code class="docutils literal notranslate"><span class="pre">\</span></code>, ker bi Python to razumel kot začetek ubežnega znaka.</p>
+<p>Nize lahko pišemo tudi med tri enojne (<code class="docutils literal notranslate"><span class="pre">'''</span></code>) ali tri dvojne (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>) narekovaje (ki smo jih videli že pri dokumentacijskem nizu). V tem primeru za en sam narekovaj ne potrebujemo ubežnega znaka. Take nize lahko pišemo tudi čez več vrstic.</p>
+<p>Različni zapisi ne vplivajo na vsebino. Tako <code class="docutils literal notranslate"><span class="pre">'&quot;Živjo!&quot;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'\&quot;Živjo!\&quot;'</span></code>,<code class="docutils literal notranslate"><span class="pre">&quot;\&quot;Živjo!\&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'''&quot;Živjo!&quot;'''</span></code> ali <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;&quot;Živjo!\&quot;&quot;&quot;&quot;</span></code> vsi predstavljajo enak niz z osmimi znaki.</p>
 </div>
 <div class="section" id="vgrajene-metode-na-nizih">
 <h2>Vgrajene metode na nizih<a class="headerlink" href="#vgrajene-metode-na-nizih" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Kdaj se uporablja funkcije in kdaj metode?</p>
+<p>TODO</p>
+</div>
+<p>Precej operacij na nizih pa lahko opravimo preko <em>metod</em>. To so funkcije, ki jih na poseben način kličemo na posamezni vrednosti. Na primer, za pretvarjanje niza v male črke pokličemo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;REKURZIJA&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;rekurzija&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Klic metod na nizih ima splošno obliko <code class="docutils literal notranslate"><span class="pre">niz.metoda(...)</span></code>, kjer v oklepajih naštejemo argumente. Na primer, pojavitve posameznega znaka v nizu preštejemo z metodo <code class="docutils literal notranslate"><span class="pre">count</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">niz</span> <span class="o">=</span> <span class="s1">&#39;Otorinolaringolog&#39;</span>
+<span class="n">niz</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Klice metod lahko tudi verižimo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">niz</span> <span class="o">=</span> <span class="s1">&#39;Otorinolaringolog&#39;</span>
+<span class="n">niz</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vse metode, ki so na voljo na nizih lahko najdete v <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">uradni dokumentaciji</a>, zato naštejmo le najbolj pogosto uporabljane:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">s.count(t)</span></code> vrne število pojavitev podniza <code class="docutils literal notranslate"><span class="pre">t</span></code> v nizu <code class="docutils literal notranslate"><span class="pre">s</span></code>. Klic <code class="docutils literal notranslate"><span class="pre">s.count(t,</span> <span class="pre">i)</span></code> deluje podobno, le da začne šteti šele pri indeksu <code class="docutils literal notranslate"><span class="pre">i</span></code>, klic <code class="docutils literal notranslate"><span class="pre">s.count(t,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> pa konča šteti pri indeksu <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s.index(t)</span></code> vrne najmanjši indeks v nizu <code class="docutils literal notranslate"><span class="pre">s</span></code>, kjer se niz <code class="docutils literal notranslate"><span class="pre">t</span></code> pojavi kot podniz. Podobno kot prej klic <code class="docutils literal notranslate"><span class="pre">s.index(t,</span> <span class="pre">i)</span></code> začne iskati pri indeksu <code class="docutils literal notranslate"><span class="pre">i</span></code>, klic <code class="docutils literal notranslate"><span class="pre">s.index(t,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> pa konča pri indeksu <code class="docutils literal notranslate"><span class="pre">j</span></code>. Če niza ni, metoda sproži napako. Metoda <code class="docutils literal notranslate"><span class="pre">s.find</span></code> se obnaša enako kot <code class="docutils literal notranslate"><span class="pre">s.index</span></code>, le da v primeru, ko podniza ne najde, vrne <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s.join(sez)</span></code> z ločilom <code class="docutils literal notranslate"><span class="pre">s</span></code> skupaj stakne vse nize iz seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> (te bomo spoznali <a class="reference internal" href="04-seznami-in-nabori.html#seznami-in-nabori"><span class="std std-ref">kmalu</span></a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s.replace(t1,</span> <span class="pre">t2)</span></code> vrne niz <code class="docutils literal notranslate"><span class="pre">s</span></code>, v katerem smo vse pojavitve podniza <code class="docutils literal notranslate"><span class="pre">t1</span></code> zamenjali s podnizi <code class="docutils literal notranslate"><span class="pre">t2</span></code>. Klic <code class="docutils literal notranslate"><span class="pre">s.replace(t1,</span> <span class="pre">t2,</span> <span class="pre">n)</span></code> pa zamenja le prvih <code class="docutils literal notranslate"><span class="pre">n</span></code> pojavitev.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s.strip()</span></code> vrne niz <code class="docutils literal notranslate"><span class="pre">s</span></code>, v katerem smo odstranili vse bele znake (presledke, tabulatorje, nove vrstice) z začetka in konca. Klic <code class="docutils literal notranslate"><span class="pre">s.strip(t)</span></code> z začetka in konca odstrani vse znake iz niza <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s.lower()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.upper()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.title()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.capitalize()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.swapcase()</span></code> vrnejo niz <code class="docutils literal notranslate"><span class="pre">s</span></code>, v katerem smo vse črke zamenjali z malimi / vse črke zamenjamo z velikimi / vsem besedam damo veliko začetnico / na začetku niza damo veliko začetnico / male črke zamenjamo z velikimi in obratno.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s.split()</span></code> vrne seznam besed v nizu <code class="docutils literal notranslate"><span class="pre">s</span></code> (ločene glede na bele znake). Klic <code class="docutils literal notranslate"><span class="pre">s.split(t)</span></code> loči glede na podniz <code class="docutils literal notranslate"><span class="pre">t</span></code>. Klic <code class="docutils literal notranslate"><span class="pre">s.split(t,</span> <span class="pre">n)</span></code> vrne niz razbit na prvih <code class="docutils literal notranslate"><span class="pre">n</span></code> ločilih.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s.isdigit()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.isalpha()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.islower()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.isupper()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.isalnum()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.isspace()</span></code> vrnejo <code class="docutils literal notranslate"><span class="pre">True</span></code> natanko takrat, kadar je niz <code class="docutils literal notranslate"><span class="pre">s</span></code> neprazen in so vsi znaki števke / črke / male črke / velike črke / črke ali številke / beli znaki.</p></li>
+</ul>
+</div>
+<div class="section" id="f-nizi">
+<h2><code class="docutils literal notranslate"><span class="pre">f</span></code>-nizi<a class="headerlink" href="#f-nizi" title="Permalink to this headline">¶</a></h2>
+<p>Včasih je bila v Pythonu zelo uporabna tudi metoda <code class="docutils literal notranslate"><span class="pre">format</span></code>. Ta vzame niz, v katerem so z zavitimi oklepaji označeni prostori, ki jih zapolnimo z argumenti metode. Na primer</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> ima </span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;mama&#39;</span><span class="p">,</span> <span class="s1">&#39;stol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;mama ima stol&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>ali pa</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">niz</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> vzklika: &quot;</span><span class="si">{1}</span><span class="s1">, </span><span class="si">{1}</span><span class="s1">, </span><span class="si">{1}</span><span class="s1">!&quot;&#39;</span>
+<span class="n">niz</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Mama&#39;</span><span class="p">,</span> <span class="s1">&#39;joj&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Mama vzklika: &quot;joj, joj, joj!&quot;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">niz</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Tone&#39;</span><span class="p">,</span> <span class="s1">&#39;FMF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Tone vzklika: &quot;FMF, FMF, FMF!&quot;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Argumente lahko tudi oblikujemo in poimenujemo, kar je razloženo v <a class="reference external" href="https://docs.python.org/3/library/string.html#format-string-syntax">uradni dokumentaciji</a>. Po novem, od Pythona 3.6 naprej, pa lahko uporabljamo tudi <em><code class="docutils literal notranslate"><span class="pre">f</span></code>-nize</em>. To so nizi, ki jih na začetku označimo z znakom <code class="docutils literal notranslate"><span class="pre">f</span></code>, nato pa v zavite oklepaje zapišemo vrednost, ki naj jo Python izračuna in vstavi v niz. Na primer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kdo</span> <span class="o">=</span> <span class="s1">&#39;Mama&#39;</span>
+<span class="n">kaj</span> <span class="o">=</span> <span class="s1">&#39;joj&#39;</span>
+<span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">kdo</span><span class="si">}</span><span class="s1"> vzklika: &quot;</span><span class="si">{</span><span class="n">kaj</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">kaj</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">kaj</span><span class="si">}</span><span class="s1">!&quot;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Mama vzklika: &quot;joj, joj, joj!&quot;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>ali pa</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">7</span>
+<span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="si">:</span><span class="s1">.5</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;22/7 = 3.1429&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tako kot pri metodi <code class="docutils literal notranslate"><span class="pre">format</span></code> lahko tudi pri <code class="docutils literal notranslate"><span class="pre">f</span></code>-nizih izračunane vrednosti oblikujemo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">7</span>
+<span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="si">:</span><span class="s1">.5</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;22/7 = 3.1429&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;popust znaša </span><span class="si">{</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="si">:</span><span class="s1">.2%</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;popust znaša 33.33%&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;NASLOV&quot;</span><span class="si">:</span><span class="s1">*^30</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;************NASLOV************&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Možnosti za oblikovanje je veliko, vse pa so opisane v <a class="reference external" href="https://docs.python.org/3/reference/lexical_analysis.html#f-strings">uradni dokumentaciji</a>.</p>
 </div>
 <div class="section" id="pisanje-na-konzolo-in-branje-s-konzole">
 <h2>Pisanje na konzolo in branje s konzole<a class="headerlink" href="#pisanje-na-konzolo-in-branje-s-konzole" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="ubezni-znaki">
-<h2>Ubežni znaki<a class="headerlink" href="#ubezni-znaki" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               

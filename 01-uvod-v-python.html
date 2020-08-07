@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
@@ -29,6 +30,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Nizi" href="02-nizi.html" />
@@ -63,66 +71,110 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
   <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="00-uvod.html">Uvod v programiranje</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Osnove Pythona</p>
-</li>
-  <li class="active">
-    <a href="">Uvod v Python</a>
-  </li>
-  <li class="">
-    <a href="02-nizi.html">Nizi</a>
-  </li>
-  <li class="">
-    <a href="03-zanke.html">Zanke</a>
-  </li>
-  <li class="">
-    <a href="04-seznami-in-nabori.html">Seznami & nabori</a>
-  </li>
-  <li class="">
-    <a href="05-osnovni-algoritmi.html">Osnovni algoritmi</a>
-  </li>
-  <li class="">
-    <a href="06-slovarji-in-mnozice.html">Slovarji & množice</a>
-  </li>
-  <li class="">
-    <a href="07-datoteke.html">Datoteke</a>
-  </li>
-  <li class="">
-    <a href="08-razredi.html">Razredi</a>
-  </li>
-  <li class="">
-    <a href="09-izjeme-in-iterabilni-objekti.html">Izjeme & iterabilni objekti</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Pisanje večjih programov</p>
-</li>
-  <li class="">
-    <a href="10-nadzor-razlicic.html">Nadzor različic</a>
-  </li>
-  <li class="">
-    <a href="11-tekstovni-vmesnik.html">Tekstovni vmesnik</a>
-  </li>
-  <li class="">
-    <a href="12-spletni-vmesnik.html">Spletni vmesnik</a>
-  </li>
-  <li class="">
-    <a href="13-spletna-storitev.html">Spletna storitev</a>
-  </li>
-<li class="navbar-special">
-<p class="margin-caption">Kako deluje računalnik</p>
-</li>
-  <li class="">
-    <a href="14-od-silicija-do-strojne-kode.html">Od silicija do strojne kode</a>
-  </li>
-  <li class="">
-    <a href="15-od-zbirnika-do-generatorja-prastevil.html">Od zbirnika do generatorja praštevil</a>
-  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-uvod.html">
+   Uvod v programiranje
+  </a>
+ </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Osnove Pythona
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Uvod v Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-nizi.html">
+   Nizi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-zanke.html">
+   Zanke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-seznami-in-nabori.html">
+   Seznami &amp; nabori
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-osnovni-algoritmi.html">
+   Osnovni algoritmi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-slovarji-in-mnozice.html">
+   Slovarji &amp; množice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-datoteke.html">
+   Datoteke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-razredi.html">
+   Razredi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-izjeme-in-iterabilni-objekti.html">
+   Izjeme &amp; iterabilni objekti
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pisanje večjih programov
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-nadzor-razlicic.html">
+   Nadzor različic
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-tekstovni-vmesnik.html">
+   Tekstovni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-spletni-vmesnik.html">
+   Spletni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13-spletna-storitev.html">
+   Spletna storitev
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Kako deluje računalnik
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="14-od-silicija-do-strojne-kode.html">
+   Od silicija do strojne kode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15-od-zbirnika-do-generatorja-prastevil.html">
+   Od zbirnika do generatorja praštevil
+  </a>
+ </li>
+</ul>
+
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -203,64 +255,74 @@
 </div>
 
     </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aritmeticni-izrazi">
+   Aritmetični izrazi
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spremenljivke">
+   Spremenljivke
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funkcije">
+   Funkcije
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preprecevanje-napak">
+   Preprečevanje napak
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sintakticne-napake">
+     Sintaktične napake
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#napake-ob-izvajanju">
+     Napake ob izvajanju
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vsebinske-napake">
+     Vsebinske napake
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definicije-funkcij">
+   Definicije funkcij
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logicne-vrednosti">
+   Logične vrednosti
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#izrazi-stavki">
+   Izrazi &amp; stavki
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rekurzivne-definicije">
+   Rekurzivne definicije
+  </a>
+ </li>
+</ul>
 
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#aritmeticni-izrazi" class="nav-link">Aritmetični izrazi</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#spremenljivke" class="nav-link">Spremenljivke</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#funkcije" class="nav-link">Funkcije</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#preprecevanje-napak" class="nav-link">Preprečevanje napak</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#sintakticne-napake" class="nav-link">Sintaktične napake</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#napake-ob-izvajanju" class="nav-link">Napake ob izvajanju</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#vsebinske-napake" class="nav-link">Vsebinske napake</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#definicije-funkcij" class="nav-link">Definicije funkcij</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#logicne-vrednosti" class="nav-link">Logične vrednosti</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#izrazi-stavki" class="nav-link">Izrazi & stavki</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#rekurzivne-definicije" class="nav-link">Rekurzivne definicije</a>
-        </li>
-    
-    </ul>
-</nav>
-
-
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -382,7 +444,7 @@
 </div>
 </div>
 </div>
-<p>Vidimo, da se je v izhodni celici prikazala le vrednost zadnjega izraza.</p>
+<p>Vidimo, da se je v izhodni celici prikazala le vrednost zadnjega izraza. Če želimo, lahko v prireditvenem stavku nastavimo več vrednosti hkrati:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span>
@@ -1002,6 +1064,23 @@
 </div>
 </div>
 <p>se bo izvedla veja <code class="docutils literal notranslate"><span class="pre">if</span></code>, zato bo <code class="docutils literal notranslate"><span class="pre">x</span></code> na koncu enak 17, <code class="docutils literal notranslate"><span class="pre">y</span></code> pa 10. V primeru, da bi bila začetna vrednost <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">12</span></code>, pa bi se izvedla veja <code class="docutils literal notranslate"><span class="pre">else</span></code> in vrednost <code class="docutils literal notranslate"><span class="pre">x</span></code> bi na koncu bila 42, vrednost <code class="docutils literal notranslate"><span class="pre">y</span></code> pa 35.</p>
+<p>Če želimo, lahko vejo <code class="docutils literal notranslate"><span class="pre">else</span></code> v pogojnem stavku tudi izpustimo. V tem primeru se ob neizpolnjevanju pogoja ne zgodi nič.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
 <p>Pogojne stavke lahko pišemo tudi v funkcijah. Na primer, funkcijo, ki računa absolutno vrednost, lahko s pomočjo pogojnega stavka napišemo kot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1160,7 +1239,7 @@
 </div>
 </div>
 </div>
-<p>Funkcijam, ki so definirane s pomočjo same sebe pravimo, da so <strong>rekurzivne</strong>. Izkaže se, da lahko s pomočjo rekurzije napišemo <strong>čisto vse</strong> izračunljive funkcije na celih številih: ugotovimo lahko, katera števila so praštevila, katera so si prijateljska, katera so popolna, …</p>
+<p>Funkcijam, ki so definirane s pomočjo same sebe pravimo, da so <em>rekurzivne</em>. Izkaže se, da lahko s pomočjo rekurzije napišemo <strong>čisto vse</strong> izračunljive funkcije na celih številih: ugotovimo lahko, katera števila so praštevila, katera so si prijateljska, katera so popolna, …</p>
 <p>Še en primer rekurzivne definicije so Fibonaccijeva števila. Velja <span class="math notranslate nohighlight">\(F_0 = 0\)</span>, <span class="math notranslate nohighlight">\(F_1 = 1\)</span>, za vse <span class="math notranslate nohighlight">\(n \ge 2\)</span> pa velja in <span class="math notranslate nohighlight">\(F_{n} = F_{n - 1} + F_{n - 2}\)</span>. Funkcijo tedaj napišemo podobno na podoben način kot zgornjo: če je <code class="docutils literal notranslate"><span class="pre">n</span></code> enak 0, vrnemo 0, sicer pogledamo, ali je enak 1. V tem primeru vrnemo 1. Če pa tudi 1 ni enak, mora biti večji ali enak 2, zato se pokličemo rekurzivno.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1284,6 +1363,25 @@
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
