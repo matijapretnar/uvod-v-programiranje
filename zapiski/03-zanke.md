@@ -111,7 +111,7 @@ celostevilski_logaritem_rek(1580160, 2)
 Vseeno v praksi za tiste programe, pri katerih neko stvar ponavljamo toliko časa, dokler velja določen pogoj, raje uporabimo zanko `while`, saj je učinkovitejša (vsaj v Pythonu, v drugih jezikih je rekurzija ravno tako učinkovita). Poleg tega se Python pritoži, če gremo pri rekurziji pregloboko. Običajno se to zgodi takrat, kadar smo rekurzijo napisali tako, da se ne ustavi. Vendar računalnik tega ne more vedeti, zato se Python ustavi po določenem številu klicev ustavi:
 
 ```{code-cell}
-celostevilski_logaritem_rek(2 ** 2959, 2)
+celostevilski_logaritem_rek(2 ** 2950, 2)
 ```
 
 ```{code-cell}
@@ -122,7 +122,7 @@ celostevilski_logaritem_rek(2 ** 2960, 2)
 Pri zankah teh težav ni:
 
 ```{code-cell}
-celostevilski_logaritem(2 ** 2959, 2)
+celostevilski_logaritem(2 ** 2950, 2)
 ```
 
 ```{code-cell}
