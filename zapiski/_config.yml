@@ -1,0 +1,10 @@
+title: Uvod v programiranje
+author: Matija Pretnar
+exclude_patterns:
+  - odlozisce/*
+repository:
+  url: 'https://github.com/matijapretnar/uvod-v-programiranje'
+  book_path: zapiski
+  branch: master
+launch_buttons:
+  binderhub_url: 'https://mybinder.org'
