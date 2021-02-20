@@ -577,14 +577,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-21-27f24031ec66&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
-    <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-             <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
 </div>
 <p>Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.</p>
 </div>
@@ -597,30 +589,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="n">bc757c3fda29</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-
-<span class="ne">ZeroDivisionError</span>: division by zero
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="mi">9</span><span class="n">d837f1cf0f2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;mix&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -654,21 +626,11 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2160.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>ali celo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span><span class="n">z</span><span class="o">=</span><span class="mi">2000000</span><span class="p">,</span><span class="mi">75</span><span class="p">;</span><span class="n">g</span><span class="o">=</span><span class="n">s</span><span class="o">/</span><span class="n">z</span><span class="p">;</span><span class="n">o</span><span class="o">=</span><span class="mi">9</span><span class="o">*</span><span class="n">g</span><span class="p">;</span><span class="n">r</span><span class="o">=</span><span class="n">o</span><span class="o">/</span><span class="mi">25</span><span class="p">;</span><span class="n">m</span><span class="o">=</span><span class="mf">4.5</span><span class="o">*</span><span class="n">r</span><span class="p">;</span><span class="n">u</span><span class="o">=</span><span class="n">m</span><span class="o">/</span><span class="mi">20</span><span class="p">;</span><span class="n">u</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2160.0
 </pre></div>
 </div>
 </div>
@@ -691,11 +653,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>Kako pa bi izračunali površino tetraedra pa bi izračunali površino tetraedra, ki ima za lica štiri trikotnike? Načeloma bi lahko pisali:</p>
 <div class="cell docutils container">
@@ -711,11 +668,6 @@
 <span class="n">p_bdf</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_bdf</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_bdf</span> <span class="o">-</span> <span class="n">f</span><span class="p">))</span>
 <span class="n">povrsina</span> <span class="o">=</span> <span class="n">p_abc</span> <span class="o">+</span> <span class="n">p_aef</span> <span class="o">+</span> <span class="n">p_bdf</span> <span class="o">+</span> <span class="n">p_cde</span>
 <span class="n">povrsina</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1816080.0
 </pre></div>
 </div>
 </div>
@@ -740,11 +692,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.0
-</pre></div>
-</div>
-</div>
 </div>
 <p>S pomočjo funkcije <code class="docutils literal notranslate"><span class="pre">ploscina_trikotnika</span></code> lahko tudi na veliko bolj pregleden način zapišemo funkcijo za izračun površine tetraedra:</p>
 <div class="cell docutils container">
@@ -757,11 +704,6 @@
     <span class="k">return</span> <span class="n">p_abc</span> <span class="o">+</span> <span class="n">p_aef</span> <span class="o">+</span> <span class="n">p_bdf</span> <span class="o">+</span> <span class="n">p_cde</span>
 
 <span class="n">povrsina_tetraedra</span><span class="p">(</span><span class="mi">896</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">990</span><span class="p">,</span> <span class="mi">1073</span><span class="p">,</span> <span class="mi">1073</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1816080.0
 </pre></div>
 </div>
 </div>
@@ -783,11 +725,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
-</pre></div>
-</div>
-</div>
 </div>
 <p>Če stavka <code class="docutils literal notranslate"><span class="pre">return</span></code> ne napišemo, funkcija vrne posebno vrednost <code class="docutils literal notranslate"><span class="pre">None</span></code>, ki označuje manjkajočo vrednost. Pozorno se ji bomo posvetili kasneje, zaenkrat pa jo omenimo le zato, da bomo znali razumeti spodnjo (precej pogosto) napako:</p>
 <div class="cell tag_raises-exception docutils container">
@@ -796,18 +733,6 @@
     <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
 
 <span class="mi">2</span> <span class="o">*</span> <span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">33</span><span class="o">-</span><span class="n">e520ed781892</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: unsupported operand type(s) for *: &#39;int&#39; and &#39;NoneType&#39;
 </pre></div>
 </div>
 </div>
@@ -833,30 +758,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">35</span><span class="o">-</span><span class="mi">6</span><span class="n">fcf9dfbd479</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span>
-
-<span class="ne">NameError</span>: name &#39;x&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">36</span><span class="o">-</span><span class="mi">9063</span><span class="n">a9f0e032</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y</span>
-
-<span class="ne">NameError</span>: name &#39;y&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -869,20 +774,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 </div>
@@ -903,21 +798,11 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.9999999999999996
-</pre></div>
-</div>
-</div>
 </div>
 <p>V primeru, da drugega argumenta ne podamo, bi Python uporabil privzeto vrednost:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koren</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.0
 </pre></div>
 </div>
 </div>
@@ -932,20 +817,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -956,11 +831,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -968,20 +838,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">20</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
