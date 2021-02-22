@@ -3,6 +3,7 @@
 - part: Osnove Pythona
   chapters:
   - file: 01-uvod-v-python
-  - file: 02-nizi
-  - file: 03-zanke
-  - file: 04-seznami-in-nabori
+  - file: 02-rekurzija
+  - file: 03-nizi
+  - file: 04-zanke
+  - file: 05-seznami-in-nabori
