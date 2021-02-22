@@ -56,8 +56,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Zanke" href="03-zanke.html" />
-    <link rel="prev" title="Uvod v Python" href="01-uvod-v-python.html" />
+    <link rel="next" title="Zanke" href="04-zanke.html" />
+    <link rel="prev" title="Rekurzija" href="02-rekurzija.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -103,18 +103,23 @@
    Uvod v Python
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-rekurzija.html">
+   Rekurzija
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Nizi
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03-zanke.html">
+  <a class="reference internal" href="04-zanke.html">
    Zanke
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="04-seznami-in-nabori.html">
+  <a class="reference internal" href="05-seznami-in-nabori.html">
    Seznami &amp; nabori
   </a>
  </li>
@@ -157,11 +162,11 @@
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
-            href="_sources/02-nizi.ipynb"><button type="button"
+            href="_sources/03-nizi.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/02-nizi.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/03-nizi.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -186,7 +191,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/02-nizi.md"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/03-nizi.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -625,7 +630,7 @@ SyntaxError: invalid syntax
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">s.count(t)</span></code> vrne število pojavitev podniza <code class="docutils literal notranslate"><span class="pre">t</span></code> v nizu <code class="docutils literal notranslate"><span class="pre">s</span></code>. Klic <code class="docutils literal notranslate"><span class="pre">s.count(t,</span> <span class="pre">i)</span></code> deluje podobno, le da začne šteti šele pri indeksu <code class="docutils literal notranslate"><span class="pre">i</span></code>, klic <code class="docutils literal notranslate"><span class="pre">s.count(t,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> pa konča šteti pri indeksu <code class="docutils literal notranslate"><span class="pre">j</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">s.index(t)</span></code> vrne najmanjši indeks v nizu <code class="docutils literal notranslate"><span class="pre">s</span></code>, kjer se niz <code class="docutils literal notranslate"><span class="pre">t</span></code> pojavi kot podniz. Podobno kot prej klic <code class="docutils literal notranslate"><span class="pre">s.index(t,</span> <span class="pre">i)</span></code> začne iskati pri indeksu <code class="docutils literal notranslate"><span class="pre">i</span></code>, klic <code class="docutils literal notranslate"><span class="pre">s.index(t,</span> <span class="pre">i,</span> <span class="pre">j)</span></code> pa konča pri indeksu <code class="docutils literal notranslate"><span class="pre">j</span></code>. Če niza ni, metoda sproži napako. Metoda <code class="docutils literal notranslate"><span class="pre">s.find</span></code> se obnaša enako kot <code class="docutils literal notranslate"><span class="pre">s.index</span></code>, le da v primeru, ko podniza ne najde, vrne <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">s.join(sez)</span></code> z ločilom <code class="docutils literal notranslate"><span class="pre">s</span></code> skupaj stakne vse nize iz seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> (te bomo spoznali <a class="reference internal" href="04-seznami-in-nabori.html#seznami-in-nabori"><span class="std std-ref">kmalu</span></a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s.join(sez)</span></code> z ločilom <code class="docutils literal notranslate"><span class="pre">s</span></code> skupaj stakne vse nize iz seznama <code class="docutils literal notranslate"><span class="pre">sez</span></code> (te bomo spoznali <a class="reference internal" href="05-seznami-in-nabori.html#seznami-in-nabori"><span class="std std-ref">kmalu</span></a>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">s.replace(t1,</span> <span class="pre">t2)</span></code> vrne niz <code class="docutils literal notranslate"><span class="pre">s</span></code>, v katerem smo vse pojavitve podniza <code class="docutils literal notranslate"><span class="pre">t1</span></code> zamenjali s podnizi <code class="docutils literal notranslate"><span class="pre">t2</span></code>. Klic <code class="docutils literal notranslate"><span class="pre">s.replace(t1,</span> <span class="pre">t2,</span> <span class="pre">n)</span></code> pa zamenja le prvih <code class="docutils literal notranslate"><span class="pre">n</span></code> pojavitev.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">s.strip()</span></code> vrne niz <code class="docutils literal notranslate"><span class="pre">s</span></code>, v katerem smo odstranili vse bele znake (presledke, tabulatorje, nove vrstice) z začetka in konca. Klic <code class="docutils literal notranslate"><span class="pre">s.strip(t)</span></code> z začetka in konca odstrani vse znake iz niza <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">s.lower()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.upper()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.title()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.capitalize()</span></code> / <code class="docutils literal notranslate"><span class="pre">s.swapcase()</span></code> vrnejo niz <code class="docutils literal notranslate"><span class="pre">s</span></code>, v katerem smo vse črke zamenjali z malimi / vse črke zamenjamo z velikimi / vsem besedam damo veliko začetnico / na začetku niza damo veliko začetnico / male črke zamenjamo z velikimi in obratno.</p></li>
@@ -737,8 +742,8 @@ SyntaxError: invalid syntax
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="01-uvod-v-python.html" title="previous page">Uvod v Python</a>
-    <a class='right-next' id="next-link" href="03-zanke.html" title="next page">Zanke</a>
+    <a class='left-prev' id="prev-link" href="02-rekurzija.html" title="previous page">Rekurzija</a>
+    <a class='right-next' id="next-link" href="04-zanke.html" title="next page">Zanke</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

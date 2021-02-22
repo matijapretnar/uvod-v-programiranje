@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rekurzija &#8212; Uvod v programiranje</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nizi" href="03-nizi.html" />
+    <link rel="prev" title="Uvod v Python" href="01-uvod-v-python.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Uvod v programiranje</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-uvod.html">
+   Uvod v programiranje
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Osnove Pythona
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-uvod-v-python.html">
+   Uvod v Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Rekurzija
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-nizi.html">
+   Nizi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-zanke.html">
+   Zanke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-seznami-in-nabori.html">
+   Seznami &amp; nabori
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/02-rekurzija.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/02-rekurzija.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/02-rekurzija.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evklidov-algoritem">
+   Evklidov algoritem
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="rekurzija">
+<h1>Rekurzija<a class="headerlink" href="#rekurzija" title="Permalink to this headline">¶</a></h1>
+<p>Videli smo, da probleme rešujemo s prevajanjem na manjše, dokler ne pridemo do čisto osnovnih. Na primer, površino tetraedra izračunamo iz ploščin trikotnikov, te pa lahko prevedemo na vgrajene aritmetične operacije.</p>
+<p>Dostikrat pa bodo manjši problemi iste oblike kot prvotni problem. Poglejmo, kako bi izračunali <span class="math notranslate nohighlight">\(n! = n \cdot (n - 1) \dots 3 \cdot 2 \cdot 1\)</span>. Kot vidimo velja <span class="math notranslate nohighlight">\(n! = n \cdot (n - 1)!\)</span>, zato bomo <span class="math notranslate nohighlight">\(n!\)</span> izračunali tako, da bomo <span class="math notranslate nohighlight">\(n\)</span> pomnožili z <span class="math notranslate nohighlight">\((n - 1)!\)</span>. Toda od kod bomo dobili tega? Preprosto, <span class="math notranslate nohighlight">\(n - 1\)</span> bomo pomnožili z <span class="math notranslate nohighlight">\((n - 2)!\)</span>. Od kod pa tega? Ja iz <span class="math notranslate nohighlight">\((n - 3)!\)</span>. In tako naprej vse do <span class="math notranslate nohighlight">\(2!\)</span>, ki ga bomo dobili iz <span class="math notranslate nohighlight">\(1!\)</span>, tega pa iz <span class="math notranslate nohighlight">\(0!\)</span>, ki je po definiciji enak <span class="math notranslate nohighlight">\(1\)</span>. Torej lahko funkcijo, ki računa fakulteto, napišemo tako, da najprej pogleda svoj argument <code class="docutils literal notranslate"><span class="pre">n</span></code>. Če je enak 1, vrne 1, sicer pa <code class="docutils literal notranslate"><span class="pre">n</span></code> pomnožimo z rezultatom klica <code class="docutils literal notranslate"><span class="pre">fakulteta(n</span> <span class="pre">-</span> <span class="pre">1)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ali s pogojnim izrazom kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakulteta</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fakulteta</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fakulteta</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
+</pre></div>
+</div>
+</div>
+</div>
+<p>Funkcijam, ki so definirane s pomočjo same sebe pravimo, da so <em>rekurzivne</em>. Izkaže se, da lahko s pomočjo rekurzije napišemo <strong>čisto vse</strong> izračunljive funkcije na celih številih: ugotovimo lahko, katera števila so praštevila, katera so si prijateljska, katera so popolna, …</p>
+<p>Še en primer rekurzivne definicije so Fibonaccijeva števila. Velja <span class="math notranslate nohighlight">\(F_0 = 0\)</span>, <span class="math notranslate nohighlight">\(F_1 = 1\)</span>, za vse <span class="math notranslate nohighlight">\(n \ge 2\)</span> pa velja in <span class="math notranslate nohighlight">\(F_{n} = F_{n - 1} + F_{n - 2}\)</span>. Funkcijo tedaj napišemo podobno na podoben način kot zgornjo: če je <code class="docutils literal notranslate"><span class="pre">n</span></code> enak 0, vrnemo 0, sicer pogledamo, ali je enak 1. V tem primeru vrnemo 1. Če pa tudi 1 ni enak, mora biti večji ali enak 2, zato se pokličemo rekurzivno.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6765
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kaj se zgodi, če poskušate izračunati <code class="docutils literal notranslate"><span class="pre">fibonacci(35)</span></code>? Po nekaj časa res dobite pravilen odgovor 9227465, vendar to kaže, da nekaj ni v redu. Težava je, da se pri <code class="docutils literal notranslate"><span class="pre">fibonacci(35)</span></code> funkcija pokliče dvakrat: enkrat na 34 in enkrat na 33. Tudi vsak od teh dveh klicov povzroči dva nadaljnja klica in tako naprej, vse dokler ne pridemo do 0 ali 1. Bolje bi bilo, če bi jo zastavili malo drugače.</p>
+<p>Poleg Fibonaccijevega zaporedja, ki se začne s številoma 0 in 1, obstaja tudi splošno Fibonaccijevo zaporedje, ki se začne s poljubnima členoma <span class="math notranslate nohighlight">\(a\)</span> in <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[a, b, a + b, b + (a + b) = a + 2 b, (a + b) + (a + 2 b) = 2 a + 3 b, \ldots\]</div>
+<p>Vidimo, da je <span class="math notranslate nohighlight">\(n\)</span>. člen tega zaporedja ravno <span class="math notranslate nohighlight">\(n - 1\)</span>. člen zaporedja, ki se začne s členoma <span class="math notranslate nohighlight">\(b\)</span> in <span class="math notranslate nohighlight">\(a + b\)</span>. Tedaj lahko definiramo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Vrne n-ti člen zaporedja a, b, a + b, a + 2 b, …&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">splosni_fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kot lahko sami preizkusimo, ta funkcija deluje veliko hitreje od prejšnje:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9227465
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>92274650
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pomembno ni torej samo to, da naš program pravilno izračuna iskani rezultat, temveč tudi to, kako učinkovito ga izračuna.</p>
+<p>Ker smo argumentoma <code class="docutils literal notranslate"><span class="pre">a</span></code> in <code class="docutils literal notranslate"><span class="pre">b</span></code> v definiciji podali privzeti vrednosti, nam jih pri klicu ni treba podati:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">splosni_fibonacci</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9227465
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="evklidov-algoritem">
+<h2>Evklidov algoritem<a class="headerlink" href="#evklidov-algoritem" title="Permalink to this headline">¶</a></h2>
+<p>Algoritem je zaporedje korakov, s katerimi dobimo iskani rezultat. Načeloma lahko pod besedo algoritem razumemo tudi zaporedje korakov, s katerimi si skuhamo jajca (vzemi posodo; odpri pipo; postavi posodo pod pipo; ko je posoda dovolj polna, zapri pipo; …), ampak mi si jo bomo prihranili za postopke, s katerimi izračunamo želene vrednosti.</p>
+<p>Za prvi algoritem se spodobi, da si pogledamo najstarejši znani algoritem in sicer Evklidov algoritem za iskanje navečjega skupnega delitelja dveh števil. Naj bo <span class="math notranslate nohighlight">\(d\)</span> največji skupni delitelj števil <span class="math notranslate nohighlight">\(m\)</span> in <span class="math notranslate nohighlight">\(n\)</span>. Pišimo <span class="math notranslate nohighlight">\(m = k \cdot n + o\)</span>, kjer je <span class="math notranslate nohighlight">\(0 \le o &lt; n\)</span>. Torej: <span class="math notranslate nohighlight">\(o\)</span> je ostanek pri deljenju števila <span class="math notranslate nohighlight">\(m\)</span> z <span class="math notranslate nohighlight">\(n\)</span>. Ker e <span class="math notranslate nohighlight">\(d\)</span> deli <span class="math notranslate nohighlight">\(n\)</span>, deli tudi <span class="math notranslate nohighlight">\(k \cdot n\)</span>. Poleg tega <span class="math notranslate nohighlight">\(d\)</span> deli tudi <span class="math notranslate nohighlight">\(m\)</span>, zato deli tudi <span class="math notranslate nohighlight">\(o = m - k \cdot n\)</span>. Velja tudi obratno, če <span class="math notranslate nohighlight">\(d\)</span> deli <span class="math notranslate nohighlight">\(n\)</span> in <span class="math notranslate nohighlight">\(o\)</span>, potem deli tudi <span class="math notranslate nohighlight">\(m = k \cdot n + o\)</span>.</p>
+<p>Zato lahko iskanje največjega skupnega delitelja števil <span class="math notranslate nohighlight">\(m\)</span> in <span class="math notranslate nohighlight">\(n\)</span> prevedemo na iskanje največjega skupnega delitelja števil <span class="math notranslate nohighlight">\(n\)</span> in <span class="math notranslate nohighlight">\(o\)</span>. Videti je, kot da se vrtimo v krogu, vendar se ne. Poglejmo, kaj se zgodi:</p>
+<ol class="simple">
+<li><p>Največji skupni delitelj števil <span class="math notranslate nohighlight">\(456\)</span> in <span class="math notranslate nohighlight">\(123\)</span> je enak največjemu skupnemu delitelju števil <span class="math notranslate nohighlight">\(123\)</span> in <span class="math notranslate nohighlight">\(456 - 3 \cdot 123 = 87\)</span>.</p></li>
+<li><p>Največji skupni delitelj števil <span class="math notranslate nohighlight">\(123\)</span> in <span class="math notranslate nohighlight">\(87\)</span> je enak največjemu skupnemu delitelju števil <span class="math notranslate nohighlight">\(87\)</span> in <span class="math notranslate nohighlight">\(123 - 1 \cdot 87 = 36\)</span>.</p></li>
+<li><p>Največji skupni delitelj števil <span class="math notranslate nohighlight">\(87\)</span> in <span class="math notranslate nohighlight">\(36\)</span> je enak največjemu skupnemu delitelju števil <span class="math notranslate nohighlight">\(36\)</span> in <span class="math notranslate nohighlight">\(123 - 2 \cdot 36 = 15\)</span>.</p></li>
+<li><p>Največji skupni delitelj števil <span class="math notranslate nohighlight">\(36\)</span> in <span class="math notranslate nohighlight">\(15\)</span> je enak največjemu skupnemu delitelju števil <span class="math notranslate nohighlight">\(15\)</span> in <span class="math notranslate nohighlight">\(36 - 2 \cdot 15 = 6\)</span>.</p></li>
+<li><p>Največji skupni delitelj števil <span class="math notranslate nohighlight">\(15\)</span> in <span class="math notranslate nohighlight">\(6\)</span> je enak največjemu skupnemu delitelju števil <span class="math notranslate nohighlight">\(6\)</span> in <span class="math notranslate nohighlight">\(15 - 2 \cdot 6 = 3\)</span>.</p></li>
+<li><p>Največji skupni delitelj števil <span class="math notranslate nohighlight">\(6\)</span> in <span class="math notranslate nohighlight">\(3\)</span> je enak največjemu skupnemu delitelju števil <span class="math notranslate nohighlight">\(3\)</span> in <span class="math notranslate nohighlight">\(6 - 2 \cdot 3 = 0\)</span>.</p></li>
+</ol>
+<p>Postopka ne moremo več nadaljevati, ker ne moremo deliti z nič. Kaj pa je največji skupni delitelj števil 3 in 0? Ja, 3 vendar. Torej, ko je drugo število enako 0, je prvo število ravno njun največji skupni delitelj, po vseh prejšnjih sklepih pa tudi največji skupni delitelj vseh prejšnjih parov vključno s prvim.</p>
+<p>Evklidov algoritem je torej sledeč: če je <span class="math notranslate nohighlight">\(n = 0\)</span>, potem je največji skupni delitelj števil <span class="math notranslate nohighlight">\(m\)</span> in <span class="math notranslate nohighlight">\(n\)</span> enak kar <span class="math notranslate nohighlight">\(m\)</span>, sicer pa je enak največjemu skupnemu delitelju števil <span class="math notranslate nohighlight">\(n\)</span> in <span class="math notranslate nohighlight">\(o\)</span>, kjer je <span class="math notranslate nohighlight">\(o\)</span> ostanek pri deljenju <span class="math notranslate nohighlight">\(m\)</span> z <span class="math notranslate nohighlight">\(n\)</span>. Ta postopek enostavno prevedemo v Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">m</span>
+    <span class="k">else</span><span class="p">:</span>
+       <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ali s pogojnim izrazom kot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">gcd</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pri tem je <code class="docutils literal notranslate"><span class="pre">gcd</span></code> (<em>greatest common divisor</em>) običajna oznaka za največjega skupnega delitelja.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gcd</span><span class="p">(</span><span class="mi">456</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Algoritem deluje tudi, kadar je <span class="math notranslate nohighlight">\(n &lt; m\)</span>, saj je v tem primeru <span class="math notranslate nohighlight">\(n = 0 \cdot m + n\)</span>, zato v naslednjem koraku njuni mesti zamenjamo in nadaljujemo kot prej.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gcd</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="mi">456</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="01-uvod-v-python.html" title="previous page">Uvod v Python</a>
+    <a class='right-next' id="next-link" href="03-nizi.html" title="next page">Nizi</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matija Pretnar<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
