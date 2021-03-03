@@ -7,3 +7,16 @@ def prestej_samoglasnike(niz):
         return samoglasniki_v_preostanku + 1
     else:
         return samoglasniki_v_preostanku
+
+
+# Še bolj učinkovita varianta, ki ne kopira nizev
+
+
+def prestej_samoglasnike(niz, i=0):
+    """Prešteje vse samoglasnike v nizu od indeksa i naprej"""
+    if i >= len(niz):
+        return 0
+    elif niz[i].lower() in "aeiou":
+        return 1 + prestej_samoglasnike(niz, i + 1)
+    else:
+        return prestej_samoglasnike(niz, i + 1)
