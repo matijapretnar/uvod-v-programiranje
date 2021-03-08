@@ -56,17 +56,18 @@ def pretvori(niz, osnova):
 
 def izbrisi_podvojene(niz):
     pobrisani_niz = ''
-    prejsnja_crka = ''
-    prejsnjo_crko_smo_videli_najvec_enkrat = True
+    prejsnji_znak = ''
+    prejsnji_znak_smo_videli_najvec_enkrat = True
     for znak in niz:
-        if znak == prejsnja_crka:
-            # prišli smo do iste črke
-            prejsnjo_crko_smo_videli_najvec_enkrat = False
+        if znak == prejsnji_znak:
+            # prišli smo do istega znaka
+            prejsnji_znak_smo_videli_najvec_enkrat = False
         else:
-            # prisli smo do različne črke
-            if prejsnjo_crko_smo_videli_najvec_enkrat:
-                pobrisani_niz += prejsnja_crka
-            prejsnja_crka = znak
-    if prejsnjo_crko_smo_videli_najvec_enkrat:
-        pobrisani_niz += prejsnja_crka
+            # prisli smo do različnega znaka
+            if prejsnji_znak_smo_videli_najvec_enkrat:
+                pobrisani_niz += prejsnji_znak
+            prejsnji_znak = znak
+            prejsnji_znak_smo_videli_najvec_enkrat = True
+    if prejsnji_znak_smo_videli_najvec_enkrat:
+        pobrisani_niz += prejsnji_znak
     return pobrisani_niz
