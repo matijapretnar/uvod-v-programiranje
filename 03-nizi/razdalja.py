@@ -1,3 +1,5 @@
+from functools import cache
+
 LOCILO = " ~> "
 
 
@@ -25,6 +27,7 @@ def dodaj_znak_vsakemu_koraku(znak, pot):
     return znak + pot.replace(LOCILO, LOCILO + znak)
 
 
+@cache
 def najkrajsa_pot(beseda1, beseda2):
     if beseda1 == "":
         return pot_od_prazne_besede(beseda2)
