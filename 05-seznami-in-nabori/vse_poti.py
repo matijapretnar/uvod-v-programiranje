@@ -18,12 +18,41 @@ def krajse_od(poti1, poti2):
         return poti1 + poti2
 
 
+def naslednje_moznosti(veriga):
+    naslednje = []
+    for x in range(len(veriga)):
+        if veriga[x]:
+            continue
+        naslednje.append(veriga[:])  # kopija, ker jo želimo popravljati neodvisno od drugih
+        naslednje[-1][x] = True
+    return naslednje
+
+
+def generiraj_do_konca(veriga):
+    if all(veriga):
+        return [[veriga]]
+
+    vse_verige = []
+
+    for moznost in naslednje_moznosti(veriga):
+        vse_verige.extend([[veriga] + naslednja for naslednja in generiraj_do_konca(moznost)])
+
+    return vse_verige
+
+
+def okrni(beseda, veriga):
+    return "".join(crka for crka, prisotna in zip(beseda, veriga) if prisotna)
+
+
 def pot_od_prazne_besede(beseda):
-    return [beseda[:i] for i in range(len(beseda) + 1)]
+    zacetna = [False for _ in range(len(beseda))]
+    vse_verige = generiraj_do_konca(zacetna)
+    besede = [[okrni(beseda, veriga) for veriga in pot] for pot in vse_verige]
+    return besede
 
 
 def pot_do_prazne_besede(beseda):
-    return pot_od_prazne_besede(beseda)[::-1]
+    return [pot[::-1] for pot in pot_od_prazne_besede(beseda)]
 
 
 def pot_dolzine_ena(beseda):
@@ -38,10 +67,10 @@ def dodaj_znak_vsakemu_koraku(znak, pot):
 def vse_najkrajse_poti(beseda1, beseda2):
     if beseda1 == "":
         # lahko jih je več
-        return [pot_od_prazne_besede(beseda2)]
+        return pot_od_prazne_besede(beseda2)
     elif beseda2 == "":
         # lahko jih je več
-        return [pot_do_prazne_besede(beseda1)]
+        return pot_do_prazne_besede(beseda1)
     elif beseda1[0] == beseda2[0]:
         # Xabc ~> ... ~> Xxyz
         # kjer je abc ~> ... ~> xyz
