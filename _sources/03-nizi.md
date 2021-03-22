@@ -35,6 +35,12 @@ Dolžino niza dobimo s funkcijo `len`:
 len('lokomotiva')
 ```
 
+Pogosto uporabljana funkcija je tudi `str`, ki dano vrednost pretvori v niz z njeno predstavitvijo:
+
+```{code-cell}
+str(110)
+```
+
 Nize lahko med seboj tudi primerjamo. Pri tem Python nize ureja leksikografsko, torej tako, kot bi bili urejeni v leksikonu ali kazalu: najprej primerja prvi črki, če sta ti dve enaki, pogleda drugi dve, in tako naprej. Pri tem velike črke pridejo na vrsto pred malimi, na šumnike pa se brez posebnih knjižnic Python ne spozna.
 
 ```{code-cell}
@@ -160,19 +166,13 @@ Nize lahko pišemo tudi z dvojnimi narekovaji, ki jih ponavadi uporabimo takrat,
 'Tole je kr'neki!'
 ```
 
-Včasih želimo uporabiti obe vrsti narekovajev. V tem primeru si pomagamo z _ubežnimi znaki_. To so znaki, ki jih na običajni način ne moremo zapisati, zato uporabimo poseben zapis, ki se začne z znakom `\`. Tedaj lahko pišemo `'"Tole je kr'neki," je rekla.'` ali pa `"\"Tole je kr'neki,\" je rekla.\"`. Ubežne znake brez težav lahko pišemo tudi tedaj, kadar ni treba `'\"Grem v rudnik,\" je rekla.'`. Z ubežnimi znaki lahko zapišemo tudi znak za novo vrstico `\n`, za tabulator `\t` in seveda tudi za poševnico `\\`, saj je ne moremo pisati le kot `\`, ker bi Python to razumel kot začetek ubežnega znaka.
+Včasih želimo uporabiti obe vrsti narekovajev. V tem primeru si pomagamo z _ubežnimi znaki_. To so znaki, ki jih na običajni način ne moremo zapisati, zato uporabimo poseben zapis, ki se začne z znakom `\`. Tedaj lahko pišemo `'"Tole je kr\'neki," je rekla.'` ali pa `"\"Tole je kr'neki,\" je rekla.\"`. Ubežne znake brez težav lahko pišemo tudi tedaj, kadar ni treba `'\"Grem v rudnik,\" je rekla.'`. Z ubežnimi znaki lahko zapišemo tudi znak za novo vrstico `\n`, za tabulator `\t` in seveda tudi za poševnico `\\`, saj je ne moremo pisati le kot `\`, ker bi Python to razumel kot začetek ubežnega znaka.
 
 Nize lahko pišemo tudi med tri enojne (`'''`) ali tri dvojne (`"""`) narekovaje (ki smo jih videli že pri dokumentacijskem nizu). V tem primeru za en sam narekovaj ne potrebujemo ubežnega znaka. Take nize lahko pišemo tudi čez več vrstic.
 
 Različni zapisi ne vplivajo na vsebino. Tako `'"Živjo!"'`, `'\"Živjo!\"'`,`"\"Živjo!\""`, `'''"Živjo!"'''` ali `""""Živjo!\""""` vsi predstavljajo enak niz z osmimi znaki.
 
 ## Vgrajene metode na nizih
-
-```{margin}
-Kdaj se uporablja funkcije in kdaj metode?
-
-TODO
-```
 
 Precej operacij na nizih pa lahko opravimo preko _metod_. To so funkcije, ki jih na poseben način kličemo na posamezni vrednosti. Na primer, za pretvarjanje niza v male črke pokličemo
 
@@ -265,4 +265,14 @@ Možnosti za oblikovanje je veliko, vse pa so opisane v [uradni dokumentaciji](h
 
 ## Pisanje na konzolo in branje s konzole
 
-TODO
+Seveda od uporabnikov ne pričakujemo, da bodo naše programe uporabljali le tako, da bodo v interaktivni zanki poganjali funkcije ter brali njihove rezultate. Raje bi imeli prijazen uporabniški vmesnik, v katerem računalnik uporabnika prijazno pozove za vnos, uporabnik potem nekaj natipka (ne nujno v Pythonu), računalnik pa se na to ustrezno odzove. V ta namen sta namenjeni dve funkciji `print`, ki dani niz izpiše na konzolo, ter `input`, ki vrne niz, ki ga je vtipkal uporabnik.
+
+```{code-cell}
+print('Pozdravljen, svet!')
+```
+
+```{code-cell}
+print('"Tole je kr\'neki," je rekla.')
+```
+
+Kot vidimo, je izpis funkcije `print` namenjen uporabnikom.

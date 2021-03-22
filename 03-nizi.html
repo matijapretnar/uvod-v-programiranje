@@ -123,6 +123,11 @@
    Seznami &amp; nabori
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-slovarji-in-mnozice.html">
+   Slovarji &amp; množice
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -300,6 +305,19 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pogosto uporabljana funkcija je tudi <code class="docutils literal notranslate"><span class="pre">str</span></code>, ki dano vrednost pretvori v niz z njeno predstavitvijo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mi">110</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;110&#39;
 </pre></div>
 </div>
 </div>
@@ -583,7 +601,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-24-8b1bbdf018b9&gt;&quot;, line 1
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-25-8b1bbdf018b9&gt;&quot;, line 1
     &#39;Tole je kr&#39;neki!&#39;
                    ^
 SyntaxError: invalid syntax
@@ -591,17 +609,12 @@ SyntaxError: invalid syntax
 </div>
 </div>
 </div>
-<p>Včasih želimo uporabiti obe vrsti narekovajev. V tem primeru si pomagamo z <em>ubežnimi znaki</em>. To so znaki, ki jih na običajni način ne moremo zapisati, zato uporabimo poseben zapis, ki se začne z znakom <code class="docutils literal notranslate"><span class="pre">\</span></code>. Tedaj lahko pišemo <code class="docutils literal notranslate"><span class="pre">'&quot;Tole</span> <span class="pre">je</span> <span class="pre">kr'neki,&quot;</span> <span class="pre">je</span> <span class="pre">rekla.'</span></code> ali pa <code class="docutils literal notranslate"><span class="pre">&quot;\&quot;Tole</span> <span class="pre">je</span> <span class="pre">kr'neki,\&quot;</span> <span class="pre">je</span> <span class="pre">rekla.\&quot;</span></code>. Ubežne znake brez težav lahko pišemo tudi tedaj, kadar ni treba <code class="docutils literal notranslate"><span class="pre">'\&quot;Grem</span> <span class="pre">v</span> <span class="pre">rudnik,\&quot;</span> <span class="pre">je</span> <span class="pre">rekla.'</span></code>. Z ubežnimi znaki lahko zapišemo tudi znak za novo vrstico <code class="docutils literal notranslate"><span class="pre">\n</span></code>, za tabulator <code class="docutils literal notranslate"><span class="pre">\t</span></code> in seveda tudi za poševnico <code class="docutils literal notranslate"><span class="pre">\\</span></code>, saj je ne moremo pisati le kot <code class="docutils literal notranslate"><span class="pre">\</span></code>, ker bi Python to razumel kot začetek ubežnega znaka.</p>
+<p>Včasih želimo uporabiti obe vrsti narekovajev. V tem primeru si pomagamo z <em>ubežnimi znaki</em>. To so znaki, ki jih na običajni način ne moremo zapisati, zato uporabimo poseben zapis, ki se začne z znakom <code class="docutils literal notranslate"><span class="pre">\</span></code>. Tedaj lahko pišemo <code class="docutils literal notranslate"><span class="pre">'&quot;Tole</span> <span class="pre">je</span> <span class="pre">kr\'neki,&quot;</span> <span class="pre">je</span> <span class="pre">rekla.'</span></code> ali pa <code class="docutils literal notranslate"><span class="pre">&quot;\&quot;Tole</span> <span class="pre">je</span> <span class="pre">kr'neki,\&quot;</span> <span class="pre">je</span> <span class="pre">rekla.\&quot;</span></code>. Ubežne znake brez težav lahko pišemo tudi tedaj, kadar ni treba <code class="docutils literal notranslate"><span class="pre">'\&quot;Grem</span> <span class="pre">v</span> <span class="pre">rudnik,\&quot;</span> <span class="pre">je</span> <span class="pre">rekla.'</span></code>. Z ubežnimi znaki lahko zapišemo tudi znak za novo vrstico <code class="docutils literal notranslate"><span class="pre">\n</span></code>, za tabulator <code class="docutils literal notranslate"><span class="pre">\t</span></code> in seveda tudi za poševnico <code class="docutils literal notranslate"><span class="pre">\\</span></code>, saj je ne moremo pisati le kot <code class="docutils literal notranslate"><span class="pre">\</span></code>, ker bi Python to razumel kot začetek ubežnega znaka.</p>
 <p>Nize lahko pišemo tudi med tri enojne (<code class="docutils literal notranslate"><span class="pre">'''</span></code>) ali tri dvojne (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>) narekovaje (ki smo jih videli že pri dokumentacijskem nizu). V tem primeru za en sam narekovaj ne potrebujemo ubežnega znaka. Take nize lahko pišemo tudi čez več vrstic.</p>
 <p>Različni zapisi ne vplivajo na vsebino. Tako <code class="docutils literal notranslate"><span class="pre">'&quot;Živjo!&quot;'</span></code>, <code class="docutils literal notranslate"><span class="pre">'\&quot;Živjo!\&quot;'</span></code>,<code class="docutils literal notranslate"><span class="pre">&quot;\&quot;Živjo!\&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'''&quot;Živjo!&quot;'''</span></code> ali <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;&quot;Živjo!\&quot;&quot;&quot;&quot;</span></code> vsi predstavljajo enak niz z osmimi znaki.</p>
 </div>
 <div class="section" id="vgrajene-metode-na-nizih">
 <h2>Vgrajene metode na nizih<a class="headerlink" href="#vgrajene-metode-na-nizih" title="Permalink to this headline">¶</a></h2>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>Kdaj se uporablja funkcije in kdaj metode?</p>
-<p>TODO</p>
-</div>
 <p>Precej operacij na nizih pa lahko opravimo preko <em>metod</em>. To so funkcije, ki jih na poseben način kličemo na posamezni vrednosti. Na primer, za pretvarjanje niza v male črke pokličemo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -767,7 +780,32 @@ SyntaxError: invalid syntax
 </div>
 <div class="section" id="pisanje-na-konzolo-in-branje-s-konzole">
 <h2>Pisanje na konzolo in branje s konzole<a class="headerlink" href="#pisanje-na-konzolo-in-branje-s-konzole" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<p>Seveda od uporabnikov ne pričakujemo, da bodo naše programe uporabljali le tako, da bodo v interaktivni zanki poganjali funkcije ter brali njihove rezultate. Raje bi imeli prijazen uporabniški vmesnik, v katerem računalnik uporabnika prijazno pozove za vnos, uporabnik potem nekaj natipka (ne nujno v Pythonu), računalnik pa se na to ustrezno odzove. V ta namen sta namenjeni dve funkciji <code class="docutils literal notranslate"><span class="pre">print</span></code>, ki dani niz izpiše na konzolo, ter <code class="docutils literal notranslate"><span class="pre">input</span></code>, ki vrne niz, ki ga je vtipkal uporabnik.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pozdravljen, svet!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pozdravljen, svet!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&quot;Tole je kr</span><span class="se">\&#39;</span><span class="s1">neki,&quot; je rekla.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Tole je kr&#39;neki,&quot; je rekla.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kot vidimo, je izpis funkcije <code class="docutils literal notranslate"><span class="pre">print</span></code> namenjen uporabnikom.</p>
 </div>
 </div>
 
