@@ -1,6 +1,7 @@
 from functools import cache
 from typing import List
 
+Tuple[int, dict, int, int]
 Veriga = List[bool]  # seznam binarnih vrednosti, ki povedo, ali se znak na danem mestu pojavi v končnem nizu
 Pot = List[str]  # seznam korakov, ki nas pripelje od prve do zadnje besede
 
