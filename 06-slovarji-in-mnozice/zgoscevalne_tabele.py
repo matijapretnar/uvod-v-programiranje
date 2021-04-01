@@ -9,12 +9,14 @@ def poisci_skatlo(mnozica, n):
 
 def dodaj_brez_preurejanja(mnozica, n):
     mnozica["st_elementov"] += 1
-    poisci_skatlo(mnozica, n).append(n)
+    skatla = poisci_skatlo(mnozica, n)
+    if n not in skatla:
+        skatla.append(n)
 
 
 def dodaj(mnozica, n):
     dodaj_brez_preurejanja(mnozica, n)
-    if mnozica["st_elementov"] > 2 / 3 * len(mnozica["skatle"]):
+    if mnozica["st_elementov"] > 2 * len(mnozica["skatle"]):
         print(f"preurejam {mnozica['st_elementov']} {len(mnozica['skatle'])}")
         preuredi(mnozica)
         print(f"končano")
@@ -32,6 +34,10 @@ def ali_obstaja(mnozica, n):
     return n in poisci_skatlo(mnozica, n)
 
 
+import random
 m = prazna_mnozica()
+s = []
 for x in range(10000000):
-    dodaj(m, x)
+    y = random.randint(-1000 * x, 1000 * x)
+    dodaj(m, y)
+    s.append(y)
