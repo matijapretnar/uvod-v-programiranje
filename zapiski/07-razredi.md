@@ -36,7 +36,8 @@ zap
 Dobili smo prazen objekt razreda `AritmeticnoZaporedje`, vendar z njim težko naredimo kaj pametnega. Do atributov objektov dostopamo prek `ime_objekta.ime_atributa`, vendar trenutno zaporedjem nismo nastavili še nobenega atributa:
 
 ```{code-cell}
-:tags: ["raises-exception"]
+:tags: [raises-exception]
+
 zap.zacetni_clen
 ```
 
@@ -198,4 +199,199 @@ zap1[8]
 
 ```{code-cell}
 zap1 + zap2 == AritmeticnoZaporedje(1, 8)
+```
+
+## Iteracija
+
+### Iteratorji
+
+V Pythonu se dostikrat sprehajamo čez znake v nizu, elemente seznama, števila v `range`, ... Vse dosežemo prek tako imenovanih _iteratorjev_. To so objekti, ki imajo posebno vgrajeno metodo `__next__`, ki ob vsakem klicu vrne naslednjo vrednost. Ko vrednosti zmanjka, metoda to sporoči tako, da sproži izjemo `StopIteration`. Za primer napišimo iterator, ki zaporedoma vrača znake niza:
+
+```{code-cell}
+class IteratorCezNiz:
+    def __init__(self, niz):
+        self.niz = niz
+        self.indeks = 0
+
+    def __next__(self):
+        if self.indeks < len(self.niz):
+            znak = self.niz[self.indeks]
+            self.indeks += 1
+            return znak
+        else:
+            raise StopIteration
+```
+
+```{code-cell}
+it = IteratorCezNiz('abc')
+```
+
+Metodo `__next__` bi lahko poklicali direktno, kot `it.__next__()`, vendar jo je lepše poklicati prek vgrajene funkcije `next` (ki ne naredi drugega, kot da na svojem argumentu pokliče `__next__`).
+
+```{code-cell}
+next(it)
+```
+
+```{code-cell}
+next(it)
+```
+
+```{code-cell}
+next(it)
+```
+
+```{code-cell}
+:tags: [raises-exception]
+next(it)
+```
+
+Če želimo, se lahko iteratorji tudi nikoli ne končajo, s čimer lahko predstavimo neskončne sezname, na primer vsa Fibonaccijeva števila.
+
+```{code-cell}
+class IteratorFibonaccijevih:
+    def __init__(self):
+        self.a, self.b = 0, 1
+
+    def __next__(self):
+        prejsnji_a = self.a
+        self.a, self.b = self.b, self.a + self.b
+        return prejsnji_a
+```
+
+```{code-cell}
+fib = IteratorFibonaccijevih()
+[next(fib) for _ in range(10)]
+```
+
+### Generatorji
+
+V Pythonu obstaja zelo enostaven način, na katerega pišemo iteratorje, in to so _generatorji_. Recimo, da bi želeli le izpisati vse znake v nizu. Tedaj bi lahko napisali funkcijo:
+
+```{code-cell}
+def znaki_niza(niz):
+    i = 0
+    while i < len(niz):
+        print(niz[i])
+        i += 1
+```
+
+Pri funkciji nalašč nismo uporabili zanke `for`, saj bi bilo to goljufanje.
+
+```{code-cell}
+znaki_niza("abc")
+```
+
+To je res izpisalo vse znake, vendar si z njimi ne moremo pomagati, saj so šli naravnost na konzolo. Če bi jih želeli vrniti, bi lahko napisali sledečo funkcijo, vendar bi ta ob prvem `return` prenehala z izvajanjem:
+
+```{code-cell}
+def znaki_niza(niz):
+    i = 0
+    while i < len(niz):
+        return niz[i]
+        i += 1
+```
+
+```{code-cell}
+znaki_niza("abc")
+```
+
+Tu v igro pridejo _generatorji_. Dobimo jih tako, da namesto `return` napišemo `yield`. Ko bo izvajanje klica prišlo do ukaza `yield`, se ne bo končalo, temveč le zaustavilo, ter se od tam nadaljevalo ob naslednjem klicu `next`.
+
+```{code-cell}
+def znaki_niza(niz):
+    i = 0
+    while i < len(niz):
+        yield niz[i]
+        i += 1
+```
+
+```{code-cell}
+gen = znaki_niza("abc")
+```
+
+```{code-cell}
+gen
+```
+
+```{code-cell}
+next(gen)
+```
+
+```{code-cell}
+next(gen)
+```
+
+```{code-cell}
+next(gen)
+```
+
+```{code-cell}
+:tags: [raises-exception]
+next(gen)
+```
+
+Tudi generator Fibonaccijevih števil lahko dobimo na podoben način:
+
+```{code-cell}
+def fibonaccijeva_stevila(a=0, b=1):
+    while True:
+        yield a
+        a, b = b, a + b
+```
+
+```{code-cell}
+f = fibonaccijeva_stevila()
+[next(f) for _ in range(10)]
+```
+
+```{code-cell}
+f = fibonaccijeva_stevila(0, 10)
+[next(f) for _ in range(10)]
+```
+
+Pri poimenovanju je treba biti natančen: `fibonaccijeva_stevila` niso generator, temveč funkcija, ki ob vsakem klicu vrne generator, ki je posebna vrsta iteratorja.
+
+```{code-cell}
+fibonaccijeva_stevila
+```
+
+```{code-cell}
+fibonaccijeva_stevila()
+```
+
+### Iterabilni objekti
+
+Objekti, po katerih se sprehajamo z zanko `for`, niso iteratorji. Na primer, nizi so sestavljeni natanko iz svojih znakov, zato si ne morejo "zapomniti", katere znake so že vrnili in katerih ne. Ampak, kot smo videli, iz njih lahko naredimo smiselne iteratorje. Takim objektom pravimo _iterabilni_. Natančneje zanka `for x in obj: ...` deluje na sledeči način:
+
+1. pokliči `iter(obj)`, da iz iterabilnega objekta `obj` dobiš iterator `it`
+2. pokliči `next(it)`, da dobiš naslednjo vrednost
+3. vrednost shrani v spremenljivko `x`
+4. izvedi ukaze `...`
+5. ponavljaj korake od 2 do 4, dokler korak 2 ne sproži izjeme `StopIteration`
+6. ko dobiš izjemo, končaj
+
+Če želimo na objektih svojega razreda podpreti zanko `for`, moramo definirati metodo `__iter__`, ki bo vrnila iskani iterator. Na primer, iterator po aritmetičnih zaporedjih bi lahko napisali kot:
+
+```{code-cell}
+class AritmeticnoZaporedje:
+    def __init__(self, zacetni_clen, razlika):
+        self.zacetni_clen = zacetni_clen
+        self.razlika = razlika
+
+    def __iter__(self):
+        x = self.zacetni_clen
+        while True:
+            yield x
+            x += self.razlika
+```
+
+```{code-cell}
+zap = AritmeticnoZaporedje(2, 5)
+```
+
+```{code-cell}
+for x in zap:
+    print(x)
+    if x > 100:
+        break
 ```
