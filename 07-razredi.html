@@ -233,6 +233,28 @@
    Posebne metode
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iteracija">
+   Iteracija
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iteratorji">
+     Iteratorji
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generatorji">
+     Generatorji
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterabilni-objekti">
+     Iterabilni objekti
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -268,7 +290,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.AritmeticnoZaporedje at 0x7f44f0523350&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.AritmeticnoZaporedje at 0x7f9fe8610590&gt;
 </pre></div>
 </div>
 </div>
@@ -411,7 +433,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.AritmeticnoZaporedje at 0x7f44f04a9dd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.AritmeticnoZaporedje at 0x7f9fe85aa0d0&gt;
 </pre></div>
 </div>
 </div>
@@ -552,6 +574,396 @@
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="iteracija">
+<h2>Iteracija<a class="headerlink" href="#iteracija" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="iteratorji">
+<h3>Iteratorji<a class="headerlink" href="#iteratorji" title="Permalink to this headline">¶</a></h3>
+<p>V Pythonu se dostikrat sprehajamo čez znake v nizu, elemente seznama, števila v <code class="docutils literal notranslate"><span class="pre">range</span></code>, … Vse dosežemo prek tako imenovanih <em>iteratorjev</em>. To so objekti, ki imajo posebno vgrajeno metodo <code class="docutils literal notranslate"><span class="pre">__next__</span></code>, ki ob vsakem klicu vrne naslednjo vrednost. Ko vrednosti zmanjka, metoda to sporoči tako, da sproži izjemo <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code>. Za primer napišimo iterator, ki zaporedoma vrača znake niza:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">IteratorCezNiz</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">niz</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">niz</span> <span class="o">=</span> <span class="n">niz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indeks</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">indeks</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">niz</span><span class="p">):</span>
+            <span class="n">znak</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">niz</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">indeks</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">indeks</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">znak</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="n">IteratorCezNiz</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Metodo <code class="docutils literal notranslate"><span class="pre">__next__</span></code> bi lahko poklicali direktno, kot <code class="docutils literal notranslate"><span class="pre">it.__next__()</span></code>, vendar jo je lepše poklicati prek vgrajene funkcije <code class="docutils literal notranslate"><span class="pre">next</span></code> (ki ne naredi drugega, kot da na svojem argumentu pokliče <code class="docutils literal notranslate"><span class="pre">__next__</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;b&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;c&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">26</span><span class="o">-</span><span class="n">bc1ab118995a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-21-e36fd922a839&gt;</span> in <span class="ni">__next__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>             <span class="k">return</span> <span class="n">znak</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">12</span>             <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+<span class="ne">StopIteration</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če želimo, se lahko iteratorji tudi nikoli ne končajo, s čimer lahko predstavimo neskončne sezname, na primer vsa Fibonaccijeva števila.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">IteratorFibonaccijevih</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">prejsnji_a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
+        <span class="k">return</span> <span class="n">prejsnji_a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fib</span> <span class="o">=</span> <span class="n">IteratorFibonaccijevih</span><span class="p">()</span>
+<span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="generatorji">
+<h3>Generatorji<a class="headerlink" href="#generatorji" title="Permalink to this headline">¶</a></h3>
+<p>V Pythonu obstaja zelo enostaven način, na katerega pišemo iteratorje, in to so <em>generatorji</em>. Recimo, da bi želeli le izpisati vse znake v nizu. Tedaj bi lahko napisali funkcijo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">znaki_niza</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pri funkciji nalašč nismo uporabili zanke <code class="docutils literal notranslate"><span class="pre">for</span></code>, saj bi bilo to goljufanje.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">znaki_niza</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+</pre></div>
+</div>
+</div>
+</div>
+<p>To je res izpisalo vse znake, vendar si z njimi ne moremo pomagati, saj so šli naravnost na konzolo. Če bi jih želeli vrniti, bi lahko napisali sledečo funkcijo, vendar bi ta ob prvem <code class="docutils literal notranslate"><span class="pre">return</span></code> prenehala z izvajanjem:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">znaki_niza</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">znaki_niza</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tu v igro pridejo <em>generatorji</em>. Dobimo jih tako, da namesto <code class="docutils literal notranslate"><span class="pre">return</span></code> napišemo <code class="docutils literal notranslate"><span class="pre">yield</span></code>. Ko bo izvajanje klica prišlo do ukaza <code class="docutils literal notranslate"><span class="pre">yield</span></code>, se ne bo končalo, temveč le zaustavilo, ter se od tam nadaljevalo ob naslednjem klicu <code class="docutils literal notranslate"><span class="pre">next</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">znaki_niza</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">niz</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span> <span class="o">=</span> <span class="n">znaki_niza</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object znaki_niza at 0x7f9fe85b2350&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;b&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;c&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">39</span><span class="o">-</span><span class="mf">6e72</span><span class="n">e47198db</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+
+<span class="ne">StopIteration</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tudi generator Fibonaccijevih števil lahko dobimo na podoben način:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonaccijeva_stevila</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">a</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">fibonaccijeva_stevila</span><span class="p">()</span>
+<span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">fibonaccijeva_stevila</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 10, 10, 20, 30, 50, 80, 130, 210, 340]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pri poimenovanju je treba biti natančen: <code class="docutils literal notranslate"><span class="pre">fibonaccijeva_stevila</span></code> niso generator, temveč funkcija, ki ob vsakem klicu vrne generator, ki je posebna vrsta iteratorja.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonaccijeva_stevila</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.fibonaccijeva_stevila(a=0, b=1)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonaccijeva_stevila</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object fibonaccijeva_stevila at 0x7f9fe8599ad0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="iterabilni-objekti">
+<h3>Iterabilni objekti<a class="headerlink" href="#iterabilni-objekti" title="Permalink to this headline">¶</a></h3>
+<p>Objekti, po katerih se sprehajamo z zanko <code class="docutils literal notranslate"><span class="pre">for</span></code>, niso iteratorji. Na primer, nizi so sestavljeni natanko iz svojih znakov, zato si ne morejo “zapomniti”, katere znake so že vrnili in katerih ne. Ampak, kot smo videli, iz njih lahko naredimo smiselne iteratorje. Takim objektom pravimo <em>iterabilni</em>. Natančneje zanka <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">obj:</span> <span class="pre">...</span></code> deluje na sledeči način:</p>
+<ol class="simple">
+<li><p>pokliči <code class="docutils literal notranslate"><span class="pre">iter(obj)</span></code>, da iz iterabilnega objekta <code class="docutils literal notranslate"><span class="pre">obj</span></code> dobiš iterator <code class="docutils literal notranslate"><span class="pre">it</span></code></p></li>
+<li><p>pokliči <code class="docutils literal notranslate"><span class="pre">next(it)</span></code>, da dobiš naslednjo vrednost</p></li>
+<li><p>vrednost shrani v spremenljivko <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p>izvedi ukaze <code class="docutils literal notranslate"><span class="pre">...</span></code></p></li>
+<li><p>ponavljaj korake od 2 do 4, dokler korak 2 ne sproži izjeme <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code></p></li>
+<li><p>ko dobiš izjemo, končaj</p></li>
+</ol>
+<p>Če želimo na objektih svojega razreda podpreti zanko <code class="docutils literal notranslate"><span class="pre">for</span></code>, moramo definirati metodo <code class="docutils literal notranslate"><span class="pre">__iter__</span></code>, ki bo vrnila iskani iterator. Na primer, iterator po aritmetičnih zaporedjih bi lahko napisali kot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AritmeticnoZaporedje</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zacetni_clen</span><span class="p">,</span> <span class="n">razlika</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zacetni_clen</span> <span class="o">=</span> <span class="n">zacetni_clen</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">razlika</span> <span class="o">=</span> <span class="n">razlika</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zacetni_clen</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">x</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">razlika</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zap</span> <span class="o">=</span> <span class="n">AritmeticnoZaporedje</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">zap</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+7
+12
+17
+22
+27
+32
+37
+42
+47
+52
+57
+62
+67
+72
+77
+82
+87
+92
+97
+102
+</pre></div>
+</div>
 </div>
 </div>
 </div>
