@@ -1,3 +1,39 @@
+## Statične in razredne metode
+
+## `property`
+
+## Dedovanje
+
+## Zgoščevalne tabele
+
+- defaultdict
+
+```{code-cell}
+
+```
+
+aa## Posebne metode
+
+## Statične in razredne metode
+
+## Dedovanje
+
+# Razredi
+
+objekte združujemo v razredih
+
+# objekt ~ podatki + metode
+
+## Objekti v istem razredu imajo različne podatke (atribute) ter enake metode
+
+## Definicije lastnih razredov
+
+Definicija razreda sestoji iz definicij **metod**
+
+````python
+```{code-cell}
+````
+
 # Izjeme & iterabilni objekti
 
 ## Sprožanje in lovljenje izjem
