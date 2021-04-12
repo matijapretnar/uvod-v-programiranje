@@ -10,3 +10,7 @@
   - file: 06-slovarji-in-mnozice
   - file: 07-razredi
   - file: 08-datoteke
+
+- part: Pisanje večjih programov
+  chapters:
+  - file: 09-tekstovni-vmesnik
