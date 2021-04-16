@@ -14,3 +14,4 @@
 - part: Pisanje večjih programov
   chapters:
   - file: 09-tekstovni-vmesnik
+  - file: 10-nadzor-razlicic
