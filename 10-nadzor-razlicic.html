@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nadzor različic &#8212; Uvod v programiranje</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Tekstovni vmesnik" href="09-tekstovni-vmesnik.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Uvod v programiranje</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-uvod.html">
+   Uvod v programiranje
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Osnove Pythona
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-uvod-v-python.html">
+   Uvod v Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-rekurzija.html">
+   Rekurzija
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-nizi.html">
+   Nizi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-zanke.html">
+   Zanke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-seznami-in-nabori.html">
+   Seznami &amp; nabori
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-slovarji-in-mnozice.html">
+   Slovarji &amp; množice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-razredi.html">
+   Razredi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-datoteke.html">
+   Datoteke
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Pisanje večjih programov
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-tekstovni-vmesnik.html">
+   Tekstovni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Nadzor različic
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/10-nadzor-razlicic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/10-nadzor-razlicic.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/10-nadzor-razlicic.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sinhronizacija-med-repozitoriji">
+   Sinhronizacija med repozitoriji
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zlivanje-sprememb-in-konflikti">
+   Zlivanje sprememb in konflikti
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readme-md-in-gitignore">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     README.md
+    </span>
+   </code>
+   in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .gitignore
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="nadzor-razlicic">
+<h1>Nadzor različic<a class="headerlink" href="#nadzor-razlicic" title="Permalink to this headline">¶</a></h1>
+<p>Kot smo že omenili, delo na večjih projektih poteka v več fazah, ki se med seboj izmenjujejo. Na primer, ko implementiramo vmesnik, vidimo, da nam v modelu manjka kakšna funkcionalnost. Če vsemu temu dodamo še dejstvo, da so večji programi sestavljeni iz več datotek, običajno pa na njih sodeluje več ljudi, hitro vidimo, da imamo pred seboj recept za zmedo. Velik del te zmede nam pomagajo razrešiti sistemi za nadzor različic (<em>version control system</em>), ki strukturirano beležijo spremembe v naših projektih ter nam omogočajo, da pogledamo, kdaj so se zgodile ali kdo jih je naredil, in jih po potrebi prekličemo. Uporaba sistemov za nadzor različic ni koristna le pri programiranju, temveč tudi pri pisanju (ob zaključevanju diplomskih del brez ustrezne podpore hitro nastanejo datoteke kot <code class="docutils literal notranslate"><span class="pre">diploma-koncna.tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma-koncna2.tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma</span> <span class="pre">(zadnja).tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma</span> <span class="pre">(oddana).tex</span></code>, …)</p>
+<p>Mi si bomo ogledali <a class="reference external" href="https://git-scm.com">Git</a>, ki je najbolj razširjeno sodobno orodje. “Pravi hekerji” Git uporabljajo prek ukazne vrstice, mi pa bomo raje uporabljali urejevalnik <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, ki ima dobro razvito <a class="reference external" href="https://code.visualstudio.com/docs/editor/versioncontrol#_git-support">podporo za Git</a>.</p>
+<p>Za začetek si poglejmo nekaj osnovnih izrazov, ki jih bomo uporabljali:</p>
+<ul class="simple">
+<li><p><em>delovno drevo</em> (<em>working tree</em>) je imenik z vsemi datotekami projekta, na katerem smo vklopili nadzor različic.</p></li>
+<li><p><em>sprememba</em> (<em>commit</em>) je osnovna enota nadzora različic, ki vsebuje zabeleženo stanje datotek skupaj s časom, avtorjem, opisom, podatkih o predhodnih spremembah in podobno. Vsaka sprememba tvori neko smiselno celoto, na primer popravek enega hrošča, dodatek nove funkcionalnosti, …</p></li>
+<li><p><em>repozitorij</em> (<em>repository</em> ali <em>repo</em>) je zbirka vseh zabeleženih sprememb.</p></li>
+<li><p><em>klon</em> (<em>clone</em>) je ena izmed kopij repozitorija. Ena se običajno nahaja na javnem strežniku (ta gradiva so na primer na <a class="reference external" href="https://github.com/matijapretnar/uvod-v-programiranje">GitHubu</a>), vsak, ki dela na projektu pa ima eno kopijo še v delovnem drevesu (skrito v imeniku <code class="docutils literal notranslate"><span class="pre">.git</span></code>).</p></li>
+</ul>
+<div class="section" id="sinhronizacija-med-repozitoriji">
+<h2>Sinhronizacija med repozitoriji<a class="headerlink" href="#sinhronizacija-med-repozitoriji" title="Permalink to this headline">¶</a></h2>
+<p>Na svojem računalniku repozitorij vzpostavimo na dva načina. V obstoječem imeniku nov repozitorij vzpostavimo z ukazom <code class="docutils literal notranslate"><span class="pre">Git:</span> <span class="pre">Initialize</span> <span class="pre">repository</span></code>. Tudi če repozitorija ne delimo z nikomer, je koristen, saj nam omogoča pregled zgodovine, je pa tudi v tem primeru dobro, da imamo za vsak slučaj še eno varnostno kopijo na strežniku.</p>
+<p>Če želimo imeti repozitorij tudi na strežniku, lahko naložimo lokalnega, še bolj enostavno pa je, če ga ustvarimo na strežnikiu in od tam kloniramo. je najenostavneje, če ga najprej naredimo tam (seveda ga lahko ustvarimo tudi lokalno in naložimo kasneje) in nato kloniramo. To storimo z ukaozm <code class="docutils literal notranslate"><span class="pre">Git:</span> <span class="pre">Clone</span></code>, ki nas prosi za naslov repozitorija, na primer <code class="docutils literal notranslate"><span class="pre">git&#64;github.com:matijapretnar/uvod-v-programiranje.git</span></code>. S tem ukazu se na našem računalniku ustvari popoln klon repozitorija na strežniku.</p>
+<p>Novo spremembo ustvarimo v pogledu <code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Control</span></code>, v katerem imamo tri dele. Pod <code class="docutils literal notranslate"><span class="pre">Changes</span></code> vidimo vse datoteke, ki so se spremenile od zadnje zabeležene spremembe. Izbrane datoteke (lahko tudi vse, ali pa samo določene vrstice v njih) lahko premaknemo pod <code class="docutils literal notranslate"><span class="pre">Staged</span> <span class="pre">Changes</span></code>, kjer pripravljamo vse, kar bo šlo v naslednjo spremembo. Na ta način lahko veliko spremembo razdelimo na več manjših, kar bo drugim (ali pa nam samim v prihodnosti) pomagalo pri lažjem razumevanju zgodovine sprememb. Ko smo pripravljeni, pod <code class="docutils literal notranslate"><span class="pre">Message</span></code> napišemo kratko sporočilo ter ustvarimo spremembo.</p>
+<p>Spremembe pošljemo na strežnik z ukazom <code class="docutils literal notranslate"><span class="pre">Git:</span> <span class="pre">Push</span></code>, s strežnika pa jih povlečemo z <code class="docutils literal notranslate"><span class="pre">Git:</span> <span class="pre">Pull</span></code>. Urejevalnik Visual Studio Code ima v statusni vrstici tudi gumb za sinhronizacijo, ki kaže število čakajočih sprememb na obeh straneh, ob kliku pa jih pošlje v ustrezno smer.</p>
+</div>
+<div class="section" id="zlivanje-sprememb-in-konflikti">
+<h2>Zlivanje sprememb in konflikti<a class="headerlink" href="#zlivanje-sprememb-in-konflikti" title="Permalink to this headline">¶</a></h2>
+<p>Če na repozitoriju dela več ljudi (ali pa če sami hkrati delamo na več računalnikih), se nam bo hitro zgodilo, da bo na enem klonu nastala ena sprememba, na drugem klonu pa drugačna. Git zna te spremembe pametno uskladiti. Če se zgodi, da je na strežniku kakšna sprememba, ki je v našem repozitoriju še ni, nam svojih sprememb ne bo uspelo poslati na strežnik. Najprej moramo povleči tiste, ki so na strežniku, jih zliti (<em>merge</em>) z lokalnimi, in nato vse skupaj poslati nazaj. Vse skupaj najenostavneje naredimo kar z gumbom za sinhronizacijo. Git pri tem pazi, da se nobena izmed sprememb ne izgubi. Na primer, če je nekdo popravil vrstico na enem koncu datoteke, nekdo drug pa na drugem koncu, bosta v združeni različici spremenjeni obe vrstici.</p>
+<p>Seveda pa ne bo vedno tako, saj bi lahko na obeh koncih spremenili isto vrstico. V tem primeru nastane konfklit pri zlivanju (<em>merge conflict</em>), ki ga je treba natančno pogledati in razrešiti ročno. Git take konflikte označi v datoteki sami in sicer, da na mesto konflikta vstavi posebna ločila ter vsebini obeh različic. Na primer, če bi iz vrstic</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">Git</span>
+<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
+<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+</pre></div>
+</div>
+<p>na enem koncu spremenili vrstni red</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
+<span class="o">-</span> <span class="n">Git</span>
+<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+</pre></div>
+</div>
+<p>na drugem pa popravili naslov</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">nadzor</span> <span class="n">različic</span>
+<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
+<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+</pre></div>
+</div>
+<p>bi ob združevanju prišlo do konflikta, ki bi ga Git v datoteki označil kot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
+<span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">HEAD</span>
+<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
+<span class="o">-</span> <span class="n">Git</span>
+<span class="o">=======</span>
+<span class="o">-</span> <span class="n">nadzor</span> <span class="n">različic</span>
+<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span>
+<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+</pre></div>
+</div>
+<p>Urejevalnik Visual Studio Code bo konflikte tudi jasno označil ter nam ponudil možnosti (izberi prvega, izberi drugega, izberi oba, primerjaj, …). Ko vidimo spremembo in razmislimo, da moramo spremeniti vrstni red kot naslov, ročno popravimo vrstice v</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">nadzor</span> <span class="n">različic</span>
+<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
+<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+</pre></div>
+</div>
+<p>ter zabeležimo novo spremembo. Ko to storimo, zlite spremembe pošljemo nazaj na strežnik.</p>
+</div>
+<div class="section" id="readme-md-in-gitignore">
+<h2><code class="docutils literal notranslate"><span class="pre">README.md</span></code> in <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code><a class="headerlink" href="#readme-md-in-gitignore" title="Permalink to this headline">¶</a></h2>
+<p>Za vsak Git repozitorij se spodobi, da vsebuje dve datoteki. V datoteki <code class="docutils literal notranslate"><span class="pre">README.md</span></code> napišemo kratek opis repozitorija in osnovna navodila za uporabo. Datoteko pišemo v Markdownu, ki je zelo razširjen jezik za enostavno oblikovanje besedil (med drugim so v njem pisani ti zapiski). Na primer, ustrezen <code class="docutils literal notranslate"><span class="pre">README.md</span></code> je</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Uvod v programiranje
+
+Zbirka gradiv za predmet Uvod v programiranje v prvih letnikih matematike, finančne matematike in pedagoške matematike na [Fakulteti za matematiko in fiziko](https://www.fmf.uni-lj.si/). Gradiva so razdeljena po sledečih imenikih:
+
+- `01-uvod-v-python`, ..., `08-datoteke`: datoteke, ustvarjene na predavanjih posameznih poglavij;
+- `projekti`: datoteke projektov, ustvarjenih na predavanjih;
+- `zapiski`: izvorna koda zapiskov;
+- `odlozisce`: stare datoteke, ki bodo sčasoma pobrisane.
+</pre></div>
+</div>
+<p>ki se potem dostikrat lepše pokaže kot:</p>
+<p><img alt="izrisan README.md" src="_images/readme-md.png" /></p>
+<p>Druga datoteka pa je <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>, v kateri naštejemo vse datoteke, ki jim v Gitu ne želimo slediti, na primer take, ki jih računalnik ustvari sam (recimo Python jih ustvari v mapi <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code>, macOS rad ustvarja datoteke <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code>, Windowsi <code class="docutils literal notranslate"><span class="pre">thumbs.db</span></code>, LaTeX pa ustvari PDF datoteke ter pomožne datoteke s končnicami <code class="docutils literal notranslate"><span class="pre">.aux</span></code>, <code class="docutils literal notranslate"><span class="pre">.log</span></code> in podobno). Primer ustrezne datoteke <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> bi bil:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">__pycache__</span>
+<span class="o">.</span><span class="n">DS_Store</span>
+<span class="n">thumbs</span><span class="o">.</span><span class="n">db</span>
+<span class="o">*.</span><span class="n">aux</span>
+<span class="o">*.</span><span class="n">bbl</span>
+<span class="o">*.</span><span class="n">blg</span>
+<span class="o">*.</span><span class="n">fdb_latexmk</span>
+<span class="o">*.</span><span class="n">toc</span>
+<span class="o">*.</span><span class="n">fls</span>
+<span class="o">*.</span><span class="n">log</span>
+<span class="o">*.</span><span class="n">out</span>
+<span class="o">*.</span><span class="n">pdf</span>
+<span class="o">*.</span><span class="n">pyc</span>
+<span class="o">*.</span><span class="n">synctex</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="09-tekstovni-vmesnik.html" title="previous page">Tekstovni vmesnik</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matija Pretnar<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
