@@ -1,4 +1,8 @@
-Uvod v programiranje
-====================
+# Uvod v programiranje
 
-V tem repozitoriju se zbirajo gradiva za predmet Uvod v programiranje v 1. letnikih matematike, finančne matematike in pedagoške matematike na [Fakulteti za matematiko in fiziko](https://www.fmf.uni-lj.si/).
+Zbirka gradiv za predmet Uvod v programiranje v prvih letnikih matematike, finančne matematike in pedagoške matematike na [Fakulteti za matematiko in fiziko](https://www.fmf.uni-lj.si/). Gradiva so razdeljena po sledečih imenikih:
+
+- `01-uvod-v-python`, ..., `08-datoteke`: datoteke, ustvarjene na predavanjih posameznih poglavij;
+- `projekti`: datoteke projektov, ustvarjenih na predavanjih;
+- `zapiski`: izvorna koda zapiskov;
+- `odlozisce`: stare datoteke, ki bodo sčasoma pobrisane.
