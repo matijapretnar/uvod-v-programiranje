@@ -2,7 +2,10 @@ from datetime import date
 
 class Model:
     def __init__(self):
-        self.spisek = Spisek("Edini spisek")
+        self.spiski = []
+    
+    def dodaj_spisek(self, spisek):
+        self.spiski.append(spisek)
 
 class Spisek:
     def __init__(self, ime):
