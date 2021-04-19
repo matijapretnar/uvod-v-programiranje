@@ -3,9 +3,24 @@ from datetime import date
 class Model:
     def __init__(self):
         self.spiski = []
+        self.aktualni_spisek = None
     
     def dodaj_spisek(self, spisek):
         self.spiski.append(spisek)
+        if not self.aktualni_spisek:
+            self.aktualni_spisek = spisek
+    
+    def pobrisi_spisek(self, spisek):
+        self.spiski.remove(spisek)
+    
+    def zamenjaj_spisek(self, spisek):
+        self.aktualni_spisek = spisek
+    
+    def dodaj_opravilo(self, opravilo):
+        self.aktualni_spisek.dodaj_opravilo(opravilo)
+
+    def pobrisi_opravilo(self, opravilo):
+        self.aktualni_spisek.pobrisi_opravilo(opravilo)
 
 class Spisek:
     def __init__(self, ime):
@@ -21,6 +36,9 @@ class Spisek:
             if opravilo.zamuja():
                 stevilo += 1
         return stevilo
+
+    def stevilo_vseh(self):
+        return len(self.opravila)
 
 class Opravilo:
     def __init__(self, ime, opis, rok):
