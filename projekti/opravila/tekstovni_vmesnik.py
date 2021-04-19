@@ -6,6 +6,7 @@ POBRISI_OPRAVILO = 5
 OPRAVI_OPRAVILO = 6
 IZHOD = 7
 
+
 def tekstovni_vmesnik():
     prikazi_pozdravno_sporocilo()
     while True:
@@ -34,5 +35,6 @@ def tekstovni_vmesnik():
         elif ukaz == IZHOD:
             print('Nasvidenje!')
             break
+
 
 tekstovni_vmesnik()
