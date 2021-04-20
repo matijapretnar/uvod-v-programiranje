@@ -1,20 +1,20 @@
-from model import Model, Kuverta, Racun, Transakcija
+from model import Proracun, Kuverta, Racun, Preliv
 from datetime import date
 
-eden_in_edini_model = Model()
+proracun = Proracun()
 hrana = Kuverta('hrana')
 racuni = Kuverta('računi')
 zabava = Kuverta('zabava')
 gotovina = Racun('gotovina')
 tekoci_racun = Racun('tekoči račun')
-eden_in_edini_model.dodaj_kuverto(hrana)
-eden_in_edini_model.dodaj_kuverto(racuni)
-eden_in_edini_model.dodaj_kuverto(zabava)
-eden_in_edini_model.dodaj_racun(gotovina)
-eden_in_edini_model.dodaj_racun(tekoci_racun)
-zadnji_nakup = Transakcija(15, 'špageti in pivo', date(2021, 4, 12))
-gotovina.dodaj_transakcijo(zadnji_nakup)
-hrana.dodaj_transakcijo(zadnji_nakup)
+proracun.dodaj_kuverto(hrana)
+proracun.dodaj_kuverto(racuni)
+proracun.dodaj_kuverto(zabava)
+proracun.dodaj_racun(gotovina)
+proracun.dodaj_racun(tekoci_racun)
+zadnji_nakup = Preliv(15, 'špageti in pivo', date(2021, 4, 12))
+gotovina.dodaj_preliv(zadnji_nakup)
+hrana.dodaj_preliv(zadnji_nakup)
 
 def tekstovni_vmesnik():
     uvodni_pozdrav()
@@ -35,7 +35,7 @@ def osnovni_zaslon():
         pokazi_racune()
 
 def pokazi_kuverte():
-    for kuverta in eden_in_edini_model.kuverte:
+    for kuverta in proracun.kuverte:
         print(f'- {kuverta.ime}: {kuverta.stanje()}')
 
 

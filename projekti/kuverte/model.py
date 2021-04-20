@@ -1,4 +1,4 @@
-class Model:
+class Proracun:
     def __init__(self):
         self.kuverte = []
         self.racuni = []
@@ -13,26 +13,26 @@ class Model:
 class Kuverta:
     def __init__(self, ime):
         self.ime = ime
-        self.transakcije = []
+        self.prelivi = []
 
     def stanje(self):
-        return sum(transakcija.znesek for transakcija in self.transakcije)
+        return sum(preliv.znesek for preliv in self.prelivi)
     
-    def dodaj_transakcijo(self, transakcija):
-        self.transakcije.append(transakcija)
+    def dodaj_preliv(self, preliv):
+        self.prelivi.append(preliv)
 
 class Racun:
     def __init__(self, ime):
         self.ime = ime
-        self.transakcije = []
+        self.prelivi = []
 
     def stanje(self):
-        return sum(transakcija.znesek for transakcija in self.transakcije)
+        return sum(preliv.znesek for preliv in self.prelivi)
     
-    def dodaj_transakcijo(self, transakcija):
-        self.transakcije.append(transakcija)
+    def dodaj_preliv(self, preliv):
+        self.prelivi.append(preliv)
 
-class Transakcija:
+class Preliv:
     def __init__(self, znesek, opis, datum):
         self.znesek = znesek
         self.opis = opis
