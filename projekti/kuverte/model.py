@@ -33,7 +33,9 @@ class Racun:
         self.prelivi.append(preliv)
 
 class Preliv:
-    def __init__(self, znesek, opis, datum):
+    def __init__(self, znesek, datum, opis, racun, kuverta):
         self.znesek = znesek
-        self.opis = opis
         self.datum = datum
+        self.opis = opis
+        self.racun = racun
+        self.kuverta = kuverta
