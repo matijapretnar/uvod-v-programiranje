@@ -12,7 +12,7 @@ proracun.dodaj_kuverto(racuni)
 proracun.dodaj_kuverto(zabava)
 proracun.dodaj_racun(gotovina)
 proracun.dodaj_racun(tekoci_racun)
-zadnji_nakup = Preliv(15, 'špageti in pivo', date(2021, 4, 12), gotovina, hrana)
+zadnji_nakup = Preliv(3, 'špageti in voda', date(2021, 4, 12), gotovina, hrana)
 gotovina.dodaj_preliv(zadnji_nakup)
 hrana.dodaj_preliv(zadnji_nakup)
 
