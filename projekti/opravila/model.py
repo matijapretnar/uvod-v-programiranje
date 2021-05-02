@@ -44,11 +44,11 @@ class Spisek:
 
 
 class Opravilo:
-    def __init__(self, ime, opis, rok):
+    def __init__(self, ime, opis, rok, opravljeno=False):
         self.ime = ime
         self.opis = opis
         self.rok = rok
-        self.opravljeno = False
+        self.opravljeno = opravljeno
 
     def opravi(self):
         self.opravljeno = True

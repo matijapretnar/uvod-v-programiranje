@@ -33,64 +33,67 @@ Na skici označimo, katere razrede bomo imeli. Ker bomo beležili opravila, bomo
 
 ## Implementacija modela
 
-Na osnovi spiska zapišemo definicije ustreznih razredov. Najbolje, da kar v datoteko `model.py`. Ker bomo imeli opravka z roki opravil, si bomo pomagali z vgrajeno knjižnico [`datetime`](https://docs.python.org/3/library/datetime.html), ki med drugim ponuja razreda `date` za delo z datumi ter `timedelta` za časovna obdobja (ki jih bomo potrebovali za ponavljajoča se opravila). Ko bomo implementirali metode, bomo opazili, da naša skica ni bila popolna (metod za popravljanje podatkov ne bomo rabili, na opravilih pa nam manjka metoda za ugotavljanje, ali je rok zamujen). Nič hudega, saj za skico nismo porabili preveč časa.
+Na osnovi spiska zapišemo definicije ustreznih razredov. Najbolje, da kar v datoteko `model.py`. Ker bomo imeli opravka z roki opravil, si bomo pomagali z vgrajeno knjižnico [`datetime`](https://docs.python.org/3/library/datetime.html), ki med drugim ponuja razreda `date` za delo z datumi. Ko bomo implementirali metode, bomo opazili, da naša skica ni bila popolna (metod za popravljanje podatkov ne bomo rabili, na opravilih pa nam manjka metoda za ugotavljanje, ali je rok zamujen). Nič hudega, saj za skico nismo porabili preveč časa.
 
 ```{code-cell} ipython3
 from datetime import date
+
 
 class Model:
     def __init__(self):
         self.spiski = []
         self.aktualni_spisek = None
-    
+
     def dodaj_spisek(self, spisek):
-        self.spiski = spisek
+        self.spiski.append(spisek)
         if not self.aktualni_spisek:
             self.aktualni_spisek = spisek
-    
-    def pobrisi_spisek(self, indeks):
-        self.spiski.pop(indeks)
-    
-    def zamenjaj_spisek(self, indeks):
-        self.aktualni_spisek = self.spiski[indeks]
+
+    def pobrisi_spisek(self, spisek):
+        self.spiski.remove(spisek)
+
+    def zamenjaj_spisek(self, spisek):
+        self.aktualni_spisek = spisek
+
+    def dodaj_opravilo(self, opravilo):
+        self.aktualni_spisek.dodaj_opravilo(opravilo)
+
+    def pobrisi_opravilo(self, opravilo):
+        self.aktualni_spisek.pobrisi_opravilo(opravilo)
+
 
 class Spisek:
     def __init__(self, ime):
         self.ime = ime
         self.opravila = []
-    
-    def dodaj_opravilo(self, ime, opis, rok, ponovitev):
-        opravilo = Opravilo(self, ime, opis, rok, ponovitev)
+
+    def dodaj_opravilo(self, opravilo):
         self.opravila.append(opravilo)
-    
-    def pobrisi_opravilo(self, indeks):
-        self.opravila.pop(indeks)
-    
-    def stevilo_cez_rok(self):
-        # Python bo True samodejno pretvoril v 1, False pa v 0        
-        return sum([opravilo.cez_rok() for opravilo in self.opravila])
+
+    def stevilo_zamujenih(self):
+        stevilo = 0
+        for opravilo in self.opravila:
+            if opravilo.zamuja():
+                stevilo += 1
+        return stevilo
+
+    def stevilo_vseh(self):
+        return len(self.opravila)
+
 
 class Opravilo:
-    def __init__(self, spisek, ime, opis, rok, ponovitev):
-        self.spisek = spisek
+    def __init__(self, ime, opis, rok, opravljeno=False):
         self.ime = ime
         self.opis = opis
         self.rok = rok
-        self.ponovitev = ponovitev
-        self.opravljeno = None
-    
-    def cez_rok(self):
-        return self.rok and not self.opravljeno and self.rok < date.today()
-    
+        self.opravljeno = opravljeno
+
     def opravi(self):
-        self.opravljeno = date.today()
-        if self.ponovitev:
-            self.spisek.dodaj_opravilo(
-                self.ime,
-                self.opis,
-                self.rok + self.ponovitev,
-                self.ponovitev
-            )
+        self.opravljeno = True
+
+    def zamuja(self):
+        rok_pretekel = self.rok and self.rok < date.today()
+        return not self.opravljeno and rok_pretekel
 ```
 
 ## Implementacija vmesnika
@@ -136,7 +139,8 @@ Funkcije bomo tako drobili naprej, na ustreznih točkah pa bomo poklicali metode
 def dodaj_opravilo():
     ime = input('Ime opravila> ')
     ...
-    model.aktualni_spisek.dodaj_opravilo(ime, ...)
+    opravilo = Opravilo(ime, ...)
+    model.aktualni_spisek.dodaj_opravilo(opravilo)
 ```
 
 ## Shranjevanje stanja
@@ -168,26 +172,24 @@ class Spisek:
     
     def v_slovar(self):
         return {
-            'ime': self.ime,
-            'opravila': [opravilo.v_slovar() for opravilo in self.opravila]
+            "ime": self.ime,
+            "opravila": [opravilo.v_slovar() for opravilo in self.opravila],
         }
+
 
 class Opravilo:
     ...
     
     def v_slovar(self):
         return {
-            'ime': self.ime,
-            'opis': self.opis,
-            'rok': niz_datuma(self.rok),
-            'ponovitev': niz_obdobja(self.ponovitev) if self.ponovitev else None,
-            'opravljeno': niz_datuma(self.opravljeno) if self.opravljeno else None
+            "ime": self.ime,
+            "opis": self.opis,
+            "rok": date.isoformat(self.rok) if self.rok else None,
+            "opravljeno": self.opravljeno,
         }
 ```
 
-Kot vidimo, v slovarju spiska nastopajo opravila, obratno pa ne, saj bi sicer dobili ciklično strukturo, ki je ne moremo pametno zapisati v slovar.
-
-Metode za pretvorbo iz slovarja pa so malo bolj posebne, saj pred trenutnkom, ko preberemo slovar, še nimamo objekta, na katerih bi jih poklicali. Lahko bi si sicer napisali funkcije kot so `preberi_opravilo_iz_slovarja` ali `preberi_spisek_iz_slovarja`, vendar te funkcije zelo naravno spadajo v ustrezne razrede. Hkrati pa niso metode, saj nimajo objekta, na katerih jih lahko pokličemo. Gre za _statične metode_, ki so v resnici navadne funkcije, le da jih kot metode zapišemo v razred in na vrhu označimo s `@staticmethod` (v resnici bi bilo boljša možnost `@classmethod`, ampak o tem kdaj drugič):
+Metode za pretvorbo iz slovarja pa so malo bolj posebne, saj pred trenutkom, ko preberemo slovar, še nimamo objekta, na katerih bi jih poklicali. Lahko bi si sicer napisali funkcije kot so `preberi_opravilo_iz_slovarja` ali `preberi_spisek_iz_slovarja`, vendar te funkcije zelo naravno spadajo v ustrezne razrede. Hkrati pa niso metode, saj nimajo objekta, na katerih jih lahko pokličemo. Gre za _statične metode_, ki so v resnici navadne funkcije, le da jih kot metode zapišemo v razred in na vrhu označimo s `@staticmethod` (v resnici bi bilo boljša možnost `@classmethod`, ampak o tem kdaj drugič):
 
 ```python
 class Spisek:
@@ -195,26 +197,25 @@ class Spisek:
     
     @staticmethod
     def iz_slovarja(slovar):
-        spisek = Spisek(slovar['ime'])
-        spisek.opravila = [Opravilo.iz_slovarja(spisek, sl_opravila) for sl_opravila in slovar['opravila']]
+        spisek = Spisek(slovar["ime"])
+        spisek.opravila = [
+            Opravilo.iz_slovarja(sl_opravila) for sl_opravila in slovar["opravila"]
+        ]
         return spisek
+
 
 class Opravilo:
     ...
     
     @staticmethod
-    def iz_slovarja(spisek, slovar):
+    def iz_slovarja(slovar):
         return Opravilo(
-            spisek,
-            slovar['ime'],
-            slovar['opis'],
-            datum_niza(slovar['rok']),
-            obdobje_niza(slovar['ponovitev']) if slovar['ponovitev'] else None,
-            datum_niza(slovar['opravljeno']) if slovar['opravljeno'] else None,            
+            slovar["ime"],
+            slovar["opis"],
+            date.fromisoformat(slovar["rok"]) if slovar["rok"] else None,
+            slovar["opravljeno"],
         )
 ```
-
-V statični metodi `iz_slovarja` moramo posebej navesti spisek, na katerem naj bo opravilo, saj tega v slovarju nismo posebej zabeležili.
 
 Opremljeni z vsemi funkcijami lahko shranjevanje in nalaganje modela napišemo kot:
 
@@ -224,13 +225,13 @@ import json
 class Model:
     ...
     
-    def shrani(self, ime_datoteke):
+    def shrani_v_datoteko(self, ime_datoteke):
         with open(ime_datoteke, 'w') as dat:
             slovar = self.v_slovar()
             json.dump(slovar, dat)
     
     @staticmethod
-    def nalozi(ime_datoteke):
+    def preberi_iz_datoteke(ime_datoteke):
         with open(ime_datoteke) as dat:
             slovar = json.load(dat)
             return Model.iz_slovarja(slovar)
