@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spletni vmesnik &#8212; Uvod v programiranje</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Nadzor različic" href="10-nadzor-razlicic.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Uvod v programiranje</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00-uvod.html">
+   Uvod v programiranje
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Osnove Pythona
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-uvod-v-python.html">
+   Uvod v Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-rekurzija.html">
+   Rekurzija
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-nizi.html">
+   Nizi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-zanke.html">
+   Zanke
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-seznami-in-nabori.html">
+   Seznami &amp; nabori
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-slovarji-in-mnozice.html">
+   Slovarji &amp; množice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-razredi.html">
+   Razredi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-datoteke.html">
+   Datoteke
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Pisanje večjih programov
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-tekstovni-vmesnik.html">
+   Tekstovni vmesnik
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-nadzor-razlicic.html">
+   Nadzor različic
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Spletni vmesnik
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/11-spletni-vmesnik.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/11-spletni-vmesnik.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/11-spletni-vmesnik.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#knjiznica-bottle">
+   Knjižnica
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     bottle
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predloge">
+   Predloge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dinamicne-spletne-strani">
+   Dinamične spletne strani
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#obrazci">
+   Obrazci
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metoda-post-in-preusmeritve">
+   Metoda POST in preusmeritve
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="spletni-vmesnik">
+<h1>Spletni vmesnik<a class="headerlink" href="#spletni-vmesnik" title="Permalink to this headline">¶</a></h1>
+<p>Uporabniku si običajno želimo ponuditi bolj prijazen vmesnik od tekstovnega. Včasih se je v ta namen uporabljalo posebne knjižnice za grafični vmesnik, na primer TkInter, ki je podprt tudi v Pythonovi standardni knjižnici. Vedno bolj pogosta alternativa grafičnemu vmesniku pa je spletni vmesnik, v katerem z uporabnikom komuniciramo prek HTML obrazcev. Prednost spletnega vmesnika je v enostavnem pisanju, pa tudi v tem, da je podprt na vseh napravah. Najprej si bomo pogledali, kako napišemo vmesnik za enega samega uporabnika, nato pa ga bomo razširili v storitev, s katero lahko dela več uporabnikov hkrati.</p>
+<div class="section" id="knjiznica-bottle">
+<h2>Knjižnica <code class="docutils literal notranslate"><span class="pre">bottle</span></code><a class="headerlink" href="#knjiznica-bottle" title="Permalink to this headline">¶</a></h2>
+<p>Pri pisanju si bomo pomagali s knjižnico <code class="docutils literal notranslate"><span class="pre">bottle</span></code>, ki jo je enostavno uporabljati in enostavno namestiti, saj je sestavljena le iz ene datoteke <code class="docutils literal notranslate"><span class="pre">bottle.py</span></code>, ki jo lahko vključimo v svoj projekt. Program bo ob zagonu na našem računalniku pognal majhen spletni strežnik (običajno na naslovu <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8080</span></code>), ki se bo odzival na uporabnikove zahteve v spletnem brskalniku. Spletni vmesnik v <code class="docutils literal notranslate"><span class="pre">bottle</span></code>-u gradimo prek funkcij, ki so povezane s spletnimi naslovi, ter vračajo HTML odziv. Na primer, enostaven strežnik, ki ob obisku vrhnje strani <code class="docutils literal notranslate"><span class="pre">/</span></code> vračal statičen odziv, bi napisali in pognali kot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bottle</span>
+
+<span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">osnovni_zaslon</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;Opravila: program za vzbujanje slabe vesti&#39;</span>
+
+<span class="n">bottle</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Z vrstico <code class="docutils literal notranslate"><span class="pre">&#64;bottle.get('/')</span></code> knjižnici <code class="docutils literal notranslate"><span class="pre">bottle</span></code> sporočimo, naj vsaka zahteva strani <code class="docutils literal notranslate"><span class="pre">/</span></code> pokliče funkcijo <code class="docutils literal notranslate"><span class="pre">osnovni_zaslon</span></code>. Ta funkcija vrne niz, ki ga knjižnica <code class="docutils literal notranslate"><span class="pre">bottle</span></code> posreduje uporabnikovemu brskalniku v izris. Takih definicij funkcij je lahko več, na koncu pa sledi vrstica <code class="docutils literal notranslate"><span class="pre">bottle.run()</span></code>, ki požene strežnik.</p>
+<p>Pri zagonu imamo več možnosti. Možnost <code class="docutils literal notranslate"><span class="pre">debug</span></code> omogoča izpisovanje napak (v javni verziji to ponavadi izklopimo, da zlobni hekerji ne bi imeli vpogleda v ozadje našega programa), možnost <code class="docutils literal notranslate"><span class="pre">reloader</span></code> pa ob vsaki spremembi kode ponovno požene strežnik. Med razvojem imamo običajno vklopljeni obe možnosti, zato strežnik ponavadi poženemo kot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bottle</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reloader</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="predloge">
+<h2>Predloge<a class="headerlink" href="#predloge" title="Permalink to this headline">¶</a></h2>
+<p>Funkcije običajno vračajo HTML, na primer</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">osnovni_zaslon</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        &lt;h1&gt;Opravila&lt;/h1&gt;</span>
+<span class="s1">        &lt;h2&gt;program za vzbujanje slabe vesti&lt;/h2&gt;&#39;</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p>Ker bo HTML postal dolg in ker ga nočemo mešati s Pythonom, ga bomo shranili v ločeno datoteko, na primer <code class="docutils literal notranslate"><span class="pre">osnovni_zaslon.tpl</span></code>:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Opravila<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>program za vzbujanje slabe vesti<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>ter klicali</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">osnovni_zaslon</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span><span class="s1">&#39;osnovni_zaslon.tpl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kot nakazujeta končnica <code class="docutils literal notranslate"><span class="pre">.tpl</span></code> in ime funkcije <code class="docutils literal notranslate"><span class="pre">bottle.template</span></code>, ne gre le za statičen HTML, temveč za predloge, ki jih lahko dopolnimo s svojimi podatki. Na primer, v predlogo lahko podamo število zamujenih opravil:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">osnovni_zaslon</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span>
+      <span class="s1">&#39;osnovni_zaslon.tpl&#39;</span><span class="p">,</span>
+      <span class="n">zamujena</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">stevilo_zamujenih</span><span class="p">()</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>ki jih prikažemo kot:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Opravila<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>program za vzbujanje slabe vesti<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+  Trenutno imate {{zamujena}} zamujenih opravil.
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>V predlogah lahko za <code class="docutils literal notranslate"><span class="pre">%</span></code> pišemo poljubno Python kodo, na primer:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Opravila<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>program za vzbujanje slabe vesti<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+  % if zamujena &gt; 0:
+  Trenutno imate {{zamujena}} zamujenih opravil.
+  % else:
+  Čestitamo, vse ste opravili pravočasno.
+  % end
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Sicer ni nujno, je pa lepo, da zamiki v predlogah sledijo gnezdenju HTML značk.Zaradi tega presledki v Python kodi niso pomembni, morate pa zato vsak zamik končati z <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">end</span></code>.</p>
+<p>Če želimo, lahko v predlogah uporabljamo tudi zanke, na primer, da prikažemo seznam vseh aktualnih opravil:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">osnovni_zaslon</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span>
+      <span class="s1">&#39;osnovni_zaslon.tpl&#39;</span><span class="p">,</span>
+      <span class="n">zamujena</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">stevilo_zamujenih</span><span class="p">(),</span>
+      <span class="n">opravila</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">opravila</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Opravila<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>program za vzbujanje slabe vesti<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+  % if zamujena &gt; 0:
+  Trenutno imate {{zamujena}} zamujenih opravil.
+  % else:
+  Čestitamo, vse ste opravili pravočasno.
+  % end
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  % for opravilo in opravila:
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{opravilo.ime}}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  % end
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Vsaka prava HTML stran mora imeti glavo in telo, torej vsaj:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    ...
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>idealno pa še kaj več, na primer CSS datoteke za oblikovanje in podobno. Da ne bomo vsega tega pisali za vsako predlogo, bomo raje napisali eno skupno predlogo <code class="docutils literal notranslate"><span class="pre">osnova.tpl</span></code>:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Opravila<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    {{!base}}
+    <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>© 2021, Matija Pretnar<span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>ter na vsaki strani na vrhu napisali <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">rebase('osnova.tpl')</span></code>, kar bo preostanek predloge vstavilo v del, označen z <code class="docutils literal notranslate"><span class="pre">{{!base}}</span></code>.</p>
+</div>
+<div class="section" id="dinamicne-spletne-strani">
+<h2>Dinamične spletne strani<a class="headerlink" href="#dinamicne-spletne-strani" title="Permalink to this headline">¶</a></h2>
+<p>Spletne strani so lahko tudi odvisne od naslova. Na primer, če želimo prikazati določen spisek, lahko v datoteko <code class="docutils literal notranslate"><span class="pre">prikazi_spisek.tpl</span></code> napišemo</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>% rebase(&#39;osnova.tpl&#39;)
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{spisek.ime}}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  % for opravilo in opravila:
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>{{opravilo.ime}}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  % end
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>ter to povežemo s stranmi <code class="docutils literal notranslate"><span class="pre">/spisek/0/</span></code>, <code class="docutils literal notranslate"><span class="pre">/spisek/1/</span></code> in podobno kot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/spisek/&lt;indeks&gt;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">prikazi_spisek</span><span class="p">(</span><span class="n">indeks</span><span class="p">):</span>
+    <span class="n">spisek</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">spiski</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">indeks</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span><span class="s1">&#39;prikazi_spisek.tpl&#39;</span><span class="p">,</span> <span class="n">spisek</span><span class="o">=</span><span class="n">spisek</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deli naslovov označeni z <code class="docutils literal notranslate"><span class="pre">&lt;ime_spremenljivke&gt;</span></code> se bodo povezali z istoimenskimi argumenti funkcije. Če ne označimo posebej, bodo ti deli predstavljeni z nizi, zato smo zgoraj morali uporabiti funkcijo <code class="docutils literal notranslate"><span class="pre">int</span></code>. Če želimo, lahko dele naslovov omejimo na cela števila z:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/spisek/&lt;indeks:int&gt;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">prikazi_spisek</span><span class="p">(</span><span class="n">indeks</span><span class="p">):</span>
+    <span class="n">spisek</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">spiski</span><span class="p">[</span><span class="n">indeks</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span><span class="s1">&#39;prikazi_spisek.tpl&#39;</span><span class="p">,</span> <span class="n">spisek</span><span class="o">=</span><span class="n">spisek</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>V tem primeru pretvorba z <code class="docutils literal notranslate"><span class="pre">int</span></code> ni potrebna, hkrati pa bo <code class="docutils literal notranslate"><span class="pre">bottle</span></code> naslove kot na primer <code class="docutils literal notranslate"><span class="pre">/spisek/abc/</span></code> obravnaval kot neobstoječe ter to sporočil uporabniku. Prejšnja različica bi namreč v spremenljivko <code class="docutils literal notranslate"><span class="pre">indeks</span></code> shranila niz <code class="docutils literal notranslate"><span class="pre">'abc'</span></code>, ker bi ob pretvorbi <code class="docutils literal notranslate"><span class="pre">int(indeks)</span></code> sprožilo izjemo.</p>
+<p>Včasih bomo poleg generiranih HTML strani želeli ponuditi tudi statične datoteke, na primer slike, CSS stile in podobno. To lahko storimo s še eno dinamično stranjo, ki glede na spremenljivi del naslova poišče datoteko ter jo posreduje nazaj:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/static/&lt;ime_dat:path&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">server_static</span><span class="p">(</span><span class="n">ime_dat</span><span class="p">):</span>
+  <span class="n">pot</span> <span class="o">=</span> <span class="s1">&#39;staticne_datoteke&#39;</span>
+  <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">static_file</span><span class="p">(</span><span class="n">ime_dat</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">pot</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tako bi zahteva na spletni naslov <code class="docutils literal notranslate"><span class="pre">/static/ozadje.png</span></code> v imeniku na računalniku poiskala ter posredovala datoteko <code class="docutils literal notranslate"><span class="pre">staticne_datoteke/ozadje.png</span></code>.</p>
+</div>
+<div class="section" id="obrazci">
+<h2>Obrazci<a class="headerlink" href="#obrazci" title="Permalink to this headline">¶</a></h2>
+<p>Poleg naslovov pa podatke lahko vnašamo tudi v obrazce. Na primer, če želimo iskati po opravilih, si lahko na osnovno stran dodamo obrazec:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/isci/&quot;</span><span class="p">&gt;</span>
+  iskalni niz: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;iskalni_niz&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Išči!&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Vsak obrazec ima atribut <code class="docutils literal notranslate"><span class="pre">action</span></code>, ki sporoča, na katero naj ob oddaji pošlje vnešene podatke (če manjka, ob oddaji naredi novo poizvedbo na trenutno stran), ter več polj, vsako z atributom <code class="docutils literal notranslate"><span class="pre">name</span></code>. Tako bi za iskanje morali napisati funkcijo, vezano na naslov <code class="docutils literal notranslate"><span class="pre">/isci/</span></code>, ki bi do podatkov dostopala prek slovarja <code class="docutils literal notranslate"><span class="pre">bottle.request.query</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/isci/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">sestej</span><span class="p">():</span>
+    <span class="n">iskalni_niz</span> <span class="o">=</span> <span class="n">bottle</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">query</span><span class="p">[</span><span class="s1">&#39;iskalni_niz&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span>
+        <span class="s1">&#39;rezultati_iskanja.tpl&#39;</span><span class="p">,</span>
+        <span class="n">rezultati</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">isci</span><span class="p">(</span><span class="n">iskalni_niz</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Če gre za nize, je bolje uporabiti posebno metodo <code class="docutils literal notranslate"><span class="pre">getunicode</span></code>, ki ustrezno poskrbi za znake kot so šumniki in podobno:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/isci/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">sestej</span><span class="p">():</span>
+    <span class="n">iskalni_niz</span> <span class="o">=</span> <span class="n">bottle</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">getunicode</span><span class="p">(</span><span class="s1">&#39;iskalni_niz&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span>
+        <span class="s1">&#39;rezultati_iskanja.tpl&#39;</span><span class="p">,</span>
+        <span class="n">rezultati</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">isci</span><span class="p">(</span><span class="n">iskalni_niz</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metoda-post-in-preusmeritve">
+<h2>Metoda POST in preusmeritve<a class="headerlink" href="#metoda-post-in-preusmeritve" title="Permalink to this headline">¶</a></h2>
+<p>Sodobni brskalniki si pri poizvedbah dopuščajo kar nekaj svobode. Na primer, zahtevo za začetno stran spletne učilnice lahko pošljejo že ko napišemo <code class="docutils literal notranslate"><span class="pre">uciln...</span></code>, saj vedo, da gre za stran, ki jo pogosto obiskujemo, in jo želijo ponuditi čimprej. To je že dobro, nočemo pa, da bi na primer samodejno poslali zahtevo za spletni nakup. V ta namen obstajajo poizvedbe <em>POST</em>, ki so namenjene spreminjanju stanja. Poizvedbam, ki smo jih uporabljali do zdaj, pa pravimo poizvedbe <em>GET</em>. Poizvedbe POST v obrazcih označimo z atributom <code class="docutils literal notranslate"><span class="pre">method=&quot;POST&quot;</span></code>, na primer:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/dodaj_opravilo/&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+  ime: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;ime&quot;</span><span class="p">&gt;</span>
+  opis: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;opis&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Dodaj!&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Podatke, poslane prek poizvedb POST obdelamo podobno kot prej, le da jih namesto iz <code class="docutils literal notranslate"><span class="pre">request.query</span></code> preberemo iz <code class="docutils literal notranslate"><span class="pre">request.forms</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/dodaj_opravilo/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">dodaj_opravilo</span><span class="p">():</span>
+    <span class="n">ime</span> <span class="o">=</span> <span class="n">bottle</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">forms</span><span class="p">[</span><span class="s1">&#39;ime&#39;</span><span class="p">]</span>
+    <span class="n">opis</span> <span class="o">=</span> <span class="n">bottle</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">forms</span><span class="p">[</span><span class="s1">&#39;opis&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">ime</span><span class="p">:</span>
+        <span class="n">opravilo</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Opravilo</span><span class="p">(</span><span class="n">ime</span><span class="p">,</span> <span class="n">opis</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">dodaj_opravilo</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
+        <span class="n">bottle</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Ime mora biti neprazno&#39;</span>
+</pre></div>
+</div>
+<p>Opazimo lahko, da na koncu poizvedbe nismo vrnili strani z odzivom, temveč smo uporabnika preusmerili nazaj na začetno stran. Recimo, da bi uporabniku prikazali stran, nato pa bi ta v brskalniku pritisnil gumb za osvežitev (iz navade, ker se kakšna slika ni naložila, …). V tem primeru bi brskalnik zopet poslal isto poizvedbo, ki bi dodala še eno opravilo. Sodobni brskalniki pred ponovnim pošiljanjem takih poizvedb opozorijo (da ne bi dvakrat kupili letalskih vozovnic), še bolje pa je, da uporabnika preusmerimo na novo stran, ki jo dobi s poizvedbo GET in osvežuje po mili volji. Če je prišlo do napake v vnosu, pa uporabniku lahko vrnemo stran (običajno z do sedaj izpolnjenimi podatki), saj spremembe nismo naredili.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="10-nadzor-razlicic.html" title="previous page">Nadzor različic</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Matija Pretnar<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -150,6 +150,11 @@
    Nadzor različic
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-spletni-vmesnik.html">
+   Spletni vmesnik
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -293,64 +298,67 @@
 </div>
 <div class="section" id="implementacija-modela">
 <h2>Implementacija modela<a class="headerlink" href="#implementacija-modela" title="Permalink to this headline">¶</a></h2>
-<p>Na osnovi spiska zapišemo definicije ustreznih razredov. Najbolje, da kar v datoteko <code class="docutils literal notranslate"><span class="pre">model.py</span></code>. Ker bomo imeli opravka z roki opravil, si bomo pomagali z vgrajeno knjižnico <a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a>, ki med drugim ponuja razreda <code class="docutils literal notranslate"><span class="pre">date</span></code> za delo z datumi ter <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> za časovna obdobja (ki jih bomo potrebovali za ponavljajoča se opravila). Ko bomo implementirali metode, bomo opazili, da naša skica ni bila popolna (metod za popravljanje podatkov ne bomo rabili, na opravilih pa nam manjka metoda za ugotavljanje, ali je rok zamujen). Nič hudega, saj za skico nismo porabili preveč časa.</p>
+<p>Na osnovi spiska zapišemo definicije ustreznih razredov. Najbolje, da kar v datoteko <code class="docutils literal notranslate"><span class="pre">model.py</span></code>. Ker bomo imeli opravka z roki opravil, si bomo pomagali z vgrajeno knjižnico <a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a>, ki med drugim ponuja razreda <code class="docutils literal notranslate"><span class="pre">date</span></code> za delo z datumi. Ko bomo implementirali metode, bomo opazili, da naša skica ni bila popolna (metod za popravljanje podatkov ne bomo rabili, na opravilih pa nam manjka metoda za ugotavljanje, ali je rok zamujen). Nič hudega, saj za skico nismo porabili preveč časa.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
 
 <span class="k">class</span> <span class="nc">Model</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">spiski</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span> <span class="o">=</span> <span class="kc">None</span>
-    
+
     <span class="k">def</span> <span class="nf">dodaj_spisek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spisek</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">spiski</span> <span class="o">=</span> <span class="n">spisek</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spiski</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spisek</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span> <span class="o">=</span> <span class="n">spisek</span>
-    
-    <span class="k">def</span> <span class="nf">pobrisi_spisek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indeks</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">spiski</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">indeks</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">zamenjaj_spisek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indeks</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spiski</span><span class="p">[</span><span class="n">indeks</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">pobrisi_spisek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spisek</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spiski</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">spisek</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">zamenjaj_spisek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spisek</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span> <span class="o">=</span> <span class="n">spisek</span>
+
+    <span class="k">def</span> <span class="nf">dodaj_opravilo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opravilo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">dodaj_opravilo</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pobrisi_opravilo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opravilo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">pobrisi_opravilo</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
+
 
 <span class="k">class</span> <span class="nc">Spisek</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ime</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ime</span> <span class="o">=</span> <span class="n">ime</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="k">def</span> <span class="nf">dodaj_opravilo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ime</span><span class="p">,</span> <span class="n">opis</span><span class="p">,</span> <span class="n">rok</span><span class="p">,</span> <span class="n">ponovitev</span><span class="p">):</span>
-        <span class="n">opravilo</span> <span class="o">=</span> <span class="n">Opravilo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ime</span><span class="p">,</span> <span class="n">opis</span><span class="p">,</span> <span class="n">rok</span><span class="p">,</span> <span class="n">ponovitev</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">dodaj_opravilo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opravilo</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">pobrisi_opravilo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indeks</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">indeks</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">stevilo_cez_rok</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># Python bo True samodejno pretvoril v 1, False pa v 0        </span>
-        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">opravilo</span><span class="o">.</span><span class="n">cez_rok</span><span class="p">()</span> <span class="k">for</span> <span class="n">opravilo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">stevilo_zamujenih</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">stevilo</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">opravilo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">opravilo</span><span class="o">.</span><span class="n">zamuja</span><span class="p">():</span>
+                <span class="n">stevilo</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">stevilo</span>
+
+    <span class="k">def</span> <span class="nf">stevilo_vseh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="p">)</span>
+
 
 <span class="k">class</span> <span class="nc">Opravilo</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spisek</span><span class="p">,</span> <span class="n">ime</span><span class="p">,</span> <span class="n">opis</span><span class="p">,</span> <span class="n">rok</span><span class="p">,</span> <span class="n">ponovitev</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">spisek</span> <span class="o">=</span> <span class="n">spisek</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ime</span><span class="p">,</span> <span class="n">opis</span><span class="p">,</span> <span class="n">rok</span><span class="p">,</span> <span class="n">opravljeno</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ime</span> <span class="o">=</span> <span class="n">ime</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">opis</span> <span class="o">=</span> <span class="n">opis</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="o">=</span> <span class="n">rok</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ponovitev</span> <span class="o">=</span> <span class="n">ponovitev</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="o">=</span> <span class="kc">None</span>
-    
-    <span class="k">def</span> <span class="nf">cez_rok</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="o">&lt;</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-    
+        <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="o">=</span> <span class="n">opravljeno</span>
+
     <span class="k">def</span> <span class="nf">opravi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ponovitev</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">spisek</span><span class="o">.</span><span class="n">dodaj_opravilo</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ime</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ponovitev</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">ponovitev</span>
-            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">zamuja</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rok_pretekel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="o">&lt;</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="ow">and</span> <span class="n">rok_pretekel</span>
 </pre></div>
 </div>
 </div>
@@ -390,7 +398,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dodaj_opravilo</span><span class="p">():</span>
     <span class="n">ime</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Ime opravila&gt; &#39;</span><span class="p">)</span>
     <span class="o">...</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">dodaj_opravilo</span><span class="p">(</span><span class="n">ime</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="n">opravilo</span> <span class="o">=</span> <span class="n">Opravilo</span><span class="p">(</span><span class="n">ime</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">dodaj_opravilo</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -419,63 +428,62 @@
     
     <span class="k">def</span> <span class="nf">v_slovar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">&#39;ime&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ime</span><span class="p">,</span>
-            <span class="s1">&#39;opravila&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">opravilo</span><span class="o">.</span><span class="n">v_slovar</span><span class="p">()</span> <span class="k">for</span> <span class="n">opravilo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="p">]</span>
+            <span class="s2">&quot;ime&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ime</span><span class="p">,</span>
+            <span class="s2">&quot;opravila&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">opravilo</span><span class="o">.</span><span class="n">v_slovar</span><span class="p">()</span> <span class="k">for</span> <span class="n">opravilo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="p">],</span>
         <span class="p">}</span>
+
 
 <span class="k">class</span> <span class="nc">Opravilo</span><span class="p">:</span>
     <span class="o">...</span>
     
     <span class="k">def</span> <span class="nf">v_slovar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">&#39;ime&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ime</span><span class="p">,</span>
-            <span class="s1">&#39;opis&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span>
-            <span class="s1">&#39;rok&#39;</span><span class="p">:</span> <span class="n">niz_datuma</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rok</span><span class="p">),</span>
-            <span class="s1">&#39;ponovitev&#39;</span><span class="p">:</span> <span class="n">niz_obdobja</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ponovitev</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ponovitev</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s1">&#39;opravljeno&#39;</span><span class="p">:</span> <span class="n">niz_datuma</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="s2">&quot;ime&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ime</span><span class="p">,</span>
+            <span class="s2">&quot;opis&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span>
+            <span class="s2">&quot;rok&quot;</span><span class="p">:</span> <span class="n">date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rok</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s2">&quot;opravljeno&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span><span class="p">,</span>
         <span class="p">}</span>
 </pre></div>
 </div>
-<p>Kot vidimo, v slovarju spiska nastopajo opravila, obratno pa ne, saj bi sicer dobili ciklično strukturo, ki je ne moremo pametno zapisati v slovar.</p>
-<p>Metode za pretvorbo iz slovarja pa so malo bolj posebne, saj pred trenutnkom, ko preberemo slovar, še nimamo objekta, na katerih bi jih poklicali. Lahko bi si sicer napisali funkcije kot so <code class="docutils literal notranslate"><span class="pre">preberi_opravilo_iz_slovarja</span></code> ali <code class="docutils literal notranslate"><span class="pre">preberi_spisek_iz_slovarja</span></code>, vendar te funkcije zelo naravno spadajo v ustrezne razrede. Hkrati pa niso metode, saj nimajo objekta, na katerih jih lahko pokličemo. Gre za <em>statične metode</em>, ki so v resnici navadne funkcije, le da jih kot metode zapišemo v razred in na vrhu označimo s <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> (v resnici bi bilo boljša možnost <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code>, ampak o tem kdaj drugič):</p>
+<p>Metode za pretvorbo iz slovarja pa so malo bolj posebne, saj pred trenutkom, ko preberemo slovar, še nimamo objekta, na katerih bi jih poklicali. Lahko bi si sicer napisali funkcije kot so <code class="docutils literal notranslate"><span class="pre">preberi_opravilo_iz_slovarja</span></code> ali <code class="docutils literal notranslate"><span class="pre">preberi_spisek_iz_slovarja</span></code>, vendar te funkcije zelo naravno spadajo v ustrezne razrede. Hkrati pa niso metode, saj nimajo objekta, na katerih jih lahko pokličemo. Gre za <em>statične metode</em>, ki so v resnici navadne funkcije, le da jih kot metode zapišemo v razred in na vrhu označimo s <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> (v resnici bi bilo boljša možnost <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code>, ampak o tem kdaj drugič):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spisek</span><span class="p">:</span>
     <span class="o">...</span>
     
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">iz_slovarja</span><span class="p">(</span><span class="n">slovar</span><span class="p">):</span>
-        <span class="n">spisek</span> <span class="o">=</span> <span class="n">Spisek</span><span class="p">(</span><span class="n">slovar</span><span class="p">[</span><span class="s1">&#39;ime&#39;</span><span class="p">])</span>
-        <span class="n">spisek</span><span class="o">.</span><span class="n">opravila</span> <span class="o">=</span> <span class="p">[</span><span class="n">Opravilo</span><span class="o">.</span><span class="n">iz_slovarja</span><span class="p">(</span><span class="n">spisek</span><span class="p">,</span> <span class="n">sl_opravila</span><span class="p">)</span> <span class="k">for</span> <span class="n">sl_opravila</span> <span class="ow">in</span> <span class="n">slovar</span><span class="p">[</span><span class="s1">&#39;opravila&#39;</span><span class="p">]]</span>
+        <span class="n">spisek</span> <span class="o">=</span> <span class="n">Spisek</span><span class="p">(</span><span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;ime&quot;</span><span class="p">])</span>
+        <span class="n">spisek</span><span class="o">.</span><span class="n">opravila</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">Opravilo</span><span class="o">.</span><span class="n">iz_slovarja</span><span class="p">(</span><span class="n">sl_opravila</span><span class="p">)</span> <span class="k">for</span> <span class="n">sl_opravila</span> <span class="ow">in</span> <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;opravila&quot;</span><span class="p">]</span>
+        <span class="p">]</span>
         <span class="k">return</span> <span class="n">spisek</span>
+
 
 <span class="k">class</span> <span class="nc">Opravilo</span><span class="p">:</span>
     <span class="o">...</span>
     
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">iz_slovarja</span><span class="p">(</span><span class="n">spisek</span><span class="p">,</span> <span class="n">slovar</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">iz_slovarja</span><span class="p">(</span><span class="n">slovar</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Opravilo</span><span class="p">(</span>
-            <span class="n">spisek</span><span class="p">,</span>
-            <span class="n">slovar</span><span class="p">[</span><span class="s1">&#39;ime&#39;</span><span class="p">],</span>
-            <span class="n">slovar</span><span class="p">[</span><span class="s1">&#39;opis&#39;</span><span class="p">],</span>
-            <span class="n">datum_niza</span><span class="p">(</span><span class="n">slovar</span><span class="p">[</span><span class="s1">&#39;rok&#39;</span><span class="p">]),</span>
-            <span class="n">obdobje_niza</span><span class="p">(</span><span class="n">slovar</span><span class="p">[</span><span class="s1">&#39;ponovitev&#39;</span><span class="p">])</span> <span class="k">if</span> <span class="n">slovar</span><span class="p">[</span><span class="s1">&#39;ponovitev&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="n">datum_niza</span><span class="p">(</span><span class="n">slovar</span><span class="p">[</span><span class="s1">&#39;opravljeno&#39;</span><span class="p">])</span> <span class="k">if</span> <span class="n">slovar</span><span class="p">[</span><span class="s1">&#39;opravljeno&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>            
+            <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;ime&quot;</span><span class="p">],</span>
+            <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;opis&quot;</span><span class="p">],</span>
+            <span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;rok&quot;</span><span class="p">])</span> <span class="k">if</span> <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;rok&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;opravljeno&quot;</span><span class="p">],</span>
         <span class="p">)</span>
 </pre></div>
 </div>
-<p>V statični metodi <code class="docutils literal notranslate"><span class="pre">iz_slovarja</span></code> moramo posebej navesti spisek, na katerem naj bo opravilo, saj tega v slovarju nismo posebej zabeležili.</p>
 <p>Opremljeni z vsemi funkcijami lahko shranjevanje in nalaganje modela napišemo kot:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
 <span class="k">class</span> <span class="nc">Model</span><span class="p">:</span>
     <span class="o">...</span>
     
-    <span class="k">def</span> <span class="nf">shrani</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ime_datoteke</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">shrani_v_datoteko</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ime_datoteke</span><span class="p">):</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ime_datoteke</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat</span><span class="p">:</span>
             <span class="n">slovar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_slovar</span><span class="p">()</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">slovar</span><span class="p">,</span> <span class="n">dat</span><span class="p">)</span>
     
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">nalozi</span><span class="p">(</span><span class="n">ime_datoteke</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">preberi_iz_datoteke</span><span class="p">(</span><span class="n">ime_datoteke</span><span class="p">):</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ime_datoteke</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat</span><span class="p">:</span>
             <span class="n">slovar</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">Model</span><span class="o">.</span><span class="n">iz_slovarja</span><span class="p">(</span><span class="n">slovar</span><span class="p">)</span>
@@ -531,10 +539,9 @@
 
       </div>
     </div>
-    
+  
   <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-
-    
+  
   </body>
 </html>
