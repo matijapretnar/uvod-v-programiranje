@@ -1,4 +1,4 @@
-from model import Proracun, Kuverta, Racun, Preliv
+from .model import Proracun, Kuverta, Racun, Preliv
 from datetime import date
 
 DATOTEKA_S_STANJEM = "stanje.json"

@@ -19,9 +19,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     % if defined('izbrani_zavihek'):
-    <title>Proračunovodja – {{oznaka_zavihka[izbrani_zavihek]}}</title>
+    <title>Kuverte – {{oznaka_zavihka[izbrani_zavihek]}}</title>
     % else:
-    <title>Proračunovodja</title>
+    <title>Kuverte</title>
     % end
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -34,7 +34,7 @@
             <span class="icon">
               <i class="fas fa-money-bill-wave"></i>
             </span>
-            <strong>Proračunovodja</strong>
+            <strong>Kuverte</strong>
           </span>
         </div>
         <div class="navbar-start">
@@ -54,22 +54,13 @@
           % end
         </div>
         <div class="navbar-end">
-            <a class="navbar-item" href="https://github.com/matijapretnar/uvod-v-programiranje/tree/master/datoteke-s-predavanj/2019-20/proracunovodja">
+            <a class="navbar-item" href="https://github.com/matijapretnar/uvod-v-programiranje/tree/master/projekti/kuverte">
             <span class="icon">
               <i class="fab fa-github"></i>
             </span>
           <span>GitHub</span>
           </a>
         </div>
-        % if defined('izbrani_zavihek'):
-        <div class="navbar-end">
-          <span>
-            <form method="POST" action="/odjava/">
-              <input type="submit" value="odjavi me">
-            </form>
-          </span>
-        </div>
-        % end
       </div>
     </nav>
     <section class="section">
