@@ -1,6 +1,6 @@
 import bottle
 from datetime import date
-from model import Model, Spisek, Opravilo
+from model import Model, Opravilo
 
 IME_DATOTEKE = "stanje.json"
 try:
