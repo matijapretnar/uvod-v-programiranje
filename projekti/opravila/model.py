@@ -24,6 +24,9 @@ class Model:
     def pobrisi_opravilo(self, opravilo):
         self.aktualni_spisek.pobrisi_opravilo(opravilo)
 
+    def stevilo_zamujenih(self):
+        return sum([spisek.stevilo_zamujenih() for spisek in self.spiski])
+
     def v_slovar(self):
         return {
             "spiski": [spisek.v_slovar() for spisek in self.spiski],
