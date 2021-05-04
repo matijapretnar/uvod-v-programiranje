@@ -1,6 +1,10 @@
 from model import Model, Spisek, Opravilo
 
-moj_model = Model()
+IME_DATOTEKE = 'stanje.json'
+try:
+    moj_model = Model.preberi_iz_datoteke(IME_DATOTEKE)
+except FileNotFoundError:
+    moj_model = Model()
 
 DODAJ_SPISEK = 1
 POBRISI_SPISEK = 2
@@ -85,6 +89,7 @@ def tekstovni_vmesnik():
         elif ukaz == OPRAVI_OPRAVILO:
             opravi_opravilo()
         elif ukaz == IZHOD:
+            moj_model.shrani_v_datoteko(IME_DATOTEKE)
             print('Nasvidenje!')
             break
 
