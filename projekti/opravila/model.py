@@ -53,6 +53,16 @@ class Model:
         with open(ime_datoteke) as dat:
             slovar = json.load(dat)
             return Model.iz_slovarja(slovar)
+    
+    def preveri_podatke_novega_spiska(self, ime):
+        napake = {}
+        if not ime:
+            napake["ime"] = "Ime mora biti neprazno."
+        for spisek in self.spiski:
+            if spisek.ime == ime:
+                napake["ime"] = "Ime je že zasedeno."
+        return napake
+
 
 
 class Spisek:
@@ -62,6 +72,13 @@ class Spisek:
 
     def dodaj_opravilo(self, opravilo):
         self.opravila.append(opravilo)
+
+    def stevilo_neopravljenih(self):
+        stevilo = 0
+        for opravilo in self.opravila:
+            if not opravilo.opravljeno:
+                stevilo += 1
+        return stevilo
 
     def stevilo_zamujenih(self):
         stevilo = 0
@@ -95,8 +112,8 @@ class Opravilo:
         self.rok = rok
         self.opravljeno = opravljeno
 
-    def opravi(self):
-        self.opravljeno = True
+    def zamenjaj_opravljeno(self):
+        self.opravljeno = not self.opravljeno
 
     def zamuja(self):
         rok_pretekel = self.rok and self.rok < date.today()
