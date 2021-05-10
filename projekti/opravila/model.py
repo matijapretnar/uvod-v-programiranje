@@ -2,7 +2,7 @@ from datetime import date
 import json
 
 
-class Model:
+class Stanje:
     def __init__(self):
         self.spiski = []
         self.aktualni_spisek = None
@@ -37,11 +37,11 @@ class Model:
 
     @staticmethod
     def iz_slovarja(slovar):
-        model = Model()
-        model.spiski = [Spisek.iz_slovarja(sl_spiska) for sl_spiska in slovar["spiski"]]
+        stanje = Stanje()
+        stanje.spiski = [Spisek.iz_slovarja(sl_spiska) for sl_spiska in slovar["spiski"]]
         if slovar["aktualni_spisek"] is not None:
-            model.aktualni_spisek = model.spiski[slovar["aktualni_spisek"]]
-        return model
+            stanje.aktualni_spisek = stanje.spiski[slovar["aktualni_spisek"]]
+        return stanje
 
     def shrani_v_datoteko(self, ime_datoteke):
         with open(ime_datoteke, "w") as dat:
@@ -52,7 +52,7 @@ class Model:
     def preberi_iz_datoteke(ime_datoteke):
         with open(ime_datoteke) as dat:
             slovar = json.load(dat)
-            return Model.iz_slovarja(slovar)
+            return Stanje.iz_slovarja(slovar)
     
     def preveri_podatke_novega_spiska(self, ime):
         napake = {}
