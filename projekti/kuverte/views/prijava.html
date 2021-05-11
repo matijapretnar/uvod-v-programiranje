@@ -1,0 +1,9 @@
+% rebase('base.html')
+<form method="POST">
+    % if napaka:
+        <h1>{{ napaka }}</h1>
+    % end
+    <input type="text" name="uporabnisko_ime">
+    <input type="password" name="geslo">
+    <input type="submit" value="Prijavi se">
+</form>

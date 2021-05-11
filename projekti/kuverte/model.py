@@ -1,6 +1,37 @@
 import json
 
 
+class Uporabnik:
+    def __init__(self, uporabnisko_ime, proracun):
+        self.uporabnisko_ime = uporabnisko_ime
+        self.proracun = proracun
+
+    def v_slovar(self):
+        return {
+            "uporabnisko_ime": self.uporabnisko_ime,
+            "proracun": self.proracun.v_slovar()
+        }
+
+    def v_datoteko(self):
+        with open(Uporabnik.ime_uporabnikove_datoteke(self.uporabnisko_ime), "w") as datoteka:
+            json.dump(self.v_slovar(), datoteka, ensure_ascii=False, indent=4)
+
+    @staticmethod
+    def ime_uporabnikove_datoteke(uporabnisko_ime):
+        return f"{uporabnisko_ime}.json"
+
+    @staticmethod
+    def iz_slovarja(slovar):
+        uporabnisko_ime = slovar["uporabnisko_ime"]
+        proracun = Proracun.iz_slovarja(slovar["proracun"])
+        return Uporabnik(uporabnisko_ime, proracun)
+
+    @staticmethod
+    def iz_datoteke(uporabnisko_ime):
+        with open(Uporabnik.ime_uporabnikove_datoteke(uporabnisko_ime)) as datoteka:
+            slovar = json.load(datoteka)
+            return Uporabnik.iz_slovarja(slovar)
+
 class Proracun:
     def __init__(self):
         self.racuni = []
@@ -81,7 +112,7 @@ class Proracun:
         if kuverta2 is not None:
             kuverta2.razporeditev += znesek
 
-    def slovar_s_stanjem(self):
+    def v_slovar(self):
         return {
             "racuni": [
                 {
@@ -109,7 +140,7 @@ class Proracun:
         }
 
     @classmethod
-    def nalozi_iz_slovarja(cls, slovar_s_stanjem):
+    def iz_slovarja(cls, slovar_s_stanjem):
         proracun = cls()
         for racun in slovar_s_stanjem["racuni"]:
             nov_racun = proracun.nov_racun(racun["ime"])
@@ -135,7 +166,7 @@ class Proracun:
     def nalozi_stanje(cls, ime_datoteke):
         with open(ime_datoteke) as datoteka:
             slovar_s_stanjem = json.load(datoteka)
-        return cls.nalozi_iz_slovarja(slovar_s_stanjem)
+        return cls.iz_slovarja(slovar_s_stanjem)
 
 
 class Racun:
