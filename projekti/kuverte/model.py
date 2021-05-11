@@ -1,20 +1,32 @@
 import json
 
 
+def zasifriraj_geslo(geslo_v_cistopisu):
+    zasifrirano_geslo = "xxx" + geslo_v_cistopisu[::-1] + "xxx"
+    return zasifrirano_geslo
+
 class Uporabnik:
-    def __init__(self, uporabnisko_ime, proracun):
+    def __init__(self, uporabnisko_ime, zasifrirano_geslo, proracun):
         self.uporabnisko_ime = uporabnisko_ime
+        self.zasifrirano_geslo = zasifrirano_geslo
         self.proracun = proracun
 
     def v_slovar(self):
         return {
             "uporabnisko_ime": self.uporabnisko_ime,
+            "zasifrirano_geslo": self.zasifrirano_geslo,
             "proracun": self.proracun.v_slovar()
         }
 
     def v_datoteko(self):
         with open(Uporabnik.ime_uporabnikove_datoteke(self.uporabnisko_ime), "w") as datoteka:
             json.dump(self.v_slovar(), datoteka, ensure_ascii=False, indent=4)
+    
+    def preveri_geslo(self, geslo_v_cistopisu):
+        return self.zasifrirano_geslo == zasifriraj_geslo(geslo_v_cistopisu)
+    
+    def nastavi_geslo(self, geslo_v_cistopisu):
+        self.zasifrirano_geslo = zasifriraj_geslo(geslo_v_cistopisu)
 
     @staticmethod
     def ime_uporabnikove_datoteke(uporabnisko_ime):
@@ -23,8 +35,9 @@ class Uporabnik:
     @staticmethod
     def iz_slovarja(slovar):
         uporabnisko_ime = slovar["uporabnisko_ime"]
+        geslo = slovar["geslo"]
         proracun = Proracun.iz_slovarja(slovar["proracun"])
-        return Uporabnik(uporabnisko_ime, proracun)
+        return Uporabnik(uporabnisko_ime, geslo, proracun)
 
     @staticmethod
     def iz_datoteke(uporabnisko_ime):
