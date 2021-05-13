@@ -1,9 +1,11 @@
+import hashlib
 import json
 
 
 def zasifriraj_geslo(geslo_v_cistopisu):
-    zasifrirano_geslo = "xxx" + geslo_v_cistopisu[::-1] + "xxx"
-    return zasifrirano_geslo
+    h = hashlib.blake2b()
+    h.update(geslo_v_cistopisu.encode(encoding="utf-8"))
+    return h.hexdigest()
 
 
 class Uporabnik:
