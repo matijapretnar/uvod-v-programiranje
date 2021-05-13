@@ -12,7 +12,8 @@ def nalozi_uporabnikovo_stanje():
             stanje = Stanje()
         return stanje
     else:
-        bottle.redirect('/prijava/')
+        bottle.redirect("/prijava/")
+
 
 def shrani_uporabnikovo_stanje(stanje):
     uporabnisko_ime = bottle.request.get_cookie("uporabnisko_ime")
@@ -28,8 +29,9 @@ def osnovna_stran():
         opravila=stanje.aktualni_spisek.opravila if stanje.aktualni_spisek else [],
         spiski=stanje.spiski,
         aktualni_spisek=stanje.aktualni_spisek,
-        uporabnisko_ime = bottle.request.get_cookie("uporabnisko_ime")
+        uporabnisko_ime=bottle.request.get_cookie("uporabnisko_ime"),
     )
+
 
 @bottle.get("/prijava/")
 def prijava_get():
@@ -42,6 +44,7 @@ def prijava_post():
     bottle.response.set_cookie("uporabnisko_ime", uporabnisko_ime, path="/")
     bottle.redirect("/")
 
+
 @bottle.post("/odjava/")
 def odjava_post():
     bottle.response.delete_cookie("uporabnisko_ime", path="/")
@@ -53,8 +56,8 @@ def odjava_post():
 def dodaj_opravilo():
     ime = bottle.request.forms.getunicode("ime")
     opis = bottle.request.forms.getunicode("opis")
-    if bottle.request.forms['datum']:
-        datum = date.fromisoformat(bottle.request.forms['datum'])
+    if bottle.request.forms["datum"]:
+        datum = date.fromisoformat(bottle.request.forms["datum"])
     else:
         datum = None
     opravilo = Opravilo(ime, opis, datum)
@@ -63,9 +66,11 @@ def dodaj_opravilo():
     shrani_uporabnikovo_stanje(stanje)
     bottle.redirect("/")
 
+
 @bottle.get("/dodaj-spisek/")
 def dodaj_spisek_get():
     return bottle.template("dodaj_spisek.html", napake={}, polja={})
+
 
 @bottle.post("/dodaj-spisek/")
 def dodaj_spisek_post():

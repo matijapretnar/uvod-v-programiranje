@@ -38,7 +38,9 @@ class Stanje:
     @staticmethod
     def iz_slovarja(slovar):
         stanje = Stanje()
-        stanje.spiski = [Spisek.iz_slovarja(sl_spiska) for sl_spiska in slovar["spiski"]]
+        stanje.spiski = [
+            Spisek.iz_slovarja(sl_spiska) for sl_spiska in slovar["spiski"]
+        ]
         if slovar["aktualni_spisek"] is not None:
             stanje.aktualni_spisek = stanje.spiski[slovar["aktualni_spisek"]]
         return stanje
@@ -53,7 +55,7 @@ class Stanje:
         with open(ime_datoteke) as dat:
             slovar = json.load(dat)
             return Stanje.iz_slovarja(slovar)
-    
+
     def preveri_podatke_novega_spiska(self, ime):
         napake = {}
         if not ime:
@@ -62,7 +64,6 @@ class Stanje:
             if spisek.ime == ime:
                 napake["ime"] = "Ime je že zasedeno."
         return napake
-
 
 
 class Spisek:

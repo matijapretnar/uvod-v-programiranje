@@ -21,18 +21,20 @@ def shrani_stanje(uporabnik):
 
 
 def trenutni_uporabnik():
-    uporabnisko_ime = bottle.request.get_cookie(PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST)
+    uporabnisko_ime = bottle.request.get_cookie(
+        PISKOTEK_UPORABNISKO_IME, secret=SKRIVNOST
+    )
     if uporabnisko_ime:
         return podatki_uporabnika(uporabnisko_ime)
     else:
         bottle.redirect("/prijava/")
+
 
 def podatki_uporabnika(uporabnisko_ime):
     try:
         return Uporabnik.iz_datoteke(uporabnisko_ime)
     except FileNotFoundError:
         return bottle.redirect("/prijava/")
-
 
 
 @bottle.get("/")
@@ -45,7 +47,6 @@ def prijava_get():
     return bottle.template("prijava.html", napaka=None)
 
 
-
 @bottle.post("/prijava/")
 def prijava_post():
     uporabnisko_ime = bottle.request.forms.getunicode("uporabnisko_ime")
@@ -53,12 +54,17 @@ def prijava_post():
     if uporabnisko_ime:
         uporabnik = podatki_uporabnika(uporabnisko_ime)
         if uporabnik.preveri_geslo(geslo_v_cistopisu):
-            bottle.response.set_cookie(PISKOTEK_UPORABNISKO_IME, uporabnisko_ime, path="/", secret=SKRIVNOST)
+            bottle.response.set_cookie(
+                PISKOTEK_UPORABNISKO_IME, uporabnisko_ime, path="/", secret=SKRIVNOST
+            )
             bottle.redirect("/")
         else:
-            return bottle.template("prijava.html", napaka="Podatki za prijavo so napačni!")
+            return bottle.template(
+                "prijava.html", napaka="Podatki za prijavo so napačni!"
+            )
     else:
         return bottle.template("prijava.html", napaka="Vnesi uporabniško ime!")
+
 
 @bottle.post("/odjava/")
 def odjava():
@@ -69,7 +75,9 @@ def odjava():
 @bottle.get("/proracun/")
 def nacrtovanje_proracuna():
     uporabnik = trenutni_uporabnik()
-    return bottle.template("proracun.html", proracun=uporabnik.proracun, uporabnik=uporabnik)
+    return bottle.template(
+        "proracun.html", proracun=uporabnik.proracun, uporabnik=uporabnik
+    )
 
 
 @bottle.get("/analiza/")

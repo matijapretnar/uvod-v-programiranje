@@ -5,6 +5,7 @@ def zasifriraj_geslo(geslo_v_cistopisu):
     zasifrirano_geslo = "xxx" + geslo_v_cistopisu[::-1] + "xxx"
     return zasifrirano_geslo
 
+
 class Uporabnik:
     def __init__(self, uporabnisko_ime, zasifrirano_geslo, proracun):
         self.uporabnisko_ime = uporabnisko_ime
@@ -15,16 +16,18 @@ class Uporabnik:
         return {
             "uporabnisko_ime": self.uporabnisko_ime,
             "zasifrirano_geslo": self.zasifrirano_geslo,
-            "proracun": self.proracun.v_slovar()
+            "proracun": self.proracun.v_slovar(),
         }
 
     def v_datoteko(self):
-        with open(Uporabnik.ime_uporabnikove_datoteke(self.uporabnisko_ime), "w") as datoteka:
+        with open(
+            Uporabnik.ime_uporabnikove_datoteke(self.uporabnisko_ime), "w"
+        ) as datoteka:
             json.dump(self.v_slovar(), datoteka, ensure_ascii=False, indent=4)
-    
+
     def preveri_geslo(self, geslo_v_cistopisu):
         return self.zasifrirano_geslo == zasifriraj_geslo(geslo_v_cistopisu)
-    
+
     def nastavi_geslo(self, geslo_v_cistopisu):
         self.zasifrirano_geslo = zasifriraj_geslo(geslo_v_cistopisu)
 
@@ -44,6 +47,7 @@ class Uporabnik:
         with open(Uporabnik.ime_uporabnikove_datoteke(uporabnisko_ime)) as datoteka:
             slovar = json.load(datoteka)
             return Uporabnik.iz_slovarja(slovar)
+
 
 class Proracun:
     def __init__(self):
