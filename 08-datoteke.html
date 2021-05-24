@@ -155,6 +155,11 @@
    Spletni vmesnik
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12-spletna-storitev.html">
+   Spletna storitev
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -296,7 +301,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_io.TextIOWrapper name=&#39;stavki.txt&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">270358</span><span class="n">c69ab4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dat</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stavki.txt&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">dat</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;stavki.txt&#39;
 </pre></div>
 </div>
 </div>
@@ -308,20 +319,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;To je prvi stavek. To je drugi\nstav&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ek. To je tretji sta&#39;
 </pre></div>
 </div>
 </div>
@@ -333,20 +334,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;vek. To\nje četrti stavek.\n&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&#39;
 </pre></div>
 </div>
 </div>
@@ -382,20 +373,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;To je prvi stavek. To je drugi\n&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">druga</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;stavek. To je tretji stavek. To\n&#39;
 </pre></div>
 </div>
 </div>
@@ -406,11 +387,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;je četrti stavek.\n&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Po vrsticah se lahko zapeljemo z zanko <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p>
 <div class="cell docutils container">
@@ -418,15 +394,6 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;stavki.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">vrstica</span> <span class="ow">in</span> <span class="n">dat</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vrstica</span><span class="p">),</span> <span class="n">vrstica</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>31 To je prvi stavek. To je drugi
-
-32 stavek. To je tretji stavek. To
-
-18 je četrti stavek.
 </pre></div>
 </div>
 </div>
@@ -446,14 +413,6 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">izpisi_datoteko</span><span class="p">(</span><span class="s1">&#39;stavki.txt&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stavki.txt
-1 To je prvi stavek. To je drugi
-2 stavek. To je tretji stavek. To
-3 je četrti stavek.
 </pre></div>
 </div>
 </div>
@@ -488,13 +447,6 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>izpis.txt
-1 To je en stavek.
-2 To je drugi.
-</pre></div>
-</div>
-</div>
 </div>
 <p>V datoteko pišemo tudi s <code class="docutils literal notranslate"><span class="pre">print</span></code>, ki mu podamo neobvezni argument <code class="docutils literal notranslate"><span class="pre">file</span></code>:</p>
 <div class="cell docutils container">
@@ -509,13 +461,6 @@ Na Windowsih, kjer je treba podat</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">izpisi_datoteko</span><span class="p">(</span><span class="s1">&#39;izpis.txt&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>izpis.txt
-1 To je en stavek.
-2 1 + 1 = 2
 </pre></div>
 </div>
 </div>
@@ -545,13 +490,6 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>izpis.txt
-1 To je tretji stavek.
-2 To je četrti.
-</pre></div>
-</div>
-</div>
 </div>
 <p>Če želimo, lahko namesto <code class="docutils literal notranslate"><span class="pre">w</span></code> podamo parameter <code class="docutils literal notranslate"><span class="pre">a</span></code>, ki datoteko odpremo za dodajanje:</p>
 <div class="cell docutils container">
@@ -575,15 +513,6 @@ Na Windowsih, kjer je treba podat</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">izpisi_datoteko</span><span class="p">(</span><span class="s1">&#39;izpis.txt&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>izpis.txt
-1 To je en stavek.
-2 To je drugi.
-3 To je tretji stavek.
-4 To je četrti.
 </pre></div>
 </div>
 </div>
@@ -632,22 +561,12 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/work/uvod-v-programiranje/uvod-v-programiranje/zapiski&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>zamenjamo pa ga z <code class="docutils literal notranslate"><span class="pre">os.chdir</span></code>, ki sprejme absolutno ali relativno pot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/work/uvod-v-programiranje/uvod-v-programiranje&#39;
 </pre></div>
 </div>
 </div>
@@ -659,11 +578,6 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/work/uvod-v-programiranje/uvod-v-programiranje/zapiski&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Imena vseh datotek v danem imeniku dobimo z <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code>:</p>
 <div class="cell docutils container">
@@ -672,38 +586,10 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;_toc.yml&#39;,
- &#39;00-uvod.md&#39;,
- &#39;izpis.txt&#39;,
- &#39;09-tekstovni-vmesnik.md&#39;,
- &#39;04-zanke.md&#39;,
- &#39;06-slovarji-in-mnozice.md&#39;,
- &#39;02-rekurzija.md&#39;,
- &#39;08-datoteke.md&#39;,
- &#39;slike&#39;,
- &#39;07-razredi.md&#39;,
- &#39;11-spletni-vmesnik.md&#39;,
- &#39;12-spletna-storitev.md&#39;,
- &#39;05-seznami-in-nabori.md&#39;,
- &#39;_config.yml&#39;,
- &#39;stavki.txt&#39;,
- &#39;_build&#39;,
- &#39;01-uvod-v-python.md&#39;,
- &#39;10-nadzor-razlicic.md&#39;,
- &#39;03-nizi.md&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;slike&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;readme-md.png&#39;, &#39;skica-modela.png&#39;, &#39;avtoceste.png&#39;, &#39;skica-vmesnika.png&#39;]
 </pre></div>
 </div>
 </div>
@@ -730,11 +616,6 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;/imenik/podimenik/test&#39;, &#39;.txt&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">os.path.split(pot)</span></code> loči na pot do zadnje imenika in na ime datoteke.  Do prve komponente lahko dostopamo tudi z <code class="docutils literal notranslate"><span class="pre">os.path.dirname(pot)</span></code>, do druge pa z metodo <code class="docutils literal notranslate"><span class="pre">os.path.basename(pot)</span></code>.</p></li>
@@ -745,20 +626,10 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;/imenik/podimenik&#39;, &#39;test.txt&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="s1">&#39;/imenik/podimenik/test.txt&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/imenik/podimenik&#39;
 </pre></div>
 </div>
 </div>
@@ -769,11 +640,6 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;test.txt&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">os.path.abspath(pot)</span></code> dano pot pretvori v absolutno:</p></li>
@@ -781,11 +647,6 @@ Na Windowsih, kjer je treba podat</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../02-rekurzija/&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/work/uvod-v-programiranje/uvod-v-programiranje/02-rekurzija&#39;
 </pre></div>
 </div>
 </div>
@@ -827,22 +688,12 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, {&#39;3&#39;: True, &#39;4&#39;: None}]
-</pre></div>
-</div>
-</div>
 </div>
 <p>V obratno smer deluje funkcija <code class="docutils literal notranslate"><span class="pre">json.dumps</span></code>, ki Pythonovo vrednost pretvori v JSON:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="kc">None</span><span class="p">}])</span>
 <span class="s1">&#39;[1, {&quot;3&quot;: true, &quot;4&quot;: null}]&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;[1, {&quot;3&quot;: true, &quot;4&quot;: null}]&#39;
 </pre></div>
 </div>
 </div>
@@ -863,12 +714,6 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>primer.json
-1 [1, {&quot;3&quot;: true, &quot;4&quot;: null}]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Če želimo, lahko datoteko tudi lepo oblikujemo z zamiki:</p>
 <div class="cell docutils container">
@@ -885,18 +730,6 @@ Na Windowsih, kjer je treba podat</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>primer.json
-1 [
-2     1,
-3     {
-4         &quot;3&quot;: true,
-5         &quot;4&quot;: null
-6     }
-7 ]
-</pre></div>
-</div>
-</div>
 </div>
 <p>Podobno obstaja funkcija <code class="docutils literal notranslate"><span class="pre">load</span></code>, ki datoteko prebere:</p>
 <div class="cell docutils container">
@@ -904,11 +737,6 @@ Na Windowsih, kjer je treba podat</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;primer.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">datoteka</span><span class="p">:</span>
     <span class="n">vrednost</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">datoteka</span><span class="p">)</span>
 <span class="n">vrednost</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, {&#39;3&#39;: True, &#39;4&#39;: None}]
 </pre></div>
 </div>
 </div>
