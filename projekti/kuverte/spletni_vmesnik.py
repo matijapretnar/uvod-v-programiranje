@@ -1,6 +1,6 @@
 from datetime import date
 import bottle
-from model import Proracun, Uporabnik
+from model import Proracun, Uporabnik, zasifriraj_geslo
 
 PISKOTEK_UPORABNISKO_IME = "uporabnisko_ime"
 SKRIVNOST = "to je ena skrivnost"
@@ -31,15 +31,39 @@ def trenutni_uporabnik():
 
 
 def podatki_uporabnika(uporabnisko_ime):
-    try:
-        return Uporabnik.iz_datoteke(uporabnisko_ime)
-    except FileNotFoundError:
-        return bottle.redirect("/prijava/")
+    return Uporabnik.iz_datoteke(uporabnisko_ime)
 
 
 @bottle.get("/")
 def zacetna_stran():
     bottle.redirect("/proracun/")
+
+
+@bottle.get("/registracija/")
+def registracija_get():
+    return bottle.template("registracija.html", napaka=None)
+
+
+@bottle.post("/registracija/")
+def registracija_post():
+    uporabnisko_ime = bottle.request.forms.getunicode("uporabnisko_ime")
+    geslo_v_cistopisu = bottle.request.forms.getunicode("geslo")
+    if uporabnisko_ime:
+        try:
+            uporabnik = podatki_uporabnika(uporabnisko_ime)
+            return bottle.template(
+                "registracija.html", napaka="Uporabniško ime že obstaja!"
+            )
+        except FileNotFoundError:
+            zasifrirano_geslo = zasifriraj_geslo(geslo_v_cistopisu)
+            uporabnik = Uporabnik(uporabnisko_ime, zasifrirano_geslo, Proracun())
+            uporabnik.v_datoteko()
+            bottle.response.set_cookie(
+                PISKOTEK_UPORABNISKO_IME, uporabnisko_ime, path="/", secret=SKRIVNOST
+            )
+            bottle.redirect("/")
+    else:
+        return bottle.template("registracija.html", napaka="Vnesi uporabniško ime!")
 
 
 @bottle.get("/prijava/")
@@ -52,7 +76,12 @@ def prijava_post():
     uporabnisko_ime = bottle.request.forms.getunicode("uporabnisko_ime")
     geslo_v_cistopisu = bottle.request.forms.getunicode("geslo")
     if uporabnisko_ime:
-        uporabnik = podatki_uporabnika(uporabnisko_ime)
+        try:
+            uporabnik = podatki_uporabnika(uporabnisko_ime)
+        except FileNotFoundError:
+            return bottle.template(
+                "prijava.html", napaka="Podatki za prijavo so napačni!"
+            )
         if uporabnik.preveri_geslo(geslo_v_cistopisu):
             bottle.response.set_cookie(
                 PISKOTEK_UPORABNISKO_IME, uporabnisko_ime, path="/", secret=SKRIVNOST

@@ -40,9 +40,9 @@ class Uporabnik:
     @staticmethod
     def iz_slovarja(slovar):
         uporabnisko_ime = slovar["uporabnisko_ime"]
-        geslo = slovar["geslo"]
+        zasifrirano_geslo = slovar["zasifrirano_geslo"]
         proracun = Proracun.iz_slovarja(slovar["proracun"])
-        return Uporabnik(uporabnisko_ime, geslo, proracun)
+        return Uporabnik(uporabnisko_ime, zasifrirano_geslo, proracun)
 
     @staticmethod
     def iz_datoteke(uporabnisko_ime):
