@@ -334,7 +334,7 @@
 <span class="k">def</span> <span class="nf">osnovni_zaslon</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span>
       <span class="s1">&#39;osnovni_zaslon.tpl&#39;</span><span class="p">,</span>
-      <span class="n">zamujena</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">stevilo_zamujenih</span><span class="p">()</span>
+      <span class="n">zamujena</span><span class="o">=</span><span class="n">stanje</span><span class="o">.</span><span class="n">stevilo_zamujenih</span><span class="p">()</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -364,8 +364,8 @@
 <span class="k">def</span> <span class="nf">osnovni_zaslon</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span>
       <span class="s1">&#39;osnovni_zaslon.tpl&#39;</span><span class="p">,</span>
-      <span class="n">zamujena</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">stevilo_zamujenih</span><span class="p">(),</span>
-      <span class="n">opravila</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">opravila</span><span class="p">,</span>
+      <span class="n">zamujena</span><span class="o">=</span><span class="n">stanje</span><span class="o">.</span><span class="n">stevilo_zamujenih</span><span class="p">(),</span>
+      <span class="n">opravila</span><span class="o">=</span><span class="n">stanje</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">opravila</span><span class="p">,</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -426,14 +426,14 @@
 <p>ter to povežemo s stranmi <code class="docutils literal notranslate"><span class="pre">/spisek/0/</span></code>, <code class="docutils literal notranslate"><span class="pre">/spisek/1/</span></code> in podobno kot:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/spisek/&lt;indeks&gt;/&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">prikazi_spisek</span><span class="p">(</span><span class="n">indeks</span><span class="p">):</span>
-    <span class="n">spisek</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">spiski</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">indeks</span><span class="p">)]</span>
+    <span class="n">spisek</span> <span class="o">=</span> <span class="n">stanje</span><span class="o">.</span><span class="n">spiski</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">indeks</span><span class="p">)]</span>
     <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span><span class="s1">&#39;prikazi_spisek.tpl&#39;</span><span class="p">,</span> <span class="n">spisek</span><span class="o">=</span><span class="n">spisek</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Deli naslovov označeni z <code class="docutils literal notranslate"><span class="pre">&lt;ime_spremenljivke&gt;</span></code> se bodo povezali z istoimenskimi argumenti funkcije. Če ne označimo posebej, bodo ti deli predstavljeni z nizi, zato smo zgoraj morali uporabiti funkcijo <code class="docutils literal notranslate"><span class="pre">int</span></code>. Če želimo, lahko dele naslovov omejimo na cela števila z:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@bottle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/spisek/&lt;indeks:int&gt;/&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">prikazi_spisek</span><span class="p">(</span><span class="n">indeks</span><span class="p">):</span>
-    <span class="n">spisek</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">spiski</span><span class="p">[</span><span class="n">indeks</span><span class="p">]</span>
+    <span class="n">spisek</span> <span class="o">=</span> <span class="n">stanje</span><span class="o">.</span><span class="n">spiski</span><span class="p">[</span><span class="n">indeks</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span><span class="s1">&#39;prikazi_spisek.tpl&#39;</span><span class="p">,</span> <span class="n">spisek</span><span class="o">=</span><span class="n">spisek</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -462,7 +462,7 @@
     <span class="n">iskalni_niz</span> <span class="o">=</span> <span class="n">bottle</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">query</span><span class="p">[</span><span class="s1">&#39;iskalni_niz&#39;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span>
         <span class="s1">&#39;rezultati_iskanja.tpl&#39;</span><span class="p">,</span>
-        <span class="n">rezultati</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">isci</span><span class="p">(</span><span class="n">iskalni_niz</span><span class="p">)</span>
+        <span class="n">rezultati</span><span class="o">=</span><span class="n">stanje</span><span class="o">.</span><span class="n">isci</span><span class="p">(</span><span class="n">iskalni_niz</span><span class="p">)</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -472,7 +472,7 @@
     <span class="n">iskalni_niz</span> <span class="o">=</span> <span class="n">bottle</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">getunicode</span><span class="p">(</span><span class="s1">&#39;iskalni_niz&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">bottle</span><span class="o">.</span><span class="n">template</span><span class="p">(</span>
         <span class="s1">&#39;rezultati_iskanja.tpl&#39;</span><span class="p">,</span>
-        <span class="n">rezultati</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">isci</span><span class="p">(</span><span class="n">iskalni_niz</span><span class="p">)</span>
+        <span class="n">rezultati</span><span class="o">=</span><span class="n">stanje</span><span class="o">.</span><span class="n">isci</span><span class="p">(</span><span class="n">iskalni_niz</span><span class="p">)</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -493,8 +493,8 @@
     <span class="n">ime</span> <span class="o">=</span> <span class="n">bottle</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">forms</span><span class="p">[</span><span class="s1">&#39;ime&#39;</span><span class="p">]</span>
     <span class="n">opis</span> <span class="o">=</span> <span class="n">bottle</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">forms</span><span class="p">[</span><span class="s1">&#39;opis&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">ime</span><span class="p">:</span>
-        <span class="n">opravilo</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Opravilo</span><span class="p">(</span><span class="n">ime</span><span class="p">,</span> <span class="n">opis</span><span class="p">)</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">dodaj_opravilo</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
+        <span class="n">opravilo</span> <span class="o">=</span> <span class="n">stanje</span><span class="o">.</span><span class="n">Opravilo</span><span class="p">(</span><span class="n">ime</span><span class="p">,</span> <span class="n">opis</span><span class="p">)</span>
+        <span class="n">stanje</span><span class="o">.</span><span class="n">dodaj_opravilo</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
         <span class="n">bottle</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;Ime mora biti neprazno&#39;</span>
