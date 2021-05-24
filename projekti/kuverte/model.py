@@ -1,11 +1,6 @@
 import hashlib
 import json
-
-
-def zasifriraj_geslo(geslo_v_cistopisu):
-    h = hashlib.blake2b()
-    h.update(geslo_v_cistopisu.encode(encoding="utf-8"))
-    return h.hexdigest()
+import random
 
 
 class Uporabnik:
@@ -13,6 +8,35 @@ class Uporabnik:
         self.uporabnisko_ime = uporabnisko_ime
         self.zasifrirano_geslo = zasifrirano_geslo
         self.proracun = proracun
+    
+    @staticmethod
+    def prijava(uporabnisko_ime, geslo_v_cistopisu):
+        uporabnik = Uporabnik.iz_datoteke(uporabnisko_ime)
+        if uporabnik is None:
+            raise ValueError("Uporabniško ime ne obstaja")
+        elif uporabnik.preveri_geslo(geslo_v_cistopisu):
+            return uporabnik        
+        else:
+            raise ValueError("Geslo je napačno")
+
+    @staticmethod
+    def registracija(uporabnisko_ime, geslo_v_cistopisu):
+        if Uporabnik.iz_datoteke(uporabnisko_ime) is not None:
+            raise ValueError("Uporabniško ime že obstaja")
+        else:
+            zasifrirano_geslo = Uporabnik._zasifriraj_geslo(geslo_v_cistopisu)
+            uporabnik = Uporabnik(uporabnisko_ime, zasifrirano_geslo, Proracun())
+            uporabnik.v_datoteko()
+            return uporabnik
+
+    def _zasifriraj_geslo(geslo_v_cistopisu, sol=None):
+        if sol is None:
+            sol = str(random.getrandbits(32))
+        posoljeno_geslo = sol + geslo_v_cistopisu
+        h = hashlib.blake2b()
+        h.update(posoljeno_geslo.encode(encoding="utf-8"))
+        return f"{sol}${h.hexdigest()}"
+
 
     def v_slovar(self):
         return {
@@ -28,10 +52,8 @@ class Uporabnik:
             json.dump(self.v_slovar(), datoteka, ensure_ascii=False, indent=4)
 
     def preveri_geslo(self, geslo_v_cistopisu):
-        return self.zasifrirano_geslo == zasifriraj_geslo(geslo_v_cistopisu)
-
-    def nastavi_geslo(self, geslo_v_cistopisu):
-        self.zasifrirano_geslo = zasifriraj_geslo(geslo_v_cistopisu)
+        sol, _ = self.zasifrirano_geslo.split("$")
+        return self.zasifrirano_geslo == Uporabnik._zasifriraj_geslo(geslo_v_cistopisu, sol)
 
     @staticmethod
     def ime_uporabnikove_datoteke(uporabnisko_ime):
@@ -46,9 +68,12 @@ class Uporabnik:
 
     @staticmethod
     def iz_datoteke(uporabnisko_ime):
-        with open(Uporabnik.ime_uporabnikove_datoteke(uporabnisko_ime)) as datoteka:
-            slovar = json.load(datoteka)
-            return Uporabnik.iz_slovarja(slovar)
+        try:
+            with open(Uporabnik.ime_uporabnikove_datoteke(uporabnisko_ime)) as datoteka:
+                slovar = json.load(datoteka)
+                return Uporabnik.iz_slovarja(slovar)
+        except FileNotFoundError:
+            return None
 
 
 class Proracun:
