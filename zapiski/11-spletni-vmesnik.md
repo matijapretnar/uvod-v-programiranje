@@ -74,7 +74,7 @@ Kot nakazujeta končnica `.tpl` in ime funkcije `bottle.template`, ne gre le za 
 def osnovni_zaslon():
     return bottle.template(
       'osnovni_zaslon.tpl',
-      zamujena=model.stevilo_zamujenih()
+      zamujena=stanje.stevilo_zamujenih()
     )
 ```
 
@@ -111,8 +111,8 @@ Sicer ni nujno, je pa lepo, da zamiki v predlogah sledijo gnezdenju HTML značk.
 def osnovni_zaslon():
     return bottle.template(
       'osnovni_zaslon.tpl',
-      zamujena=model.stevilo_zamujenih(),
-      opravila=model.aktualni_spisek.opravila,
+      zamujena=stanje.stevilo_zamujenih(),
+      opravila=stanje.aktualni_spisek.opravila,
     )
 ```
 
@@ -182,7 +182,7 @@ ter to povežemo s stranmi `/spisek/0/`, `/spisek/1/` in podobno kot:
 ```python
 @bottle.get('/spisek/<indeks>/')
 def prikazi_spisek(indeks):
-    spisek = model.spiski[int(indeks)]
+    spisek = stanje.spiski[int(indeks)]
     return bottle.template('prikazi_spisek.tpl', spisek=spisek)
 ```
 
@@ -191,7 +191,7 @@ Deli naslovov označeni z `<ime_spremenljivke>` se bodo povezali z istoimenskimi
 ```python
 @bottle.get('/spisek/<indeks:int>/')
 def prikazi_spisek(indeks):
-    spisek = model.spiski[indeks]
+    spisek = stanje.spiski[indeks]
     return bottle.template('prikazi_spisek.tpl', spisek=spisek)
 ```
 
@@ -227,7 +227,7 @@ def sestej():
     iskalni_niz = bottle.request.query['iskalni_niz']
     return bottle.template(
         'rezultati_iskanja.tpl',
-        rezultati=model.isci(iskalni_niz)
+        rezultati=stanje.isci(iskalni_niz)
     )
 ```
 
@@ -239,7 +239,7 @@ def sestej():
     iskalni_niz = bottle.request.getunicode('iskalni_niz')
     return bottle.template(
         'rezultati_iskanja.tpl',
-        rezultati=model.isci(iskalni_niz)
+        rezultati=stanje.isci(iskalni_niz)
     )
 ```
 
@@ -263,8 +263,8 @@ def dodaj_opravilo():
     ime = bottle.request.forms['ime']
     opis = bottle.request.forms['opis']
     if ime:
-        opravilo = model.Opravilo(ime, opis)
-        model.dodaj_opravilo(opravilo)
+        opravilo = stanje.Opravilo(ime, opis)
+        stanje.dodaj_opravilo(opravilo)
         bottle.redirect('/')
     else:
         return 'Ime mora biti neprazno'

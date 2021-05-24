@@ -29,7 +29,7 @@ Tudi ko bo skica končana, se še ne bomo lotili pisanja vmesnika. Bolj pomembno
 
 ![](slike/skica-modela.png)
 
-Na skici označimo, katere razrede bomo imeli. Ker bomo beležili opravila, bomo vsekakor potrebovali razred `Opravilo`. Opravila bomo združevali v seznamih (domača opravila, službena opravila, …), katerih razred bomo poimenovali `Spisek`, da ne bo zmede s Pythonovimi seznami. Na koncu pa bomo potrebovali še razred, ki bo zajemal vse podatke, ki jih potrebujemo. Temu razredu lahko rečemo kar `Model`. Vsak izmed razredov bo imel določene atribute, ki jih napišemo na vrhu, ter metode, ki jih napišemo na dnu. Povezav med razredi ne bomo pisali pod atribute, temveč jih bomo označili s povezavami na diagramu. Na vsaki povezavi si tudi zapišemo, koliko objektov je povezanih med seboj. Na primer, model ima lahko več spiskov, vendar le en aktualni spisek. Spisek ima en model in več opravil.
+Na skici označimo, katere razrede bomo imeli. Ker bomo beležili opravila, bomo vsekakor potrebovali razred `Opravilo`. Opravila bomo združevali v seznamih (domača opravila, službena opravila, …), katerih razred bomo poimenovali `Spisek`, da ne bo zmede s Pythonovimi seznami. Na koncu pa bomo potrebovali še krovni razred `Stanje`, ki bo zajemal vse podatke, ki jih potrebujemo za opis celotnega stanja. Vsak izmed razredov bo imel določene atribute, ki jih napišemo na vrhu, ter metode, ki jih napišemo na dnu. Povezav med razredi ne bomo pisali pod atribute, temveč jih bomo označili s povezavami na diagramu. Na vsaki povezavi si tudi zapišemo, koliko objektov je povezanih med seboj. Na primer, stanje ima lahko več spiskov, vendar le en aktualni spisek. Spisek ima eno stanje in več opravil.
 
 ## Implementacija modela
 
@@ -39,7 +39,7 @@ Na osnovi spiska zapišemo definicije ustreznih razredov. Najbolje, da kar v dat
 from datetime import date
 
 
-class Model:
+class Stanje:
     def __init__(self):
         self.spiski = []
         self.aktualni_spisek = None
@@ -101,12 +101,12 @@ class Opravilo:
 Ko je model v osnovi napisan, se lahko lotimo vmesnika. Za začetek se bomo lotili tekstovnega vmesnika, ki bo uporabniku izpisal trenutni prikaz ter s konzole prebral njegova navodila. Da bomo dobro poskrbeli za ločitev od modela, bomo vmesnik napisali v ločeno datoteko `tekstovni_vmesnik.py`. Paziti moramo, da iz vmesnika do modela dostopamo prek metod, saj bo tako celotno vedenje definirano v `model.py`. Prav tako je treba paziti, da iz modela nikoli ne dostopamo do vmesnika. To enostavno preprečimo tako, da se v `model.py` nikoli ne skličemo na datoteko `tekstovni_vmesnik.py`. Ker sta obe datoteki v istem imeniku, lahko model uvozimo kar kot:
 
 ```python
-from model import Model
+from model import Stanje
 
-model = Model()
+stanje = Stanje()
 ```
 
-Za začetek bo naš model prazen, kmalu pa si bomo pogledali, kako ga shranimo v datoteko in kasneje preberemo nazaj. Pisanja vmesnika se lotimo _od zgoraj navzdol_. Začnemo z osnovno zanko, ki bo pokazala pozdravno sporočilo, nato pa v nedogled uporabniku ponujala osnovni zaslon. Zato bo osnovna funkcija sledeča:
+Za začetek bo naše stanje prazno, kmalu pa si bomo pogledali, kako ga shranimo v datoteko in kasneje preberemo nazaj. Pisanja vmesnika se lotimo _od zgoraj navzdol_. Začnemo z osnovno zanko, ki bo pokazala pozdravno sporočilo, nato pa v nedogled uporabniku ponujala osnovni zaslon. Zato bo osnovna funkcija sledeča:
 
 ```python
 def tekstovni_vmesnik():
@@ -140,7 +140,7 @@ def dodaj_opravilo():
     ime = input('Ime opravila> ')
     ...
     opravilo = Opravilo(ime, ...)
-    model.aktualni_spisek.dodaj_opravilo(opravilo)
+    stanje.aktualni_spisek.dodaj_opravilo(opravilo)
 ```
 
 ## Shranjevanje stanja
@@ -148,10 +148,10 @@ def dodaj_opravilo():
 Da ne bomo ob zaprtju programa izgubili vseh podatkov, si jih bomo pred zaprtjem shranili v datoteko, ki jo bomo ob vsakem zagonu prebrali. Tako bo naš vmesnik sledeče oblike:
 
 ```python
-from model import Model
+from stanje import Stanje
 
 IME_DATOTEKE = 'stanje.json'
-model = Model.preberi_iz_datoteke(IME_DATOTEKE)
+stanje = Stanje.preberi_iz_datoteke(IME_DATOTEKE)
 
 ...
 
@@ -159,12 +159,12 @@ def osnovni_zaslon():
     while True:
         ...
         elif ukaz == ZAKLJUCI:
-            model.shrani_v_datoteko(IME_DATOTEKE)
+            stanje.shrani_v_datoteko(IME_DATOTEKE)
             print('Nasvidenje!')
             break         
 ```
 
-Da ne bomo izumljali tople vode, si bomo stanje zapisali v JSON datoteko. Ker Python našega modela ne zna samodejno spremeniti v JSON, bomo sami napisali vmesno pretvorbo v slovar. Vse naše objekte moramo tako dopolniti z metodami za pretvorbo v slovar in iz slovarja. Prve bodo običajne metode, ki bodo vrnile slovar, na primer:
+Da ne bomo izumljali tople vode, si bomo stanje zapisali v JSON datoteko. Ker Python našega stanja ne zna samodejno spremeniti v JSON, bomo sami napisali vmesno pretvorbo v slovar. Vse naše objekte moramo tako dopolniti z metodami za pretvorbo v slovar in iz slovarja. Prve bodo običajne metode, ki bodo vrnile slovar, na primer:
 
 ```python
 class Spisek:
@@ -217,12 +217,12 @@ class Opravilo:
         )
 ```
 
-Opremljeni z vsemi funkcijami lahko shranjevanje in nalaganje modela napišemo kot:
+Opremljeni z vsemi funkcijami lahko shranjevanje in nalaganje stanja napišemo kot:
 
 ```python
 import json
 
-class Model:
+class Stanje:
     ...
     
     def shrani_v_datoteko(self, ime_datoteke):
@@ -234,4 +234,4 @@ class Model:
     def preberi_iz_datoteke(ime_datoteke):
         with open(ime_datoteke) as dat:
             slovar = json.load(dat)
-            return Model.iz_slovarja(slovar)
+            return Stanje.iz_slovarja(slovar)
