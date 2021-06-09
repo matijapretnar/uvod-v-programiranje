@@ -1,6 +1,7 @@
-- file: 00-uvod
-
-- part: Osnove Pythona
+format: jb-book
+root: 00-uvod
+parts:
+- caption: Osnove Pythona
   chapters:
   - file: 01-uvod-v-python
   - file: 02-rekurzija
@@ -10,8 +11,7 @@
   - file: 06-slovarji-in-mnozice
   - file: 07-razredi
   - file: 08-datoteke
-
-- part: Pisanje večjih programov
+- caption: "Pisanje ve\u010Djih programov"
   chapters:
   - file: 09-tekstovni-vmesnik
   - file: 10-nadzor-razlicic
