@@ -1,10 +1,10 @@
-from model import Model, Spisek, Opravilo
+from model import Stanje, Spisek, Opravilo
 
 IME_DATOTEKE = "stanje.json"
 try:
-    moj_model = Model.preberi_iz_datoteke(IME_DATOTEKE)
+    moje_stanje = Stanje.preberi_iz_datoteke(IME_DATOTEKE)
 except FileNotFoundError:
-    moj_model = Model()
+    moje_stanje = Stanje()
 
 DODAJ_SPISEK = 1
 POBRISI_SPISEK = 2
@@ -55,15 +55,15 @@ def prikaz_opravila(opravilo):
         return f"{opravilo.ime}"
 
 
-def izberi_spisek(model):
-    return izberi_moznost([(spisek, prikaz_spiska(spisek)) for spisek in model.spiski])
+def izberi_spisek(stanje):
+    return izberi_moznost([(spisek, prikaz_spiska(spisek)) for spisek in stanje.spiski])
 
 
-def izberi_opravilo(model):
+def izberi_opravilo(stanje):
     return izberi_moznost(
         [
             (opravilo, prikaz_opravila(opravilo))
-            for opravilo in model.aktualni_spisek.opravila
+            for opravilo in stanje.aktualni_spisek.opravila
         ]
     )
 
@@ -96,7 +96,7 @@ def tekstovni_vmesnik():
         elif ukaz == OPRAVI_OPRAVILO:
             opravi_opravilo()
         elif ukaz == IZHOD:
-            moj_model.shrani_v_datoteko(IME_DATOTEKE)
+            moje_stanje.shrani_v_datoteko(IME_DATOTEKE)
             print("Nasvidenje!")
             break
 
@@ -106,8 +106,8 @@ def prikazi_pozdravno_sporocilo():
 
 
 def prikazi_aktualna_opravila():
-    if moj_model.aktualni_spisek:
-        for opravilo in moj_model.aktualni_spisek.opravila:
+    if moje_stanje.aktualni_spisek:
+        for opravilo in moje_stanje.aktualni_spisek.opravila:
             if not opravilo.opravljeno:
                 print(f"- {prikaz_opravila(opravilo)}")
     else:
@@ -119,18 +119,18 @@ def dodaj_spisek():
     print("Vnesite podatke novega spiska.")
     ime = input("Ime> ")
     nov_spisek = Spisek(ime)
-    moj_model.dodaj_spisek(nov_spisek)
+    moje_stanje.dodaj_spisek(nov_spisek)
 
 
 def pobrisi_spisek():
-    spisek = izberi_spisek(moj_model)
-    moj_model.pobrisi_spisek(spisek)
+    spisek = izberi_spisek(moje_stanje)
+    moje_stanje.pobrisi_spisek(spisek)
 
 
 def zamenjaj_spisek():
     print("Izberite spisek, na katerega bi preklopili.")
-    spisek = izberi_spisek(moj_model)
-    moj_model.zamenjaj_spisek(spisek)
+    spisek = izberi_spisek(moje_stanje)
+    moje_stanje.zamenjaj_spisek(spisek)
 
 
 def dodaj_opravilo():
@@ -139,16 +139,16 @@ def dodaj_opravilo():
     opis = input("Opis> ")
     rok = None
     novo_opravilo = Opravilo(ime, opis, rok)
-    moj_model.dodaj_opravilo(novo_opravilo)
+    moje_stanje.dodaj_opravilo(novo_opravilo)
 
 
 def pobrisi_opravilo():
-    opravilo = izberi_opravilo(moj_model)
-    moj_model.pobrisi_opravilo(opravilo)
+    opravilo = izberi_opravilo(moje_stanje)
+    moje_stanje.pobrisi_opravilo(opravilo)
 
 
 def opravi_opravilo():
-    opravilo = izberi_opravilo(moj_model)
+    opravilo = izberi_opravilo(moje_stanje)
     opravilo.opravi()
 
 
