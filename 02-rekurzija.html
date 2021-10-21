@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -33,24 +33,24 @@
     
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Nizi" href="03-nizi.html" />
@@ -74,13 +74,14 @@
     <a class="navbar-brand text-wrap" href="index.html">
       
       
+      
       <h1 class="site-logo" id="site-title">Uvod v programiranje</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -89,7 +90,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Osnove Pythona
  </span>
@@ -136,7 +137,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Pisanje večjih programov
  </span>
@@ -251,7 +252,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evklidov-algoritem">
@@ -269,7 +270,7 @@
         
               <div>
                 
-  <div class="section" id="rekurzija">
+  <div class="tex2jax_ignore mathjax_ignore section" id="rekurzija">
 <h1>Rekurzija<a class="headerlink" href="#rekurzija" title="Permalink to this headline">¶</a></h1>
 <p>Videli smo, da probleme rešujemo s prevajanjem na manjše, dokler ne pridemo do čisto osnovnih. Na primer, površino tetraedra izračunamo iz ploščin trikotnikov, te pa lahko prevedemo na vgrajene aritmetične operacije.</p>
 <p>Dostikrat pa bodo manjši problemi iste oblike kot prvotni problem. Poglejmo, kako bi izračunali <span class="math notranslate nohighlight">\(n! = n \cdot (n - 1) \dots 3 \cdot 2 \cdot 1\)</span>. Kot vidimo velja <span class="math notranslate nohighlight">\(n! = n \cdot (n - 1)!\)</span>, zato bomo <span class="math notranslate nohighlight">\(n!\)</span> izračunali tako, da bomo <span class="math notranslate nohighlight">\(n\)</span> pomnožili z <span class="math notranslate nohighlight">\((n - 1)!\)</span>. Toda od kod bomo dobili tega? Preprosto, <span class="math notranslate nohighlight">\(n - 1\)</span> bomo pomnožili z <span class="math notranslate nohighlight">\((n - 2)!\)</span>. Od kod pa tega? Ja iz <span class="math notranslate nohighlight">\((n - 3)!\)</span>. In tako naprej vse do <span class="math notranslate nohighlight">\(2!\)</span>, ki ga bomo dobili iz <span class="math notranslate nohighlight">\(1!\)</span>, tega pa iz <span class="math notranslate nohighlight">\(0!\)</span>, ki je po definiciji enak <span class="math notranslate nohighlight">\(1\)</span>. Torej lahko funkcijo, ki računa fakulteto, napišemo tako, da najprej pogleda svoj argument <code class="docutils literal notranslate"><span class="pre">n</span></code>. Če je enak 1, vrne 1, sicer pa <code class="docutils literal notranslate"><span class="pre">n</span></code> pomnožimo z rezultatom klica <code class="docutils literal notranslate"><span class="pre">fakulteta(n</span> <span class="pre">-</span> <span class="pre">1)</span></code>:</p>
@@ -537,16 +538,36 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="01-uvod-v-python.html" title="previous page">Uvod v Python</a>
-    <a class='right-next' id="next-link" href="03-nizi.html" title="next page">Nizi</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="01-uvod-v-python.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Uvod v Python</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="03-nizi.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Nizi</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
