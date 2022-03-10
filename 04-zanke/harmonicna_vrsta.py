@@ -1,7 +1,8 @@
-def harmonicna_vrsta(m):
-    vsota = 0
-    n = 1
-    while vsota < m:
-        vsota = vsota + 1 / n
-        n = n + 1
-    return n - 1
+def stevilo_clenov_da_harmonicna_vrsta_preseze(n):
+    vsota, i = 0, 0
+    while vsota < n:
+        i = i + 1              # ali kar i += 1
+        if i % 100000 == 0:
+            print(i)
+        vsota = vsota + 1 / i  # ali kar vsota += 1 / i
+    return i
