@@ -76,7 +76,7 @@ fibonacci(5)
 fibonacci(20)
 ```
 
-Kaj se zgodi, če poskušate izračunati `fibonacci(35)`? Po nekaj časa res dobite pravilen odgovor 9227465, vendar to kaže, da nekaj ni v redu. Težava je, da se pri `fibonacci(35)` funkcija pokliče dvakrat: enkrat na 34 in enkrat na 33\. Tudi vsak od teh dveh klicov povzroči dva nadaljnja klica in tako naprej, vse dokler ne pridemo do 0 ali 1\. Bolje bi bilo, če bi jo zastavili malo drugače.
+Kaj se zgodi, če poskušate izračunati `fibonacci(35)`? Po nekaj časa res dobite pravilen odgovor 9227465, vendar to kaže, da nekaj ni v redu. Težava je, da se pri `fibonacci(35)` funkcija pokliče dvakrat: enkrat na 34 in enkrat na 33\. Tudi vsak od teh dveh klicev povzroči dva nadaljnja klica in tako naprej, vse dokler ne pridemo do 0 ali 1\. Bolje bi bilo, če bi jo zastavili malo drugače.
 
 Poleg Fibonaccijevega zaporedja, ki se začne s številoma 0 in 1, obstaja tudi splošno Fibonaccijevo zaporedje, ki se začne s poljubnima členoma $a$ in $b$:
 
@@ -117,7 +117,7 @@ splosni_fibonacci(35)
 
 Algoritem je zaporedje korakov, s katerimi dobimo iskani rezultat. Načeloma lahko pod besedo algoritem razumemo tudi zaporedje korakov, s katerimi si skuhamo jajca (vzemi posodo; odpri pipo; postavi posodo pod pipo; ko je posoda dovolj polna, zapri pipo; ...), ampak mi si jo bomo prihranili za postopke, s katerimi izračunamo želene vrednosti.
 
-Za prvi algoritem se spodobi, da si pogledamo najstarejši znani algoritem in sicer Evklidov algoritem za iskanje navečjega skupnega delitelja dveh števil. Naj bo $d$ največji skupni delitelj števil $m$ in $n$. Pišimo $m = k \cdot n + o$, kjer je $0 \le o < n$. Torej: $o$ je ostanek pri deljenju števila $m$ z $n$. Ker e $d$ deli $n$, deli tudi $k \cdot n$. Poleg tega $d$ deli tudi $m$, zato deli tudi $o = m - k \cdot n$. Velja tudi obratno, če $d$ deli $n$ in $o$, potem deli tudi $m = k \cdot n + o$.
+Za prvi algoritem se spodobi, da si pogledamo najstarejši znani algoritem in sicer Evklidov algoritem za iskanje največjega skupnega delitelja dveh števil. Naj bo $d$ največji skupni delitelj števil $m$ in $n$. Pišimo $m = k \cdot n + o$, kjer je $0 \le o < n$. Torej: $o$ je ostanek pri deljenju števila $m$ z $n$. Ker e $d$ deli $n$, deli tudi $k \cdot n$. Poleg tega $d$ deli tudi $m$, zato deli tudi $o = m - k \cdot n$. Velja tudi obratno, če $d$ deli $n$ in $o$, potem deli tudi $m = k \cdot n + o$.
 
 Zato lahko iskanje največjega skupnega delitelja števil $m$ in $n$ prevedemo na iskanje največjega skupnega delitelja števil $n$ in $o$. Videti je, kot da se vrtimo v krogu, vendar se ne. Poglejmo, kaj se zgodi:
 
