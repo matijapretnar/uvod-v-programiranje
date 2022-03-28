@@ -39,5 +39,7 @@ def predznak(x):
         return 0
     elif x > 0:
         return 1
-    else:
+    elif x < 0:
         return -1
+    else:
+        assert False

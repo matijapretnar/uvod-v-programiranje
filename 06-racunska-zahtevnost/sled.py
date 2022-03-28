@@ -3,21 +3,14 @@ import stopaj
 
 def sled_matrike1(matrika):
     sled = 0
-    for i, vrstica in enumerate(matrika):
-        for j, element in enumerate(vrstica):
+    for i in range(len(matrika)):
+        for j in range(len(matrika)):
             if i == j:
-                sled += element
+                sled += matrika[i][j]
     return sled
 
 
 def sled_matrike2(matrika):
-    sled = 0
-    for i, vrstica in enumerate(matrika):
-        sled += vrstica[i]
-    return sled
-
-
-def sled_matrike3(matrika):
     sled = 0
     for i in range(len(matrika)):
         sled += matrika[i][i]
@@ -26,5 +19,5 @@ def sled_matrike3(matrika):
 
 stopaj.izmeri_case_poskusov(
     [stopaj.nakljucna_matrika(50 * n) for n in range(1, 20)],
-    [sled_matrike1, sled_matrike2, sled_matrike3],
+    [sled_matrike1, sled_matrike2],
 )

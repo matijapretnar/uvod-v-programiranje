@@ -14,7 +14,7 @@ def padajoc_seznam(dolzina):
 def nakljucen_seznam(dolzina):
     seznam = []
     for _ in range(dolzina):
-        seznam.append(random.randint(0, 2 * dolzina))
+        seznam.append(random.randint(0, 10 * dolzina))
     return seznam
 
 
@@ -36,11 +36,9 @@ def izmeri_case_poskusov(vzorci, funkcije, velikost=len, stevilo_poskusov=10):
     if not isinstance(funkcije, list):
         funkcije = [funkcije]
 
-    velikosti = []
+    velikosti = [velikost(x) for x in vzorci]
     grafi = []
     vsi_casi = []
-    for x in vzorci:
-        velikosti.append(velikost(x))
     for i, f in enumerate(funkcije):
         print(f.__name__, end='', flush=True)
         casi = []

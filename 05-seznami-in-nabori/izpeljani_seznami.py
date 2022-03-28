@@ -1,21 +1,14 @@
-def sodi_elementi(sez):
-    sodi = []
-    for x in sez:
-        if x % 2 == 0:
-            sodi.append(x)
-    return sodi
-
-
-def kvadrati_elementov(sez):
+def seznam_kvadratov(n):
     kvadrati = []
-    for x in sez:
-        kvadrati.append(x ** 2)
+    for i in range(1, n + 1):
+        kvadrati.append(i ** 2)
     return kvadrati
 
+# { n² | n ∈ {1, ..., 10}}
+# [n ** 2 for n in range(1, 11)]
 
-def kvadrati_elementov(sez):
-    return [x ** 2 for x in sez]
+def izpeljani_seznam_kvadratov(n):
+    return [i ** 2 for i in range(1, n + 1)]
 
-
-def sodi_elementi(sez):
-    return [x for x in sez if x % 2 == 0]
+def seznam_sodih_kvadratov(n):
+    return [i ** 2 for i in range(1, n + 1) if i % 2 == 0]
