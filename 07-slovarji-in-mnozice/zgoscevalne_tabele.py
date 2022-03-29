@@ -35,6 +35,7 @@ def ali_obstaja(mnozica, n):
 
 
 import random
+
 m = prazna_mnozica()
 s = []
 for x in range(10000000):
