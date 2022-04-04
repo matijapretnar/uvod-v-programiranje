@@ -1,4 +1,4 @@
-from prestej import kljuc_najvecje_vrednosti
+from najvecji import kljuc_najvecje_vrednosti
 
 navadna = [
     [1, 1, 4, 1, 1, 1, 1, 1, 1, 1],
@@ -23,6 +23,14 @@ def iz_redke_v_navadno(redka):
     return navadna
 
 
+def iz_redke_v_navadno_izpeljani(redka):
+    st_vrstic, st_stolpcev, vecinski, izjeme = redka
+    return [
+        [izjeme.get((i, j), vecinski) for j in range(st_stolpcev)]
+        for i in range(st_vrstic)
+    ]
+
+
 def prestej_elemente_matrike(matrika):
     pojavitve = {}
     for vrstica in matrika:
@@ -42,8 +50,24 @@ def iz_navadne_v_redko(navadna):
                 izjeme[(i, j)] = element
     return (st_vrstic, st_stolpcev, vecinski, izjeme)
 
+def iz_navadne_v_redko(navadna):
+    st_vrstic = len(navadna)
+    st_stolpcev = len(navadna[0])
+    pojavitve = {}
+    for i, vrstica in enumerate(navadna):
+        for j, element in enumerate(vrstica):
+            pojavitve.setdefault(element, []).append((i, j))
+    vecinski, _ = max(pojavitve.items(), key=lambda par: len(par[1]))
+    del pojavitve[vecinski]
+    izjeme = {
+        mesto: vrednost
+        for vrednost, mesta in pojavitve.items()
+        for mesto in mesta
+    }
+    return (st_vrstic, st_stolpcev, vecinski, izjeme)
 
-print(iz_redke_v_navadno(redka))
-print(iz_redke_v_navadno(redka) == navadna)
-print(iz_navadne_v_redko(navadna))
-print(iz_navadne_v_redko(navadna) == redka)
+
+# print(iz_redke_v_navadno(redka))
+# print(iz_redke_v_navadno(redka) == navadna)
+# print(iz_navadne_v_redko(navadna))
+# print(iz_navadne_v_redko(navadna) == redka)

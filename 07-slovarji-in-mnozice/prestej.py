@@ -12,13 +12,13 @@ def stevilo_samoglasnikov(niz):
 
 def stevilo_posameznih_samoglasnikov(niz):
     samoglasniki = {}
-    for crka in niz:
-        mala_crka = crka.lower()
+    for crka in niz.lower():
         if je_samoglasnik(crka):
-            if mala_crka in samoglasniki:
-                samoglasniki[mala_crka] += 1
+            if crka in samoglasniki:
+                samoglasniki[crka] += 1
             else:
-                samoglasniki[mala_crka] = 1
+                samoglasniki[crka] = 1
+        print(crka, samoglasniki)
     return samoglasniki
 
 
