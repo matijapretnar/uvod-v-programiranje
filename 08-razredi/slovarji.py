@@ -33,6 +33,9 @@ class Slovar:
         for skatla in self.skatle:
             for k, v in skatla:
                 yield (k, v)
+    
+    def __len__(self):
+        return self.stevilo_elementov
 
 
 s = Slovar()

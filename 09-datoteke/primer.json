@@ -1,0 +1,20 @@
+{
+    "ime": "Matija",
+    "priimek": "Pretnar",
+    "vpisna_stevilka": 27004498,
+    "ocene": [
+        {
+            "ime_predmeta": "Računalniški praktikum",
+            "ocena": 10,
+            "ocena_vaj": null,
+            "predmet_je_bil_zanimiv": true
+        },
+        {
+            "ime_predmeta": "Analiza 1",
+            "ocena": 10,
+            "ocena_vaj": 10,
+            "predmet_je_bil_zanimiv": false
+        }
+
+    ]
+}
