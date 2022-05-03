@@ -1,212 +1,72 @@
-from .model import Proracun, Kuverta, Racun, Preliv
 from datetime import date
+import model
 
-DATOTEKA_S_STANJEM = "stanje.json"
+stanje = model.primer
 
-try:
-    proracun = Proracun.nalozi_stanje(DATOTEKA_S_STANJEM)
-except FileNotFoundError:
-    proracun = Proracun()
-
-###########################################################
-# Pomožne funkcije za prikaz
-###########################################################
-
-
-def krepko(niz):
-    return f"\033[1m{niz}\033[0m"
-
-
-def dobro(niz):
-    return f"\033[1;94m{niz}\033[0m"
-
-
-def slabo(niz):
-    return f"\033[1;91m{niz}\033[0m"
-
-
-def prikaz_zneska(ime, stanje):
-    if stanje > 0:
-        return f"{ime}: {dobro(stanje)} €"
-    elif stanje < 0:
-        return f"{ime}: {slabo(stanje)} €"
-    else:
-        return f"{ime}: 0 €"
-
-
-def prikaz_racuna(racun):
-    return prikaz_zneska(racun.ime, racun.stanje())
-
-
-def prikaz_kuverte(kuverta):
-    if kuverta is None:
-        return prikaz_zneska("nerazporejeno", proracun.nerazporejena_sredstva())
-    else:
-        return prikaz_zneska(kuverta.ime, kuverta.stanje())
-
-
-###########################################################
-# Pomožne funkcije za vnos
-###########################################################
-
-
-def vnesi_stevilo(pozdrav):
-    """S standardnega vhoda prebere naravno število."""
+def preberi_stevilo(poziv="> "):
     while True:
+        vnos = input(poziv)
         try:
-            stevilo = input(pozdrav)
-            return int(stevilo)
+            return int(vnos)
         except ValueError:
-            print(slabo("Prosim, da vnesete število!"))
+            print("Vnesti morate število.")
 
 
-def izberi(seznam):
-    """
-    Uporabniku omogoči interaktivno izbiro elementa iz seznama.
-
-    Funkcija sprejme seznam parov (oznaka, element), prikaže seznam
-    oznak ter vrne element, ki ustreza vpisani oznaki.
-    >>> izberi([('deset', 10), ('trideset', 30)])
-    1) deset
-    2) trideset
-    > 2
-    30
-    """
-    if len(seznam) == 1:
-        opis, element = seznam[0]
-        print(f"Na voljo je samo možnost {opis}, zato sem jo izbral.")
-        return element
-    for indeks, (oznaka, _) in enumerate(seznam, 1):
-        print(f"{indeks}) {oznaka}")
+def izberi_moznost(moznosti):
+    """Uporabniku našteje možnosti ter vrne izbrano."""
+    for i, (_moznost, opis) in enumerate(moznosti, 1):
+        print(f"{i}) {opis}")
     while True:
-        izbira = vnesi_stevilo("> ")
-        if 1 <= izbira <= len(seznam):
-            _, element = seznam[izbira - 1]
-            return element
+        i = preberi_stevilo()
+        if 1 <= i <= len(moznosti):
+            moznost, _opis = moznosti[i - 1]
+            return moznost
         else:
-            print(slabo(f"Izberi število med 1 in {len(seznam)}"))
+            print(f"Vnesti morate število med 1 in {len(moznosti)}.")
 
+def izberi_kuverto():
+    moznosti = [(kuverta, kuverta.ime) for kuverta in stanje.kuverte]
+    return izberi_moznost(moznosti)
 
-def izberi_kuverto(kuverte):
-    return izberi([(prikaz_kuverte(kuverta), kuverta) for kuverta in kuverte])
+def izberi_racun():
+    moznosti = [(racun, racun.ime) for racun in stanje.racuni]
+    return izberi_moznost(moznosti)
 
+def pozdravno_sporocilo():
+    print("Živjo!")
 
-def izberi_racun(racuni):
-    return izberi([(prikaz_racuna(racun), racun) for racun in racuni])
+def zakljuci_izvajanje():
+    print("Nasvidenje!")
+    exit()
 
+def prikazi_stanje():
+    for kuverta in stanje.kuverte:
+        print(kuverta)
+    for racun in stanje.racuni:
+        print(racun)
 
-###########################################################
-# Tekstovni vmesnik
-###########################################################
+def ponudi_dejanja():
+    print("Kaj bi rad naredil?")
+    izbrano_dejanje = izberi_moznost([
+        (prikazi_stanje, "prikaži stanje"),
+        (zakljuci_izvajanje, "zaključi izvajanje"),
+        (dodaj_transakcijo, "dodaj transakcijo")
+    ])
+    izbrano_dejanje()
 
+def dodaj_transakcijo():
+    opis = input("Opis> ")
+    znesek = preberi_stevilo("Znesek> ")
+    datum = date.today()
+    kuverta = izberi_kuverto()
+    racun = izberi_racun()
+    transakcija = model.Transakcija(opis, znesek, datum)
+    kuverta.dodaj_transakcijo(transakcija)
+    racun.dodaj_transakcijo(transakcija)
 
 def tekstovni_vmesnik():
-    uvodni_pozdrav()
+    pozdravno_sporocilo()
     while True:
-        try:
-            print(80 * "=")
-            povzetek_stanja()
-            print()
-            print(krepko("Kaj bi radi naredili?"))
-            moznosti = [
-                ("vnesel priliv/odliv", dodaj_preliv),
-                ("prenesel denar med kuvertama", prenesi_denar),
-                ("dodal nov račun", dodaj_racun),
-                ("dodal novo kuverto", dodaj_kuverto),
-                ("odstranil kuverto", odstrani_kuverto),
-                ("pogledal stanje", poglej_stanje),
-            ]
-            izbira = izberi(moznosti)
-            print(80 * "-")
-            izbira()
-            print()
-            input("Pritisnite Enter za shranjevanje in vrnitev v osnovni meni...")
-            proracun.shrani_stanje(DATOTEKA_S_STANJEM)
-        except ValueError as e:
-            print(slabo(e.args[0]))
-        except KeyboardInterrupt:
-            print()
-            print("Nasvidenje!")
-            return
-
-
-def uvodni_pozdrav():
-    print(krepko("Pozdravljeni!"))
-    print("Za izhod pritisnite Ctrl-C.")
-
-
-def povzetek_stanja():
-    for kuverta in proracun.kuverte:
-        stanje_kuverte = kuverta.stanje()
-        if stanje_kuverte < 0:
-            print(slabo(f"V kuverti {kuverta.ime} je {-stanje_kuverte} € premalo!"))
-    nerazporejena_sredstva = proracun.nerazporejena_sredstva()
-    if nerazporejena_sredstva > 0:
-        print(dobro(f"Razporedite lahko še {nerazporejena_sredstva} €"))
-    elif nerazporejena_sredstva < 0:
-        print(slabo(f"Razporedili ste {-nerazporejena_sredstva} € preveč!"))
-
-
-def dodaj_preliv():
-    znesek = vnesi_stevilo("Znesek> ")
-    datum = date.today().strftime("%Y-%m-%d")
-    opis = input("Opis> ")
-    print("Račun:")
-    racun = izberi_racun(proracun.racuni)
-    print("Kuverta:")
-    kuverta = izberi_kuverto([None] + proracun.kuverte)
-    proracun.nov_preliv(znesek, datum, opis, racun, kuverta)
-    print(dobro("Preliv uspešno dodan!"))
-
-
-def prenesi_denar():
-    print("Od kod bi prenesli denar?")
-    kuverte_s_prazno = [None] + proracun.kuverte
-    kuverta1 = izberi_kuverto(kuverte_s_prazno)
-    print("Kam bi prenesli denar?")
-    kuverta2 = izberi_kuverto(
-        [kuverta for kuverta in kuverte_s_prazno if kuverta != kuverta1]
-    )
-    znesek = vnesi_stevilo("Znesek> ")
-    proracun.premakni_denar(kuverta1, kuverta2, znesek)
-    print("Novo stanje:")
-    print(f"- {prikaz_kuverte(kuverta1)}")
-    print(f"- {prikaz_kuverte(kuverta2)}")
-
-
-def dodaj_racun():
-    ime_racuna = input("Vnesi ime računa> ")
-    proracun.nov_racun(ime_racuna)
-    print(dobro("Račun uspešno dodan!"))
-
-
-def dodaj_kuverto():
-    ime_kuverte = input("Vnesi ime kuverte> ")
-    proracun.nova_kuverta(ime_kuverte)
-    print(dobro("Kuverta uspešno dodana!"))
-
-
-def odstrani_kuverto():
-    print("Izberite kuverto, ki bi jo radi izbrisali.")
-    kuverta = izberi_kuverto(proracun.kuverte)
-    if (
-        input(f"Ste prepričani, da želite odstraniti kuverto {kuverta.ime}? [da/NE]")
-        == "da"
-    ):
-        proracun.odstrani_kuverto(kuverta)
-        print(dobro("Kuverta uspešno odstranjena!"))
-    else:
-        print("Odstranitev kuverte preklicana.")
-
-
-def poglej_stanje():
-    print(krepko("RAČUNI:"))
-    for racun in proracun.racuni:
-        print(f"- {prikaz_racuna(racun)}")
-    print(krepko("KUVERTE:"))
-    for kuverta in proracun.kuverte:
-        print(f"- {prikaz_kuverte(kuverta)}")
-    print(f"- {prikaz_kuverte(None)}")
-
+        ponudi_dejanja()
 
 tekstovni_vmesnik()
