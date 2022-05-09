@@ -31,13 +31,21 @@ def izberi_moznost(moznosti):
 
 
 def prikaz_kategorije(kategorija):
+    zamujena = kategorija.stevilo_zamujenih()
     neopravljena = kategorija.stevilo_neopravljenih()
-    return f"{kategorija.ime.upper()} ({neopravljena})"
+    if zamujena:
+        return f"{kategorija.ime.upper()} (!!{zamujena}!! / {neopravljena})"
+    else:
+        return f"{kategorija.ime.upper()} ({neopravljena})"
 
 
 def prikaz_opravila(opravilo):
     if opravilo.opravljeno:
         return f"☑︎ {opravilo.opis}"
+    elif opravilo.zamuja():
+        return f"☐ !!{opravilo.opis}!! ({opravilo.rok})"
+    elif opravilo.rok:
+        return f"☐ {opravilo.opis} ({opravilo.rok})"
     else:
         return f"☐ {opravilo.opis}"
 
@@ -74,7 +82,12 @@ def dodaj_opravilo():
     kategorija = izberi_kategorijo(stanje)
     print("Vnesite podatke novega opravila.")
     opis = input("Opis> ")
-    novo_opravilo = Opravilo(opis)
+    rok = input("Rok (YYYY-MM-DD)> ")
+    if rok.strip():
+        rok = date.fromisoformat(rok)
+    else:
+        rok = None
+    novo_opravilo = Opravilo(opis, rok)
     kategorija.dodaj_opravilo(novo_opravilo)
 
 

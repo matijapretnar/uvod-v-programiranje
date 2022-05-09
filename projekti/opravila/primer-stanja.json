@@ -5,10 +5,12 @@
             "opravila": [
                 {
                     "opis": "povej, da ne smejo prepisovati",
+                    "rok": "2022-04-25",
                     "opravljeno": true
                 },
                 {
                     "opis": "odpredavaj tekstovni vmesnik",
+                    "rok": "2022-04-25",
                     "opravljeno": false
                 }
             ]
@@ -18,6 +20,7 @@
             "opravila": [
                 {
                     "opis": "zalij rože",
+                    "rok": null,
                     "opravljeno": false
                 }
             ]
@@ -27,6 +30,7 @@
             "opravila": [
                 {
                     "opis": "povej, da rabiš cisterno zaradi rož",
+                    "rok": null,
                     "opravljeno": true
                 }
             ]

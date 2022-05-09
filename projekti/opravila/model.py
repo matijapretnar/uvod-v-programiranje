@@ -1,3 +1,4 @@
+from datetime import date
 import json
 
 
@@ -50,6 +51,13 @@ class Kategorija:
     def dodaj_opravilo(self, opravilo):
         self.opravila.append(opravilo)
 
+    def stevilo_zamujenih(self):
+        zamujena = 0
+        for opravilo in self.opravila:
+            if opravilo.zamuja():
+                zamujena += 1
+        return zamujena
+
     def v_slovar(self):
         return {
             "ime": self.ime,
@@ -65,16 +73,22 @@ class Kategorija:
 
 
 class Opravilo:
-    def __init__(self, opis, opravljeno=False):
+    def __init__(self, opis, rok, opravljeno=False):
         self.opis = opis
+        self.rok = rok
         self.opravljeno = opravljeno
 
     def opravi(self):
         self.opravljeno = True
 
+    def zamuja(self):
+        rok_pretekel = self.rok and self.rok < date.today()
+        return not self.opravljeno and rok_pretekel
+
     def v_slovar(self):
         return {
             "opis": self.opis,
+            "rok": self.rok.isoformat() if self.rok else None,
             "opravljeno": self.opravljeno,
         }
 
@@ -82,5 +96,6 @@ class Opravilo:
     def iz_slovarja(slovar):
         return Opravilo(
             slovar["opis"],
+            date.fromisoformat(slovar["rok"]) if slovar["rok"] else None,
             slovar["opravljeno"],
         )
