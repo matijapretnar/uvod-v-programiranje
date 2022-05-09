@@ -1,23 +1,19 @@
 from model import Stanje, Kategorija, Opravilo
 
-stanje = Stanje([
-    Kategorija(
-        "služba", [
-            Opravilo("povej, da ne smejo prepisovati", True), 
-            Opravilo("odpredavaj tekstovni vmesnik", False), 
-        ]
-    ),
-    Kategorija(
-        "doma", [
-            Opravilo("zalij rože", False)
-        ]
-    ),
-    Kategorija(
-        "gasilci", [
-            Opravilo("povej, da rabiš cisterno zaradi rož", True)
-        ]
-    )
-])
+stanje = Stanje(
+    [
+        Kategorija(
+            "služba",
+            [
+                Opravilo("povej, da ne smejo prepisovati", True),
+                Opravilo("odpredavaj tekstovni vmesnik", False),
+            ],
+        ),
+        Kategorija("doma", [Opravilo("zalij rože", False)]),
+        Kategorija("gasilci", [Opravilo("povej, da rabiš cisterno zaradi rož", True)]),
+    ]
+)
+
 
 def preberi_stevilo():
     while True:
@@ -40,8 +36,10 @@ def izberi_moznost(moznosti):
         else:
             print(f"Vnesti morate število med 1 in {len(moznosti)}.")
 
+
 def zacetni_pozdrav():
     print("Pozdravljen v programu za vodenje opravil.")
+
 
 def izpisi_trenutno_stanje():
     for kategorija in stanje.kategorije:
@@ -55,12 +53,13 @@ def zakljuci_izvajanje():
 
 def ponudi_moznosti():
     print("Kaj bi rad naredil?")
-    izbrano_dejanje = izberi_moznost([
-        (izpisi_trenutno_stanje, "pogledal trenutno stanje"),
-        (zakljuci_izvajanje, "odšel iz programa")
-    ])
+    izbrano_dejanje = izberi_moznost(
+        [
+            (izpisi_trenutno_stanje, "pogledal trenutno stanje"),
+            (zakljuci_izvajanje, "odšel iz programa"),
+        ]
+    )
     izbrano_dejanje()
-
 
 
 def tekstovni_vmesnik():
@@ -69,10 +68,4 @@ def tekstovni_vmesnik():
         ponudi_moznosti()
 
 
-
 tekstovni_vmesnik()
-
-
-
-
-
