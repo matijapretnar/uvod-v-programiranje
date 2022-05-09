@@ -1,3 +1,4 @@
+from datetime import date
 from model import Stanje, Kategorija, Opravilo
 
 stanje = Stanje(
@@ -37,25 +38,83 @@ def izberi_moznost(moznosti):
             print(f"Vnesti morate število med 1 in {len(moznosti)}.")
 
 
+def prikaz_kategorije(kategorija):
+    neopravljena = kategorija.stevilo_neopravljenih()
+    return f"{kategorija.ime.upper()} ({neopravljena})"
+
+
+def prikaz_opravila(opravilo):
+    if opravilo.opravljeno:
+        return f"☑︎ {opravilo.opis}"
+    else:
+        return f"☐ {opravilo.opis}"
+
+
+def izberi_kategorijo(stanje):
+    print("Izberite kategorijo:")
+    return izberi_moznost(
+        [
+            (kategorija, prikaz_kategorije(kategorija))
+            for kategorija in stanje.kategorije
+        ]
+    )
+
+
+def izberi_opravilo(kategorija):
+    print("Izberite opravilo:")
+    return izberi_moznost(
+        [(opravilo, prikaz_opravila(opravilo)) for opravilo in kategorija.opravila]
+    )
+
+
 def zacetni_pozdrav():
-    print("Pozdravljen v programu za vodenje opravil.")
+    print("Pozdravljeni v programu za vodenje opravil!")
+
+
+def dodaj_kategorijo():
+    print("Vnesite podatke nove kategorije.")
+    ime = input("Ime> ")
+    nova_kategorija = Kategorija(ime, [])
+    stanje.dodaj_kategorijo(nova_kategorija)
+
+
+def dodaj_opravilo():
+    kategorija = izberi_kategorijo(stanje)
+    print("Vnesite podatke novega opravila.")
+    opis = input("Opis> ")
+    novo_opravilo = Opravilo(opis)
+    kategorija.dodaj_opravilo(novo_opravilo)
+
+
+def opravi_opravilo():
+    kategorija = izberi_kategorijo(stanje)
+    opravilo = izberi_opravilo(kategorija)
+    opravilo.opravi()
 
 
 def izpisi_trenutno_stanje():
     for kategorija in stanje.kategorije:
-        print(f"{kategorija.ime}: {kategorija.stevilo_neopravljenih()} neopravljenih")
+        print(f"{prikaz_kategorije(kategorija)}:")
+        for opravilo in kategorija.opravila:
+            print(f"  {prikaz_opravila(opravilo)}")
+    if not stanje.kategorije:
+        print(
+            "Trenutno nimate še nobene kategorije, zato morate eno najprej ustvariti."
+        )
 
 
 def zakljuci_izvajanje():
-    print("Adijo")
+    print("Nasvidenje!")
     exit()
 
 
 def ponudi_moznosti():
-    print("Kaj bi rad naredil?")
+    print("Kaj bi radi naredili?")
     izbrano_dejanje = izberi_moznost(
         [
-            (izpisi_trenutno_stanje, "pogledal trenutno stanje"),
+            (dodaj_kategorijo, "dodal novo kategorijo"),
+            (dodaj_opravilo, "dodal novo opravilo"),
+            (opravi_opravilo, "opravil opravilo"),
             (zakljuci_izvajanje, "odšel iz programa"),
         ]
     )
@@ -65,6 +124,7 @@ def ponudi_moznosti():
 def tekstovni_vmesnik():
     zacetni_pozdrav()
     while True:
+        izpisi_trenutno_stanje()
         ponudi_moznosti()
 
 
