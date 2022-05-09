@@ -1,19 +1,11 @@
 from datetime import date
 from model import Stanje, Kategorija, Opravilo
 
-stanje = Stanje(
-    [
-        Kategorija(
-            "služba",
-            [
-                Opravilo("povej, da ne smejo prepisovati", True),
-                Opravilo("odpredavaj tekstovni vmesnik", False),
-            ],
-        ),
-        Kategorija("doma", [Opravilo("zalij rože", False)]),
-        Kategorija("gasilci", [Opravilo("povej, da rabiš cisterno zaradi rož", True)]),
-    ]
-)
+IME_DATOTEKE = "stanje.json"
+try:
+    stanje = Stanje.preberi_iz_datoteke(IME_DATOTEKE)
+except FileNotFoundError:
+    stanje = Stanje(kategorije=[])
 
 
 def preberi_stevilo():
@@ -104,6 +96,7 @@ def izpisi_trenutno_stanje():
 
 
 def zakljuci_izvajanje():
+    stanje.shrani_v_datoteko(IME_DATOTEKE)
     print("Nasvidenje!")
     exit()
 

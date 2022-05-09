@@ -1,0 +1,35 @@
+{
+    "kategorije": [
+        {
+            "ime": "služba",
+            "opravila": [
+                {
+                    "opis": "povej, da ne smejo prepisovati",
+                    "opravljeno": true
+                },
+                {
+                    "opis": "odpredavaj tekstovni vmesnik",
+                    "opravljeno": false
+                }
+            ]
+        },
+        {
+            "ime": "doma",
+            "opravila": [
+                {
+                    "opis": "zalij rože",
+                    "opravljeno": false
+                }
+            ]
+        },
+        {
+            "ime": "gasilci",
+            "opravila": [
+                {
+                    "opis": "povej, da rabiš cisterno zaradi rož",
+                    "opravljeno": true
+                }
+            ]
+        }
+    ]
+}
