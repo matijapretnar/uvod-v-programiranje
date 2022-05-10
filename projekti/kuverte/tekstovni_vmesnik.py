@@ -1,8 +1,8 @@
 from datetime import date
 import model
 
-IME_DATOTEKE_S_STANJEM = "stanje.json"
-stanje = model.Stanje.iz_slovarja(IME_DATOTEKE_S_STANJEM)
+IME_DATOTEKE_S_PRORACUNOM = "proracun.json"
+proracun = model.Proracun.iz_slovarja(IME_DATOTEKE_S_PRORACUNOM)
 
 def preberi_stevilo(poziv="> "):
     while True:
@@ -26,11 +26,11 @@ def izberi_moznost(moznosti):
             print(f"Vnesti morate število med 1 in {len(moznosti)}.")
 
 def izberi_kuverto():
-    moznosti = [(kuverta, kuverta.ime) for kuverta in stanje.kuverte]
+    moznosti = [(kuverta, kuverta.ime) for kuverta in proracun.kuverte]
     return izberi_moznost(moznosti)
 
 def izberi_racun():
-    moznosti = [(racun, racun.ime) for racun in stanje.racuni]
+    moznosti = [(racun, racun.ime) for racun in proracun.racuni]
     return izberi_moznost(moznosti)
 
 def pozdravno_sporocilo():
@@ -38,19 +38,19 @@ def pozdravno_sporocilo():
 
 def zakljuci_izvajanje():
     print("Nasvidenje!")
-    stanje.v_datoteko(IME_DATOTEKE_S_STANJEM)
+    proracun.v_datoteko(IME_DATOTEKE_S_PRORACUNOM)
     exit()
 
-def prikazi_stanje():
-    for kuverta in stanje.kuverte:
+def prikazi_proracun():
+    for kuverta in proracun.kuverte:
         print(kuverta)
-    for racun in stanje.racuni:
+    for racun in proracun.racuni:
         print(racun)
 
 def ponudi_dejanja():
     print("Kaj bi rad naredil?")
     izbrano_dejanje = izberi_moznost([
-        (prikazi_stanje, "prikaži stanje"),
+        (prikazi_proracun, "prikaži proračun"),
         (zakljuci_izvajanje, "zaključi izvajanje"),
         (dodaj_transakcijo, "dodaj transakcijo")
     ])

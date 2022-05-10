@@ -63,7 +63,7 @@ class Racun(ZbirkaTransakcij):
 
 
 @dataclass
-class Stanje:
+class Proracun:
     kuverte: List[Kuverta]
     racuni: List[Racun]
 
@@ -92,7 +92,7 @@ class Stanje:
 
 od_babice = Transakcija("babica za desetko pri UVP", 100, date(2022, 4, 26))
 iz_neba = Transakcija("priletelo iz neba", 10**8, date(2022, 4, 27))
-primer = Stanje(
+primer_proracuna = Proracun(
     kuverte=[Kuverta("hrana", [od_babice, iz_neba])],
     racuni=[Racun("gotovina", [od_babice]), Racun("kriptovalute", [iz_neba])],
 )
