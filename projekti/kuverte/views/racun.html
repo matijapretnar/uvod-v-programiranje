@@ -1,0 +1,13 @@
+<h1>{{ racun.ime }}</h1>
+<h2>Najboljši program na svetu</h2>
+
+Skupaj imaš {{ racun.stanje() }} evrov. Tvoje transakcije so
+<ul>
+% for transakcija in racun.transakcije:
+    % if transakcija.znesek > 0:
+    <li>{{ transakcija.opis }}: {{ transakcija.znesek }}</li>
+    % else:
+    <li style="color: red">{{ transakcija.opis }}: {{ transakcija.znesek }}</li>
+    % end
+% end
+</ul>

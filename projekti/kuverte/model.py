@@ -67,6 +67,9 @@ class Proracun:
     kuverte: List[Kuverta]
     racuni: List[Racun]
 
+    def stanje(self):
+        return sum(racun.stanje() for racun in self.racuni)
+
     def v_slovar(self):
         return {
             "kuverte": [kuverta.v_slovar() for kuverta in self.kuverte],
@@ -91,7 +94,7 @@ class Proracun:
 
 
 od_babice = Transakcija("babica za desetko pri UVP", 100, date(2022, 4, 26))
-iz_neba = Transakcija("priletelo iz neba", 10**8, date(2022, 4, 27))
+iz_neba = Transakcija("odletelo v nebo", -10**8, date(2022, 4, 27))
 primer_proracuna = Proracun(
     kuverte=[Kuverta("hrana", [od_babice, iz_neba])],
     racuni=[Racun("gotovina", [od_babice]), Racun("kriptovalute", [iz_neba])],
