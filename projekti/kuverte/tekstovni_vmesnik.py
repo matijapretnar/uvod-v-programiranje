@@ -1,7 +1,8 @@
 from datetime import date
 import model
 
-stanje = model.primer
+IME_DATOTEKE_S_STANJEM = "stanje.json"
+stanje = model.Stanje.iz_slovarja(IME_DATOTEKE_S_STANJEM)
 
 def preberi_stevilo(poziv="> "):
     while True:
@@ -37,6 +38,7 @@ def pozdravno_sporocilo():
 
 def zakljuci_izvajanje():
     print("Nasvidenje!")
+    stanje.v_datoteko(IME_DATOTEKE_S_STANJEM)
     exit()
 
 def prikazi_stanje():
