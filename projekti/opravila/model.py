@@ -8,6 +8,12 @@ class Stanje:
 
     def dodaj_kategorijo(self, kategorija):
         self.kategorije.append(kategorija)
+        return len(self.kategorije) - 1
+
+    def preveri_podatke_nove_kategorije(self, nova_kategorija):
+        for kategorija in self.kategorije:
+            if kategorija.ime == nova_kategorija.ime:
+                return {"ime": "Kategorija s tem imenom že obstaja"}
 
     def v_slovar(self):
         return {

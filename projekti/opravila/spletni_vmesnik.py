@@ -1,5 +1,7 @@
 import bottle
-from model import Opravilo, Stanje
+from datetime import date
+from model import Stanje, Opravilo, Kategorija
+
 
 IME_DATOTEKE = "stanje.json"
 try:
@@ -7,40 +9,73 @@ try:
 except FileNotFoundError:
     stanje = Stanje(kategorije=[])
 
+
+def url_kategorije(id_kategorije):
+    return f"/kategorija/{id_kategorije}/"
+
+
+
 @bottle.get("/")
 def zacetna_stran():
     return bottle.template(
         "zacetna_stran.tpl",
-        kategorije=stanje.kategorije
+        kategorije=stanje.kategorije,
     )
 
-@bottle.get("/pozdravi/<ime>/")
-def pozdravi(ime):
-    return f"<h1>Živjo, {ime}!</h1>"
-
 @bottle.get("/kategorija/<id_kategorije:int>/")
-def pokazi_kategorijo(id_kategorije):
+def prikazi_kategorijo(id_kategorije):
     kategorija = stanje.kategorije[id_kategorije]
     return bottle.template(
         "kategorija.tpl",
-        id_kategorije=id_kategorije,
-        kategorija=kategorija
+        kategorije=stanje.kategorije,
+        aktualna_kategorija=kategorija,
+        id_aktualne_kategorije=id_kategorije,
     )
+
+
+@bottle.get("/dodaj-kategorijo/")
+def dodaj_kategorijo_get():
+    return bottle.template(
+        "dodaj_kategorijo.tpl", napake={}, polja={}
+    )
+
+
+@bottle.post("/dodaj-kategorijo/")
+def dodaj_kategorijo_post():
+    ime = bottle.request.forms.getunicode("ime")
+    kategorija = Kategorija(ime, opravila=[])
+    napake = stanje.preveri_podatke_nove_kategorije(kategorija)
+    if napake:
+        polja = {"ime": ime}
+        return bottle.template("dodaj_kategorijo.tpl", napake=napake, polja=polja)
+    else:
+        id_kategorije = stanje.dodaj_kategorijo(kategorija)
+        bottle.redirect(url_kategorije(id_kategorije))
+
 
 @bottle.post("/opravi/<id_kategorije:int>/<id_opravila:int>/")
 def opravi(id_kategorije, id_opravila):
     kategorija = stanje.kategorije[id_kategorije]
     opravilo = kategorija.opravila[id_opravila]
     opravilo.opravi()
-    return bottle.redirect("/")
+    bottle.redirect(url_kategorije(id_kategorije))
 
-@bottle.post("/dodaj/<id_kategorije:int>/")
-def dodaj(id_kategorije):
+@bottle.post("/dodaj-opravilo/<id_kategorije:int>/")
+def dodaj_opravilo(id_kategorije):
     kategorija = stanje.kategorije[id_kategorije]
-    novo_opravilo = Opravilo(opis=bottle.request.forms["opis_novega_opravila"], rok=None)
-    kategorija.dodaj_opravilo(novo_opravilo)
-    return bottle.redirect("/")
+    opis = bottle.request.forms.getunicode("opis")
+    if bottle.request.forms["rok"]:
+        rok = date.fromisoformat(bottle.request.forms["rok"])
+    else:
+        rok = None
+    opravilo = Opravilo(opis, rok)
+    kategorija.dodaj_opravilo(opravilo)
+    bottle.redirect(url_kategorije(id_kategorije))
 
+
+@bottle.error(404)
+def error_404(error):
+    return "Ta stran ne obstaja!"
 
 
 bottle.run(debug=True, reloader=True)
