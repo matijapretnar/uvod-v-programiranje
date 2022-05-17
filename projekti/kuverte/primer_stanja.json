@@ -1,0 +1,60 @@
+{
+    "kuverte": [
+        {
+            "ime": "stroški",
+            "transakcije": [
+                {
+                    "opis": "najemnina",
+                    "znesek": -120,
+                    "datum": "2022-05-01"
+                },
+                {
+                    "opis": "mesečna",
+                    "znesek": -25,
+                    "datum": "2022-05-03"
+                }
+            ]
+        },
+        {
+            "ime": "zabava",
+            "transakcije": []
+        }
+    ],
+    "racuni": [
+        {
+            "ime": "gotovina",
+            "transakcije": [
+                {
+                    "opis": "mesečna",
+                    "znesek": -25,
+                    "datum": "2022-05-03"
+                },
+                {
+                    "opis": "bankomat",
+                    "znesek": 50,
+                    "datum": "2022-05-01"
+                }
+            ]
+        },
+        {
+            "ime": "TRR",
+            "transakcije": [
+                {
+                    "opis": "štipendija",
+                    "znesek": 220,
+                    "datum": "2022-05-10"
+                },
+                {
+                    "opis": "najemnina",
+                    "znesek": -120,
+                    "datum": "2022-05-01"
+                },
+                {
+                    "opis": "bankomat",
+                    "znesek": -50,
+                    "datum": "2022-05-01"
+                }
+            ]
+        }
+    ]
+}
