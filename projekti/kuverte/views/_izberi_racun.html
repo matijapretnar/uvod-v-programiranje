@@ -1,0 +1,14 @@
+<div class="control has-icons-left">
+  <div class="select is-fullwidth is-small">
+    <select name="{{name}}">
+      % for id_racuna, racun in enumerate(proracun.racuni):
+      <option value="{{id_racuna}}">
+        {{racun.ime}}
+      </option>
+      % end
+    </select>
+  </div>
+  <span class="icon is-small is-left">
+    <i class="fas fa-piggy-bank"></i>
+  </span>
+</div>

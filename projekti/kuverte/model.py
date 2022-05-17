@@ -10,21 +10,6 @@ class Transakcija:
     znesek: float
     datum: date
 
-    def v_slovar(self):
-        return {
-            "opis": self.opis,
-            "znesek": self.znesek,
-            "datum": self.datum.isoformat(),
-        }
-
-    @classmethod
-    def iz_slovarja(cls, slovar):
-        return cls(
-            opis=slovar["opis"],
-            znesek=slovar["znesek"],
-            datum=date.fromisoformat(slovar["datum"]),
-        )
-
 
 @dataclass
 class ZbirkaTransakcij:
@@ -40,22 +25,20 @@ class ZbirkaTransakcij:
     def dodaj_transakcijo(self, transakcija):
         self.transakcije.append(transakcija)
 
-    def v_slovar(self):
-        return {
-            "ime": self.ime,
-            "transakcije": [transakcija.v_slovar() for transakcija in self.transakcije],
-        }
 
-    @classmethod
-    def iz_slovarja(cls, slovar):
-        return cls(
-            ime=slovar["ime"],
-            transakcije=[Transakcija.iz_slovarja(sl) for sl in slovar["transakcije"]],
-        )
-
-
+@dataclass
 class Kuverta(ZbirkaTransakcij):
-    pass
+    razporejeno: float = 0
+
+    @staticmethod
+    def premakni_denar(iz_kuverte, v_kuverto, znesek):
+        if iz_kuverte:
+            iz_kuverte.razporejeno -= znesek
+        if v_kuverto:
+            v_kuverto.razporejeno += znesek
+
+    def stanje(self):
+        return self.razporejeno + super().stanje()
 
 
 class Racun(ZbirkaTransakcij):
@@ -70,10 +53,52 @@ class Proracun:
     def stanje(self):
         return sum(racun.stanje() for racun in self.racuni)
 
+    def nerazporejena_sredstva(self):
+        return self.stanje() - sum(kuverta.stanje() for kuverta in self.kuverte)
+
+    def transakcije(self):
+        for id_racuna, racun in enumerate(self.racuni):
+            for transakcija in racun.transakcije:
+                transakcija.racun = racun
+                transakcija.id_racuna = id_racuna
+                transakcija.kuverta = None
+                transakcija.id_kuverte = None
+        for id_kuverte, kuverta in enumerate(self.kuverte):
+            for transakcija in kuverta.transakcije:
+                transakcija.kuverta = kuverta
+                transakcija.id_kuverte = id_kuverte
+        for racun in self.racuni:
+            yield from racun.transakcije
+
+    def dodaj_kuverto(self, ime):
+        kuverta = Kuverta(ime, [])
+        self.kuverte.append(kuverta)
+
+    def dodaj_racun(self, ime):
+        racun = Racun(ime, [])
+        self.racuni.append(racun)
+
+    def dodaj_transakcijo(self, opis, znesek, datum, racun, kuverta):
+        transakcija = Transakcija(opis, znesek, datum)
+        racun.dodaj_transakcijo(transakcija)
+        if kuverta:
+            kuverta.dodaj_transakcijo(transakcija)
+
     def v_slovar(self):
+        slovarji_transakcij = []
+        for transakcija in self.transakcije():
+            slovarji_transakcij.append({
+                "opis": transakcija.opis,
+                "znesek": transakcija.znesek,
+                "datum": transakcija.datum.isoformat(),
+                "racun": transakcija.id_racuna,
+                "kuverta": transakcija.id_kuverte
+            })
+
         return {
-            "kuverte": [kuverta.v_slovar() for kuverta in self.kuverte],
-            "racuni": [racun.v_slovar() for racun in self.racuni],
+            "kuverte": [{"ime": kuverta.ime} for kuverta in self.kuverte],
+            "racuni": [{"ime": racun.ime} for racun in self.racuni],
+            "transakcije": slovarji_transakcij
         }
 
     def v_datoteko(self, ime_datoteke):
