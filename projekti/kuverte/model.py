@@ -93,9 +93,15 @@ class Proracun:
             return cls.iz_slovarja(json.load(f))
 
 
-od_babice = Transakcija("babica za desetko pri UVP", 100, date(2022, 4, 26))
-iz_neba = Transakcija("odletelo v nebo", -10**8, date(2022, 4, 27))
+stipendija = Transakcija("štipendija", 220, date(2022, 5, 10))
+najemnina = Transakcija("najemnina", -120, date(2022, 5, 1))
+mesecna = Transakcija("mesečna", -25, date(2022, 5, 3))
+bankomat_trr = Transakcija("bankomat", -50, date(2022, 5, 1))
+bankomat_gotovina = Transakcija("bankomat", 50, date(2022, 5, 1))
 primer_proracuna = Proracun(
-    kuverte=[Kuverta("hrana", [od_babice, iz_neba])],
-    racuni=[Racun("gotovina", [od_babice]), Racun("kriptovalute", [iz_neba])],
+    kuverte=[Kuverta("stroški", [najemnina, mesecna], 150), Kuverta("zabava", [], 0)],
+    racuni=[
+        Racun("gotovina", [mesecna, bankomat_gotovina]),
+        Racun("TRR", [stipendija, najemnina, bankomat_trr]),
+    ],
 )
