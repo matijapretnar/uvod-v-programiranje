@@ -2,7 +2,8 @@ from datetime import date
 import bottle
 import model
 
-SKRIVNOST = "to je ena skrivnost"
+with open("skrivnost.txt") as f:
+    SKRIVNOST = f.read()
 proracun = model.Proracun.iz_datoteke("stanje.json")
 
 
