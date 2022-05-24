@@ -2,6 +2,7 @@ from datetime import date
 import bottle
 import model
 
+SKRIVNOST = "to je ena skrivnost"
 proracun = model.Proracun.iz_datoteke("stanje.json")
 
 
@@ -22,7 +23,7 @@ def zacetna_stran():
 
 @bottle.get("/proracun/")
 def nacrtovanje_proracuna():
-    obiskal_pomoc = bottle.request.get_cookie("obiskal-pomoc") == "da"
+    obiskal_pomoc = bottle.request.get_cookie("obiskal-pomoc", secret=SKRIVNOST) == "da"
     return bottle.template("proracun.html", proracun=proracun, obiskal_pomoc=obiskal_pomoc)
 
 
@@ -33,7 +34,7 @@ def analiza():
 
 @bottle.get("/pomoc/")
 def pomoc():
-    bottle.response.set_cookie("obiskal-pomoc", "da", path="/")
+    bottle.response.set_cookie("obiskal-pomoc", "da", path="/", secret=SKRIVNOST)
     return bottle.template("pomoc.html")
 
 
