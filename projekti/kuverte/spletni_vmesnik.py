@@ -22,7 +22,8 @@ def zacetna_stran():
 
 @bottle.get("/proracun/")
 def nacrtovanje_proracuna():
-    return bottle.template("proracun.html", proracun=proracun)
+    obiskal_pomoc = bottle.request.get_cookie("obiskal-pomoc") == "da"
+    return bottle.template("proracun.html", proracun=proracun, obiskal_pomoc=obiskal_pomoc)
 
 
 @bottle.get("/analiza/")
@@ -32,6 +33,7 @@ def analiza():
 
 @bottle.get("/pomoc/")
 def pomoc():
+    bottle.response.set_cookie("obiskal-pomoc", "da", path="/")
     return bottle.template("pomoc.html")
 
 
