@@ -87,18 +87,23 @@ class Proracun:
     def v_slovar(self):
         slovarji_transakcij = []
         for transakcija in self.transakcije():
-            slovarji_transakcij.append({
-                "opis": transakcija.opis,
-                "znesek": transakcija.znesek,
-                "datum": transakcija.datum.isoformat(),
-                "racun": transakcija.id_racuna,
-                "kuverta": transakcija.id_kuverte
-            })
+            slovarji_transakcij.append(
+                {
+                    "opis": transakcija.opis,
+                    "znesek": transakcija.znesek,
+                    "datum": transakcija.datum.isoformat(),
+                    "racun": transakcija.id_racuna,
+                    "kuverta": transakcija.id_kuverte,
+                }
+            )
 
         return {
-            "kuverte": [{"ime": kuverta.ime} for kuverta in self.kuverte],
+            "kuverte": [
+                {"ime": kuverta.ime, "razporejeno": kuverta.razporejeno}
+                for kuverta in self.kuverte
+            ],
             "racuni": [{"ime": racun.ime} for racun in self.racuni],
-            "transakcije": slovarji_transakcij
+            "transakcije": slovarji_transakcij,
         }
 
     def v_datoteko(self, ime_datoteke):
@@ -107,9 +112,22 @@ class Proracun:
 
     @classmethod
     def iz_slovarja(cls, slovar):
+        kuverte = [
+            Kuverta(sl["ime"], [], sl["razporejeno"]) for sl in slovar["kuverte"]
+        ]
+        racuni = [Racun(sl["ime"], []) for sl in slovar["racuni"]]
+        for sl in slovar["transakcije"]:
+            transakcija = Transakcija(
+                opis=sl["opis"],
+                znesek=sl["znesek"],
+                datum=date.fromisoformat(sl["datum"]),
+            )
+            if sl["kuverta"] is not None:
+                kuverte[sl["kuverta"]].dodaj_transakcijo(transakcija)
+            racuni[sl["racun"]].dodaj_transakcijo(transakcija)
         return cls(
-            kuverte=[Kuverta.iz_slovarja(sl) for sl in slovar["kuverte"]],
-            racuni=[Racun.iz_slovarja(sl) for sl in slovar["racuni"]],
+            kuverte=kuverte,
+            racuni=racuni,
         )
 
     @classmethod
