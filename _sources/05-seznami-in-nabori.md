@@ -488,7 +488,7 @@ def razlicni_pari(n):
 razlicni_pari(5)
 ```
 
-Izpeljani seznami pa niso vedno rešitev, tudi če so krajši. Na primer, če je vsaka vrednost v seznamu odvisna od prejšnjih, jih ne moremo uporabiti. Z saj je
+Izpeljani seznami pa niso vedno rešitev, tudi če so krajši. Na primer, če je vsaka vrednost v seznamu odvisna od prejšnjih, jih ne moremo uporabiti.
 
 ## Nabori
 

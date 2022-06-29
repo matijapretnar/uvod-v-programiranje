@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Nadzor različic &#8212; Uvod v programiranje</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00-uvod.html">
-   Uvod v programiranje
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-uvod.html">
+                    Uvod v programiranje
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Osnove Pythona
  </span>
@@ -169,94 +184,181 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="_sources/10-nadzor-razlicic.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/10-nadzor-razlicic.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/10-nadzor-razlicic.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/10-nadzor-razlicic.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/10-nadzor-razlicic.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/10-nadzor-razlicic.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sinhronizacija-med-repozitoriji">
    Sinhronizacija med repozitoriji
@@ -284,12 +386,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Nadzor različic</h1>
@@ -333,11 +434,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="nadzor-razlicic">
-<h1>Nadzor različic<a class="headerlink" href="#nadzor-razlicic" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="nadzor-razlicic">
+<h1>Nadzor različic<a class="headerlink" href="#nadzor-razlicic" title="Permalink to this headline">#</a></h1>
 <p>Kot smo že omenili, delo na večjih projektih poteka v več fazah, ki se med seboj izmenjujejo. Na primer, ko implementiramo vmesnik, vidimo, da nam v modelu manjka kakšna funkcionalnost. Če vsemu temu dodamo še dejstvo, da so večji programi sestavljeni iz več datotek, običajno pa na njih sodeluje več ljudi, hitro vidimo, da imamo pred seboj recept za zmedo. Velik del te zmede nam pomagajo razrešiti sistemi za nadzor različic (<em>version control system</em>), ki strukturirano beležijo spremembe v naših projektih ter nam omogočajo, da pogledamo, kdaj so se zgodile ali kdo jih je naredil, in jih po potrebi prekličemo. Uporaba sistemov za nadzor različic ni koristna le pri programiranju, temveč tudi pri pisanju (ob zaključevanju diplomskih del brez ustrezne podpore hitro nastanejo datoteke kot <code class="docutils literal notranslate"><span class="pre">diploma-koncna.tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma-koncna2.tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma</span> <span class="pre">(zadnja).tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma</span> <span class="pre">(oddana).tex</span></code>, …)</p>
 <p>Mi si bomo ogledali <a class="reference external" href="https://git-scm.com">Git</a>, ki je najbolj razširjeno sodobno orodje. “Pravi hekerji” Git uporabljajo prek ukazne vrstice, mi pa bomo raje uporabljali urejevalnik <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, ki ima dobro razvito <a class="reference external" href="https://code.visualstudio.com/docs/editor/versioncontrol#_git-support">podporo za Git</a>.</p>
 <p>Za začetek si poglejmo nekaj osnovnih izrazov, ki jih bomo uporabljali:</p>
@@ -347,15 +449,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><em>repozitorij</em> (<em>repository</em> ali <em>repo</em>) je zbirka vseh zabeleženih sprememb.</p></li>
 <li><p><em>klon</em> (<em>clone</em>) je ena izmed kopij repozitorija. Ena se običajno nahaja na javnem strežniku (ta gradiva so na primer na <a class="reference external" href="https://github.com/matijapretnar/uvod-v-programiranje">GitHubu</a>), vsak, ki dela na projektu pa ima eno kopijo še v delovnem drevesu (skrito v imeniku <code class="docutils literal notranslate"><span class="pre">.git</span></code>).</p></li>
 </ul>
-<div class="section" id="sinhronizacija-med-repozitoriji">
-<h2>Sinhronizacija med repozitoriji<a class="headerlink" href="#sinhronizacija-med-repozitoriji" title="Permalink to this headline">¶</a></h2>
+<section id="sinhronizacija-med-repozitoriji">
+<h2>Sinhronizacija med repozitoriji<a class="headerlink" href="#sinhronizacija-med-repozitoriji" title="Permalink to this headline">#</a></h2>
 <p>Na svojem računalniku repozitorij vzpostavimo na dva načina. V obstoječem imeniku nov repozitorij vzpostavimo z ukazom <code class="docutils literal notranslate"><span class="pre">Git:</span> <span class="pre">Initialize</span> <span class="pre">repository</span></code>. Tudi če repozitorija ne delimo z nikomer, je koristen, saj nam omogoča pregled zgodovine, je pa tudi v tem primeru dobro, da imamo za vsak slučaj še eno varnostno kopijo na strežniku.</p>
 <p>Če želimo imeti repozitorij tudi na strežniku, lahko nanj naložimo lokalnega. Še bolj enostavno pa je, če ga ustvarimo na strežniku in od tam kloniramo. To storimo z ukaozm <code class="docutils literal notranslate"><span class="pre">Git:</span> <span class="pre">Clone</span></code>, ki nas prosi za naslov repozitorija, na primer <code class="docutils literal notranslate"><span class="pre">git&#64;github.com:matijapretnar/uvod-v-programiranje.git</span></code>. S tem ukazu se na našem računalniku ustvari popoln klon repozitorija na strežniku.</p>
 <p>Novo spremembo ustvarimo v pogledu <code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">Control</span></code>, v katerem imamo tri dele. Pod <code class="docutils literal notranslate"><span class="pre">Changes</span></code> vidimo vse datoteke, ki so se spremenile od zadnje zabeležene spremembe. Izbrane datoteke (lahko tudi vse, ali pa samo določene vrstice v njih) lahko premaknemo pod <code class="docutils literal notranslate"><span class="pre">Staged</span> <span class="pre">Changes</span></code>, kjer pripravljamo vse, kar bo šlo v naslednjo spremembo. Na ta način lahko veliko spremembo razdelimo na več manjših, kar bo drugim (ali pa nam samim v prihodnosti) pomagalo pri lažjem razumevanju zgodovine sprememb. Ko smo pripravljeni, pod <code class="docutils literal notranslate"><span class="pre">Message</span></code> napišemo kratko sporočilo ter ustvarimo spremembo.</p>
 <p>Spremembe pošljemo na strežnik z ukazom <code class="docutils literal notranslate"><span class="pre">Git:</span> <span class="pre">Push</span></code>, s strežnika pa jih povlečemo z <code class="docutils literal notranslate"><span class="pre">Git:</span> <span class="pre">Pull</span></code>. Urejevalnik Visual Studio Code ima v statusni vrstici tudi gumb za sinhronizacijo, ki kaže število čakajočih sprememb na obeh straneh, ob kliku pa jih pošlje v ustrezno smer.</p>
-</div>
-<div class="section" id="zlivanje-sprememb-in-konflikti">
-<h2>Zlivanje sprememb in konflikti<a class="headerlink" href="#zlivanje-sprememb-in-konflikti" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="zlivanje-sprememb-in-konflikti">
+<h2>Zlivanje sprememb in konflikti<a class="headerlink" href="#zlivanje-sprememb-in-konflikti" title="Permalink to this headline">#</a></h2>
 <p>Če na repozitoriju dela več ljudi (ali pa če sami hkrati delamo na več računalnikih), se nam bo hitro zgodilo, da bo na enem klonu nastala ena sprememba, na drugem klonu pa drugačna. Git zna te spremembe pametno uskladiti. Če se zgodi, da je na strežniku kakšna sprememba, ki je v našem repozitoriju še ni, nam svojih sprememb ne bo uspelo poslati na strežnik. Najprej moramo povleči tiste, ki so na strežniku, jih zliti (<em>merge</em>) z lokalnimi, in nato vse skupaj poslati nazaj. Vse skupaj najenostavneje naredimo kar z gumbom za sinhronizacijo. Git pri tem pazi, da se nobena izmed sprememb ne izgubi. Na primer, če je nekdo popravil vrstico na enem koncu datoteke, nekdo drug pa na drugem koncu, bosta v združeni različici spremenjeni obe vrstici.</p>
 <p>Seveda pa ne bo vedno tako, saj bi lahko na obeh koncih spremenili isto vrstico. V tem primeru nastane konfklit pri zlivanju (<em>merge conflict</em>), ki ga je treba natančno pogledati in razrešiti ročno. Git take konflikte označi v datoteki sami in sicer, da na mesto konflikta vstavi posebna ločila ter vsebini obeh različic. Na primer, če bi iz vrstic</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
@@ -398,9 +500,9 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>ter zabeležimo novo spremembo. Ko to storimo, zlite spremembe pošljemo nazaj na strežnik.</p>
-</div>
-<div class="section" id="readme-md-in-gitignore">
-<h2><code class="docutils literal notranslate"><span class="pre">README.md</span></code> in <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code><a class="headerlink" href="#readme-md-in-gitignore" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="readme-md-in-gitignore">
+<h2><code class="docutils literal notranslate"><span class="pre">README.md</span></code> in <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code><a class="headerlink" href="#readme-md-in-gitignore" title="Permalink to this headline">#</a></h2>
 <p>Za vsak Git repozitorij se spodobi, da vsebuje dve datoteki. V datoteki <code class="docutils literal notranslate"><span class="pre">README.md</span></code> napišemo kratek opis repozitorija in osnovna navodila za uporabo. Datoteko pišemo v Markdownu, ki je zelo razširjen jezik za enostavno oblikovanje besedil (med drugim so v njem pisani ti zapiski). Na primer, ustrezen <code class="docutils literal notranslate"><span class="pre">README.md</span></code> je</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Uvod v programiranje
 
@@ -431,8 +533,8 @@ Zbirka gradiv za predmet Uvod v programiranje v prvih letnikih matematike, finan
 <span class="o">*.</span><span class="n">synctex</span><span class="o">.</span><span class="n">gz</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -456,9 +558,11 @@ Zbirka gradiv za predmet Uvod v programiranje v prvih letnikih matematike, finan
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="09-tekstovni-vmesnik.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -474,24 +578,28 @@ Zbirka gradiv za predmet Uvod v programiranje v prvih letnikih matematike, finan
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matija Pretnar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Matija Pretnar<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

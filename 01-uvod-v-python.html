@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Uvod v Python &#8212; Uvod v programiranje</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +63,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +86,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -88,14 +102,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00-uvod.html">
-   Uvod v programiranje
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-uvod.html">
+                    Uvod v programiranje
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Osnove Pythona
  </span>
@@ -171,94 +186,181 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="_sources/01-uvod-v-python.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/01-uvod-v-python.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/01-uvod-v-python.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/01-uvod-v-python.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/01-uvod-v-python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/01-uvod-v-python.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aritmeticni-izrazi">
    Aritmetični izrazi
@@ -313,12 +415,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Uvod v Python</h1>
@@ -389,13 +490,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="uvod-v-python">
-<h1>Uvod v Python<a class="headerlink" href="#uvod-v-python" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="aritmeticni-izrazi">
-<h2>Aritmetični izrazi<a class="headerlink" href="#aritmeticni-izrazi" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="uvod-v-python">
+<h1>Uvod v Python<a class="headerlink" href="#uvod-v-python" title="Permalink to this headline">#</a></h1>
+<section id="aritmeticni-izrazi">
+<h2>Aritmetični izrazi<a class="headerlink" href="#aritmeticni-izrazi" title="Permalink to this headline">#</a></h2>
 <p>Videli smo, da lahko v Pythonu seštevamo, seveda pa so nam voljo tudi ostale osnovne računske operacije: <code class="docutils literal notranslate"><span class="pre">-</span></code> za odštevanje, <code class="docutils literal notranslate"><span class="pre">*</span></code> za množenje in <code class="docutils literal notranslate"><span class="pre">**</span></code> za potenciranje. Za deljenje Python pozna dve operaciji: običajno deljenje <code class="docutils literal notranslate"><span class="pre">/</span></code> in pa celoštevilsko deljenje <code class="docutils literal notranslate"><span class="pre">//</span></code>, ki zavrže morebitni ostanek. Če želimo izračunati samo ostanek, uporabimo <code class="docutils literal notranslate"><span class="pre">%</span></code>. Prioriteta operatorjev je določena tako kot običajno: najtesneje veže potenciranje, nato množenje in deljenji, nazadnje pa seštevanje in odštevanje. Če želimo vrstni red spremeniti, uporabimo običajne oklepaje. Še to: da je koda bolj berljiva, damo na vsaki strani operatorja po en presledek.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -462,9 +564,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Attention</p>
 <p>Razmislite, kako bi izračunali predzadnjih sto števk števila <span class="math notranslate nohighlight">\(2^{12345}\)</span>?</p>
 </div>
-</div>
-<div class="section" id="spremenljivke">
-<h2>Spremenljivke<a class="headerlink" href="#spremenljivke" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="spremenljivke">
+<h2>Spremenljivke<a class="headerlink" href="#spremenljivke" title="Permalink to this headline">#</a></h2>
 <p>Izračunane vrednosti si lahko shranimo tudi v spremenljivke, ki jih potem uporabljamo v kasnejših izračunih. Za to uporabimo <em>prireditveni stavek</em> oblike</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ime_spremenljivke</span> <span class="o">=</span> <span class="n">vrednost_ki_jo_zelimo_shraniti</span>
 </pre></div>
@@ -570,9 +672,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>V Sloveniji bi tako moralo biti približno 2000 učiteljev matematike. Opazimo, da lahko imena spremenljivk vsebujejo več kot eno črko, česar smo navajeni v matematiki. V programiranju je zelo pomembno, da so imena čimbolj opisna, saj tako hitreje razumemo, kaj počne program.</p>
-</div>
-<div class="section" id="funkcije">
-<h2>Funkcije<a class="headerlink" href="#funkcije" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="funkcije">
+<h2>Funkcije<a class="headerlink" href="#funkcije" title="Permalink to this headline">#</a></h2>
 <p>Pod imeni pa se ne skrivajo samo števila temveč tudi funkcije. Na primer, Python poleg aritmetičnih operacij ponuja osnovne funkcije, kot na primer <code class="docutils literal notranslate"><span class="pre">max</span></code> in <code class="docutils literal notranslate"><span class="pre">min</span></code> za izračun maksimuma in minimuma. Pokličemo jih tako, da za imenom funkcije v oklepajih naštejemo argumente, ločene z vejicami:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -665,12 +767,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p>V zadnjem ukazu nismo dobili pričakovanega odgovora 0. Računalnik namreč ne dela s čisto pravimi realnimi števili, temveč z njihovimi približki, ki jim pravimo <em>števila s plavajočo vejico</em>. Za ta števila običajno najprej zapišemo decimalke (ki jim pravimo <em>mantisa</em>), nato pa še eksponent. Število, ki smo ga dobili, je tako enako približno <span class="math notranslate nohighlight">\(1{,}22 \cdot 10^{-16}\)</span>, saj <code class="docutils literal notranslate"><span class="pre">e-16</span></code> pomeni <span class="math notranslate nohighlight">\(10^{-16}\)</span>. Na primer <code class="docutils literal notranslate"><span class="pre">3.2445e2</span></code> pa označuje število <span class="math notranslate nohighlight">\(324{,}45 = 3{,}2445 \cdot 10^2\)</span>).</p>
 </div>
 <p>Obstaja tudi tretji način, ko iz knjižnice s stavkom <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">*</span></code> uvozimo vse naštete vrednosti, vendar je odsvetovan, ker potem nikoli ne vemo, kaj vse smo uvozili.</p>
-</div>
-<div class="section" id="preprecevanje-napak">
-<h2>Preprečevanje napak<a class="headerlink" href="#preprecevanje-napak" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="preprecevanje-napak">
+<h2>Preprečevanje napak<a class="headerlink" href="#preprecevanje-napak" title="Permalink to this headline">#</a></h2>
 <p>V programih lahko naredimo tri glavne vrste napak</p>
-<div class="section" id="sintakticne-napake">
-<h3>Sintaktične napake<a class="headerlink" href="#sintakticne-napake" title="Permalink to this headline">¶</a></h3>
+<section id="sintakticne-napake">
+<h3>Sintaktične napake<a class="headerlink" href="#sintakticne-napake" title="Permalink to this headline">#</a></h3>
 <p>Pri teh napakah program napišemo drugače, kot določajo pravila. Na primer, če argumente funkcije ločimo s podpičjem namesto z vejico, ali pa če narobe pišemo oklepaje:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -679,7 +781,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1723/3958682054.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1770/3958682054.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">;</span> <span class="mi">4</span><span class="p">)</span>
          <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -694,7 +796,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1723/309947572.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_1770/309947572.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
     <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
              <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -703,9 +805,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Na take napake nas Python opozori, še preden začne z izvajanjem programa, zato jih ne moremo zgrešiti.</p>
-</div>
-<div class="section" id="napake-ob-izvajanju">
-<h3>Napake ob izvajanju<a class="headerlink" href="#napake-ob-izvajanju" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="napake-ob-izvajanju">
+<h3>Napake ob izvajanju<a class="headerlink" href="#napake-ob-izvajanju" title="Permalink to this headline">#</a></h3>
 <p>Pri teh napakah program napišemo sintaktično pravilno, vendar ga Python ne zna ali ne more izvesti:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
@@ -716,7 +818,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1723</span><span class="o">/</span><span class="mf">1455669704.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1770</span><span class="o">/</span><span class="mf">1455669704.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -733,7 +835,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1723</span><span class="o">/</span><span class="mf">3879753672.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1770</span><span class="o">/</span><span class="mf">3879753672.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;mix&#39; is not defined
@@ -743,9 +845,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Opozorila o napakah si bomo še ogledali bolj podrobno, zaenkrat pa si zapomnimo le, da je ključna informacija o napaki v zadnji vrstici opozorila. V prvem primeru je bila napaka deljenje z 0, v drugem pa to, da ime <code class="docutils literal notranslate"><span class="pre">mix</span></code> ni definirano.</p>
 <p>Na precej takih napak (npr. na to, da uporabimo nedefinirano ime) nas bo opozoril že urejevalnik, lahko pa se zgodi, da se bodo pojavile šele ob izvajanju. Pri Uvodu v programiranje to običajno ne bo težava, v praksi pa zna biti precej nerodno, sploh kadar gre za kritično pomemben program (npr. za nadzor jedrskega reaktorja) ali pa kadar s tem izgubimo veliko dela (recimo, da se računalnik po 10-urnem izračunu ustavi, preden izpiše rezultat). Lahko se tudi zgodi, da do napak pride šele ob kakšnih robnih pogojih, zato jih lahko precej časa sploh ne opazimo. Vseeno pa je njihova prednost vsaj ta, da jih opazimo, kadar se zgodijo (kot bomo videli, jih lahko včasih tudi naknadno rešimo).</p>
-</div>
-<div class="section" id="vsebinske-napake">
-<h3>Vsebinske napake<a class="headerlink" href="#vsebinske-napake" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="vsebinske-napake">
+<h3>Vsebinske napake<a class="headerlink" href="#vsebinske-napake" title="Permalink to this headline">#</a></h3>
 <p>Pri vsebinskih napakah je vse videti v redu, vendar je koncu dobimo napačen odgovor, ker smo podali napačna navodila. Recimo, da želimo izračunati razdaljo med točkama (2, 3) in (5, 7):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
 </pre></div>
@@ -790,10 +892,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>a pri takem pisanju se nam bo hitro pojavila napaka.</p>
-</div>
-</div>
-<div class="section" id="definicije-funkcij">
-<h2>Definicije funkcij<a class="headerlink" href="#definicije-funkcij" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="definicije-funkcij">
+<h2>Definicije funkcij<a class="headerlink" href="#definicije-funkcij" title="Permalink to this headline">#</a></h2>
 <p>Kako bi izračunali ploščino trikotnika s stranicami dolžin 4, 13 in 15? Pomagamo si lahko s Heronovo formulo</p>
 <div class="math notranslate nohighlight">
 \[\sqrt{s (s - a) (s - b) (s - c)}\]</div>
@@ -918,7 +1020,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1723</span><span class="o">/</span><span class="mf">89980391.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1770</span><span class="o">/</span><span class="mf">89980391.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">g</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -952,7 +1054,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1723</span><span class="o">/</span><span class="mf">32546335.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1770</span><span class="o">/</span><span class="mf">32546335.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span>
 
 <span class="ne">NameError</span>: name &#39;x&#39; is not defined
@@ -969,7 +1071,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1723</span><span class="o">/</span><span class="mf">3563912222.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1770</span><span class="o">/</span><span class="mf">3563912222.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y</span>
 
 <span class="ne">NameError</span>: name &#39;y&#39; is not defined
@@ -1038,9 +1140,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="logicne-vrednosti">
-<h2>Logične vrednosti<a class="headerlink" href="#logicne-vrednosti" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="logicne-vrednosti">
+<h2>Logične vrednosti<a class="headerlink" href="#logicne-vrednosti" title="Permalink to this headline">#</a></h2>
 <p>Poleg števil Python pozna tudi logični vrednosti <code class="docutils literal notranslate"><span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">False</span></code>, ki označujeta resnico in neresnico. Logične vrednosti ponavadi dobimo kot rezultat primerjav, kot so enakost <code class="docutils literal notranslate"><span class="pre">==</span></code>, neenakost <code class="docutils literal notranslate"><span class="pre">!=</span></code> ali urejenostne relacije <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, ter prek logičnih operacij <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> in <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1219,9 +1321,9 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="k">return</span> <span class="mi">1</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="izrazi-stavki">
-<h2>Izrazi &amp; stavki<a class="headerlink" href="#izrazi-stavki" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="izrazi-stavki">
+<h2>Izrazi &amp; stavki<a class="headerlink" href="#izrazi-stavki" title="Permalink to this headline">#</a></h2>
 <p>V Pythonovih programih ločimo med <em>izrazi</em> in <em>stavki</em>. Izrazi so vse, kar sestavimo iz funkcij in operacij ter uporabljamo kot argumente funkcij, desne strani prireditvenih izrazov ali pogoje v pogojnih stavkih. Stavki pa so osnovni gradniki Pythonovih programov in jih pišemo enega pod drugim. Zaenkrat smo videli tri vrste stavkov: prva so bili prireditveni stavki, drugi pogojni stavki (ki so potem spet sestavljeni iz gnezdenih stavkov), tretja in najmanj opazna pa so bili izrazi. Običajne izraze lahko prav tako pišemo v programe, vendar ne bodo imeli posebnega učinka. Če napišemo</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="mi">10</span> <span class="o">+</span> <span class="mi">10</span>
@@ -1240,8 +1342,8 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>samo to je preveč natlačeno, da bi bilo berljivo. Pogojni stavki so torej precej omejeni, ampak vseeno jih omenjamo, ker znajo včasih kakšno stvar narediti preglednejšo.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1265,9 +1367,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="00-uvod.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1283,24 +1387,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Matija Pretnar<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Matija Pretnar<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
