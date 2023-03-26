@@ -312,4 +312,27 @@ Tudi če se odločimo, da bi zopet vklopili izpisovanje, lahko stavek `pass` pus
 
 ## Metoda Monte-Carlo
 
-TODO
+[Metoda Monte-Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method) je postopek, ki ga uporabljamo za približno izračunavanje numeričnih rezultatov s pomočjo naključnega vzorčenja. Njeni začetki segajo v 1940. leta, ko je bila uporabljena za simulacijo fizikalnih procesov v jedrskem orožju, kjer so bili natančni analitični izračuni prezapleteni. Za primer si oglejmo, kako ocenimo število $\pi$.
+
+Želimo izračunati približno vrednost števila $\pi$ z metodo Monte-Carlo. Vemo, da enotska krožnica v celoti leži v kvadratu $[-1, 1] \times [-1, 1]$. Verjetnost, da naključno izbrana točka iz tega kvadrata leži v krogu, je enaka razmerju površin:
+
+$$
+\frac{\text{površina kroga}}{\text{površina kvadrata}} = \frac{\pi}{4}
+$$
+
+Če bi torej naključno izbrali veliko število točk iz kvadrata, bi jih približno $\frac{\pi}{4}$ ležalo v krogu. Obratno lahko $\pi$ izračunamo tako, da delež točk, ki ležijo v krogu, pomnožimo s 4. Tudi če ne vemo, koliko je $\pi$, lahko enostavno izračunamo, ali točka leži v krogu ali ne. Napišimo funkcijo, ki naključno izbere `n` točk iz kvadrata, v spremenljivko `v_krogu` zabeleži število tistih, ki ležijo v krogu, ter vrne približek števila $\pi$. Pri tem bomo uporabili funkcijo `uniform(a, b)` iz knjižnice `random`, ki naključno izbere število s plavajočo vejico med `a` in `b`.
+
+```{code-cell}
+import random
+
+def oceni_pi(n):
+    v_krogu = 0
+    for i in range(1, n + 1):
+        x = random.uniform(-1, 1)
+        y = random.uniform(-1, 1)
+        if x ** 2 + y ** 2 <= 1:
+            v_krogu += 1
+        print(4 * v_krogu / i)
+    delez_v_krogu = v_krogu / n
+    return 4 * delez_v_krogu
+```
