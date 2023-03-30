@@ -398,19 +398,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># naložimo paket</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># naložimo razpredelnico, s katero bomo delali</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">filmi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/filmi.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="korenjenje-besed">
@@ -440,6 +427,42 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koreni_besed</span><span class="p">(</span><span class="s2">&quot;In 1938, after his father Professor Henry Jones, Sr. goes missing while pursuing the Holy Grail, Indiana Jones finds himself up against Adolf Hitler&#39;s Nazis again to stop them obtaining its powers.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0             $
+1         adolf
+2         after
+3         again
+4       against
+5        father
+6          find
+7             g
+8         grail
+9             h
+10        henry
+11      himself
+12       hitler
+13         holy
+14           in
+15       indian
+16           it
+17          jon
+18      missing
+19          naz
+20    obtaining
+21        power
+22    professor
+23     pursuing
+24           sr
+25         stop
+26            t
+27           th
+28         them
+29           up
+30         whil
+dtype: object
 </pre></div>
 </div>
 </div>
@@ -474,11 +497,56 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zanr
+Reality-TV    0.000100
+Film-Noir     0.005801
+Western       0.011801
+Musical       0.013501
+Sport         0.020102
+War           0.022602
+Music         0.027603
+History       0.034103
+Animation     0.047005
+Family        0.047005
+Biography     0.067107
+Sci-Fi        0.072607
+Fantasy       0.074507
+Mystery       0.103810
+Horror        0.126713
+Adventure     0.171017
+Thriller      0.171217
+Romance       0.173217
+Crime         0.206121
+Action        0.250625
+Comedy        0.366237
+Drama         0.568057
+dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <p>Verjetnosti <span class="math notranslate nohighlight">\(P(K|Ž)\)</span> bomo shranili v razpredelnico, v kateri bodo vrstice ustrezale korenom <span class="math notranslate nohighlight">\(K\)</span>, stolpci pa žanrom <span class="math notranslate nohighlight">\(Ž\)</span>. Najprej moramo poiskati vse filme, ki imajo žanr <span class="math notranslate nohighlight">\(Ž\)</span>, njihov opis pa vsebuje koren <span class="math notranslate nohighlight">\(K\)</span>. Vzemimo vse opise filmov:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">opis</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id
+4972        The Stoneman family finds its friendship with ...
+6864        The story of a poor young woman separated by p...
+9968        A frail waif, abused by her brutal boxer fathe...
+10323       Hypnotist Dr. Caligari uses a somnambulist, Ce...
+12349       The Tramp cares for an abandoned child, but ev...
+                                  ...                        
+18568902    An indian cricketer who shows persistence and ...
+18689424    Batman is manipulated by Lex Luthor to fear Su...
+18968540    Six years ago, Li Ronan was cursed after break...
+20850406    An orphan soldier, Lieutenant Ram&#39;s life chang...
+21279138    The Last Days of Ferdinand and Imelda Marcos t...
+Name: opis, Length: 9999, dtype: object
 </pre></div>
 </div>
 </div>
@@ -492,6 +560,341 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>45</th>
+      <th>46</th>
+      <th>47</th>
+      <th>48</th>
+      <th>49</th>
+      <th>50</th>
+      <th>51</th>
+      <th>52</th>
+      <th>53</th>
+      <th>54</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4972</th>
+      <td>affect</td>
+      <td>an</td>
+      <td>arm</td>
+      <td>assassination</td>
+      <td>birth</td>
+      <td>both</td>
+      <td>by</td>
+      <td>cameron</td>
+      <td>civil</td>
+      <td>development</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6864</th>
+      <td></td>
+      <td>an</td>
+      <td>baby</td>
+      <td>by</td>
+      <td>from</td>
+      <td>her</td>
+      <td>history</td>
+      <td>husban</td>
+      <td>interwoven</td>
+      <td>intoleranc</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9968</th>
+      <td></td>
+      <td>abus</td>
+      <td>befriend</td>
+      <td>boxer</td>
+      <td>brutal</td>
+      <td>by</td>
+      <td>chines</td>
+      <td>consequenc</td>
+      <td>district</td>
+      <td>father</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10323</th>
+      <td></td>
+      <td>caligar</td>
+      <td>cesar</td>
+      <td>commit</td>
+      <td>dr</td>
+      <td>hypnotist</td>
+      <td>murder</td>
+      <td>somnambulist</td>
+      <td>t</td>
+      <td>us</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12349</th>
+      <td>abandon</td>
+      <td>an</td>
+      <td>but</td>
+      <td>car</td>
+      <td>chil</td>
+      <td>event</td>
+      <td>for</td>
+      <td>in</td>
+      <td>jeopardy</td>
+      <td>put</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>18568902</th>
+      <td></td>
+      <td>achiev</td>
+      <td>ag</td>
+      <td>an</td>
+      <td>at</td>
+      <td>believ</td>
+      <td>career</td>
+      <td>chapter</td>
+      <td>cricketer</td>
+      <td>end</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>18689424</th>
+      <td></td>
+      <td>an</td>
+      <td>batman</td>
+      <td>by</td>
+      <td>clash</td>
+      <td>cris</td>
+      <td>dividing</td>
+      <td>during</td>
+      <td>existenc</td>
+      <td>fear</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>18968540</th>
+      <td></td>
+      <td>action</td>
+      <td>after</td>
+      <td>ag</td>
+      <td>breaking</td>
+      <td>consequenc</td>
+      <td>curs</td>
+      <td>daughter</td>
+      <td>from</td>
+      <td>her</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>20850406</th>
+      <td></td>
+      <td>after</td>
+      <td>an</td>
+      <td>back</td>
+      <td>between</td>
+      <td>blossom</td>
+      <td>camp</td>
+      <td>caught</td>
+      <td>chang</td>
+      <td>com</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>21279138</th>
+      <td>$</td>
+      <td>an</td>
+      <td>day</td>
+      <td>dynasty</td>
+      <td>ferdinan</td>
+      <td>hour</td>
+      <td>imeld</td>
+      <td>last</td>
+      <td>marc</td>
+      <td>of</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>9999 rows × 55 columns</p>
+</div></div></div>
 </div>
 <p>Po nekaj <a class="reference external" href="https://stackoverflow.com/questions/30885005/pandas-series-of-lists-to-one-series">iskanja po internetu</a> in masiranja pridemo do iskane razpredelnice:</p>
 <div class="cell docutils container">
@@ -509,6 +912,89 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>film</th>
+      <th>koren</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4972</td>
+      <td>affect</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4972</td>
+      <td>an</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4972</td>
+      <td>arm</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4972</td>
+      <td>assassination</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4972</td>
+      <td>birth</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>21279138</td>
+      <td>of</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>21279138</td>
+      <td>story</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>21279138</td>
+      <td>tell</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>21279138</td>
+      <td>th</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>21279138</td>
+      <td>untol</td>
+    </tr>
+  </tbody>
+</table>
+<p>227443 rows × 2 columns</p>
+</div></div></div>
 </div>
 <p>Razpredelnico združimo z razpredelnico žanrov, da dobimo razpredelnico korenov žanrov.</p>
 <div class="cell docutils container">
@@ -521,6 +1007,89 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>koren</th>
+      <th>zanr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>affect</td>
+      <td>Drama</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>affect</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>affect</td>
+      <td>War</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>an</td>
+      <td>Drama</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>an</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>588190</th>
+      <td>of</td>
+      <td>Drama</td>
+    </tr>
+    <tr>
+      <th>588191</th>
+      <td>story</td>
+      <td>Drama</td>
+    </tr>
+    <tr>
+      <th>588192</th>
+      <td>tell</td>
+      <td>Drama</td>
+    </tr>
+    <tr>
+      <th>588193</th>
+      <td>th</td>
+      <td>Drama</td>
+    </tr>
+    <tr>
+      <th>588194</th>
+      <td>untol</td>
+      <td>Drama</td>
+    </tr>
+  </tbody>
+</table>
+<p>588195 rows × 2 columns</p>
+</div></div></div>
 </div>
 <p>S pomočjo funkcije <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> preštejemo, kolikokrat se vsaka kombinacija pojavi.</p>
 <div class="cell docutils container">
@@ -530,6 +1099,341 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>zanr</th>
+      <th>Action</th>
+      <th>Adventure</th>
+      <th>Animation</th>
+      <th>Biography</th>
+      <th>Comedy</th>
+      <th>Crime</th>
+      <th>Drama</th>
+      <th>Family</th>
+      <th>Fantasy</th>
+      <th>Film-Noir</th>
+      <th>...</th>
+      <th>Music</th>
+      <th>Musical</th>
+      <th>Mystery</th>
+      <th>Reality-TV</th>
+      <th>Romance</th>
+      <th>Sci-Fi</th>
+      <th>Sport</th>
+      <th>Thriller</th>
+      <th>War</th>
+      <th>Western</th>
+    </tr>
+    <tr>
+      <th>koren</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <td>2270</td>
+      <td>1510</td>
+      <td>412</td>
+      <td>530</td>
+      <td>3239</td>
+      <td>1888</td>
+      <td>5086</td>
+      <td>400</td>
+      <td>669</td>
+      <td>55</td>
+      <td>...</td>
+      <td>242</td>
+      <td>117</td>
+      <td>982</td>
+      <td>1</td>
+      <td>1536</td>
+      <td>669</td>
+      <td>170</td>
+      <td>1612</td>
+      <td>204</td>
+      <td>102</td>
+    </tr>
+    <tr>
+      <th>$</th>
+      <td>233</td>
+      <td>144</td>
+      <td>27</td>
+      <td>159</td>
+      <td>326</td>
+      <td>184</td>
+      <td>676</td>
+      <td>38</td>
+      <td>56</td>
+      <td>2</td>
+      <td>...</td>
+      <td>26</td>
+      <td>10</td>
+      <td>89</td>
+      <td>1</td>
+      <td>161</td>
+      <td>85</td>
+      <td>29</td>
+      <td>155</td>
+      <td>46</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>aang</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>aaron</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>aart</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>ángel</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>æon</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>çanakkal</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>édith</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>émilien</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>15528 rows × 22 columns</p>
+</div></div></div>
 </div>
 <p>Iskane verjetnosti sedaj dobimo tako, da vsak stolpec delimo s številom filmov danega žanra. Da ne bomo dobili ničelne verjetnosti pri korenih, ki se v našem vzorcu ne pojavijo, verjetnost malenkost povečamo.</p>
 <div class="cell docutils container">
@@ -546,6 +1450,32 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>koren
+          0.917060
+th        0.664270
+an        0.639525
+t         0.599253
+of        0.534721
+h         0.463882
+in        0.419244
+on        0.245056
+with      0.230015
+for       0.184891
+wh        0.177128
+by        0.152868
+when      0.146560
+from      0.132490
+after     0.129093
+their     0.122786
+murder    0.116963
+her       0.115508
+that      0.103863
+him       0.094644
+Name: Crime, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -553,10 +1483,62 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>koren
+         0.887836
+an       0.645919
+th       0.633217
+t        0.574903
+of       0.466935
+in       0.452501
+h        0.434025
+with     0.326058
+her      0.279291
+on       0.223864
+for      0.212894
+lov      0.210007
+wh       0.164972
+their    0.157467
+young    0.156889
+woman    0.153425
+when     0.141300
+lif      0.134372
+that     0.133794
+man      0.126866
+Name: Romance, dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verjetnosti_korenov_po_zanrih</span><span class="p">[</span><span class="s1">&#39;Sci-Fi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>koren
+         0.922488
+th       0.707612
+an       0.662157
+t        0.642873
+of       0.550587
+in       0.434884
+h        0.356372
+on       0.264085
+with     0.215876
+for      0.170421
+from     0.169044
+that     0.164912
+by       0.160780
+their    0.134609
+after    0.134609
+earth    0.124967
+when     0.123590
+$        0.118080
+int      0.116702
+wh       0.113948
+Name: Sci-Fi, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -582,10 +1564,32 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zanr
+Sci-Fi       1.000000
+Adventure    0.990078
+Action       0.454610
+Animation    0.335296
+Horror       0.122791
+dtype: float64
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doloci_zanre</span><span class="p">(</span><span class="s1">&#39;A story about a young mathematician, who discovers her artistic side&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zanr
+Drama        1.000000
+Biography    0.824923
+Romance      0.375775
+Musical      0.118636
+Comedy       0.099659
+dtype: float64
 </pre></div>
 </div>
 </div>
