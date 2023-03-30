@@ -8,12 +8,16 @@ parts:
   - file: 03-nizi
   - file: 04-zanke
   - file: 05-seznami-in-nabori
-  - file: 06-slovarji-in-mnozice
-  - file: 07-razredi
-  - file: 08-datoteke
+  - file: 07-slovarji-in-mnozice
+  - file: 08-razredi
+  - file: 09-datoteke
 - caption: "Pisanje ve\u010Djih programov"
   chapters:
-  - file: 09-tekstovni-vmesnik
   - file: 10-nadzor-razlicic
-  - file: 11-spletni-vmesnik
-  - file: 12-spletna-storitev
+- caption: Analiza podatkov
+  chapters:
+  - file: 11-regularni-izrazi.md
+  - file: 12-zajem-podatkov.md
+  - file: 13-knjiznica-pandas.md
+  - file: 14-naivni-bayesov-klasifikator.md
+  
