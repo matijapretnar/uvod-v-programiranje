@@ -21,7 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install jupyter-book jupytext pydata-sphinx-theme==0.13.1
+        pip install jupyter-book jupytext pydata-sphinx-theme==0.13.1 matplotlib pandas
 
     # Build the book
     - name: Build the book
