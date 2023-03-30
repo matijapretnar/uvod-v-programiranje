@@ -415,10 +415,15 @@ sez.sort()
 sez
 ```
 
+Metoda spremeni obstoječi seznam. Če želimo namesto tega dobiti nov, urejen seznam, pa lahko pokličemo funkcijo `sorted`, ki svojega argumenta ne spremeni:
+
 ```{code-cell}
 sez = [4, 1, 8, 2, 16]
 sorted(sez)
-[1, 2, 4, 8, 16]
+```
+
+```{code-cell}
+sez
 ```
 
 - `sez.reverse()` obrne seznam `sez` na glavo.
@@ -429,11 +434,14 @@ sez.reverse()
 sez
 ```
 
-TODO: primerjava z rezinami
+Tudi tu lahko s pomočjo rezin ustvarimo nov seznam, ki je obrnjen na glavo, starega pa pustimo pri miru::
 
 ```{code-cell}
 sez = [1, 2, 4, 8, 16]
 sez[::-1]
+```
+
+```{code-cell}
 sez
 ```
 
