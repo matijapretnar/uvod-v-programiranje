@@ -61,10 +61,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '06-slovarji-in-mnozice';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07-slovarji-in-mnozice';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Razredi" href="07-razredi.html" />
+    <link rel="next" title="Razredi" href="08-razredi.html" />
     <link rel="prev" title="Seznami &amp; nabori" href="05-seznami-in-nabori.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -158,15 +158,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="04-zanke.html">Zanke</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-seznami-in-nabori.html">Seznami &amp; nabori</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Slovarji &amp; množice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07-razredi.html">Razredi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="08-datoteke.html">Datoteke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-razredi.html">Razredi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-datoteke.html">Datoteke</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pisanje večjih programov</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09-tekstovni-vmesnik.html">Tekstovni vmesnik</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-nadzor-razlicic.html">Nadzor različic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="11-spletni-vmesnik.html">Spletni vmesnik</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12-spletna-storitev.html">Spletna storitev</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza podatkov</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11-regularni-izrazi.html">Regularni izrazi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-zajem-podatkov.html">Zajem podatkov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-knjiznica-pandas.html">Knjižnica Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-naivni-bayesov-klasifikator.html">Naivni Bayesov klasifikator</a></li>
 </ul>
 
     </div>
@@ -221,7 +225,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/06-slovarji-in-mnozice.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/07-slovarji-in-mnozice.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -252,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/06-slovarji-in-mnozice.ipynb" target="_blank"
+      <li><a href="_sources/07-slovarji-in-mnozice.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Download notebook file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -269,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/06-slovarji-in-mnozice.md" target="_blank"
+      <li><a href="_sources/07-slovarji-in-mnozice.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -1035,9 +1039,9 @@ c -&gt; 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c
+a
 b
-c
 </pre></div>
 </div>
 </div>
@@ -1454,7 +1458,7 @@ c
       </div>
     </a>
     <a class="right-next"
-       href="07-razredi.html"
+       href="08-razredi.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>

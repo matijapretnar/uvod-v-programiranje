@@ -1,0 +1,871 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Knjižnica Pandas &#8212; Uvod v programiranje</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '13-knjiznica-pandas';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Naivni Bayesov klasifikator" href="14-naivni-bayesov-klasifikator.html" />
+    <link rel="prev" title="Zajem podatkov" href="12-zajem-podatkov.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-uvod.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Uvod v programiranje</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-uvod.html">
+                    Uvod v programiranje
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Osnove Pythona</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-uvod-v-python.html">Uvod v Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-rekurzija.html">Rekurzija</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-nizi.html">Nizi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-zanke.html">Zanke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-seznami-in-nabori.html">Seznami &amp; nabori</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-slovarji-in-mnozice.html">Slovarji &amp; množice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-razredi.html">Razredi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-datoteke.html">Datoteke</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pisanje večjih programov</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10-nadzor-razlicic.html">Nadzor različic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza podatkov</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11-regularni-izrazi.html">Regularni izrazi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-zajem-podatkov.html">Zajem podatkov</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Knjižnica Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-naivni-bayesov-klasifikator.html">Naivni Bayesov klasifikator</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/13-knjiznica-pandas.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/13-knjiznica-pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="_sources/13-knjiznica-pandas.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Knjižnica Pandas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predpriprava">Predpriprava</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osnovni-izbori-elementov-razpredelnic">Osnovni izbori elementov razpredelnic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtriranje">Filtriranje</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naloga">Naloga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urejanje">Urejanje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zdruzevanje">Združevanje</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Naloga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risanje-grafov">Risanje grafov</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Naloga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stikanje">Stikanje</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Naloga</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="knjiznica-pandas">
+<h1>Knjižnica Pandas<a class="headerlink" href="#knjiznica-pandas" title="Permalink to this heading">#</a></h1>
+<p>Spodaj je pregled najosnovnejših metod, ki jih ponuja knjižnica Pandas. Vsaka od naštetih metod ponuja še cel kup dodatnih možnosti, ki so natančno opisane v <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/">uradni dokumentaciji</a>. Z branjem dokumentacije se vam seveda najbolj splača začeti pri <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/tutorials.html">uvodih</a>.</p>
+<section id="predpriprava">
+<h2>Predpriprava<a class="headerlink" href="#predpriprava" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># naložimo paket</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># naložimo razpredelnico, s katero bomo delali</span>
+<span class="n">filmi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/filmi.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+
+<span class="c1"># ker bomo delali z velikimi razpredelnicami, povemo, da naj se vedno izpiše le 20 vrstic</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># naložimo paket</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># naložimo razpredelnico, s katero bomo delali</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">filmi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/filmi.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="osnovni-izbori-elementov-razpredelnic">
+<h2>Osnovni izbori elementov razpredelnic<a class="headerlink" href="#osnovni-izbori-elementov-razpredelnic" title="Permalink to this heading">#</a></h2>
+<p>Z metodo <code class="docutils literal notranslate"><span class="pre">.head(n=5)</span></code> pogledamo prvih <code class="docutils literal notranslate"><span class="pre">n</span></code>, z metodo <code class="docutils literal notranslate"><span class="pre">.tail(n=5)</span></code> pa zadnjih <code class="docutils literal notranslate"><span class="pre">n</span></code> vrstic razpredelnice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Z rezinami pa dostopamo do izbranih vrstic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Z indeksiranjem razpredelnice dostopamo do posameznih stolpcev.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="p">[</span><span class="s1">&#39;ocena&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do stolpcev pogosto dostopamo, zato lahko uporabimo tudi krajši zapis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">ocena</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če želimo več stolpcev, moramo za indeks podati seznam vseh oznak.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="p">[[</span><span class="s1">&#39;naslov&#39;</span><span class="p">,</span> <span class="s1">&#39;ocena&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Do vrednosti z indeksom <code class="docutils literal notranslate"><span class="pre">i</span></code> dostopamo z <code class="docutils literal notranslate"><span class="pre">.iloc[i]</span></code>, do tiste s ključem <code class="docutils literal notranslate"><span class="pre">k</span></code> pa z <code class="docutils literal notranslate"><span class="pre">.loc[k]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">120</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">97576</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filtriranje">
+<h2>Filtriranje<a class="headerlink" href="#filtriranje" title="Permalink to this heading">#</a></h2>
+<p>Izbor določenih vrstic razpredelnice naredimo tako, da za indeks podamo stolpec logičnih vrednosti, ki ga dobimo z običajnimi operacijami. V vrnjeni razpredelnici bodo ostale vrstice, pri katerih je v stolpcu vrednost <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">ocena</span> <span class="o">&gt;=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="p">[</span><span class="n">filmi</span><span class="o">.</span><span class="n">ocena</span> <span class="o">&gt;=</span> <span class="mf">9.3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="p">[(</span><span class="n">filmi</span><span class="o">.</span><span class="n">leto</span> <span class="o">&gt;</span> <span class="mi">2010</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">filmi</span><span class="o">.</span><span class="n">ocena</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">filmi</span><span class="o">.</span><span class="n">ocena</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="naloga">
+<h3>Naloga<a class="headerlink" href="#naloga" title="Permalink to this heading">#</a></h3>
+<p>Poiščite filme, ki si jih želimo izogniti za vsako ceno, torej tiste, ki so daljši od dveh ur in imajo oceno pod 4.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="p">[(</span><span class="n">filmi</span><span class="o">.</span><span class="n">dolzina</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">filmi</span><span class="o">.</span><span class="n">ocena</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">filmi</span><span class="o">.</span><span class="n">glasovi</span> <span class="o">&gt;</span> <span class="mi">50000</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="urejanje">
+<h2>Urejanje<a class="headerlink" href="#urejanje" title="Permalink to this heading">#</a></h2>
+<p>Razpredelnico urejamo z metodo <code class="docutils literal notranslate"><span class="pre">.sort_values</span></code>, ki ji podamo ime ali seznam imen stolpcev, po katerih želimo urejati. Po želji lahko tudi povemo, kateri stolpci naj bodo urejeni naraščajoče in kateri padajoče.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;dolzina&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># najprej uredi padajoče po oceni, pri vsaki oceni pa še naraščajoče po letu</span>
+<span class="n">filmi</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;ocena&#39;</span><span class="p">,</span> <span class="s1">&#39;leto&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="zdruzevanje">
+<h2>Združevanje<a class="headerlink" href="#zdruzevanje" title="Permalink to this heading">#</a></h2>
+<p>Z metodo <code class="docutils literal notranslate"><span class="pre">.groupby</span></code> ustvarimo razpredelnico posebne vrste, v katerem so vrstice združene glede na skupno lastnost.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi_po_letih</span> <span class="o">=</span> <span class="n">filmi</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;leto&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi_po_letih</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># povprečna ocena vsakega leta</span>
+<span class="n">filmi_po_letih</span><span class="o">.</span><span class="n">ocena</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če želimo, lahko združujemo tudi po izračunanih lastnostih. Izračunajmo stolpec in ga shranimo v razpredelnico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="p">[</span><span class="s1">&#39;desetletje&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="p">(</span><span class="n">filmi</span><span class="o">.</span><span class="n">leto</span> <span class="o">//</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi_po_desetletjih</span> <span class="o">=</span> <span class="n">filmi</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;desetletje&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Preštejemo, koliko filmov je bilo v vsakem desetletju. Pri večini stolpcev dobimo iste številke, ker imamo v vsakem stolpcu enako vnosov. Če kje kakšen podatek manjkal, je številka manjša.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi_po_desetletjih</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Če želimo dobiti le število članov posamezne skupine, uporabimo metodo <code class="docutils literal notranslate"><span class="pre">.size()</span></code>. V tem primeru dobimo le stolpec, ne razpredelnice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi_po_desetletjih</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pogledamo povprečja vsakega desetletja. Dobimo povprečno leto, dolžino, ocene in zaslužek. Povprečnega naslova ne dobimo, ker se ga ne da izračunati, zato ustreznega stolpca ni.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi_po_desetletjih</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Naloga<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Izračunajte število filmov posamezne dolžine, zaokrožene na 5 minut.</p>
+</section>
+</section>
+<section id="risanje-grafov">
+<h2>Risanje grafov<a class="headerlink" href="#risanje-grafov" title="Permalink to this heading">#</a></h2>
+<p>Običajen graf dobimo z metodo <code class="docutils literal notranslate"><span class="pre">plot</span></code>. Uporabljamo ga, kadar želimo prikazati spreminjanje vrednosti v odvisnosti od zvezne spremenljivke. Naša hipoteza je, da so zlata leta filma mimo. Graf to zanika.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="p">[</span><span class="n">filmi</span><span class="o">.</span><span class="n">ocena</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;desetletje&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Razsevni diagram dobimo z metodo <code class="docutils literal notranslate"><span class="pre">plot.scatter</span></code>. Uporabljamo ga, če želimo ugotoviti povezavo med dvema spremenljivkama.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;ocena&#39;</span><span class="p">,</span> <span class="s1">&#39;metascore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="p">[</span><span class="n">filmi</span><span class="o">.</span><span class="n">dolzina</span> <span class="o">&lt;</span> <span class="mi">250</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;dolzina&#39;</span><span class="p">,</span> <span class="s1">&#39;ocena&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Stolpčni diagram dobimo z metodo <code class="docutils literal notranslate"><span class="pre">plot.bar</span></code>. Uporabljamo ga, če želimo primerjati vrednosti pri diskretnih (običajno kategoričnih) spremenljivkah. Pogosto je koristno, da graf uredimo po vrednostih.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;zasluzek&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;naslov&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;zasluzek&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h3>Naloga<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Narišite grafe, ki ustrezno kažejo:</p>
+<ul class="simple">
+<li><p>Povezavo med IMDB in metascore oceno</p></li>
+<li><p>Spreminjanje povprečne dolžine filmov skozi leta</p></li>
+</ul>
+</section>
+</section>
+<section id="stikanje">
+<h2>Stikanje<a class="headerlink" href="#stikanje" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">osebe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/osebe.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="n">vloge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/vloge.csv&#39;</span><span class="p">)</span>
+<span class="n">zanri</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/zanri.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Razpredelnice stikamo s funkcijo <code class="docutils literal notranslate"><span class="pre">merge</span></code>, ki vrne razpredelnico vnosov iz obeh tabel, pri katerih se vsi istoimenski podatki ujemajo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vloge</span><span class="p">[</span><span class="n">vloge</span><span class="o">.</span><span class="n">film</span> <span class="o">==</span> <span class="mi">12349</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zanri</span><span class="p">[</span><span class="n">zanri</span><span class="o">.</span><span class="n">film</span> <span class="o">==</span> <span class="mi">12349</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">vloge</span><span class="p">,</span> <span class="n">zanri</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>V osnovi vsebuje staknjena razpredelnica le tiste vnose, ki se pojavijo v obeh tabelah. Temu principu pravimo notranji stik (<em>inner join</em>). Lahko pa se odločimo, da izberemo tudi tiste vnose, ki imajo podatke le v levi tabeli (<em>left join</em>), le v desni tabeli (<em>right join</em>) ali v vsaj eni tabeli (<em>outer join</em>). Če v eni tabeli ni vnosov, bodo v staknjeni tabeli označene manjkajoče vrednosti. Ker smo v našem primeru podatke jemali iz IMDBja, kjer so za vsak film določeni tako žanri kot vloge, do razlik ne pride.</p>
+<p>Včasih želimo stikati tudi po stolpcih z različnimi imeni. V tem primeru funkciji <code class="docutils literal notranslate"><span class="pre">merge</span></code> podamo argumenta <code class="docutils literal notranslate"><span class="pre">left_on</span></code> in <code class="docutils literal notranslate"><span class="pre">right_on</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">vloge</span><span class="p">,</span> <span class="n">zanri</span><span class="p">),</span> <span class="n">osebe</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;oseba&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Poglejmo, katera osebe so nastopale v največ komedijah.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zanri_oseb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">vloge</span><span class="p">,</span> <span class="n">zanri</span><span class="p">),</span> <span class="n">osebe</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;oseba&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="n">zanri_oseb</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">zanri_oseb</span><span class="o">.</span><span class="n">zanr</span> <span class="o">==</span> <span class="s1">&#39;Comedy&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">zanri_oseb</span><span class="o">.</span><span class="n">vloga</span> <span class="o">==</span> <span class="s1">&#39;I&#39;</span><span class="p">)</span>
+<span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+    <span class="s1">&#39;ime&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">(</span>
+<span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id3">
+<h3>Naloga<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Izračunajte povprečno oceno vsakega žanra.</p></li>
+<li><p>Kateri režiserji snemajo najdonosnejše filme?</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="12-zajem-podatkov.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Zajem podatkov</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="14-naivni-bayesov-klasifikator.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Naivni Bayesov klasifikator</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predpriprava">Predpriprava</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osnovni-izbori-elementov-razpredelnic">Osnovni izbori elementov razpredelnic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtriranje">Filtriranje</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naloga">Naloga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urejanje">Urejanje</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zdruzevanje">Združevanje</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Naloga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risanje-grafov">Risanje grafov</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Naloga</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stikanje">Stikanje</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Naloga</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Matija Pretnar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

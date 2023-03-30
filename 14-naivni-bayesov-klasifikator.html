@@ -1,0 +1,704 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Naivni Bayesov klasifikator &#8212; Uvod v programiranje</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '14-naivni-bayesov-klasifikator';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Knjižnica Pandas" href="13-knjiznica-pandas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-uvod.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Uvod v programiranje</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-uvod.html">
+                    Uvod v programiranje
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Osnove Pythona</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-uvod-v-python.html">Uvod v Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-rekurzija.html">Rekurzija</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-nizi.html">Nizi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-zanke.html">Zanke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-seznami-in-nabori.html">Seznami &amp; nabori</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-slovarji-in-mnozice.html">Slovarji &amp; množice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-razredi.html">Razredi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-datoteke.html">Datoteke</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pisanje večjih programov</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10-nadzor-razlicic.html">Nadzor različic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza podatkov</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11-regularni-izrazi.html">Regularni izrazi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-zajem-podatkov.html">Zajem podatkov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-knjiznica-pandas.html">Knjižnica Pandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Naivni Bayesov klasifikator</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/14-naivni-bayesov-klasifikator.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/14-naivni-bayesov-klasifikator.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="_sources/14-naivni-bayesov-klasifikator.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Naivni Bayesov klasifikator</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predpriprava">Predpriprava</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korenjenje-besed">Korenjenje besed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesov-izrek">Bayesov izrek</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="naivni-bayesov-klasifikator">
+<h1>Naivni Bayesov klasifikator<a class="headerlink" href="#naivni-bayesov-klasifikator" title="Permalink to this heading">#</a></h1>
+<p>Zanima nas, ali lahko iz opisa filma napovemo njegove žanre. Gre za <em>klasifikacijski problem</em>, saj želimo filme klasificirati v žanre, naša naloga pa je napisati ustrezen program, ki mu pravimo <em>klasifikator</em>.</p>
+<section id="predpriprava">
+<h2>Predpriprava<a class="headerlink" href="#predpriprava" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># naložimo paket</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># naložimo razpredelnico, s katero bomo delali</span>
+<span class="n">filmi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/filmi.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="n">osebe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/osebe.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="n">vloge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/vloge.csv&#39;</span><span class="p">)</span>
+<span class="n">zanri</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/zanri.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># naložimo paket</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># naložimo razpredelnico, s katero bomo delali</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">filmi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;podatki/filmi.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="korenjenje-besed">
+<h2>Korenjenje besed<a class="headerlink" href="#korenjenje-besed" title="Permalink to this heading">#</a></h2>
+<p>Da zadevo naredimo bolj obvladljivo, bomo opis predstavili le z množico korenov besed, ki se v opisu pojavljajo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">koren_besede</span><span class="p">(</span><span class="n">beseda</span><span class="p">):</span>
+    <span class="n">beseda</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">znak</span> <span class="k">for</span> <span class="n">znak</span> <span class="ow">in</span> <span class="n">beseda</span> <span class="k">if</span> <span class="n">znak</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">beseda</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;$&#39;</span>
+    <span class="n">konec</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">beseda</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">beseda</span><span class="p">[</span><span class="n">konec</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39;ds&#39;</span><span class="p">:</span>
+        <span class="n">konec</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">konec</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">beseda</span><span class="p">[</span><span class="n">konec</span><span class="p">]</span> <span class="ow">in</span> <span class="s1">&#39;aeiou&#39;</span><span class="p">:</span>
+        <span class="n">konec</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">beseda</span><span class="p">[:</span><span class="n">konec</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">koreni_besed</span><span class="p">(</span><span class="n">niz</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">sorted</span><span class="p">({</span>
+        <span class="n">koren_besede</span><span class="p">(</span><span class="n">beseda</span><span class="p">)</span> <span class="k">for</span> <span class="n">beseda</span> <span class="ow">in</span> <span class="n">niz</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">beseda</span>
+    <span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koreni_besed</span><span class="p">(</span><span class="s2">&quot;In 1938, after his father Professor Henry Jones, Sr. goes missing while pursuing the Holy Grail, Indiana Jones finds himself up against Adolf Hitler&#39;s Nazis again to stop them obtaining its powers.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bayesov-izrek">
+<h2>Bayesov izrek<a class="headerlink" href="#bayesov-izrek" title="Permalink to this heading">#</a></h2>
+<p>Zanimala nas bo torej verjetnost, da ima film žanr <span class="math notranslate nohighlight">\(Ž_i\)</span> ob pogoju, da njegov opis vsebuje korene <span class="math notranslate nohighlight">\(K_1, \ldots, K_m\)</span>, torej</p>
+<div class="math notranslate nohighlight">
+\[P(Ž_i | K_1 \cap \cdots \cap K_n)\]</div>
+<p>Pri tem se bomo poslužili Bayesovega izreka</p>
+<div class="math notranslate nohighlight">
+\[P(A | B) = \frac{P(A \cap B)}{P(B)} = \frac{P(B | A) \cdot P(A)}{P(B)}\]</div>
+<p>zaradi česar našemu klasifikatorju pravimo <em>Bayesov klasifikator</em>. Velja</p>
+<div class="math notranslate nohighlight">
+\[P(Ž_i | K_1 \cap \cdots \cap K_n) = \frac{P(K_1 \cap \cdots \cap K_n | Ž_i) \cdot P(Ž_i)}{P(K_1 \cap \cdots \cap K_n)}\]</div>
+<p>Nadalje si nalogo poenostavimo s predpostavko, da so pojavitve besed med seboj neodvisne. To sicer ni res, na primer ob besedi <em>treasure</em> se bolj pogosto pojavlja beseda <em>hidden</em> kot na primer <em>boring</em>, zato pravimo, da je klasifikator <em>naiven</em>. Ob tej predpostavki velja:</p>
+<div class="math notranslate nohighlight">
+\[P(K_1 \cap \cdots \cap K_n | Ž_i) = P(K_1 | Ž_i) \cdot \cdots \cdot P(K_n | Ž_i)\]</div>
+<p>oziroma</p>
+<div class="math notranslate nohighlight">
+\[P(Ž_i | K_1 \cap \cdots \cap K_n) = \frac{P(K_1 | Ž_i) \cdot \cdots \cdot P(K_n | Ž_i) \cdot P(Ž_i)}{P(K_1 \cap \cdots \cap K_n)}\]</div>
+<p>Filmu, katerega opis vsebuje korene <span class="math notranslate nohighlight">\(K_1, \dots, K_n\)</span> bomo priredili tiste žanre <span class="math notranslate nohighlight">\(Ž_i\)</span>, pri katerih je dana verjetnost največja. Ker imenovalec ni odvisen od žanra, moramo torej za vsak <span class="math notranslate nohighlight">\(Ž_i\)</span> izračunati le števec:</p>
+<div class="math notranslate nohighlight">
+\[P(K_1 | Ž_i) \cdot \cdots \cdot P(K_n | Ž_i) \cdot P(Ž_i)\]</div>
+<p>Vse te podatke znamo izračunati, zato se lahko lotimo dela.</p>
+<p>Verjetnost posameznega žanra <span class="math notranslate nohighlight">\(P(Ž)\)</span> izračunamo brez večjih težav:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verjetnosti_zanrov</span> <span class="o">=</span> <span class="n">zanri</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;zanr&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">filmi</span><span class="p">)</span>
+<span class="n">verjetnosti_zanrov</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Verjetnosti <span class="math notranslate nohighlight">\(P(K|Ž)\)</span> bomo shranili v razpredelnico, v kateri bodo vrstice ustrezale korenom <span class="math notranslate nohighlight">\(K\)</span>, stolpci pa žanrom <span class="math notranslate nohighlight">\(Ž\)</span>. Najprej moramo poiskati vse filme, ki imajo žanr <span class="math notranslate nohighlight">\(Ž\)</span>, njihov opis pa vsebuje koren <span class="math notranslate nohighlight">\(K\)</span>. Vzemimo vse opise filmov:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">opis</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To vrsto nizov pretvorimo v vrsto množic besed. Uporabimo metodo <code class="docutils literal notranslate"><span class="pre">apply</span></code>, ki dano funkcijo uporabi na vsakem vnosu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filmi</span><span class="o">.</span><span class="n">opis</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">koreni_besed</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Po nekaj <a class="reference external" href="https://stackoverflow.com/questions/30885005/pandas-series-of-lists-to-one-series">iskanja po internetu</a> in masiranja pridemo do iskane razpredelnice:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koreni_filmov</span> <span class="o">=</span> <span class="n">filmi</span><span class="o">.</span><span class="n">opis</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">koreni_besed</span>
+<span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+<span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="s1">&#39;id&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;film&#39;</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;koren&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="n">koreni_filmov</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Razpredelnico združimo z razpredelnico žanrov, da dobimo razpredelnico korenov žanrov.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koreni_zanrov</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">koreni_filmov</span><span class="p">,</span>
+    <span class="n">zanri</span>
+<span class="p">)[[</span><span class="s1">&#39;koren&#39;</span><span class="p">,</span> <span class="s1">&#39;zanr&#39;</span><span class="p">]]</span>
+<span class="n">koreni_zanrov</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>S pomočjo funkcije <code class="docutils literal notranslate"><span class="pre">crosstab</span></code> preštejemo, kolikokrat se vsaka kombinacija pojavi.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pojavitve_korenov_po_zanrih</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">koreni_zanrov</span><span class="o">.</span><span class="n">koren</span><span class="p">,</span> <span class="n">koreni_zanrov</span><span class="o">.</span><span class="n">zanr</span><span class="p">)</span>
+<span class="n">pojavitve_korenov_po_zanrih</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Iskane verjetnosti sedaj dobimo tako, da vsak stolpec delimo s številom filmov danega žanra. Da ne bomo dobili ničelne verjetnosti pri korenih, ki se v našem vzorcu ne pojavijo, verjetnost malenkost povečamo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verjetnosti_korenov_po_zanrih</span> <span class="o">=</span> <span class="n">pojavitve_korenov_po_zanrih</span> <span class="o">/</span> <span class="n">zanri</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;zanr&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.001</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Poglejmo, kaj so najpogostejši koreni pri nekaj žanrih:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verjetnosti_korenov_po_zanrih</span><span class="o">.</span><span class="n">Crime</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verjetnosti_korenov_po_zanrih</span><span class="o">.</span><span class="n">Romance</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">verjetnosti_korenov_po_zanrih</span><span class="p">[</span><span class="s1">&#39;Sci-Fi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Žanre sedaj določimo tako, da za vsak žanr pomnožimo verjetnost žanra in pogojne verjetnosti vseh korenov, ki nastopajo v opisu filma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">doloci_zanre</span><span class="p">(</span><span class="n">opis</span><span class="p">):</span>
+    <span class="n">faktorji_zanrov</span> <span class="o">=</span> <span class="n">verjetnosti_zanrov</span> <span class="o">*</span> <span class="n">verjetnosti_korenov_po_zanrih</span><span class="p">[</span>
+        <span class="n">verjetnosti_korenov_po_zanrih</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span>
+            <span class="n">koreni_besed</span><span class="p">(</span><span class="n">opis</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
+    <span class="n">faktorji_zanrov</span> <span class="o">/=</span> <span class="nb">max</span><span class="p">(</span><span class="n">faktorji_zanrov</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">faktorji_zanrov</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doloci_zanre</span><span class="p">(</span><span class="s1">&#39;Alien space ship appears above Slovenia.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doloci_zanre</span><span class="p">(</span><span class="s1">&#39;A story about a young mathematician, who discovers her artistic side&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="13-knjiznica-pandas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Knjižnica Pandas</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predpriprava">Predpriprava</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korenjenje-besed">Korenjenje besed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bayesov-izrek">Bayesov izrek</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Matija Pretnar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
