@@ -99,7 +99,7 @@ Prečiščene podatke bi lahko shranili v zapis JSON, vendar jih bomo raje shran
 
 bi v zapisu CSV pisali kot:
 
-```csv
+```
 id,naslov,leto,ocena
 76759,Vojna zvezd,1977,8.6
 80684,Imperij vrača udarec,1980,8.7

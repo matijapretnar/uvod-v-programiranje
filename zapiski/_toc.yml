@@ -13,7 +13,10 @@ parts:
   - file: 09-datoteke
 - caption: "Pisanje ve\u010Djih programov"
   chapters:
+  - file: 10a-tekstovni-vmesnik
   - file: 10-nadzor-razlicic
+  - file: 10b-spletni-vmesnik
+  - file: 10c-spletna-storitev
 - caption: Analiza podatkov
   chapters:
   - file: 11-regularni-izrazi.md
