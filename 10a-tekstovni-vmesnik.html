@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>*Tekstovni vmesnik &#8212; Uvod v programiranje</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '10a-tekstovni-vmesnik';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nadzor različic" href="10-nadzor-razlicic.html" />
+    <link rel="prev" title="Datoteke" href="09-datoteke.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00-uvod.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Uvod v programiranje</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00-uvod.html">
+                    Uvod v programiranje
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Osnove Pythona</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-uvod-v-python.html">Uvod v Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-rekurzija.html">Rekurzija</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-nizi.html">Nizi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-zanke.html">Zanke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-seznami-in-nabori.html">Seznami &amp; nabori</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-slovarji-in-mnozice.html">Slovarji &amp; množice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-razredi.html">Razredi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-datoteke.html">Datoteke</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Pisanje večjih programov</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">*Tekstovni vmesnik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-nadzor-razlicic.html">Nadzor različic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10b-spletni-vmesnik.html">*Spletni vmesnik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10c-spletna-storitev.html">*Spletna storitev</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza podatkov</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11-regularni-izrazi.html">Regularni izrazi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-zajem-podatkov.html">Zajem podatkov</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-knjiznica-pandas.html">Knjižnica Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-naivni-bayesov-klasifikator.html">Naivni Bayesov klasifikator</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/matijapretnar/uvod-v-programiranje/master?urlpath=tree/10a-tekstovni-vmesnik.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/10a-tekstovni-vmesnik.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="_sources/10a-tekstovni-vmesnik.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>*Tekstovni vmesnik</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skica-vmesnika">Skica vmesnika</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skica-modela">Skica modela</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacija-modela">Implementacija modela</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacija-vmesnika">Implementacija vmesnika</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shranjevanje-stanja">Shranjevanje stanja</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tekstovni-vmesnik">
+<h1>*Tekstovni vmesnik<a class="headerlink" href="#tekstovni-vmesnik" title="Permalink to this heading">#</a></h1>
+<p><strong>Opomba:</strong> Do vključno študijskega leta 2021/22 je bil del predmeta Uvod v programiranje tudi projektna naloga, ki je obsegala pisanje spletne storitve. Poglavja o tem so ostala v zapiskih, vendar so označena z *, saj niso več del učnega programa.</p>
+<p>Za primer večjega programa v Pythonu bomo napisali enostaven program, ki nam bo omogočal beleženje opravil. Običajno je naš prvi instinkt, da poženemo urejevalnik kode in začnemo gledati, kako bi nastavili barvo gumbov. Vendar ta način običajno vodi v zmedeno kodo in posledično tudi neuporaben vmesnik, ki ga je zelo težko spreminjati. Zato se moramo stvari lotiti v pravem vrstnem redu in prvi korak je, da zapremo urejevalnik kode.</p>
+<section id="skica-vmesnika">
+<h2>Skica vmesnika<a class="headerlink" href="#skica-vmesnika" title="Permalink to this heading">#</a></h2>
+<p>Nato na papir (ali na tablico) skiciramo, kaj pričakujemo od našega programa. Kakšen vmesnik bo ponujal, kam bodo izbire vodile uporabnika, … Ni treba, da je skica preveč natančna, važno je le, da na njej zajamemo vse, kar si v danem trenutku predstavljamo. Risanje je hitro in poceni, zato ni nič hudega, če s skico zgrešimo, saj jo vedno lahko popravimo. Primer skice, ki je nastala pred začetkom pisanja našega programa je:</p>
+<p><img alt="" src="_images/skica-vmesnika.png" /></p>
+</section>
+<section id="skica-modela">
+<h2>Skica modela<a class="headerlink" href="#skica-modela" title="Permalink to this heading">#</a></h2>
+<p>Tudi ko bo skica končana, se še ne bomo lotili pisanja vmesnika. Bolj pomembno je, da ugotovimo, kaj je naš <em>model</em>, torej predstavitev podatkov, s katerimi bomo delali. Če najprej model napišemo dobro, bo nudil trdno osnovo vmesniku (kot bomo videli celo več vmesnikom). Če pa se najprej lotimo vmesnika, bodo podatki zmešani z vmesnikom in ob prehodu na drug vmesnik (na primer iz tekstovnega na spletnega) bomo morali spremeniti veliko kode. Pri določitvi modela moramo ugotoviti, kaj so osnovni podatki, s katerimi želimo delati, in kakšne operacije bodo podpirali. Ker je Python objektni jezik, bomo vsako vrsto podatkov predstavili s svojim razredom. Pri določanju tega, katere atribute in metode mora vsebovati, nam bo v pomoč skica vmesnika.</p>
+<p><img alt="" src="_images/skica-modela.png" /></p>
+<p>Na skici označimo, katere razrede bomo imeli. Ker bomo beležili opravila, bomo vsekakor potrebovali razred <code class="docutils literal notranslate"><span class="pre">Opravilo</span></code>. Opravila bomo združevali v seznamih (domača opravila, službena opravila, …), katerih razred bomo poimenovali <code class="docutils literal notranslate"><span class="pre">Spisek</span></code>, da ne bo zmede s Pythonovimi seznami. Na koncu pa bomo potrebovali še krovni razred <code class="docutils literal notranslate"><span class="pre">Stanje</span></code>, ki bo zajemal vse podatke, ki jih potrebujemo za opis celotnega stanja. Vsak izmed razredov bo imel določene atribute, ki jih napišemo na vrhu, ter metode, ki jih napišemo na dnu. Povezav med razredi ne bomo pisali pod atribute, temveč jih bomo označili s povezavami na diagramu. Na vsaki povezavi si tudi zapišemo, koliko objektov je povezanih med seboj. Na primer, stanje ima lahko več spiskov, vendar le en aktualni spisek. Spisek ima eno stanje in več opravil.</p>
+</section>
+<section id="implementacija-modela">
+<h2>Implementacija modela<a class="headerlink" href="#implementacija-modela" title="Permalink to this heading">#</a></h2>
+<p>Na osnovi spiska zapišemo definicije ustreznih razredov. Najbolje, da kar v datoteko <code class="docutils literal notranslate"><span class="pre">model.py</span></code>. Ker bomo imeli opravka z roki opravil, si bomo pomagali z vgrajeno knjižnico <a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a>, ki med drugim ponuja razreda <code class="docutils literal notranslate"><span class="pre">date</span></code> za delo z datumi. Ko bomo implementirali metode, bomo opazili, da naša skica ni bila popolna (metod za popravljanje podatkov ne bomo rabili, na opravilih pa nam manjka metoda za ugotavljanje, ali je rok zamujen). Nič hudega, saj za skico nismo porabili preveč časa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+
+<span class="k">class</span> <span class="nc">Stanje</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spiski</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">dodaj_spisek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spisek</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spiski</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spisek</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span> <span class="o">=</span> <span class="n">spisek</span>
+
+    <span class="k">def</span> <span class="nf">pobrisi_spisek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spisek</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spiski</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">spisek</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">zamenjaj_spisek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spisek</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span> <span class="o">=</span> <span class="n">spisek</span>
+
+    <span class="k">def</span> <span class="nf">dodaj_opravilo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opravilo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">dodaj_opravilo</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pobrisi_opravilo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opravilo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">pobrisi_opravilo</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Spisek</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ime</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ime</span> <span class="o">=</span> <span class="n">ime</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">dodaj_opravilo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opravilo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stevilo_zamujenih</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">stevilo</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">opravilo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">opravilo</span><span class="o">.</span><span class="n">zamuja</span><span class="p">():</span>
+                <span class="n">stevilo</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">stevilo</span>
+
+    <span class="k">def</span> <span class="nf">stevilo_vseh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Opravilo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ime</span><span class="p">,</span> <span class="n">opis</span><span class="p">,</span> <span class="n">rok</span><span class="p">,</span> <span class="n">opravljeno</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ime</span> <span class="o">=</span> <span class="n">ime</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opis</span> <span class="o">=</span> <span class="n">opis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="o">=</span> <span class="n">rok</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="o">=</span> <span class="n">opravljeno</span>
+
+    <span class="k">def</span> <span class="nf">opravi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">zamuja</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rok_pretekel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="o">&lt;</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span> <span class="ow">and</span> <span class="n">rok_pretekel</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="implementacija-vmesnika">
+<h2>Implementacija vmesnika<a class="headerlink" href="#implementacija-vmesnika" title="Permalink to this heading">#</a></h2>
+<p>Ko je model v osnovi napisan, se lahko lotimo vmesnika. Za začetek se bomo lotili tekstovnega vmesnika, ki bo uporabniku izpisal trenutni prikaz ter s konzole prebral njegova navodila. Da bomo dobro poskrbeli za ločitev od modela, bomo vmesnik napisali v ločeno datoteko <code class="docutils literal notranslate"><span class="pre">tekstovni_vmesnik.py</span></code>. Paziti moramo, da iz vmesnika do modela dostopamo prek metod, saj bo tako celotno vedenje definirano v <code class="docutils literal notranslate"><span class="pre">model.py</span></code>. Prav tako je treba paziti, da iz modela nikoli ne dostopamo do vmesnika. To enostavno preprečimo tako, da se v <code class="docutils literal notranslate"><span class="pre">model.py</span></code> nikoli ne skličemo na datoteko <code class="docutils literal notranslate"><span class="pre">tekstovni_vmesnik.py</span></code>. Ker sta obe datoteki v istem imeniku, lahko model uvozimo kar kot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">model</span> <span class="kn">import</span> <span class="n">Stanje</span>
+
+<span class="n">stanje</span> <span class="o">=</span> <span class="n">Stanje</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Za začetek bo naše stanje prazno, kmalu pa si bomo pogledali, kako ga shranimo v datoteko in kasneje preberemo nazaj. Pisanja vmesnika se lotimo <em>od zgoraj navzdol</em>. Začnemo z osnovno zanko, ki bo pokazala pozdravno sporočilo, nato pa v nedogled uporabniku ponujala osnovni zaslon. Zato bo osnovna funkcija sledeča:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tekstovni_vmesnik</span><span class="p">():</span>
+    <span class="n">prikazi_pozdravno_sporocilo</span><span class="p">()</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">osnovni_zaslon</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Osnovni zaslon bo najprej pokazal aktualna opravila, nato pa prebral ukaz in odvisno od njega poklical naslednjo funkcijo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DODAJ_OPRAVILO</span> <span class="o">=</span> <span class="s1">&#39;dodaj&#39;</span>
+<span class="n">OPRAVI_OPRAVILO</span> <span class="o">=</span> <span class="s1">&#39;opravi&#39;</span>
+
+<span class="k">def</span> <span class="nf">osnovni_zaslon</span><span class="p">():</span>
+    <span class="n">prikazi_aktualna_opravila</span><span class="p">()</span>
+    <span class="n">ukaz</span> <span class="o">=</span> <span class="n">preberi_ukaz</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">ukaz</span> <span class="o">==</span> <span class="n">DODAJ_OPRAVILO</span><span class="p">:</span>
+        <span class="n">dodaj_opravilo</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">ukaz</span> <span class="o">==</span> <span class="n">OPRAVI_OPRAVILO</span><span class="p">:</span>
+        <span class="n">opravi_opravilo</span><span class="p">()</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Vsak ukaz bomo predstavili s svojim nizom. Da se ne bomo zatipkali in npr. v funkciji <code class="docutils literal notranslate"><span class="pre">osnovni_zaslon</span></code> pisali <code class="docutils literal notranslate"><span class="pre">'dodaj'</span></code>, v funkciji <code class="docutils literal notranslate"><span class="pre">preberi_ukaz</span></code> pa <code class="docutils literal notranslate"><span class="pre">'Dodaj'</span></code>, bomo ukaze shranili v konstante, ki so običajne spremenljivke, vendar s samimi velikimi črkami označujemo, da njihovih vrednosti ne bomo spreminjali. Če se bomo zatipkali pri pisanju imena konstante, nas bo na to opozoril urejevalnik.</p>
+<p>Funkcije bomo tako drobili naprej, na ustreznih točkah pa bomo poklicali metode na modelu. Na primer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dodaj_opravilo</span><span class="p">():</span>
+    <span class="n">ime</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Ime opravila&gt; &#39;</span><span class="p">)</span>
+    <span class="o">...</span>
+    <span class="n">opravilo</span> <span class="o">=</span> <span class="n">Opravilo</span><span class="p">(</span><span class="n">ime</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="n">stanje</span><span class="o">.</span><span class="n">aktualni_spisek</span><span class="o">.</span><span class="n">dodaj_opravilo</span><span class="p">(</span><span class="n">opravilo</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="shranjevanje-stanja">
+<h2>Shranjevanje stanja<a class="headerlink" href="#shranjevanje-stanja" title="Permalink to this heading">#</a></h2>
+<p>Da ne bomo ob zaprtju programa izgubili vseh podatkov, si jih bomo pred zaprtjem shranili v datoteko, ki jo bomo ob vsakem zagonu prebrali. Tako bo naš vmesnik sledeče oblike:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">stanje</span> <span class="kn">import</span> <span class="n">Stanje</span>
+
+<span class="n">IME_DATOTEKE</span> <span class="o">=</span> <span class="s1">&#39;stanje.json&#39;</span>
+<span class="n">stanje</span> <span class="o">=</span> <span class="n">Stanje</span><span class="o">.</span><span class="n">preberi_iz_datoteke</span><span class="p">(</span><span class="n">IME_DATOTEKE</span><span class="p">)</span>
+
+<span class="o">...</span>
+
+<span class="k">def</span> <span class="nf">osnovni_zaslon</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="o">...</span>
+        <span class="k">elif</span> <span class="n">ukaz</span> <span class="o">==</span> <span class="n">ZAKLJUCI</span><span class="p">:</span>
+            <span class="n">stanje</span><span class="o">.</span><span class="n">shrani_v_datoteko</span><span class="p">(</span><span class="n">IME_DATOTEKE</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nasvidenje!&#39;</span><span class="p">)</span>
+            <span class="k">break</span>         
+</pre></div>
+</div>
+<p>Da ne bomo izumljali tople vode, si bomo stanje zapisali v JSON datoteko. Ker Python našega stanja ne zna samodejno spremeniti v JSON, bomo sami napisali vmesno pretvorbo v slovar. Vse naše objekte moramo tako dopolniti z metodami za pretvorbo v slovar in iz slovarja. Prve bodo običajne metode, ki bodo vrnile slovar, na primer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spisek</span><span class="p">:</span>
+    <span class="o">...</span>
+    
+    <span class="k">def</span> <span class="nf">v_slovar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;ime&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ime</span><span class="p">,</span>
+            <span class="s2">&quot;opravila&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">opravilo</span><span class="o">.</span><span class="n">v_slovar</span><span class="p">()</span> <span class="k">for</span> <span class="n">opravilo</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravila</span><span class="p">],</span>
+        <span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nc">Opravilo</span><span class="p">:</span>
+    <span class="o">...</span>
+    
+    <span class="k">def</span> <span class="nf">v_slovar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;ime&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">ime</span><span class="p">,</span>
+            <span class="s2">&quot;opis&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">opis</span><span class="p">,</span>
+            <span class="s2">&quot;rok&quot;</span><span class="p">:</span> <span class="n">date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rok</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rok</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s2">&quot;opravljeno&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">opravljeno</span><span class="p">,</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>Metode za pretvorbo iz slovarja pa so malo bolj posebne, saj pred trenutkom, ko preberemo slovar, še nimamo objekta, na katerih bi jih poklicali. Lahko bi si sicer napisali funkcije kot so <code class="docutils literal notranslate"><span class="pre">preberi_opravilo_iz_slovarja</span></code> ali <code class="docutils literal notranslate"><span class="pre">preberi_spisek_iz_slovarja</span></code>, vendar te funkcije zelo naravno spadajo v ustrezne razrede. Hkrati pa niso metode, saj nimajo objekta, na katerih jih lahko pokličemo. Gre za <em>statične metode</em>, ki so v resnici navadne funkcije, le da jih kot metode zapišemo v razred in na vrhu označimo s <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> (v resnici bi bilo boljša možnost <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code>, ampak o tem kdaj drugič):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spisek</span><span class="p">:</span>
+    <span class="o">...</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">iz_slovarja</span><span class="p">(</span><span class="n">slovar</span><span class="p">):</span>
+        <span class="n">spisek</span> <span class="o">=</span> <span class="n">Spisek</span><span class="p">(</span><span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;ime&quot;</span><span class="p">])</span>
+        <span class="n">spisek</span><span class="o">.</span><span class="n">opravila</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">Opravilo</span><span class="o">.</span><span class="n">iz_slovarja</span><span class="p">(</span><span class="n">sl_opravila</span><span class="p">)</span> <span class="k">for</span> <span class="n">sl_opravila</span> <span class="ow">in</span> <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;opravila&quot;</span><span class="p">]</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="n">spisek</span>
+
+
+<span class="k">class</span> <span class="nc">Opravilo</span><span class="p">:</span>
+    <span class="o">...</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">iz_slovarja</span><span class="p">(</span><span class="n">slovar</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Opravilo</span><span class="p">(</span>
+            <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;ime&quot;</span><span class="p">],</span>
+            <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;opis&quot;</span><span class="p">],</span>
+            <span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;rok&quot;</span><span class="p">])</span> <span class="k">if</span> <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;rok&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">slovar</span><span class="p">[</span><span class="s2">&quot;opravljeno&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>Opremljeni z vsemi funkcijami lahko shranjevanje in nalaganje stanja napišemo kot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">class</span> <span class="nc">Stanje</span><span class="p">:</span>
+    <span class="o">...</span>
+    
+    <span class="k">def</span> <span class="nf">shrani_v_datoteko</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ime_datoteke</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ime_datoteke</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat</span><span class="p">:</span>
+            <span class="n">slovar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_slovar</span><span class="p">()</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">slovar</span><span class="p">,</span> <span class="n">dat</span><span class="p">)</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">preberi_iz_datoteke</span><span class="p">(</span><span class="n">ime_datoteke</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ime_datoteke</span><span class="p">)</span> <span class="k">as</span> <span class="n">dat</span><span class="p">:</span>
+            <span class="n">slovar</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Stanje</span><span class="o">.</span><span class="n">iz_slovarja</span><span class="p">(</span><span class="n">slovar</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="09-datoteke.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Datoteke</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="10-nadzor-razlicic.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Nadzor različic</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skica-vmesnika">Skica vmesnika</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skica-modela">Skica modela</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacija-modela">Implementacija modela</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacija-vmesnika">Implementacija vmesnika</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shranjevanje-stanja">Shranjevanje stanja</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Matija Pretnar
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

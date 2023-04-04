@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '10-nadzor-razlicic';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Regularni izrazi" href="11-regularni-izrazi.html" />
-    <link rel="prev" title="Datoteke" href="09-datoteke.html" />
+    <link rel="next" title="*Spletni vmesnik" href="10b-spletni-vmesnik.html" />
+    <link rel="prev" title="*Tekstovni vmesnik" href="10a-tekstovni-vmesnik.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,7 +163,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pisanje večjih programov</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10a-tekstovni-vmesnik.html">*Tekstovni vmesnik</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Nadzor različic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10b-spletni-vmesnik.html">*Spletni vmesnik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10c-spletna-storitev.html">*Spletna storitev</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza podatkov</span></p>
 <ul class="nav bd-sidenav">
@@ -381,7 +384,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="nadzor-razlicic">
 <h1>Nadzor različic<a class="headerlink" href="#nadzor-razlicic" title="Permalink to this heading">#</a></h1>
-<p>Kot smo že omenili, delo na večjih projektih poteka v več fazah, ki se med seboj izmenjujejo. Na primer, ko implementiramo vmesnik, vidimo, da nam v modelu manjka kakšna funkcionalnost. Če vsemu temu dodamo še dejstvo, da so večji programi sestavljeni iz več datotek, običajno pa na njih sodeluje več ljudi, hitro vidimo, da imamo pred seboj recept za zmedo. Velik del te zmede nam pomagajo razrešiti sistemi za nadzor različic (<em>version control system</em>), ki strukturirano beležijo spremembe v naših projektih ter nam omogočajo, da pogledamo, kdaj so se zgodile ali kdo jih je naredil, in jih po potrebi prekličemo. Uporaba sistemov za nadzor različic ni koristna le pri programiranju, temveč tudi pri pisanju (ob zaključevanju diplomskih del brez ustrezne podpore hitro nastanejo datoteke kot <code class="docutils literal notranslate"><span class="pre">diploma-koncna.tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma-koncna2.tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma</span> <span class="pre">(zadnja).tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma</span> <span class="pre">(oddana).tex</span></code>, …)</p>
+<p>Kot smo že omenili, delo na večjih projektih poteka v več fazah, ki se med seboj izmenjujejo. Če vsemu temu dodamo še dejstvo, da so večji programi sestavljeni iz več datotek, običajno pa na njih sodeluje več ljudi, hitro vidimo, da imamo pred seboj recept za zmedo. Velik del te zmede nam pomagajo razrešiti sistemi za nadzor različic (<em>version control system</em>), ki strukturirano beležijo spremembe v naših projektih ter nam omogočajo, da pogledamo, kdaj so se zgodile ali kdo jih je naredil, in jih po potrebi prekličemo. Uporaba sistemov za nadzor različic ni koristna le pri programiranju, temveč tudi pri pisanju (ob zaključevanju diplomskih del brez ustrezne podpore hitro nastanejo datoteke kot <code class="docutils literal notranslate"><span class="pre">diploma-koncna.tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma-koncna2.tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma</span> <span class="pre">(zadnja).tex</span></code>, <code class="docutils literal notranslate"><span class="pre">diploma</span> <span class="pre">(oddana).tex</span></code>, …)</p>
 <p>Mi si bomo ogledali <a class="reference external" href="https://git-scm.com">Git</a>, ki je najbolj razširjeno sodobno orodje. “Pravi hekerji” Git uporabljajo prek ukazne vrstice, mi pa bomo raje uporabljali urejevalnik <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, ki ima dobro razvito <a class="reference external" href="https://code.visualstudio.com/docs/editor/versioncontrol#_git-support">podporo za Git</a>.</p>
 <p>Za začetek si poglejmo nekaj osnovnih izrazov, ki jih bomo uporabljali:</p>
 <ul class="simple">
@@ -401,43 +404,48 @@ document.write(`
 <h2>Zlivanje sprememb in konflikti<a class="headerlink" href="#zlivanje-sprememb-in-konflikti" title="Permalink to this heading">#</a></h2>
 <p>Če na repozitoriju dela več ljudi (ali pa če sami hkrati delamo na več računalnikih), se nam bo hitro zgodilo, da bo na enem klonu nastala ena sprememba, na drugem klonu pa drugačna. Git zna te spremembe pametno uskladiti. Če se zgodi, da je na strežniku kakšna sprememba, ki je v našem repozitoriju še ni, nam svojih sprememb ne bo uspelo poslati na strežnik. Najprej moramo povleči tiste, ki so na strežniku, jih zliti (<em>merge</em>) z lokalnimi, in nato vse skupaj poslati nazaj. Vse skupaj najenostavneje naredimo kar z gumbom za sinhronizacijo. Git pri tem pazi, da se nobena izmed sprememb ne izgubi. Na primer, če je nekdo popravil vrstico na enem koncu datoteke, nekdo drug pa na drugem koncu, bosta v združeni različici spremenjeni obe vrstici.</p>
 <p>Seveda pa ne bo vedno tako, saj bi lahko na obeh koncih spremenili isto vrstico. V tem primeru nastane konfklit pri zlivanju (<em>merge conflict</em>), ki ga je treba natančno pogledati in razrešiti ročno. Git take konflikte označi v datoteki sami in sicer, da na mesto konflikta vstavi posebna ločila ter vsebini obeh različic. Na primer, če bi iz vrstic</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">Git</span>
-<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
-<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Skoraj</span> <span class="n">vsak</span> <span class="n">program</span> <span class="n">v</span> <span class="n">Pythonu</span> <span class="n">vsebuje</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">pogojne</span> <span class="n">stavke</span>
+<span class="o">-</span> <span class="n">funkcije</span>
+<span class="o">-</span> <span class="n">zanke</span>
+<span class="o">-</span> <span class="n">sezname</span><span class="p">,</span> <span class="n">nize</span> <span class="ow">in</span> <span class="n">slovarje</span>
 </pre></div>
 </div>
 <p>na enem koncu spremenili vrstni red</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
-<span class="o">-</span> <span class="n">Git</span>
-<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Skoraj</span> <span class="n">vsak</span> <span class="n">program</span> <span class="n">v</span> <span class="n">Pythonu</span> <span class="n">vsebuje</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">pogojne</span> <span class="n">stavke</span>
+<span class="o">-</span> <span class="n">zanke</span>
+<span class="o">-</span> <span class="n">funkcije</span>
+<span class="o">-</span> <span class="n">sezname</span><span class="p">,</span> <span class="n">nize</span> <span class="ow">in</span> <span class="n">slovarje</span>
 </pre></div>
 </div>
-<p>na drugem pa popravili naslov</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">nadzor</span> <span class="n">različic</span>
-<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
-<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+<p>na drugem pa dopolnili zadnjo vrstico</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Skoraj vsak program v Pythonu vsebuje:
+- pogojne stavke
+- funkcije
+- zanke `for`
+- sezname, nize in slovarje
 </pre></div>
 </div>
 <p>bi ob združevanju prišlo do konflikta, ki bi ga Git v datoteki označil kot:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
-<span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">HEAD</span>
-<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
-<span class="o">-</span> <span class="n">Git</span>
-<span class="o">=======</span>
-<span class="o">-</span> <span class="n">nadzor</span> <span class="n">različic</span>
-<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
-<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span>
-<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Skoraj vsak program v Pythonu vsebuje:
+- pogojne stavke
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+- zanke
+- funkcije
+=======
+- funkcije
+- zanke `for`
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master
+- sezname, nize in slovarje
 </pre></div>
 </div>
-<p>Urejevalnik Visual Studio Code bo konflikte tudi jasno označil ter nam ponudil možnosti (izberi prvega, izberi drugega, izberi oba, primerjaj, …). Ko vidimo spremembo in razmislimo, da moramo spremeniti vrstni red kot naslov, ročno popravimo vrstice v</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Projektne</span> <span class="n">naloge</span> <span class="n">se</span> <span class="n">bomo</span> <span class="n">lotili</span> <span class="n">v</span> <span class="n">sledečih</span> <span class="n">korakih</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">nadzor</span> <span class="n">različic</span>
-<span class="o">-</span> <span class="n">tekstovni</span> <span class="n">vmesnik</span>
-<span class="o">-</span> <span class="n">spletni</span> <span class="n">vmesnik</span>
+<p>Urejevalnik Visual Studio Code bo konflikte tudi jasno označil ter nam ponudil možnosti (izberi prvega, izberi drugega, izberi oba, primerjaj, …). Ko vidimo spremembo in razmislimo, da moramo spremeniti vrstni red kot dopolniti vrstico, ročno popravimo vrstice v</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Skoraj vsak program v Pythonu vsebuje:
+- pogojne stavke
+- zanke `for`
+- funkcije
+- sezname, nize in slovarje
 </pre></div>
 </div>
 <p>ter zabeležimo novo spremembo. Ko to storimo, zlite spremembe pošljemo nazaj na strežnik.</p>
@@ -449,7 +457,7 @@ document.write(`
 
 Zbirka gradiv za predmet Uvod v programiranje v prvih letnikih matematike, finančne matematike in pedagoške matematike na [Fakulteti za matematiko in fiziko](https://www.fmf.uni-lj.si/). Gradiva so razdeljena po sledečih imenikih:
 
-- `01-uvod-v-python`, ..., `08-datoteke`: datoteke, ustvarjene na predavanjih posameznih poglavij;
+- `01-uvod-v-python`, ..., `09-datoteke`: datoteke, ustvarjene na predavanjih posameznih poglavij;
 - `projekti`: datoteke projektov, ustvarjenih na predavanjih;
 - `zapiski`: izvorna koda zapiskov;
 - `odlozisce`: stare datoteke, ki bodo sčasoma pobrisane.
@@ -506,20 +514,20 @@ Zbirka gradiv za predmet Uvod v programiranje v prvih letnikih matematike, finan
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="09-datoteke.html"
+       href="10a-tekstovni-vmesnik.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Datoteke</p>
+        <p class="prev-next-title">*Tekstovni vmesnik</p>
       </div>
     </a>
     <a class="right-next"
-       href="11-regularni-izrazi.html"
+       href="10b-spletni-vmesnik.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Regularni izrazi</p>
+        <p class="prev-next-title">*Spletni vmesnik</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

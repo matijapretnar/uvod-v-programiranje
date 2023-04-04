@@ -15,7 +15,7 @@ kernelspec:
 
 # Nadzor različic
 
-Kot smo že omenili, delo na večjih projektih poteka v več fazah, ki se med seboj izmenjujejo. Na primer, ko implementiramo vmesnik, vidimo, da nam v modelu manjka kakšna funkcionalnost. Če vsemu temu dodamo še dejstvo, da so večji programi sestavljeni iz več datotek, običajno pa na njih sodeluje več ljudi, hitro vidimo, da imamo pred seboj recept za zmedo. Velik del te zmede nam pomagajo razrešiti sistemi za nadzor različic (_version control system_), ki strukturirano beležijo spremembe v naših projektih ter nam omogočajo, da pogledamo, kdaj so se zgodile ali kdo jih je naredil, in jih po potrebi prekličemo. Uporaba sistemov za nadzor različic ni koristna le pri programiranju, temveč tudi pri pisanju (ob zaključevanju diplomskih del brez ustrezne podpore hitro nastanejo datoteke kot `diploma-koncna.tex`, `diploma-koncna2.tex`, `diploma (zadnja).tex`, `diploma (oddana).tex`, ...)
+Kot smo že omenili, delo na večjih projektih poteka v več fazah, ki se med seboj izmenjujejo. Če vsemu temu dodamo še dejstvo, da so večji programi sestavljeni iz več datotek, običajno pa na njih sodeluje več ljudi, hitro vidimo, da imamo pred seboj recept za zmedo. Velik del te zmede nam pomagajo razrešiti sistemi za nadzor različic (_version control system_), ki strukturirano beležijo spremembe v naših projektih ter nam omogočajo, da pogledamo, kdaj so se zgodile ali kdo jih je naredil, in jih po potrebi prekličemo. Uporaba sistemov za nadzor različic ni koristna le pri programiranju, temveč tudi pri pisanju (ob zaključevanju diplomskih del brez ustrezne podpore hitro nastanejo datoteke kot `diploma-koncna.tex`, `diploma-koncna2.tex`, `diploma (zadnja).tex`, `diploma (oddana).tex`, ...)
 
 Mi si bomo ogledali [Git](https://git-scm.com), ki je najbolj razširjeno sodobno orodje. "Pravi hekerji" Git uporabljajo prek ukazne vrstice, mi pa bomo raje uporabljali urejevalnik [Visual Studio Code](https://code.visualstudio.com/), ki ima dobro razvito [podporo za Git](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support).
 
@@ -43,51 +43,56 @@ Spremembe pošljemo na strežnik z ukazom `Git: Push`, s strežnika pa jih povle
 Seveda pa ne bo vedno tako, saj bi lahko na obeh koncih spremenili isto vrstico. V tem primeru nastane konfklit pri zlivanju (_merge conflict_), ki ga je treba natančno pogledati in razrešiti ročno. Git take konflikte označi v datoteki sami in sicer, da na mesto konflikta vstavi posebna ločila ter vsebini obeh različic. Na primer, če bi iz vrstic
 
 ```
-Projektne naloge se bomo lotili v sledečih korakih:
-- Git
-- tekstovni vmesnik
-- spletni vmesnik
+Skoraj vsak program v Pythonu vsebuje:
+- pogojne stavke
+- funkcije
+- zanke
+- sezname, nize in slovarje
 ```
 
 na enem koncu spremenili vrstni red
 
 ```
-Projektne naloge se bomo lotili v sledečih korakih:
-- tekstovni vmesnik
-- Git
-- spletni vmesnik
+Skoraj vsak program v Pythonu vsebuje:
+- pogojne stavke
+- zanke
+- funkcije
+- sezname, nize in slovarje
 ```
 
-na drugem pa popravili naslov
+na drugem pa dopolnili zadnjo vrstico
 
 ```
-Projektne naloge se bomo lotili v sledečih korakih:
-- nadzor različic
-- tekstovni vmesnik
-- spletni vmesnik
+Skoraj vsak program v Pythonu vsebuje:
+- pogojne stavke
+- funkcije
+- zanke `for`
+- sezname, nize in slovarje
 ```
 
 bi ob združevanju prišlo do konflikta, ki bi ga Git v datoteki označil kot:
 
 ```
-Projektne naloge se bomo lotili v sledečih korakih:
+Skoraj vsak program v Pythonu vsebuje:
+- pogojne stavke
 <<<<<<< HEAD
-- tekstovni vmesnik
-- Git
+- zanke
+- funkcije
 =======
-- nadzor različic
-- tekstovni vmesnik
+- funkcije
+- zanke `for`
 >>>>>>> origin/master
-- spletni vmesnik
+- sezname, nize in slovarje
 ```
 
-Urejevalnik Visual Studio Code bo konflikte tudi jasno označil ter nam ponudil možnosti (izberi prvega, izberi drugega, izberi oba, primerjaj, ...). Ko vidimo spremembo in razmislimo, da moramo spremeniti vrstni red kot naslov, ročno popravimo vrstice v
+Urejevalnik Visual Studio Code bo konflikte tudi jasno označil ter nam ponudil možnosti (izberi prvega, izberi drugega, izberi oba, primerjaj, ...). Ko vidimo spremembo in razmislimo, da moramo spremeniti vrstni red kot dopolniti vrstico, ročno popravimo vrstice v
 
 ```
-Projektne naloge se bomo lotili v sledečih korakih:
-- nadzor različic
-- tekstovni vmesnik
-- spletni vmesnik
+Skoraj vsak program v Pythonu vsebuje:
+- pogojne stavke
+- zanke `for`
+- funkcije
+- sezname, nize in slovarje
 ```
 
 ter zabeležimo novo spremembo. Ko to storimo, zlite spremembe pošljemo nazaj na strežnik.
@@ -101,7 +106,7 @@ Za vsak Git repozitorij se spodobi, da vsebuje dve datoteki. V datoteki `README.
 
 Zbirka gradiv za predmet Uvod v programiranje v prvih letnikih matematike, finančne matematike in pedagoške matematike na [Fakulteti za matematiko in fiziko](https://www.fmf.uni-lj.si/). Gradiva so razdeljena po sledečih imenikih:
 
-- `01-uvod-v-python`, ..., `08-datoteke`: datoteke, ustvarjene na predavanjih posameznih poglavij;
+- `01-uvod-v-python`, ..., `09-datoteke`: datoteke, ustvarjene na predavanjih posameznih poglavij;
 - `projekti`: datoteke projektov, ustvarjenih na predavanjih;
 - `zapiski`: izvorna koda zapiskov;
 - `odlozisce`: stare datoteke, ki bodo sčasoma pobrisane.

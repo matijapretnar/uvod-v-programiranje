@@ -163,7 +163,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Pisanje večjih programov</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10a-tekstovni-vmesnik.html">*Tekstovni vmesnik</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10-nadzor-razlicic.html">Nadzor različic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10b-spletni-vmesnik.html">*Spletni vmesnik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10c-spletna-storitev.html">*Spletna storitev</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Analiza podatkov</span></p>
 <ul class="current nav bd-sidenav">
@@ -456,13 +459,13 @@ document.write(`
 </tbody>
 </table>
 <p>bi v zapisu CSV pisali kot:</p>
-<div class="highlight-csv notranslate"><div class="highlight"><pre><span></span>id,naslov,leto,ocena
-76759,Vojna zvezd,1977,8.6
-80684,Imperij vrača udarec,1980,8.7
-82971,Lov za izgubljenim zakladom,1981,8.4 
-86190,Vrnitev jedija,1983,8.3
-87469,Indiana Jones in tempelj smrti,1984,7.6 
-97576,Indiana Jones in Zadnji križarski pohod,1989,8.2 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">,</span><span class="n">naslov</span><span class="p">,</span><span class="n">leto</span><span class="p">,</span><span class="n">ocena</span>
+<span class="mi">76759</span><span class="p">,</span><span class="n">Vojna</span> <span class="n">zvezd</span><span class="p">,</span><span class="mi">1977</span><span class="p">,</span><span class="mf">8.6</span>
+<span class="mi">80684</span><span class="p">,</span><span class="n">Imperij</span> <span class="n">vrača</span> <span class="n">udarec</span><span class="p">,</span><span class="mi">1980</span><span class="p">,</span><span class="mf">8.7</span>
+<span class="mi">82971</span><span class="p">,</span><span class="n">Lov</span> <span class="n">za</span> <span class="n">izgubljenim</span> <span class="n">zakladom</span><span class="p">,</span><span class="mi">1981</span><span class="p">,</span><span class="mf">8.4</span> 
+<span class="mi">86190</span><span class="p">,</span><span class="n">Vrnitev</span> <span class="n">jedija</span><span class="p">,</span><span class="mi">1983</span><span class="p">,</span><span class="mf">8.3</span>
+<span class="mi">87469</span><span class="p">,</span><span class="n">Indiana</span> <span class="n">Jones</span> <span class="ow">in</span> <span class="n">tempelj</span> <span class="n">smrti</span><span class="p">,</span><span class="mi">1984</span><span class="p">,</span><span class="mf">7.6</span> 
+<span class="mi">97576</span><span class="p">,</span><span class="n">Indiana</span> <span class="n">Jones</span> <span class="ow">in</span> <span class="n">Zadnji</span> <span class="n">križarski</span> <span class="n">pohod</span><span class="p">,</span><span class="mi">1989</span><span class="p">,</span><span class="mf">8.2</span> 
 </pre></div>
 </div>
 <p>Da se izognemo robnim primerom kot vejice v naslovih, CSV datotek ne bomo pisali na roke temveč prek knjižnice <code class="docutils literal notranslate"><span class="pre">csv</span></code>. Iz zgornjega seznama slovarjev lahko CSV datoteko naredimo z:</p>
